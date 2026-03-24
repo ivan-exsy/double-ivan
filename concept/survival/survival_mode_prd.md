@@ -1,0 +1,302 @@
+# Product Requirements Document (PRD)
+
+## Product Name
+**SurvivalMode** (RealityTV Mode for Double)
+
+---
+
+## 1. Overview
+
+SurvivalMode is a competitive game mode within **Double**, transforming autonomous social simulation into a **high-pressure social strategy competition**. Players deploy AI-powered Doubles (digital twins based on real personalities) into a structured elimination game designed to surface alliances, betrayals, leadership, manipulation, and adaptive strategy.
+
+This mode is explicitly designed for **adult users** and prioritizes **engagement, tension, and narrative payoff** over safety framing or educational constraints.
+
+---
+
+## 2. Goals & Success Metrics
+
+### Primary Goals
+- Create sustained, binge-worthy engagement through structured competition
+- Force strategic social behavior under pressure
+- Reveal personality traits through conflict, scarcity, and risk
+- Generate episodic, watchable outcomes (Reality-TV style)
+
+### Success Metrics
+- Average SurvivalMode session length
+- Day-to-day retention within a season
+- Number of alliances formed and broken per season
+- Voting variance (non-unanimous outcomes)
+- User replays / new season starts
+
+---
+
+## 3. Target Users
+
+- Adults (18+)
+- Friend groups
+- Competitive, strategy-oriented users
+- Users interested in psychology, social dynamics, and emergent narratives
+
+Assumptions:
+- Users opt in knowingly to competitive elimination
+- Emotional intensity is expected and desired
+
+---
+
+## 4. Core Gameplay Structure
+
+### Win Condition
+- Last remaining Double wins the season
+
+Optional variants (future):
+- Jury-based final vote
+- Temporary team victories
+
+### Loss Condition
+- Elimination via vote or twist
+- Elimination is irreversible (unless explicitly overridden by a twist)
+
+---
+
+## 5. Daily Game Loop
+
+SurvivalMode runs in **discrete days**, each with mandatory phases:
+
+1. Morning – Game Directive
+2. Midday – Challenge Phase
+3. Afternoon – Social Phase
+4. Evening – Voting Phase
+5. Night – Memory Consolidation
+
+Each phase is blocking and must complete before progression.
+
+---
+
+## 6. Game Phases
+
+### 6.1 Morning – Game Directive
+
+System announces:
+- Challenge type
+- Stakes (rewards and penalties)
+- Active twists (if any)
+
+Each Double internally generates:
+- Strategy
+- Target prioritization
+- Alliance outreach intentions
+
+---
+
+### 6.2 Challenge Phase
+
+Challenges are **social-first** and always introduce power imbalance.
+
+#### Supported Challenge Types (MVP starts with one):
+- Resource Scarcity (e.g., immunity tokens)
+- Coalition Challenges
+- Prisoner-Dilemma Variants
+- Information Asymmetry Challenges
+
+Challenge outcomes affect:
+- Immunity
+- Vote weight
+- Information access
+- Social standing
+
+---
+
+### 6.3 Social Phase
+
+Open interaction window where Doubles may:
+- Propose alliances
+- Promise votes or protection
+- Threaten exposure
+- Trade immunity or favors
+- Spread misinformation
+- Reveal or fabricate evidence
+
+This phase is the primary driver of emergent behavior.
+
+---
+
+### 6.4 Voting Phase
+
+Voting formats rotate to prevent equilibrium:
+- Secret ballot
+- Public vote with justification
+- Weighted votes
+- Vote blocking or theft
+
+Each Double:
+- Selects a target
+- Optionally provides rationale
+
+Votes influence:
+- Trust and grudge scores
+- Reputation
+- Threat perception
+
+---
+
+### 6.5 Elimination Phase
+
+- Votes are tallied
+- Eliminated Double is revealed
+- Final statements may be generated
+- Hidden betrayals may surface
+
+Elimination removes the Double from active play.
+
+---
+
+### 6.6 Night – Memory Consolidation
+
+At night:
+- Interactions are summarized into memory
+- Trust, grudges, and threat models are updated
+- Temporary personality weight shifts are applied
+- Optional user dream-chat influence may occur
+
+Ensures behavior evolves day-to-day.
+
+---
+
+## 7. Core Entities & State
+
+### Global State
+- day_number
+- remaining_doubles[]
+- active_challenge
+- active_twists[]
+
+### Per-Double State
+
+Persistent, evolving variables:
+- social_capital
+- trust[double_id]
+- grudge[double_id]
+- perceived_threat[double_id]
+- alliance_commitments[]
+- risk_tolerance
+- win_priority
+- reputation
+
+These are internal-only and not directly exposed to users.
+
+---
+
+## 8. Alliance System
+
+- Alliances are explicit, not inferred
+- Time-bound and breakable
+- Include expected behaviors
+
+Breaking alliances:
+- Permanently damages trust
+- Increases reputation volatility
+- Raises perceived threat by others
+
+---
+
+## 9. Advanced Mechanics (Post-MVP)
+
+### Jury Mode
+- Eliminated Doubles observe remaining players
+- Influence final outcome
+- Leak partial information
+
+### Hidden Roles
+- Saboteur
+- Kingmaker
+- False Ally
+
+Roles are secret and alter incentives.
+
+### Twists
+- Double elimination
+- Resurrection
+- Fake immunity
+- Forced betrayals
+
+Twists are designed to destabilize dominant strategies.
+
+---
+
+## 10. Spectator & Narrative Output
+
+After each day, system auto-generates:
+- Alliance graph
+- Betrayal map
+- Power rankings
+- “Most dangerous player”
+- “Best liar”
+
+These summaries are core product output, not optional polish.
+
+---
+
+## 11. MVP Scope
+
+### Included in MVP
+- Fixed daily cycle
+- One challenge type (Resource Scarcity)
+- Immunity token
+- Secret voting
+- Alliance proposals
+- Post-day narrative summary
+
+### Excluded from MVP
+- Jury Mode
+- Hidden roles
+- Complex voting mechanics
+- Resurrection twists
+
+### Lean MVP (Explicit)
+
+The Lean MVP is a focused first release to validate core engagement: daily tension, alliance dynamics, elimination drama, and replay value, without advanced twist complexity.
+
+#### What it entails
+- Structured day loop with strict phase progression (directive -> challenge -> social -> vote -> elimination -> memory update)
+- Single challenge archetype (Resource Scarcity) with one clear advantage (immunity token)
+- One voting mode only (secret ballot) with irreversible elimination
+- Explicit alliance proposals (form/break) with trust impact
+- End-of-day narrative package (alliance changes, betrayals, power snapshot)
+
+#### High-level implementation plan
+1. **Phase 1: Core game state and loop**
+   - Add season/day state, active players, elimination tracking, and phase controller.
+2. **Phase 2: Decision mechanics**
+   - Implement Resource Scarcity challenge resolution, immunity assignment, alliance proposal flow, and secret voting.
+3. **Phase 3: Outcome and memory integration**
+   - Apply elimination, update trust/grudge/threat memory signals, and persist day-end outcomes.
+4. **Phase 4: Narrative output and validation**
+   - Generate daily summary artifacts and run deterministic replay/quality checks for MVP stability.
+
+---
+
+## 12. Risks & Mitigations
+
+### Risk: Strategy stagnation
+Mitigation: Voting format rotation, twists
+
+### Risk: Predictable alliances
+Mitigation: Scarcity, information asymmetry
+
+### Risk: Overcomplexity
+Mitigation: Strict MVP scope, phased rollout
+
+---
+
+## 13. Future Extensions
+
+- Season Director AI
+- Team-based Survival
+- Corporate / negotiation variants
+- High-stakes non-elimination modes
+
+---
+
+## 14. Summary
+
+SurvivalMode introduces structure, pressure, and irreversible consequences to Double, converting high-fidelity personality simulation into **competitive social theater**. The result is a replayable, narrative-driven experience that surfaces authentic human strategy under stress.
