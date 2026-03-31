@@ -76,10 +76,10 @@ Each phase is blocking and must complete before progression.
 
 ### 6.1 Morning – Game Directive
 
-System announces:
+System acts as a guiding hand, enforcing simulation-wide rules that all Doubles must follow. It announces:
 - Challenge type
 - Stakes (rewards and penalties)
-- Active twists (if any)
+- Active twists (if any), implemented via Global Scenario Events (see 3.5.1.scenario-gen.md) for timed, world-altering mechanics like environmental disruptions that inject external pressure and ensure consistent rule adherence.
 
 Each Double internally generates:
 - Strategy
@@ -214,10 +214,13 @@ Breaking alliances:
 Roles are secret and alter incentives.
 
 ### Twists
-- Double elimination
-- Resurrection
-- Fake immunity
-- Forced betrayals
+Twists are enforced by the simulation's guiding hand, using Global Scenario Events mechanics (outlined in 3.5.1.scenario-gen.md) for implementation. This provides a reusable framework for timed, sprite-wide effects (e.g., sun_blast triggering mass eliminations or floods forcing relocations), ensuring all Doubles adhere to evolving rules while adding unpredictability.
+
+Examples:
+- Double elimination (via event-induced chaos)
+- Resurrection (post-event revival)
+- Fake immunity (temporary event shields)
+- Forced betrayals (event-driven social disruptions)
 
 Twists are designed to destabilize dominant strategies.
 
@@ -266,6 +269,7 @@ The Lean MVP is a focused first release to validate core engagement: daily tensi
 #### High-level implementation plan
 1. **Phase 1: Core game state and loop**
    - Add season/day state, active players, elimination tracking, and phase controller.
+   - Integrate Global Scenario Events (from 3.5.1.scenario-gen.md) as the mechanics for the simulation's guiding hand, enabling rule enforcement via backend timers, Supabase persistence, and frontend visualization for twists and directives.
 2. **Phase 2: Decision mechanics**
    - Implement Resource Scarcity challenge resolution, immunity assignment, alliance proposal flow, and secret voting.
 3. **Phase 3: Outcome and memory integration**
