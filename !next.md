@@ -1,15 +1,11 @@
 ## *MVP*
 
-1. Sprite cards+chats; 
-  - TODO for Nicolas
-
-2. Survival
-
-3. Video
-
-4. Rehears >> Onboarding
-
-5. Venture Bridge && Tartans
+1. Sprite Chats
+2. 25-person sim
+3. Survival
+4. Video (check `D:\Coding\double-ivan\concept\v0_vision.md` and `D:\Coding\double-ivan\concept\video.md`)
+5. Rehears >> Onboarding
+6. Venture Bridge && Tartans
 
 ===================================================================================
 
