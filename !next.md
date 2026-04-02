@@ -1,11 +1,33 @@
 ## *MVP*
 
-1. Sprite Chats
-2. 25-person sim
-3. Survival
-4. Video (check `D:\Coding\double-ivan\concept\v0_vision.md` and `D:\Coding\double-ivan\concept\video.md`)
-5. Rehears >> Onboarding
-6. Venture Bridge && Tartans
+### **MVP Priority Steps**
+
+#### P0 — Blocking
+
+- [ ] **Validate Phase 6C — conversation follow-through** — implemented, not yet validated. Run 150+ step sim; confirm planning-thought outputs after chats are specific commitments, not generic. No regressions (zero teleports, stable chat density). (`double-docs/20260324_mvp.md` Phase 6C)
+- [x] **Chat with Double — backend** (`chat_with_double_service.py`, POST `/chat` route, `user_chat_threads` + `user_chat_messages` tables) — confirmed on `local` branch (2026-04-01)
+- [x] **Fix Chat with Double card scroll / height** — input pushed off-screen after 2–3 turns. Fix before broader rollout. (`double-docs/20260401_chat-w-double.md` §10)
+
+#### P1 — Required for 15-person sim
+
+- [ ] **Resolve stabilization branch vs local** — `stabilization/20260329-simulation-runtime-hardening` confirmed better than `local`; one open residual: tile exclusivity bug (Katya/Gosha share tile `[122,24]` steps 34–38). Fix then merge. (`double-docs/realism/20260329_runtime_stabilization_handoff.md`)
+
+- [x] **15-double sim: soul15_seed_20260224** — 15 personas with unique anonymized living areas || Career assignments + daily_plan_req |│Spatial memory in simulation_persona_state (15/15) || Soul docs + snippets in Supabase 
+
+#### P2 — Demo-critical polish
+
+- [ ] **Onboarding flow** — basic flow to create a double and enter a sim (pre-Rehears full auth). Required for Venture Bridge / Tartans demos.
+- [ ] **Video** — Check `D:\Coding\double-ivan\concept\v0_vision.md` and `D:\Coding\double-ivan\concept\video.md`)
+
+
+#### Post-MVP (deferred)
+
+- Full Rehears JWT auth + profile porting
+- `pending.json` → Supabase observation queue (PMVP-OBS-002)
+- Planned / persona-initiated chats (link 2 fix in `plan.py`)
+- Chat with Double streaming (Phase 2)
+- Prompt budget / token clamp (PMVP-LLM-001)
+- Location string staleness (P2-2), conversation repetition (P2-3)
 
 ===================================================================================
 
