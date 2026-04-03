@@ -266,16 +266,40 @@ The Lean MVP is a focused first release to validate core engagement: daily tensi
 - Explicit alliance proposals (form/break) with trust impact
 - End-of-day narrative package (alliance changes, betrayals, power snapshot)
 
-#### High-level implementation plan
-1. **Phase 1: Core game state and loop**
-   - Add season/day state, active players, elimination tracking, and phase controller.
-   - Integrate Global Scenario Events (from 3.5.1.scenario-gen.md) as the mechanics for the simulation's guiding hand, enabling rule enforcement via backend timers, Supabase persistence, and frontend visualization for twists and directives.
-2. **Phase 2: Decision mechanics**
-   - Implement Resource Scarcity challenge resolution, immunity assignment, alliance proposal flow, and secret voting.
-3. **Phase 3: Outcome and memory integration**
-   - Apply elimination, update trust/grudge/threat memory signals, and persist day-end outcomes.
-4. **Phase 4: Narrative output and validation**
-   - Generate daily summary artifacts and run deterministic replay/quality checks for MVP stability.
+#### Implementation status (updated 2026-04-03)
+
+Detailed design and implementation plan: [`survival_playbook.md`](survival_playbook.md)
+
+**Standalone module implemented** at `reverie/backend_server/survival/` (branch: `local`). Fully self-contained — zero modifications to existing files, portable to any branch.
+
+| File | Lines | Status |
+|---|---|---|
+| `state.py` | 265 | Done — `Phase` enum, `SurvivalState` (per-agent), `SeasonState` (global), Supabase persistence |
+| `challenges.py` | 140 | Done — `Challenge` catalog (MVP: Limited Immunity), resolution logic with nominations + tiebreaks |
+| `voting.py` | 170 | Done — `tally_votes()`, immunity voiding, absence penalties, algorithmic tiebreaker |
+| `controller.py` | 340 | Done — `SurvivalController` phase state machine, `on_step()` hook, spatial gates, directive injection |
+| `__init__.py` | 15 | Done — re-exports |
+
+**What's working now (930 lines, all smoke-tested):**
+- [x] Phase detection (7 phases mapped to sim-time hours)
+- [x] Per-agent state: trust, grudge, perceived_threat, social_capital, reputation, alliances, immunity, vote history
+- [x] State mutation rules with nightly decay (trust toward 0.5 at 0.98/day, grudge toward 0 at 0.95/day)
+- [x] Limited Immunity challenge resolution (claim/nominate, social_capital ranking, tiebreak by threat)
+- [x] Secret ballot tallying with immunity voiding, absence penalties (+1 phantom vote), tie detection
+- [x] Algorithmic tiebreaker fallback (lowest social_capital eliminated)
+- [x] Directive injection in the exact `user_interactions` format `plan.py` already accepts
+- [x] Alliance betrayal detection (vote against ally triggers trust/grudge mutations)
+- [x] Season state file persistence + guarded Supabase persistence
+
+**Pending — requires wiring after Nicolas's branch merges:**
+- [ ] Hook `SurvivalController.on_step()` into `reverie.py::execute_immutable_step()` (~25 lines)
+- [ ] Add `self.survival = {}` dict to `scratch.py` for in-memory state (~20 lines)
+- [ ] New prompt functions in `run_gpt_prompt.py`: `run_gpt_prompt_vote_decision` (Tier B), `run_gpt_prompt_challenge_decision` (Tier B), `run_gpt_prompt_final_statement` (Tier B) (~120 lines)
+- [ ] Register new functions in `model_router.py` tier lists
+- [ ] Wire 4 placeholder hooks in controller.py to actual LLM calls
+- [ ] `SURVIVAL_MODE_ENABLED` env flag activation in `reverie.py` init
+- [ ] Frontend subtitle overlay (`meta.survival` field in step JSON)
+- [ ] Narrative generation (per-day summary, alliance graph, power rankings)
 
 ---
 

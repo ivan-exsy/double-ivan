@@ -11,23 +11,39 @@
 #### P1 — Required for 15-person sim
 
 - [ ] **Resolve stabilization branch vs local** — `stabilization/20260329-simulation-runtime-hardening` confirmed better than `local`; one open residual: tile exclusivity bug (Katya/Gosha share tile `[122,24]` steps 34–38). Fix then merge. (`double-docs/realism/20260329_runtime_stabilization_handoff.md`)
-
 - [x] **15-double sim: soul15_seed_20260224** — 15 personas with unique anonymized living areas || Career assignments + daily_plan_req |│Spatial memory in simulation_persona_state (15/15) || Soul docs + snippets in Supabase 
 
 #### P2 — Demo-critical polish
 
-- [ ] **Onboarding flow** — basic flow to create a double and enter a sim (pre-Rehears full auth). Required for Venture Bridge / Tartans demos.
-- [ ] **Video** — Check `D:\Coding\double-ivan\concept\v0_vision.md` and `D:\Coding\double-ivan\concept\video.md`)
+- [ ] **Survival** mode
+    [x] Playbook: `concept\survival\survival_playbook.md`
+    [x] PRD:      `concept\survival\prd_survival_mode.md`
+    [x] Partial implementation for easy merge (isolated to </survival/> folder)
+    [ ] Pending — requires wiring after Nicolas's branch merges
+    
+- [] **Video** : 
+    [x] Playbook is ready: `\concept\video\1.MVP_video_playbook.md`
+    [ ] PRD:    `concept\video\PRD_video_pipeline.md`
+ 
+- [] Chat with Double 
+    [x] Phase 1: Chat wiring + UX
+    [ ] Phase 2: Streaming pending
 
+
+
+### *Use keywords to anchor to previous experiences in Truman show, seems, and survival*
+
+Examples:
+* Survival: Council, the tribe has spoken
+----------------------------------------------
 
 #### Post-MVP (deferred)
-
-- Full Rehears JWT auth + profile porting
-- `pending.json` → Supabase observation queue (PMVP-OBS-002)
-- Planned / persona-initiated chats (link 2 fix in `plan.py`)
-- Chat with Double streaming (Phase 2)
-- Prompt budget / token clamp (PMVP-LLM-001)
-- Location string staleness (P2-2), conversation repetition (P2-3)
+- [ ] **Onboarding flow** — basic flow to create a double and enter a sim (pre-Rehears full auth). Required for Venture Bridge / Tartans demos.
+- [ ] Full Rehears JWT auth + profile porting
+- [ ] `pending.json` → Supabase observation queue (PMVP-OBS-002)
+- [ ] Planned / persona-initiated chats (link 2 fix in `plan.py`)
+- [ ] Prompt budget / token clamp (PMVP-LLM-001)
+- [ ] Location string staleness (P2-2), conversation repetition (P2-3)
 
 ===================================================================================
 
