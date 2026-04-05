@@ -5,6 +5,147 @@
 
 ---
 
+## How-To Guide
+
+### Starting a Survival Mode simulation
+
+**Prerequisites:** A 15-agent baseline sim (e.g., `soul15_seed_20260224`) with personas, scratch state, and living areas already provisioned in Supabase.
+
+**1. Fork the baseline:**
+```sql
+SELECT public.fork_simulation(
+  'soul15_seed_20260224',
+  '20260415-survival-1',
+  'Survival Mode season 1',
+  TRUE,   -- copy_memories
+  FALSE   -- copy_coords (fresh start positions)
+);
+```
+
+**2. Set env flags** in `.env.local`:
+```bash
+SURVIVAL_MODE_ENABLED=true
+
+# Optional tuning (defaults shown):
+SURVIVAL_GATHERING_LOCATION=Hobbs Cafe
+SURVIVAL_TOTAL_DAYS=15
+SURVIVAL_CHALLENGE_TYPE=limited_immunity
+SURVIVAL_SPATIAL_THRESHOLD=0.8
+```
+
+**3. Run the simulation:**
+```bash
+cd reverie/backend_server
+python reverie.py
+# Enter baseline: soul15_seed_20260224
+# Enter new sim:  20260415-survival-1
+# Enter: run 21600
+```
+
+`21600` steps = 15 days × 1440 steps/day (at `SIM_STEP_LENGTH=60` seconds/step).
+
+The `SurvivalController` initializes automatically on boot, prints `SURVIVAL MODE: Initialized with 15 players`, and begins phase transitions at the appropriate sim-time hours.
+
+### Creating a scenario suited for Phaser
+
+The frontend (Phaser) is the **spatial authority** — it enforces walkability, collision, and A* pathfinding. The backend is the **cognitive authority** — it decides what agents *intend* to do. Survival Mode works within these constraints:
+
+**What Phaser handles (no survival changes needed):**
+- Tile-based movement with collision detection (6 tiles/step max)
+- Sprite rendering, proximity observations, chat bubbles (5 concurrent max)
+- A* pathfinding to target zones (when `BACKEND_INTENT_ONLY_PATH=true`)
+
+**What Survival injects via the backend:**
+- **Daily directives** — `daily_plan_req` text that steers LLM planning ("Attend Hobbs Cafe by 19:00 for voting")
+- **Phase-gated events** — challenges and votes trigger only when spatial gate is met (80% of alive agents at gathering location) or time deadline passes
+- **Agent removal** — eliminated agents are deleted from `self.personas` and cleaned from maze tiles; Phaser stops rendering them naturally since no movement data is emitted
+
+**Phaser-compatible scenario design rules:**
+1. **Use existing map locations** — Hobbs Cafe has 96 tiles, enough for 15 agents without collision gridlock
+2. **No new map assets required** — all mechanics are text-based (LLM decisions, memory injection, scratch state)
+3. **No real-time interactions** — everything is step-based; Phaser replays movement files sequentially
+4. **Movement is organic** — agents pathfind to gathering locations because the LLM's daily plan includes the directive, not because of hard teleportation
+5. **Step JSON format is unchanged** — Phaser consumes the same `{meta, persona}` structure; survival metadata can optionally be added to `meta.survival` (post-MVP)
+
+### Feeding scenario steps during a Survival Mode simulation
+
+Survival Mode is **self-driving** — the `SurvivalController.on_step()` hook runs automatically every step and handles phase transitions, directive injection, challenge resolution, voting, and elimination without manual intervention.
+
+However, you can inject additional scenario events mid-run through two mechanisms:
+
+**Option A: Observations API (runtime, from external tools)**
+
+```bash
+# Inject a custom observation for a specific agent
+curl -X POST http://localhost:8001/api/simulations/20260415-survival-1/observations \
+  -H "Content-Type: application/json" \
+  -d '{"type": "proximity", "persona": "Isabella Rodriguez", "data": {...}}'
+```
+
+Observations are queued to `observations/pending.json` and processed at the start of the next step via `process_pending_observations()`.
+
+**Option B: User interactions via step API**
+
+```bash
+# Inject a goal modification for all agents (e.g., emergency twist announcement)
+curl -X POST http://localhost:8001/api/simulations/20260415-survival-1/step/next \
+  -H "Content-Type: application/json" \
+  -d '{
+    "user_interactions": {
+      "global": {
+        "goal_modification": {
+          "daily_plan": "EMERGENCY: A storm has hit the Ville. Everyone must shelter at Hobbs Cafe immediately."
+        }
+      }
+    }
+  }'
+```
+
+This sets `daily_plan_req` for all personas on the next step, which the LLM incorporates into planning.
+
+**Option C: Direct scratch modification (development/debug)**
+
+For targeted interventions during development, you can modify a persona's scratch state directly:
+```python
+# In the reverie.py interactive prompt, or via a debug script:
+persona = rs.personas["Isabella Rodriguez"]
+persona.scratch.daily_plan_req = "You just learned a secret: Tom is planning to betray the alliance."
+```
+
+**How Survival phases interact with manual injections:**
+- Manual `goal_modification` injections are **additive** — the survival directive sets `daily_plan_req` once during DIRECTIVE phase; manual injections can override it on subsequent steps
+- The survival controller re-injects the directive only once per day (flag: `_directive_injected_today`), so a manual override during SOCIAL or VOTING phase will persist until the next morning
+- Challenge and vote prompts use the agent's current survival state + recent memories, so injected memories or observations naturally influence LLM decisions
+
+---
+
+## TODO — Remaining Work
+
+### Ready for first live test
+- [ ] Run a full survival season (`SURVIVAL_MODE_ENABLED=true`, 15 agents, ~1440 steps/day x 15 days)
+- [ ] Tune prompt templates based on first-run LLM output quality (vote reasoning, challenge decisions)
+- [ ] Verify spatial gate triggers correctly at Hobbs Cafe (80% threshold)
+- [ ] Verify elimination removes agent cleanly (no ghost personas, no crash on next step)
+
+### Post-MVP polish
+- [ ] **Frontend subtitle overlay** — add `meta.survival` field to step JSON (phase, day, immunity holder) for frontend rendering
+- [ ] **Narrative generation** — `narrative.py` producing per-day summary, alliance graph, power rankings, "most dangerous player"
+- [ ] **Tier A trust calibration** — wire `_run_trust_calibration()` to lightweight LLM prompt for top-3 changed relationships per agent nightly
+- [ ] **Tier C LLM tiebreaker** — replace algorithmic tiebreak (`resolve_tie_simple`) with Game Director Tier C prompt on vote ties
+- [ ] **Day-1 personality seeding** — Tier A prompts for initial `perceived_threat` and `risk_tolerance` (currently defaults to 0.5)
+- [ ] **Alliance detection from conversations** — scan `run_gpt_prompt_summarize_conversation` output for alliance signals (keyword + LLM hybrid)
+- [ ] **Absence memory injection** — inject "X failed to show for voting" as memory for all present agents
+
+### Future extensions (not MVP)
+- [ ] Challenge rotation (6 archetypes: teams, silent pact, intel drop, public justification, trial night)
+- [ ] Voting format rotation (public vote, weighted votes, vote blocking)
+- [ ] Jury Mode (eliminated agents observe + influence final outcome)
+- [ ] Hidden roles (Saboteur, Kingmaker, False Ally)
+- [ ] Twists (double elimination, resurrection, fake immunity, forced betrayals)
+- [ ] Season Director AI
+
+---
+
 ## 1. Overview
 
 SurvivalMode is a competitive game mode within **Double**, transforming autonomous social simulation into a **high-pressure social strategy competition**. Players deploy AI-powered Doubles (digital twins based on real personalities) into a structured elimination game designed to surface alliances, betrayals, leadership, manipulation, and adaptive strategy.
@@ -270,36 +411,48 @@ The Lean MVP is a focused first release to validate core engagement: daily tensi
 
 Detailed design and implementation plan: [`survival_playbook.md`](survival_playbook.md)
 
-**Standalone module implemented** at `reverie/backend_server/survival/` (branch: `local`). Fully self-contained — zero modifications to existing files, portable to any branch.
+**Fully wired into simulation loop** at `reverie/backend_server/survival/` (branch: `local`). Gated behind `SURVIVAL_MODE_ENABLED=true` (default: false) — zero impact on normal simulation.
 
 | File | Lines | Status |
 |---|---|---|
-| `state.py` | 265 | Done — `Phase` enum, `SurvivalState` (per-agent), `SeasonState` (global), Supabase persistence |
-| `challenges.py` | 140 | Done — `Challenge` catalog (MVP: Limited Immunity), resolution logic with nominations + tiebreaks |
-| `voting.py` | 170 | Done — `tally_votes()`, immunity voiding, absence penalties, algorithmic tiebreaker |
-| `controller.py` | 340 | Done — `SurvivalController` phase state machine, `on_step()` hook, spatial gates, directive injection |
-| `__init__.py` | 15 | Done — re-exports |
+| `state.py` | 361 | Done — `Phase` enum, `SurvivalState` (per-agent), `SeasonState` (global), Supabase persistence |
+| `challenges.py` | 165 | Done — `Challenge` catalog (MVP: Limited Immunity), resolution logic with nominations + tiebreaks |
+| `voting.py` | 223 | Done — `tally_votes()`, immunity voiding, absence penalties, algorithmic tiebreaker |
+| `controller.py` | ~750 | Done — Phase state machine, LLM-wired hooks, spatial gates, directive injection, elimination broadcast |
+| `__init__.py` | 38 | Done — re-exports |
 
-**What's working now (930 lines, all smoke-tested):**
+**Wiring layer (existing files modified):**
+
+| File | Change | Status |
+|---|---|---|
+| `reverie.py` | Env flag + init + step hook in `start_server()` + elimination handler | Done |
+| `scratch.py` | `self.survival = {}` dict with full serialization | Done |
+| `run_gpt_prompt.py` | 3 prompt functions + format helper (~170 lines appended) | Done |
+| `model_router.py` | 3 entries in `TIER_B_TASKS` | Done |
+| `v2/*.txt` | 3 new prompt templates (vote, challenge, final statement) | Done |
+
+**What's working now:**
 - [x] Phase detection (7 phases mapped to sim-time hours)
 - [x] Per-agent state: trust, grudge, perceived_threat, social_capital, reputation, alliances, immunity, vote history
 - [x] State mutation rules with nightly decay (trust toward 0.5 at 0.98/day, grudge toward 0 at 0.95/day)
-- [x] Limited Immunity challenge resolution (claim/nominate, social_capital ranking, tiebreak by threat)
+- [x] Limited Immunity challenge resolution via LLM (claim/nominate, social_capital ranking, tiebreak by threat)
 - [x] Secret ballot tallying with immunity voiding, absence penalties (+1 phantom vote), tie detection
 - [x] Algorithmic tiebreaker fallback (lowest social_capital eliminated)
-- [x] Directive injection in the exact `user_interactions` format `plan.py` already accepts
+- [x] Directive injection into `daily_plan_req` via `process_user_interactions` pipeline
 - [x] Alliance betrayal detection (vote against ally triggers trust/grudge mutations)
 - [x] Season state file persistence + guarded Supabase persistence
+- [x] LLM-driven vote decisions (Tier B prompt per agent)
+- [x] LLM-driven challenge decisions (Tier B prompt per agent)
+- [x] Final statement generation for eliminated agents (Tier B)
+- [x] Elimination broadcast — Supabase memory injection for all remaining agents
+- [x] Agent removal from `self.personas` + maze tile cleanup on elimination
+- [x] Game-over detection (last player standing)
 
-**Pending — requires wiring after Nicolas's branch merges:**
-- [ ] Hook `SurvivalController.on_step()` into `reverie.py::execute_immutable_step()` (~25 lines)
-- [ ] Add `self.survival = {}` dict to `scratch.py` for in-memory state (~20 lines)
-- [ ] New prompt functions in `run_gpt_prompt.py`: `run_gpt_prompt_vote_decision` (Tier B), `run_gpt_prompt_challenge_decision` (Tier B), `run_gpt_prompt_final_statement` (Tier B) (~120 lines)
-- [ ] Register new functions in `model_router.py` tier lists
-- [ ] Wire 4 placeholder hooks in controller.py to actual LLM calls
-- [ ] `SURVIVAL_MODE_ENABLED` env flag activation in `reverie.py` init
+**Remaining (post-MVP polish):**
 - [ ] Frontend subtitle overlay (`meta.survival` field in step JSON)
 - [ ] Narrative generation (per-day summary, alliance graph, power rankings)
+- [ ] Tier A trust calibration (nightly LLM recalibration — currently algorithmic-only)
+- [ ] Tier C LLM tiebreaker (currently uses algorithmic fallback)
 
 ---
 

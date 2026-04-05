@@ -1,17 +1,18 @@
+=======================
+1. Survival `concept\survival\prd_survival_mode.md`
+  - finish up  
+
+2. Video trailer `concept\video\PRD_video_pipeline.md`
+	- Audio files
+	- Verify FE implementation
+
+3. Update documentation with #1 and #2
+=======================
+
+
 ## *MVP*
 
 ### **MVP Priority Steps**
-
-#### P0 — Blocking
-
-- [ ] **Validate Phase 6C — conversation follow-through** — implemented, not yet validated. Run 150+ step sim; confirm planning-thought outputs after chats are specific commitments, not generic. No regressions (zero teleports, stable chat density). (`double-docs/20260324_mvp.md` Phase 6C)
-- [x] **Chat with Double — backend** (`chat_with_double_service.py`, POST `/chat` route, `user_chat_threads` + `user_chat_messages` tables) — confirmed on `local` branch (2026-04-01)
-- [x] **Fix Chat with Double card scroll / height** — input pushed off-screen after 2–3 turns. Fix before broader rollout. (`double-docs/20260401_chat-w-double.md` §10)
-
-#### P1 — Required for 15-person sim
-
-- [ ] **Resolve stabilization branch vs local** — `stabilization/20260329-simulation-runtime-hardening` confirmed better than `local`; one open residual: tile exclusivity bug (Katya/Gosha share tile `[122,24]` steps 34–38). Fix then merge. (`double-docs/realism/20260329_runtime_stabilization_handoff.md`)
-- [x] **15-double sim: soul15_seed_20260224** — 15 personas with unique anonymized living areas || Career assignments + daily_plan_req |│Spatial memory in simulation_persona_state (15/15) || Soul docs + snippets in Supabase 
 
 #### P2 — Demo-critical polish
 
@@ -23,12 +24,26 @@
     
 - [] **Video** : 
     [x] Playbook is ready: `\concept\video\1.MVP_video_playbook.md`
-    [ ] PRD:    `concept\video\PRD_video_pipeline.md`
- 
+    [x] PRD:    `concept\video\PRD_video_pipeline.md`
+    [x] Phase 1: `reverie/baz/video/
+    [ ] *TODOs*
+        1. **Mood tracks (asset work)** — Trim Suno generations to 75s instrumental, place as `audio/music_intrigue.mp3`, `audio/music_drama.mp3`, `audio/music_wholesome.mp3`. See FR-3.4 for source links.
+        2. **End-to-end validation** — Run `python -m reverie.backend_server.video.generate_trailer <sim_code> <persona>` with frontend at localhost:3000 and mood tracks in `audio/`. Verify output MP4s play correctly.
+        3. **SFX library** — Source 12 clips for transitions and emphasis (see playbook §8). Phase 2.
+        4. **Quality checklist automation** — Automated pass/fail gate on output duration, word count, structure. Phase 2.
+
 - [] Chat with Double 
     [x] Phase 1: Chat wiring + UX
     [ ] Phase 2: Streaming pending
 
+### *DONE*
+#### P0 — Blocking
+- [x] **Validate Phase 6C — conversation follow-through** — implemented, not yet validated. Run 150+ step sim; confirm planning-thought outputs after chats are specific commitments, not generic. No regressions (zero teleports, stable chat density). (`double-docs/20260324_mvp.md` Phase 6C)
+- [x] **Chat with Double — backend** (`chat_with_double_service.py`, POST `/chat` route, `user_chat_threads` + `user_chat_messages` tables) — confirmed on `local` branch (2026-04-01)
+- [x] **Fix Chat with Double card scroll / height** — input pushed off-screen after 2–3 turns. Fix before broader rollout. (`double-docs/20260401_chat-w-double.md` §10)
+#### P1 — Required for 15-person sim
+- [x] **Resolve stabilization branch vs local** — `stabilization/20260329-simulation-runtime-hardening` confirmed better than `local`; one open residual: tile exclusivity bug (Katya/Gosha share tile `[122,24]` steps 34–38). Fix then merge. (`double-docs/realism/20260329_runtime_stabilization_handoff.md`)
+- [x] **15-double sim: soul15_seed_20260224** — 15 personas with unique anonymized living areas || Career assignments + daily_plan_req |│Spatial memory in simulation_persona_state (15/15) || Soul docs + snippets in Supabase 
 
 
 ### *Use keywords to anchor to previous experiences in Truman show, seems, and survival*
@@ -38,12 +53,12 @@ Examples:
 ----------------------------------------------
 
 #### Post-MVP (deferred)
+- [ ] Planned / persona-initiated chats (link 2 fix in `plan.py`)
 - [ ] **Onboarding flow** — basic flow to create a double and enter a sim (pre-Rehears full auth). Required for Venture Bridge / Tartans demos.
 - [ ] Full Rehears JWT auth + profile porting
 - [ ] `pending.json` → Supabase observation queue (PMVP-OBS-002)
-- [ ] Planned / persona-initiated chats (link 2 fix in `plan.py`)
 - [ ] Prompt budget / token clamp (PMVP-LLM-001)
-- [ ] Location string staleness (P2-2), conversation repetition (P2-3)
+- [ ] Location string (P2-2), conversation repetition (P2-3)
 
 ===================================================================================
 
