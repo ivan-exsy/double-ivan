@@ -1,14 +1,63 @@
-=======================
-1. Survival `concept\survival\prd_survival_mode.md`
-  - finish up  
+# ************COLLAB POLICY*************
 
-2. Video trailer `concept\video\PRD_video_pipeline.md`
-	- Audio files
-	- Verify FE implementation
+A. **Feat/* branch from baseline `main`**
+git checkout main
+git pull origin main
+git checkout -b [feat/DESCRIPTION]
+git status
 
-3. Update documentation with #1 and #2
-=======================
+B. **Commit Updates / Resolve Conflicts if `main` is newer**
+Finish & Test new code in new branch
+git add/commit/push
+git pull origin main --rebase     # *Pull latest main and replay my commits on top >>> Resolve conflicts*
 
+C. **Clean merge to `main`**
+git checkout main
+git pull origin main
+git merge [feat/DESCRIPTION]
+git push origin main
+
+# ************COLLAB POLICY*************
+
+
+## [x] My latest Survival sim `20260407-2` (2000 steps)
+   - Compare to the latest report `D:\Coding\generative_agents\environment\frontend_server\storage\20260407-2\20260407-2_report_a.md`
+   - with the latest from Nicolas `double-docs/past-sims-reports/20260407-mod-boot/`
+
+## FE:
+[x] 2026-4-8: Disable double Phaser loads:    "Proceed to port the Suspense bridge" 
+[x] 2026-4-8: Merge latest from Nicolas
+
+## BE: - Merge updates from Nicolas
+[x] Ivan merged local to main  
+  [x] Test: survival mode OFF - PASSED
+  [x] Test: survival mode ON - PASSED (kind of - PC got overloaded)
+  [x] Complete merge to `main`, delete temp branch
+
+[] Nicolas to merge nicolas branch to main, watch for conflicts per `D:\Coding\double-docs\20260408-mergeBE.md`
+      a. Resolve reflect.py conflict (keep your Stanford-paper version)
+      b. Nicolas reshaped _determine_action, the step loop, and added a ConversationManager. New survival hooks in reverie.py and survival/controller.py need to still attach correctly after the merge. The auto-merge will produce valid Python, but semantic breakage (e.g. survival hooks firing in wrong place relative to the new conversation manager) is the real risk.
+  [] Test 
+
+## NICOLAS to Implement: `D:\Coding\double-docs\20260408_embeddings.md`
+  - CHECK if it need mods after latest updates
+
+## DISCONNECT COMPLETELY FROM ORIGINAL `generative_agents`  
+
+5. Run new Survival sim for 750 steps (Latest BE + Latest FE)
+  - Assess results
+  - If everything looks good 
+  - Merge to `main` branch
+
+*********
+
+*Nicolas:*
+I’ve spent ~20 hours so far, aligned with the scope in realism/20260404-technical-assessment.md, including the conversation system work. I believe another ~5 hours would allow me to complete the activity lifecycle (the remaining state machine piece) and bring everything to a more polished state.
+The current system is already solid, so feel free to review the docs and decide how you’d like to proceed.
+I’m currently running a 200-step, 15-persona validation sim. 
+The handoff doc with full context is available at realism/20260406-handoff-phase1-phase2.md.
+
+*********
 
 ## *MVP*
 
@@ -16,34 +65,16 @@
 
 #### P2 — Demo-critical polish
 
-- [ ] **Survival** mode
-    [x] Playbook: `concept\survival\survival_playbook.md`
-    [x] PRD:      `concept\survival\prd_survival_mode.md`
-    [x] Partial implementation for easy merge (isolated to </survival/> folder)
-    [ ] Pending — requires wiring after Nicolas's branch merges
-    
 - [] **Video** : 
-    [x] Playbook is ready: `\concept\video\1.MVP_video_playbook.md`
-    [x] PRD:    `concept\video\PRD_video_pipeline.md`
-    [x] Phase 1: `reverie/baz/video/
-    [ ] *TODOs*
-        1. **Mood tracks (asset work)** — Trim Suno generations to 75s instrumental, place as `audio/music_intrigue.mp3`, `audio/music_drama.mp3`, `audio/music_wholesome.mp3`. See FR-3.4 for source links.
-        2. **End-to-end validation** — Run `python -m reverie.backend_server.video.generate_trailer <sim_code> <persona>` with frontend at localhost:3000 and mood tracks in `audio/`. Verify output MP4s play correctly.
-        3. **SFX library** — Source 12 clips for transitions and emphasis (see playbook §8). Phase 2.
-        4. **Quality checklist automation** — Automated pass/fail gate on output duration, word count, structure. Phase 2.
 
-- [] Chat with Double 
-    [x] Phase 1: Chat wiring + UX
-    [ ] Phase 2: Streaming pending
+  1. **Mood tracks (asset work)** — Trim Suno generations to 75s instrumental, place as `audio/music_intrigue.mp3`, `audio/music_drama.mp3`, `audio/music_wholesome.mp3`. See FR-3.4 for source links.
+  2. **End-to-end validation** — Run `python -m reverie.backend_server.video.generate_trailer <sim_code> <persona>` with frontend at localhost:3000 and mood tracks in `audio/`. Verify output MP4s play correctly.
+  3. **SFX library** — Source 12 clips for transitions and emphasis (see playbook §8). Phase 2.
+  4. **Quality checklist automation** — Automated pass/fail gate on output duration, word count, structure. Phase 2.
 
-### *DONE*
-#### P0 — Blocking
-- [x] **Validate Phase 6C — conversation follow-through** — implemented, not yet validated. Run 150+ step sim; confirm planning-thought outputs after chats are specific commitments, not generic. No regressions (zero teleports, stable chat density). (`double-docs/20260324_mvp.md` Phase 6C)
-- [x] **Chat with Double — backend** (`chat_with_double_service.py`, POST `/chat` route, `user_chat_threads` + `user_chat_messages` tables) — confirmed on `local` branch (2026-04-01)
-- [x] **Fix Chat with Double card scroll / height** — input pushed off-screen after 2–3 turns. Fix before broader rollout. (`double-docs/20260401_chat-w-double.md` §10)
-#### P1 — Required for 15-person sim
-- [x] **Resolve stabilization branch vs local** — `stabilization/20260329-simulation-runtime-hardening` confirmed better than `local`; one open residual: tile exclusivity bug (Katya/Gosha share tile `[122,24]` steps 34–38). Fix then merge. (`double-docs/realism/20260329_runtime_stabilization_handoff.md`)
-- [x] **15-double sim: soul15_seed_20260224** — 15 personas with unique anonymized living areas || Career assignments + daily_plan_req |│Spatial memory in simulation_persona_state (15/15) || Soul docs + snippets in Supabase 
+======================
+
+- [] Chat with Double Phase 2: Streaming
 
 
 ### *Use keywords to anchor to previous experiences in Truman show, seems, and survival*
@@ -62,7 +93,18 @@ Examples:
 
 ===================================================================================
 
+## **MATRIX** is the final destination:
+<On X axis> Believability
+  - From abstract 2D phaser vis
+  - To more realistic 3D R3F
+  - Upto fully realistic 3D renderring
 
+<On Y axis> User Control 
+  - personality snapshot >> autonomous execution
+  - communicating goals and directions over chat
+  - brain-computer interface for full emersion
+
+ =================================================================================== 
 
 ## *Post-MVP*
 

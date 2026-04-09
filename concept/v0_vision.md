@@ -20,6 +20,20 @@ Villages can also run as **Social Experiments**: guided simulations that stress-
 As users spend more time with their Double—chatting, steering scenarios, and reflecting—the system steadily enriches their profile so the Double becomes a higher-fidelity digital avatar of their preferences and decision patterns. In this fork, organizations can run market research by “interviewing” Doubles instead of pulling real people into surveys or focus groups, capturing fast feedback on products, services, or policies at scale. Individual profiles stay private, while research customers receive **aggregated, cumulative insights** (e.g., “perspective of 10,000 users ages 14–18 with X/Y psychological profiles”) with stats and segment breakdowns—think Nielsen-style panels, but powered by opt-in digital twins that keep getting smarter the longer people play.
 
 
+===================================================================================
+
+#### Final destination: **MATRIX**
+<On X axis> Believability
+  - From abstract 2D phaser vis
+  - To more realistic 3D R3F
+  - Upto fully realistic 3D renderring
+
+<On Y axis> User Control 
+  - personality snapshot >> autonomous execution
+  - communicating goals and directions over chat
+  - brain-computer interface for full emersion
+
+ =================================================================================== 
 
 
 ## Key Features

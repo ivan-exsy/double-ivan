@@ -320,6 +320,7 @@ trailer_{sim_code}_day{N}/
 ├── output/
 │   ├── trailer_16x9.mp4        # Master (1920x1080)
 │   └── trailer_9x16.mp4        # Social crop (1080x1920)
+├── description.md              # Timestamped links to key moments (Post-MVP: clickable with step/focus/zoom)
 ├── day_log.json                # Extracted simulation data
 └── script.json                 # Showrunner LLM output
 ```
@@ -491,3 +492,40 @@ For each scene in showrunner script["scenes"]:
 15. Composite camera script (`window.__executeCameraScript` — single declarative JSON)
 16. Built-in transition rendering (Phaser-level fade, fly-over, card-break)
 17. Batch scene rendering API
+
+### Phase 4: Interactive Timestamps & Links (Post-MVP)
+18. **Timestamped Video Descriptions**: Generate a shareable description (Markdown/JSON) with clickable timestamps linking to key moments in the trailer or full sim playback. Each link includes step reference, focus point (tile coordinates), and zoom level for precise scene recreation.
+   - **BE Updates**: Extend `generate_trailer.py` to output `trailer_description.md` or JSON. Add API endpoint `/api/simulations/{sim_code}/trailer/{day}/description` that embeds links like `/simulations/{sim_code}?step={N}&focus={x,y}&zoom={level}&mode=playback`.
+   - **FE Updates**: Parse query params in simulation viewer to auto-jump to step, pan to focus coords, and set camera zoom. Highlight points of interest (e.g., glow on sprites/locations).
+   - **Value**: Enables social sharing with "jump to the drama at 0:38" links; boosts engagement by letting viewers explore exact angles/scenes.
+   - **Out of Scope (Initial)**: Dynamic highlighting during playback (e.g., AR overlays); multi-link playlists.
+   - **Dependencies**: Builds on camera scripting API (FR-4A) and playback URL params.
+   - **Metrics**: 100% of key scenes (hook/turn/close) get auto-generated links; validate link accuracy in end-to-end tests.
+
+### Phase 5: Simulation-Level Trailers (Post-MVP)
+19. **Opening Trailer**: A motivational intro video (30-45s) introducing the cast of characters, sim setup, and teaser for expected drama/arcs. Builds anticipation for daily updates.
+   - **Content**: Montage of sprites in their homes/environments; quick bios (name, role, quirk); high-level "what's at stake" narration (e.g., "In The Ville, alliances form and secrets unfold—watch Day 1 tomorrow").
+   - **BE Updates**: New CLI `generate_opening.py` pulling sim metadata (personas, souls, baseline events) into a simplified showrunner prompt. Use existing extraction/recording/compositing pipeline with multi-protagonist support.
+   - **FE Updates**: Extend camera API for ensemble shots (e.g., multi-follow, village fly-over). Add intro-specific highlights (e.g., name tags on sprites).
+   - **Value**: Hooks viewers early, motivates subscription to daily content; positions sim as a "series" worth following.
+   - **Out of Scope (Initial)**: Custom user branding; interactive cast bios.
+   - **Dependencies**: Multi-persona data extraction (extend FR-1); ensemble camera controls.
+   - **Metrics**: Viewer retention on first trailer >70%; qualitative feedback on "motivation to watch more."
+
+20. **Sim Day Summary Trailer**: A 60-90s ensemble recap of the day's major events across 3-5 sprites. Highlights key dramas, ends with evening "voting results" (e.g., affinity shifts, unresolved tensions). Leaves anticipation for the next day.
+   - **Content**: Parallel storylines (e.g., "While Katya studied, Gosha plotted..."); cross-cut between protagonists; narrator teases "Tomorrow, the fallout begins."
+   - **BE Updates**: Extend showrunner to handle multi-sprite day_logs (e.g., top 3-5 by poignancy). CLI `generate_day_summary.py` with aggregated extraction.
+   - **FE Updates**: Support parallel scene rendering (batch multiple personas); add split-screen or quick-cuts for ensemble pacing.
+   - **Value**: Builds communal viewing—viewers catch up on the "big picture" daily; reinforces social dynamics and cliffhangers.
+   - **Out of Scope (Initial)**: Real-time generation (post-day only); viewer-voted highlights.
+   - **Dependencies**: Phase 3 batch rendering; extended LLM prompts for ensemble narratives.
+   - **Metrics**: Coverage of top dramas (80% of high-poignancy events); end-of-trailer "anticipation score" via internal review.
+
+21. **Sim Overview (Closing) Trailer**: A longer (90-120s) finale recapping the entire simulation. Reuses opening elements (cast refresh); spotlights impactful days/characters; weaves human-value stories (e.g., growth, kindness, conflict resolution). Ends with a call-to-action: "Create your own story in The Ville."
+   - **Content**: Arc overview (e.g., "From alliances to betrayals..."); memorable vignettes; reflective narration on themes (e.g., "In 17 days, they showed us resilience"); showcase top characters/stories.
+   - **BE Updates**: New CLI `generate_overview.py` aggregating multi-day logs. Showrunner variant for longer format (more scenes, deeper analysis); include voting/election results if applicable.
+   - **FE Updates**: Extended runtime support (e.g., multi-day step ranges); thematic highlights (e.g., value-based filters like "kindness moments").
+   - **Value**: Provides closure and inspiration—viewers feel they've witnessed an "amazing story"; drives trials ("What a hell! I should try it too!").
+   - **Out of Scope (Initial)**: User-customized overviews; export to social reels.
+   - **Dependencies**: Full sim data aggregation (extend FR-1 for multi-day); longer compositing (FFmpeg tweaks for 2min+).
+   - **Metrics**: Length adherence (90-120s); emotional impact (e.g., 90% "memorable/inspiring" in feedback); CTA click-through if embedded.
