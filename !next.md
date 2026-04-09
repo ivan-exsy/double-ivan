@@ -1,4 +1,4 @@
-# ************COLLAB POLICY*************
+## ************COLLAB POLICY*************
 
 A. **Feat/* branch from baseline `main`**
 git checkout main
@@ -17,96 +17,67 @@ git pull origin main
 git merge [feat/DESCRIPTION]
 git push origin main
 
-# ************COLLAB POLICY*************
+************COLLAB POLICY*************
 
+## *MVP - Work in progress*
 
-## [x] My latest Survival sim `20260407-2` (2000 steps)
-   - Compare to the latest report `D:\Coding\generative_agents\environment\frontend_server\storage\20260407-2\20260407-2_report_a.md`
-   - with the latest from Nicolas `double-docs/past-sims-reports/20260407-mod-boot/`
+### Ivan TODO
 
-## FE:
-[x] 2026-4-8: Disable double Phaser loads:    "Proceed to port the Suspense bridge" 
-[x] 2026-4-8: Merge latest from Nicolas
+#### **Video**
 
-## BE: - Merge updates from Nicolas
-[x] Ivan merged local to main  
-  [x] Test: survival mode OFF - PASSED
-  [x] Test: survival mode ON - PASSED (kind of - PC got overloaded)
-  [x] Complete merge to `main`, delete temp branch
+- *End-to-end validation* — Run `python -m reverie.backend_server.video.generate_trailer <sim_code> <persona>` with frontend at localhost:3000 and mood tracks in `audio/`. Verify output MP4s play correctly.
 
-[] Nicolas to merge nicolas branch to main, watch for conflicts per `D:\Coding\double-docs\20260408-mergeBE.md`
-      a. Resolve reflect.py conflict (keep your Stanford-paper version)
-      b. Nicolas reshaped _determine_action, the step loop, and added a ConversationManager. New survival hooks in reverie.py and survival/controller.py need to still attach correctly after the merge. The auto-merge will produce valid Python, but semantic breakage (e.g. survival hooks firing in wrong place relative to the new conversation manager) is the real risk.
-  [] Test 
+- *SFX library* — Source 12 clips for transitions and emphasis (see playbook §8). Phase 2.
 
-## NICOLAS to Implement: `D:\Coding\double-docs\20260408_embeddings.md`
-  - CHECK if it need mods after latest updates
+- *Quality checklist automation* — Automated pass/fail gate on output duration, word count, structure. Phase 2.
 
-## DISCONNECT COMPLETELY FROM ORIGINAL `generative_agents`  
-
-5. Run new Survival sim for 750 steps (Latest BE + Latest FE)
-  - Assess results
-  - If everything looks good 
-  - Merge to `main` branch
-
-*********
-
-*Nicolas:*
-I’ve spent ~20 hours so far, aligned with the scope in realism/20260404-technical-assessment.md, including the conversation system work. I believe another ~5 hours would allow me to complete the activity lifecycle (the remaining state machine piece) and bring everything to a more polished state.
-The current system is already solid, so feel free to review the docs and decide how you’d like to proceed.
-I’m currently running a 200-step, 15-persona validation sim. 
-The handoff doc with full context is available at realism/20260406-handoff-phase1-phase2.md.
-
-*********
-
-## *MVP*
-
-### **MVP Priority Steps**
-
-#### P2 — Demo-critical polish
-
-- [] **Video** : 
-
-  1. **Mood tracks (asset work)** — Trim Suno generations to 75s instrumental, place as `audio/music_intrigue.mp3`, `audio/music_drama.mp3`, `audio/music_wholesome.mp3`. See FR-3.4 for source links.
-  2. **End-to-end validation** — Run `python -m reverie.backend_server.video.generate_trailer <sim_code> <persona>` with frontend at localhost:3000 and mood tracks in `audio/`. Verify output MP4s play correctly.
-  3. **SFX library** — Source 12 clips for transitions and emphasis (see playbook §8). Phase 2.
-  4. **Quality checklist automation** — Automated pass/fail gate on output duration, word count, structure. Phase 2.
-
-======================
-
-- [] Chat with Double Phase 2: Streaming
+- *Simulation Opening Video (check PRD)*
+  - Generate face avatars with slight movements for opening cards
 
 
 ### *Use keywords to anchor to previous experiences in Truman show, seems, and survival*
 
 Examples:
 * Survival: Council, the tribe has spoken
+
+### Nicolas TODO
+
+[] Nicolas to merge nicolas branch to main, watch for conflicts per `D:\Coding\double-docs\20260408-mergeBE.md`
+      a. Resolve reflect.py conflict (keep your Stanford-paper version)
+      b. Nicolas reshaped _determine_action, the step loop, and added a ConversationManager. New survival hooks in reverie.py and survival/controller.py need to still attach correctly after the merge. The auto-merge will produce valid Python, but semantic breakage (e.g. survival hooks firing in wrong place relative to the new conversation manager) is the real risk.
+
+[] NICOLAS to Implement: `D:\Coding\double-docs\20260408_embeddings.md`
+  - CHECK if it need mods after latest updates
+
+
+[] 100% ensure that scenarion is visualized 
+
+#### DISCONNECT COMPLETELY FROM ORIGINAL `generative_agents`  
+
+[] Run new Survival sim for 750 steps (Latest BE + Latest FE)
+  - Assess results
+  - If everything looks good 
+  - Merge to `main` branch
+
+*********
+
+*Nicolas:* 
+I’ve spent ~20 hours so far, aligned with the scope in realism/20260404-technical-assessment.md, including the conversation system work. 
+The handoff doc with full context is available at realism/20260406-handoff-phase1-phase2.md.
+5 more hours would allow complete the activity lifecycle (the remaining state machine piece) and bring everything to a more polished state.
+
+*********
+
+
 ----------------------------------------------
 
-#### Post-MVP (deferred)
+## *Post-MVP (deferred)*
 - [ ] Planned / persona-initiated chats (link 2 fix in `plan.py`)
 - [ ] **Onboarding flow** — basic flow to create a double and enter a sim (pre-Rehears full auth). Required for Venture Bridge / Tartans demos.
 - [ ] Full Rehears JWT auth + profile porting
 - [ ] `pending.json` → Supabase observation queue (PMVP-OBS-002)
 - [ ] Prompt budget / token clamp (PMVP-LLM-001)
 - [ ] Location string (P2-2), conversation repetition (P2-3)
-
-===================================================================================
-
-## **MATRIX** is the final destination:
-<On X axis> Believability
-  - From abstract 2D phaser vis
-  - To more realistic 3D R3F
-  - Upto fully realistic 3D renderring
-
-<On Y axis> User Control 
-  - personality snapshot >> autonomous execution
-  - communicating goals and directions over chat
-  - brain-computer interface for full emersion
-
- =================================================================================== 
-
-## *Post-MVP*
 
 
 <https://github.com/666ghj/MiroFish>

@@ -3,14 +3,14 @@
 > **Status:** In Progress
 > **Author:** Ivan
 > **Date:** 2026-04-03
-> **Updated:** 2026-04-03 — Phase 1 code complete (8/9 done, #9 pending validation); Phase 2: 2/4 done
+> **Updated:** 2026-04-09 — Phase 1 code complete + mood tracks finalized (8/9 done, #9 pending end-to-end validation); Phase 2: 2/4 done
 > **Source:** [MVP Video Playbook](1.MVP_video_playbook.md)
 
 ---
 
 ## TODOs
 
-1. **Mood tracks (asset work)** — Trim Suno generations to 75s instrumental, place as `audio/music_intrigue.mp3`, `audio/music_drama.mp3`, `audio/music_wholesome.mp3`. See FR-3.4 for source links.
+1. **Mood tracks (asset work)** — **Done (2026-04-09)** — Three 75s instrumental tracks processed and placed in `reverie/backend_server/video/audio/` as `music_intrigue.mp3`, `music_drama.mp3`, `music_wholesome.mp3`.
 2. **End-to-end validation** — Run `python -m reverie.backend_server.video.generate_trailer <sim_code> <persona>` with frontend at localhost:3000 and mood tracks in `audio/`. Verify output MP4s play correctly.
 3. **SFX library** — Source 12 clips for transitions and emphasis (see playbook §8). Phase 2.
 4. **Quality checklist automation** — Automated pass/fail gate on output duration, word count, structure. Phase 2.
@@ -24,7 +24,7 @@
 | **Data Extraction** | Done | `reverie/backend_server/video/extract_day_log.py` |
 | **Showrunner LLM** | Done | `reverie/backend_server/video/showrunner.py` |
 | **TTS Narration** | Done | `reverie/backend_server/video/tts.py` — ElevenLabs (ID: cIO62fcmCSQhE0DE2WS2) + OpenAI fallback |
-| **Mood Music Tracks** | In Progress | Initial Suno generations complete (see FR-3.4 for links); final 75s versions pending remix/trim |
+| **Mood Music Tracks** | Done | Three 75s instrumental tracks in `reverie/backend_server/video/audio/` — `music_intrigue.mp3`, `music_drama.mp3`, `music_wholesome.mp3` |
 | **Camera Scripting API** | Done | `double-front: AnimationManager.ts`, `types.d.ts` |
 | **Playwright Recording** | Done | `reverie/backend_server/video/record_scenes.py` |
 | **FFmpeg Compositing** | Done | `reverie/backend_server/video/compose_trailer.py` |
@@ -153,15 +153,15 @@ Simulation day completes
 
 **CLI:** `python -m reverie.backend_server.video.showrunner <day_log.json> [--output script.json]`
 
-### FR-3: Audio Production (Done — code complete; mood tracks pending asset work)
+### FR-3: Audio Production (Done)
 
 | ID | Requirement | Priority | Status |
 |---|---|---|---|
 | FR-3.1 | Render narrator VO from script via TTS (ElevenLabs preferred; OpenAI TTS fallback) | P0 | **Done** — `video/tts.py`: ElevenLabs REST API + OpenAI tts-1-hd fallback |
 | FR-3.2 | Voice profile: warm, mature (40-60 age feel), documentary narrator tone, ~2.0-2.5 words/sec (ElevenLabs ID: cIO62fcmCSQhE0DE2WS2) | P0 | **Done** — stability=0.65, clarity=0.75, style=0.40; OpenAI fallback uses "onyx" voice at speed=0.9 |
 | FR-3.3 | Honor `[PAUSE Ns]` markers as literal silence in audio | P0 | **Done** — `parse_narrator_script()` splits on `[PAUSE Ns]` and `[SCENE N]` markers; silence generated via FFmpeg |
-| FR-3.4 | Select mood track from pre-generated library (intrigue/drama/wholesome) | P0 | In Progress — Initial Suno Pro generations (see Generated Assets below); final 75s instrumental tracks pending remix/trim for exact arc. Code selection logic done in `generate_trailer.py` |
-| FR-3.5 | Trim mood track to 75s (15s headroom) | P1 | Pending — manual asset work
+| FR-3.4 | Select mood track from pre-generated library (intrigue/drama/wholesome) | P0 | **Done** — three 75s instrumental tracks in `video/audio/` (`music_intrigue.mp3`, `music_drama.mp3`, `music_wholesome.mp3`); code selection logic in `generate_trailer.py` |
+| FR-3.5 | Trim mood track to 75s (15s headroom) | P1 | **Done (2026-04-09)** — trimmed/normalized via FFmpeg (–16 LUFS, MP3 192 kbps, 1.5s fade-out) |
 | FR-3.6 | Source 12 SFX clips for transitions and emphasis (see playbook §8) | P2 | Pending |
 
 **Generated Assets (Mood Tracks – Initial Versions):**
@@ -169,7 +169,7 @@ Simulation day completes
 - **Drama (100-115 BPM, D minor):** 1:00 [Cello Drought](https://suno.com/s/j5YDuTDi7E3wCSod) (slow build); 3:53 [Dminor Timpani](https://suno.com/s/ceFm24756iRdI8rm) (similar mood, longer). Notes: Cello lead promising but lacks punch/escalation; full rewrite recommended.
 - **Wholesome (90-105 BPM, G major):** 0:31 v5.5 [Kindness Meter](https://suno.com/s/T5CofHlIDJTcp75S) (warm, nice!); 3:00 v4.5 [Ginger Cake](https://suno.com/s/PSpChKRDa7lSypBI) (free, almost as good). Notes: Strong acoustic feel; extend for gentle peak/resolve.
 
-**Music tracks:** 3 pre-generated on Suno/Udio, 75s each, instrumental only, energy arc mapped to beat sheet. See playbook Appendix A for generation prompts. Final versions to be trimmed/normalized via FFmpeg.
+**Music tracks:** 3 pre-generated on Suno/Udio, trimmed and normalized to 75s each via FFmpeg (–16 LUFS, MP3 192 kbps), instrumental only, energy arc mapped to beat sheet. Final tracks in `reverie/backend_server/video/audio/`. See playbook Appendix A for generation prompts.
 
 **Workaround:** The pipeline runs without audio — compositing generates a silence placeholder. Drop `narration.mp3` and/or `music_{mood}.mp3` into the `audio/` directory to include them.
 
@@ -370,7 +370,7 @@ trailer_{sim_code}_day{N}/
 | Tier C LLM access | Exists | Wired in `showrunner.py` via `GPT_request` + direct fallback |
 | ElevenLabs API | **In Progress** | TTS for narrator voice — voice created (ID: cIO62fcmCSQhE0DE2WS2); API key needed for integration |
 | OpenAI TTS (fallback) | Exists | `nova` or `onyx` voice — not yet wired |
-| Suno/Udio | **In Progress** | Mood tracks generated (see FR-3.4 links); final 75s polish/trim pending for beat sheet arc |
+| Suno/Udio | **Done** | Three 75s instrumental mood tracks generated and finalized in `video/audio/` |
 | FFmpeg | Local install | Wired in `compose_trailer.py` |
 | Playwright | Exists | Wired in `record_scenes.py` with `record_video_dir` |
 | Phaser frontend playback | Exists | Simulation viewer |
@@ -476,7 +476,7 @@ For each scene in showrunner script["scenes"]:
 | 5 | BE: TTS pipeline (ElevenLabs / OpenAI TTS) | **Done** | `video/tts.py` — ElevenLabs + OpenAI fallback, [PAUSE] parsing, silence gen |
 | 6 | BE: Recording script (Playwright video) | **Done** | `video/record_scenes.py` |
 | 7 | BE: FFmpeg compositing scripts | **Done** | `video/compose_trailer.py` |
-| 8 | Assets: Generate 3 mood tracks (Suno/Udio) | In Progress | Initial Suno Pro versions created (see FR-3.4 links); final 75s with exact arc pending |
+| 8 | Assets: Generate 3 mood tracks (Suno/Udio) | **Done (2026-04-09)** | Three 75s instrumental tracks in `video/audio/` — `music_intrigue.mp3`, `music_drama.mp3`, `music_wholesome.mp3` |
 | 9 | Validation: Produce first trailer end-to-end | Pending | Requires running frontend + all above |
 
 **Also built:** `video/generate_trailer.py` — CLI orchestrator tying Steps 1-5 together.
