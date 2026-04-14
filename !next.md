@@ -1,73 +1,26 @@
-## ************COLLAB POLICY*************
+1. Verify Supabase CLI (global install)
+ - supabase db pull
+ - download current db schema
 
-A. **Feat/* branch from baseline `main`**
-git checkout main
-git pull origin main
-git checkout -b [feat/DESCRIPTION]
-git status
-
-B. **Commit Updates / Resolve Conflicts if `main` is newer**
-Finish & Test new code in new branch
-git add/commit/push
-git pull origin main --rebase     # *Pull latest main and replay my commits on top >>> Resolve conflicts*
-
-C. **Clean merge to `main`**
-git checkout main
-git pull origin main
-git merge [feat/DESCRIPTION]
-git push origin main
-
-************COLLAB POLICY*************
-
-## *MVP - Work in progress*
-
-### Ivan TODO
-
-#### **Video**
-
-- *End-to-end validation* — Run `python -m reverie.backend_server.video.generate_trailer <sim_code> <persona>` with frontend at localhost:3000 and mood tracks in `audio/`. Verify output MP4s play correctly.
-
-- *SFX library* — Source 12 clips for transitions and emphasis (see playbook §8). Phase 2.
-
-- *Quality checklist automation* — Automated pass/fail gate on output duration, word count, structure. Phase 2.
-
-- *Simulation Opening Video (check PRD)*
-  - Generate face avatars with slight movements for opening cards
+2. New trailer (check yesterday's optimizations)
 
 
-### *Use keywords to anchor to previous experiences in Truman show, seems, and survival*
 
-Examples:
-* Survival: Council, the tribe has spoken
+## *MVP - Ivan TODO*
 
-### Nicolas TODO
+**Test with a new sim:**
 
-[] Nicolas to merge nicolas branch to main, watch for conflicts per `D:\Coding\double-docs\20260408-mergeBE.md`
-      a. Resolve reflect.py conflict (keep your Stanford-paper version)
-      b. Nicolas reshaped _determine_action, the step loop, and added a ConversationManager. New survival hooks in reverie.py and survival/controller.py need to still attach correctly after the merge. The auto-merge will produce valid Python, but semantic breakage (e.g. survival hooks firing in wrong place relative to the new conversation manager) is the real risk.
+[] *Trailed gen - Scene loading issues??*
+- blank start screen for each screen (loading)
+- each scene starts from center, then focuses on the point of interest >> Immediately focus on the point of interest - then zoom in (need transition between scenes)
 
-[] NICOLAS to Implement: `D:\Coding\double-docs\20260408_embeddings.md`
-  - CHECK if it need mods after latest updates
-
-
-[] 100% ensure that scenarion is visualized 
-
-#### DISCONNECT COMPLETELY FROM ORIGINAL `generative_agents`  
-
-[] Run new Survival sim for 750 steps (Latest BE + Latest FE)
-  - Assess results
-  - If everything looks good 
-  - Merge to `main` branch
-
-*********
-
-*Nicolas:* 
-I’ve spent ~20 hours so far, aligned with the scope in realism/20260404-technical-assessment.md, including the conversation system work. 
-The handoff doc with full context is available at realism/20260406-handoff-phase1-phase2.md.
-5 more hours would allow complete the activity lifecycle (the remaining state machine piece) and bring everything to a more polished state.
-
-*********
-
+### *Issues from 20260413-1 `past-sims-reports\20260413-1\20260413-1_report.md`*
+<Nicolas> 
+- Waypoint freezing (F1) — 3 events, ~42 steps total. Agents stop moving when another persona physically blocks the corridor between them and their target (e.g., Gosha froze 21 steps because Katya was in his path to the sofa). Visible in playback as an agent standing awkwardly still.
+<Ivan>
+- LLM misroute (F2) — 4 events, ~39 steps. The LLM occasionally ignores explicit destination text ("walk to Oak Hill College" → sends them to the cafe). Pre-existing, documented in Phase 5.
+- Vote audit trail incomplete (Bug B) — only 1 of 4 agents has their vote persisted to their JSON file, though voting math is correct in-sim. Audit-trail only, no user impact.
+- Voting fires on schedule, not on gathering — at elimination time, only Ivan was physically at the cafe. Mechanical trigger. A product call, not a bug.
 
 ----------------------------------------------
 
@@ -79,8 +32,13 @@ The handoff doc with full context is available at realism/20260406-handoff-phase
 - [ ] Prompt budget / token clamp (PMVP-LLM-001)
 - [ ] Location string (P2-2), conversation repetition (P2-3)
 
-
+### Study what they do and how to use
 <https://github.com/666ghj/MiroFish>
+
+
+### *Use keywords to anchor to previous experiences in Truman show, seems, and survival*
+Examples:
+* Survival: Council, the tribe has spoken
 
 
 ### **Persistent persona-day thread ("doubles as agents"):** 

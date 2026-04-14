@@ -3,17 +3,36 @@
 > **Status:** In Progress
 > **Author:** Ivan
 > **Date:** 2026-04-03
-> **Updated:** 2026-04-09 — Phase 1 code complete + mood tracks finalized (8/9 done, #9 pending end-to-end validation); Phase 2: 2/4 done
+> **Updated:** 2026-04-14 — Context pipeline and showrunner quality overhaul complete. See milestones below.
 > **Source:** [MVP Video Playbook](1.MVP_video_playbook.md)
+
+### Milestone log
+
+| Date | Milestone |
+|---|---|
+| 2026-04-10 | First end-to-end trailer produced (Ivan Pistsov / `20260407-2`). 5 scene clips + music + subtitles + end card → MP4. |
+| 2026-04-13 | Frontend `?recording=true` mode live (`double-front` branch `local`): camera API + `__executeMovementsForStep` active, Supabase stream suppressed, UI chrome hidden. Headless validator path untouched. |
+| 2026-04-14 | **Plan B** — Consecutive-step segments: showrunner now produces 2–4 clips with `key_steps` as consecutive integers (e.g. `[12,13,14]`); eliminates character teleportation between clips; validator enforces consecutiveness and 2–4 scene count. |
+| 2026-04-14 | **Supabase-native context builder** — `extract_day_log.py` replaced raw memory dump with typed, sim-scoped `dbl_get_sim_memories` queries + activity-transition timeline downsampling (~60–100 entries vs all 750). Context size is now O(constant) regardless of sim length. |
+| 2026-04-14 | **RIR focal-point retrieval** — `dbl_retrieve_with_rir` extended with optional `p_simulation_id` (backward-compatible 10-param overload, migration `20260414_dbl_retrieve_rir_sim_scope.sql`). `extract_day_log.py` now uses three showrunner-specific focal points to retrieve the most dramatically relevant memories via the HNSW vector index; falls back to poignancy-only if embeddings unavailable. |
 
 ---
 
 ## TODOs
 
-1. **Mood tracks (asset work)** — **Done (2026-04-09)** — Three 75s instrumental tracks processed and placed in `reverie/backend_server/video/audio/` as `music_intrigue.mp3`, `music_drama.mp3`, `music_wholesome.mp3`.
-2. **End-to-end validation** — Run `python -m reverie.backend_server.video.generate_trailer <sim_code> <persona>` with frontend at localhost:3000 and mood tracks in `audio/`. Verify output MP4s play correctly.
-3. **SFX library** — Source 12 clips for transitions and emphasis (see playbook §8). Phase 2.
-4. **Quality checklist automation** — Automated pass/fail gate on output duration, word count, structure. Phase 2.
+1. **Mood tracks (asset work)** — **Done (2026-04-09)** — Three 75s instrumental tracks processed and placed in `reverie/backend_server/video/audio/`.
+2. **End-to-end validation** — **Done (2026-04-10)** — First trailer produced for sim `20260407-2` / Ivan Pistsov. 5 scene clips + music + subtitles + end card → MP4 output. See "Known issues" below for quality gaps.
+3. **Camera API integration** — **Done (2026-04-13)** — Introduced `?recording=true` mode in `double-front` that renders tilemap + sprites, exposes the 5 camera functions and `__executeMovementsForStep`, suppresses the Supabase realtime coord stream, and hides UI chrome. `?headless=true` validator path (lightweight, no tilemap) is preserved for simulation generation at scale. **Remaining:** update `record_scenes.py` to navigate to `?recording=true` (drop `?headless=true`, the SwiftShader flag, the CSS UI-hiding injection, and the 30s FFmpeg head-trim), then remove the `if Director API available` guards.
+4. **Narration** — ElevenLabs TTS fallback to OpenAI now works (401 → auto-retry with OpenAI). Ivan fixed ElevenLabs auth in a parallel branch. Next pass will include voice-over.
+5. **SFX library** — Source 12 clips for transitions and emphasis (see playbook §8). Phase 2.
+6. **Quality checklist automation** — Automated pass/fail gate on output duration, word count, structure. Phase 2.
+
+### Known issues (from first trailer, 2026-04-10)
+
+- **No camera scripting in recorded footage** — **Resolved on FE (2026-04-13)** via `?recording=true` mode. Awaiting `record_scenes.py` URL swap to take effect in produced trailers.
+- **Static scenes** — **Resolved on FE (2026-04-13)** — `__executeMovementsForStep` is active in recording mode. Awaiting `record_scenes.py` URL swap.
+- **Subtitles timing approximate** — SRT generation uses rough offsets from `time_range_sec` rather than actual narration timing. Will improve once narration audio is included.
+- **End card font warning** — Fontconfig error on Windows ("Cannot load default config file"). End card still renders but font fallback may vary. Low priority.
 
 ---
 
@@ -25,11 +44,11 @@
 | **Showrunner LLM** | Done | `reverie/backend_server/video/showrunner.py` |
 | **TTS Narration** | Done | `reverie/backend_server/video/tts.py` — ElevenLabs (ID: cIO62fcmCSQhE0DE2WS2) + OpenAI fallback |
 | **Mood Music Tracks** | Done | Three 75s instrumental tracks in `reverie/backend_server/video/audio/` — `music_intrigue.mp3`, `music_drama.mp3`, `music_wholesome.mp3` |
-| **Camera Scripting API** | Done | `double-front: AnimationManager.ts`, `types.d.ts` |
-| **Playwright Recording** | Done | `reverie/backend_server/video/record_scenes.py` |
-| **FFmpeg Compositing** | Done | `reverie/backend_server/video/compose_trailer.py` |
-| **CLI Orchestrator** | Done | `reverie/backend_server/video/generate_trailer.py` |
-| **End-to-end validation** | Pending | Requires running frontend + mood tracks in audio/ |
+| **Camera Scripting API** | Done (2026-04-13) | `double-front: AnimationManager.ts`, `types.d.ts`; 5 `window.__*` functions + `__executeMovementsForStep` active in `?recording=true` mode. Headless validator path preserved. |
+| **Playwright Recording** | Done | `reverie/backend_server/video/record_scenes.py` — uses normal mode + SwiftShader + CSS UI hiding + FFmpeg trim |
+| **FFmpeg Compositing** | Done | `reverie/backend_server/video/compose_trailer.py` — absolute paths for concat, `-vn` for MP3 cover art, tail-of-stderr logging |
+| **CLI Orchestrator** | Done | `reverie/backend_server/video/generate_trailer.py` — music library fallback + auto-copy |
+| **End-to-end validation** | **Done (2026-04-10)** | First trailer produced: 5 scenes with real Phaser tilemap + music + subtitles + end card. Camera directives not yet connected (see Known Issues). |
 
 **Merge note:** All backend code is in a new `reverie/backend_server/video/` package with zero overlap against Nicolas's `integration/20260330-local-hardening-rebuild` branch. Frontend changes are additive-only appends in a separate repo.
 
@@ -157,7 +176,7 @@ Simulation day completes
 
 | ID | Requirement | Priority | Status |
 |---|---|---|---|
-| FR-3.1 | Render narrator VO from script via TTS (ElevenLabs preferred; OpenAI TTS fallback) | P0 | **Done** — `video/tts.py`: ElevenLabs REST API + OpenAI tts-1-hd fallback |
+| FR-3.1 | Render narrator VO from script via TTS (ElevenLabs preferred; OpenAI TTS fallback) | P0 | **Done** — `video/tts.py`: ElevenLabs narration generation (ID: cIO62fcmCSQhE0DE2WS2) + OpenAI tts-1-hd fallback; metadata stripping and Audio Tags mapping implemented for dynamic tone |
 | FR-3.2 | Voice profile: warm, mature (40-60 age feel), documentary narrator tone, ~2.0-2.5 words/sec (ElevenLabs ID: cIO62fcmCSQhE0DE2WS2) | P0 | **Done** — stability=0.65, clarity=0.75, style=0.40; OpenAI fallback uses "onyx" voice at speed=0.9 |
 | FR-3.3 | Honor `[PAUSE Ns]` markers as literal silence in audio | P0 | **Done** — `parse_narrator_script()` splits on `[PAUSE Ns]` and `[SCENE N]` markers; silence generated via FFmpeg |
 | FR-3.4 | Select mood track from pre-generated library (intrigue/drama/wholesome) | P0 | **Done** — three 75s instrumental tracks in `video/audio/` (`music_intrigue.mp3`, `music_drama.mp3`, `music_wholesome.mp3`); code selection logic in `generate_trailer.py` |
@@ -173,7 +192,7 @@ Simulation day completes
 
 **Workaround:** The pipeline runs without audio — compositing generates a silence placeholder. Drop `narration.mp3` and/or `music_{mood}.mp3` into the `audio/` directory to include them.
 
-### FR-4: Video Capture (Automated — Playwright Recording) — `video/record_scenes.py` (DONE)
+### FR-4: Video Capture (Automated — Playwright Recording) — `video/record_scenes.py` (DONE — normal mode workaround)
 
 Video capture is fully automated using two components: a **camera scripting API** exposed on the frontend (5 new `window.__*` functions), and **Playwright's built-in video recording** which captures the rendered Phaser canvas at the compositor level — including sprite animations, camera tweens, and zoom/pan — without needing `MediaRecorder` or canvas access.
 
@@ -192,7 +211,7 @@ Video capture is fully automated using two components: a **camera scripting API*
 
 **CLI:** `python -m reverie.backend_server.video.record_scenes <sim_code> <script.json> [--output-dir ./trailer/raw]`
 
-### FR-4A: Frontend Camera Scripting API — `AnimationManager.ts` + `types.d.ts` (DONE)
+### FR-4A: Frontend Camera Scripting API — `AnimationManager.ts` + `types.d.ts` (DONE — 2026-04-13, active in `?recording=true` mode)
 
 Five new functions exposed on `window` in `AnimationManager.ts`, following the existing `window.__executeMovementsForStep` pattern. These extend the existing `CameraController` — no new Phaser subsystems needed.
 
@@ -249,7 +268,7 @@ window.__setPlaybackSpeed = (multiplier: number) => {
 | FR-5.1 | Concatenate scene clips with crossfade transitions via FFmpeg | P0 | Done — concat demuxer |
 | FR-5.2 | Mix audio: narration + music, music ducked 6-9 dB under VO | P0 | Done — amix with volume ducking |
 | FR-5.3 | Overlay subtitle/dialogue text (SRT/ASS format, timed from showrunner output) | P1 | Done — SRT generated from script.json |
-| FR-5.4 | Add end card ("DAY N — THE VILLE" + subtitle) at 0:58-1:00 | P0 | Pending — needs card image generation |
+| FR-5.4 | Add end card ("DAY N — THE VILLE" + subtitle) at 0:58-1:00 | P0 | **Done** — FFmpeg drawtext in `compose_trailer.py:generate_end_card()` |
 | FR-5.5 | Export 16:9 master (1920x1080) | P0 | Done |
 | FR-5.6 | Export 9:16 social crop (1080x1920, center-cropped) | P0 | Done |
 | FR-5.7 | Total duration: 58-62 seconds | P0 | Done — `-t 60` flag |
@@ -368,8 +387,8 @@ trailer_{sim_code}_day{N}/
 | Supabase `personas_coords` table | Exists | Wired in `extract_day_log.py` |
 | Supabase `persona_scratch` table | Exists | Wired in `extract_day_log.py` |
 | Tier C LLM access | Exists | Wired in `showrunner.py` via `GPT_request` + direct fallback |
-| ElevenLabs API | **In Progress** | TTS for narrator voice — voice created (ID: cIO62fcmCSQhE0DE2WS2); API key needed for integration |
-| OpenAI TTS (fallback) | Exists | `nova` or `onyx` voice — not yet wired |
+| ElevenLabs API | **Done** | TTS for narrator voice — voice created (ID: cIO62fcmCSQhE0DE2WS2); full integration with key, fallback, and tone controls active |
+| OpenAI TTS (fallback) | **Done** | `onyx` voice at 0.9x speed — auto-fallback when ElevenLabs returns 401 |
 | Suno/Udio | **Done** | Three 75s instrumental mood tracks generated and finalized in `video/audio/` |
 | FFmpeg | Local install | Wired in `compose_trailer.py` |
 | Playwright | Exists | Wired in `record_scenes.py` with `record_video_dir` |
@@ -400,32 +419,39 @@ await context.close()
 # Video file is now saved in record_video_dir
 ```
 
-### Recording script flow (per scene)
+### Recording script flow (per scene) — target flow with `?recording=true` (FE done 2026-04-13, BE swap pending)
 
 ```
 For each scene in showrunner script["scenes"]:
   │
-  1. Create Playwright context with record_video_dir
+  1. Create Playwright context with record_video_dir (1920x1080)
   │
-  2. Navigate to /simulations/{sim_code}?headless=true&step={start_step}
+  2. Navigate to /simulations/{sim_code}?recording=true&step={start_step}
+  │     Recording mode renders tilemap + sprites, exposes camera API, suppresses
+  │     Supabase playback stream, and hides UI chrome via the frontend itself.
   │
-  3. Wait for window.__headlessReady === true
+  3. Wait: window.__headlessReady === true  (up to 30s)
+  │     Fires after the first render tick — tilemap painted, sprites placed at step N.
   │
   4. Apply camera directives:
-  │   await page.evaluate('window.__setCameraZoom(1.5, 0)')        # instant
-  │   await page.evaluate('window.__followPersona("Katya")')       # track sprite
-  │   await page.evaluate('window.__setPlaybackSpeed(10)')         # time-lapse
+  │     window.__setCameraZoom(start_zoom, 0)
+  │     window.__setPlaybackSpeed(speed)   (if speed != 1)
+  │     window.__followPersona(name)  OR  window.__panCameraTo(x, y, 0)
+  │     Wait 500ms for camera settle.
   │
-  5. Play through step range:
-  │   for step in range(start, end+1):
-  │     await page.evaluate('window.__executeMovementsForStep(data)', step_data)
-  │     await page.wait_for_function('window.__movementsComplete === true')
-  │     await page.evaluate('window.__movementsComplete = false')
+  5. For each step in [start_step..end_step]:
+  │     window.__movementsComplete = false
+  │     window.__executeMovementsForStep(stepData)
+  │     Wait: window.__movementsComplete === true  (up to 120s)
   │
-  6. Close context → Playwright auto-saves WebM clip
+  6. Final zoom transition: window.__setCameraZoom(end_zoom, 2000); wait 2200ms.
   │
-  7. Rename to scene_{id}_{label}.webm
+  7. Close context → Playwright auto-saves raw WebM clip.
+  │
+  8. Rename to scene_{id}_{label}.webm
 ```
+
+**Deprecated workarounds (no longer needed):** `--use-gl=swiftshader` browser arg, `page.add_style_tag()` UI-hiding CSS, the 30s FFmpeg head-trim, and the `if Director API available` guard checks.
 
 ### Existing infrastructure leveraged
 
@@ -465,19 +491,19 @@ For each scene in showrunner script["scenes"]:
 
 ## 16. Implementation Phases
 
-### Phase 1: Foundation — 8/9 DONE (2026-04-03)
+### Phase 1: Foundation — 9/9 DONE (2026-04-10)
 
 | # | Item | Status | File |
 |---|---|---|---|
-| 1 | FE: Camera scripting API (5 `window.__*` functions) | **Done** | `AnimationManager.ts` |
+| 1 | FE: Camera scripting API (5 `window.__*` functions) | **Done (2026-04-13)** | `AnimationManager.ts` — active in `?recording=true` mode (separate from `?headless=true` validator) |
 | 2 | FE: Type declarations | **Done** | `types.d.ts` |
 | 3 | BE: Data extraction script | **Done** | `video/extract_day_log.py` |
 | 4 | BE: Showrunner prompt + JSON validation | **Done** | `video/showrunner.py` |
 | 5 | BE: TTS pipeline (ElevenLabs / OpenAI TTS) | **Done** | `video/tts.py` — ElevenLabs + OpenAI fallback, [PAUSE] parsing, silence gen |
 | 6 | BE: Recording script (Playwright video) | **Done** | `video/record_scenes.py` |
 | 7 | BE: FFmpeg compositing scripts | **Done** | `video/compose_trailer.py` |
-| 8 | Assets: Generate 3 mood tracks (Suno/Udio) | **Done (2026-04-09)** | Three 75s instrumental tracks in `video/audio/` — `music_intrigue.mp3`, `music_drama.mp3`, `music_wholesome.mp3` |
-| 9 | Validation: Produce first trailer end-to-end | Pending | Requires running frontend + all above |
+| 8 | Assets: Generate 3 mood tracks (Suno/Udio) | **Done (2026-04-09)** | Three 75s instrumental tracks in `video/audio/` |
+| 9 | Validation: Produce first trailer end-to-end | **Done (2026-04-10)** | Sim `20260407-2` / Ivan Pistsov — 5 scene clips with Phaser tilemap + music + end card. Camera directives and step animation now unblocked by FE `?recording=true` (2026-04-13); re-run after `record_scenes.py` URL swap. |
 
 **Also built:** `video/generate_trailer.py` — CLI orchestrator tying Steps 1-5 together.
 
