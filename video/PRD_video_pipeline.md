@@ -1,557 +1,345 @@
-# PRD: Day-in-Life Video Pipeline
+# PRD: Video Trailer Pipeline
 
-> **Status:** In Progress
+> **Status:** Day-in-life pipeline — shipped (MVP). Sim-wide trailer types — planned.
 > **Author:** Ivan
-> **Date:** 2026-04-03
-> **Updated:** 2026-04-14 — Context pipeline and showrunner quality overhaul complete. See milestones below.
-> **Source:** [MVP Video Playbook](1.MVP_video_playbook.md)
-
-### Milestone log
-
-| Date | Milestone |
-|---|---|
-| 2026-04-10 | First end-to-end trailer produced (Ivan Pistsov / `20260407-2`). 5 scene clips + music + subtitles + end card → MP4. |
-| 2026-04-13 | Frontend `?recording=true` mode live (`double-front` branch `local`): camera API + `__executeMovementsForStep` active, Supabase stream suppressed, UI chrome hidden. Headless validator path untouched. |
-| 2026-04-14 | **Plan B** — Consecutive-step segments: showrunner now produces 2–4 clips with `key_steps` as consecutive integers (e.g. `[12,13,14]`); eliminates character teleportation between clips; validator enforces consecutiveness and 2–4 scene count. |
-| 2026-04-14 | **Supabase-native context builder** — `extract_day_log.py` replaced raw memory dump with typed, sim-scoped `dbl_get_sim_memories` queries + activity-transition timeline downsampling (~60–100 entries vs all 750). Context size is now O(constant) regardless of sim length. |
-| 2026-04-14 | **RIR focal-point retrieval** — `dbl_retrieve_with_rir` extended with optional `p_simulation_id` (backward-compatible 10-param overload, migration `20260414_dbl_retrieve_rir_sim_scope.sql`). `extract_day_log.py` now uses three showrunner-specific focal points to retrieve the most dramatically relevant memories via the HNSW vector index; falls back to poignancy-only if embeddings unavailable. |
+> **Originated:** 2026-04-03
+> **Last Updated:** 2026-04-15
+> **SOT:** `D:\Coding\double-docs\sot\sot_video.md`
+> **Source playbook:** `1.MVP_video_playbook.md`
 
 ---
 
-## TODOs
+## 0. How to Read This Doc
 
-1. **Mood tracks (asset work)** — **Done (2026-04-09)** — Three 75s instrumental tracks processed and placed in `reverie/backend_server/video/audio/`.
-2. **End-to-end validation** — **Done (2026-04-10)** — First trailer produced for sim `20260407-2` / Ivan Pistsov. 5 scene clips + music + subtitles + end card → MP4 output. See "Known issues" below for quality gaps.
-3. **Camera API integration** — **Done (2026-04-13)** — Introduced `?recording=true` mode in `double-front` that renders tilemap + sprites, exposes the 5 camera functions and `__executeMovementsForStep`, suppresses the Supabase realtime coord stream, and hides UI chrome. `?headless=true` validator path (lightweight, no tilemap) is preserved for simulation generation at scale. **Remaining:** update `record_scenes.py` to navigate to `?recording=true` (drop `?headless=true`, the SwiftShader flag, the CSS UI-hiding injection, and the 30s FFmpeg head-trim), then remove the `if Director API available` guards.
-4. **Narration** — ElevenLabs TTS fallback to OpenAI now works (401 → auto-retry with OpenAI). Ivan fixed ElevenLabs auth in a parallel branch. Next pass will include voice-over.
-5. **SFX library** — Source 12 clips for transitions and emphasis (see playbook §8). Phase 2.
-6. **Quality checklist automation** — Automated pass/fail gate on output duration, word count, structure. Phase 2.
-
-### Known issues (from first trailer, 2026-04-10)
-
-- **No camera scripting in recorded footage** — **Resolved on FE (2026-04-13)** via `?recording=true` mode. Awaiting `record_scenes.py` URL swap to take effect in produced trailers.
-- **Static scenes** — **Resolved on FE (2026-04-13)** — `__executeMovementsForStep` is active in recording mode. Awaiting `record_scenes.py` URL swap.
-- **Subtitles timing approximate** — SRT generation uses rough offsets from `time_range_sec` rather than actual narration timing. Will improve once narration audio is included.
-- **End card font warning** — Fontconfig error on Windows ("Cannot load default config file"). End card still renders but font fallback may vary. Low priority.
+The day-in-life 60s pipeline is built and running. Sections 1-2 are a compact reference for what shipped. Section 3 lists what's still open on the day-in-life pipeline, ordered by urgency. Section 4 introduces three new **sim-wide** trailer types (Announce, Opening, Sim-day-overview) with implementation plans. Section 5 covers shared assets/infrastructure those new types unlock. Section 6 covers risks and acceptance criteria.
 
 ---
 
-## Implementation Status
+## 1. Shipped (Day-in-Life 60s Trailer)
 
-| Component | Status | Location |
-|---|---|---|
-| **Data Extraction** | Done | `reverie/backend_server/video/extract_day_log.py` |
-| **Showrunner LLM** | Done | `reverie/backend_server/video/showrunner.py` |
-| **TTS Narration** | Done | `reverie/backend_server/video/tts.py` — ElevenLabs (ID: cIO62fcmCSQhE0DE2WS2) + OpenAI fallback |
-| **Mood Music Tracks** | Done | Three 75s instrumental tracks in `reverie/backend_server/video/audio/` — `music_intrigue.mp3`, `music_drama.mp3`, `music_wholesome.mp3` |
-| **Camera Scripting API** | Done (2026-04-13) | `double-front: AnimationManager.ts`, `types.d.ts`; 5 `window.__*` functions + `__executeMovementsForStep` active in `?recording=true` mode. Headless validator path preserved. |
-| **Playwright Recording** | Done | `reverie/backend_server/video/record_scenes.py` — uses normal mode + SwiftShader + CSS UI hiding + FFmpeg trim |
-| **FFmpeg Compositing** | Done | `reverie/backend_server/video/compose_trailer.py` — absolute paths for concat, `-vn` for MP3 cover art, tail-of-stderr logging |
-| **CLI Orchestrator** | Done | `reverie/backend_server/video/generate_trailer.py` — music library fallback + auto-copy |
-| **End-to-end validation** | **Done (2026-04-10)** | First trailer produced: 5 scenes with real Phaser tilemap + music + subtitles + end card. Camera directives not yet connected (see Known Issues). |
+**What exists today:** a 5-stage fully-automated pipeline producing a 60s Truman-Show-styled MP4 from a completed simulation day. One CLI command, ~5 minutes end-to-end, idempotent per-artifact.
 
-**Merge note:** All backend code is in a new `reverie/backend_server/video/` package with zero overlap against Nicolas's `integration/20260330-local-hardening-rebuild` branch. Frontend changes are additive-only appends in a separate repo.
-
----
-
-## 1. Problem Statement
-
-Double generates rich simulation data — personas plan, move, converse, reflect — but there is no way to turn a completed simulation day into a shareable artifact. Users and the team lack a fast path from "simulation finished" to "60-second trailer I can post."
-
-## 2. Product Vision
-
-Truman Show-styled 60-second day-in-life trailers, generated semi-automatically from simulation data. A warm omniscient narrator tells the story; top-down gameplay footage provides visual evidence. The output is a social-ready MP4 (9:16 vertical + 16:9 landscape).
-
-**Core storytelling principle:** The sprites are *evidence*. The narrator is the *storyteller*. The viewer watches surveillance footage narrated by someone who knows everything.
-
-## 3. Goals & Success Metrics
-
-| Goal | Metric | Target |
-|---|---|---|
-| Time to trailer | End-to-end production time | < 5 min fully automated |
-| Story quality | Dramatic irony present; open-ended close | 100% of trailers pass quality checklist |
-| Shareability | 9:16 crop with readable subtitles at mobile size | Every trailer exports both aspect ratios |
-| Engagement proxy | First 3 seconds would stop a thumb-scroller | Validated via internal review |
-
-## 4. Users & Personas
-
-| User | Need |
-|---|---|
-| **Internal team** (MVP) | Produce demo trailers from completed sims for marketing/investor content |
-| **Simulation operator** | Generate a trailer for any sim day with minimal manual work |
-| **End user** (future) | Receive auto-generated day recap videos of their personas |
-
-## 5. Scope
-
-### 5.1 In scope (MVP)
-
-- Single protagonist, single simulation day
-- 5-step fully automated pipeline: Data Extraction → Showrunner LLM → Audio Production → Video Capture → Compositing
-- **Automated video capture** via Playwright headless recording + frontend camera scripting API
-- Automated data extraction from Supabase
-- Automated LLM showrunner call producing structured trailer script (JSON)
-- Automated TTS narration rendering
-- Pre-generated mood music library (3 tracks)
-- FFmpeg-based compositing and export
-- Two output formats: 16:9 master + 9:16 social crop
-
-### 5.2 Out of scope (MVP)
-
-- Multi-protagonist or ensemble trailers
-- Real-time generation during simulation
-- User-facing UI for trailer configuration
-- Multi-day or season recap trailers
-- In-browser `MediaRecorder` canvas export (Playwright video recording is sufficient)
-
----
-
-## 6. Pipeline Architecture
-
-```
-Simulation day completes
-  │
-  ▼
-┌───────────────────────────┐
-│  STEP 1: Data Extraction  │  Automated (~5s)
-│  Supabase queries         │  → day_log JSON
-└───────────┬───────────────┘
-            ▼
-┌───────────────────────────┐
-│  STEP 2: Showrunner LLM   │  Automated (~30-60s)
-│  Single Tier C call       │  → trailer script JSON
-└───────────┬───────────────┘
-            ▼
-┌───────────────────────────┐
-│  STEP 3: Audio Production  │  Automated (~30s)
-│  TTS + mood track select  │  → narration.mp3 + music
-└───────────┬───────────────┘
-            ▼
-┌───────────────────────────┐
-│  STEP 4: Video Capture     │  Automated (~2-3 min)
-│  Playwright + camera API  │  → scene clips (WebM)
-└───────────┬───────────────┘
-            ▼
-┌───────────────────────────┐
-│  STEP 5: Compositing       │  Automated (~2 min)
-│  FFmpeg assembly          │  → final MP4 (16:9 + 9:16)
-└───────────────────────────┘
+```bash
+python -m video.generate_trailer <sim_code> <persona_name> [--output-dir ./trailer] [--force]
 ```
 
-**Total pipeline time: ~5 minutes, fully automated.** No manual screen recording.
-
----
-
-## 7. Functional Requirements
-
-### FR-1: Data Extraction — `video/extract_day_log.py` (DONE)
-
-| ID | Requirement | Priority | Status |
+| Stage | Module | What it does | Status |
 |---|---|---|---|
-| FR-1.1 | Query `dbl_memory` for protagonist's day: events, thoughts, chats (up to 500 memories) | P0 | Done |
-| FR-1.2 | Query `personas_coords` for full position history (all steps in sim day) | P0 | Done |
-| FR-1.3 | Query `persona_scratch` for daily plan, schedule, relationship affinities | P0 | Done |
-| FR-1.4 | Query all personas' positions for proximity/co-location detection | P1 | Done |
-| FR-1.5 | Assemble into a single `day_log` JSON with sections: protagonist profile, timeline, conversations, reflections, highlight_stats | P0 | Done |
-| FR-1.6 | Include `highlight_stats`: total events, total conversations, total reflections, max-poignancy event, unique locations, personas interacted with | P1 | Done |
+| 1. Data extraction | `video/extract_day_log.py` | Supabase queries → `day_log.json`. Sim-scoped memory retrieval via `dbl_retrieve_with_rir` (10-param overload, HNSW focal-point search). Verbatim chat transcripts from `movement.chat` with importance-threshold selection (turns ≥ 3 + protagonist speaks; hard-cap 25, floor-backfill 5). Optional `--day N` scope for multi-day sims. Sim-mode auto-detection (`standard` vs `survival`) via `scratch.survival`; Survival sims additionally emit `survival_context` (alive/eliminated/immune rosters, phase, challenge). | **Done** |
+| 2. Showrunner LLM | `video/showrunner.py` | Single Tier C (`gpt-5.2`) call → `script.json`. Each retry carries a unique `routing_step_id` so `TIER_C_MAX_CALLS_PER_STEP=1` cannot demote retries to Tier B. Mode-aware prompt — base for standard sims; Survival appends a HOOK→COALITION→VOTE→STINGER beat sheet with required vote scene and named stakes. "Attenborough-meets-TikTok" voice: concrete > poetic, ≤1 metaphor per scene, ~2.7 words/sec, 140-170 word target. Enforces 2-4 scenes, consecutive `key_steps` (2-5 items), 100-200 word narration, [PAUSE] marker, ≤2 dialogue excerpts *total*, ≤3 subtitle cards. 3-attempt retry with offending-scene feedback echoed back verbatim. | **Done** |
+| 3. TTS narration | `video/tts.py` | ElevenLabs (voice `cIO62fcmCSQhE0DE2WS2`, stability 0.65 / clarity 0.75 / style 0.40) → OpenAI `tts-1-hd`/`onyx` fallback. Honors `[PAUSE Ns]` as FFmpeg-generated silence. | **Done** |
+| 4. Video capture | `video/record_scenes.py` | Playwright records one WebM per scene. Navigates to `?recording=true`, drives playback via `window.__executeMovementsForStep` + 5 `window.__*` camera functions. | **Done** |
+| 5. Compositing | `video/compose_trailer.py` | FFmpeg: concat WebM clips → MP4, mix narration + music (music ducked 6-9 dB under VO), SRT subtitles, dynamic end card (drawtext), 1920×1080 master + 1080×1920 crop, `-t 60` hard cap. | **Done** |
 
-**Output schema:** See playbook §3c for full `day_log` JSON structure.
-**CLI:** `python -m reverie.backend_server.video.extract_day_log <sim_code> <persona_name> [--output day_log.json]`
+**Frontend:** `?recording=true` mode active in `double-front` as of 2026-04-13. Exposes 5 camera functions + `__executeMovementsForStep` on `window`, renders tilemap + sprites, suppresses Supabase realtime coord stream, hides UI chrome. Headless validator (`?headless=true`) path untouched.
 
-### FR-2: Showrunner LLM — `video/showrunner.py` (DONE)
+**Orchestrator:** `video/generate_trailer.py` runs all 5 stages sequentially. Skips any stage whose output artifact exists; `--force` regenerates everything.
 
-| ID | Requirement | Priority | Status |
-|---|---|---|---|
-| FR-2.1 | Single LLM call using Tier C model (gpt-5.2 or equivalent) | P0 | Done — routes via `GPT_request` with direct OpenAI fallback |
-| FR-2.2 | System prompt enforces: 60s duration, 5 scenes max, one protagonist, omniscient 3rd person, dramatic irony, open-ended close | P0 | Done |
-| FR-2.3 | Output is valid JSON matching trailer script schema: title, mood, logline, narrator_script (with `[PAUSE]` and `[SCENE]` markers), scenes array, end_card | P0 | Done — schema validation + retry |
-| FR-2.4 | Each scene specifies: label (hook/setup/development/turn/close), time_range_sec, step_range, camera directives, transitions, narrator_lines, optional subtitle_card and key_dialogue | P0 | Done |
-| FR-2.5 | Mood selection from three options: intrigue, drama, wholesome | P0 | Done — validated |
-| FR-2.6 | Narration word count constrained to 120-150 words | P0 | Done — validated (80-200 tolerance with warning) |
-| FR-2.7 | At least one 2-3s silence marker in the script | P1 | Prompt-enforced, not validated |
-| FR-2.8 | Maximum 2 dialogue excerpts, maximum 3 subtitle cards | P1 | Prompt-enforced, not validated |
+**Mood music library:** three 75s instrumental tracks in `video/audio/` — `music_intrigue.mp3`, `music_drama.mp3`, `music_wholesome.mp3`. Normalized −16 LUFS, MP3 192kbps, 1.5s fade-out.
 
-**CLI:** `python -m reverie.backend_server.video.showrunner <day_log.json> [--output script.json]`
-
-### FR-3: Audio Production (Done)
-
-| ID | Requirement | Priority | Status |
-|---|---|---|---|
-| FR-3.1 | Render narrator VO from script via TTS (ElevenLabs preferred; OpenAI TTS fallback) | P0 | **Done** — `video/tts.py`: ElevenLabs narration generation (ID: cIO62fcmCSQhE0DE2WS2) + OpenAI tts-1-hd fallback; metadata stripping and Audio Tags mapping implemented for dynamic tone |
-| FR-3.2 | Voice profile: warm, mature (40-60 age feel), documentary narrator tone, ~2.0-2.5 words/sec (ElevenLabs ID: cIO62fcmCSQhE0DE2WS2) | P0 | **Done** — stability=0.65, clarity=0.75, style=0.40; OpenAI fallback uses "onyx" voice at speed=0.9 |
-| FR-3.3 | Honor `[PAUSE Ns]` markers as literal silence in audio | P0 | **Done** — `parse_narrator_script()` splits on `[PAUSE Ns]` and `[SCENE N]` markers; silence generated via FFmpeg |
-| FR-3.4 | Select mood track from pre-generated library (intrigue/drama/wholesome) | P0 | **Done** — three 75s instrumental tracks in `video/audio/` (`music_intrigue.mp3`, `music_drama.mp3`, `music_wholesome.mp3`); code selection logic in `generate_trailer.py` |
-| FR-3.5 | Trim mood track to 75s (15s headroom) | P1 | **Done (2026-04-09)** — trimmed/normalized via FFmpeg (–16 LUFS, MP3 192 kbps, 1.5s fade-out) |
-| FR-3.6 | Source 12 SFX clips for transitions and emphasis (see playbook §8) | P2 | Pending |
-
-**Generated Assets (Mood Tracks – Initial Versions):**
-- **Intrigue (80-95 BPM, C minor):** 38s v5.5 [Reverie Watch](https://suno.com/s/eS6DTP7ugNrG5H8h) (expressive base); 3:11 v4.5 [Glasswatch Reliquary](https://suno.com/s/ktRAlf0JHSigf1oq) (free longer var). Notes: Good sparse piano; needs extension for full arc/silence.
-- **Drama (100-115 BPM, D minor):** 1:00 [Cello Drought](https://suno.com/s/j5YDuTDi7E3wCSod) (slow build); 3:53 [Dminor Timpani](https://suno.com/s/ceFm24756iRdI8rm) (similar mood, longer). Notes: Cello lead promising but lacks punch/escalation; full rewrite recommended.
-- **Wholesome (90-105 BPM, G major):** 0:31 v5.5 [Kindness Meter](https://suno.com/s/T5CofHlIDJTcp75S) (warm, nice!); 3:00 v4.5 [Ginger Cake](https://suno.com/s/PSpChKRDa7lSypBI) (free, almost as good). Notes: Strong acoustic feel; extend for gentle peak/resolve.
-
-**Music tracks:** 3 pre-generated on Suno/Udio, trimmed and normalized to 75s each via FFmpeg (–16 LUFS, MP3 192 kbps), instrumental only, energy arc mapped to beat sheet. Final tracks in `reverie/backend_server/video/audio/`. See playbook Appendix A for generation prompts.
-
-**Workaround:** The pipeline runs without audio — compositing generates a silence placeholder. Drop `narration.mp3` and/or `music_{mood}.mp3` into the `audio/` directory to include them.
-
-### FR-4: Video Capture (Automated — Playwright Recording) — `video/record_scenes.py` (DONE — normal mode workaround)
-
-Video capture is fully automated using two components: a **camera scripting API** exposed on the frontend (5 new `window.__*` functions), and **Playwright's built-in video recording** which captures the rendered Phaser canvas at the compositor level — including sprite animations, camera tweens, and zoom/pan — without needing `MediaRecorder` or canvas access.
-
-**How it works:** For each scene in the showrunner script, a Playwright browser context is created with `record_video_dir` enabled. The recording script navigates to the simulation playback URL, applies camera directives (zoom, follow, pan) via the exposed `window.__*` functions, then plays through the step range using the existing `window.__executeMovementsForStep()`. When the context closes, Playwright auto-saves the video clip.
-
-| ID | Requirement | Priority | Status |
-|---|---|---|---|
-| FR-4.1 | Record each scene as a separate clip via Playwright video recording (one browser context per scene) | P0 | Done |
-| FR-4.2 | Parse showrunner JSON to extract per-scene camera directives: step_range, zoom, follow target, playback speed | P0 | Done |
-| FR-4.3 | Capture at 1920x1080, output as WebM (converted to MP4 in compositing step) | P0 | Done |
-| FR-4.4 | Apply camera directives before playback: initial zoom, follow persona, pan to coordinates | P0 | Done |
-| FR-4.5 | Play through step range using `window.__executeMovementsForStep()` per step | P0 | Done |
-| FR-4.6 | Animate zoom transitions (start_zoom → end_zoom) during scene playback | P1 | Done — tween at end of scene |
-| FR-4.7 | Handle transitions: time-lapse via `__setPlaybackSpeed`, focus-shift via sequential follow/unfollow | P1 | Done — speed via directive |
-| FR-4.8 | Fallback: screenshot + Ken Burns (key-frame stills with slow zoom animation) if Playwright video unavailable | P2 | Pending |
-
-**CLI:** `python -m reverie.backend_server.video.record_scenes <sim_code> <script.json> [--output-dir ./trailer/raw]`
-
-### FR-4A: Frontend Camera Scripting API — `AnimationManager.ts` + `types.d.ts` (DONE — 2026-04-13, active in `?recording=true` mode)
-
-Five new functions exposed on `window` in `AnimationManager.ts`, following the existing `window.__executeMovementsForStep` pattern. These extend the existing `CameraController` — no new Phaser subsystems needed.
-
-| ID | Requirement | Priority | Status |
-|---|---|---|---|
-| FR-4A.1 | `window.__setCameraZoom(level, durationMs?)` — tween camera to target zoom (0.5-2.0) with `Sine.easeInOut` | P0 | Done |
-| FR-4A.2 | `window.__panCameraTo(tileX, tileY, durationMs?)` — tween camera scroll to center on tile coordinates | P0 | Done |
-| FR-4A.3 | `window.__followPersona(personaName)` — start camera tracking on named sprite via existing `CameraController.startTracking()` | P0 | Done |
-| FR-4A.4 | `window.__unfollowPersona()` — release camera tracking via existing `CameraController.stopTracking()` | P0 | Done |
-| FR-4A.5 | `window.__setPlaybackSpeed(multiplier)` — set `scene.tweens.timeScale` to control animation speed (1x, 2x, 5x, 10x, 25x) | P0 | Done |
-| FR-4A.6 | Add TypeScript declarations for all 5 functions to `types.d.ts` | P0 | Done |
-
-**Implementation reference:**
-
-```typescript
-// In AnimationManager.ts constructor, alongside existing window.__executeMovementsForStep
-
-window.__setCameraZoom = (level: number, durationMs: number = 1000) => {
-  const cam = this.scene.cameras.main;
-  this.scene.tweens.add({
-    targets: cam, zoom: level,
-    duration: durationMs, ease: 'Sine.easeInOut'
-  });
-};
-
-window.__panCameraTo = (tileX: number, tileY: number, durationMs: number = 1000) => {
-  const cam = this.scene.cameras.main;
-  const px = tileX * TILE_SIZE, py = tileY * TILE_SIZE;
-  this.scene.tweens.add({
-    targets: cam,
-    scrollX: px - cam.width / 2, scrollY: py - cam.height / 2,
-    duration: durationMs, ease: 'Sine.easeInOut'
-  });
-};
-
-window.__followPersona = (name: string) => {
-  const sprite = this.spriteMap.get(name);
-  if (sprite) this.cameraController.startTracking(sprite, name, false);
-};
-
-window.__unfollowPersona = () => {
-  this.cameraController.stopTracking(true);
-};
-
-window.__setPlaybackSpeed = (multiplier: number) => {
-  this.scene.tweens.timeScale = multiplier;
-};
+**Output:**
+```
+trailer_{sim_code}_{persona}/
+├── day_log.json       (stage 1, reused)
+├── script.json        (stage 2, reused)
+├── audio/             narration.mp3 + music_{mood}.mp3
+├── raw/               scene_N_*.webm
+└── output/            trailer_16x9.mp4 + trailer_9x16.mp4
 ```
 
-### FR-5: Compositing & Export — `video/compose_trailer.py` (DONE)
-
-| ID | Requirement | Priority | Status |
-|---|---|---|---|
-| FR-5.1 | Concatenate scene clips with crossfade transitions via FFmpeg | P0 | Done — concat demuxer |
-| FR-5.2 | Mix audio: narration + music, music ducked 6-9 dB under VO | P0 | Done — amix with volume ducking |
-| FR-5.3 | Overlay subtitle/dialogue text (SRT/ASS format, timed from showrunner output) | P1 | Done — SRT generated from script.json |
-| FR-5.4 | Add end card ("DAY N — THE VILLE" + subtitle) at 0:58-1:00 | P0 | **Done** — FFmpeg drawtext in `compose_trailer.py:generate_end_card()` |
-| FR-5.5 | Export 16:9 master (1920x1080) | P0 | Done |
-| FR-5.6 | Export 9:16 social crop (1080x1920, center-cropped) | P0 | Done |
-| FR-5.7 | Total duration: 58-62 seconds | P0 | Done — `-t 60` flag |
-
-**CLI:** `python -m reverie.backend_server.video.compose_trailer <trailer_dir> [--output trailer_16x9.mp4]`
-
 ---
 
-## 8. Beat Sheet (60-Second Structure)
+## 2. Reference — Beats, Moods, Transitions, Acceptance
 
-Every trailer follows this rhythm. The showrunner LLM produces scenes mapping to these beats:
+### 2.1 Beat sheet (60s)
 
 | Beat | Time | Duration | Purpose | Camera | Music |
 |---|---|---|---|---|---|
-| **Hook** | 0:00-0:08 | 5-8s | Most surprising moment, no context | Tight zoom (1.5-2.0x) | Atmospheric, sparse |
-| **Setup** | 0:08-0:20 | 10-12s | Morning routine, establish normalcy | Bird's-eye (0.5-0.7x) → zoom in | Rhythm enters |
-| **Development** | 0:20-0:38 | 15-18s | Main thread unfolds, key interaction | Medium (1.0-1.2x), follow | Builds, melodic |
-| **Turn** | 0:38-0:50 | 10-12s | Something shifts, reframes the day | Pause or slow push-in, 2-3s silence | Stop-down → swell |
-| **Close** | 0:50-0:58 | 8-10s | Unresolved aftermath | Slow zoom out to bird's-eye | Resolve to single note |
-| **End card** | 0:58-1:00 | 2s | Day/village title | Static | Fade or silence |
+| Hook | 0:00-0:08 | 5-8s | Most surprising moment, no context | Tight zoom 1.5-2.0× | Atmospheric, sparse |
+| Setup | 0:08-0:20 | 10-12s | Morning routine, normalcy | Bird's-eye 0.5-0.7× → zoom in | Rhythm enters |
+| Development | 0:20-0:38 | 15-18s | Main thread, key interaction | Medium 1.0-1.2×, follow | Builds, melodic |
+| Turn | 0:38-0:50 | 10-12s | Something shifts | Pause / slow push-in, 2-3s silence | Stop-down → swell |
+| Close | 0:50-0:58 | 8-10s | Unresolved aftermath | Slow zoom to bird's-eye | Single note |
+| End card | 0:58-1:00 | 2s | Title | Static | Fade |
 
----
+### 2.2 Mood modes
 
-## 9. Mood Modes
-
-| Mode | Trigger | Narrator Tone | Music | Transitions |
+| Mode | Trigger | Narrator tone | Music | Transitions |
 |---|---|---|---|---|
-| **Intrigue** | Mystery, hidden motives, quiet revelation | Curious, conspiratorial | Sparse piano, electronic pulse | Focus shift, card break, fly-over |
-| **Drama** | Conflict, confrontation, emotional stakes | Urgent, empathetic, short sentences | Building strings, percussion | Hard scene cut, silence drop, fade |
-| **Wholesome** | Friendship, kindness, small victories | Warmest, genuine affection | Acoustic guitar, warm piano | Fly-over, time lapse, gentle fades |
+| Intrigue | Mystery, hidden motives | Curious, conspiratorial | Sparse piano, electronic pulse | Focus shift, card break, fly-over |
+| Drama | Conflict, emotional stakes | Urgent, empathetic | Building strings, percussion | Hard cut, silence drop, fade |
+| Wholesome | Friendship, small victories | Warmest, genuine | Acoustic guitar, warm piano | Fly-over, time-lapse, gentle fades |
+
+### 2.3 Transition library
+
+Scene cut • Fly-over (max 1×/trailer) • Time-lapse (10-25×) • Focus shift • Card break • Fade to black.
+
+### 2.4 Acceptance (day-in-life)
+
+Story: protagonist named in first line · dramatic irony present · unresolved close · one "devastating observation" line.
+Technical: 58-62s duration · 140-170 word narration (100-200 hard bounds) · ≥1 silence beat · ≤2 dialogue excerpts *total* · ≤3 subtitle cards · music ducked clearly · end card readable.
+Social: 9:16 crop with key elements visible · subtitles readable at mobile size · first 3s thumb-stop.
+
+### 2.5 Camera scripting API (frontend, `window.__*`)
+
+`__setCameraZoom(level, durationMs?)` · `__panCameraTo(tileX, tileY, durationMs?)` · `__followPersona(name)` · `__unfollowPersona()` · `__setPlaybackSpeed(multiplier)` · `__executeMovementsForStep(data)` (pre-existing).
 
 ---
 
-## 10. Transition Library
+## 3. TODO — Day-in-Life Pipeline (Ordered by Urgency)
 
-Six transition types available to the showrunner:
+### P1 — Quality gates and hardening
 
-| Transition | Use Case | Duration | Audio |
-|---|---|---|---|
-| **Scene Cut** | Between any scenes (workhorse) | 0 frames | Optional soft whoosh |
-| **Fly-Over** | Major location change (max 1x/trailer) | 3-4s | Slow whoosh + ambient |
-| **Time Lapse** | Compress routine/transit (10-25x speed) | 3-6s | Clock tick sequence |
-| **Focus Shift** | Same location, shift between sprites | 1-2s | None |
-| **Card Break** | Time jumps, context, dramatic emphasis | 1.5-2.5s | Typing SFX |
-| **Fade to Black** | Act breaks, before/after turn | 1.5-2.5s | Music continues or stops |
+**TODO-2c. Validate Survival-mode trailer end-to-end.** Mode-aware code shipped 2026-04-15 but only exercised on a non-Survival sim (20260413-1 is a family fork). Pick a recent true Survival sim (e.g. from `past-sims-reports/20260410-survival-800/`) and run the pipeline against it. Check: opening line names stakes, at least one scene at late-evening steps covering the vote, end-card names elimination, narration uses competition vocabulary not metaphor.
 
----
+**TODO-2b. Verify chat memory persistence end-to-end.** Sim `20260413-1` has 0 rows of `memory_type='chat'` in `dbl_memory` despite 174 steps with `movement.chat` data — the real-time `add_chat` → `hybrid_memory_store` path is silently failing for at least one sim config. Write a 20-line diagnostic that, after a sim run, counts `dbl_memory` chat rows vs `movement.chat` occurrences and flags any gap. Not blocking for trailers (extractor reads `movement.chat` directly), but the cognitive loop's RIR retrieval of past-day conversations depends on this working for multi-day memory.
 
-## 11. Output Artifacts
+**TODO-4. Subtitle timing from actual narration audio.** SRT generation currently uses rough `time_range_sec` offsets from the script. Parse the produced `narration.mp3` waveform (or ElevenLabs per-word timestamps) and emit SRT from those, not script intent.
 
-Per trailer, the pipeline produces:
+**TODO-5. Quality-gate automation.** Ship a `validate_trailer.py` that runs the §2.4 acceptance list on any produced MP4: duration bounds, narration word count (via Whisper or ElevenLabs), end-card presence, 9:16 crop check. Pass/fail gate in `generate_trailer.py`.
 
-```
-trailer_{sim_code}_day{N}/
-├── raw/                        # Scene clips (Playwright auto-capture)
-│   ├── scene_1_hook.webm
-│   ├── scene_2_setup.webm
-│   ├── scene_3_development.webm
-│   ├── scene_4_turn.webm
-│   └── scene_5_close.webm
-├── audio/
-│   ├── narration.mp3           # TTS output
-│   ├── music_{mood}.mp3        # Selected mood track (75s)
-│   └── sfx/                    # Transition sounds
-├── cards/
-│   ├── title_card.png          # End card
-│   └── card_*.png              # Subtitle cards
-├── output/
-│   ├── trailer_16x9.mp4        # Master (1920x1080)
-│   └── trailer_9x16.mp4        # Social crop (1080x1920)
-├── description.md              # Timestamped links to key moments (Post-MVP: clickable with step/focus/zoom)
-├── day_log.json                # Extracted simulation data
-└── script.json                 # Showrunner LLM output
-```
+**TODO-6. 9:16 crop readability validation.** The crop exists but mobile-size readability hasn't been confirmed. Add a visual diff step or a manual checklist pass — verify protagonist stays in frame, subtitles legible at iPhone render size.
 
----
+### P2 — Polish
 
-## 12. Quality Checklist (Acceptance Criteria)
+**TODO-7. SFX library (12 clips).** Transition/emphasis clips per playbook §8. Currently no SFX in output. Phase-2 nice-to-have, not blocking.
 
-### Story
-- [ ] Hook is the most surprising/loaded moment, shown without context
-- [ ] Protagonist named in first narrator line
-- [ ] Dramatic irony present (viewer knows something character doesn't)
-- [ ] Story does NOT fully resolve — ends on open question or quiet image
-- [ ] One "devastating observation" line from the narrator
-- [ ] Logline would make someone curious in one sentence
+**TODO-8. End-card fontconfig on Windows.** Font fallback warning on `drawtext`; card renders but font choice varies. Low priority.
 
-### Technical
-- [ ] Duration: 58-62 seconds
-- [ ] Narration: 120-150 words
-- [ ] At least one 2-3s silence (visual-only beat)
-- [ ] Max 2 dialogue excerpts as text overlay
-- [ ] Max 3 subtitle cards (including end card)
-- [ ] Music ducked under narration (voice clearly audible)
-- [ ] No clipping or audio distortion
-- [ ] End card present and readable
+**TODO-9. Batch scene rendering / camera-script API.** Single `window.__executeCameraScript(json)` call replaces per-directive calls. Low complexity, reduces Playwright orchestration code. Phase 3.
 
-### Pacing
-- [ ] No scene longer than 18 seconds
-- [ ] Speed ramps only during transit/routine, never during emotional moments
-- [ ] Fly-over used max once
-- [ ] Stop-down at the turn (~0:38-0:42)
+**TODO-10. In-browser `MediaRecorder` path.** Alternative capture path with higher quality and native FPS control. Medium complexity. Phase 3, only if Playwright video quality proves insufficient.
 
-### Social Readiness
-- [ ] 9:16 vertical crop exists, key elements visible in crop
-- [ ] Subtitles readable at mobile size
-- [ ] First 3 seconds compelling (thumb-stop test)
+**TODO-11. Phaser-level transition rendering.** Fade/fly-over/card-break as Phaser shader overlays instead of FFmpeg post. Eliminates a compositing step. Phase 3.
+
+### P3 — Longer horizon (day-in-life specific)
+
+**TODO-12. Interactive timestamped descriptions.** Emit `trailer_description.md` with clickable `/simulations/{sim_code}?step={N}&focus={x,y}&zoom={level}` links for each key moment. Requires FE query-param parsing (auto-jump, pan, zoom) and optional sprite highlighting. Builds on camera API.
+
+
+### Completed 2026-04-15
+
+- **TODO-1. `record_scenes.py` → `?recording=true` mode** (commit `45c9f865`). SwiftShader arg, CSS UI-hiding injection, 30s head-trim, and Director-API guards removed.
+- **TODO-2. Gosha Pistsov re-run.** End-to-end validation of `?recording=true` path + day-aware chat extractor on fresh trailer.
+- **TODO-2a. Day-aware chat extraction from `movement.chat`.** Verbatim both-speaker transcripts on position rows, dedup by participant-set + opening utterance, 6 turns × 25 words trim, optional `--day N` scope piped through orchestrator.
+- **Chat selection: importance-threshold.** Replaced fixed top-10 cut with substantive-first selection (turns ≥ 3 AND protagonist speaks), hard-cap 25 for context budget, floor-backfill 5 for sparse sims.
+- **Showrunner retry stabilization.** HARD CONSTRAINTS block with ✓/✗ examples; unique `routing_step_id` per retry (defeats `TIER_C_MAX_CALLS_PER_STEP=1` silent tier demotion); offending-scene echo-back in retry feedback.
+- **Mode-aware showrunner (Survival).** `extract_day_log` auto-detects `scratch.survival` → emits `sim_mode` + `survival_context` (alive/eliminated/immune, phase, challenge). Showrunner appends `SURVIVAL_ADDENDUM` beat sheet (HOOK→COALITION→VOTE→STINGER) with required vote scene, stakes-naming opener, competition vocabulary.
+- **TikTok-paced voice rebalance.** "Attenborough meets TikTok" — concrete > poetic, ≤1 metaphor per scene, ~2.7 words/sec, 140-170 word target (was 120-150).
+- **TODO-3. Schema dump regenerated.** Fresh dump at `supabase/db_schema_20260415.sql` captures the RIR sim-scope migration.
 
 ---
 
-## 13. Technical Dependencies
+## 4. NEW — Sim-Wide Trailer Types
 
-| Dependency | Status | Notes |
+Three new trailer types, none single-protagonist. Each reuses the 5-stage pipeline but replaces stage 1 (data) and stage 2 (showrunner prompt), and may add new capture modes in stage 4.
+
+**Guiding principle (all three):** modern fast-paced format. ≤3s average shot length, hook in first 3 seconds, silence beat every 15-20s, subtitles on every sentence, clear end-card CTA. Bake these as shared defaults in the showrunner prompts.
+
+**Build order (recommended):**
+1. **Sim-day-overview (§4.3)** first — highest frequency (one per sim day), closest to existing pipeline, validates multi-protagonist extension.
+2. **Opening (§4.2)** second — reuses the multi-protagonist + ranking work from (1), adds Day-0 data mode and name-card template.
+3. **Announce (§4.1)** last — most different (no sim footage), needs world-flyover capture mode and one new music track.
+
+### 4.1 Announce Trailer — pre-sim hype teaser
+
+**Purpose:** Introduce Survival as a concept, the setting, the rules, and the cast. Build excitement before Episode 1 drops. No sim has run yet.
+
+**Format:** 45-60s, vertical-first (9:16 master). Fast, kinetic, reveal-style.
+
+**Structure:**
+| Beat | Time | Content |
 |---|---|---|
-| Supabase `dbl_memory` table | Exists | Wired in `extract_day_log.py` |
-| Supabase `personas_coords` table | Exists | Wired in `extract_day_log.py` |
-| Supabase `persona_scratch` table | Exists | Wired in `extract_day_log.py` |
-| Tier C LLM access | Exists | Wired in `showrunner.py` via `GPT_request` + direct fallback |
-| ElevenLabs API | **Done** | TTS for narrator voice — voice created (ID: cIO62fcmCSQhE0DE2WS2); full integration with key, fallback, and tone controls active |
-| OpenAI TTS (fallback) | **Done** | `onyx` voice at 0.9x speed — auto-fallback when ElevenLabs returns 401 |
-| Suno/Udio | **Done** | Three 75s instrumental mood tracks generated and finalized in `video/audio/` |
-| FFmpeg | Local install | Wired in `compose_trailer.py` |
-| Playwright | Exists | Wired in `record_scenes.py` with `record_video_dir` |
-| Phaser frontend playback | Exists | Simulation viewer |
-| `window.__executeMovementsForStep` | Exists | Used by `record_scenes.py` |
-| `CameraController` | Exists | Wrapped by Director API |
-| Camera scripting API (`window.__*`) | **Done** | 5 functions in `AnimationManager.ts` + `types.d.ts` |
+| Hook | 0:00-0:10 | World pan over The Ville; narrator opens with a loaded question |
+| Rules card | 0:10-0:15 | Survival format: goal, elimination mechanic (one kinetic title card) |
+| Cast montage | 0:15-0:45 | Sprite cameos at their assigned homes, 2-3s each, name overlays |
+| Drop card | 0:45-0:60 | Episode 1 drop date + CTA |
+
+**Pipeline changes:**
+
+*Stage 1 (new — `video/extract_announce_context.py`):*
+- Reads persona soul `.md` files (`souls/*.md`) for bios and personalities.
+- Reads location tree (`env_matrix` assets) for world overview.
+- Loads Survival rules from a one-time-written config (`video/survival_brief.json`).
+- Output: `announce_context.json` — no memory stream, no timeline.
+
+*Stage 2 (new prompt — extend `showrunner.py` with `--mode=announce`):*
+- Tier C call, prompt enforces: 60s max, 3 beats (hook / rules / cast), kinetic pacing, no protagonist (ensemble intro), CTA in end card.
+- Output schema: same shape as day-in-life script.json, but scene labels become `hook | rules | cast_montage | drop`.
+
+*Stage 4 (new capture mode — extend `record_scenes.py` with `--mode=announce`):*
+- **World flyover:** scripted pan across The Ville hitting 4-5 key landmarks at 0.5-0.7× zoom.
+- **Cast cameos:** for each featured persona, zoom to their home, render sprite at idle (2-3s), overlay name card. Batch via camera API.
+- No `__executeMovementsForStep` calls — sprites remain idle at Day-0 spawn positions.
+
+*Stage 5 (minor):*
+- Add `music_reveal.mp3` to mood library (see §5).
+- Kinetic title cards via FFmpeg `drawtext` (reuse end-card logic, extend for mid-trailer cards).
+
+**New assets needed:** §5.1, §5.2, §5.3 (cast portraits), §5.4 (kinetic title templates), `music_reveal.mp3`.
+
+### 4.2 Opening Trailer — Day-0 season premiere
+
+**Purpose:** Introduce the cast individually, what makes each of them matter for Survival and what makes Survival matter for them, set the stakes, preview what viewers can expect. Sim has just started — only Day-0 state exists.
+
+**Format:** 2:30-3:00, 16:9 master + 9:16 crop. Character-led, gives faces room to breathe.
+
+**Structure:**
+| Beat | Time | Content |
+|---|---|---|
+| Cold open | 0:00-0:20 | Hook on Survival — "they don't know what's coming" |
+| Cast intros | 0:20-1:50 | 6 featured personas × 15s each: zoom to home, follow 3-5 steps, name card + one-line bio |
+| Relationship reveal | 1:50-2:15 | Affinity graph visualization OR a "who knows whom" montage |
+| Stakes montage | 2:15-2:45 | Fast cuts: alliances forming, conflicts brewing, rules ticking down |
+| End card | 2:45-3:00 | "Day 1 starts tomorrow" + CTA |
+
+**Cast selection:** Not all 15. Feature **6** (configurable) ranked by "storyline potential" score: strongest affinity extremes (highest + lowest relationships in `persona_scratch.relationship_affinities`), most distinct personality traits vs. the group mean, explicit role markers in soul file.
+
+**Pipeline changes:**
+
+*Stage 1 (extend `extract_day_log.py` with `--mode=season_opener`):*
+- Pulls Day-0 scratch only (daily plan, relationship affinities, home assignment, schedule) for every persona.
+- Reads soul `.md` files for personality summaries.
+- Runs cast-scoring to pick top-6 featured personas.
+- Output: `opener_context.json` with `featured_cast[]` (6 persona blocks) + full cast reference + survival rules.
+
+*Stage 2 (extend `showrunner.py` with `--mode=opener`):*
+- **Two-pass LLM:** first pass generates one 10-15s intro beat per featured persona (6 Tier C calls, parallelizable); second pass is a wrapper that writes the cold open, stakes montage, and end card, threading the 6 beats together.
+- Validates: 2:30-3:00 total runtime, 6 cast scenes, cold open + stakes + end card present.
+
+*Stage 4 (extend `record_scenes.py` with `--mode=opener`):*
+- Per-persona intro clip: pan to home → `__followPersona(name)` → replay Day-0 steps 0-5 → name-card overlay.
+- Ensemble relationship-reveal shot (optional): bird's-eye pan with affinity lines drawn via overlay (see §5.5).
+
+*Stage 5:*
+- Extended runtime (180s) — raise `-t` cap.
+- Optional new track `music_anthem.mp3` with lift/build arc.
+- Name-card template reusable across all 6 intros (see §5.4).
+
+**New assets needed:** §5.3 (cast portraits — overlap with Announce), §5.4 (name-card template), §5.5 (affinity-graph overlay, optional), `music_anthem.mp3` (optional).
+
+### 4.3 Sim-Day-Overview Trailer — ensemble daily recap
+
+**Purpose:** Recap the day's most intriguing events from the perspective of 1-3 characters who drove (or were driven by) the day. Tell a story. End with a cliffhanger.
+
+**Format:** 2:30-3:00, 16:9 master + 9:16 crop. 3 minutes is the sweet spot — long enough to tell a real arc, short enough to stay fast-paced. (Avoid 5-min; TikTok/Reels engagement drops past 3.)
+
+**Structure:**
+| Beat | Time | Content |
+|---|---|---|
+| Previously on… | 0:00-0:15 | Bridge card + 10s recap of prior day (skip on Day 1) |
+| Spine narration | 0:15-0:25 | Narrator declares today's narrative arc |
+| Protagonist arcs | 0:25-2:25 | 4-5 scenes × ~25s, interleaved across 1-3 protagonists |
+| Council / vote beat | 2:25-2:45 | If any council / vote / elimination fired today, dedicated visual treatment |
+| Cliffhanger + end card | 2:45-3:00 | Unresolved tension → "Tomorrow…" |
+
+**Protagonist selection:** Extend the existing ranking logic. Score every persona by: poignancy sum of today's memories, conversation count, unique locations visited, participation in council/vote/high-novelty events. Pick **top 1-3** (1 for a quiet day, 3 for a busy one).
+
+**Pipeline changes:**
+
+*Stage 1 (extend `extract_day_log.py` with `--mode=day_overview`):*
+- Run the existing protagonist extraction for each of the top 1-3 personas (RIR focal-point retrieval, typed chat fetch).
+- Compute the shared timeline with all selected protagonists' paths marked.
+- Detect trigger events: council fired? vote cast? Major alliance/conflict shift? Tag these in `day_overview_context.json`.
+- Output: single context doc with `protagonists[]` (1-3 blocks) + shared `timeline` + `trigger_events[]`.
+
+*Stage 2 (extend `showrunner.py` with `--mode=day_overview`):*
+- **Two-stage LLM:**
+  1. **Spine call:** "Given these 1-3 protagonists and today's events, what is the day's narrative arc?" → returns a spine sentence, mood, and which protagonist drives each scene.
+  2. **Scene generation:** per-scene Tier C calls slotted into the spine. Each scene still obeys the consecutive `key_steps` constraint (existing validator carries over).
+- Validates: ≤3 protagonists, ≥1 scene per protagonist, scenes fit within the total runtime budget, spine sentence present.
+
+*Stage 4 (minor extension to `record_scenes.py`):*
+- Sequential scenes per protagonist — no new capture mode needed. Camera API handles `__followPersona(name)` switches.
+- **Defer** picture-in-picture / split-screen for simultaneous POV — add later if needed.
+
+*Stage 5:*
+- Raise `-t` cap to 180s.
+- "Previously on…" bridge-card template (reuse end-card infra).
+- **Council / vote visual treatment:** FFmpeg color-grade filter (e.g. red tint + pulse) applied to scenes tagged with council/vote trigger events. Leans into Survival tone; gives those beats signature weight. The *"the tribe has spoken"* hook in `!next.md` fits here.
+
+**New assets needed:** §5.6 (previously-on template), §5.7 (council/vote color grade), §5.8 (ranking scorer).
 
 ---
 
-## 14. Auto-Recording Architecture
+## 5. Shared Infrastructure & Assets (Unlocks §4)
 
-### How Playwright video recording works
+Numbered for cross-reference from §4. Most of these are small and reusable.
 
-Playwright captures video at the **compositor level** — not DOM screenshots, but actual rendered frames of the browser viewport including the Phaser WebGL canvas. This means sprite animations, camera tweens, and zoom/pan are all captured in full motion without any frontend `MediaRecorder` code.
+### 5.1 Survival format brief (one-time written copy)
+`video/survival_brief.json` — rules, goal, elimination mechanic, tagline. Used by Announce (§4.1) and Opening (§4.2). Written once per season format. ~1h.
 
-```python
-# Playwright creates a video for each browser context automatically
-context = await browser.new_context(
-    viewport={"width": 1920, "height": 1080},
-    record_video_dir="./trailer/raw/",
-    record_video_size={"width": 1920, "height": 1080}
-)
-page = await context.new_page()
-# ... navigate, set camera, play steps ...
-await page.close()
-await context.close()
-# Video file is now saved in record_video_dir
-```
+### 5.2 `music_reveal.mp3` (new mood track)
+75s, big drums + kinetic pulse, reveal/hype arc. Generated on Suno/Udio, normalized −16 LUFS MP3 192kbps (same pipeline as existing three tracks). Used by Announce. ~1h.
 
-### Recording script flow (per scene) — target flow with `?recording=true` (FE done 2026-04-13, BE swap pending)
+### 5.3 Hi-res cast portrait frames
+Scripted renderer: load each persona's sprite atlas, upscale 4×, render against neutral background, export PNG. Used for cast cameos (Announce) and name cards (Opening). ~2h of scripting against existing atlas files. No new art.
 
-```
-For each scene in showrunner script["scenes"]:
-  │
-  1. Create Playwright context with record_video_dir (1920x1080)
-  │
-  2. Navigate to /simulations/{sim_code}?recording=true&step={start_step}
-  │     Recording mode renders tilemap + sprites, exposes camera API, suppresses
-  │     Supabase playback stream, and hides UI chrome via the frontend itself.
-  │
-  3. Wait: window.__headlessReady === true  (up to 30s)
-  │     Fires after the first render tick — tilemap painted, sprites placed at step N.
-  │
-  4. Apply camera directives:
-  │     window.__setCameraZoom(start_zoom, 0)
-  │     window.__setPlaybackSpeed(speed)   (if speed != 1)
-  │     window.__followPersona(name)  OR  window.__panCameraTo(x, y, 0)
-  │     Wait 500ms for camera settle.
-  │
-  5. For each step in [start_step..end_step]:
-  │     window.__movementsComplete = false
-  │     window.__executeMovementsForStep(stepData)
-  │     Wait: window.__movementsComplete === true  (up to 120s)
-  │
-  6. Final zoom transition: window.__setCameraZoom(end_zoom, 2000); wait 2200ms.
-  │
-  7. Close context → Playwright auto-saves raw WebM clip.
-  │
-  8. Rename to scene_{id}_{label}.webm
-```
+### 5.4 Name-card overlay template
+FFmpeg drawtext + optional PNG badge. Parametric: `{name}`, `{bio_line}`, `{color_accent}`. Reusable across all trailer types. ~2h.
 
-**Deprecated workarounds (no longer needed):** `--use-gl=swiftshader` browser arg, `page.add_style_tag()` UI-hiding CSS, the 30s FFmpeg head-trim, and the `if Director API available` guard checks.
+### 5.5 Affinity-graph overlay (optional, Opening)
+Bird's-eye pan with lines drawn between featured personas colored by affinity score. Implementation options: (a) SVG rendered to PNG and FFmpeg-overlaid, (b) Phaser-side pre-roll scene with a new `window.__renderAffinityGraph(personas)` function. Option (a) is simpler and keeps FE surface area small. ~4h. **Skip in v1 if time-constrained.**
 
-### Existing infrastructure leveraged
+### 5.6 "Previously on…" bridge-card template
+FFmpeg drawtext + 10s recap strip. Pulls 3-4 keyframes from prior day's trailer (if exists) and stitches with crossfade. Skipped on Day 1. Used by Sim-day-overview. ~3h.
 
-| Component | Location | Reused How |
-|---|---|---|
-| Playwright browser launch | `headless_visualization.py:639` | Same Chromium args, port scanning, URL resolution |
-| `__executeMovementsForStep` | `AnimationManager.ts:835` | Drives step playback identically to sim execution |
-| `__headlessReady` / `__movementsComplete` | `AnimationManager.ts` | Same readiness and completion signals |
-| `CameraController` | `CameraController.ts` | `startTracking`, `stopTracking`, zoom — wrapped by 5 new `window.__*` functions |
-| Step data fetch | API Gateway `/api/simulations/{sim}/step/{N}` | Same endpoint used during headless sim runs |
+### 5.7 Council / vote visual treatment
+FFmpeg filter chain: red tint (`colorchannelmixer`) + subtle pulse (`eq` with brightness keyframes) + optional vignette. Applied to scenes tagged `trigger_event: council|vote|elimination`. ~2h.
 
-### Post-MVP enhancements
+### 5.8 Persona impact-ranking scorer
+`video/persona_ranker.py` — shared module used by Opening (cast selection) and Sim-day-overview (protagonist selection). Inputs: persona list + day log. Scoring: poignancy sum, conversation count, unique locations, trigger-event participation, relationship-extreme indicator. Output: ranked list with scores. ~4h.
 
-| Enhancement | Value | Complexity |
-|---|---|---|
-| **In-browser `MediaRecorder`** on Phaser canvas | Higher quality, native FPS control | Medium — ~200 lines FE, `?director=true` param |
-| **Batch scene rendering** (`window.__renderScenes`) | Single call renders all scenes | Low — wrapper over camera API + MediaRecorder |
-| **Built-in transition rendering** (fade, fly-over, card-break) | Eliminates FFmpeg transition step | Medium — Phaser shader/overlay effects |
-| **Composite camera script** (`window.__executeCameraScript`) | Single declarative JSON replaces per-call directives | Low — loop over directives with setTimeout |
+### 5.9 Showrunner mode dispatch
+Refactor `showrunner.py` to accept `--mode={day_in_life|announce|opener|day_overview}` with per-mode prompt templates and per-mode validators. Prompt templates live under `video/prompts/`. ~4h, done once, all modes benefit.
+
+### 5.10 Multi-mode orchestrator
+Extend `generate_trailer.py` to `generate_trailer.py --mode={...}`. Each mode calls the appropriate stage-1 extractor, stage-2 mode, and stage-4 capture mode. Stages 3 and 5 unchanged across all modes. ~3h.
 
 ---
 
-## 15. Risks & Mitigations
+## 6. Risks, Dependencies, Acceptance
+
+### 6.1 Risks (new for sim-wide trailers)
 
 | Risk | Impact | Mitigation |
 |---|---|---|
-| Showrunner LLM produces invalid JSON | Blocks pipeline | Schema validation + retry with error feedback |
-| TTS voice quality varies across narration lengths | Poor audio | Test calibration line; tune stability/clarity params |
-| Playwright video framerate too low for smooth animation | Choppy footage | Reduce `HEADLESS_SPEED_MULTIPLIER`; slow tween timeScale during recording |
-| Camera tween completes before recording starts | Missed visual | Use `durationMs=0` for initial setup; start tweens only after first step executes |
-| Music energy arc doesn't align with beat sheet | Pacing feels off | Pre-test each track against sample narration |
-| 9:16 crop cuts off important sprites | Social version unusable | `__followPersona` keeps protagonist centered; validate crop |
-| Narration pacing too fast/slow for 60s | Duration overrun | Enforce 120-150 word budget; TTS speed tuning |
-| WebM → MP4 conversion adds time | Minor delay | FFmpeg remux is ~1s; negligible |
+| Opening trailer at 2:30 fatigues viewers | Low retention past 60s | Ruthless edit pacing in showrunner prompt (≤3s shots, silence beats every 15-20s); A/B against a 90s cut |
+| Sim-day-overview spine call returns weak arc | Flat trailer | Retry with higher temperature + focal-point nudge; fall back to single-protagonist mode if spine quality flag trips |
+| Cast ranking misses obvious protagonist | Wrong featured picks | Expose ranking as a `--featured` CLI override; log top-10 scores for auditability |
+| Council / vote visual too heavy-handed | Breaks tone | Make the color grade opacity configurable; test on wholesome-mood days |
+| World flyover on Announce looks empty | No sprites yet | Render sprites in their spawn positions at idle; do flyover through populated zones only |
+
+### 6.2 Carried-over risks (day-in-life)
+
+Showrunner JSON invalidity → schema validation + 3-attempt retry (mitigated). TTS quality variance → calibration line + stability/clarity params (mitigated). Playwright framerate → timeScale tuning (mitigated). 9:16 crop clipping → `__followPersona` centering (carried — TODO-6).
+
+### 6.3 Technical dependencies
+
+All shipped: Supabase RPCs (`dbl_retrieve_with_rir` 10-param, `dbl_get_sim_memories`, `get_all_step_positions`, `load_persona_scratch`), ElevenLabs + OpenAI TTS, FFmpeg, Playwright, Phaser frontend with `?recording=true` mode, camera scripting API (5 `window.__*` functions), Tier C LLM access.
+
+**New for §4:** soul `.md` reader (exists in sim engine — reuse), survival brief config file (§5.1), `music_reveal.mp3` (§5.2), persona ranker (§5.8), showrunner mode dispatch (§5.9).
+
+### 6.4 Acceptance (per new trailer type)
+
+**Announce:** 45-60s · no memory stream data used · all featured personas appear once · Survival rules card present · drop-date end card · 9:16 crop viable.
+**Opening:** 2:30-3:00 · 6 featured personas (configurable) · one intro beat per persona · stakes montage present · cold open lands in first 3s · CTA end card.
+**Sim-day-overview:** 2:30-3:00 · 1-3 protagonists · spine sentence in narration · council/vote beat present iff triggered today · cliffhanger not resolved · "previously on…" skipped iff Day 1.
+
+All three carry over day-in-life acceptance from §2.4 (narration pacing, silence beats, subtitle caps, music ducking, end-card readability).
 
 ---
 
-## 16. Implementation Phases
+## 7. Milestone Log
 
-### Phase 1: Foundation — 9/9 DONE (2026-04-10)
-
-| # | Item | Status | File |
-|---|---|---|---|
-| 1 | FE: Camera scripting API (5 `window.__*` functions) | **Done (2026-04-13)** | `AnimationManager.ts` — active in `?recording=true` mode (separate from `?headless=true` validator) |
-| 2 | FE: Type declarations | **Done** | `types.d.ts` |
-| 3 | BE: Data extraction script | **Done** | `video/extract_day_log.py` |
-| 4 | BE: Showrunner prompt + JSON validation | **Done** | `video/showrunner.py` |
-| 5 | BE: TTS pipeline (ElevenLabs / OpenAI TTS) | **Done** | `video/tts.py` — ElevenLabs + OpenAI fallback, [PAUSE] parsing, silence gen |
-| 6 | BE: Recording script (Playwright video) | **Done** | `video/record_scenes.py` |
-| 7 | BE: FFmpeg compositing scripts | **Done** | `video/compose_trailer.py` |
-| 8 | Assets: Generate 3 mood tracks (Suno/Udio) | **Done (2026-04-09)** | Three 75s instrumental tracks in `video/audio/` |
-| 9 | Validation: Produce first trailer end-to-end | **Done (2026-04-10)** | Sim `20260407-2` / Ivan Pistsov — 5 scene clips with Phaser tilemap + music + end card. Camera directives and step animation now unblocked by FE `?recording=true` (2026-04-13); re-run after `record_scenes.py` URL swap. |
-
-**Also built:** `video/generate_trailer.py` — CLI orchestrator tying Steps 1-5 together.
-
-### Phase 2: Polish
-10. ~~End card image generation~~ **Done** — FFmpeg drawtext in `compose_trailer.py:generate_end_card()`
-11. Add SFX library (12 clips)
-12. Quality checklist automation (duration, word count, structure validation)
-13. ~~FR-2.7/FR-2.8 validation enforcement~~ **Done** — pause markers, dialogue/card caps in `showrunner.py:validate_script()`
-
-### Phase 3: Enhanced Recording
-14. In-browser `MediaRecorder` on Phaser canvas (higher quality, native FPS)
-15. Composite camera script (`window.__executeCameraScript` — single declarative JSON)
-16. Built-in transition rendering (Phaser-level fade, fly-over, card-break)
-17. Batch scene rendering API
-
-### Phase 4: Interactive Timestamps & Links (Post-MVP)
-18. **Timestamped Video Descriptions**: Generate a shareable description (Markdown/JSON) with clickable timestamps linking to key moments in the trailer or full sim playback. Each link includes step reference, focus point (tile coordinates), and zoom level for precise scene recreation.
-   - **BE Updates**: Extend `generate_trailer.py` to output `trailer_description.md` or JSON. Add API endpoint `/api/simulations/{sim_code}/trailer/{day}/description` that embeds links like `/simulations/{sim_code}?step={N}&focus={x,y}&zoom={level}&mode=playback`.
-   - **FE Updates**: Parse query params in simulation viewer to auto-jump to step, pan to focus coords, and set camera zoom. Highlight points of interest (e.g., glow on sprites/locations).
-   - **Value**: Enables social sharing with "jump to the drama at 0:38" links; boosts engagement by letting viewers explore exact angles/scenes.
-   - **Out of Scope (Initial)**: Dynamic highlighting during playback (e.g., AR overlays); multi-link playlists.
-   - **Dependencies**: Builds on camera scripting API (FR-4A) and playback URL params.
-   - **Metrics**: 100% of key scenes (hook/turn/close) get auto-generated links; validate link accuracy in end-to-end tests.
-
-### Phase 5: Simulation-Level Trailers (Post-MVP)
-19. **Opening Trailer**: A motivational intro video (30-45s) introducing the cast of characters, sim setup, and teaser for expected drama/arcs. Builds anticipation for daily updates.
-   - **Content**: Montage of sprites in their homes/environments; quick bios (name, role, quirk); high-level "what's at stake" narration (e.g., "In The Ville, alliances form and secrets unfold—watch Day 1 tomorrow").
-   - **BE Updates**: New CLI `generate_opening.py` pulling sim metadata (personas, souls, baseline events) into a simplified showrunner prompt. Use existing extraction/recording/compositing pipeline with multi-protagonist support.
-   - **FE Updates**: Extend camera API for ensemble shots (e.g., multi-follow, village fly-over). Add intro-specific highlights (e.g., name tags on sprites).
-   - **Value**: Hooks viewers early, motivates subscription to daily content; positions sim as a "series" worth following.
-   - **Out of Scope (Initial)**: Custom user branding; interactive cast bios.
-   - **Dependencies**: Multi-persona data extraction (extend FR-1); ensemble camera controls.
-   - **Metrics**: Viewer retention on first trailer >70%; qualitative feedback on "motivation to watch more."
-
-20. **Sim Day Summary Trailer**: A 60-90s ensemble recap of the day's major events across 3-5 sprites. Highlights key dramas, ends with evening "voting results" (e.g., affinity shifts, unresolved tensions). Leaves anticipation for the next day.
-   - **Content**: Parallel storylines (e.g., "While Katya studied, Gosha plotted..."); cross-cut between protagonists; narrator teases "Tomorrow, the fallout begins."
-   - **BE Updates**: Extend showrunner to handle multi-sprite day_logs (e.g., top 3-5 by poignancy). CLI `generate_day_summary.py` with aggregated extraction.
-   - **FE Updates**: Support parallel scene rendering (batch multiple personas); add split-screen or quick-cuts for ensemble pacing.
-   - **Value**: Builds communal viewing—viewers catch up on the "big picture" daily; reinforces social dynamics and cliffhangers.
-   - **Out of Scope (Initial)**: Real-time generation (post-day only); viewer-voted highlights.
-   - **Dependencies**: Phase 3 batch rendering; extended LLM prompts for ensemble narratives.
-   - **Metrics**: Coverage of top dramas (80% of high-poignancy events); end-of-trailer "anticipation score" via internal review.
-
-21. **Sim Overview (Closing) Trailer**: A longer (90-120s) finale recapping the entire simulation. Reuses opening elements (cast refresh); spotlights impactful days/characters; weaves human-value stories (e.g., growth, kindness, conflict resolution). Ends with a call-to-action: "Create your own story in The Ville."
-   - **Content**: Arc overview (e.g., "From alliances to betrayals..."); memorable vignettes; reflective narration on themes (e.g., "In 17 days, they showed us resilience"); showcase top characters/stories.
-   - **BE Updates**: New CLI `generate_overview.py` aggregating multi-day logs. Showrunner variant for longer format (more scenes, deeper analysis); include voting/election results if applicable.
-   - **FE Updates**: Extended runtime support (e.g., multi-day step ranges); thematic highlights (e.g., value-based filters like "kindness moments").
-   - **Value**: Provides closure and inspiration—viewers feel they've witnessed an "amazing story"; drives trials ("What a hell! I should try it too!").
-   - **Out of Scope (Initial)**: User-customized overviews; export to social reels.
-   - **Dependencies**: Full sim data aggregation (extend FR-1 for multi-day); longer compositing (FFmpeg tweaks for 2min+).
-   - **Metrics**: Length adherence (90-120s); emotional impact (e.g., 90% "memorable/inspiring" in feedback); CTA click-through if embedded.
+| Date | Milestone |
+|---|---|
+| 2026-04-10 | First day-in-life trailer produced (Ivan Pistsov / `20260407-2`). |
+| 2026-04-13 | FE `?recording=true` mode live — camera API + step animation active. |
+| 2026-04-14 | Plan B — consecutive-step scene segments; eliminates character teleportation. |
+| 2026-04-14 | Supabase-native context builder — O(constant) context size. |
+| 2026-04-14 | RIR focal-point retrieval, sim-scoped (migration `20260414_dbl_retrieve_rir_sim_scope.sql`). |
+| 2026-04-15 | PRD reorganized; three sim-wide trailer types added (Announce, Opening, Sim-day-overview). |
+| 2026-04-15 | Day-aware chat extraction from `movement.chat` (verbatim transcripts, importance-threshold selection replacing top-10 cut, optional `--day N` scope). |
+| 2026-04-15 | Showrunner retry stabilization — HARD CONSTRAINTS prompt block, per-retry `routing_step_id` pins Tier C, offending-scene echo-back in retry feedback. |
+| 2026-04-15 | Mode-aware showrunner — `scratch.survival` auto-detection, Survival beat sheet (HOOK→COALITION→VOTE→STINGER), TikTok-paced voice (140-170 words @ 2.7 w/s). |
