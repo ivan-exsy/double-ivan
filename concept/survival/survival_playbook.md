@@ -762,9 +762,14 @@ else:
 | Threat/risk init | A (`gpt-5-nano`) | Day 1 only, per agent | **New** |
 | Trust calibration | A | Nightly, top-3 changed relationships | **New** |
 | Tiebreak ruling | C (`gpt-5.2`) | Vote ties only (~30% of days) | **New** |
-| Daily plan | B (existing) | Morning, per agent | **Modified input** |
-| Conversation summary | B (existing) | After each conversation | **Modified extraction** |
-| Reflection | A (existing) | Nightly | **Modified input** |
+| Daily plan | B | Morning, per survival agent | **Variant** (`survival_daily_plan_v1`) |
+| Hourly schedule | B | Each schedule break | **Variant** (`survival_hourly_schedule_v1`) |
+| Task decomposition | B | Sub-task split | **Variant** (`survival_task_decomp_v1`) |
+| Agent chat | B | Two survival agents converse | **Variant** (`survival_agent_chat_v1`) |
+| Conversation summary | B | After each conversation (survival speaker) | **Variant** (`survival_summarize_conversation_v1`) |
+| Reflection | A | Nightly (survival agent) | **Variant** (`survival_reflect_v1`) |
+
+Variants are selected automatically by `prompt_template/loader.py::resolve_template` when `persona.survival_mode == True` (and, for chat, both speakers are in survival mode). Baseline templates remain unchanged. Non-survival runs see no diff.
 
 ### 10.2 Vote Decision Prompt Template
 
@@ -813,11 +818,14 @@ Respond in this exact JSON format:
 {"claim_immunity": true/false, "nominate": "name" or null, "reasoning": "1-3 sentences"}
 ```
 
-### 10.4 Daily Plan Injection
+### 10.4 Daily Plan — Survival Variant
 
-The survival directive is prepended to the existing `daily_plan_req` field. The existing `run_gpt_prompt_daily_plan` naturally incorporates it because the prompt template includes `daily_plan_req` as input context.
+Under Cognitive Integration the daily-plan path is a survival-aware variant of the baseline template, not a text injection into `daily_plan_req`:
 
-No changes to the prompt template itself — only to the data fed into it.
+- `prompt_template/loader.py::resolve_template("daily_plan", persona)` returns `survival_daily_plan_v1.txt` when `persona.survival_mode == True`, falling back to `daily_plan_v1.txt` otherwise.
+- `survival_daily_plan_v1.txt` keeps the baseline I/O contract but adds an Identity Overlay slot at the top and instructs the planner to schedule **survival-first** (challenge slot → gathering window → voting block) before maintenance activities (eat, rest, hobby).
+- The Identity Overlay is built once per day per persona by `SurvivalController.build_identity_overlay` and is regenerated after challenge resolution and after voting.
+- `daily_plan_req` is *not* used as a survival channel. User-driven `goal_modification` text injections still work as a generic external-tool surface but survival itself does not depend on them.
 
 ### 10.5 Conversation Summary Extraction
 

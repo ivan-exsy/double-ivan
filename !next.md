@@ -1,9 +1,5 @@
-## *MVP - Ivan TODO*
-
-[] Merge/Verify Nicolas's work
-
-
-**Test with a new sim:**
+## **Test with a new sim:**
+  
 [] *Sim Realism - for the latest run*
   - Run 2 days in Survival Mode
   - Generate the transcript of each day for analysis
@@ -13,15 +9,10 @@
   - Create trailers
     - did they capture Survival dynamics and are interesting to watch (checking trailer creation in Survival mode)
 
-[] *Trailed gen - Scene loading issues??*
-- blank start screen for each screen (loading)
-- each scene starts from center, then focuses on the point of interest >> Immediately focus on the point of interest - then zoom in (need transition between scenes)
+[] *Trailer generation - Scene loading ?*
+  - blank start screen for each screen (loading)
+  - each scene starts from center, then focuses on the point of interest >> Immediately focus on the point of interest - then zoom in (need transition between scenes)
 
-### *Nicolas: Issues from 20260413-1 `past-sims-reports\20260413-1\20260413-1_report.md`*
-[x] Waypoint freezing (F1) — 3 events, ~42 steps total. Agents stop moving when another persona physically blocks the corridor between them and their target (e.g., Gosha froze 21 steps because Katya was in his path to the sofa). Visible in playback as an agent standing awkwardly still.
-- LLM misroute (F2) — 4 events, ~39 steps. The LLM occasionally ignores explicit destination text ("walk to Oak Hill College" → sends them to the cafe). Pre-existing, documented in Phase 5.
-- Vote audit trail incomplete (Bug B) — only 1 of 4 agents has their vote persisted to their JSON file, though voting math is correct in-sim. Audit-trail only, no user impact.
-- Voting fires on schedule, not on gathering — at elimination time, only Ivan was physically at the cafe. Mechanical trigger. A product call, not a bug.
 
 =================================================================================================
 
