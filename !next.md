@@ -1,7 +1,10 @@
 ## *MVP - Ivan TODO*
 
+[] Merge/Verify Nicolas's work
+
+
 **Test with a new sim:**
-[] *Sim Realism*
+[] *Sim Realism - for the latest run*
   - Run 2 days in Survival Mode
   - Generate the transcript of each day for analysis
     - are actions / interactions natural and realistic

@@ -36,13 +36,15 @@
 
 ### 1.1 Core Thesis
 
-Survival Mode converts high-fidelity personality simulation into **competitive social theater**. The agents already perceive, plan, converse, and reflect — Survival adds *stakes* that make those behaviors consequential.
+Survival Mode converts high-fidelity personality simulation into **competitive social theater**. Real participants in survival games restructure their lives around the game — schedule, attention, conversations, memory all bend toward survival. To produce believable behavior, the simulation must give the cognition pipeline that same posture.
+
+Survival Mode is therefore a **persona-level worldview**, not a daily reminder. While a Double is in survival mode, the perceive → retrieve → plan → execute → reflect loop runs from inside survival context: planning allocates challenge / gathering / voting natively, retrieval surfaces survival-tagged memories, attention favors alive players and the gathering location, and conversations bend toward alliances and voting.
 
 The design rests on four principles:
 
-1. **Minimal invasion.** Survival is a *layer* on top of the cognitive pipeline, not a rewrite. The perceive-retrieve-plan-execute-reflect loop runs unchanged. Survival injects goals, context, and constraints — the LLM decides how agents respond to them.
+1. **Worldview, not overlay.** Survival reshapes *which* prompts run and *what context they see* — not the values LLM calls return. Cognition stays in charge; the `SurvivalController` toggles `persona.survival_mode` and maintains game state, then steps out of the way.
 
-2. **Structural incentive over hard override.** Agents are not puppeted. They receive strong incentives (attend voting or risk elimination) and context (who betrayed whom). The LLM's personality-grounded reasoning produces emergent strategy — not scripted behavior.
+2. **Structural incentive over hard override.** Agents are not puppeted. The survival-aware planner receives a structured Identity Overlay (challenge, deadlines, alliances, threats, rewards) and is instructed to schedule survival-first. Personality-grounded reasoning still produces the actual schedule and decisions.
 
 3. **Pressure creates character.** Reality TV works because constraints force people to reveal themselves. Scarcity, deadlines, elimination risk, and information asymmetry are the tools. The simulation already has personalities; Survival gives them reasons to clash.
 
@@ -52,12 +54,15 @@ The design rests on four principles:
 
 | Aspect | Normal Mode | Survival Mode |
 |---|---|---|
-| Daily plan | LLM-generated from personality + lifestyle | Personality + survival phase obligations injected via `daily_plan_req` |
-| Conversations | Proximity-triggered, organic | Same triggers, but survival context (trust, threat, alliances) shapes content |
-| Movement | Free exploration | Free within phases; gathering obligations during Challenge/Voting |
-| Memory | Episodic stream | Same stream + survival-typed memories (announcements, vote results, betrayals) |
-| Agent lifecycle | Persistent for entire run | Eliminated agents removed from `self.personas` |
-| Reflection | Personality-driven insights | Augmented with survival state (trust shifts, threat reassessment) |
+| Daily plan | Baseline `daily_plan_v1` template | `survival_daily_plan_v1` template; receives Identity Overlay; allocates survival-first |
+| Hourly schedule / task decomp | Baseline templates | Survival variants preserve gathering / voting allocations |
+| Conversations | Baseline `agent_chat_v1` | When both speakers in survival mode, `survival_agent_chat_v1` biases topics toward alliance / voting / threat |
+| Memory storage | Computed poignancy | Survival events stored with `poignancy >= 7`, tagged `survival:*` |
+| Memory retrieval | Standard ranking | Same ranking; survival-tagged memories naturally rise via poignancy |
+| Perception | Standard event scoring | Same scoring; ties broken in favor of alive players + gathering tiles + survival-tagged events |
+| Reflection | Baseline | `survival_reflect_v1` consolidates alliance/threat insight |
+| Movement | Free exploration | Free, but daily plan natively schedules gathering obligations — no late text injection |
+| Agent lifecycle | Persistent | Eliminated agents: flag flips to False (after final statement); state archived; baseline templates re-engage next morning |
 
 ### 1.3 Why This Works With the Current Stack
 
@@ -175,13 +180,17 @@ This creates natural drama: agents who arrive late face worse outcomes, but the 
 
 ## 4. Game Director
 
-### 4.1 Architecture
+### 4.1 Architecture (revised 2026-04-16)
 
-The Game Director is a **system-level orchestrator** — not a persona. It has no sprite, no LLM personality, no movement cost. It operates through two channels:
+The Game Director is a **system-level orchestrator** — not a persona. It has no sprite, no LLM personality, no movement cost. Under Cognitive Integration it operates through three channels — the directive-text channel is **deprecated**:
 
-1. **Global memory injection** — Rules and announcements stored via `dbl_store_memory_dev` RPC with `memory_type='announcement'`. Retrieved alongside normal memories during planning prompts, ensuring agents are aware of the game state.
+1. **Mode flag** — `SurvivalController` sets `persona.survival_mode = True` for every active player and clears it on elimination / game-over. Cognition reads the flag and selects survival-aware prompt variants.
 
-2. **`user_interactions["global"]`** — Phase directives injected into `process_user_interactions()` at the start of each step. Applied to all personas before their cognitive pipeline runs.
+2. **Identity Overlay** — Built fresh each day per persona (cached until next morning, regenerated after challenge / voting). Inserted into survival-aware prompt templates at the `!<INPUT identity_overlay>!` slot. Carries: name, days survived, eliminated peers, today's challenge + brief, hard deadlines, gathering location, alliances, top perceived threats, active rewards, reputation/social capital labels.
+
+3. **Global memory injection** — Rules and persistent announcements (season rules on day 1, cross-persona events like eliminations) stored via `dbl_store_memory_dev` RPC with `memory_type='announcement'` and high poignancy. Retrieved alongside normal memories.
+
+**Deprecated:** `user_interactions["global"]["goal_modification"]["daily_plan"]` text injection (`_inject_voting_gather_override`, `_inject_gathering_location_hints`). These were band-aids around the previous "directive-as-text" architecture and are removed once the survival-aware daily plan and hourly schedule variants ship.
 
 ### 4.2 Announcement Types
 
@@ -209,21 +218,26 @@ Attend all gatherings at Hobbs Cafe or face penalties. Your goal: survive.
 
 This memory persists across all days. The hybrid retrieval system (`dbl_retrieve_with_rir`) surfaces it during planning due to high poignancy + keyword relevance to survival-related queries.
 
-### 4.4 Daily Directive Injection
+### 4.4 Daily Identity Overlay (replaces Directive Injection)
 
-Each morning (step 360), the `SurvivalController` sets each agent's `daily_plan_req` to include the survival phase schedule:
+Each morning the `SurvivalController` builds an Identity Overlay per active persona and caches it for the day. The survival-aware `survival_daily_plan_v1.txt` template receives the overlay at its `!<INPUT identity_overlay>!` slot and is selected automatically because `persona.survival_mode == True`.
 
-```python
-survival_directive = (
-    f"Day {day} of Survival. Today's challenge: {challenge.name} — {challenge.brief}. "
-    f"SCHEDULE: Attend challenge at Hobbs Cafe by 10:00. Socialize and strategize 12:00-18:00. "
-    f"CRITICAL: Gather at Hobbs Cafe by 19:00 for voting — missing it risks your safety. "
-    f"Players remaining: {len(alive)}. Eliminated yesterday: {last_eliminated or 'nobody (day 1)'}."
-)
-persona.scratch.daily_plan_req = survival_directive
+```
+SURVIVAL CONTEXT (read first, this shapes everything you do today):
+- You are {name}. Day {days_survived} of {total_days}.
+- Eliminated so far: {names or "none"}.
+- Today's challenge: {challenge_name} — {brief}.
+- Hard deadlines: challenge by {challenge_deadline}, voting by {vote_deadline}.
+- Gathering location: {gathering_location} (you must be there for both).
+- Alliances: {alliance_summary or "none"}.
+- Top threats (perceived): {top_3_threats or "none yet"}.
+- Active rewards / immunity: {rewards_summary or "none"}.
+- Reputation: {reputation_label}. Social capital: {social_capital_label}.
 ```
 
-The LLM's `run_gpt_prompt_daily_plan` (Tier B) reads this as part of its input and generates a schedule that weaves survival obligations with personality-driven behavior.
+Numeric values are rendered as labels ("low / medium / high") for LLM legibility. The overlay is regenerated after challenge resolution and after voting so the post-event hourly schedule and reflection see the updated state.
+
+`daily_plan_req` is **not** used as a survival channel under Cognitive Integration. User-driven `goal_modification` text injections still work (they are an external tool for ad-hoc scenarios), but survival itself does not depend on them.
 
 ---
 
@@ -565,17 +579,43 @@ On day 1, step 360 (first Directive):
 
 ## 9. Implementation Architecture
 
+### 9.0 Cognitive Integration components (added 2026-04-16)
+
+Implementation is staged in `D:\Coding\double-docs\20260416_survival_upd.md`. The new components plug into existing files without altering the cognition contract:
+
+| Component | Where it lives | What it does |
+|---|---|---|
+| `persona.survival_mode: bool` | `persona/persona.py` | Single read-only flag the cognition pipeline branches on |
+| `prompt_template/loader.py::resolve_template` | new helper | Returns `<name>_survival_v1.txt` when flag is set and the file exists; falls back to baseline |
+| `SurvivalController.build_identity_overlay` | `survival/controller.py` | Builds the per-day Identity Overlay block injected into survival-aware templates |
+| `survival/memory.py::tag_event` | new module | Stores survival events with `poignancy >= 7` and `keywords += ["survival", kind]` |
+| Survival prompt variants | `persona/prompt_template/v2/*_survival_v1.txt` | Daily plan, hourly schedule, task decomp, agent chat, summarize conversation, reflect |
+| `_clear_survival_mode(persona, archive_state=True)` | `survival/controller.py` | Flips flag to False after final-statement; archives `SurvivalState` |
+
+These are additive. They do not bypass perceive / plan / execute / reflect, do not post-process LLM outputs, and do not introduce new percept channels.
+
 ### 9.1 New Files
 
 ```
 reverie/backend_server/
   survival/
     __init__.py
-    controller.py          # SurvivalController — phase state machine, orchestration
+    controller.py          # SurvivalController — phase state machine, orchestration, mode flag, Identity Overlay
     state.py               # SurvivalState — per-agent + global state management
     challenges.py          # Challenge definitions, resolution logic
     voting.py              # Vote tallying, tiebreaking, elimination
     narrative.py           # Post-day summary generation
+    memory.py              # Survival event tagging (poignancy + keywords)  ← NEW (Stage 3)
+
+persona/prompt_template/
+  loader.py                # resolve_template(name, persona) — survival variant selector  ← NEW (Stage 0)
+  v2/
+    survival_daily_plan_v1.txt           ← NEW (Stage 1)
+    survival_hourly_schedule_v1.txt      ← NEW (Stage 2)
+    survival_task_decomp_v1.txt          ← NEW (Stage 2)
+    survival_agent_chat_v1.txt           ← NEW (Stage 4)
+    survival_summarize_conversation_v1.txt  ← NEW (Stage 4)
+    survival_reflect_v1.txt              ← NEW (Stage 4)
 ```
 
 **Estimated size:**

@@ -145,6 +145,18 @@ SurvivalMode is a competitive game mode within **Double**, transforming autonomo
 
 This mode is explicitly designed for **adult users** and prioritizes **engagement, tension, and narrative payoff** over safety framing or educational constraints.
 
+### 1.1 Architectural posture (revised 2026-04-16)
+
+Survival is implemented as a **persona-level worldview**, not a daily reminder. While a Double is in survival mode, the cognition pipeline plans, perceives, retrieves, converses, and reflects from inside survival context — survival obligations are scheduled natively into daily plans and hourly schedules, survival-tagged memories surface during retrieval, attention favors alive players and the gathering location, and conversations bend toward alliances and voting.
+
+The `SurvivalController` does not mutate persona cognition directly. It maintains game state (`SeasonState`, per-agent `SurvivalState`) and toggles `persona.survival_mode`. The cognition pipeline reads that flag to select prompt variants (`<prompt>_survival_v1.txt`) that receive a structured **Identity Overlay** with the persona's current survival context. Control flow stays inside cognition; survival reshapes *which* prompts run and *what context they see*, never the values LLM calls return.
+
+**Deprecated patterns** (replaced by Cognitive Integration — see implementation plan at `D:\Coding\double-docs\20260416_survival_upd.md`):
+- Late-window text injection forcing agents to the gathering location (`_inject_voting_gather_override`).
+- Directive text appended to `daily_plan_req` (`_inject_gathering_location_hints`).
+
+These were band-aids around the previous "directive-as-text" architecture and are removed once the survival-aware daily plan and hourly schedule variants ship.
+
 ---
 
 ## 2. Goals & Success Metrics
@@ -210,15 +222,18 @@ Each phase is blocking and must complete before progression.
 
 ### 6.1 Morning – Game Directive
 
-System acts as a guiding hand, enforcing simulation-wide rules that all Doubles must follow. It announces:
-- Challenge type
-- Stakes (rewards and penalties)
-- Active twists (if any), implemented via Global Scenario Events (see 3.5.1.scenario-gen.md) for timed, world-altering mechanics like environmental disruptions that inject external pressure and ensure consistent rule adherence.
+The morning is when each Double generates its day's plan from inside the survival worldview. The `SurvivalController` does **not** push a directive string into the planner; instead, the survival-aware daily-plan prompt (`survival_daily_plan_v1.txt`) is selected because `persona.survival_mode == True`, and it receives an **Identity Overlay** as durable context: today's challenge and brief, hard deadlines (challenge window, voting deadline), gathering location, alliances, top perceived threats, active rewards, reputation/social capital labels.
+
+The survival-aware planner allocates the day in survival-first order — challenge slot → gathering window → voting block → maintenance (eat, rest, hobby) — rather than slotting survival in as a reminder. Output schema is identical to the baseline planner; only ordering and time allocation shift.
 
 Each Double internally generates:
 - Strategy
 - Target prioritization
 - Alliance outreach intentions
+
+System-level announcements (challenge brief, season rules) are still persisted as memories with high poignancy so they surface during retrieval, but they do not need to be re-injected into `daily_plan_req` each morning — the Identity Overlay carries the live survival context.
+
+Active twists are implemented via Global Scenario Events (see 3.5.1.scenario-gen.md) for timed, world-altering mechanics. Twists modify the Identity Overlay (rules / deadlines) for the affected day; they do not bypass the cognition pipeline.
 
 ---
 
@@ -287,12 +302,19 @@ Elimination removes the Double from active play.
 ### 6.6 Night – Memory Consolidation
 
 At night:
-- Interactions are summarized into memory
+- Interactions are summarized into memory (via the survival-aware summarize variant when both speakers were in survival mode)
 - Trust, grudges, and threat models are updated
 - Temporary personality weight shifts are applied
+- Reflection runs from inside the survival worldview (survival-aware reflect variant), prioritizing alliance and threat insights
 - Optional user dream-chat influence may occur
 
 Ensures behavior evolves day-to-day.
+
+### 6.7 Post-Game Decay (revised 2026-04-16)
+
+When a Double is eliminated or the season ends, `persona.survival_mode` is flipped to `False` **after** the final-statement prompt completes. The associated `SurvivalState` is archived (not erased) to `survival/eliminated/<name>.json` and, when Supabase persistence is enabled, the `survival_states` row is updated with the archive flag.
+
+The next morning the eliminated Double re-reads baseline prompt templates; survival memories remain in the stream as ordinary high-poignancy events and decay naturally. This avoids a hard cliff between in-game and post-game cognition while ensuring eliminated agents stop consuming survival prompt budget.
 
 ---
 
