@@ -1,18 +1,19 @@
-## **Test with a new sim:**
-  
-[] *Sim Realism - for the latest run*
+## [] **F2 - LLM Misroute**
+  - See at `D:\Coding\double-docs\20260417_F2_LLM misroute .md` - verify latest state from `environment\frontend_server\storage\20260417-7`
+  - Check if there is good work to borrow from Nicolas / Start from scratch
+
+## [] **Survival: Test current status with a new sim:** (ref. `20260419_survival_upd.md`)
   - Run 2 days in Survival Mode
   - Generate the transcript of each day for analysis
     - are actions / interactions natural and realistic
     - how do they accept/execute upon the survival instructions
     - any obvious improvements required? (e.g. adjust proximity chat triggers/enable planned chats, daily planning prompts to favor group activities, etc.)
-  - Create trailers
+
+[] **Video: generation** (ref. `20260420_PRD_video_pipeline.md`)
+  - Create trailers from the latest sim
     - did they capture Survival dynamics and are interesting to watch (checking trailer creation in Survival mode)
-
-[] *Trailer generation - Scene loading ?*
-  - blank start screen for each screen (loading)
-  - each scene starts from center, then focuses on the point of interest >> Immediately focus on the point of interest - then zoom in (need transition between scenes)
-
+  - blank start screen for each screen (loading)??
+    - each scene starts from center, then focuses on the point of interest >> Immediately focus on the point of interest - then zoom in (need transition between scenes)
 
 =================================================================================================
 
