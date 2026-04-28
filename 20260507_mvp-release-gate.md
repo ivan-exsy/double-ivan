@@ -11,7 +11,7 @@
 
 > Brief scan of what's still open. Full detail lives in §7 (engineering), §6 (recruiting), §11 (risks).
 > Doc shorthand: **video PRD** = `D:\Coding\double-docs\20260429_PRD_video_pipeline.md`; **survival upgrade** = `D:\Coding\double-docs\20260428_survival_upd.md`.
-> Owner tags: *(Ivan)* = Ivan keeps · *(Nicolas)* = delegated to Nicolas (full implementation brief at `D:\Coding\double-docs\20260428_nicolas-mvp-gate.md`) · *(Ops)* = non-engineering, named cohort-team owner.
+> Owner tags: *(Ivan)* = Ivan keeps · *(Nicolas)* = delegated to Nicolas (full implementation brief at `D:\Coding\double-docs\20260507_nicolas-mvp-gate.md`) · *(Ops)* = non-engineering, named cohort-team owner.
 
 **P0 — must ship (cohort proof):**
 
@@ -25,9 +25,9 @@
 
 **P1 — recruiting surface + cognitive depth (ships only if P0 stable):**
 
-8. Time-code deep links (`/sim/{code}/play?t=&persona=`) *(Nicolas)* — §7 #8, §5
+8. Time-code deep links (`https://doubland.ai/sim/{code}/play?t=&double=`, opens in new window in full-screen Play mode) *(Nicolas)* — §7 #8, §5
 9. Founding Host waitlist *(Ivan / Ops, no-code)* — §7 #9
-10. Basic share payload (<iMessage / Snapchat / Instagram / X>, watermarked 9:16) *(Nicolas)* — §7 #10
+10. Basic share payload — native share to 4 social platforms (Snapchat / Instagram / X / YouTube Shorts), watermarked 9:16 + time-code deep-link description block *(Nicolas)* — §7 #10
 11. Survival conversation / reflection priors (Stage 4 of survival cognitive upgrade) *(Ivan)* — §7 #11 · survival upgrade §3 Stage 4
 12. Chat memory persistence end-to-end (`movement.chat` → `dbl_memory` gap) *(Ivan)* — §7 #12 · video PRD §3 TODO-2b
 13. Trailer quality gates (subtitle timing + auto-validate + 9:16 readability) *(Nicolas)* — §7 #13 · video PRD §3 TODO-4 / TODO-5 / TODO-6
@@ -67,7 +67,7 @@ The investor sentence we need them to feel:
 | 0 | Sim format | **Survival only** | Built-in pressure → strategy → vote-out → trailer. Free reality-TV format. |
 | 1 | Two trailers per real day | **Cut** | Will + Nir converge: one trailer is a "trophy of emergence." Two trains a feed mindset. |
 | 2 | Trailers people want to share | **Ship — with authorship discipline** | Add Will's "authorship receipt" as a card *outside* the story (Nir's correction). |
-| 3 | Seamless sharing (5 platforms) | **Trim to in-cohort + 2 public** | Group-chat share (iMessage / WhatsApp / Telegram) is the cohort signal. Public broadcast (Instagram, Snapchat) is P2. |
+| 3 | Seamless sharing (4 social platforms) | **Native share to social only — trailer is the acquisition vehicle** | Snapchat / Instagram / X / YouTube Shorts. The video trailer is the primary engagement and new-user-acquisition surface in MVP scope, so social broadcast is the only share lane we build. **Trailer description must carry the time-code deep-link list** — that's the conversion mechanism (viewer taps timecode → sim viewer → waitlist gate). Group-chat share buttons (iMessage / WhatsApp / Telegram) are cut: cohort members paste the trailer URL into their existing chats and rely on Open Graph rich previews. Platform-specific polish (Stories formatting, Shorts captions, embedded thumbnails) stays in P2. |
 | 4 | CTA: register / start own sim | **Waitlist only — reframed** | Capture *cohort intent*, not individual intent. Form names a "Founding Host" status. Skip the fork-your-own-sim infra. |
 | 5 | Invite-only + referral rewards | **Policy only, no rewards engine** | Founding Hosts earn invite codes. Defer the kudos / perks economy. |
 
@@ -142,10 +142,11 @@ This rule also constrains the **onboarding quiz**. Ask for behaviors and tendenc
 
 **MVP scope:**
 - Time-code list rendered below the trailer in-product.
-- Time-code list embedded in social share descriptions where the platform allows (Telegram text, iMessage / WhatsApp paste; Instagram / Snapchat are P2).
-- Deep-link URL: `/sim/{sim_code}/play?t={step}&persona={name}`.
-- Sim player auto-opens at step, plays from there.
-- Guest viewing path: timecode visitors land at the moment, can watch ±5 minutes around the event, then hit a soft waitlist gate. *(Guest viewer itself is P2 — see §7.)*
+- Time-code list embedded in the share description on all four social platforms (Snapchat caption, Instagram caption, X tweet body, YouTube Shorts description). **This is the primary conversion mechanism** — non-cohort viewers tap a timecode, land in the sim viewer, hit the waitlist gate.
+- **Deep-link URL:** `https://doubland.ai/sim/{sim_code}/play?t={step}&double={name}`.
+- **Click behavior:** clicking a deep link opens a **new browser window/tab** (`target="_blank"`) on `doubland.ai` and lands the visitor in **full-screen Play mode** — no app chrome (navbar / sidebar hidden), immersive sim canvas with a minimal HUD (timestamp, play / pause, exit-to-waitlist CTA). The sim player auto-seeks to the step (`?t=`) and the camera auto-follows the named Double (`?double=` → `__followPersona(name)` per video PRD §2.5).
+- **Play mode** is a third FE mode alongside the existing `?headless=true` (backend simulation) and `?recording=true` (trailer capture) modes — see §7 #8.
+- Guest viewing path: timecode visitors can watch ±5 minutes around the event, then hit a soft waitlist gate. *(The bounded ±5-min window itself is P2 — see §7 #14.)*
 
 **Out of scope:** highlight reels, scrubbable previews, frame-perfect timing.
 
@@ -184,18 +185,18 @@ In strict priority order. **P0 must ship.** P1 ships only if P0 is stable. P2 on
 
 ### P1 — Recruiting surface (ships only if P0 is stable)
 
-8. **Time-code deep links** *(Nicolas)* — render under trailer + in share descriptions; route `/sim/{code}/play?t=&persona=` lands at correct step.
+8. **Time-code deep links** *(Nicolas)* — render under trailer + in share descriptions. **Click opens a new browser window at `https://doubland.ai/sim/{sim_code}/play?t={step}&double={name}` in full-screen Play mode** — a new FE mode (sibling to existing `?headless=true` and `?recording=true`) with no app chrome, sim canvas + minimal HUD, sim player auto-seeking to the step, and the camera auto-following the named Double via `__followPersona(name)`.
 9. **Founding Host waitlist** *(Ivan / Ops, no-code)* — Tally / Typeform + landing page. Captures: cohort size, friend-group context, willingness to organize. Issues invite codes on approval.
-10. **Basic share payload** *(Nicolas)* — Web Share API (mobile-first) with watermarked vertical 9:16 + invite link + time-code description block. Three platforms: iMessage / WhatsApp / Telegram (the group-chat ones — these are the cohort signal).
+10. **Basic share payload** *(Nicolas)* — Web Share API (mobile-first) with watermarked vertical 9:16 + **time-code deep-link description block** + invite link. **Four social platforms via the OS share sheet:** Snapchat, Instagram, X, YouTube Shorts. The video trailer is the primary engagement and new-user-acquisition vehicle, so social broadcast is the only share lane in MVP scope. The time-code description must be carried verbatim into each platform's caption / tweet body / description — that's the conversion mechanism. Group-chat share (iMessage / WhatsApp / Telegram) is cut; cohort members paste the trailer URL into their existing chats and rely on Open Graph rich previews on the URL. Platform-specific polish (Stories formatting, Shorts captions, X embedded thumbnails) stays in P2 (#16).
 11. **Survival conversation / reflection priors (Stage 4 of survival cognitive upgrade)** *(Ivan)* — survival-aware chat / summarize-conversation / reflect templates so Day-2+ conversations bend toward alliance, voting, threat. Without it the COALITION beat in trailers and the "captured reactions" centerpiece (§6, §10) read as mundane domestic chatter. See `D:\Coding\double-docs\20260428_survival_upd.md` §3 Stage 4.
-12. **Chat memory persistence end-to-end** *(Ivan)* — diagnose and close the `movement.chat` → `dbl_memory` chat-row gap so Day-2+ agents retrieve yesterday's conversations into planning and vote decisions. Trailer extractor is unaffected (it reads `movement.chat` directly), but multi-day cognitive continuity for the cohort run depends on this. See `D:\Coding\double-docs\20260429_PRD_video_pipeline.md` §3 TODO-2b.
+12. **Chat memory persistence end-to-end** *(Ivan)* — diagnose and close the `movement.chat` → `dbl_memory` chat-row gap so Day-2+ Doubles retrieve yesterday's conversations into planning and vote decisions. Trailer extractor is unaffected (it reads `movement.chat` directly), but multi-day cognitive continuity for the cohort run depends on this. See `D:\Coding\double-docs\20260429_PRD_video_pipeline.md` §3 TODO-2b.
 13. **Trailer quality gates (subtitle timing, automated validation, 9:16 crop readability)** *(Nicolas)* — bundle of three: SRT timing derived from real narration audio (not script offsets); a `validate_trailer.py` pre-flight check on duration, narration word count, end-card presence, and crop; manual or automated mobile-readability sign-off on the 9:16 crop. Mobile group-chat share is the cohort signal; a broken trailer in the WhatsApp thread is the demo's biggest avoidable failure. See `D:\Coding\double-docs\20260429_PRD_video_pipeline.md` §3 TODO-4, TODO-5, TODO-6.
 
 ### P2 — Polish (cut unless trivially close)
 
 14. Guest sim viewer (±5 min context window, waitlist gate) *(Nicolas, if attempted)*
-15. Founding Host badge on persona card / trailer end card *(Nicolas, if attempted)*
-16. Public-broadcast share to Instagram, Snapchat — platform-specific polish *(Nicolas, if attempted)*
+15. Founding Host badge on Double card / trailer end card *(Nicolas, if attempted)*
+16. Public-broadcast platform-specific polish — Instagram Stories card formatting, Snapchat Lens integration, YouTube Shorts caption templates, X embedded-thumbnail tuning. Beyond what the Web Share API gives natively in #10. *(Nicolas, if attempted)*
 17. Push-notification infrastructure spike *(Nicolas, if attempted)*
 
 ---
@@ -209,11 +210,12 @@ In strict priority order. **P0 must ship.** P1 ships only if P0 is stable. P2 on
 - Personality tweaking as a daily input
 - Open-text "leave a thought" investment
 - Random / dynamic push timing
-- Public-broadcast share to all five platforms (limited to in-cohort group chats for P1)
+- Group-chat share buttons (iMessage / WhatsApp / Telegram) — cut in favor of social-only share. Cohort members paste the trailer URL into their existing chats; Open Graph rich previews on the trailer URL surface a native-quality preview without a per-platform handler.
+- Platform-specific polish for social share (Instagram Stories formatting, Snapchat Lens, YouTube Shorts caption templates, X embedded-thumbnail tuning) — basic native share to all 4 social platforms ships in P1 #10; per-platform tuning is post-MVP
 - Morning teaser signals (Will's "sunrise mechanic" — post-MVP delight)
 - Premium uncut / director tools / poll voting
 - **Teen audience expansion + consent / parental-permission gates** — required before opening to under-18 users; deliberately deferred. MVP runs adult-only.
-- **Survival post-game archive helper (Stage 5 of survival cognitive upgrade).** The `survival_mode` flag already clears on elimination and on game-over; the formal `_clear_survival_mode` helper and the `survival_archive` / `survival/eliminated/<name>.json` archive mechanism are post-MVP polish. Current partial state is harmless for the demo (no further game logic runs on eliminated personas). See `D:\Coding\double-docs\20260428_survival_upd.md` §3 Stage 5.
+- **Survival post-game archive helper (Stage 5 of survival cognitive upgrade).** The `survival_mode` flag already clears on elimination and on game-over; the formal `_clear_survival_mode` helper and the `survival_archive` / `survival/eliminated/<name>.json` archive mechanism are post-MVP polish. Current partial state is harmless for the demo (no further game logic runs on eliminated Doubles). See `D:\Coding\double-docs\20260428_survival_upd.md` §3 Stage 5.
 
 These are deliberately deferred because they dilute the loop or fall outside the MVP audience, not because the schedule is tight.
 
@@ -223,7 +225,7 @@ These are deliberately deferred because they dilute the loop or fall outside the
 
 Five-minute pitch flow:
 
-1. **Thesis.** Real friend groups become AI Survival villages. Drama compounds because the agents know each other and the format guarantees pressure every day.
+1. **Thesis.** Real friend groups become AI Survival villages. Drama compounds because the Doubles know each other and the format guarantees pressure every day.
 2. **Atomic network.** Not one user — an 8-15 person adult cohort. We optimized for finding this unit, not for waitlist size.
 3. **Format.** Survival mode is the demo format: challenges, coalitions, vote-outs. Reality-TV grammar viewers already understand.
 4. **Proof.** Live walkthrough of the activated cohort: their Doubles, today's trailer, their reactions in the group chat. *Emotional centerpiece.*
