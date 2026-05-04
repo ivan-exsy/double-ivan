@@ -15,7 +15,7 @@ The PRD has the structural skeleton (five beats, six cast, 2:30–3:00). What it
 >
 > **What's in v0:** mode-dispatch wiring · 4 LLM helpers (bio + archetype + trait + stakes-montage narration) · Phaser asset capture (homes + 6 establishing shots) · native Phaser sprite-walkout fallback · cast-intro composer · cold-open + stakes-montage + end-card composers · mode-aware validator · YouTube description generator works unchanged (per-scene `?double=` deep-links rotate correctly).
 >
-> **What still needs commissioned assets** (the v0 placeholders ship working trailers; commissioned drops upgrade quality without code changes): §TODO-A polished sprite walkouts (Grok Imagine) · §TODO-C anthem track (Suno) · §TODO-D per-persona stings (Suno) · §TODO-E commissioned trading-card frame PNGs (Figma/Midjourney) · §TODO-I cinematic atmospheric clips (Grok Imagine).
+> **What still needs commissioned assets** (the v0 placeholders ship working trailers; commissioned drops upgrade quality without code changes): §TODO-A polished sprite walkouts (Grok Imagine) · §TODO-C anthem track (Suno) · §TODO-D per-persona stings (Suno) · §TODO-E commissioned trading-card frame PNGs (Figma/Midjourney). **§TODO-I cinematic atmospheric clips landed 2026-05-04** (5 Grok Imagine flyovers in `video/fly-over/`).
 >
 > **Status table** — see each §TODO heading below for full per-item state.
 >
@@ -29,7 +29,7 @@ The PRD has the structural skeleton (five beats, six cast, 2:30–3:00). What it
 > | §TODO-F Home/establishing shots | **DONE** | `video/capture_static_assets.py` shipped |
 > | §TODO-G Archetype classifier | **DONE** | `_classify_archetype` Tier-B LLM call shipped |
 > | §TODO-H Cold-open narration | **DONE** | Templated line + ElevenLabs TTS shipped |
-> | §TODO-I Stakes-montage source | **PARTIAL** | Phaser establishing shots + LLM narration shipped; Grok cinematic MP4s drop in via `cinematic_*.mp4` |
+> | §TODO-I Stakes-montage source | **DONE 2026-05-04** | 5 Grok Imagine flyovers landed at `video/fly-over/cinematic_flyover_*.mp4`; `_generate_opener_script` updated to use them; `compose_opener_trailer` resolves `fly-over/...` paths transparently. Phaser establishing shots remain as fallbacks. |
 > | §TODO-J End card | **DONE** | `generate_opener_end_card` shipped |
 > | §TODO-K Sketch normalization | **DECIDED** | Leave as-is for v0 |
 > | §TODO-L Cohort/season title | **DECIDED** | Pistsov family / Who will stay alive |
@@ -479,9 +479,22 @@ If you want a more cinematic opener, here are 3 alternatives I'd ship-ready:
 
 ---
 
-## §TODO-I. Stakes-montage source clips — **DECIDED 2026-05-01 / PARTIAL SHIPPED**
+## §TODO-I. Stakes-montage source clips — **DONE 2026-05-04**
 
-> **STATE 2026-05-01:** **PARTIAL — Phaser layer shipped, Grok layer pending.** The 30s stakes montage in v0 is built from the 6 Phaser establishing shots (village_overhead / cafe_exterior / homes_row / council_zone / village_dawn / village_dusk) — each gets ken-burns slow-zoom, crossfaded together via `compose_opener_stakes_montage`. **LLM-generated narration ships:** `_generate_stakes_montage_narration` produces ~75-110 words referencing the cohort + season (78 words for `20260430-7`'s run; ends on "Who walks out on night four?"). **Grok Imagine cinematic MP4s drop in** by adding their filenames to `script.json`'s `stakes_montage.atmospheric_clips` array — composer mixes PNG (ken-burns) and MP4 (plays in-place) sources transparently.
+> **STATE 2026-05-04:** **DONE.** 5 Grok Imagine cinematic flyover MP4s landed at `video/fly-over/` and wired into the default `_generate_opener_script` `atmospheric_clips` list:
+>
+> | File | Replaces / role |
+> |---|---|
+> | `cinematic_flyover_village_overhead.mp4` | replaces `establish_village_overhead.png` |
+> | `cinematic_flyover_homes_row_approach.mp4` | replaces `establish_homes_row.png` |
+> | `cinematic_flyover_hobbs_cafe_interior.mp4` | replaces `establish_council_zone.png` (cafe is the social stage per playbook §3.8) |
+> | `cinematic_flyover_cafe_exterior_pan.mp4` | replaces `establish_cafe_exterior.png` |
+> | `cinematic_flyover_village_dusk_wind_down.mp4` | replaces `establish_village_dusk.png` |
+> | `establish_village_dawn.png` (kept) | no dawn flyover produced — optional follow-on |
+>
+> `compose_opener_trailer` resolves path-prefixed entries (`fly-over/...`) relative to `video/` and bare filenames relative to `assets_dir`, so the two-source mix works transparently. **LLM-generated narration ships:** `_generate_stakes_montage_narration` produces ~75-110 words referencing the cohort + season. **Original §STATE 2026-05-01 (PARTIAL)** kept below for context — the Phaser establishing shots from that v0 layer are still resident in `video/assets/opening/` as fallbacks if a flyover MP4 ever goes missing.
+
+> **STATE 2026-05-01 (superseded — kept for context):** **PARTIAL — Phaser layer shipped, Grok layer pending.** The 30s stakes montage in v0 is built from the 6 Phaser establishing shots (village_overhead / cafe_exterior / homes_row / council_zone / village_dawn / village_dusk) — each gets ken-burns slow-zoom, crossfaded together via `compose_opener_stakes_montage`. **Grok Imagine cinematic MP4s drop in** by adding their filenames to `script.json`'s `stakes_montage.atmospheric_clips` array — composer mixes PNG (ken-burns) and MP4 (plays in-place) sources transparently.
 
 **Constraint clarified:** Opening trailers are produced **before** the sim starts running, so there is no real game footage available — no votes, no eliminations, no alliance moments to draw from. The original options 1 and 3 only work for retroactive opening trailers; the v1 production case is Day-0 capture only.
 
@@ -550,21 +563,22 @@ get cut quickly in compose; each individual clip should feel calm.
 
 **Acceptance:** generate 4-6 candidates per shot description; pick the ones that read most cinematic. The compose stage cuts each to 2-3s in the final montage; full-length is generated for safety margin.
 
-**Deliverable layout:**
+**Deliverable layout (actual, as of 2026-05-04):**
 ```
-video/assets/opening/
-  establish_village_overhead.png       (Phaser capture — [ME])
-  establish_cafe_exterior.png          (Phaser capture — [ME])
-  establish_homes_row.png              (Phaser capture — [ME])
-  establish_council_zone.png           (Phaser capture — [ME])
-  establish_village_dawn.png           (Phaser capture — [ME])
-  establish_village_dusk.png           (Phaser capture — [ME])
-  cinematic_village_golden_hour.mp4    (Grok Imagine — [YOU])
-  cinematic_aerial_dusk.mp4            (Grok Imagine — [YOU])
-  cinematic_empty_cafe_dawn.mp4        (Grok Imagine — [YOU])
-  cinematic_ballot_box.mp4             (Grok Imagine — [YOU])
-  cinematic_council_circle_twilight.mp4 (Grok Imagine — [YOU])
-  cinematic_sleeping_village.mp4       (Grok Imagine — [YOU])
+video/assets/opening/                                  (Phaser captures)
+  establish_village_overhead.png       (fallback — superseded by flyover)
+  establish_cafe_exterior.png          (fallback — superseded by flyover)
+  establish_homes_row.png              (fallback — superseded by flyover)
+  establish_council_zone.png           (fallback — superseded by hobbs cafe interior flyover)
+  establish_village_dawn.png           (active — no flyover yet)
+  establish_village_dusk.png           (fallback — superseded by flyover)
+
+video/fly-over/                                        (Grok Imagine cinematic MP4s)
+  cinematic_flyover_village_overhead.mp4               (4s)
+  cinematic_flyover_homes_row_approach.mp4             (3s)
+  cinematic_flyover_cafe_exterior_pan.mp4              (4s)
+  cinematic_flyover_hobbs_cafe_interior.mp4            (4s)
+  cinematic_flyover_village_dusk_wind_down.mp4         (4s)
 ```
 
 ---
@@ -635,9 +649,9 @@ End-to-end opener trailer renders against `20260430-7` and passes the validator.
 | **P1** | §TODO-C anthem music track via Suno (~165s with 6 stings) | ~1-2h | Drop `music_anthem.mp3` into `video/audio/`; flip script's `mood` field to `"anthem"` (or rename file to `music_drama.mp3` for zero-config swap) |
 | **P1** | §TODO-E commissioned trading-card frame PNGs (3 archetypes) | ~3-6h | Drop `card_frame_{archetype}.png` into `video/assets/opening/`; ~10 LOC change in `compose_cast_intro` to layer the PNG |
 | **P2** | §TODO-D archetype intro stings (4 archetypes) | ~1-2h | Drop `sting_{archetype}.wav` into `video/assets/opening/`; ~20 LOC change in `compose_cast_intro` to play sting at scene-out |
-| **P2** | §TODO-I cinematic atmospheric MP4s via Grok Imagine (4-6 clips) | ~2-3h | Drop `cinematic_*.mp4` into `video/assets/opening/`; add filename to script's `stakes_montage.atmospheric_clips` array |
+| ✅ DONE | ~~§TODO-I cinematic atmospheric MP4s via Grok Imagine~~ | shipped 2026-05-04 | 5 flyovers in `video/fly-over/`; `_generate_opener_script` and `compose_opener_trailer` updated |
 
-**Total polish effort:** ~10-17 hours of asset commissions; ~1 hour of code changes once assets land. The current v0 ships a watchable trailer without any of these — they upgrade quality, not function.
+**Total polish effort remaining:** ~7-14 hours of asset commissions (sprite walkouts, anthem, trading-card PNGs, archetype stings); ~1 hour of code changes once assets land. The current v0 ships a watchable trailer without any of these — they upgrade quality, not function.
 
 ### 🎬 What you can demo right now
 

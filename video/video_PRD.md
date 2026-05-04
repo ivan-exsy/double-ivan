@@ -3,7 +3,7 @@
 > **Audience:** experienced developers picking up shipped or open-trailer work.
 > **Producer's spec (the "why" + creative direction):** `D:\Coding\double-ivan\video\video_playbook.md`
 > **SOT:** `D:\Coding\double-docs\sot\sot_video.md`
-> **Status:** Day-in-life — shipped (MVP, hardened 2026-05-01). Sim-day-overview (§2.2) — **shipped MVP 2026-05-01**. Sim-opening (§2.3) — **shipped MVP 2026-05-01** (pending manual asset/copy curation). Sim-announce (§2.4) — planned.
+> **Status:** Day-in-life — shipped (MVP, hardened 2026-05-01). Sim-day-overview (§2.2) — **shipped MVP 2026-05-01** (v2 spec open as TODO-14). Sim-opening (§2.3) — **shipped MVP 2026-05-01; v2 spec shipped 2026-05-04 (5-beat structure + watch-live framing, smoke-tested on `20260430-7`)**. Sim-announce (§2.4) — planned.
 > **Author:** Ivan
 > **Originated:** 2026-04-03
 > **Last Updated:** 2026-05-04
@@ -35,8 +35,8 @@ This PRD is the engineering reference for the video pipeline. It tracks what's b
 - **§TODO-C. Anthem music track** — Suno, ~165s with 6 stings at 15s intervals. Currently using `music_drama.mp3` placeholder. Drop `music_anthem.mp3` into `video/audio/`; flip script's `mood` to `"anthem"` (or rename file to `music_drama.mp3` for zero-config swap). ~1-2h.
 - **§TODO-E. Trading-card frame PNGs** — Figma or Midjourney, 3 archetypes (Champion / Wildcard / Observer). Placeholder FFmpeg `drawbox` borders are functional but utilitarian. Drop `card_frame_{archetype}.png` into `video/assets/opening/`; ~10 LOC change in `compose_cast_intro` to layer the PNG. ~3-6h.
 - **§TODO-D. Archetype intro stings** — Suno, 4 × 1.5-2.5s WAVs. Archetype classification shipped; sting playback not yet wired. Drop `sting_{archetype}.wav` into `video/assets/opening/` plus ~20 LOC in `compose_cast_intro` to play sting at scene-out. ~1-2h.
-- **§TODO-I. Cinematic atmospheric clips** — Grok Imagine, 4-6 × 3-5s MP4s for the stakes montage. Drop `cinematic_*.mp4` into `video/assets/opening/`; add filenames to script's `stakes_montage.atmospheric_clips` array — composer mixes PNG/MP4 sources transparently. ~2-3h.
-- **§TODO-J. How-to-watch card templates** — Figma or FFmpeg drawtext, 2-3 cards covering "The village runs 24/7. / Watch from the very first day. / New trailer daily at 6:30 PM." (per playbook §4.6). Drop into `video/assets/opening/how_to_watch_card_*.png`. Pairs with TODO-13 (engineering wiring). ~2-3h.
+- **§TODO-I. Cinematic atmospheric clips — DONE 2026-05-04.** 5 Grok Imagine flyovers landed at `video/fly-over/cinematic_flyover_{village_overhead,homes_row_approach,cafe_exterior_pan,hobbs_cafe_interior,village_dusk_wind_down}.mp4`. Default `_generate_opener_script` `atmospheric_clips` updated to use them (replacing 5 of the 6 PNG establishing shots; `establish_village_dawn.png` retained as fallback since no dawn flyover was produced — optional follow-on). `compose_opener_trailer` now resolves path-prefixed entries (`fly-over/...`) relative to `video/` and bare filenames relative to `assets_dir`, so the two-source mix works transparently.
+- **§TODO-J. How-to-watch card templates** — Figma or FFmpeg drawtext, 2-3 cards covering "The village runs 24/7. / Watch from the very first day. / New trailer daily at 6:30 PM." (per playbook §4.6). Drop into `video/assets/opening/how_to_watch_card_*.png`. Engineering wiring shipped 2026-05-04 with drawtext placeholder; commissioned PNGs upgrade quality with ~10 LOC swap in `compose_opener_how_to_watch`. ~2-3h.
 - **Field-test on a real Day-0 sim** once the polished assets land. The v0 smoke test ran against `20260430-7` (4-persona Pistsov family); a real cohort of 6-8 personas hasn't been exercised yet.
 
 **Total commissioned-asset effort:** ~10-17h of asset work + ~1h of code wiring. v0 demo trailer at `data/20260430-7/opener&001/output/trailer_16x9.mp4` is shippable for internal review without any of these.
@@ -76,7 +76,7 @@ A 5-stage pipeline, mode-aware. One CLI command per trailer; ~5 minutes end-to-e
 | 3. TTS narration | `video/tts.py` | ElevenLabs (voice `cIO62fcmCSQhE0DE2WS2`, stability 0.65 / clarity 0.75 / style 0.40) → OpenAI `tts-1-hd`/`onyx` fallback. Honors `[PAUSE Ns]` markers as FFmpeg-generated silence. |
 | 4. Video capture | `video/record_scenes.py` + `video/capture_static_assets.py` | Playwright records WebM per scene from `?recording=true` mode. Sim-opening additionally captures static establish_*.png + sprite_walkout_*.webm assets. Camera API: 5 `window.__*` functions + `__executeMovementsForStep`. |
 | 5. Compositing | `video/compose_trailer.py` | FFmpeg: concat scene clips → MP4, mix narration + music (ducked 6-9 dB under VO), SRT subtitles, end card, 16:9 master + 9:16 crop. Mode-aware duration cap. |
-| (6.) YouTube description | `video/generate_description.py` | Optional Stage 6: emits per-scene timecode deep-links with `?t=&double=&zoom=&focus=&speed=` params + watch-live CTA (`www.doubland.ai`). Shipped variant still emits a waitlist CTA; v2 alignment with TODO-13 swaps to watch-live framing. |
+| (6.) YouTube description | `video/generate_description.py` | Optional Stage 6: emits per-scene timecode deep-links with `?t=&double=&zoom=&focus=&speed=` params + Founding Host waitlist CTA. **Open: TODO-15** — flip CTA to watch-live framing (`www.doubland.ai`) to match the trailer end-card v2 spec. |
 | (7.) Validator | `video/validate_trailer.py` | Optional Stage 7: mode-aware duration + word-count + dimension checks. Best-effort — failures don't block artifact delivery. |
 
 ### 1.2 Mode dispatch
@@ -210,12 +210,10 @@ python -m video.generate_trailer 20260430-7 --mode day_overview --day 2 --top 3
 
 ### 2.3 Sim-Opening Trailer
 
-> **2:30-3:00 · ensemble (1-6 cast slots) · Day-0 only · two-pass LLM (per-persona + wrapper) · season premiere + how-to-watch CTA**
+> **2:30-3:00 · ensemble (1-6 cast slots) · Day-0 only · two-pass LLM (per-persona + wrapper) · 5-beat structure with how-to-watch CTA**
 > **Playbook reference:** §4 (purpose, six emotions in order, cast intros, stakes montage, how-to-watch, asset inventory)
 > **Asset commission detail:** `d:\Coding\double-ivan\20260501_opening-trailer.md`
-> **Shipped:** 2026-05-01, commit `f6f7017b` ("pending manual tasks" — see §0.1 P0).
->
-> **v2 spec divergence (playbook §4 updated 2026-05-04, implementation pending — tracked as TODO-13).** Playbook now defines a 5-beat structure (cold open → cast intros → stakes montage → **how-to-watch** → CTA end card) and revises copy. The shipped v0 implementation uses a 4-beat structure. Gaps below are flagged inline; the description reflects shipped state, not the v2 target.
+> **Shipped:** 2026-05-01 (v0); v2 spec shipped 2026-05-04 (5-beat structure + watch-live framing) — smoke-tested end-to-end on `20260430-7` (4-persona Pistsov family, validator PASS, ~124s, all 5 beats present).
 
 **Stage 1 — `video/extract_day_log.py:extract_opener_context()`**
 
@@ -229,10 +227,10 @@ python -m video.generate_trailer 20260430-7 --mode day_overview --day 2 --top 3
 
 - **Two-pass LLM:**
   1. Per-persona pass: 4 Tier-B helpers (`_generate_one_line_bio`, `_classify_archetype`, `_generate_trait_moment`, `_generate_stakes_montage_narration`).
-  2. Wrapper pass: assembles cold open + cast intros + stakes montage + end card. **v2 gap (TODO-13):** add a how-to-watch beat between stakes montage and end card; see playbook §4.6 for templated copy ("The village runs 24/7. / Watch from the very first day. / New trailer daily at 6:30 PM.") — likely a 5th templated helper, not an LLM call.
-- **Cold open is templated**, not LLM-generated: shipped wording `"{N} friends. {D} days. One survives."` (or `"{N} friends. One game. One survives."` when season length is unknown). **v2 gap (TODO-13):** playbook §4.2 revises to `"{N} Doubles. One village. One survives."` (Doubles vs friends; village vs days/game).
+  2. Wrapper pass: assembles cold open + cast intros + stakes montage + **how-to-watch** + end card (5 beats). The how_to_watch block carries templated `card_lines` per playbook §4.6 (visual-only, no LLM call).
+- **Cold open is templated**, not LLM-generated: `"{N} Doubles. One village. One survives."` (per playbook §4.2).
 - **Archetype classification** assigns `champion` / `wildcard` / `observer` / `connector` per persona — drives trading-card frame border + per-persona sting selection.
-- Validator (`_validate_opener_script`): 1-6 cast scenes, cold open + stakes + end card present, 95-180s total runtime. **v2 gap (TODO-13):** require how-to-watch beat present (5-beat enforcement).
+- Validator (`_validate_opener_script`): 1-6 cast scenes, cold open + stakes + **how_to_watch** + end card present (5-beat enforcement), 95-180s total runtime.
 
 **Stage 4 — `video/record_scenes.py` + `video/capture_static_assets.py`**
 
@@ -243,9 +241,9 @@ python -m video.generate_trailer 20260430-7 --mode day_overview --day 2 --top 3
 
 **Stage 5 — `video/compose_trailer.py` opener composers**
 
-- 5 opener-mode composers + orchestrator: `compose_cast_intro` (15s two-subclip crossfade per persona), `compose_opener_cold_open` (slow zoom on establishing shot), `compose_opener_stakes_montage` (6-8 ken-burns subclips, mixes PNG + MP4 sources transparently), `generate_opener_end_card` (3-line: title + cohort/season + CTA — shipped v0 emits `doubland.ai/waitlist`; v2 swaps to multi-line watch-live CTA per TODO-13), `compose_opener_trailer` (assembly).
+- 6 opener-mode composers + orchestrator: `compose_cast_intro` (15s two-subclip crossfade per persona), `compose_opener_cold_open` (slow zoom on establishing shot), `compose_opener_stakes_montage` (6-8 ken-burns subclips, mixes PNG + MP4 sources transparently), `compose_opener_how_to_watch` (~18s drawtext stack on dark bg per playbook §4.6; visual-only), `generate_opener_end_card` (5-line v2 layout: title + cohort/season + body_a + body_b + url; 8s default per playbook §4.7), `compose_opener_trailer` (assembly).
 - **Council-grade NOT applied** here — the opener has no vote events.
-- **v2 gap (TODO-13):** add `compose_opener_how_to_watch` composer (~12-18s sequence; composes 2-3 cards from `video/assets/opening/how_to_watch_card_*.png` per playbook §4.6 + TTS narration). Update `generate_opener_end_card` to multi-line CTA per playbook §4.7 — "DAY 1 STARTS NOW / {cohort} — {season} / Watch live. Scroll back. Follow every Double. / New trailer daily at 6:30 PM. / www.doubland.ai" — replacing the single-line `doubland.ai/waitlist`. Likely bumps end-card duration ~5s → ~8s.
+- **§TODO-J open** (in §0.1 P0): replace drawtext placeholder cards in `compose_opener_how_to_watch` with commissioned PNG overlays once they land (~10 LOC swap).
 
 **Validator** — opener bounds: 95-180s duration, 60-220 words narration (cold open + stakes only — cast intros are silent).
 
@@ -294,6 +292,8 @@ python -m video.generate_trailer 20260430-7 --mode opener --top 4 \
 
 **TODO-6. 9:16 crop readability validation.** The crop exists but mobile-size readability hasn't been confirmed. Add a visual diff step or a manual checklist pass — verify protagonist stays in frame, subtitles legible at iPhone render size.
 
+**TODO-15. YouTube description CTA — flip to watch-live framing.** `video/generate_description.py` still emits "Want this for your friend group? Join the Founding Host waitlist: https://doubland.ai/waitlist" (lines 39-40, 181-182). The trailer end card and gate-doc strategic CTA were flipped to watch-live + `www.doubland.ai` on 2026-05-04 (per video_playbook §4.7). The YouTube description was outside TODO-13's scope and still carries the old waitlist line — needs to flip to align. Small change: replace `WAITLIST_PATH` / `WAITLIST_CTA` constants with watch-live equivalents (e.g. `"Watch the village live: https://www.doubland.ai"`). Verify the regenerated description on next opener / day-overview run.
+
 ### Open — P2 polish
 
 **TODO-7. SFX library (12 clips).** Transition/emphasis clips per playbook §1.5. Currently no SFX in output. Phase-2 nice-to-have, not blocking.
@@ -334,19 +334,16 @@ python -m video.generate_trailer 20260430-7 --mode opener --top 4 \
 
 Acceptance: end-to-end run on a Day-N (vote-day) of `20260430-7` produces an 8-beat trailer; validator PASS at 148-180s; cafe ceremony reads as a recurring ritual; cold hook stops a thumb-scroller in 3s; Tomorrow-question lands at end card.
 
-### Open — Sim-Opening v2 spec implementation
+### Completed 2026-05-04
 
-**TODO-13. Sim-Opening v2 spec — how-to-watch beat + revised end card + cold-open copy refresh.** Playbook §4 (updated 2026-05-04) revises sim-opening from a 4-beat to a 5-beat structure and refreshes end-card / cold-open copy. Engineering work to land:
-
-- **`compose_opener_how_to_watch` (NEW composer in `video/compose_trailer.py`).** ~12-18s sequence between stakes montage and end card. Composes 2-3 cards from `video/assets/opening/how_to_watch_card_*.png` (asset commission §TODO-J in §0.1 P0) with templated narration: "The village runs 24/7. / Watch from the very first day. / Follow every Double — routines, conversations, alliances, and vote-outs. / New trailer daily at 6:30 PM." (or shorter alt per playbook §4.6).
-- **`_generate_opener_script` wrapper pass** must emit a 5th scene between stakes_montage and end_card; templated narration helper (no LLM call needed since copy is fixed).
-- **Cold-open template wording** in `_opener_cold_open_line()`: change `"{N} friends. {D} days. One survives."` → `"{N} Doubles. One village. One survives."` (per playbook §4.2). One-line fix.
-- **`generate_opener_end_card`** revise to multi-line CTA per playbook §4.7: "DAY 1 STARTS NOW / {cohort_name} — {season_title} / Watch live. Scroll back. Follow every Double. / New trailer daily at 6:30 PM. / www.doubland.ai" (replaces single-line `doubland.ai/waitlist`). Bump card duration ~5s → ~8s to give the extra copy reading time.
-- **`_validate_opener_script`** require how-to-watch beat present (5-beat enforcement). Duration window 95-180s likely still covers; new target ~170s.
-- **Tone rule** (per playbook §4.6): how-to-watch copy must frame access as "follow every Double inside a shared simulation," never "look into every action / spy on real friends." Validator-level keyword guard optional.
-
-Acceptance: end-to-end run on `20260430-7` produces a 5-beat opener trailer; validator PASS; how-to-watch cards readable at 9:16; end card holds long enough to read all five lines at mobile size.
-
+- **TODO-13. Sim-Opening v2 spec shipped end-to-end.** Playbook §4 (updated 2026-05-04) revised sim-opening from a 4-beat to a 5-beat structure with watch-live framing replacing the waitlist CTA. All engineering items landed and the smoke test PASSED on `20260430-7` (4-persona Pistsov family) — validator PASS at ~124s × 1280×720 + 1080×1920, all 5 beats rendered, end card legible at mobile size.
+  - **`compose_opener_how_to_watch`** (`video/compose_trailer.py`): new ~18s drawtext-on-dark-bg composer between stakes_montage and end_card. Visual-only (no narration). Reads `OPENER_HOW_TO_WATCH_LINES` from `showrunner.py`.
+  - **`_generate_opener_script` wrapper pass**: emits a `how_to_watch` block with `card_lines` + `time_range_sec`; threaded through `compose_opener_trailer` as Stage C2.
+  - **`_opener_cold_open_line`**: collapsed to `"{N} Doubles. One village. One survives."` (per playbook §4.2); `season_length_days` parameter dropped.
+  - **`generate_opener_end_card`** rebuilt as 5-line v2 layout: title (64pt) + cohort/season subtitle (32pt) + body_a + body_b (26pt off-white) + url (26pt gold #C8A86B). Default duration 5s → 8s.
+  - **`_validate_opener_script`**: requires `how_to_watch` block; total runtime calc includes the new 18s slot. Window stays 95-180s (4-persona target ≈124s, 6-persona ≈154s).
+  - **Constants**: `OPENER_HOW_TO_WATCH_SEC = 18`, `OPENER_HOW_TO_WATCH_LINES` (4-line tuple) added; `OPENER_END_CARD_SEC` 5 → 8; cast-time floor calc updated to subtract HOW_TO_WATCH_SEC.
+  - **Open follow-up**: §TODO-J in §0.1 P0 (asset commission for Figma/Midjourney how-to-watch card PNGs to replace drawtext placeholders). Tone-rule keyword guard intentionally not wired — card text is templated, so LLM-tone drift can't occur today.
 
 ### Completed 2026-05-01 (`ivan/video-trailer-fixes` branch)
 
@@ -566,3 +563,5 @@ Cross-reference: shared craft acceptance is in playbook §1.8; per-type checklis
 | 2026-05-01 | Sim-Day-Overview trailer (§2.2) shipped — multi-protagonist 2:30-3:00 ensemble recap with two-stage LLM (spine + per-scene), `VIDEO_SPINE_TIER` env flag for dev/prod tier selection, "Previously on…" WebM bridge card, council/vote color grade, mode-aware validator. End-to-end verified on `20260430-7` Day 2; day-in-life regression check still PASSES. |
 | 2026-05-01 | Sim-Opening trailer (§2.3) shipped — Day-0 cast-intro with cold open, 6-persona cast scenes, stakes montage, end card. New `video/capture_static_assets.py` + `video/assets/opening/` (establish frames + per-persona walkout WebMs); reuses §4.8 ranker and §4.9 mode dispatch. Pending manual asset/copy curation per commit `f6f7017b`. |
 | 2026-05-04 | PRD restructured — split into "engineering reference" (this doc) and "producer's playbook" (`D:\Coding\double-ivan\video\video_playbook.md`). New §2 Per-Trailer-Type Engineering Reference; new §5 Design Decisions / Divergences. Old `1.MVP_video_playbook.md` and `2.Advanced_video.md` merged into the new playbook and deleted. |
+| 2026-05-04 | Sim-Opening v2 spec shipped (TODO-13) — 4-beat → 5-beat structure with new `compose_opener_how_to_watch` composer, multi-line v2 end card replacing `doubland.ai/waitlist` with watch-live CTA + `www.doubland.ai`, cold-open wording refresh ("{N} Doubles. One village. One survives."), validator extended to enforce 5-beat structure. Smoke-tested end-to-end on `20260430-7` (4-persona Pistsov family, validator PASS). §TODO-J (commissioned how-to-watch card PNGs) carried in §0.1 P0 as parallel asset-commission track. |
+| 2026-05-04 | §TODO-I cinematic atmospheric clips shipped — 5 Grok Imagine flyovers in `video/fly-over/` (village_overhead / homes_row_approach / cafe_exterior_pan / hobbs_cafe_interior / village_dusk_wind_down) wired into the default opener `atmospheric_clips` list; `compose_opener_trailer` resolves `fly-over/...` paths transparently alongside bare filenames in `assets_dir`. Phaser establishing PNGs retained as fallbacks. |
