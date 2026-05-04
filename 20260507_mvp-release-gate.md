@@ -20,7 +20,7 @@
 ✅ Survival run validates end-to-end (Stage 3 Day-2 retrieval fix + acceptance smoke) — §7 #1 · survival upgrade §3 Stage 3
 🟡 **Sim-day-overview trailer pipeline** (video PRD §4.3) — §7 #2
 3. **Opening / intro trailer pipeline** (video PRD §4.2) — §7 #3
-6. **YouTube workflow** — channel curated; description-block generator emits trailer copy + timecode deep-link list ready to paste — §7 #6
+🟡 **YouTube workflow** — channel curated; description-block generator emits trailer copy + timecode deep-link list ready to paste — §7 #6 (check Nicolas's work at `D:\Coding\double-docs\runbook_youtube_upload.md` and `D:\Coding\double-docs\youtube_uploads.md`)
 
 *(Nicolas)*
 4. **Time-code deep links + Play mode** (`https://doubland.ai/sim/{code}/play?t=&double=&zoom=&focus=`, opens in new window in full-screen Play mode) — §7 #4, §5
@@ -64,8 +64,8 @@ The investor sentence we need them to feel:
 | 1 | Trailers per sim-day | **One** | Will + Nir converge: one trailer is a "trophy of emergence." Two trains a feed mindset. |
 | 2 | Distribution surface | **Public YouTube channel** ([@doubland-ai](https://www.youtube.com/@doubland-ai)) | Single hosted surface; captures all trailers; descriptions carry timecode deep-links; no app push infrastructure needed. **The trailer is the product surface in MVP.** |
 | 3 | Conversion mechanism | **Time-code deep links in YouTube descriptions** | Viewer taps timecode → lands in sim viewer Play mode → soft waitlist gate. This is the *only* conversion path in MVP scope. |
-| 4 | CTA | **Founding Host waitlist** | Capture *cohort intent*, not individual intent. "Master users" who commit to bringing 5-15 friends earn priority. Skip the fork-your-own-sim infra. |
-| 5 | In-app daily loop (receipts / motive prediction / evening drop / native social share) | **Cut to post-MVP** | These existed to power a nightly episode loop *inside the app*. With YouTube as the distribution surface, none of them are on the critical path. The trailer + the description + the waitlist ARE the loop. |
+| 4 | CTA | **Watch live → `www.doubland.ai`** (Founding Host waitlist as downstream capture) | *Updated 2026-05-04 per video_playbook §4.7.* Trailer end card and YouTube descriptions lead with watch-live framing ("Watch live. Scroll back. Follow every Double. New trailer daily at 6:30 PM. www.doubland.ai") rather than waitlist signup. The cohort/master-user waitlist still exists as a downstream capture for visitors who want their own crew, but the trailer's primary action is "watch the village now," not "sign up to wait." |
+| 5 | In-app daily loop (receipts / motive prediction / evening drop / native social share) | **Cut to post-MVP** | These existed to power a nightly episode loop *inside the app*. With YouTube as the distribution surface, none of them are on the critical path. The trailer + the description + the live sim viewer ARE the loop (waitlist is downstream, not the primary conversion). |
 | 6 | Invite-only + referral rewards | **Policy only, no rewards engine** | Founding Hosts earn invite codes. Defer the kudos / perks economy. |
 
 ---

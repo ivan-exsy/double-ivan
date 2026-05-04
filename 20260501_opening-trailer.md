@@ -107,7 +107,7 @@ Six personas × 15s ≈ 90s of cast. Hard musical cuts on transitions read as ki
 
 1. **Cast-intro stage only** — 6 × ~15s: sketch portrait → sprite cameo (Grok Imagine micro-video) → name card + bio → silent trait moment + persona sting. Render in isolation as a smoke test on `20260430-7` cast.
 2. **Anthem + cold open + stakes montage** — scaffold around the cast intros once they land. Anthem drives the rhythm; narrator only speaks during the cold open.
-3. **End card + CTA** — mechanical (drawtext, reuse end-card infra). "DAY 1 STARTS NOW" + cohort name + waitlist URL.
+3. **End card + CTA** — mechanical (drawtext, reuse end-card infra). "DAY 1 STARTS NOW" + cohort/season + watch-live framing + `www.doubland.ai` (per video_playbook §4.7; v0 shipped a `doubland.ai/waitlist` line — superseded 2026-05-04).
 4. ~~**Relationship reveal**~~ — **dropped from v1**. Pairs hinted by sequencing in cast intros and by adjacency in the stakes montage; full split-screen deferred to v2.
 
 **Estimate:** ~3 working days (down from ~3-4 because relationship reveal is dropped). PRD §5.8 (ranker), §5.9 (mode dispatch), and §5.10 (orchestrator) already shipped on day-overview and opening reuses all three.
@@ -571,16 +571,18 @@ video/assets/opening/
 
 ## §TODO-J. End card design
 
-> **STATE 2026-05-01:** **DONE.** `generate_opener_end_card()` in `video/compose_trailer.py` produces a 5s end card with three drawtext lines: `DAY 1 STARTS NOW` (80pt white) + cohort/season subtitle (32pt grey) + `doubland.ai/waitlist` CTA (28pt gold #C8A86B). For the `20260430-7` run the end card resolves to "DAY 1 STARTS NOW / Pistsov family — Who will stay alive / doubland.ai/waitlist".
+> **STATE 2026-05-04:** **SHIPPED v0; v2 spec pending (see PRD TODO-13).** `generate_opener_end_card()` in `video/compose_trailer.py` produces a 5s 3-line card: `DAY 1 STARTS NOW` (80pt white) + cohort/season subtitle (32pt grey) + `doubland.ai/waitlist` CTA (28pt gold #C8A86B). v2 swaps the single waitlist CTA line for a multi-line watch-live block (per video_playbook §4.7) and bumps duration ~5s → ~8s.
 
 **Deliverable:** generated in compose stage via FFmpeg drawtext, no asset file needed beyond a font choice.
 
-**Spec:**
+**v2 Spec (current target):**
 - Background: dark neutral #0A0A0A with a subtle radial light at center
 - Title (line 1, centered, 80pt, white serif): `DAY 1 STARTS NOW`
-- Subtitle (line 2, centered, 32pt, off-white): `{cohort_name} — The Ville`
-- CTA (line 3, centered, 24pt, gold #C8A86B): `doubland.ai/waitlist`
-- Duration: 5s (vs. day-overview's 2s — opening earns the lingering close)
+- Subtitle (line 2, centered, 32pt, off-white): `{cohort_name} — {season_title}`
+- Body (line 3, centered, 28pt, off-white): `Watch live. Scroll back. Follow every Double.`
+- Body (line 4, centered, 24pt, off-white): `New trailer daily at 6:30 PM.`
+- CTA (line 5, centered, 28pt, gold #C8A86B): `www.doubland.ai`
+- Duration: ~8s (extra reading time for 5 lines vs the v0 3-line card)
 
 **Your inputs:** cohort_name (e.g. "The Pistsov Family Sim", or whatever the cohort calls itself).
 
@@ -597,12 +599,17 @@ video/assets/opening/
 - **Cohort name:** Pistsov family
 - **Season title:** Who will stay alive
 
-End card resolves to:
+End card resolves to (v2 spec):
 ```
 DAY 1 STARTS NOW
 Pistsov family — Who will stay alive
-doubland.ai/waitlist
+
+Watch live. Scroll back. Follow every Double.
+New trailer daily at 6:30 PM.
+
+www.doubland.ai
 ```
+v0 shipped a single-line `doubland.ai/waitlist` CTA — superseded 2026-05-04 per video_playbook §4.7.
 
 ---
 
@@ -639,7 +646,7 @@ The v0 trailer at `data/20260430-7/opener&001/output/trailer_16x9.mp4` (130s, 24
 - Archetype-themed borders (gold for champion, etc.)
 - Cold-open narration over a slow zoom on the village
 - Stakes-montage narration over ken-burns establishing shots
-- Branded end card with waitlist CTA
+- Branded end card (v0: single-line `doubland.ai/waitlist`; v2 target per playbook §4.7: multi-line watch-live + `www.doubland.ai`)
 - YouTube-paste-ready description with rotating per-cast `?double=` deep-links
 
 Use it for internal review or a tier-2 investor preview. Keep §TODO-A/C/E for the polished investor-grade demo.
