@@ -960,14 +960,14 @@ Not all personas. Feature **6** (configurable 1-6 via `--top` CLI arg) ranked by
 v0 ships working with placeholders; commissioned drops upgrade quality with ~1h of code wiring once assets land. Full prompts and acceptance criteria in `d:\Coding\double-ivan\20260501_opening-trailer.md`.
 
 | Asset | Tool | State | Drop-in path |
-| Sprite walk-out micro-videos (6 × 2.5s) | Grok Imagine | Native Phaser fallback running; commission MP4s for polish | `video/assets/opening/sprite_walkout_{agent_id}.mp4`  |
+| Sprite walk-out micro-videos (6 × 2.5s) | Grok Imagine | Native Phaser fallback running; commission MP4s for polish | `video/assets/users/sprite-walkouts/{agent_id}.mp4` (`.webm` fallback at `video/assets/phaser/sprite_walkout_{agent_id}.webm`) |
 | Anthem music track (~165s, 6 stings)    | Suno or Udio            | Using `music_drama.mp3` placeholder | `video/audio/music_anthem.mp3`                                    |
-| Trading-card frame PNGs (3 archetypes)  | Figma or Midjourney     | FFmpeg `drawbox` placeholder borders running | `video/assets/opening/card_frame_{archetype}.png`        |
-| Archetype intro stings (4 × WAV)        | Suno or Freesound       | Classification shipped; playback not wired   | `video/assets/opening/sting_{archetype}.wav`             |
-| Cinematic atmospheric MP4s (4-6)        | Grok Imagine            | Phaser establishing shots running; cinematic MP4s drop in by extending `stakes_montage.atmospheric_clips` | `video/assets/opening/cinematic_*.mp4`               |
-| How-to-watch card templates             | Figma / FFmpeg drawtext | New v2 requirement                            | `video/assets/opening/how_to_watch_card_*.png`          |
+| Trading-card frame PNGs (3 archetypes)  | Figma or Midjourney     | FFmpeg `drawbox` placeholder borders running | `video/assets/archetypes/card_frame_{archetype}.png`     |
+| Archetype intro stings (4 × WAV)        | Suno or Freesound       | Classification shipped; playback not wired   | `video/assets/archetypes/sting_{archetype}.wav`          |
+| Cinematic atmospheric MP4s (4-6)        | Grok Imagine            | 5 flyovers shipped 2026-05-04; Phaser establishing shots remain as fallbacks | `video/fly-over/cinematic_flyover_*.mp4` (Phaser PNG fallbacks at `video/assets/phaser/establish_*.png`) |
+| How-to-watch card templates             | Figma / FFmpeg drawtext | New v2 requirement                            | `video/assets/cohort/how_to_watch_card_*.png`           |
 
-**Sketch portraits** (recognition anchor) — already in repo at `onboarding/user_photos/double-sketches/{agent_id}.png`. Privacy-safe; enables open social sharing. Real-photo path was dropped from v1.
+**Sketch portraits** (recognition anchor) — at `video/assets/users/sketches/{agent_id}.{png|jpg}` (regenerated 2026-05-07; original photos at `video/assets/users/headshots/{agent_id}.png`; generation prompt at `video/assets/scripts-prompts/prompt-photo-sketch.md`). Privacy-safe; enables open social sharing. Real-photo path was dropped from v1.
 
 ### 4.10 Cohort name + season title
 
