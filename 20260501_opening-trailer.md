@@ -678,17 +678,129 @@ All three plug in as a single new beat ("brand open") inserted before the existi
 
 ---
 
-#### Suggested execution order
+#### Implementation plan — opener trailer v2.x
 
-1. **Code-only revisions, pass 1 (1–2h)** ✓ **DONE 2026-05-11.** #1 (drop 9x16) + #2 (drop stings) + #5 (drop archetype labels) all shipped via three module-level changes in `video/compose_trailer.py`. Verified against `data/20260506-5/opener&001/`. #7 (strip Phaser UI artifacts) was originally here but is absorbed by #10 — no need to re-capture old `establish_*.png` shots since they're being deleted entirely.
-2. **Tier A Phaser bake (1 day):** #10 Change A + B. Sets the foundation for #8 (Phaser ↔ rendered fusion) and the brand open's iconic flyover (§TODO-T). Locks the cohort-agnostic asset set.
-3. **Dynamic end card (3–5h):** #9. Independent of other work — can land in parallel with #10 once copy is locked.
-4. **Brand open (1–2 days):** §TODO-S (logo splash) + §TODO-T (iconic flyover, now sourced from Tier A) + §TODO-U (narrative template). Logo + chime can be commissioned in parallel; narrative goes through ElevenLabs once the script is locked.
-5. **Tier B Phaser capture (1 day):** #10 Change C. Showrunner schema extension + capture pipeline + compose-layer migration. Unlocks everything downstream that needs sim-specific atmospheric beats.
-6. **Cast intro restructure (1 day):** #6 (grid → zoom → grid). Subsumes #4 (walkouts-once). May consume new Tier B captures if a beat wants live sim footage in the cell-zoom (otherwise headshot + walkout is enough).
-7. **Phaser ↔ rendered fusion beat (4–8h):** #8. Consumes Tier A (cohort-agnostic Phaser) + commissioned §TODO-N / §TODO-O renders. Needs the brand intro framework + Tier A bake to exist as precursors. Prototype on 2–3 locations first.
+> **Last status sweep: 2026-05-12.** Phases marked ✓ DONE are shipped on `ivan/video`; phases marked 🟡 IN FLIGHT have an external dependency (designer / advisor); phases marked ⬜ OPEN are not started.
 
-After all seven phases land: opener goes from "MVP placeholder" to "promotional asset" with sim-aware atmospheric beats. Estimated total effort: **5–8 working days**. Critical path is #10 (two-tier capture system) — it gates #6, #7, #8, and §TODO-T.
+##### Phase 1 — Code-only revisions pass 1 ✓ **DONE 2026-05-11**
+
+Three flag-gated changes in `video/compose_trailer.py` (commits `caa0b379`, `817e0943`):
+- ✓ #1 — Drop 9x16 vertical render (`VERTICAL_9X16_ENABLED=False`)
+- ✓ #2 — Disable archetype stings (`STINGS_ENABLED=False`)
+- ✓ #5 — Remove archetype labels from cast intros
+
+#7 (strip Phaser UI artifacts) was scoped here originally but was absorbed by Phase 7 (#10 two-tier Phaser capture) since the stale `establish_*.png` shots are slated for deletion.
+
+##### Phase 2 — Narration overhaul + LLM cache ✓ **DONE 2026-05-12**
+
+Four-file change (commits `553f88cd` + `132377cc` + `f21bd6f0` + `8e232e34`):
+- ✓ Migration: `double.video_narration_cache` table (RLS-enabled, service-role only)
+- ✓ `supabase/db_reference.md` updated
+- ✓ `video/narration_cache.py` — `get_or_generate()` with hash-based invalidation + pinned overrides
+- ✓ `video/showrunner.py` — 6 new Tier-B system prompts (cold_open, format_lock, persona_narration, pressure_event, vote_dread, habit_hook); all hardcoded copy removed; Burnett 6-beat structure auto-generated per cohort
+- ✓ `OPENER_NARRATION_BOUNDS` aligned across `showrunner.py` and `validate_trailer.py`
+- ✓ Cache-thrash fix on cold_open + pressure_event (commit `ba846a60`): user prompts now use deterministic `scratch_compact` fields, not the stochastic regenerated bio
+
+##### Phase 3 — Audio fixes (A1, A2) ✓ **DONE 2026-05-12**
+
+Commit `0f957757`:
+- ✓ A1 — Narration head cutoff: `[PAUSE 0.8s]` prepended to assembled narrator_script → 1.3s of head silence eliminates first-phoneme clip
+- ✓ A2 — Doubland pronunciation: `TTS_PRONUNCIATION_OVERRIDES` substitutes `Doubland → Dohbland` at the ElevenLabs boundary; canonical spelling preserved in cache + script.json
+
+##### Phase 4 — Round 3 closing card (A3, C1, C2, F1) ✓ **DONE 2026-05-12**
+
+Commit `ff7cf5a0`:
+- ✓ A3 — Habit hook rewritten as ONE 3-6 word closing line ("Day 1 starts now")
+- ✓ C1 — How-to-watch card retired (zero-duration block; compose gated to skip)
+- ✓ C2 — New single end card with cohort-aware staged layout: cohort label (dynamic via `cohort_name.upper()`), question (dynamic via `season_title`), URL (`doubland.ai`), cadence (`New trailer daily · 6:30 PM`)
+- ✓ F1 — Silent tail resolved: "Day 1 starts now" VO at ~t=112s, end-card visual + music carry to ~t=130s
+- ✓ Background asset `video/assets/production/end_card_background.png` committed (council platform shot)
+- ✓ `generate_opener_end_card` rewritten in `compose_trailer.py` to use background PNG + asymmetric Card-2 typography layout
+
+##### Phase 5 — Brand wordmark content lock ✓ **DONE 2026-05-12**
+
+Doc-only:
+- ✓ Locked composite mark: **`DOUBLAND — What if?`** (H1 + H2 two-line lockup)
+- ✓ Trademark cleared by IP counsel (Marvel/Disney *"What If…?"* assessed as non-blocking — see `20260512_trademark-research-request.md`)
+- ✓ Iconic background still locked at `video/assets/production/brand/brand_opener_iconic_still.png` (dusk village + cyan wireframe overlays, post-prompt-1 iteration of `opening.png`)
+- ✓ §TODO-U (narrative template) effectively DONE via Phase 2's narration cache (downgraded from "commission VO copy" to "system prompts ARE the franchise spec")
+
+##### Phase 6 — Brand wordmark commission + motion 🟡 **IN FLIGHT (design team)**
+
+Sequenced asks, ~10–14 day total runway:
+
+⬜ **6a — Send Prompt 3 (wordmark typography commission):** locked content `DOUBLAND` (H1) + `What if?` (H2); 3 positioning variants requested against `brand_opener_iconic_still.png`. Brief lives in `20260512_design-brand-intro-request.md` §3 Deliverable A. *Status: ready to send to design team.*
+
+⬜ **6b — Review 3 positioning variants, pick winner.** ~5–7 days after 6a kickoff.
+
+⬜ **6c — Send Prompt 4 (motion direction):** 4-second slow zoom-out from 70% scale to 100% + wordmark fade-in (Option A from earlier triage). Draft prompt sits in earlier session notes; codify into a follow-up brief when 6b completes.
+
+⬜ **6d — Receive final brand assets:**
+- `brand_opener_wordmark.svg` (scalable wordmark)
+- `brand_opener_splash.png` (locked still composition)
+- `brand_opener_clip.mp4` (4-second animated splash for v2.1)
+- `brand_iconic_flyover.mp4` (4–5 second iconic establishing flyover)
+
+⬜ **6e — Engineering integration:** add `compose_brand_open(output_path, duration_sec=8.0)` to `compose_trailer.py`; prepend the brand-open stage to `compose_opener_trailer`'s concat list. ~30 LOC, ~1 hour. Total trailer runtime grows from 124s → ~132s (within 95–180s validation bounds).
+
+⬜ **6f — Validation render:** kick a fresh pipeline run against `20260506-5`; verify brand opener plays before cold open; confirm narration cache still hits.
+
+**Brand sound (Deliverable D from design brief) deferred to v2.x** — the anthem's opening note carries the audio bed for v2.1.
+
+##### Phase 7 — Two-tier Phaser capture system (#10 + #7) ⬜ **OPEN**
+
+Foundational refactor (~2–3 days; full design in §10 of Improvement Suggestions above):
+- ⬜ Migration: split `video/assets/phaser/cohort-agnostic/` (Tier A, bake once) + `data/{sim}/opener&NNN/raw/phaser/` (Tier B, per-render)
+- ⬜ New `video/assets/scripts-prompts/bake_cohort_agnostic_phaser.py` (Tier A bake)
+- ⬜ Showrunner schema extension: `atmospheric_key_steps` field; LLM ranks 1–3 high-impact step ranges per sim
+- ⬜ New `capture_atmospheric_beats()` Playwright function for Tier B captures
+- ⬜ Compose-layer migration: stakes montage + #8 fusion beat consume new outputs
+- ⬜ Strip Phaser player chrome (#7) from captures via CSS injection in Playwright pass
+
+Reopens §TODO-F (was DONE; now flagged REOPENED 2026-05-11). Gates #8 (fusion beat) and the visual layer of cast-intro restructure.
+
+##### Phase 8 — Grid-anchored cast intros (#6 + #4) ⬜ **OPEN**
+
+New compose function `compose_cast_grid_intros()` (~80–120 LOC):
+- ⬜ Render 4-up grid layout (headshot + name badge per cell)
+- ⬜ Per-persona zoom: expand cell to full-screen, show name + bio + trait moment + walkout MP4 played once (#4), hold final frame while narration finishes, zoom back to grid
+- ⬜ Decision: 2×2 grid layout (recommend) vs 1×4 horizontal strip
+- ⬜ Decision: freeze walkout final frame vs crossfade to sketch portrait
+
+Subsumes #4 (walkouts-once) — the new flow plays walkouts once by design. May consume Phase 7's Tier B captures if grid cells want live sim footage; otherwise headshot + walkout is sufficient.
+
+##### Phase 9 — Phaser↔rendered fusion beat (#8) ⬜ **OPEN**
+
+New 8–12s beat in the opening, after the brand intro and before the cold open (~40–60 LOC):
+- ⬜ Pick 3–4 locations from §TODO-O interiors + §TODO-N exteriors
+- ⬜ Crossfade each from rendered version → Phaser top-down equivalent (or vice versa)
+- ⬜ Narration: short line ("Real lives, rendered in a schematic world.")
+- ⬜ Output: single MP4 clip slotted as new compose stage
+
+Depends on Phase 7's Tier A bake for the schematic side.
+
+---
+
+#### Critical path + sequencing
+
+```
+Phase 1 ✓
+Phase 2 ✓
+Phase 3 ✓
+Phase 4 ✓
+Phase 5 ✓ ───┐
+Phase 6 🟡 ──┤ ──→ v2.1 SHIPPABLE (after 6e) — brand opener integrated
+             │
+Phase 7 ⬜ ──┘ ──→ unblocks Phase 8 visual sources + Phase 9
+Phase 8 ⬜ ──→ depends on Phase 7
+Phase 9 ⬜ ──→ depends on Phase 7
+```
+
+**v2.1 ship dependency:** Phase 6 completion (design-team brand assets + engineering integration). Estimated ~2 weeks.
+
+**v2.2+ ambitions:** Phases 7–9. Sequenceable in any order after Phase 7 lands. Estimated 3–5 working days for Phases 7–9 combined once kicked off.
+
+**Total remaining estimated effort:** ~2 weeks of design-team runway (Phase 6) + ~3–5 days of engineering (Phases 7–9). v2.1 is the achievable next milestone; v2.2 is the polish-pass milestone.
 
 ---
 
