@@ -14,7 +14,7 @@ The pipeline is end-to-end working. All commissioned-asset TODOs are now closed 
 4. **Per-archetype** (commission once forever, reusable across cohorts) — §TODO-D archetype stings ✓ DONE 2026-05-11 → §TODO-E commissioned card frames **STILL OPEN** (placeholder borders shipping today)
 5. **Revisions pass 1** (2026-05-11): ✓ drop 9x16, ✓ drop stings, ✓ remove archetype labels — all shipped via `compose_trailer.py` flags.
 6. **Narration overhaul + LLM cache** (2026-05-12): ✓ Burnett 6-beat structure automated via `narration_cache` + 6 system prompts in `showrunner.py` — see "Round 3 milestone" subsection in Feedback & Corrections.
-7. **Brand wordmark locked 2026-05-12:** composite mark **`DOUBLAND — What if?`** (H1 + H2 two-line lockup) cleared by IP counsel (non-blocking vs. Marvel's *"What If…?"*). Iconic flyover background commissioned at `video/assets/production/brand/brand_opener_iconic_still.png` (dusk village + cyan wireframe duality). Remaining brand-open work: wordmark typography + motion treatment (in flight with design team).
+7. **Brand wordmark locked 2026-05-12 (content) + 2026-05-13 (typography):** composite mark **`DOUBLAND — What if?`** (H1 + H2) cleared by IP counsel (non-blocking vs. Marvel's *"What If…?"*). Iconic flyover background at `video/assets/production/brand/brand_opener_iconic_still.png`. Locked typeset composition at `video/assets/production/brand/opening_wordmark.png` (Editorial centered, gold rule between H1 and H2). Remaining brand-open work: motion treatment (6c) + engineering integration (6e).
 8. **Round 3 closing (DONE 2026-05-12):** single-card end card with cohort-aware content, "Day 1 starts now" closing VO, how-to-watch card retired. Shipped in `ff7cf5a0`.
 9. **Still open** (full execution order in Feedback section): §TODO-S logo splash typography + motion (in flight); §TODO-T iconic flyover motion (in flight); #6 cast-intro grid restructure; #8 Phaser↔rendered fusion beat; #10 two-tier Phaser capture system.
 
@@ -714,7 +714,7 @@ Commit `ff7cf5a0`:
 - ✓ C1 — How-to-watch card retired (zero-duration block; compose gated to skip)
 - ✓ C2 — New single end card with cohort-aware staged layout: cohort label (dynamic via `cohort_name.upper()`), question (dynamic via `season_title`; **superseded by Phase 4.5 — now bare "What if?"**), URL (`doubland.ai`), cadence (`New trailer daily · 6:30 PM`)
 - ✓ F1 — Silent tail resolved: "Day 1 starts now" VO at ~t=112s, end-card visual + music carry to ~t=130s
-- ✓ Background asset `video/assets/production/end_card_background.png` committed (council platform shot)
+- ✓ Background asset committed (council platform shot). **Relocated 2026-05-13:** moved from `video/assets/production/end_card_background.png` → `video/assets/production/brand/brand_end_card_background.png`. The selected end-card hero composition (card 2 from the 2026-05-12 typography pass) is locked at `video/assets/production/brand/brand_end_card.png`. **Engineering note:** `END_CARD_BACKGROUND_PATH` in `video/compose_trailer.py:701` still points to the old path and must be repointed before the next render.
 - ✓ `generate_opener_end_card` rewritten in `compose_trailer.py` to use background PNG + asymmetric Card-2 typography layout
 
 ##### Phase 4.5 — Brand-voice backport to v2.1 narration + end card ✓ **DONE 2026-05-12**
@@ -741,25 +741,43 @@ Doc-only:
 - ✓ Locked composite mark: **`DOUBLAND — What if?`** (H1 + H2 two-line lockup)
 - ✓ Trademark cleared by IP counsel (Marvel/Disney *"What If…?"* assessed as non-blocking — see `20260512_trademark-research-request.md`)
 - ✓ Iconic background still locked at `video/assets/production/brand/brand_opener_iconic_still.png` (dusk village + cyan wireframe overlays, post-prompt-1 iteration of `opening.png`)
+- ✓ Typeset wordmark composition locked 2026-05-13 at `video/assets/production/brand/opening_wordmark.png` (Editorial-centered variant — see Phase 6 §6a/6b)
 - ✓ §TODO-U (narrative template) effectively DONE via Phase 2's narration cache (downgraded from "commission VO copy" to "system prompts ARE the franchise spec")
+
+##### Brand visual narrative arc (locked 2026-05-13)
+
+The trailer's brand-visual journey expresses the product premise: **the boundary between simulation and reality dissolves over the course of watching.**
+
+- **Opener** carries the cyan-wireframe duality (real cottages + simulated overlays). This frames the viewer's expectations: "you are about to see a mix of simulation and real life."
+- **Closer** is pure cinematic — no cyan, no overlays. By the end, the duality has dissolved; everything is perceived as real life. The Doubles, the village, the consequences — all reading as lived events.
+
+Practical consequence for motion commissions: opener clips must preserve the cyan-wireframe motif; closer clips must contain zero cyan. This is the locked brand statement for the trailer pipeline. (Worth mirroring into `D:\Coding\double-ivan\concept\brand.md` § Visual & Tone Guardrails on next pass.)
 
 ##### Phase 6 — Brand wordmark commission + motion 🟡 **IN FLIGHT (design team)**
 
 Sequenced asks, ~10–14 day total runway:
 
-⬜ **6a — Send Prompt 3 (wordmark typography commission):** locked content `DOUBLAND` (H1) + `What if?` (H2); 3 positioning variants requested against `brand_opener_iconic_still.png`. Brief lives in `20260512_design-brand-intro-request.md` §3 Deliverable A. *Status: ready to send to design team.*
+✓ **6a — Wordmark typography commission DONE 2026-05-13:** locked content `DOUBLAND` (H1) + `What if?` (H2). Winner: "Editorial centered" composition (large display serif `DOUBLAND` cream, thin gold rule, sentence-case `What if?` below). Brief used: `20260513_brand-wordmark-typography-brief.md` (now superseded — kept for archive). Background plate: `brand_opener_iconic_still.png` unaltered. **`.ai` suffix evaluated and rejected** — primary brand mark stays pure `DOUBLAND`; URL stays on end card. Parallel "URL lockup" variant (`DOUBLAND.ai` for social/ads) noted as future asset, not in trailer scope.
 
-⬜ **6b — Review 3 positioning variants, pick winner.** ~5–7 days after 6a kickoff.
+✓ **6b — Winner locked at** `video/assets/production/brand/opening_wordmark.png`. Minor nit-list deferred to 6c (cyan wireframe currently grazes the gold rule + descender of `What if?`; lockup sits dead-center, could nudge ~10% upward — both fixable in the motion treatment pass).
 
-⬜ **6c — Send Prompt 4 (motion direction):** 4-second slow zoom-out from 70% scale to 100% + wordmark fade-in (Option A from earlier triage). Draft prompt sits in earlier session notes; codify into a follow-up brief when 6b completes.
+✓ **6c — Motion direction DONE 2026-05-13** (both bookend clips locked):
+- ✓ **Opener motion** `brand_opener_motion.mp4` (1280×720, 24 fps, 6.04 s, silent). Slow push-in through dusk village; cyan-wireframe duality animates throughout; locked wordmark + gold rule baked in. Brand-bible "cyan never touches wordmark" rule explicitly bent here — the duality IS the brand, brief overlap during motion is on-brand.
+- ✓ **End-card motion** `brand_end_card_motion.mp4` (1280×720, 24 fps, 6.04 s, silent). Slow push-in on lantern-lit council platform; fog drift + string-light flicker; **zero cyan, zero text** — pure cinematic per duality-arc principle (simulation/reality boundary has dissolved by close). Text-free canvas — `generate_opener_end_card()` overlays cohort label, bare `What if?` (per §4.5), URL, cadence via FFmpeg drawtext.
 
-⬜ **6d — Receive final brand assets:**
-- `brand_opener_wordmark.svg` (scalable wordmark)
-- `brand_opener_splash.png` (locked still composition)
-- `brand_opener_clip.mp4` (4-second animated splash for v2.1)
-- `brand_iconic_flyover.mp4` (4–5 second iconic establishing flyover)
+✓ **6d — Brand assets received and locked 2026-05-13:**
+- ✓ Locked typeset still: `video/assets/production/brand/opening_wordmark.png` (1280×720, Editorial centered)
+- ✓ Locked opener motion: `video/assets/production/brand/brand_opener_motion.mp4` (1280×720, h.264, 24 fps, 6.04 s, silent — wordmark + gold rule baked in)
+- ✓ Locked end-card motion: `video/assets/production/brand/brand_end_card_motion.mp4` (1280×720, h.264, 24 fps, 6.04 s, silent — text-free, pure cinematic per duality-arc principle)
+- ⬜ SVG wordmark (deferred — only needed for web/print, not the trailer)
+- ⬜ `brand_iconic_flyover.mp4` (deferred — `brand_opener_motion.mp4` may serve double duty; revisit during 6e wiring)
 
-⬜ **6e — Engineering integration:** add `compose_brand_open(output_path, duration_sec=8.0)` to `compose_trailer.py`; prepend the brand-open stage to `compose_opener_trailer`'s concat list. ~30 LOC, ~1 hour. Total trailer runtime grows from 124s → ~132s (within 95–180s validation bounds).
+✓ **6e — Engineering integration DONE 2026-05-13** (`video/compose_trailer.py`):
+- ✓ New `compose_brand_open(output_path, duration_sec=None)` — stream-copies `brand_opener_motion.mp4` as Stage 0 of `compose_opener_trailer`. Returns False when asset is absent so the pipeline degrades gracefully to pre-Phase-6 behavior.
+- ✓ New `_prepad_narration(narration_path, lead_sec, output_path)` — prepends silence so cold-open VO still lands on its script timestamp after the brand open shifts the video timeline.
+- ✓ `generate_opener_end_card` background loader now 3-tier: `brand_end_card_motion.mp4` (preferred, freeze-frame extended to fill end-card window) → `brand_end_card_background.png` → `lavfi color` flat black.
+- ✓ `compose_opener_trailer` extended: brand-open prepended; `target_duration += brand_open_dur` (~130s → ~136s, within 95–180s validator bounds); narration pre-padded; sting timestamps shifted by `brand_open_dur`; intermediates cleanup includes the new artifacts. Music timeline is unshifted — anthem's opening note rides under the brand-open frame as the audio bed.
+- Smoke-tested: `compose_brand_open` produces 6.04s clip from the locked asset; `_prepad_narration` produces correct duration shift on a synthetic input.
 
 ⬜ **6f — Validation render:** kick a fresh pipeline run against `20260506-5`; verify brand opener plays before cold open; confirm narration cache still hits.
 
