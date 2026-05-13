@@ -712,10 +712,28 @@ Commit `0f957757`:
 Commit `ff7cf5a0`:
 - ✓ A3 — Habit hook rewritten as ONE 3-6 word closing line ("Day 1 starts now")
 - ✓ C1 — How-to-watch card retired (zero-duration block; compose gated to skip)
-- ✓ C2 — New single end card with cohort-aware staged layout: cohort label (dynamic via `cohort_name.upper()`), question (dynamic via `season_title`), URL (`doubland.ai`), cadence (`New trailer daily · 6:30 PM`)
+- ✓ C2 — New single end card with cohort-aware staged layout: cohort label (dynamic via `cohort_name.upper()`), question (dynamic via `season_title`; **superseded by Phase 4.5 — now bare "What if?"**), URL (`doubland.ai`), cadence (`New trailer daily · 6:30 PM`)
 - ✓ F1 — Silent tail resolved: "Day 1 starts now" VO at ~t=112s, end-card visual + music carry to ~t=130s
 - ✓ Background asset `video/assets/production/end_card_background.png` committed (council platform shot)
 - ✓ `generate_opener_end_card` rewritten in `compose_trailer.py` to use background PNG + asymmetric Card-2 typography layout
+
+##### Phase 4.5 — Brand-voice backport to v2.1 narration + end card ✓ **DONE 2026-05-12**
+
+Lightweight pass after `concept/brand.md` ratification — pull brand Register A ("What if?") and vocabulary discipline into the v2.1 trailer without waiting for Phase 6 brand-asset delivery. Zero new visual assets; all changes are prompt-level or one-line config swaps.
+
+`video/showrunner.py`:
+- ✓ New module-level constant `OPENER_BRAND_DISCIPLINE` codifies the forbidden vocabulary list (*simulate*, *agent*, *AI twin*, *digital twin*, *virtual you*, *imagine*, *alternate reality*, *parallel life*) and the "intimate-conspiratorial / no urgency / no aspirational fluff" register from `concept/brand.md`.
+- ✓ All 6 Burnett-beat system prompts append `OPENER_BRAND_DISCIPLINE` (cold_open, format_lock, persona_narration, pressure_event, vote_dread, habit_hook). Editing this single constant invalidates the prompt_hash on all six cached artifacts at once, forcing a regen on next render — the intended cache-invalidation pivot.
+- ✓ `OPENER_PERSONA_NARRATION_SYSTEM` adds *"The version of [Name] that..."* as an optional pivot (brand signature phrase from Pillar 4 / Mirror). Available, never forced; capped at one use per script.
+- ✓ `OPENER_COLD_OPEN_SYSTEM` constraint text fix: "their **AI** Doubles" → "their Doubles" — the "AI" qualifier is retired per brand vocab rules.
+- ✓ `end_card_block.question` (and back-compat `subtitle` field) hardcoded to bare **`What if?`** — supersedes the Phase 4 `season_title`-derived "Who will stay alive?" question per `concept/brand.md` § "End card: Bare 'What if?' (A) on screen. Remove all 'Who will stay alive?' danger text from card." `season_title` retained as trailer metadata only; no longer surfaces visually.
+
+`video/compose_trailer.py`:
+- ✓ `generate_opener_end_card` docstring updated to reflect bare-"What if?" mapping (cosmetic — no rendering logic changed).
+
+**Net behavior change for next render:** all 6 narration cache rows on `video/narration_cache` for `20260506-5` invalidate (hash mismatch); next opener render regenerates them under the new prompts, producing tighter, on-brand copy. End card visually reads `What if?` instead of `Who will stay alive?`.
+
+**What this does NOT change:** wordmark commission (Phase 6 still in flight), Phase 6 brand-opener stage (still ⬜), Phase 7/8/9 (still ⬜). Phase 4.5 is purely an in-place v2.1 brand-voice tightening — it does not unblock or replace any deferred phase.
 
 ##### Phase 5 — Brand wordmark content lock ✓ **DONE 2026-05-12**
 
@@ -788,6 +806,7 @@ Phase 1 ✓
 Phase 2 ✓
 Phase 3 ✓
 Phase 4 ✓
+Phase 4.5 ✓ (brand-voice backport — supersedes Phase 4 end-card question)
 Phase 5 ✓ ───┐
 Phase 6 🟡 ──┤ ──→ v2.1 SHIPPABLE (after 6e) — brand opener integrated
              │
