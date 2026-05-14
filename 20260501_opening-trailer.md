@@ -112,7 +112,10 @@ video/
 │   ├── normalize.sh                     # two-pass loudnorm: --target sting (-12 LUFS) | --target music (-16 LUFS)
 │   └── sfx/                             # general sound effects
 └── fly-over/
-    └── cinematic_flyover_*.mp4          # §TODO-I (5 shipped 2026-05-04)
+    ├── cinematic_flyover_*.mp4          # §TODO-I (5 shipped 2026-05-04)
+    ├── cinematic_village_aerial_tudor.mp4    # Phase 9 cinematic plate (2026-05-13); aerial Tudor village, on-brand storybook aesthetic, full cinematic — primary Phase 9 fusion-beat second half
+    ├── cinematic_village_courtyard_dusk.mp4  # Phase 7 commission byproduct (2026-05-13); ground-level Tudor courtyard, dusk — stakes-montage atmospheric / end-card motion variant
+    └── signature_flyover.mp4            # Phase 9 schematic plate (2026-05-13); pixel-art top-down village with animated sprites — Phase 9 fusion-beat first half / cold-open background / stakes-montage atmospheric
 ```
 
 ---
@@ -135,7 +138,7 @@ video/
 | §TODO-F Home / establishing shots | Auto | **REOPENED 2026-05-11** | `capture_static_assets.py` outputs (`establish_*.png`, `home_topdown_*.png`, `sprite_walkout_*.webm`) are stale and unfit — see Feedback & Corrections obs. #10 + suggestion #10. Being replaced by the two-tier capture system (cohort-agnostic bake + per-sim-day Tier B captures driven by showrunner LLM `atmospheric_key_steps`). |
 | §TODO-G Archetypes | Auto | DONE | Tier-B LLM |
 | §TODO-H Cold open | Auto | DONE | Templated + ElevenLabs |
-| §TODO-I Flyovers + narration | Auto | DONE 2026-05-04 | 5 Grok flyovers + LLM narration |
+| §TODO-I Flyovers + narration | Auto | DONE 2026-05-04 | 5 Grok flyovers + LLM narration. *Augmented 2026-05-13:* +3 Phase-7-commissioned assets — `signature_flyover.mp4` (pixel-art top-down with sprites), `cinematic_village_aerial_tudor.mp4` (aerial Tudor village, locked aesthetic), `cinematic_village_courtyard_dusk.mp4` (ground-level Tudor courtyard). The first two are Phase 9 fusion-beat plates; the third is a stakes-montage atmospheric. |
 | §TODO-J End card | Auto | DONE | v2 spec: 5 lines, ~8s |
 | §TODO-K Sketch normalization | Decided | DECIDED | Leave as-is for v0 |
 | §TODO-L Cohort + season title | Decided | DECIDED | Pistsov family / Who will stay alive |
@@ -805,15 +808,34 @@ New compose function `compose_cast_grid_intros()` (~80–120 LOC):
 
 Subsumes #4 (walkouts-once) — the new flow plays walkouts once by design. May consume Phase 7's Tier B captures if grid cells want live sim footage; otherwise headshot + walkout is sufficient.
 
-##### Phase 9 — Phaser↔rendered fusion beat (#8) ⬜ **OPEN**
+##### Phase 9 — Phaser↔rendered fusion beat (#8) ⬜ **OPEN** — assets locked 2026-05-13
 
-New 8–12s beat in the opening, after the brand intro and before the cold open (~40–60 LOC):
-- ⬜ Pick 3–4 locations from §TODO-O interiors + §TODO-N exteriors
-- ⬜ Crossfade each from rendered version → Phaser top-down equivalent (or vice versa)
-- ⬜ Narration: short line ("Real lives, rendered in a schematic world.")
-- ⬜ Output: single MP4 clip slotted as new compose stage
+New 8s beat in the opening, after the brand intro and before the cold open. **Scope simplified 2026-05-13:** rather than per-location crossfades (the original #8 spec), Phase 9 is now a **single 8s schematic→cinematic dissolve** using two locked Phase 7 commissioned assets. Implementation is ~20 LOC of FFmpeg `xfade` in `compose_trailer.py`.
 
-Depends on Phase 7's Tier A bake for the schematic side.
+**Architecture:**
+```
+[signature_flyover.mp4, 4s — schematic plate]
+   ↓ xfade dissolve (2s overlap, transition=fade)
+[cinematic_village_aerial_tudor.mp4, 4s — cinematic plate]
+————————————————————————————————————————————————————
+   = 8s Phase 9 fusion beat
+```
+
+**Compose stage (to add):**
+- New function `compose_phaser_to_cinematic_fusion(schematic_path, cinematic_path, narration_path, output_path)`.
+- FFmpeg filter graph: `[0:v][1:v]xfade=transition=fade:duration=2:offset=3[v]` (xfade starts 1s before halfway so the cinematic plate fully resolves by the end).
+- Strip audio from both source clips with `-an`; narration overlay added at mix stage.
+- Output: single MP4 clip slotted as new compose stage between brand-open and cold-open.
+
+**Locked assets (2026-05-13):**
+- *Schematic plate:* `video/fly-over/signature_flyover.mp4` — pixel-art top-down village with animated sprites walking the paths. Reads as "live simulation."
+- *Cinematic plate:* `video/fly-over/cinematic_village_aerial_tudor.mp4` — aerial Tudor village in the locked Doubland storybook aesthetic (matches `_style_frame_master.png`). Reads as "real, lived-in world."
+
+**Narration:** still TBD (short Tier-B LLM line, ~10 words, e.g. "Real lives. Rendered in a schematic world."). Adds via existing prepad-narration plumbing.
+
+**What we tried but abandoned:** single-clip Grok schematic→cinematic morph (7+ Grok iterations 2026-05-13). Grok could deliver any 2 of {layout fidelity, schematic→cinematic morph, correct Tudor style} but never all 3 reliably. The FFmpeg-xfade approach above sidesteps the trade-off — both plates individually hit their goals, the xfade does the bridge.
+
+**Original #8 per-location crossfade idea is deferred:** could revisit post-v2.1 as a v2.2 enhancement if the single-dissolve fusion beat reads as weaker than per-location crossfades in playback testing.
 
 ---
 
