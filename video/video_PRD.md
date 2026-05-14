@@ -3,10 +3,10 @@
 > **Audience:** experienced developers picking up shipped or open-trailer work.
 > **Producer's spec (the "why" + creative direction):** `D:\Coding\double-ivan\video\video_playbook.md`
 > **SOT:** `D:\Coding\double-docs\sot\sot_video.md`
-> **Status:** Day-in-life — shipped (MVP, hardened 2026-05-01). Sim-day-overview (§2.2) — **shipped MVP 2026-05-01** (v2 spec open as TODO-14). Sim-opening (§2.3) — **shipped MVP 2026-05-01; v2 spec shipped 2026-05-04 (5-beat structure + watch-live framing, smoke-tested on `20260430-7`)**. Sim-announce (§2.4) — planned.
+> **Status:** Day-in-life — shipped (MVP, hardened 2026-05-01). Sim-day-overview (§2.2) — **shipped MVP 2026-05-01** (v2 spec open as TODO-14). Sim-opening (§2.3) — **shipped MVP 2026-05-01; v2.x landed through 2026-05-14 — brand opener, Burnett 6-beat narration + Supabase cache, narration-aligned grid cast intros with animated zoom, narration-driven runtime. Validated on `20260513-1`.** Sim-announce (§2.4) — planned.
 > **Author:** Ivan
 > **Originated:** 2026-04-03
-> **Last Updated:** 2026-05-04
+> **Last Updated:** 2026-05-14
 
 ---
 
@@ -35,15 +35,10 @@ This PRD is the engineering reference for the video pipeline. It tracks what's b
 
 **Per-village baseline progress (2026-05-07).** §TODO-M style frame and §TODO-N exteriors are DONE for the_ville. Five files in `video/assets/village/exterior/`: `village_overhead_wide.png` (top-down establisher, doubles as de facto style anchor), plus eye-level approach POV shots for `hobbs_cafe_exterior_wide.png`, `dorm_exterior_wide.png`, and `library_exterior_wide.png` (the four buildings the trailer exercises), plus `_layout-reference_open-roofs.png` as a layout ref for commissioning interiors. These unblock §TODO-Q hero pairings and provide environmental refs when commissioning §TODO-A polished sprite walkouts. §TODO-O interiors are the next baseline phase.
 
-- **§TODO-A. Sprite walk-out micro-videos** — Grok Imagine, 6 × 2.5s. Commission per-persona MP4s using each sketch + their top-down room screenshot. Drop into `video/assets/users/sprite-walkouts/{agent_id}.mp4`; native Phaser `.webm` fallback lives in `video/assets/phaser/sprite_walkout_{agent_id}.webm`. Composer wiring needs ~5 LOC update to look in the new location (was `video/assets/opening/`). ~2-4h × cast size.
-- **§TODO-C. Anthem music track** — Suno, ~165s with 6 stings at 15s intervals. Currently using `music_drama.mp3` placeholder. Drop `music_anthem.mp3` into `video/audio/`; flip script's `mood` to `"anthem"` (or rename file to `music_drama.mp3` for zero-config swap). ~1-2h.
-- **§TODO-E. Trading-card frame PNGs** — Figma or Midjourney, 3 archetypes (Champion / Wildcard / Observer). Placeholder FFmpeg `drawbox` borders are functional but utilitarian. Drop `card_frame_{archetype}.png` into `video/assets/archetypes/`; ~10 LOC change in `compose_cast_intro` to layer the PNG (and to read from `archetypes/` instead of the legacy `opening/` path). ~3-6h.
-- **§TODO-D. Archetype intro stings** — Suno, 4 × 1.5-2.5s WAVs. Archetype classification shipped; sting playback not yet wired. Drop `sting_{archetype}.wav` into `video/assets/archetypes/` plus ~20 LOC in `compose_cast_intro` to play sting at scene-out (looking in `archetypes/`, not the legacy `opening/`). ~1-2h.
-- **§TODO-I. Cinematic atmospheric clips — DONE 2026-05-04.** 5 Grok Imagine flyovers landed at `video/fly-over/cinematic_flyover_{village_overhead,homes_row_approach,cafe_exterior_pan,hobbs_cafe_interior,village_dusk_wind_down}.mp4`. Default `_generate_opener_script` `atmospheric_clips` updated to use them (replacing 5 of the 6 PNG establishing shots; `establish_village_dawn.png` retained as fallback since no dawn flyover was produced — optional follow-on). `compose_opener_trailer` now resolves path-prefixed entries (`fly-over/...`) relative to `video/` and bare filenames relative to `assets_dir`, so the two-source mix works transparently.
-- **§TODO-J. How-to-watch card templates** — Figma or FFmpeg drawtext, 2-3 cards covering "The village runs 24/7. / Watch from the very first day. / New trailer daily at 6:30 PM." (per playbook §4.6). Drop into `video/assets/cohort/how_to_watch_card_*.png`. Engineering wiring shipped 2026-05-04 with drawtext placeholder; commissioned PNGs upgrade quality with ~10 LOC swap in `compose_opener_how_to_watch` (also re-pointed from `opening/` to `cohort/`). ~2-3h.
-- **Field-test on a real Day-0 sim** once the polished assets land. The v0 smoke test ran against `20260430-7` (4-persona Pistsov family); a real cohort of 6-8 personas hasn't been exercised yet.
+**Asset-commission status (updated 2026-05-14):** §TODO-A sprite walkouts, §TODO-C anthem, §TODO-D archetype stings, §TODO-I cinematic flyovers, §TODO-M/N/O village baseline, §TODO-P character sheets, §TODO-Q hero pairings — all **DONE**. §TODO-J how-to-watch — **RETIRED** (Round 3: folded into the single closing end card). §TODO-D stings shipped then **disabled** in the opener path (Round 1 revision — the anthem carries the cast section). Full per-§TODO detail + the v2.x phase ledger live in **`d:\Coding\double-ivan\done\20260501_opening-trailer.md`**.
 
-**Total commissioned-asset effort:** ~10-17h of asset work + ~1h of code wiring. v0 demo trailer at `data/20260430-7/opener&001/output/trailer_16x9.mp4` is shippable for internal review without any of these.
+- **§TODO-E. Trading-card frame PNGs** — *only remaining commissioned asset.* 3 archetype frames (Champion / Wildcard / Observer) replacing the FFmpeg `drawbox` placeholders. **Design brief drafted 2026-05-14: `d:\Coding\double-ivan\20260514_trading-card-frames-brief.md`** — 3 frames reusable across casts of 4–15 doubles; slots into the existing card-layout zones with no code change.
+- **Field-test on a larger cohort** — the pipeline has been exercised on 4-persona casts (`20260430-7`, `20260513-1`); a 6–15-persona cohort hasn't been run end-to-end. The grid cast section auto-sizes (`_roster_grid_dims`), so this is a validation pass, not new code.
 
 **P1 — Accuracy / data correctness:**
 - **TODO-2b.** Verify chat memory persistence end-to-end. Sim `20260413-1` had 0 rows of `memory_type='chat'` in `dbl_memory` despite 174 steps with `movement.chat` data. Independent of trailer pipeline (extractor reads `movement.chat` directly), but the cognitive loop's RIR retrieval of past-day conversations depends on this for multi-day memory. **MVP release-gate item §7 #8** — see `d:\Coding\double-ivan\20260507_mvp-release-gate.md` lines 34-35; gate guidance is "keep deferred unless the survival smoke surfaces it." See §3.
@@ -214,46 +209,47 @@ python -m video.generate_trailer 20260430-7 --mode day_overview --day 2 --top 3
 
 ### 2.3 Sim-Opening Trailer
 
-> **2:30-3:00 · ensemble (1-6 cast slots) · Day-0 only · two-pass LLM (per-persona + wrapper) · 5-beat structure with how-to-watch CTA**
-> **Playbook reference:** §4 (purpose, six emotions in order, cast intros, stakes montage, how-to-watch, asset inventory)
-> **Asset commission detail:** `d:\Coding\double-ivan\20260501_opening-trailer.md`
-> **Shipped:** 2026-05-01 (v0); v2 spec shipped 2026-05-04 (5-beat structure + watch-live framing) — smoke-tested end-to-end on `20260430-7` (4-persona Pistsov family, validator PASS, ~124s, all 5 beats present).
+> **~110-135s · ensemble (4-15 cast slots) · Day-0 only · per-persona + Burnett-6-beat LLM (Supabase-cached) · narration-driven runtime**
+> **Playbook reference:** §4 (purpose, six emotions in order, cast intros, stakes montage, asset inventory)
+> **Asset commission detail + full v2.x phase ledger:** `d:\Coding\double-ivan\done\20260501_opening-trailer.md`
+> **Shipped:** 2026-05-01 (v0). v2.x (brand opener, narration cache, grid cast intros, narration-driven runtime) landed through 2026-05-14 — validated on `20260513-1` (`opener&004`, validator PASS, 113s).
+
+**Beat structure (current):** brand open → cold open → grid cast section → stakes montage → end card. The how-to-watch beat was **retired** (Round 3 — folded into the single closing end card).
 
 **Stage 1 — `video/extract_day_log.py:extract_opener_context()`**
 
-- Pulls Day-0 scratch only (daily plan, relationship_affinities, home assignment, schedule) for every persona.
-- Reads soul `.md` files for personality summaries.
-- Runs `persona_ranker` to pick top-N featured personas (configurable 1-6 via `--top`).
-- Resolves spawn `xy` from step-0 position rows.
+- Pulls Day-0 scratch (daily plan, relationship_affinities, home assignment, schedule) for every persona; reads soul `.md` files for personality summaries.
+- Runs `persona_ranker` to pick top-N featured personas (`--top`); resolves spawn `xy` from step-0 position rows.
 - Output: `opener_context.json` with `featured_cast[]` + per-persona scratch + sketch_path + home_xy + survival rules.
 
-**Stage 2 — `video/showrunner.py:_generate_opener_script()`**
+**Stage 2 — `video/showrunner.py` opener script assembly**
 
-- **Two-pass LLM:**
-  1. Per-persona pass: 4 Tier-B helpers (`_generate_one_line_bio`, `_classify_archetype`, `_generate_trait_moment`, `_generate_stakes_montage_narration`).
-  2. Wrapper pass: assembles cold open + cast intros + stakes montage + **how-to-watch** + end card (5 beats). The how_to_watch block carries templated `card_lines` per playbook §4.6 (visual-only, no LLM call).
-- **Cold open is templated**, not LLM-generated: `"{N} Doubles. One village. One survives."` (per playbook §4.2).
-- **Archetype classification** assigns `champion` / `wildcard` / `observer` / `connector` per persona — drives trading-card frame border + per-persona sting selection.
-- Validator (`_validate_opener_script`): 1-6 cast scenes, cold open + stakes + **how_to_watch** + end card present (5-beat enforcement), 95-180s total runtime.
+- **Per-persona pass:** Tier-B helpers generate bio, archetype, trait moment, and the persona's narration line.
+- **Burnett 6-beat narration:** cold_open, format_lock, per-persona lines, pressure_event, vote_dread, habit_hook — generated from 6 system prompts and **cached in Supabase** (`double.video_narration_cache`, keyed by prompt hash; see §5 and `sot_video.md` §9.4). Cold open is now LLM-generated (contradiction + format-lock), not templated.
+- **Archetype classification** assigns `champion` / `wildcard` / `observer` / `connector` per persona — drives the trading-card frame styling.
+- Validator (`_validate_opener_script`): cast scenes present, cold open + stakes + end card present, 95-180s total runtime.
+
+**Stage 3 — `video/tts.py:render_narration()`**
+
+- Renders the Burnett-beat narrator script to `narration.mp3`, then writes **`audio/narration_timing.json`** — the measured start/end second of every spoken line. This timing map is what makes the cast section narration-aligned (see Stage 5). `_apply_pronunciation_overrides` coerces brand-word pronunciation (e.g. "Doubland" → "Dubbleland") at the TTS boundary only.
 
 **Stage 4 — `video/record_scenes.py` + `video/capture_static_assets.py`**
 
-- **`capture_static_assets.py`** (235-line module): Playwright + Phaser camera-API screenshots. Idempotent (skips already-captured PNGs unless `--force`). Produces:
-  - Per-persona top-down home stills: `video/assets/phaser/home_topdown_{agent_id}.png`
-  - 6 establishing shots: `establish_village_overhead.png`, `establish_cafe_exterior.png`, `establish_homes_row.png`, `establish_council_zone.png`, `establish_village_dawn.png`, `establish_village_dusk.png`
-- **Sprite walk-out capture** (`record_sprite_walkout` + `record_sprite_walkouts`): per-persona 2.5s WebM/vp9 captures via Playwright, gated by `__headlessReady && __cameraSettled` and protected by `_assert_first_frame_not_white`. Native Phaser `.webm` lands in `video/assets/phaser/sprite_walkout_{agent_id}.webm`; commissioned Grok Imagine `.mp4` is the upgrade slot at `video/assets/users/sprite-walkouts/{agent_id}.mp4`. Composer prefers `.mp4` then falls back to `.webm`.
+- Per-persona top-down home stills + cohort-agnostic establishing stills via Playwright + Phaser camera API; commissioned Grok-Imagine sprite-walkout `.mp4`s preferred over native Phaser `.webm` fallback.
+- **Open (Phase 7):** the `establish_*.png` / `home_topdown_*.png` set is stale and slated for replacement by the two-tier capture system — see §0.1 and the primary doc.
 
-**Stage 5 — `video/compose_trailer.py` opener composers**
+**Stage 5 — `video/compose_trailer.py:compose_opener_trailer()`**
 
-- 6 opener-mode composers + orchestrator: `compose_cast_intro` (15s two-subclip crossfade per persona), `compose_opener_cold_open` (slow zoom on establishing shot), `compose_opener_stakes_montage` (6-8 ken-burns subclips, mixes PNG + MP4 sources transparently), `compose_opener_how_to_watch` (~18s drawtext stack on dark bg per playbook §4.6; visual-only), `generate_opener_end_card` (5-line v2 layout: title + cohort/season + body_a + body_b + url; 8s default per playbook §4.7), `compose_opener_trailer` (assembly).
-- **Council-grade NOT applied** here — the opener has no vote events.
-- **§TODO-J open** (in §0.1 P0): replace drawtext placeholder cards in `compose_opener_how_to_watch` with commissioned PNG overlays once they land (~10 LOC swap).
+- Stage 0 brand open (`compose_brand_open`) → Stage B cold open (`compose_opener_cold_open`) → **Stage A grid cast section (`compose_cast_grid_section`)** → Stage C stakes montage (`compose_opener_stakes_montage`) → Stage D end card (`generate_opener_end_card`).
+- **Grid cast section** — auto-sizing roster (`_render_roster_png` / `_roster_grid_dims`); each persona's card animates out of its grid cell (`_compose_zoom_transition` — per-frame `scale`/`overlay`), holds full-screen for that persona's narration line, collapses back. Sprite walkout plays **once** (`loop_video=False`). Replaced the old `compose_cast_intro` (15s fixed-slot per persona), which is removed.
+- **Narration-driven runtime** — every stage and per-persona beat duration is derived from `narration_timing.json`; trailer length is the real concatenated runtime, not a fixed budget. End card is a short tail (`OPENER_END_CARD_TAIL_SEC`); music fades out over the final seconds (`_apply_audio_fadeout`).
+- **Council-grade NOT applied** — the opener has no vote events.
 
-**Validator** — opener bounds: 95-180s duration, 60-220 words narration (cold open + stakes only — cast intros are silent).
+**Validator** — opener bounds: 95-180s duration, 60-280 words narration. The 9:16 dimension check is gated on `VERTICAL_9X16_ENABLED` (the vertical render was dropped — Round 1 revision).
 
 **CLI:**
 ```bash
-python -m video.generate_trailer 20260430-7 --mode opener --top 4 \
+python -m video.generate_trailer 20260513-1 --mode opener --top 4 \
   --cohort-name "Pistsov family" --season-title "Who will stay alive"
 ```
 
@@ -292,7 +288,7 @@ python -m video.generate_trailer 20260430-7 --mode opener --top 4 \
 
 **TODO-2b. Verify chat memory persistence end-to-end.** Sim `20260413-1` has 0 rows of `memory_type='chat'` in `dbl_memory` despite 174 steps with `movement.chat` data — the real-time `add_chat` → `hybrid_memory_store` path is silently failing for at least one sim config. Write a 20-line diagnostic that, after a sim run, counts `dbl_memory` chat rows vs `movement.chat` occurrences and flags any gap. Not blocking for trailers (extractor reads `movement.chat` directly), but the cognitive loop's RIR retrieval of past-day conversations depends on this working for multi-day memory.
 
-**TODO-4. Subtitle timing from actual narration audio.** SRT generation currently uses rough `time_range_sec` offsets from the script. Parse the produced `narration.mp3` waveform (or ElevenLabs per-word timestamps) and emit SRT from those, not script intent.
+**TODO-4. Subtitle timing from actual narration audio.** SRT generation currently uses rough `time_range_sec` offsets from the script. Parse the produced `narration.mp3` waveform (or ElevenLabs per-word timestamps) and emit SRT from those, not script intent. **Partially addressed (2026-05-14):** the opener path now produces `audio/narration_timing.json` (measured per-line start/end) and the compositor consumes it — the day-in-life/day-overview SRT path still uses script offsets and could adopt the same timing map.
 
 **TODO-6. 9:16 crop readability validation.** The crop exists but mobile-size readability hasn't been confirmed. Add a visual diff step or a manual checklist pass — verify protagonist stays in frame, subtitles legible at iPhone render size.
 
@@ -337,6 +333,18 @@ python -m video.generate_trailer 20260430-7 --mode opener --top 4 \
 **Sequencing:** the 5 mid-tier items (cold hook, Today's Pressure, variable inserts, end-card v2, ranker scoring) are independent and can ship in parallel. The cafe-ceremony 8-step sequence is the largest item and should land alongside an explicit cafe-as-default-stage decision; until then, the existing red-grade beat continues to work as a degraded fallback. Bridge-card 3-line format requires either thread-state plumbing (post-MVP) or an interim heuristic for "active threads," whichever lands first.
 
 Acceptance: end-to-end run on a Day-N (vote-day) of `20260430-7` produces an 8-beat trailer; validator PASS at 148-180s; cafe ceremony reads as a recurring ritual; cold hook stops a thumb-scroller in 3s; Tomorrow-question lands at end card.
+
+### Completed 2026-05-11 – 2026-05-14 (Sim-Opening v2.x, `ivan/video` branch)
+
+Full phase ledger + per-phase commit detail: `d:\Coding\double-ivan\done\20260501_opening-trailer.md` ("Implementation plan — opener trailer v2.x"). Summary of what landed:
+
+- **Revisions pass 1 (Phase 1).** Dropped the 9:16 vertical render, disabled archetype stings, removed archetype labels from cast intros — flag-gated in `compose_trailer.py`.
+- **Narration overhaul + Supabase cache (Phase 2).** `showrunner.py` now generates the Burnett 6-beat narrator script (cold_open, format_lock, per-persona, pressure_event, vote_dread, habit_hook) from 6 system prompts; results cached in `double.video_narration_cache` (new migration, RLS service-role only) via `video/narration_cache.py` with prompt-hash invalidation.
+- **Audio fixes (Phase 3).** Narration head-silence pad; `TTS_PRONUNCIATION_OVERRIDES` for brand words.
+- **Round 3 closing card (Phase 4 / 4.5).** How-to-watch beat retired; single cohort-aware end card; bare "What if?" brand-voice backport.
+- **Brand opener (Phase 5 / 6).** `compose_brand_open` plays `brand_opener_motion.mp4` as Stage 0; `_prepad_narration` shifts the voiceover so the cold open still lands on cue.
+- **Phase 8 — narration-aligned grid cast intros (2026-05-14).** `tts.render_narration` writes `audio/narration_timing.json` (measured per-line timing); `compose_trailer.compose_cast_grid_section` replaces the fixed-15s `compose_cast_intro` with an auto-sizing roster grid where each persona's card animates out of its cell (`_compose_zoom_transition`), holds for exactly that double's narration line, and collapses back; sprite walkouts play once. Cold-open / cast / stakes / end-card durations are all narration-driven; trailer runtime is the real concatenated length. End card trimmed to a short tail with a music fade-out (`_apply_audio_fadeout`). "Doubland" pronunciation fixed (`Dubbleland`); a pre-existing `_ffmpeg_escape_text` apostrophe bug fixed; `validate_trailer.py` no longer demands the dropped 9:16 file. Validated on `20260513-1` (`opener&004`, 113s, validator PASS).
+- **Still open:** §TODO-E commissioned card frames (design brief drafted — `20260514_trading-card-frames-brief.md`); Phase 7 two-tier Phaser capture system; Phase 9 Phaser↔cinematic fusion beat.
 
 ### Completed 2026-05-04
 
@@ -569,3 +577,4 @@ Cross-reference: shared craft acceptance is in playbook §1.8; per-type checklis
 | 2026-05-04 | PRD restructured — split into "engineering reference" (this doc) and "producer's playbook" (`D:\Coding\double-ivan\video\video_playbook.md`). New §2 Per-Trailer-Type Engineering Reference; new §5 Design Decisions / Divergences. Old `1.MVP_video_playbook.md` and `2.Advanced_video.md` merged into the new playbook and deleted. |
 | 2026-05-04 | Sim-Opening v2 spec shipped (TODO-13) — 4-beat → 5-beat structure with new `compose_opener_how_to_watch` composer, multi-line v2 end card replacing `doubland.ai/waitlist` with watch-live CTA + `www.doubland.ai`, cold-open wording refresh ("{N} Doubles. One village. One survives."), validator extended to enforce 5-beat structure. Smoke-tested end-to-end on `20260430-7` (4-persona Pistsov family, validator PASS). §TODO-J (commissioned how-to-watch card PNGs) carried in §0.1 P0 as parallel asset-commission track. |
 | 2026-05-04 | §TODO-I cinematic atmospheric clips shipped — 5 Grok Imagine flyovers in `video/fly-over/` (village_overhead / homes_row_approach / cafe_exterior_pan / hobbs_cafe_interior / village_dusk_wind_down) wired into the default opener `atmospheric_clips` list; `compose_opener_trailer` resolves `fly-over/...` paths transparently alongside bare filenames in `assets_dir`. Phaser establishing PNGs retained as fallbacks. |
+| 2026-05-11 → 14 | Sim-Opening v2.x shipped (Phases 1-8) — brand opener (Stage 0), Burnett 6-beat narration + Supabase `video_narration_cache`, how-to-watch retired into single end card, and **narration-aligned grid cast intros**: `tts.render_narration` emits `narration_timing.json`, `compose_cast_grid_section` replaces `compose_cast_intro` with an auto-sizing roster + per-persona animated zoom + walkout-once, runtime is narration-driven with a music fade-out close. Validated on `20260513-1` (`opener&004`, 113s, validator PASS). Remaining: §TODO-E card frames, Phase 7 capture refactor, Phase 9 fusion beat. Detail: `done/20260501_opening-trailer.md`. |

@@ -1,6 +1,8 @@
 # Trailer asset playbook — base_family_sim and beyond
 
-> Asset commission punch list for opening trailers (PRD §4.2). v0 pipeline shipped 2026-05-01 against `20260430-7`; latest opener at `data/20260506-5/opener&001/output/trailer_16x9.mp4` (rendered 2026-05-11 with real anthem + 4 archetype stings; pending user-requested revisions — see "Feedback & Corrections" at the bottom of this doc). This doc says what to commission for `base_family_sim` (Pistsov family) now, and how to repeat the workflow for any new cast or new village.
+> Asset commission punch list for opening trailers (PRD §4.2). v0 pipeline shipped 2026-05-01 against `20260430-7`; latest opener at `data/20260513-1/opener&004/output/trailer_16x9.mp4` (rendered 2026-05-14 — brand opener + narration-aligned grid cast intros with animated zoom + narration-driven runtime, 113s, validation PASS). This doc says what to commission for `base_family_sim` (Pistsov family) now, and how to repeat the workflow for any new cast or new village.
+>
+> **Status 2026-05-14:** Phases 1–8 shipped on `ivan/video`. Remaining: §TODO-E commissioned card frames (design brief drafted — `20260514_trading-card-frames-brief.md`); Phase 7 two-tier Phaser capture; Phase 9 fusion beat. See "Implementation plan — opener trailer v2.x" in Feedback & Corrections for the full phase ledger.
 
 ---
 
@@ -16,7 +18,9 @@ The pipeline is end-to-end working. All commissioned-asset TODOs are now closed 
 6. **Narration overhaul + LLM cache** (2026-05-12): ✓ Burnett 6-beat structure automated via `narration_cache` + 6 system prompts in `showrunner.py` — see "Round 3 milestone" subsection in Feedback & Corrections.
 7. **Brand wordmark locked 2026-05-12 (content) + 2026-05-13 (typography):** composite mark **`DOUBLAND — What if?`** (H1 + H2) cleared by IP counsel (non-blocking vs. Marvel's *"What If…?"*). Iconic flyover background at `video/assets/production/brand/brand_opener_iconic_still.png`. Locked typeset composition at `video/assets/production/brand/opening_wordmark.png` (Editorial centered, gold rule between H1 and H2). Remaining brand-open work: motion treatment (6c) + engineering integration (6e).
 8. **Round 3 closing (DONE 2026-05-12):** single-card end card with cohort-aware content, "Day 1 starts now" closing VO, how-to-watch card retired. Shipped in `ff7cf5a0`.
-9. **Still open** (full execution order in Feedback section): §TODO-S logo splash typography + motion (in flight); §TODO-T iconic flyover motion (in flight); #6 cast-intro grid restructure; #8 Phaser↔rendered fusion beat; #10 two-tier Phaser capture system.
+9. **Brand opener integrated (Phase 6, DONE 2026-05-13):** `brand_opener_motion.mp4` plays as Stage 0; narration pre-padded so cold-open VO still lands on cue.
+10. **Phase 8 — narration-aligned grid cast intros (DONE 2026-05-14):** the voiceover step now emits a per-line timing map (`narration_timing.json`); the cast section is a 2×2 auto-sizing roster where each double's card **animates out of its grid cell**, holds for exactly that double's narration line, then collapses back. Sprite walkouts play once (no loop). Cold-open / cast / stakes / end-card durations are all narration-driven; trailer length is the real concatenated runtime (~113s), not a fixed budget. Also: "Doubland" TTS pronunciation fixed (`Dubbleland`), trailer trimmed to end ~5s after narration with a music fade-out, and a pre-existing apostrophe-escaping bug in `_ffmpeg_escape_text` fixed. Quality-gate validator also no longer demands the dropped 9:16 file.
+11. **Still open:** §TODO-E commissioned card frames (design brief drafted — `20260514_trading-card-frames-brief.md`); Phase 7 two-tier Phaser capture system; Phase 9 Phaser↔cinematic fusion beat. Full execution order in Feedback section.
 
 Auto-generated each render: §TODO-B bios, §TODO-G archetypes, §TODO-H cold open, §TODO-I flyover narration, §TODO-J end card. No commission needed.
 
@@ -132,7 +136,7 @@ video/
 | §TODO-Q Hero pairings | Per-cohort | **DONE 2026-05-09** | 4 stills in `cohort/hero/pistsov_family/` (Ivan kitchen late-morning, Luba cafe morning, Katya library afternoon, Gosha bedroom night). Automated via `scripts-prompts/generate_hero_pairings.py` (xAI multi-image-edit, up to 3 input images per call: room + persona front_neutral + style frame). Driven by external scene-config JSON (`hero_scenes_pistsov_family.json`) for cohort reuse. |
 | §TODO-C Anthem track | Per-cohort/season | **DONE 2026-05-11** | 163.7s anthem at `video/audio/music_anthem.mp3`, normalized −16 LUFS / −5.4 dBTP via `normalize.sh --target music`. Opener script generator (`showrunner.py:1122`) now sets `mood="anthem"` so `_resolve_music()` picks the new file; daily-recap mood pool (drama/intrigue/wholesome) untouched. Stings ear-checked at 15s intervals: accepted as-is. |
 | §TODO-D Archetype stings | Per-archetype | **DONE 2026-05-11** | 4 stings shipped at `archetypes/sting_{champion,wildcard,observer,connector}.wav`, normalized to −12 LUFS / −1 dBTP via new `video/audio/normalize.sh`. Compose path already wired (`_build_sting_overlays()` + `mix_audio(sting_overlays=...)`); files auto-overlay at name-card moment. Originals preserved in `archetypes/_raw/`. |
-| §TODO-E Card frames | Per-archetype | **PARTIAL** | FFmpeg-drawn placeholders; commissioned PNGs slot in |
+| §TODO-E Card frames | Per-archetype | **PARTIAL** | FFmpeg-drawn placeholders in use; commissioned PNGs slot in. Design brief drafted 2026-05-14: `20260514_trading-card-frames-brief.md` (3 frames, reusable across casts of 4–15 doubles). |
 | §TODO-R Voice ref | Per-cohort | **DEFERRED** | No per-double VO in v1 |
 | §TODO-B Bios | Auto | DONE | Tier-B LLM |
 | §TODO-F Home / establishing shots | Auto | **REOPENED 2026-05-11** | `capture_static_assets.py` outputs (`establish_*.png`, `home_topdown_*.png`, `sprite_walkout_*.webm`) are stale and unfit — see Feedback & Corrections obs. #10 + suggestion #10. Being replaced by the two-tier capture system (cohort-agnostic bake + per-sim-day Tier B captures driven by showrunner LLM `atmospheric_key_steps`). |
@@ -683,7 +687,7 @@ All three plug in as a single new beat ("brand open") inserted before the existi
 
 #### Implementation plan — opener trailer v2.x
 
-> **Last status sweep: 2026-05-12.** Phases marked ✓ DONE are shipped on `ivan/video`; phases marked 🟡 IN FLIGHT have an external dependency (designer / advisor); phases marked ⬜ OPEN are not started.
+> **Last status sweep: 2026-05-14.** Phases marked ✓ DONE are shipped on `ivan/video`; phases marked 🟡 IN FLIGHT have an external dependency (designer / advisor); phases marked ⬜ OPEN are not started. Phases 1–6 + 8 are DONE; Phases 7 and 9 remain open.
 
 ##### Phase 1 — Code-only revisions pass 1 ✓ **DONE 2026-05-11**
 
@@ -717,7 +721,7 @@ Commit `ff7cf5a0`:
 - ✓ C1 — How-to-watch card retired (zero-duration block; compose gated to skip)
 - ✓ C2 — New single end card with cohort-aware staged layout: cohort label (dynamic via `cohort_name.upper()`), question (dynamic via `season_title`; **superseded by Phase 4.5 — now bare "What if?"**), URL (`doubland.ai`), cadence (`New trailer daily · 6:30 PM`)
 - ✓ F1 — Silent tail resolved: "Day 1 starts now" VO at ~t=112s, end-card visual + music carry to ~t=130s
-- ✓ Background asset committed (council platform shot). **Relocated 2026-05-13:** moved from `video/assets/production/end_card_background.png` → `video/assets/production/brand/brand_end_card_background.png`. The selected end-card hero composition (card 2 from the 2026-05-12 typography pass) is locked at `video/assets/production/brand/brand_end_card.png`. **Engineering note:** `END_CARD_BACKGROUND_PATH` in `video/compose_trailer.py:701` still points to the old path and must be repointed before the next render.
+- ✓ Background asset committed (council platform shot). **Relocated 2026-05-13:** moved from `video/assets/production/end_card_background.png` → `video/assets/production/brand/brand_end_card_background.png`. The selected end-card hero composition (card 2 from the 2026-05-12 typography pass) is locked at `video/assets/production/brand/brand_end_card.png`. **Engineering note:** ✓ DONE 2026-05-14 — `END_CARD_BACKGROUND_PATH` in `video/compose_trailer.py:701` now points to `video/assets/production/brand/brand_end_card_background.png` (repointed in commit `e7a06ab2`).
 - ✓ `generate_opener_end_card` rewritten in `compose_trailer.py` to use background PNG + asymmetric Card-2 typography layout
 
 ##### Phase 4.5 — Brand-voice backport to v2.1 narration + end card ✓ **DONE 2026-05-12**
@@ -798,15 +802,16 @@ Foundational refactor (~2–3 days; full design in §10 of Improvement Suggestio
 
 Reopens §TODO-F (was DONE; now flagged REOPENED 2026-05-11). Gates #8 (fusion beat) and the visual layer of cast-intro restructure.
 
-##### Phase 8 — Grid-anchored cast intros (#6 + #4) ⬜ **OPEN**
+##### Phase 8 — Grid-anchored cast intros (#6 + #4) ✓ **DONE 2026-05-14**
 
-New compose function `compose_cast_grid_intros()` (~80–120 LOC):
-- ⬜ Render 4-up grid layout (headshot + name badge per cell)
-- ⬜ Per-persona zoom: expand cell to full-screen, show name + bio + trait moment + walkout MP4 played once (#4), hold final frame while narration finishes, zoom back to grid
-- ⬜ Decision: 2×2 grid layout (recommend) vs 1×4 horizontal strip
-- ⬜ Decision: freeze walkout final frame vs crossfade to sketch portrait
+Shipped in `compose_trailer.py` (`compose_cast_grid_section` + helpers) plus `tts.py` / `generate_trailer.py` (narration timing map):
+- ✓ Auto-sizing roster grid (`_render_roster_png` / `_roster_grid_dims`) — 2×2 for 4 doubles, scales toward 4×4 for ~15
+- ✓ Per-persona card **animates out of its grid cell** (`_compose_zoom_transition` — per-frame `scale`/`overlay` with `eval=frame`) → holds full-screen for that double's narration line → collapses back into the cell
+- ✓ Sprite walkout plays once, no loop (`loop_video=False` on the card's second-half subclip)
+- ✓ Beat durations are narration-driven: `tts.render_narration` writes `narration_timing.json` (measured per-line start/end); compose derives every cast / cold-open / stakes / end-card duration from it, and trailer length is the real concatenated runtime
+- ✓ Decided: 2×2 auto-sizing grid (not 1×4 strip); the walkout's last frame seeds the collapse transition
 
-Subsumes #4 (walkouts-once) — the new flow plays walkouts once by design. May consume Phase 7's Tier B captures if grid cells want live sim footage; otherwise headshot + walkout is sufficient.
+Did **not** end up depending on Phase 7 — a headshot + the commissioned walkout MP4 per cell was sufficient, so Phase 8 shipped ahead of the Phase 7 capture refactor. Card styling still uses the placeholder archetype frames (§TODO-E); commissioned frames slot into the same zones with no rework.
 
 ##### Phase 9 — Phaser↔rendered fusion beat (#8) ⬜ **OPEN** — assets locked 2026-05-13
 
@@ -847,19 +852,16 @@ Phase 2 ✓
 Phase 3 ✓
 Phase 4 ✓
 Phase 4.5 ✓ (brand-voice backport — supersedes Phase 4 end-card question)
-Phase 5 ✓ ───┐
-Phase 6 🟡 ──┤ ──→ v2.1 SHIPPABLE (after 6e) — brand opener integrated
-             │
-Phase 7 ⬜ ──┘ ──→ unblocks Phase 8 visual sources + Phase 9
-Phase 8 ⬜ ──→ depends on Phase 7
-Phase 9 ⬜ ──→ depends on Phase 7
+Phase 5 ✓
+Phase 6 ✓ (brand wordmark + motion + engineering integration; 6f satisfied by the 2026-05-14 validation renders)
+Phase 8 ✓ (grid cast intros — shipped 2026-05-14; did not need Phase 7 after all)
+Phase 7 ⬜ ──→ two-tier Phaser capture; now optional polish (feeds Phase 9 plates + cleaner stakes captures)
+Phase 9 ⬜ ──→ Phaser↔cinematic fusion beat; ~20 LOC FFmpeg xfade, assets locked 2026-05-13
 ```
 
-**v2.1 ship dependency:** Phase 6 completion (design-team brand assets + engineering integration). Estimated ~2 weeks.
+**v2.1 status:** SHIPPED — brand opener + narration-aligned grid cast intros + narration-driven runtime, validated 2026-05-14 on `data/20260513-1/opener&004`.
 
-**v2.2+ ambitions:** Phases 7–9. Sequenceable in any order after Phase 7 lands. Estimated 3–5 working days for Phases 7–9 combined once kicked off.
-
-**Total remaining estimated effort:** ~2 weeks of design-team runway (Phase 6) + ~3–5 days of engineering (Phases 7–9). v2.1 is the achievable next milestone; v2.2 is the polish-pass milestone.
+**v2.2+ remaining:** §TODO-E commissioned card frames (design brief drafted); Phase 7 two-tier Phaser capture; Phase 9 fusion beat. Phases 7 and 9 are ~3–4 days of engineering combined; §TODO-E is a design-team commission.
 
 ---
 
