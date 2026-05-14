@@ -7,6 +7,30 @@
 
 ---
 
+## Status & Remaining TODOs
+
+> **Status (2026-05-14):** Expert consult complete; the two-stage narration architecture is built on branch `ivan/day-overview-v2`. Code complete and compiling — in verification. The original brief below (Sections 1–5) is kept as the historical record.
+
+**Done**
+- [x] Reality-TV expert consult (Burnett / de Mol / Parsons lenses) — Section 4 questions answered
+- [x] Two-stage narration: **Day Story Producer** (decides thesis / lead / dramatic question / status deltas / beat plan) → **Narration Writer** (one continuous-story pass)
+- [x] Fixed 6-beat template: yesterday_scar → today_pressure → apparent_plan → countermove → vote_reveal → new_imbalance (pressure_peak / unresolved fallback for non-elimination days; yesterday_scar dropped on Day 1)
+- [x] Runtime retargeted to ~60–75s total (Double's video SOT anchor), down from ~2:30–3:00
+- [x] Hard content rule (no mundane action unless it reveals stakes) + over-claiming guardrail, baked into both prompts
+- [x] Day-1 "cast's debut" nuance — the cold-open beat lightly grounds the lead
+- [x] Per-beat word count made a soft advisory (was crashing the pipeline on over-tight bands)
+- [x] Narration word bounds recalibrated to the measured ~2.0 words/sec TTS pace, plus a `_check_narration_fits_video` validator backstop
+
+**Remaining**
+- [ ] Clean Day-1 re-render (the 2026-05-14 render truncated the cliffhanger — root cause fixed since)
+- [ ] A Day-2+ elimination-day render to confirm the full path at the new runtime
+- [ ] `/verify` + `/simplify` on the branch
+- [ ] **5-viewer comprehension test** (the expert's QA gate — can cold viewers name the lead, the dramatic question, who went home & why, and what changes tomorrow?)
+- [ ] Narration prose still reads somewhat expository in places — prompt-tuning pass, informed by the 5-viewer test
+- [ ] Merge `ivan/day-overview-v2` → main
+
+---
+
 ## 1. What we're building
 
 Doubland runs a continuous social simulation: a small cast of characters lives, talks, plans, and — in "survival" seasons — votes each other out one per day. Every simulated day, we auto-generate a **~2-minute "day-overview" trailer**: a dramatic recap of that day's story, narrated over the day's actual footage.
@@ -21,7 +45,7 @@ We have a sibling format — the **opening trailer** (a pre-season cast-introduc
 
 ---
 
-## 2. The problem (with real examples)
+## 2. The problem (with real examples) — ✅ ADDRESSED (rework built; pending viewer QA)
 
 The day-overview narration currently feels **punctuated and uneven** — seven self-contained captions rather than one story. Here is a real generated output (Day 2, an elimination day, 3 characters: Gosha, Luba, Katya):
 
@@ -71,7 +95,7 @@ Our working hypothesis for the fix: **author the day-overview narration as one c
 
 ---
 
-## 4. Questions for you
+## 4. Questions for you — ✅ DONE (consulted 2026-05-14; Burnett / de Mol / Parsons lenses)
 
 Please answer in whatever depth is useful — even partial answers help. Where your answer differs for a *daily recap* vs. a *season promo*, call that out; almost all trailer craft advice we can find is about season promos, and we're not sure how much transfers.
 
@@ -99,6 +123,8 @@ Please answer in whatever depth is useful — even partial answers help. Where y
 
 ---
 
-## 5. What we'll do with your answers
+## 5. What we'll do with your answers — ✅ DONE (implemented on `ivan/day-overview-v2`)
 
 Your input will shape the writing brief our generation system follows — concretely, the instructions and structure it uses to produce every daily trailer's narration. We'll send a follow-up with a revised sample for your reaction. Thank you.
+
+> **Outcome:** the consult answers were implemented directly into the generation system — see the **Status & Remaining TODOs** block at the top of this file. The revised-sample follow-up is pending the clean re-render + 5-viewer QA pass.
