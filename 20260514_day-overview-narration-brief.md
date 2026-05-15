@@ -24,7 +24,7 @@
 **Remaining**
 - [ ] Clean Day-1 re-render (the 2026-05-14 render truncated the cliffhanger — root cause fixed since)
 - [ ] A Day-2+ elimination-day render to confirm the full path at the new runtime
-- [ ] `/verify` + `/simplify` on the branch
+- [ ] `/verify` + `/simplify` on the branch (should I switch to original branch `ivan/day-overview-v2` or can run these on a post-merge `ivan/dev` branch?)
 - [ ] **5-viewer comprehension test** (the expert's QA gate — can cold viewers name the lead, the dramatic question, who went home & why, and what changes tomorrow?)
 - [ ] Narration prose still reads somewhat expository in places — prompt-tuning pass, informed by the 5-viewer test
 - [ ] Merge `ivan/day-overview-v2` → main
