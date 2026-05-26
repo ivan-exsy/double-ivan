@@ -291,13 +291,19 @@ The viewer should leave with three things:
 
 Do not open with a full cast introduction every day. Cast introduction and survival concept belong primarily in the Sim-Opening trailer.
 
-For Sim-Day-Overview, use a **micro-reset** only:
+For Sim-Day-Overview, use a **micro-reset** only. Day 1 carries a slightly larger reminder; Day 2+ uses only a standalone 3–5s product cue at end-card or overlay (e.g. “Scroll back to the first promise”).
 
+**Day 1 micro-reset (immediately after cold hook):**
 ```text
-Day 4 in the village.
-Eight Doubles entered. Six remain.
-Today, one choice will matter after dark.
-````
+These are AI Doubles of real people. Today is their first test.
+```
+
+**Day 2+ cue (standalone, rotate one per day):**
+- “Scroll back to the first promise.”
+- “Replay yesterday’s vote from the start.”
+- “Zoom into any scene.”
+- “Follow this Double tomorrow.”
+- “Watch live before tomorrow’s trailer.”
 
 Replace “overview of today’s plan” with **Today’s Pressure**.
 
@@ -850,6 +856,8 @@ The opening should answer five questions without becoming an explainer video:
 3. What kinds of moments will happen here?
 4. How can I watch the simulation?
 5. When do new trailers drop?
+
+**v2.1 update (2026-05-26):** Opening Trailer now carries the primary concept load for virality. It introduces the Double concept early (after cold hook) and ends with a participation bridge that converts “I want to know what happens to them” into “I want to see what would happen to me.” Daily trailers stay pressure-first with only micro-doses. Terminology exception for trailers: use “AI Doubles of real people” and “AI versions of real people” (approved override of brand vocabulary discipline).
 
 ### *4.2 The six emotions, in order*
 

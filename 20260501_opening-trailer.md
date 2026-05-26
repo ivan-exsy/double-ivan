@@ -8,6 +8,8 @@
 
 **v2.1 SHIPPED.** Latest validated render: `data/20260513-1/opener&004/output/trailer_16x9.mp4` — 113s, validator PASS, rendered 2026-05-14.
 
+**v2.2 (virality layer) — next.** Incorporate early concept seed, social hooks on cast intros, Access reveal sequence, and Participation bridge per `video_playbook.md` §4 (updated 2026-05-26). Terminology exception for trailers: keep “AI Doubles of real people” / “AI versions of real people”. One prompt edit pass in `showrunner.py` + one validation re-render. §TODO-VO1 integrates into new end-card format.
+
 **Re-render command:**
 ```bash
 python -m video.generate_trailer base_family_sim --mode opener --top 4 \
@@ -23,7 +25,8 @@ python -m video.generate_trailer base_family_sim --mode opener --top 4 \
 ### 🟡 REMAINING
 
 **Before MVP launch (small):**
-- **§TODO-VO1 — Closing VO update.** Change `"Day 1 starts now"` → `"Episode 1 drops tomorrow at 18:30"` per `D:\Coding\double-docs\20260519_LIVE_mode.md` DP2. One-line prompt edit in `showrunner.py` (habit-hook generator) + any hardcoded fallback. User-facing only; internal terms (`day_log`, `--day N`) unchanged.
+- **v2.2 virality layer.** Prompt updates in `showrunner.py` for new 7-beat structure (Cold open → Concept seed → Cast with social hooks → Stakes → Access reveal → Participation bridge → CTA). Approved lines: concept seed “They are not game characters. They are Doubles—AI versions of real people, making choices no one wrote for them.”; Access reveal “These are AI Doubles, living inside Doubland. The village runs in real time. Watch live. Scroll back to Day 1. Follow any Double.”; Participation bridge “This season is theirs. The next one could be yours.” + Bare “What if?” end card. One validation re-render + internal review against A/B/C success criteria. §TODO-VO1 integrates here.
+- **§TODO-VO1 — Closing VO update.** Change `"Day 1 starts now"` → `"Episode 1 drops tomorrow at 18:30"` per `D:\Coding\double-docs\20260519_LIVE_mode.md` DP2 (now part of v2.2 end-card format). One-line prompt edit in `showrunner.py` (habit-hook generator) + any hardcoded fallback. User-facing only; internal terms (`day_log`, `--day N`) unchanged.
 
 **Post-MVP polish (defer-safe):**
 - **§TODO-E — Commissioned trading-card frame PNGs** (3 archetypes: Champion / Wildcard / Observer). Replaces FFmpeg drawbox placeholders. Design brief: `20260514_trading-card-frames-brief.md`. Slots into existing card-layout zones with no code change.
@@ -68,16 +71,19 @@ python -m video.generate_trailer base_family_sim --mode opener --top 4 \
 
 ## Trailer structure (orientation)
 
-5 beats, ~130s. Sells the people, not the events.
+**v2.2 (2026-05-26):** 7 beats, 2:30–3:00. Adds early concept seed + Access reveal + Participation bridge for virality while preserving cast recognition priority.
 
 | Beat | Time | Carries |
 |---|---|---|
-| Cold open | ~10s | Narrator names the stakes |
-| Cast intros | ~90s (6 × 15s) | Sketch portrait → sprite cameo → name + bio → silent trait moment |
-| Stakes montage | ~25s | Cinematic flyovers + narrator drama |
-| End card | ~5–8s | Watch live + CTA |
+| Cold open | 0:00–0:08 | Narrator names the stakes: “Eight Doubles. One village. One survives.” |
+| Concept seed | 0:08–0:15 | “They are not game characters. They are Doubles—AI versions of real people, making choices no one wrote for them.” |
+| Cast intros | 0:15–1:35 | Sketch portrait → sprite cameo → name + one-line identity + silent trait moment. Each gets one social hook (e.g. “The loyal one who keeps getting left out.”) |
+| Stakes montage | 1:35–2:10 | Challenge pressure, alliances, routines, strategy, vote imagery |
+| Access reveal | 2:10–2:28 | “These are AI Doubles, living inside Doubland. The village runs in real time. Watch live. Scroll back to Day 1. Follow any Double.” |
+| Participation bridge | 2:28–2:45 | “This season is theirs. The next one could be yours.” |
+| CTA end card | 2:45–2:55 | Bare “What if?” (Register A) + `doubland.ai` + “New trailer daily.” |
 
-**Cast-intro per-persona blueprint (15s each):**
+**Cast-intro per-persona blueprint (~12–15s each, v2.2):**
 
 | t | Element |
 |---|---|

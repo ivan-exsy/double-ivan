@@ -23,14 +23,19 @@
 - Per-beat word count made a soft advisory (was crashing the pipeline on over-tight bands).
 - Narration word bounds recalibrated to the measured ~2.0 words/sec TTS pace, plus a `_check_narration_fits_video` validator backstop.
 
-### 🟡 REMAINING (blocks merge)
+### 🟡 REMAINING (blocks merge + v2.1 alignment)
 
 - **Clean Day-1 re-render** (the 2026-05-14 render truncated the cliffhanger — root cause fixed since).
 - **Day-2+ elimination-day render** to confirm the full path at the new runtime.
-- **`/verify` + `/simplify` on the branch** (decide whether to run on `ivan/day-overview-v2` or post-merge on `ivan/dev`).
-- **5-viewer comprehension test** (the expert's QA gate — can cold viewers name the lead, the dramatic question, who went home & why, and what changes tomorrow?).
-- **Prompt-tuning pass** — narration prose still reads somewhat expository in places; informed by the 5-viewer test.
+- **Prompt updates for finalized trailer strategy (2026-05-26)**:
+  - Add Day 1 micro-reset line immediately after cold hook: “These are AI Doubles of real people. Today is their first test.”
+  - Add standalone 3–5 s rotating product cue for Day 2+ (end-card / overlay).
+  - Update `DAY_OVERVIEW_BRAND_DISCIPLINE` to allow trailer-specific exception: “They are not game characters. They are Doubles—AI versions of real people, making choices no one wrote for them.”
+- **`/verify` + `/simplify` on the branch**.
+- **5-viewer comprehension test** (add explicit check: can viewers state what a Double is?).
+- **Prompt-tuning pass**.
 - **Merge `ivan/day-overview-v2` → main.**
+- **Port same narration updates to Sim-Opening pipeline** to match new v2.1 beat sheet (concept seed + participation bridge + access reveal).
 
 ---
 
@@ -121,6 +126,9 @@ Anchored to Double's video SOT pacing for daily-cadence content (viewers meant t
 
 - **No mundane action unless it reveals stakes.** "Checked the laptop," "still in bed," "rehearsed at the counter" are forbidden as standalone beats. A line about a Double doing something only ships if it tells the viewer what's *at risk* for that Double.
 - **Over-claiming guardrail.** Narrator may state facts and pose questions but never asserts unsupported emotion or motive ("she felt terrified," "he had always known…" are out).
+- **Day-1 micro-reset (v2.1).** Immediately after cold hook, insert: “These are AI Doubles of real people. Today is their first test.” (conditional in Day Story Producer).
+- **Day 2+ product cue (v2.1).** One standalone 3–5 s rotating cue at end-card or overlay (e.g. “Scroll back to the first promise.”). Rotate daily; never repeat in same trailer.
+- **Terminology exception (trailer-only).** The line “They are not game characters. They are Doubles—AI versions of real people, making choices no one wrote for them.” is explicitly allowed in Sim-Opening and Sim-Day-Overview narration despite the general forbid on “AI version”.
 - **Day-1 "cast's debut" nuance.** The cold-open beat lightly grounds the lead since there's no `yesterday_scar` to anchor.
 - **Word counts are soft advisories** (the hard bands crashed the pipeline). The `_check_narration_fits_video` validator backstop catches drift.
 
@@ -134,6 +142,8 @@ The pre-pivot plan (old §3–§5 below) defined an 8-beat structure with cafe c
 - `video/narration_cache.py` — `day` scope used (already infrastructure-ready from the opener work).
 - `video/validate_trailer.py` — new `_check_narration_fits_video` backstop + recalibrated word bounds (~2.0 words/sec measured).
 - `video/compose_trailer.py` — duration cap retargeted; minor cleanup.
+
+**Note (2026-05-26):** The same two-stage narration updates (Day 1 micro-reset, Day 2+ product cue, terminology exception) must be ported to the Sim-Opening pipeline so the new v2.1 beat sheet (cold open → concept seed → cast intros → stakes montage → access reveal → participation bridge → “What if?” end card) can be released together with day-overview.
 
 ---
 
@@ -157,6 +167,7 @@ Total 5–6 scenes, 150–180 s runtime.
 ```
 BRAND VOICE DISCIPLINE (applies to every line):
 - FORBIDDEN: "simulate", "agent", "AI twin", "AI version", "digital copy"
+- **Trailer exception (v2.1):** The line “They are not game characters. They are Doubles—AI versions of real people, making choices no one wrote for them.” is allowed in Sim-Opening and Sim-Day-Overview only.
 - Concrete, plain, observant. Trust nouns and verbs. Name who did what, to whom, where.
 - End on a question, fact, or rising tension — never flourish or moral.
 - "Doubland" pronounced as two clear syllables ("double" + "land").
@@ -168,6 +179,7 @@ BRAND VOICE DISCIPLINE (applies to every line):
 DAY_OVERVIEW_BRAND_DISCIPLINE = """
 BRAND VOICE DISCIPLINE (applies to every line):
 - FORBIDDEN: "simulate", "agent", "AI twin", "AI version", "digital copy"
+- **Trailer exception (v2.1):** The line “They are not game characters. They are Doubles—AI versions of real people, making choices no one wrote for them.” is allowed in Sim-Opening and Sim-Day-Overview only.
 - Use only the cohort's actual names and the season title from context.
 - Concrete, plain, observant. Trust nouns and verbs. Name what happened — who did what, to whom, where.
 - End on a question, a fact, or rising tension — never a flourish or moral.
