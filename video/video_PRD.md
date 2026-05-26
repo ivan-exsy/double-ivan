@@ -2,8 +2,8 @@
 
 > **Audience:** experienced developers picking up shipped or open-trailer work.
 > **Producer's spec (the "why" + creative direction):** `D:\Coding\double-ivan\video\video_playbook.md`
-> **SOT:** `D:\Coding\double-docs\sot\sot_video.md`
-> **Status:** Day-in-life — shipped (MVP, hardened 2026-05-01). Sim-day-overview (§2.2) — **shipped MVP 2026-05-01** (v2 spec open as TODO-14). Sim-opening (§2.3) — **shipped MVP 2026-05-01; v2.x landed through 2026-05-14 — brand opener, Burnett 6-beat narration + Supabase cache, narration-aligned grid cast intros with animated zoom, narration-driven runtime. Validated on `20260513-1`.** Sim-announce (§2.4) — planned.
+> **Engineering SOT:** this doc (absorbed the former `D:\Coding\double-docs\sot\sot_video.md` on 2026-05-26).
+> **Status:** Day-in-life — shipped (MVP, hardened 2026-05-01). Sim-day-overview (§2.2) — **shipped MVP 2026-05-01; v2 pivoted post-expert-consult to a two-stage 6-beat ~60–75 s format (live spec: `D:\Coding\double-ivan\20260514_trailer_day_overview.md`)**. Sim-opening (§2.3) — **shipped MVP 2026-05-01; v2.x landed through 2026-05-14 — brand opener, Burnett 6-beat narration + Supabase cache, narration-aligned grid cast intros with animated zoom, narration-driven runtime. Validated on `20260513-1`.** Sim-announce (§2.4) — planned.
 > **Author:** Ivan
 > **Originated:** 2026-04-03
 > **Last Updated:** 2026-05-14
@@ -120,6 +120,20 @@ trailer_{sim_code}_{persona_or_mode}/
 
 Three 75s instrumental tracks ship in `video/audio/`: `music_intrigue.mp3`, `music_drama.mp3`, `music_wholesome.mp3`. Normalized −16 LUFS, MP3 192 kbps, 1.5s fade-out tail. A fourth `music_anthem.mp3` for sim-opening is on the open-asset commission list (§0.1 P0 §TODO-C). See playbook Appendix A for Suno/Udio generation prompts.
 
+### 1.6 Environment variables
+
+No video-pipeline-specific flags are introduced. The pipeline uses existing project env vars:
+
+| Variable | Purpose | Behaviour if missing |
+|---|---|---|
+| `OPENAI_API_KEY` | TTS fallback + embedding generation (RIR retrieval) | `_get_query_embedding` returns `None`; `extract_day_log` silently falls back to poignancy-only memory ranking. |
+| `ELEVENLABS_API_KEY` | TTS primary | Falls back to OpenAI `tts-1-hd`/`onyx`. |
+| `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` | All Supabase queries | Pipeline cannot run. |
+| `LLM_MODEL_TIER_C` | Showrunner model override | Defaults to `gpt-5.2`. |
+| `VIDEO_SPINE_TIER` | Sim-Day-Overview spine call tier (`B`=`gpt-5-mini` ~$0.008, `C`=`gpt-5.2` ~$0.50) | Defaults to Tier C. |
+
+Migration required: `supabase/migrations/20260414_dbl_retrieve_rir_sim_scope.sql` must be applied for sim-scoped RIR (applied 2026-04-14).
+
 ---
 
 ## 2. Per-Trailer-Type Engineering Reference
@@ -171,7 +185,7 @@ Each subsection below is a self-contained engineering brief: what stage 1 extrac
 > **Playbook reference:** §3 (purpose, beat sheet, Today's Pressure, variable inserts, cafe ceremony, post-MVP editorial vision)
 > **Shipped:** 2026-05-01, commit `a977a7e6`. Verified against `20260430-7` Day 2.
 >
-> **v2 spec divergence (playbook §3 updated 2026-05-04, implementation pending — tracked as TODO-14).** Playbook now defines an **8-beat structure** (cold hook → previously-on → Today's Pressure → spine → protagonist arcs → variable inserts → cafe ceremony → cliffhanger) with new modules: 3-5s cold hook, 5-10s Today's Pressure framing, 1-2 POV/omniscient variable inserts, structured 8-step cafe ceremony beat, thread-driven 3-line bridge card, "Tomorrow: {question}" end card, +15 pressure/vote bonuses on persona ranker. Shipped v0 implements a 5-beat baseline. Gaps are flagged inline; the description reflects shipped state, not the v2 target.
+> **⚠️ Spec pivot (2026-05-14, post Reality-TV expert consult).** The original v2 plan in this section (and playbook §3) defined an **8-beat structure** with cafe ceremony, variable inserts, and ~150–180 s runtime — captured below as TODO-14. After expert review, v2 was rebuilt on branch `ivan/day-overview-v2` as a **two-stage Day Story Producer → Narration Writer** with a fixed **6-beat template** (`yesterday_scar → today_pressure → apparent_plan → countermove → vote_reveal → new_imbalance`) at **~60–75 s runtime**. The 8-beat / cafe-ceremony spec is **deprecated**; TODO-14 below is kept for historical reference but should not be implemented as written. Live spec + remaining work: **`D:\Coding\double-ivan\20260514_trailer_day_overview.md`**.
 
 **Stage 1 — `video/extract_day_log.py:extract_day_overview()`**
 
@@ -225,7 +239,7 @@ python -m video.generate_trailer 20260430-7 --mode day_overview --day 2 --top 3
 **Stage 2 — `video/showrunner.py` opener script assembly**
 
 - **Per-persona pass:** Tier-B helpers generate bio, archetype, trait moment, and the persona's narration line.
-- **Burnett 6-beat narration:** cold_open, format_lock, per-persona lines, pressure_event, vote_dread, habit_hook — generated from 6 system prompts and **cached in Supabase** (`double.video_narration_cache`, keyed by prompt hash; see §5 and `sot_video.md` §9.4). Cold open is now LLM-generated (contradiction + format-lock), not templated.
+- **Burnett 6-beat narration:** cold_open, format_lock, per-persona lines, pressure_event, vote_dread, habit_hook — generated from 6 system prompts and **cached in Supabase** (`double.video_narration_cache`, keyed by prompt hash; see §4.11 and §5). Cold open is now LLM-generated (contradiction + format-lock), not templated.
 - **Archetype classification** assigns `champion` / `wildcard` / `observer` / `connector` per persona — drives the trading-card frame styling.
 - Validator (`_validate_opener_script`): cast scenes present, cold open + stakes + end card present, 95-180s total runtime.
 
@@ -310,7 +324,9 @@ python -m video.generate_trailer 20260513-1 --mode opener --top 4 \
 
 **TODO-12. Interactive timestamped descriptions.** Emit `trailer_description.md` with clickable `/simulations/{sim_code}?step={N}&focus={x,y}&zoom={level}` links for each key moment. Requires FE query-param parsing (auto-jump, pan, zoom) and optional sprite highlighting. Builds on camera API.
 
-### Open — Sim-Day-Overview v2 spec implementation
+### ⚠️ DEPRECATED — Sim-Day-Overview v2 spec (original 8-beat plan, superseded)
+
+> **Deprecated 2026-05-14.** After the Reality-TV expert consult, v2 was rebuilt as a **two-stage Day Story Producer → Narration Writer** with a fixed 6-beat template at ~60–75 s runtime, NOT the 8-beat / cafe-ceremony spec below. **Do not implement TODO-14 as written.** See `D:\Coding\double-ivan\20260514_trailer_day_overview.md` for the live spec and remaining work. TODO-14 kept here for historical context only.
 
 **TODO-14. Sim-Day-Overview v2 spec — 8-beat structure + cafe ceremony + Today's Pressure + variable inserts + ranker scoring update.** Playbook §3 (updated 2026-05-04) revises sim-day-overview from a 5-beat to an 8-beat structure with new modules and refined editorial rules. Engineering work to land:
 
@@ -445,6 +461,26 @@ Returns top 1-3 with quiet-day fallback (top-1 only when score spread is tight: 
 ### 4.10 Multi-mode orchestrator — **SHIPPED 2026-05-01**
 `video/generate_trailer.py --mode={day_in_life|day_overview|opener}` dispatches stage 1 to the matching extractor and threads `mode` through stage 2; `persona_name` is now optional (ignored for day_overview / opener). `--top` arg controls ensemble size for day_overview (1-3) and opener (1-6). `--cohort-name` and `--season-title` are required for opener. Adding `--mode announce` is a small additive change.
 
+### 4.11 Supabase RPC + table dependencies
+
+Consolidated reference for every Supabase surface the video pipeline touches. Per-mode call sites are listed in §2.
+
+| RPC / Table | Used by | Notes |
+|---|---|---|
+| `get_simulation_metadata` | `extract_day_log` | Resolves `sec_per_step`, validates sim exists. |
+| `ensure_simulation_exists` | `extract_day_log` | Idempotent sim-row insertion. |
+| `get_agent_id_by_name` | `extract_day_log` | Resolves persona name → `agent_id` for memory queries. |
+| `get_all_step_positions` | `extract_day_log` | Full position history for all personas. **Paginated past the PostgREST 1000-row cap** (cursor + dedup, added 2026-04-30) — see §5.4. |
+| `load_persona_scratch` | `extract_day_log` | Degraded fallback when no day snapshot exists for the requested `--day N`. |
+| `load_persona_day_snapshot` (2026-04-28) | `extract_day_log` | Primary source for day-N scratch + survival_context + `memory_cutoff_time`; required for accurate multi-day trailers. |
+| `persona_day_snapshots` (table) | `reverie` writes / `extract_day_log` reads | Per-day snapshot rows keyed by `(simulation_id, persona_id, day)`. Migration `20260428125500_persona_day_snapshots.sql`. |
+| `save_persona_day_snapshot` (2026-04-28) | `reverie` | Called from the day-boundary hook in `reverie.py`. Fires on real game-clock midnight crossings (corrected 2026-04-30; was arithmetic 1440-step boundaries). |
+| `load_survival_season_state` (2026-04-30) | `extract_day_log` | Source for `survival_context.season_eliminated[]` (per-day eliminations with `final_statement`); also the authoritative survival-mode signal — promotes `sim_mode` to `survival` even when an eliminated protagonist's `scratch.survival` was cleared. |
+| `dbl_get_sim_memories` | `extract_day_log` | Chat fetch; fallback for thoughts/events. Filtered to `memory_cutoff_time` from the day snapshot when `--day N` is set. |
+| `dbl_retrieve_with_rir` (10-param) | `extract_day_log` | Primary fetch for thoughts and events; requires `p_simulation_id` overload (migration `20260414_dbl_retrieve_rir_sim_scope.sql`). |
+| `double.video_narration_cache` (table) | `video/narration_cache.py` | Burnett 6-beat narration cache for opener mode; keyed by `(sim_code, scope, artifact_key, persona_id, day_number)` + `prompt_hash`. RLS service-role only. Migration `20260511180000_video_narration_cache.sql`. |
+| `personas_coords` | (via `get_all_step_positions`) | Published to Supabase Realtime — **suppressed** in `?recording=true` mode. |
+
 ---
 
 ## 5. Design Decisions / Divergences
@@ -554,7 +590,75 @@ Cross-reference: shared craft acceptance is in playbook §1.8; per-type checklis
 
 ---
 
-## 7. Milestone Log
+## 8. YouTube Upload Runbook
+
+**Audience:** the human posting trailers to `youtube.com/@doubland-ai` (Ivan or designated operator). No engineering knowledge required.
+
+**Goal:** every completed trailer goes up **Unlisted**, with the generated description pasted in, in ≤10 minutes.
+
+**Why it matters:** YouTube is the distribution surface for the MVP. The description carries the time-coded deep-links into the live sim viewer — that's the conversion mechanism. A trailer published Public, missing its description, or under the wrong channel breaks the demo.
+
+### 8.1 Before you start
+
+You need:
+
+- The trailer's output folder (e.g. `trailers/20260428-3-ivan-day1-fixed/`). Produced by the trailer pipeline.
+- Browser logged into the `@doubland-ai` YouTube channel.
+- 5–10 minutes.
+
+Confirm the trailer pipeline already ran. Inside the trailer folder, `output/` should contain:
+
+- `trailer_16x9.mp4` — the YouTube primary (full video).
+- `trailer_9x16.mp4` — vertical cut for Shorts (optional separate upload).
+- `youtube_description.txt` — paste-ready description with timecode deep-links.
+
+If any of those are missing, run the pipeline (or ask whoever generated the trailer) before continuing.
+
+### 8.2 Steps
+
+1. **Open the helper script (optional, recommended).** From the `generative_agents-local/` repo:
+
+   ```
+   python -m video.youtube_upload_helper <path-to-trailer-folder>
+   ```
+
+   It copies the description to your clipboard, opens the YouTube upload page in your browser, and prints the file paths + title + tag convention. Skip to step 4 if you used it. If you didn't, do steps 2 and 3 manually.
+
+2. **Open the upload page:** `https://youtube.com/@doubland-ai/upload`. Verify the channel avatar in the top-right is `@doubland-ai`. If it's a personal account, switch channels first.
+
+3. **Drag in the video.** Use `output/trailer_16x9.mp4` for a full video. Only use `output/trailer_9x16.mp4` if you're posting as a Short — Shorts must be vertical and ≤60 seconds. Most trailers go up as full videos.
+
+4. **Set the title.** Open the trailer's `script.json` (one level up from `output/`). Copy the value of `"title"`. If `title` is missing or empty, use the first line of `"summary"` instead. Paste into YouTube's title field.
+
+5. **Paste the description.** Open `output/youtube_description.txt`, select all, copy, paste into YouTube's description field. The HTML comment on line 1 is intentional — YouTube ignores it.
+
+6. **Set visibility to Unlisted.** **DO NOT publish as Public.** Unlisted = anyone with the link can watch; not searchable, not on the channel feed. Investor + cohort demos only. Public is wrong for MVP. Private is also wrong (cohort can't watch).
+
+7. **Set the thumbnail (optional).** If `script.json` has a `first_frame_path` field, upload that file as the thumbnail. Otherwise, let YouTube auto-pick from the video.
+
+8. **Add tags.** Convention, in order:
+   - cohort name (e.g. `doubland-cohort-1`)
+   - `sim_code` (e.g. `20260428-3`)
+   - `sim_day_N` (e.g. `sim_day_2`)
+   - `Survival`
+
+   Add any custom tags that fit the trailer's content. Don't remove the four above.
+
+9. **Publish.** Click through the rest of YouTube's wizard (audience: "no, not made for kids"). After publishing, copy the resulting share URL (the short `youtu.be/...` form is fine).
+
+10. **Log it.** Append one row to `double-docs/youtube_uploads.md` with: `sim_code`, `sim_day`, `trailer_type`, the URL you just copied, today's date, and your name. Don't edit past rows.
+
+### 8.3 Common pitfalls
+
+- **Forgetting Unlisted.** YouTube defaults to "Private" or remembers your last setting. Always confirm "Unlisted" before publishing.
+- **Forgetting to paste the description.** Without timecode deep-links, the trailer doesn't drive viewers into the live sim — it's a dead-end video.
+- **Wrong aspect ratio.** Don't upload `trailer_9x16.mp4` as a full video, and don't upload `trailer_16x9.mp4` as a Short. They'll display cropped and look broken.
+- **Wrong channel.** Double-check the avatar is `@doubland-ai` before clicking publish. If you accidentally published to a personal channel, delete and re-upload — don't try to "move" it.
+- **Mixing trailer types.** A day-in-life trailer (one persona) and a sim-wide overview (multiple protagonists) have different framings — confirm `script.json.mode` matches what you tag and title.
+
+---
+
+## 9. Milestone Log
 
 | Date | Milestone |
 |---|---|

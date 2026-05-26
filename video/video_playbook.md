@@ -271,6 +271,8 @@ When the sim is running Survival mode and the trailer's day had a vote, narratio
 
 > **2:30-3:00 · 1-3 protagonists · 1 sim-day · two-stage LLM (spine + per-scene) · ensemble recap**
 
+> **⚠️ Spec pivot (2026-05-14).** Sections §3.3–§3.13 below describe an **8-beat creative target** (cold hook, Today's Pressure, variable inserts, cafe ceremony, etc.) that was rewritten in flight after a Reality-TV expert consult. The shipped v2 on branch `ivan/day-overview-v2` instead uses a **two-stage Day Story Producer → Narration Writer** with a fixed **6-beat template** (`yesterday_scar → today_pressure → apparent_plan → countermove → vote_reveal → new_imbalance`) at **~60–75 s runtime**. Treat the content below as **aspirational v3 vision**, not the v2 build. Live spec + remaining work: **`D:\Coding\double-ivan\20260514_trailer_day_overview.md`**.
+
 ### *3.1 Purpose*
 
 Recap the day's most intriguing events from the perspective of 1-3 characters who drove, misunderstood, or were pressured by the day.

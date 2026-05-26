@@ -1,8 +1,41 @@
-# Trailer asset playbook — base_family_sim and beyond
+# Opening Trailer — Asset & Phase Playbook (base_family_sim and beyond)
 
-> Asset commission punch list for opening trailers (PRD §4.2). v0 pipeline shipped 2026-05-01 against `20260430-7`; latest opener at `data/20260513-1/opener&004/output/trailer_16x9.mp4` (rendered 2026-05-14 — brand opener + narration-aligned grid cast intros with animated zoom + narration-driven runtime, 113s, validation PASS). This doc says what to commission for `base_family_sim` (Pistsov family) now, and how to repeat the workflow for any new cast or new village.
->
-> **Status 2026-05-14:** Phases 1–8 shipped on `ivan/video`. Remaining: §TODO-E commissioned card frames (design brief drafted — `20260514_trading-card-frames-brief.md`); Phase 7 two-tier Phaser capture; Phase 9 fusion beat. See "Implementation plan — opener trailer v2.x" in Feedback & Corrections for the full phase ledger.
+> Asset commission punch list + phase ledger for **opening trailers** (the Premiere / Episode 0). Engineering reference: `D:\Coding\double-ivan\video\video_PRD.md` §2.3. Creative spec: `D:\Coding\double-ivan\video\video_playbook.md` §4.
+
+---
+
+## Status at a glance — 2026-05-26
+
+**v2.1 SHIPPED.** Latest validated render: `data/20260513-1/opener&004/output/trailer_16x9.mp4` — 113s, validator PASS, rendered 2026-05-14.
+
+**Re-render command:**
+```bash
+python -m video.generate_trailer base_family_sim --mode opener --top 4 \
+  --cohort-name "Pistsov family" --season-title "Who will stay alive"
+```
+
+### ✅ DONE
+
+- **All commissioned assets** for the_ville + Pistsov cohort: §TODO-M style frame, §TODO-N exteriors, §TODO-O interiors, §TODO-P character sheets, §TODO-A polished sprite walkouts, §TODO-Q hero pairings, §TODO-C cohort anthem, §TODO-D archetype stings.
+- **Brand identity:** wordmark + iconic-flyover background + opener motion + end-card motion all locked; trademark cleared (`What if?` non-blocking vs. Marvel).
+- **Pipeline phases 1–6 + 8:** flag-gated revisions (no 9:16, no stings, no archetype labels); Burnett 6-beat narration with Supabase cache; audio fixes (head-silence, `Doubland` pronunciation); Round 3 single end card; brand opener as Stage 0 with narration pre-pad; narration-aligned grid cast intros (animated zoom, walkout-once, narration-driven runtime).
+
+### 🟡 REMAINING
+
+**Before MVP launch (small):**
+- **§TODO-VO1 — Closing VO update.** Change `"Day 1 starts now"` → `"Episode 1 drops tomorrow at 18:30"` per `D:\Coding\double-docs\20260519_LIVE_mode.md` DP2. One-line prompt edit in `showrunner.py` (habit-hook generator) + any hardcoded fallback. User-facing only; internal terms (`day_log`, `--day N`) unchanged.
+
+**Post-MVP polish (defer-safe):**
+- **§TODO-E — Commissioned trading-card frame PNGs** (3 archetypes: Champion / Wildcard / Observer). Replaces FFmpeg drawbox placeholders. Design brief: `20260514_trading-card-frames-brief.md`. Slots into existing card-layout zones with no code change.
+- **Phase 7 — Two-tier Phaser capture system.** Cohort-agnostic bake (`video/assets/phaser/cohort-agnostic/`) + per-sim-day atmospheric captures driven by showrunner LLM `atmospheric_key_steps`. Replaces stale `establish_*.png` / `home_topdown_*.png` set. ~2–3 days engineering.
+- **Phase 9 — Phaser↔cinematic fusion beat.** 8s schematic→cinematic xfade between brand-open and cold-open. Plates locked 2026-05-13 (`signature_flyover.mp4` + `cinematic_village_aerial_tudor.mp4`). ~20 LOC of FFmpeg `xfade` in `compose_trailer.py`. Narration line still TBD.
+- **Larger-cohort field test.** Pipeline exercised on 4-persona casts only. Grid auto-sizes — should be a validation pass, not new code.
+
+Auto-generated each render (no commission needed): §TODO-B bios, §TODO-G archetypes, §TODO-H cold open, §TODO-I flyover narration, §TODO-J end card.
+
+---
+
+> Original asset-commission punch list begins below. v0 pipeline shipped 2026-05-01 against `20260430-7`. This doc says what to commission for `base_family_sim` (Pistsov family) and how to repeat the workflow for any new cast or new village.
 
 ---
 
