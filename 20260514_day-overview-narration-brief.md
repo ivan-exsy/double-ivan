@@ -1,3 +1,7 @@
+
+<INCLUDE DAY'S CHALLENGE OVERVIEW>
+
+
 # Brief: Day-Overview Trailer Narration — Reality-TV Expert Consult
 
 > **Purpose:** Get expert input on how to make our automated daily-recap trailer narration feel like one continuous, dramatic story instead of a list of captions.
