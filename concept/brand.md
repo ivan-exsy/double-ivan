@@ -23,6 +23,8 @@ Two readings the name should evoke — both intended, both equally valid:
 
 **Pronunciation.** "Dohb-land" — same first syllable as *double*, never *doubt*. TTS guidance maintained in `video/showrunner.py` (`TTS_PRONUNCIATION_OVERRIDES`).
 
+**Naming rhythm in headlines.** Avoid pairing "Double" and "Doubland" in the same short sentence or H1 — it reads repetitive. Let one carry the identity ("Your Double..."), the other the place ("...in Doubland"). The support line or surrounding copy can carry the second element when needed.
+
 ---
 
 ## What a Double Is (core concept)

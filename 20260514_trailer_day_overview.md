@@ -3,39 +3,116 @@
 > **Leveraging the shipped opener pipeline (`20260501_opening-trailer.md`) for daily simulation-day story trailers (Episode 1, 2, 3, … at 18:30 owner-local per `D:\Coding\double-docs\20260519_LIVE_mode.md`).**
 > **Audience:** Engineering + Creative leads.
 > **Engineering reference:** `D:\Coding\double-ivan\video\video_PRD.md` §2.2. Creative reference: `D:\Coding\double-ivan\video\video_playbook.md` §3.
-> **Status:** v1 (MVP) shipped 2026-05-01. v2 rebuilt on branch `ivan/day-overview-v2` post Reality-TV expert consult; **code complete, in verification — NOT yet merged.**
-> **Original draft:** 2026-05-14. **Last updated:** 2026-05-26.
+> **Status:** v1 (MVP) shipped 2026-05-01. v2 architecture (two-stage narration + 6-beat template + 60–75 s runtime) merged into `ivan/dev`. Bucket-1 prompt-edit pass shipped 2026-05-27. **First test render done — surfaced structural gaps; v3 redesign now scoped as Phase A → D below.**
+> **Original draft:** 2026-05-14. **Last updated:** 2026-05-27.
 
 ---
 
-## Status at a glance — 2026-05-26
+## Status at a glance — 2026-05-27
 
-**v2 on branch `ivan/day-overview-v2` — code complete, awaiting verification + viewer QA, then merge.**
+**v2 architecture live on `ivan/dev`. First Day-1 test render exposed an establishing-framing gap vs the opener — v3 redesign planned as Phase A (quick wins) → D (visual + subtitle polish).**
 
-### ✅ DONE (on branch)
+### ✅ DONE
 
 - Reality-TV expert consult (Burnett / de Mol / Parsons lenses) — see Appendix A.
-- **Two-stage narration architecture:** **Day Story Producer** (decides thesis / lead / dramatic question / status deltas / beat plan) → **Narration Writer** (one continuous-story pass).
-- **Fixed 6-beat template:** `yesterday_scar → today_pressure → apparent_plan → countermove → vote_reveal → new_imbalance`. Non-elimination days fall back to `pressure_peak / unresolved`. `yesterday_scar` dropped on Day 1.
-- **Runtime retargeted to ~60–75 s** (Double's video SOT anchor), down from ~2:30–3:00.
-- **Hard content rule** (no mundane action unless it reveals stakes) + over-claiming guardrail, baked into both prompts.
-- **Day-1 "cast's debut" nuance** — the cold-open beat lightly grounds the lead.
-- Per-beat word count made a soft advisory (was crashing the pipeline on over-tight bands).
-- Narration word bounds recalibrated to the measured ~2.0 words/sec TTS pace, plus a `_check_narration_fits_video` validator backstop.
+- **Two-stage narration architecture:** **Day Story Producer** → **Narration Writer**.
+- **Fixed 6-beat template** (`yesterday_scar → today_pressure → apparent_plan → countermove → vote_reveal → new_imbalance`), Day-1 drops `yesterday_scar`, non-elimination days swap in `pressure_peak / unresolved`.
+- **Runtime band 60–75 s** (Double's video SOT anchor) — pre-Phase-B.
+- **Hard content rule + over-claiming guardrail** baked into both prompts.
+- **Bucket-1 prompt-edit pass shipped 2026-05-27** (matches v2.2 opener strategy):
+  - Day-1 micro-reset line locked verbatim: *"These are AI Doubles of real people. Today is their first test."*
+  - `DAY_OVERVIEW_BRAND_DISCIPLINE` carve-out for "AI Doubles / AI versions of real people" + "in Doubland" preposition rule.
+  - Step-number-leak guardrail (writer can no longer surface `step 869` / scene IDs in voiceover).
+  - Narration bound bumped (80, 110) → (80, 145); validator now imports the bound from showrunner (single source of truth).
+  - Tier-model resolution centralized — day-overview now uses Tier B explicitly (no more silent C→B demotion).
+- **First clean Day-1 render** against `20260526-3` — full pipeline through compose + both 16:9 / 9:16 crops produced.
+- **Port narration updates to Sim-Opening pipeline** — done as part of v2.2 opener pass on 2026-05-27.
 
-### 🟡 REMAINING (blocks merge + v2.1 alignment)
+### 🟡 REMAINING
 
-- **Clean Day-1 re-render** (the 2026-05-14 render truncated the cliffhanger — root cause fixed since).
-- **Day-2+ elimination-day render** to confirm the full path at the new runtime.
-- **Prompt updates for finalized trailer strategy (2026-05-26)**:
-  - Add Day 1 micro-reset line immediately after cold hook: “These are AI Doubles of real people. Today is their first test.”
-  - Add standalone 3–5 s rotating product cue for Day 2+ (end-card / overlay).
-  - Update `DAY_OVERVIEW_BRAND_DISCIPLINE` to allow trailer-specific exception: “They are not game characters. They are Doubles—AI versions of real people, making choices no one wrote for them.”
-- **`/verify` + `/simplify` on the branch**.
-- **5-viewer comprehension test** (add explicit check: can viewers state what a Double is?).
-- **Prompt-tuning pass**.
-- **Merge `ivan/day-overview-v2` → main.**
-- **Port same narration updates to Sim-Opening pipeline** to match new v2.1 beat sheet (concept seed + participation bridge + access reveal).
+- **Phase A — Quick wins (this week):** end-card field-name alignment; vote-outcome / tiebreaker clarity; persona-naming rule. See §"2026-05-27 Findings & Phase Plan" below.
+- **Phase B — v3 spine redesign (~2–3 days):** add establishing-layer beat (cohort + episode framing → concept reset → 1-line cast intros), surface day's challenge event, bump bounds to 90–120 s / 150–200 words.
+- **Phase C — Visual variety (~1–2 days):** wire commissioned-asset buckets into day-overview compose (exteriors/interiors/sketch portraits/walkouts), mirroring opener.
+- **Phase D — Subtitle timing (~1 day):** drive on-screen card labels from `narration_timing.json` boundaries instead of scene window.
+- **Day-2+ elimination-day render** to confirm the full path post-Phase-B.
+- **Day-2+ rotating product cue** — Ivan locks text; small follow-up edit (deferred from Bucket 1).
+- **`/verify` + `/simplify`** on the branch.
+- **5-viewer comprehension test** (can viewers state what a Double is? who's the lead? who went home? what changes tomorrow?).
+- **Merge `ivan/dev` → main** after Phase A + B validation.
+
+---
+
+## 2026-05-27 — First Test Render Findings & Phase Plan
+
+### Test render
+
+- **Sim:** `20260526-3` (Pistsov family — Gosha, Ivan, Katya, Luba)
+- **Day:** 1 (Gosha eliminated by 2 votes)
+- **Top:** 3 protagonists (Gosha, Ivan, Katya — by extract ranker)
+- **Output:** `data/20260526-3/overview_day1&004/`
+- **Result:** Full pipeline succeeded end-to-end after Pillow install. `trailer_16x9.mp4` (13.8 MB) and `trailer_9x16.mp4` (23.3 MB) both produced.
+- **Validator:** narration word count + scene count PASS; **`narration_fits_video: FAIL`** (74.8 s of voiceover vs 65.1 s of video — last beats truncated). Resolved by Phase B's 90–120 s expansion.
+
+Bucket 1 prompt-edit pass confirmed working in the rendered narration:
+
+- ✅ Day-1 micro-reset line lands verbatim (TTS segment 3).
+- ✅ Step-number leak guardrail working — no more raw `step 869` references; writer used "By nightfall Gosha is eliminated" instead.
+- ✅ Brand-discipline carve-out: writer used "AI Doubles of real people" appropriately.
+
+### Findings (creative review, 2026-05-27)
+
+> The day-overview trailer is **structurally less mature than the opener** — it skips the establishing framing the opener uses to ground first-time viewers. Six observations from the &004 review map to five problem clusters.
+
+| # | Issue (verbatim) | Cluster | Severity |
+|---|---|---|---|
+| 1 | Opening end-card shows generic "DOUBLAND - What if?"; should read "Pistsov Family · Episode 1" (or equivalent). | C5 — End-card data mismatch | Low (small bug) |
+| 2 | Narrator dives into "Gosha Pistsov, the planner wakes…" at 00:06 — no concept reset, no Survival framing, no cast intro first. | C1 — No establishing framing | **High** |
+| 3 | Day-1 micro-reset lands at 00:22–00:28 (between scene 1 and 2). It should move to the front and be supplemented with brief cast intros. | C1 — No establishing framing | **High** |
+| 4 | No mention of the day's challenge or its outcome. | C2 — Content completeness | **High** |
+| 5 | Vote outcome unclear: narration describes a 2-2 tally (Gosha+Luba vs Ivan+Katya) but doesn't explain the tiebreaker. | C2 — Content completeness | **High** |
+| 6 | Subtitle / card labels misalign with narration — labels persist past the spoken reference, narrator uses "he/they" without naming who. | C3 — Subtitle timing drift | Medium |
+| 7 | Phaser-only video feels flat — opener's exteriors/interiors/sketches/walkouts not used here. | C4 — Visual flatness | Medium |
+
+**Root cause across clusters:** day-overview v2 was scoped around *narrative continuity* (one-pass writer, fixed 6-beat day arc) and skipped the *establishing layer* that makes a daily episode feel like part of a series. The opener already has this layer; day-overview needs to borrow from it.
+
+### Phase plan
+
+Ivan approved expanding day-overview runtime to **90–120 s** to absorb the establishing content. The fix is sequenced into four phases:
+
+#### Phase A — Quick wins (this week)
+
+Surgical edits, no architecture change. High visibility, low risk.
+
+- **A1. End-card alignment.** Fix the field-name mismatch between `_stitch_overview_script` (writes `end_card.text` + `cohort_label`) and `generate_opener_end_card` (reads `title` + `subtitle`) so "Pistsov Family · Day 1" actually surfaces.
+- **A2. Vote-outcome clarity.** Patch Story Producer prompt to extract the tiebreaker / final-tally logic; force Narration Writer to name the swing dynamic instead of listing votes mechanically.
+- **A3. Persona-naming rule.** Hard rule added to `DAY_OVERVIEW_NARRATION_WRITER_SYSTEM`: first reference inside each beat must be the full first name; never start a beat with "he" / "they" / pronoun.
+
+#### Phase B — v3 spine: establishing layer (~2–3 days, plan-mode round-trip)
+
+Substantial restructure. Adds a pre-day-arc establishing beat that mirrors the opener's framing.
+
+- **B1.** New **"Episode opener"** segment (Day 1 mandatory, Day ≥ 2 condensed): cohort + episode framing card → concept reset line → 1-line-per-Double cast intro. Compresses the opener's full cast-card treatment into ~25–30 s.
+- **B2.** Story Producer surfaces the day's challenge event (new field `challenge_summary`); Narration Writer weaves it into `today_pressure` so viewers learn what was at stake and who won the challenge.
+- **B3.** Bump `DAY_OVERVIEW_NARRATION_BOUNDS` to `(150, 200)` words; `DAY_OVERVIEW_RUNTIME_BOUNDS` to `(90, 120)` s; validator bounds match.
+
+#### Phase C — Visual variety (~1–2 days)
+
+Visual polish. Off the critical path until B lands.
+
+- **C1.** Wire commissioned-asset buckets (`video/assets/cohort/`, `village/`, `archetypes/`) into `_compose_day_overview` for cast-intro segment + transition stings.
+- **C2.** Mixed Phaser + sketch portraits during the cast-intro segment (Phase B), full Phaser actuals during the day arc.
+
+#### Phase D — Subtitle timing (~1 day)
+
+Last polish step. Aligns on-screen labels with what the narrator is actually saying.
+
+- **D1.** Drive on-screen card label transitions from `narration_timing.json` boundaries (sub-second precision), not from scene-window `time_range_sec`.
+
+### Sequencing rationale
+
+- **A first** because it's quick, surgical, and lifts perceived polish a lot without touching architecture.
+- **B before C and D** because the establishing layer changes which scenes exist and how long they are — C and D need a stable scene structure to target.
+- **C and D in either order** after B — independent.
 
 ---
 
