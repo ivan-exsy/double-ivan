@@ -12,6 +12,19 @@ Doubles = answers. Cohorts = experiments. Viewers = people with their own "what 
 
 ---
 
+## The Name "Doubland"
+
+Two readings the name should evoke — both intended, both equally valid:
+
+1. **Double + Land** — the land where Doubles live. A place, not a platform; a populated world, not a service.
+2. **Dublin echo** — a real-sounding capital city. Doubland is the bridge between virtual life and real life, just as Dublin is a bridge between two worlds (old / new, Gaelic / Anglo, island / continent). The familiar phonetic shape ("Dublin"-adjacent) makes it land as somewhere people *live*, not a tech product.
+
+**Prepositions matter.** Doubles live **in** Doubland (a place), never **inside** Doubland (a container). "On Doubland" reads as a platform — also wrong. The only correct frame is the geographic one: *in Doubland, from Doubland, across Doubland.*
+
+**Pronunciation.** "Dohb-land" — same first syllable as *double*, never *doubt*. TTS guidance maintained in `video/showrunner.py` (`TTS_PRONUNCIATION_OVERRIDES`).
+
+---
+
 ## What a Double Is (core concept)
 A **Double** is a digital twin — a faithful snapshot of your real personality, voice, decision patterns, and social instincts. It is not a generic AI character or invented persona. It is you, unfiltered. Branding must make viewers feel instant recognition: "That's me — I would have said/done exactly that."
 
@@ -48,7 +61,7 @@ Second-person only. These four pillars compress the mission into repeatable line
 - 0–4s: Pure A — bare "What if?" over dusk village + cyan wireframe. No explanatory VO.
 - Cold open / tease: B only (one context-steered question per major character).
 - Mid beats: Double does the feared thing → real-person recognition cut (Pillar 1).
-- End card: Bare "What if?" (A) on screen. Let VO carry format stakes ("Day 1 starts now..."). Remove all "Who will stay alive?" danger text from card.
+- End card: Bare "What if?" (A) on screen. Let VO carry the closing hook ("The game is on."). The end-card text carries the daily cadence ("Episode 1 tomorrow · 18:30"). Remove all "Who will stay alive?" danger text from card.
 
 **UI / Onboarding / In-Game**
 - Commission flow: Single field "What if ____?" (B seed). Auto-suggest from pillars.
