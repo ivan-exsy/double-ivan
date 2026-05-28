@@ -1,5 +1,39 @@
 # Landing Page Copy Review — 2026-05-27
 
+## 0. Final Copy Decision Table (Current vs Suggested vs Expert)
+
+Use this table to pick one final variant per section before implementation.
+
+| Landing Page Section | Current (live at doubland.ai / current draft) | Suggested (prior draft in this doc) | Expert Version (new advisor feedback) |
+|---|---|---|---|
+| **Metadata Title** | `Build a Double of You — Watch It Play Out` | `Watch the version of you that said yes - in Doubland` | `Doubland — Watch the version of you that said yes` |
+| **Metadata Description** | "Build a Double of you, drop it into a village with friends, and watch what it does when you're not steering. Solo Rehearsals are live. Villages are invite-only in beta, rolling out in batches." | "Your Double is a personality twin that explores the choices you didn't make. Solo rehearsals are live. Villages are invite-only in beta." | "Make your Double, test it in private, then let it loose with your friends in Doubland. Invite-only beta is rolling out by school." |
+| **Hero H1** | "Build a Double of You" + "Drop Into a Village With Friends" + "(No real-life consequences. Mostly.)" | `Enter Doubland with friends.` | `Make a Double of yourself. Then let it loose with your friends.` |
+| **Hero Subhead / Support Line** | `It thinks like you, acts like you, and makes choices you'd never admit. Press play.` | `Your Double has your personality. Watch the version of you that said yes.` | `Watch another version of you flirt, fight, choose sides, start drama, and do things you'd swear you'd never do.` |
+| **Hero Primary CTA** | None explicit in hero | `Enter your Doubland` | `Create My Double` |
+| **Hero Secondary CTA** | None | Optional learn-more secondary CTA | `See how it works` |
+| **Hero Microcopy (friction clarity)** | Not explicit in hero | Not explicit (batch rollout noted later) | `Invite-only beta. School email required.` |
+| **Curiosity / Social Hook Section** | Implied via iframe + support line | Not explicitly added as separate block | `What would another version of you do when you're not in control?` + 3 sample scenarios |
+| **Scenario Examples (near top)** | Not present | Not present | 1) Party invite conflict 2) Rumor reaction 3) Trust-choice between friends |
+| **Explain Section Header** | `Get on Double in 3 steps` | `Get in Doubland in 3 steps` | Keep 3 steps, but emotionally vivid framing (private test -> social consequences) |
+| **Explain Intro Line** | `Watch what it does when you're not steering.` | Keep (locked) | Keep (called out as one of the strongest lines) |
+| **Step 1** | `Create your Double.` | Keep | `Create your Double` (keep) |
+| **Step 2** | `Solo Rehearsals.` + "Real-life dilemmas. See how often your Double matches your choices." | Keep title | `Test it in private.` + "Put your Double through messy choices and see when it acts exactly like you - or nothing like you." |
+| **Step 3** | `Enter the Village.` + `Invite-only in beta.` | `Enter your Doubland.` | `Enter Doubland.` + "Bring friends in and see what your Doubles do together." |
+| **Why Friends Matter Header** | `Feels real—because it's built from you` | `The version of you that...` | `Alone, your Double is interesting. With friends, it gets dangerous.` |
+| **Why Friends Matter Body** | `Bring your friends — the plot twists get better fast.` | `Relationships, rivalries, and the hard conversations — your Double runs them first.` | `Alliances form. Secrets leak. Crushes get weird. Someone always starts drama.` |
+| **Amplify Card / Social Share Line** | `Highlights you'll want to send to the group chat.` | Keep direction but sharper tone | `Moments so unhinged you'll have to send them to the group chat.` |
+| **Safety / Control Header** | `You're in control the whole time` | Keep | `Your Double only goes where you let it.` |
+| **Safety / Control Subhead** | `It's a simulation, not a contract.` | Keep in prior draft | `It's a story, not real life.` |
+| **Safety / Control Body** | `Keep your profile private unless you share` + `You decide who gets access to your Village` + `Delete anytime — gone` | Keep structure | `Keep it private, choose who joins, and delete it anytime.` |
+| **Brand Hierarchy Clarifier (new line)** | Not present | Implicit in naming discipline | `Your Double is another version of you. Doubland is where it lives with your friends.` |
+| **Primary CTA Consistency Across Page** | Mixed (`Create your Double` in sections, none in hero) | Standardize to `Enter your Doubland` | Standardize to beta-aware action (`Create My Double` or `Join the Beta`) |
+| **Beta Access CTA Block** | `Create your Double` + `Batch-based rollout. Earlier profiles get invited earlier.` | Keep rollout note | `Beta access is rolling out by school. Create your profile now. Earlier Doubles get invited earlier.` Button: `Join the Beta` |
+| **Footer Brand Name** | `Double` | `Doubland` | Prefer explicit hierarchy: brand world = `Doubland`, product entity = `Double` |
+| **Footer Tagline** | `Double your squad, watch the chaos` | `Where your "What if?" gets answered.` | Keep `Double your squad, watch the chaos` as strong line; optional alt: `Where your "What if?" gets answered.` |
+
+---
+
 **Status:** Expert input consolidated. Final copy draft ready. One pending item (metadata description softening).
 
 ---

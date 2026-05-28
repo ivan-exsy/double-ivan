@@ -1,0 +1,59 @@
+name: AI Governance Gate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  governance-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate governance pack
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import sys
+
+          required_files = {
+              ".agents/AI_SKILLS_POLICY.md": [
+                  "## Purpose",
+                  "## Precedence (Order of Truth)",
+                  "## Strict Operating Rules",
+                  "## CI Gate Policy (Lightweight, Day-One)",
+              ],
+              ".agents/AI_SKILLS_FASTPATH.md": [
+                  "## 10 Non-Negotiable Rules",
+                  "## PR Handoff Template (Required)",
+              ],
+              ".agents/AI_SKILLS_SCORECARD.md": [
+                  "# AI Skills Scorecard (Monthly)",
+                  "## KPI Snapshot",
+                  "## Exceptions Logged This Month",
+              ],
+          }
+
+          failures = []
+          for file_name, required_tokens in required_files.items():
+              path = Path(file_name)
+              if not path.exists():
+                  failures.append(f"Missing required file: {file_name}")
+                  continue
+              content = path.read_text(encoding="utf-8")
+              for token in required_tokens:
+                  if token not in content:
+                      failures.append(f"Missing section '{token}' in {file_name}")
+
+          if failures:
+              print("AI governance gate failed:")
+              for failure in failures:
+                  print(f"- {failure}")
+              sys.exit(1)
+
+          print("AI governance gate passed.")
+          PY
