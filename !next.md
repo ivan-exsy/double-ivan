@@ -1,3 +1,11 @@
+1. Accurate FE playback
+2. Day-overview trailer
+3. Player-UX simplication
+4. Game mechanics
+- Game starts in reqular mode - whenever master starts it / synced with local time zone (reference we can reference it as Opening Episode)
+- Survival challenges start the next day
+
+
 =================================================================================================
 
 ## *Post-MVP (deferred)*

@@ -473,3 +473,30 @@ The expert specified a **5-viewer comprehension test** as the QA gate (still pen
 4. What changes tomorrow.
 
 If any of those four answers don't land for 4+ of 5 viewers, the prompt-tuning pass is required before merge.
+
+
+## *Assessment: D:\Coding\generative_agents\data\20260526-3\overview_day1&006*
+
+1. Issue - At the opening screen: "Pistsov Family - Episode 1" covers "DOUBLAND - What if?" 
+see: D:\Coding\generative_agents\data\20260526-3\overview_day1&006\assessment\1-screen.png
+Solution:
+- Replace pic with a one without "What if?": D:\Coding\generative_agents\video\assets\production\brand\opening_wordmark-no-h2.png
+- Have the name of the season ("Pistsov Family") under Doubland - instead of 'What If?', remove grey highlight;
+- Episode # - goes under the name of the season
+
+
+2. Replace scene titles with a one sentence brief
+- current scene titles (e.g. Development - Gosha Pistsov, Turn - Katya Pistsova) don't add value and read as production artefects
+- need to replace them with one liner summary of the scene, shaped as "First Name + action summary"
+- potential visual upgrade:
+-- add double's photo in the upper right or left corner (alternate) with a name tag
+-- summary of action at the lower center
+
+3. Right after opening slide, the story & visuals immediately jump to telling the story of the day with Phaser visuals.
+Verify why there was no:
+- brief sim summary & cast intros
+- no 'realistic' visuals intended for blending phaser and reality
+Are these planned at the later implementation phases or were not implemented for a different reason?
+
+
+4. Narration was cut off at the end of the trailer - should have extended the timeline.
