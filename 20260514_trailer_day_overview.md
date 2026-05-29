@@ -1,502 +1,94 @@
-# Day-Overview Trailer — PRD + Execution Playbook
+# Day-Overview Trailer — Spec & Status
 
-> **Leveraging the shipped opener pipeline (`20260501_opening-trailer.md`) for daily simulation-day story trailers (Episode 1, 2, 3, … at 18:30 owner-local per `D:\Coding\double-docs\20260519_LIVE_mode.md`).**
-> **Audience:** Engineering + Creative leads.
-> **Engineering reference:** `D:\Coding\double-ivan\video\video_PRD.md` §2.2. Creative reference: `D:\Coding\double-ivan\video\video_playbook.md` §3.
-> **Status:** v1 (MVP) shipped 2026-05-01. v2 architecture (two-stage narration + 6-beat template + 60–75 s runtime) merged into `ivan/dev`. Bucket-1 prompt-edit pass shipped 2026-05-27. **First test render done — surfaced structural gaps; v3 redesign now scoped as Phase A → D below.**
-> **Original draft:** 2026-05-14. **Last updated:** 2026-05-27.
+> Daily simulation-day recap trailers (Episode 1, 2, 3… at 18:30 owner-local, per `D:\Coding\double-docs\20260519_LIVE_mode.md`). Reuses the shipped opener pipeline.
+> **Engineering ref:** `D:\Coding\double-ivan\video\video_PRD.md` §2.2 · **Creative ref:** `D:\Coding\double-ivan\video\video_playbook.md` §3.
+> **Status:** v3 on `ivan/dev`. Day-1 path renders end-to-end and passes all validators. **Last updated: 2026-05-29.**
 
 ---
 
-## Status at a glance — 2026-05-27
+## Status
 
-**v2 architecture live on `ivan/dev`. First Day-1 test render exposed an establishing-framing gap vs the opener — v3 redesign planned as Phase A (quick wins) → D (visual + subtitle polish).**
-
-### ✅ DONE
-
-- Reality-TV expert consult (Burnett / de Mol / Parsons lenses) — see Appendix A.
-- **Two-stage narration architecture:** **Day Story Producer** → **Narration Writer**.
-- **Fixed 6-beat template** (`yesterday_scar → today_pressure → apparent_plan → countermove → vote_reveal → new_imbalance`), Day-1 drops `yesterday_scar`, non-elimination days swap in `pressure_peak / unresolved`.
-- **Runtime band 60–75 s** (Double's video SOT anchor) — pre-Phase-B.
-- **Hard content rule + over-claiming guardrail** baked into both prompts.
-- **Bucket-1 prompt-edit pass shipped 2026-05-27** (matches v2.2 opener strategy):
-  - Day-1 micro-reset line locked verbatim: *"These are AI Doubles of real people. Today is their first test."*
-  - `DAY_OVERVIEW_BRAND_DISCIPLINE` carve-out for "AI Doubles / AI versions of real people" + "in Doubland" preposition rule.
-  - Step-number-leak guardrail (writer can no longer surface `step 869` / scene IDs in voiceover).
-  - Narration bound bumped (80, 110) → (80, 145); validator now imports the bound from showrunner (single source of truth).
-  - Tier-model resolution centralized — day-overview now uses Tier B explicitly (no more silent C→B demotion).
-- **First clean Day-1 render** against `20260526-3` — full pipeline through compose + both 16:9 / 9:16 crops produced.
-- **Port narration updates to Sim-Opening pipeline** — done as part of v2.2 opener pass on 2026-05-27.
-
-### 🟡 REMAINING
-
-- **Phase A — Quick wins (this week):** end-card field-name alignment; vote-outcome / tiebreaker clarity; persona-naming rule. See §"2026-05-27 Findings & Phase Plan" below.
-- **Phase B — v3 spine redesign (~2–3 days):** add establishing-layer beat (cohort + episode framing → concept reset → 1-line cast intros), surface day's challenge event, bump bounds to 90–120 s / 150–200 words.
-- **Phase C — Visual variety (~1–2 days):** wire commissioned-asset buckets into day-overview compose (exteriors/interiors/sketch portraits/walkouts), mirroring opener.
-- **Phase D — Subtitle timing (~1 day):** drive on-screen card labels from `narration_timing.json` boundaries instead of scene window.
-- **Day-2+ elimination-day render** to confirm the full path post-Phase-B.
-- **Day-2+ rotating product cue** — Ivan locks text; small follow-up edit (deferred from Bucket 1).
-- **`/verify` + `/simplify`** on the branch.
-- **5-viewer comprehension test** (can viewers state what a Double is? who's the lead? who went home? what changes tomorrow?).
-- **Merge `ivan/dev` → main** after Phase A + B validation.
+The Day-1 path is complete and validated (latest render: `20260528-1` day 1 — `trailer_16x9.mp4` 140.7s, all 5 validator checks pass). Day-2+ and the viewer-comprehension QA gate are the remaining gates before merge to `main`.
 
 ---
 
-## 2026-05-27 — First Test Render Findings & Phase Plan
+## Architecture
 
-### Test render
+One command:
 
-- **Sim:** `20260526-3` (Pistsov family — Gosha, Ivan, Katya, Luba)
-- **Day:** 1 (Gosha eliminated by 2 votes)
-- **Top:** 3 protagonists (Gosha, Ivan, Katya — by extract ranker)
-- **Output:** `data/20260526-3/overview_day1&004/`
-- **Result:** Full pipeline succeeded end-to-end after Pillow install. `trailer_16x9.mp4` (13.8 MB) and `trailer_9x16.mp4` (23.3 MB) both produced.
-- **Validator:** narration word count + scene count PASS; **`narration_fits_video: FAIL`** (74.8 s of voiceover vs 65.1 s of video — last beats truncated). Resolved by Phase B's 90–120 s expansion.
-
-Bucket 1 prompt-edit pass confirmed working in the rendered narration:
-
-- ✅ Day-1 micro-reset line lands verbatim (TTS segment 3).
-- ✅ Step-number leak guardrail working — no more raw `step 869` references; writer used "By nightfall Gosha is eliminated" instead.
-- ✅ Brand-discipline carve-out: writer used "AI Doubles of real people" appropriately.
-
-### Findings (creative review, 2026-05-27)
-
-> The day-overview trailer is **structurally less mature than the opener** — it skips the establishing framing the opener uses to ground first-time viewers. Six observations from the &004 review map to five problem clusters.
-
-| # | Issue (verbatim) | Cluster | Severity |
-|---|---|---|---|
-| 1 | Opening end-card shows generic "DOUBLAND - What if?"; should read "Pistsov Family · Episode 1" (or equivalent). | C5 — End-card data mismatch | Low (small bug) |
-| 2 | Narrator dives into "Gosha Pistsov, the planner wakes…" at 00:06 — no concept reset, no Survival framing, no cast intro first. | C1 — No establishing framing | **High** |
-| 3 | Day-1 micro-reset lands at 00:22–00:28 (between scene 1 and 2). It should move to the front and be supplemented with brief cast intros. | C1 — No establishing framing | **High** |
-| 4 | No mention of the day's challenge or its outcome. | C2 — Content completeness | **High** |
-| 5 | Vote outcome unclear: narration describes a 2-2 tally (Gosha+Luba vs Ivan+Katya) but doesn't explain the tiebreaker. | C2 — Content completeness | **High** |
-| 6 | Subtitle / card labels misalign with narration — labels persist past the spoken reference, narrator uses "he/they" without naming who. | C3 — Subtitle timing drift | Medium |
-| 7 | Phaser-only video feels flat — opener's exteriors/interiors/sketches/walkouts not used here. | C4 — Visual flatness | Medium |
-
-**Root cause across clusters:** day-overview v2 was scoped around *narrative continuity* (one-pass writer, fixed 6-beat day arc) and skipped the *establishing layer* that makes a daily episode feel like part of a series. The opener already has this layer; day-overview needs to borrow from it.
-
-### Phase plan
-
-Ivan approved expanding day-overview runtime to **90–120 s** to absorb the establishing content. The fix is sequenced into four phases:
-
-#### Phase A — Quick wins (this week)
-
-Surgical edits, no architecture change. High visibility, low risk.
-
-- **A1. End-card alignment.** Fix the field-name mismatch between `_stitch_overview_script` (writes `end_card.text` + `cohort_label`) and `generate_opener_end_card` (reads `title` + `subtitle`) so "Pistsov Family · Day 1" actually surfaces.
-- **A2. Vote-outcome clarity.** Patch Story Producer prompt to extract the tiebreaker / final-tally logic; force Narration Writer to name the swing dynamic instead of listing votes mechanically.
-- **A3. Persona-naming rule.** Hard rule added to `DAY_OVERVIEW_NARRATION_WRITER_SYSTEM`: first reference inside each beat must be the full first name; never start a beat with "he" / "they" / pronoun.
-
-#### Phase B — v3 spine: establishing layer (~2–3 days, plan-mode round-trip)
-
-Substantial restructure. Adds a pre-day-arc establishing beat that mirrors the opener's framing.
-
-- **B1.** New **"Episode opener"** segment (Day 1 mandatory, Day ≥ 2 condensed): cohort + episode framing card → concept reset line → 1-line-per-Double cast intro. Compresses the opener's full cast-card treatment into ~25–30 s.
-- **B2.** Story Producer surfaces the day's challenge event (new field `challenge_summary`); Narration Writer weaves it into `today_pressure` so viewers learn what was at stake and who won the challenge.
-- **B3.** Bump `DAY_OVERVIEW_NARRATION_BOUNDS` to `(150, 200)` words; `DAY_OVERVIEW_RUNTIME_BOUNDS` to `(90, 120)` s; validator bounds match.
-
-#### Phase C — Visual variety (~1–2 days)
-
-Visual polish. Off the critical path until B lands.
-
-- **C1.** Wire commissioned-asset buckets (`video/assets/cohort/`, `village/`, `archetypes/`) into `_compose_day_overview` for cast-intro segment + transition stings.
-- **C2.** Mixed Phaser + sketch portraits during the cast-intro segment (Phase B), full Phaser actuals during the day arc.
-
-#### Phase D — Subtitle timing (~1 day)
-
-Last polish step. Aligns on-screen labels with what the narrator is actually saying.
-
-- **D1.** Drive on-screen card label transitions from `narration_timing.json` boundaries (sub-second precision), not from scene-window `time_range_sec`.
-
-### Sequencing rationale
-
-- **A first** because it's quick, surgical, and lifts perceived polish a lot without touching architecture.
-- **B before C and D** because the establishing layer changes which scenes exist and how long they are — C and D need a stable scene structure to target.
-- **C and D in either order** after B — independent.
-
----
-
-> **⚠️ Doc structure note (2026-05-26).** Sections §0–§2 below describe the **original implementation plan** drafted 2026-05-14. The v2 architecture that was actually built on `ivan/day-overview-v2` is captured in **§3 v2 Actual Implementation (post-pivot)**. The pre-pivot v2 narrative spec (old §3 below, with the `previously_on → setup → development → turning_point → vote_fallout → cliffhanger` template) is **superseded** by §3 — kept for historical context, do not implement as written. Same applies to the old §4 composition spec where it references the pre-pivot beats. Appendix A captures the narration-quality problem and the expert consult that drove the pivot.
-
----
-
-## 0. Executive Summary (original 2026-05-14 plan)
-
-The opening-trailer pipeline (5-beat structure, Burnett 6-beat narration with cache, commissioned asset buckets, composition layers, and Playwright capture) already solves the hardest parts of turning raw simulation data into cinematic, brand-consistent story content.  
-
-Day-overview trailers (the "simulation-day recap" format) are the natural next application. A targeted v2 uplift reuses 70-80% of the opener work to deliver dramatic, watchable daily recaps that feel like "mini-openers" — same voice, same card treatment, same stakes language — while using the day's actual footage instead of static flyovers.
-
-**Outcome:** Every simulation day automatically gets a polished 2:30–3:00 trailer with prior-day bridge, rising action, key conflicts, vote fallout, and tomorrow tease. One unified `--mode day_overview` command. Minimal new code; maximum reuse.
-
----
-
-## 1. Current State (v1)
-
-| Aspect | Opener (shipped, polished) | Day-Overview (MVP) | Gap |
-|--------|----------------------------|--------------------|-----|
-| Narrative engine | 6-beat Burnett (cold_open → format_lock → 4×cast_intro → pressure → vote_dread → habit_hook) with `narration_cache` + brand discipline | 5-6 scene roles (previously_on / setup / development×N / council_vote / cliffhanger); flat spine + per-scene LLM | No cache, weaker dramatic arc, no brand-voice lock |
-| Visual language | Trading-card frames, sketch→sprite expand/minimize timed to VO, exact-once walkouts, music tail fade | Basic scene cards; no card-grid roster or timed sprite sync | Inconsistent brand experience |
-| Asset reuse | Per-village (exteriors/interiors), per-cohort (sketches/sheets/walkouts), per-archetype (frames/stings) all commissioned | Same buckets available but under-used | Day-specific highlight clips exist but not sequenced into stakes montage |
-| Extraction | `extract_opener_context` (Day-0) | `extract_day_overview` (rich: protagonists[], shared_timeline, trigger_events, prior_day_summary) | Already stronger context for day recaps |
-| Composition | Cold-open card, cast-intro grid, stakes flyovers, single end card | "Previously on…" bridge + flat scenes | Missing dynamic stakes montage and card timing polish |
-| Runtime | 95–180 s (N=4→6 cohort) | 150–180 s target | Overlap is good |
-
-**Key files (already mode-aware):**
-- `video/generate_trailer.py` — orchestrator + CLI
-- `video/extract_day_log.py` — `extract_day_overview` + `extract_opener_context`
-- `video/showrunner.py` — `_generate_day_overview_script` (two-stage) + opener 6-beat helpers + `narration_cache`
-- `video/compose_trailer.py` — mode dispatch, music ducking, 16:9+9:16 crops, end-card
-- `video/record_scenes.py` + `capture_static_assets.py` — Playwright capture
-- `video/assets/` — five-bucket layout (phaser/, users/, village/, cohort/, archetypes/)
-
----
-
-## 2. Opportunity & Recommendation
-
-**Do a targeted v2 uplift on the day-overview path** rather than forking a new trailer type. This keeps one command surface, reuses every commissioned asset and capture path, and lets the dramatic quality of the opener "lift" daily recaps immediately.
-
-**Trade-offs:**
-- Speed to value: 3–5 days (mostly prompt + ~150 LOC composition) vs. months for ground-up day trailer.
-- Risk: Low — mode dispatch and extraction are stable; only swapping narrative layer and extending composition.
-- Quality outcome: Day trailers feel like mini-openers → unified brand voice across pre-sim + daily slate.
-- Future-proofing: Sim-announce (last planned type) becomes trivial variant once this is done.
-
-**Scope for v2:** Narrative 6-beat upgrade + cache layer + composition visual alignment. No new asset commissions required.
-
----
-
-## v2 Actual Implementation (post Reality-TV expert consult, 2026-05-14) — **LIVE SPEC**
-
-> This is what was actually built on branch `ivan/day-overview-v2`. Supersedes the pre-pivot §3–§5 below. See Appendix A for the narration-quality problem and the expert consult outcome that drove this pivot.
-
-### A. Two-stage narration architecture
-
-Single per-scene LLM calls (the v1 approach) structurally cannot build an arc — each scene sees only its own character's event log, with no awareness of what was said before or after. The fix is a two-stage pipeline where one LLM decides the day's story, then a second LLM writes the whole trailer's narration in one pass.
-
-**Stage 1 — Day Story Producer.** Takes the full day's extracted context (all protagonists, shared timeline, trigger events, prior-day summary) and decides:
-- **Thesis** — one sentence capturing today's social pivot.
-- **Lead** — the day's protagonist (one persona, not three).
-- **Dramatic question** — what the trailer hooks the viewer on.
-- **Status deltas** — who rose, who fell, who changed alliance, who got exposed.
-- **Beat plan** — the per-beat content brief that Stage 2 writes against.
-
-**Stage 2 — Narration Writer.** Takes Stage 1's brief and writes one continuous narration script in a single pass. Sees the whole day. Threads transitions ("but," "meanwhile," "by nightfall," "what none of them knew"). Each beat does a *different* rhetorical job rather than seven captions in a row.
-
-### B. Fixed 6-beat template
-
-Elimination days (the default):
-
-1. `yesterday_scar` — the unresolved wound from yesterday that today is still living with. Dropped on Day 1.
-2. `today_pressure` — what's at stake today; who is exposed.
-3. `apparent_plan` — what the lead (or the group) thinks is happening.
-4. `countermove` — what's actually happening underneath; the betrayal or counter-alliance the lead can't see.
-5. `vote_reveal` — the elimination, named, with vote count if known. Verbatim farewell quote when available.
-6. `new_imbalance` — the cliffhanger: who is now exposed because of tonight's vote.
-
-Non-elimination days fall back to `pressure_peak / unresolved` in slots 5–6.
-
-### C. Runtime target: ~60–75 s (down from 2:30–3:00)
-
-Anchored to Double's video SOT pacing for daily-cadence content (viewers meant to watch every single day). Industry research: 5-min recap engagement drops past 3 min; 60–75 s is the daily-habit sweet spot.
-
-### D. Hard content rules baked into both prompts
-
-- **No mundane action unless it reveals stakes.** "Checked the laptop," "still in bed," "rehearsed at the counter" are forbidden as standalone beats. A line about a Double doing something only ships if it tells the viewer what's *at risk* for that Double.
-- **Over-claiming guardrail.** Narrator may state facts and pose questions but never asserts unsupported emotion or motive ("she felt terrified," "he had always known…" are out).
-- **Day-1 micro-reset (v2.1).** Immediately after cold hook, insert: “These are AI Doubles of real people. Today is their first test.” (conditional in Day Story Producer).
-- **Day 2+ product cue (v2.1).** One standalone 3–5 s rotating cue at end-card or overlay (e.g. “Scroll back to the first promise.”). Rotate daily; never repeat in same trailer.
-- **Terminology exception (trailer-only).** The line “They are not game characters. They are Doubles—AI versions of real people, making choices no one wrote for them.” is explicitly allowed in Sim-Opening and Sim-Day-Overview narration despite the general forbid on “AI version”.
-- **Day-1 "cast's debut" nuance.** The cold-open beat lightly grounds the lead since there's no `yesterday_scar` to anchor.
-- **Word counts are soft advisories** (the hard bands crashed the pipeline). The `_check_narration_fits_video` validator backstop catches drift.
-
-### E. What was deliberately dropped vs the original §3–§5 plan
-
-The pre-pivot plan (old §3–§5 below) defined an 8-beat structure with cafe ceremony, POV/omniscient variable inserts, Today's Pressure module, thread-driven bridge cards, and persona-ranker scoring updates. None of that shipped — the two-stage 6-beat / 60–75 s architecture replaced it entirely. The cafe ceremony, variable inserts, and ranker v2 are not on the v2 roadmap; revisit only if viewer testing surfaces a specific gap they'd fill.
-
-### F. Files touched on `ivan/day-overview-v2`
-
-- `video/showrunner.py` — two new system prompts (Day Story Producer, Narration Writer), `_generate_day_overview_script` rewritten as the two-stage pipeline.
-- `video/narration_cache.py` — `day` scope used (already infrastructure-ready from the opener work).
-- `video/validate_trailer.py` — new `_check_narration_fits_video` backstop + recalibrated word bounds (~2.0 words/sec measured).
-- `video/compose_trailer.py` — duration cap retargeted; minor cleanup.
-
-**Note (2026-05-26):** The same two-stage narration updates (Day 1 micro-reset, Day 2+ product cue, terminology exception) must be ported to the Sim-Opening pipeline so the new v2.1 beat sheet (cold open → concept seed → cast intros → stakes montage → access reveal → participation bridge → “What if?” end card) can be released together with day-overview.
-
----
-
-## 3. ~~v2 Narrative Design: 6-Beat Day-Arc~~ — **DEPRECATED 2026-05-14**
-
-> **Superseded by the "v2 Actual Implementation" section above.** The 6-beat template described in this section (`previously_on → setup → development → turning_point → vote_fallout → cliffhanger`) was the pre-pivot plan; the actual v2 build uses a different two-stage 6-beat template (`yesterday_scar → today_pressure → apparent_plan → countermove → vote_reveal → new_imbalance`) at ~60–75 s runtime. Kept for historical context.
-
-Replace the current generic spine + per-scene prompts with opener-grade 6-beat structure that honors `prior_day_summary` and `trigger_events`.
-
-### 3.1 New 6-Beat Roles (spine output)
-1. `previously_on` — REQUIRED on Day > 1 (10 s). Recaps yesterday's elimination. Driver: highest-rank alive protagonist.
-2. `setup` — REQUIRED (12–18 s). Morning stakes from top protagonist's POV.
-3. `development` — 2–3× (20–30 s each). Key moments; each protagonist drives at least one.
-4. `turning_point` — REQUIRED (20–30 s). Conflict peak / betrayal.
-5. `vote_fallout` — REQUIRED on elimination day (20–30 s). Names eliminated + margin.
-6. `cliffhanger` — REQUIRED (8–15 s). Tomorrow tease. Driver: highest-rank alive.
-
-Total 5–6 scenes, 150–180 s runtime.
-
-### 3.2 Brand-Voice Discipline (shared with opener)
 ```
-BRAND VOICE DISCIPLINE (applies to every line):
-- FORBIDDEN: "simulate", "agent", "AI twin", "AI version", "digital copy"
-- **Trailer exception (v2.1):** The line “They are not game characters. They are Doubles—AI versions of real people, making choices no one wrote for them.” is allowed in Sim-Opening and Sim-Day-Overview only.
-- Concrete, plain, observant. Trust nouns and verbs. Name who did what, to whom, where.
-- End on a question, fact, or rising tension — never flourish or moral.
-- "Doubland" pronounced as two clear syllables ("double" + "land").
+python -m video.generate_trailer <sim> --mode day_overview --day N --top 3
 ```
 
-### 3.3 Draft System Prompts (ready to paste into `showrunner.py`)
+Pipeline: **extract → two-stage narration → TTS → record (Phaser) → compose → validate.**
 
-```python
-DAY_OVERVIEW_BRAND_DISCIPLINE = """
-BRAND VOICE DISCIPLINE (applies to every line):
-- FORBIDDEN: "simulate", "agent", "AI twin", "AI version", "digital copy"
-- **Trailer exception (v2.1):** The line “They are not game characters. They are Doubles—AI versions of real people, making choices no one wrote for them.” is allowed in Sim-Opening and Sim-Day-Overview only.
-- Use only the cohort's actual names and the season title from context.
-- Concrete, plain, observant. Trust nouns and verbs. Name what happened — who did what, to whom, where.
-- End on a question, a fact, or rising tension — never a flourish or moral.
-- Pronunciation: "Doubland" must sound like "double" + "land" (two clear syllables).
-"""
+### Narration — two-stage (one lead per day, one continuous voiceover)
 
-DAY_OVERVIEW_PREVIOUSLY_ON_SYSTEM = (
-    "You write the 'Previously on…' bridge narration for a daily reality-TV recap trailer. "
-    "Voice: calm, intimate, slightly conspiratorial. Quote the prior_day_summary closely. "
-    "One sentence max. Output ONLY the line."
-) + DAY_OVERVIEW_BRAND_DISCIPLINE
+- **Stage 1 — Day Story Producer:** decides thesis, lead, dramatic question, status deltas, and the per-beat plan from the full day's context.
+- **Stage 2 — Narration Writer:** writes the whole VO in one pass (threaded with connective tissue) plus a one-line on-screen caption per beat.
 
-DAY_OVERVIEW_SETUP_SYSTEM = (
-    "You write the morning-setup / today's-stakes narration beat for a daily recap trailer. "
-    "Voice: surveillance-documentary, TikTok pace. Introduce the day's pressure from the "
-    "highest-ranked protagonist's POV. One tight paragraph (2 lines). Output ONLY the lines."
-) + DAY_OVERVIEW_BRAND_DISCIPLINE
+Both cached per day so hand-edits survive re-render (`scope=day`; keys `day_overview_story_v2`, `day_overview_narration_v3`).
 
-DAY_OVERVIEW_DEVELOPMENT_SYSTEM = (
-    "You write one development-beat narration block for a daily recap trailer. "
-    "Focus on the assigned protagonist's key moment (use their timeline/conversations/reflections). "
-    "Voice: concrete, active, present tense. 2-3 lines, 50-70 words total. "
-    "End on rising tension. Output ONLY the narrator_lines array."
-) + DAY_OVERVIEW_BRAND_DISCIPLINE
+### Beat template (the day arc)
 
-DAY_OVERVIEW_TURNING_POINT_SYSTEM = (
-    "You write the turning-point / conflict-peak narration for a daily recap trailer. "
-    "Voice: ominous-intimate. Name the decisive action or betrayal. One paragraph. "
-    "Output ONLY the line(s)."
-) + DAY_OVERVIEW_BRAND_DISCIPLINE
+`today_pressure → apparent_plan → countermove → vote_reveal → new_imbalance`.
+Day 1 drops `yesterday_scar`; non-elimination days swap `vote_reveal/new_imbalance → pressure_peak/unresolved`.
 
-DAY_OVERVIEW_VOTE_FALLOUT_SYSTEM = (
-    "You write the vote/elimination fallout narration for a daily recap trailer. "
-    "Voice: cool, knowing. Name the eliminated persona and the vote margin if known. "
-    "One sentence. Output ONLY the line."
-) + DAY_OVERVIEW_BRAND_DISCIPLINE
+### Establishing layer (Day 1 only)
 
-DAY_OVERVIEW_CLIFFHANGER_SYSTEM = (
-    "You write the single closing cliffhanger line for a daily recap trailer. "
-    "Voice: confident, intimate, opt-in. Tease tomorrow's tension without spoiling. "
-    "This is the LAST thing viewers hear. Output ONLY the line."
-) + DAY_OVERVIEW_BRAND_DISCIPLINE
-```
+Prepended before the arc: a **concept-reset** card + **one cast-intro per Double**. Composed (not Phaser-recorded) over the realistic cohort hero images; intro lines derive from the producer's status-delta. Day ≥ 2 uses `yesterday_scar` + the "Previously on…" bridge instead.
 
-**Cache pattern (identical to opener):**  
-Each artifact uses `get_or_generate(sim_code, day=day, artifact_key=f"day{day}_previously_on", ...)` so hand-edits persist across re-renders. Per-protagonist development beats remain dynamic.
+### Composition
+
+- **Opening title:** clean DOUBLAND wordmark still (`opening_wordmark-no-h2.png`) with season + episode in the band below the underline. No mask box. (Opener trailers keep the motion push-in.)
+- **Cast intros:** cohort hero image backdrop + name + intro line.
+- **Arc scenes:** Phaser footage + gold card border + AI caption (lower-center) + the Double's sketch portrait in an alternating top corner with a name tag.
+- **End card:** brand end card (cohort + "DAY N ENDS" + watch CTA + cadence), stretched by a tail guard so the full VO never truncates.
+- **Runtime:** ~125–145s on Day 1 (incl. establishing layer); ~110s on Day ≥ 2.
+
+### Brand discipline (every line)
+
+- Forbidden: "simulate", "agent", "AI twin", "AI version", "digital copy" — except the allowed trailer-only line: *"They are not game characters. They are Doubles — AI versions of real people, making choices no one wrote for them."* (used as the Day-1 concept reset).
+- Concrete and observable: name who did what, to whom, where. No invented motive or emotion. No raw step numbers / scene IDs.
+- End on a question, fact, or rising tension. "Doubland" = two syllables ("double" + "land").
 
 ---
 
-## 4. ~~Composition & Visual Alignment Spec~~ — **DEPRECATED 2026-05-14**
+## Implemented
 
-> **Card-treatment + dynamic-stakes-montage spec below references the pre-pivot beat names (`previously_on`, `development`, `turning_point`, `vote_fallout`).** The actual v2 build uses the two-stage 6-beat template described in "v2 Actual Implementation" above. The §4.3 music-tail and §4.4 end-card guidance still apply in principle; §4.1–§4.2 do not. Kept for historical context.
-
-**Goal:** Day-overview trailers become visually indistinguishable from openers in brand language while using live day footage.
-
-### 4.1 Card Treatment (reuse opener logic)
-- `previously_on` scene → full-screen protagonist card expand on first VO word, minimize on last word (exact timing from 20260513-1 feedback).
-- Each `development` / `turning_point` scene → trading-card frame + sketch portrait crossfade (same as cast_intro), then day's actual clip instead of sprite walkout.
-- `vote_fallout` → same card treatment, tinted red for elimination.
-
-### 4.2 Dynamic Stakes Montage
-- Replace static `establish_*.png` + fly-over MP4s with 4–5 short clips pulled from the day's `shared_timeline` high-impact steps (already captured by `record_scenes.py`).
-- Sequence: morning tension → midday conflict → evening vote → night fallout → cliffhanger tease.
-
-### 4.3 Music & Audio
-- Same anthem + archetype stings as opener (already commissioned in `video/assets/archetypes/`).
-- 5-second music tail fade after final VO line (expose the helper already wired for openers).
-
-### 4.4 End Card
-- Single card: "Day N ends — New trailer daily at 6:30 PM" (Round 3 closer treatment, already shipped for openers).
-
-### 4.5 Files Touched (minimal)
-- `video/showrunner.py` — add 6 system prompts + cache wrappers (~60 LOC).
-- `video/narration_cache.py` — one-line key-naming extension for `day_overview_day{N}_*`.
-- `video/compose_trailer.py` — extend `_compose_day_overview` path for card timing, dynamic montage, music tail (~80–100 LOC).
-- `video/record_scenes.py` — no change (existing capture path sufficient).
+- Two-stage narration + fixed beat template, day-scoped narration cache.
+- Guardrails: brand discipline, no step-number leak, no over-claiming, vote-outcome named, every beat opens on a full first name.
+- **Opening title card:** clean wordmark, season + episode, no mask/overlap.
+- **Scene captions:** AI-written "First name + action" caption per arc scene + alternating-corner sketch portrait with name tag (replaced the old "LABEL / Name" production text).
+- **Establishing layer (Day 1):** concept reset + cast intros, composed over realistic cohort hero images.
+- **No truncation:** unbudgeted micro-reset removed (folded into the budgeted concept-reset scene); compose tail guard fits the full VO; runtime/word/scene-count bounds in lockstep (showrunner ↔ validator).
+- End-card cohort/episode field alignment.
 
 ---
 
-## 5. ~~Implementation Plan~~ — **DEPRECATED 2026-05-14**
+## Pending
 
-> **The 3-phase plan below was the pre-pivot estimate.** Actual implementation followed a different shape: the two-stage Producer → Writer architecture replaced the "Phase 1 — 6 system prompts" step entirely; Phase 2 composition polish wasn't needed at the new ~60–75 s runtime; Phase 3 QA is captured in "Status at a glance" above (clean Day-1 re-render + Day-2+ elimination render + 5-viewer test). Kept for historical context.
-
-**Phase 1 — Narrative v2 (1 day)**
-- Paste 6 new system prompts + `DAY_OVERVIEW_BRAND_DISCIPLINE`.
-- Wire cache calls in `_generate_day_overview_script` (mirror opener helpers).
-- Update spine validator to enforce new 6-beat roles and focal_step rules.
-
-**Phase 2 — Composition Polish (2 days)**
-- Card expand/minimize timing helpers (pull from opener `compose_cast_intro`).
-- Dynamic stakes-montage clip selection from shared_timeline.
-- Music tail + end-card unification.
-- 9:16 crop + subtitle timing parity check.
-
-**Phase 3 — Test & QA (1–2 days)**
-- Render on `base_family_sim` Day 2+ (multi-day survival with votes).
-- Visual QA against 20260513-1 feedback notes (card timing, exact-once playback, music fade).
-- Validate narration word count (250–480), duration (150–180 s), focal_step ranges.
-- Run existing `validate_trailer.py` + realism gates.
-
-**Total effort:** 3–5 days. One engineer + creative review pass.
+- **Day-2+ elimination render** — confirm the Day ≥ 2 path (`yesterday_scar` + "Previously on" bridge, no establishing layer).
+- **5-viewer comprehension test** (QA gate): after one watch, can viewers name the lead, the dramatic question, who went home & why, and what changes tomorrow? Needs 4/5 to pass before merge.
+- **Day-2+ rotating product cue** — Ivan locks the text; small follow-up.
+- **Sub-second caption/subtitle timing** from `narration_timing.json` (optional polish; captions are currently per-scene).
+- **Arc VO/video sync** (optional): a long arc voiceover can run a few seconds into the end card — tail-guarded (no truncation), but conforming arc clip durations to `narration_timing.json` would tighten it.
+- **Merge `ivan/dev` → `main`** after the Day-2 render + viewer QA.
 
 ---
 
-## 6. Risks & Mitigations
+## Key files
 
-- **Risk:** Cache key collision between opener and day_overview.  
-  **Mitigation:** Prefix all day keys with `day{day}_` + mode.
-- **Risk:** Dynamic montage clips shorter than static flyovers → pacing drift.  
-  **Mitigation:** Cap each montage beat at 6 s; let music carry.
-- **Risk:** Prior-day summary missing on Day 1.  
-  **Mitigation:** `previously_on` role is already conditional in spine prompt.
-
----
-
-## 7. Open TODOs Post-v2
-
-- TODO-14 (this doc) — close after ship.
-- TODO-4 (subtitle timing from actual audio) — still open, benefits both opener and day v2.
-- TODO-10 (in-browser MediaRecorder path) — orthogonal.
-- Future: Sim-announce trailer (pre-sim hype) becomes trivial once this lands.
+- `video/generate_trailer.py` — orchestrator + CLI (skips recording/compose-guard for `composed` scenes).
+- `video/extract_day_log.py` — `extract_day_overview` (protagonists, shared timeline, trigger events, prior-day recap, sketch_path resolution).
+- `video/showrunner.py` — two-stage prompts, beat template, establishing layer (`_stitch_overview_script`, `_resolve_hero_path`), bounds.
+- `video/compose_trailer.py` — brand open, scene cards (caption + portrait), establishing clips, scene-type dispatch, tail guard.
+- `video/record_scenes.py` — Playwright capture (skips `composed` scenes).
+- `video/validate_trailer.py` — quality gates (duration, word count, scene count, narration-fits-video).
+- Assets — `video/assets/cohort/hero/<cohort>/` (realistic per-persona images), `video/assets/users/sketches/<uuid>.png` (sketch portraits), `video/assets/production/brand/opening_wordmark-no-h2.png` (clean wordmark).
 
 ---
 
-## 8. Acceptance Criteria
+## Appendix — why two-stage (history)
 
-- One CLI: `python -m video.generate_trailer <sim> --mode day_overview --day N --top 3`
-- Output: `data/<sim>/overview_dayN/output/trailer_16x9.mp4` + `script.json` + YouTube description with deep links.
-- Visual & narrative quality parity with `20260513-1/opener&001/trailer_16x9.mp4`.
-- All existing validators pass; new 6-beat structure validated.
-- Hand-edited narration lines survive re-render via cache.
-
----
-
-**Ready for implementation.** Branch: `ivan/day-overview-v2`. Target ship: 2026-05-19. **Actual:** code complete; merge gated on the §"Status at a glance" remaining items.
-
----
-
-*References:*
-- Opener playbook & asset commissions: `D:\Coding\double-ivan\done\20260501_opening-trailer.md`
-- Video engineering contract: `D:\Coding\double-ivan\video\video_PRD.md`
-- Video creative spec: `D:\Coding\double-ivan\video\video_playbook.md`
-- LIVE-mode framing (Episode 1, 2, 3… at 18:30 owner-local): `D:\Coding\double-docs\20260519_LIVE_mode.md`
-- Latest opener artifact: `data/20260513-1/opener&001/`
-
----
-
-## Appendix A — Narration-Quality Problem + Reality-TV Expert Consult (history)
-
-*Captured here as the historical record that drove the v2 pivot. Originally filed as `20260514_day-overview-narration-brief.md`; merged into this doc 2026-05-26.*
-
-### A.1 The problem (with real examples) — ✅ ADDRESSED
-
-The v1 day-overview narration felt **punctuated and uneven** — seven self-contained captions rather than one story. Here is a real generated output (Day 2, an elimination day, 3 characters: Gosha, Luba, Katya):
-
-> 1. *Yesterday, Ivan Pistsov goes home — three votes. Gosha wakes alone in the dorm, planning the next move.*
-> 2. *Gosha wakes at eight p.m., still in bed — plan notes unfinished. He should meet Luba by the cafe to swap final ballots. Can he hold the centre tonight?*
-> 3. *Luba checks the laptop for challenge notes and the calendar. She types a reminder: meet Gosha in ten. She folds her plan into a compact promise — back him at the vote tonight. Can she keep that quiet?*
-> 4. *Katya reviews the token plan at the table. She rehearses the pitch under her breath. She tells Luba they'll stick together if voting starts — steady, low, certain.*
-> 5. *Luba rehearses a quiet negotiation pitch at the counter. She practices wording that keeps Gosha safe — and keeps her options open. At 11:00 she locks eyes with Gosha; the plan shifts in three words. Will their pact hold at the vote?*
-> 6. *Gosha rehearses his negotiation points at the window, finalizing who he'll back. Twenty minutes later the vote lands — Gosha Pistsov is eliminated by two votes.*
-> 7. *Katya studies her notes at the piano, mapping contingency moves. Her breath tightens. Luba waits nearby. The vote closes in.*
-
-**What's wrong with it:**
-
-- **Every beat is the same kind of statement** — "Character does a small action at a location." Seven of them in a row. No variety of rhetorical function.
-- **No thesis, no payoff.** The day has a real arc (alliance, betrayal, elimination) but the narration never *states* the stakes or *builds* to them — it just lists.
-- **No connective tissue.** No "but," "meanwhile," "by nightfall," "what none of them knew." Each line is an island.
-- **It narrates logistics, not drama.** "Checks the laptop for challenge notes," "types a reminder," "still in bed" — these are the literal event-log entries. A trailer narrator should be telling us what it *means*, not what was clicked.
-- **The climax lands flat.** The elimination — the single biggest moment of the day — is delivered in the same even tone as "Luba checks the laptop."
-- **Accidental repetition.** "Gosha wakes / Gosha wakes / Luba rehearses / Gosha rehearses / Katya studies" — same verbs, by accident.
-
-**Root cause (technical).** Each scene's narration was written by a *separate* generation pass that saw only its own character's raw event log — not the other scenes, not what was said before or after. Structurally no way to build an arc, thread transitions, or vary rhetoric. By construction: seven captions.
-
-### A.2 What the opening trailer got right (the contrast)
-
-The **opening-trailer** narration for the same cast — which works:
-
-> *They're family. In Doubland, their Doubles have to survive each other.*
-> *Four Doubles enter a village. Every day brings pressure and escalating stakes. Every night, they vote one of their own out.*
-> *Gosha is reliably kind. That makes him the teammate everyone trusts; it also makes him the person others can quietly trade favors through — and betray when it counts.*
-> *(…)*
-> *This is the moment family rules meet the format. The vote. Where loyalty becomes math and you must choose to outlast the brother or outlive the daughter you love.*
-
-**Why this works — and what transferred:**
-
-1. **Each beat does a *different* job.** Premise → format explainer → character turns → stakes statement → question hook → call to action. No two beats are the same kind of sentence.
-2. **There's a thesis, and it pays off.** "They're family / have to survive each other" is planted in line 1 and cashed in later.
-3. **Explicit dramatic connectors** thread the beats.
-4. **It's about essence and stakes, not logistics.**
-5. **Repetition is a chosen device, not an accident.**
-
-The fix hypothesis (confirmed by the expert consult): **author the day-overview narration as one continuous piece with full story context** — one pass that sees the whole day and writes a single throughline with setup → escalation → turn → payoff — instead of seven blind captions. And push content from "what they did" toward "what it meant."
-
-### A.3 Expert consult outcome (Burnett / de Mol / Parsons lenses, 2026-05-14) — ✅ DONE
-
-Twelve questions were sent to external reality-TV / trailer-editorial consultants covering structure & arc, voice & content, cast & cadence, craft guardrails, and reactions to the example narrations. The consult answers fed directly into the two-stage Producer → Writer architecture and 6-beat template captured in "v2 Actual Implementation" above.
-
-Headline takeaways that drove design:
-- **~60–75 s** is the right runtime for a daily-cadence recap (5-min is too long for a habit-loop format).
-- **Omniscient narration** stays, but lines must be earned by stakes (not logistics).
-- **One lead per day**, others orbit — avoids fragmenting into three mini-stories.
-- **A continuous-story pass** is the only structural fix for the seven-captions problem.
-- **Connective devices** ("but," "meanwhile," "by nightfall," "what none of them knew") are non-negotiable.
-- **The cliffhanger** must name a *specific* unresolved tension, not generic "tomorrow…"
-- **Repetition becomes rhythm only when chosen**, never accidental.
-
-### A.4 QA gate inherited from the consult
-
-The expert specified a **5-viewer comprehension test** as the QA gate (still pending — see "Status at a glance"). Cold viewers should, after one watch, be able to name:
-1. The lead.
-2. The dramatic question.
-3. Who went home and why.
-4. What changes tomorrow.
-
-If any of those four answers don't land for 4+ of 5 viewers, the prompt-tuning pass is required before merge.
-
-
-## *Assessment: D:\Coding\generative_agents\data\20260526-3\overview_day1&006*
-
-1. Issue - At the opening screen: "Pistsov Family - Episode 1" covers "DOUBLAND - What if?" 
-see: D:\Coding\generative_agents\data\20260526-3\overview_day1&006\assessment\1-screen.png
-Solution:
-- Replace pic with a one without "What if?": D:\Coding\generative_agents\video\assets\production\brand\opening_wordmark-no-h2.png
-- Have the name of the season ("Pistsov Family") under Doubland - instead of 'What If?', remove grey highlight;
-- Episode # - goes under the name of the season
-
-
-2. Replace scene titles with a one sentence brief
-- current scene titles (e.g. Development - Gosha Pistsov, Turn - Katya Pistsova) don't add value and read as production artefects
-- need to replace them with one liner summary of the scene, shaped as "First Name + action summary"
-- potential visual upgrade:
--- add double's photo in the upper right or left corner (alternate) with a name tag
--- summary of action at the lower center
-
-3. Right after opening slide, the story & visuals immediately jump to telling the story of the day with Phaser visuals.
-Verify why there was no:
-- brief sim summary & cast intros
-- no 'realistic' visuals intended for blending phaser and reality
-Are these planned at the later implementation phases or were not implemented for a different reason?
-
-
-4. Narration was cut off at the end of the trailer - should have extended the timeline.
+v1 wrote each scene's narration in a separate pass that saw only its own character's event log → seven disconnected "character does X at location Y" captions, no arc, no payoff. The fix (confirmed by a reality-TV consult, Burnett/de Mol/Parsons lenses): author the whole day's narration in one pass with full context, one lead per day, explicit connective tissue ("but", "by nightfall", "what none of them knew"), and a specific named cliffhanger. That consult also set the daily-cadence runtime target and the 5-viewer comprehension gate above.
