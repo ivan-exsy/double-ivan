@@ -92,3 +92,18 @@ Prepended before the arc: a **concept-reset** card + **one cast-intro per Double
 ## Appendix — why two-stage (history)
 
 v1 wrote each scene's narration in a separate pass that saw only its own character's event log → seven disconnected "character does X at location Y" captions, no arc, no payoff. The fix (confirmed by a reality-TV consult, Burnett/de Mol/Parsons lenses): author the whole day's narration in one pass with full context, one lead per day, explicit connective tissue ("but", "by nightfall", "what none of them knew"), and a specific named cliffhanger. That consult also set the daily-cadence runtime target and the 5-viewer comprehension gate above.
+
+
+## *20260528-1:overview_day1&001*
+
+### Assessment notes (Ivan)
+
+- **Narration naming:** VO should use first names only (no last names) to save air time; keep full names on cards/subtitles.
+- **Text styling:** Remove grey highlighting from all on-screen text treatments (name cards, subtitles, and related overlays).
+- **End-card timing:** Current cut switches to the end card at `01:54` while VO continues to `02:13`; end card should start only when narration ends.
+
+### Suggested fixes
+
+- **VO brevity pass:** add an explicit narration rule for "first name only" and run a script-level lint that flags two-word proper names in VO lines unless whitelisted.
+- **Overlay style cleanup:** set one canonical text style with no grey highlight and apply it across caption, subtitle, and name-card render paths.
+- **Audio/video lock:** drive end-card start from final narration timestamp (`narration_timing.json` end time + small pad) instead of fixed scene timing so visual handoff matches VO completion.
