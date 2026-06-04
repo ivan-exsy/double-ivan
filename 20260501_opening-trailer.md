@@ -4,6 +4,36 @@
 
 ---
 
+## v2.4 — Concept-script rewrite ("Anya cut") — 2026-06-03
+
+**Direction change.** The opener narration is being replaced wholesale with a producer-finalized concept script (worked out with the video team). It drops the Burnett "stakes / vote" framing in favor of a concept-first script that explains what a Double is, shows the season as the concrete example, and turns the question back on the viewer ("what would my Double do?"). Final locked script: `video/anya/narration_anya.json`.
+
+**Locked decisions (2026-06-03):**
+- **Snappy cast cards.** Each character's spoken line is one short trait (~2–3s). Cast cards compress to ~3s each (fast reality-TV cuts) instead of the ~12–15s per-persona blueprint below. Trailer runtime drops to ~60–70s.
+- **Season + cast block fully AI-written.** The "This season: the {cohort} enters Survival Mode. Four {relation}. Four personalities. Four Doubles." framing **and** the four character one-liners are LLM-generated per cohort each render. Hand-edit override preserved via the narration cache.
+- **Wordmark + CTA on the end card only.** The animated DOUBLAND wordmark and `doubland.ai` are visual-only at the close — not narrated. The script no longer carries a 6s wordmark gap or a spoken "Doubland.ai".
+- **Season title retired.** "Who will stay alive" is dropped from the opener (no longer narrated or passed through).
+
+**Pronunciation rule (locked 2026-06-03):** "Doubland" → **"Dub-land"** (Dublin's first syllable, keeps the brand's "-land" ending). Applied globally in `video/tts.py` `TTS_PRONUNCIATION_OVERRIDES`; scripts keep the normal "Doubland" spelling everywhere. Also locked: gradual head-in open (lead `[PAUSE]` + ellipses on the first line) and capitalized **"MY"** in the closing "what would MY Double do?".
+
+**Script structure (fixed vs. AI):**
+
+| Block | Source | Content |
+|---|---|---|
+| 1 — Hook + concept | **Fixed** (cohort-agnostic literal) | "What if…" ×3 → "An AI version of you… talking like you / reacting like you / making choices like you." → "In Doubland, you create an AI Double based on your personality… see something about yourself you never noticed before." |
+| 2 — Season + cast | **AI-generated per cohort** | "This season: the {cohort} enters Survival Mode. Four {relation}. Four personalities. Four Doubles." + one short trait line per persona. |
+| 3 — Promise + features + turn | **Fixed** (cohort-agnostic literal) | "See how people change under pressure… Watch live 24/7. Follow any Double. Replay every moment. These aren't just avatars… what would my Double do?" |
+
+**Pipeline work (staged):**
+1. **(this doc)** spec captured. ✓
+2. **Narration generation** (`showrunner.py`): swapped the hardcoded concept-frame lines to Block 1 + Block 3 verbatim; retired the now-unused beats (`cold_open` / `pressure_event` / `vote_dread` / `social_hook`); added `_generate_season_framing`; repointed the persona-narration prompt to the short-trait style; dropped the season-title input; updated the length bounds. ✓
+3. **Visuals** (`compose_trailer.py` + `validate_trailer.py` + `generate_trailer.py`): re-timed the front matter for the v2.4 structure (intro hook spans Block 1 → season-bridge → snappy cast → closing); simplified each cast card to a single ~3s clip (name + spoken trait, no bio/social-hook split); removed the retired cold-open stage; moved the DOUBLAND wordmark to just before the end card; lowered the post-render duration bound to 45–110s; made `--season-title` optional. ✓
+4. **Validation render** of `base_family_sim` + review. ⬜
+
+**Supersedes:** the v2.2 7-beat structure and the v2.3 concept-frame wrap lines (`OPENER_HOOK_LINE` / `OPENER_CONCEPT_INTRO_LINE` / `OPENER_ACCESS_REVEAL_LINE` / `OPENER_MAIN_CHARACTER_LINE`) and the §TODO-VO1 closing-VO item. Sections below are kept for history.
+
+---
+
 ## Status at a glance — 2026-05-26
 
 **v2.1 SHIPPED.** Latest validated render: `data/20260513-1/opener&004/output/trailer_16x9.mp4` — 113s, validator PASS, rendered 2026-05-14.
@@ -70,6 +100,8 @@ python -m video.generate_trailer base_family_sim --mode opener --top 4 \
 ---
 
 ## Trailer structure (orientation)
+
+> ⚠️ **SUPERSEDED by the v2.4 "Anya cut" (2026-06-03) — see top of doc.** The v2.2 7-beat / 2:30–3:00 structure below is kept for history. The current opener is the ~60–70s concept script in `video/anya/narration_anya.json`: 3 blocks (fixed hook + concept / AI season + cast / fixed promise + features + turn), snappy ~3s cast cards, end-card-only wordmark + CTA, no season title.
 
 **v2.2 (2026-05-26):** 7 beats, 2:30–3:00. Adds early concept seed + Access reveal + Participation bridge for virality while preserving cast recognition priority.
 
