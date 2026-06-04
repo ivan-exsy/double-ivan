@@ -21,6 +21,8 @@ Two readings the name should evoke — both intended, both equally valid:
 
 **Prepositions matter.** Doubles live **in** Doubland (a place), never **inside** Doubland (a container). "On Doubland" reads as a platform — also wrong. The only correct frame is the geographic one: *in Doubland, from Doubland, across Doubland.*
 
+**Live framing uses the place as subject.** "Doubland is live right now," not "the village is live." "The village" is acceptable as in-world flavor in body copy, but section headers and the live/status frame use **Doubland**.
+
 **Pronunciation.** "Dohb-land" — same first syllable as *double*, never *doubt*. TTS guidance maintained in `video/showrunner.py` (`TTS_PRONUNCIATION_OVERRIDES`).
 
 **Naming rhythm in headlines.** Avoid pairing "Double" and "Doubland" in the same short sentence or H1 — it reads repetitive. Let one carry the identity ("Your Double..."), the other the place ("...in Doubland"). The support line or surrounding copy can carry the second element when needed.
@@ -55,6 +57,14 @@ Second-person only. These four pillars compress the mission into repeatable line
 
 **Signature phrase:** "The version of you that..."
 
+### Canonical trailer lines (opening trailer, "Anya cut" — locked, reusable)
+Single source so trailer, landing page, and onboarding say the same thing. Source: `20260501_opening-trailer.md`.
+
+- **Hook (Register B):** "What if you had a second chance to make it right? What if you could practice that hard conversation before it ever happened?"
+- **Concept:** "In Doubland, you create an AI Double based on your personality. Then you watch it live in a world with other Doubles."
+- **Mirror (Pillar 4):** "And after a while, you ask — what would my Double do?"
+- **Features triad:** "Watch live 24/7. Follow any Double. Replay every moment."
+
 ---
 
 ## Asset-Specific Rules (copy/paste ready)
@@ -85,6 +95,10 @@ Use canonical sentence above, then one pillar. Never lead with mechanics.
 **Retire (internal + external):** Imagine, try/experiment (verb), alternate reality/parallel life, digital twin/AI version/virtual you, simulate/agent, "What if!! 😊" (rhetorical).
 
 **Promote:** Answer/answered, run the question, your question, "the version of you that...", "You already lived it.", "Before you have to.", "personality twin", "your voice / patterns / choices in action".
+
+**Features triad (fixed three-beat):** "Watch live 24/7." · "Follow any Double." · "Replay every moment." — use as a set wherever the live / follow / replay capabilities appear.
+
+**Cold-traffic exception.** "An AI version of you" is allowed **once**, as a first-touch clarity line, in: trailer cold opens and the landing-page hero. It must immediately resolve into the brand frame ("…in Doubland, you create an AI Double" → "your Double"). It stays **forbidden** in all in-product UI, onboarding, and reflection prompts, where only "your Double / your personality twin / the version of you" are allowed.
 
 ---
 
