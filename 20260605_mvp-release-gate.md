@@ -19,12 +19,12 @@
 ### P0 — Must ship for demo launch (the measurement + reliability spine)
 | # | Item | Owner | Ref |
 |---|------|-------|-----|
-| 1 | **Prod frontend build for headless** (`next build && next start` + drop cache-bust on Playwright navigations) — single highest-leverage fix for 3 concurrent sims | Nicolas / FE team | hardening MVP "MVP ask — the blocker (H0)" |
-| 2 | **Shared capacity budget (~3 browser units) + overflow queue** at orchestrator | BE team | hardening MVP item 2 |
-| 3 | **Trailer mutual-exclusion guard** (trailers draw from same budget; run only when sim slots free or drop cap to 2) | BE team | hardening MVP item 3 |
-| 4 | **Landing §6 B2B capture** — two micro-buttons in footer (`Stay updated` / `Bring this to my group`), enhanced waitlist form with `source` + `interest_type` + optional `group_name` | Nicolas | landing v8 §6 "Footer treatment" + "Form payload" |
-| 5 | **CTA destination change (Option 1)** — all "Create your Double" buttons open §6 form (`interest_type = generic`); B2B button pre-selects `b2b_group`; text kept verbatim | Nicolas | landing v8 "Primary CTA behavior" decision + §6 |
-| 6 | **Email form line to Option A** — "Request Doubland for your team or group — or just stay in the loop." | Nicolas | landing v8 (implemented per user confirmation) |
+| *Nicolas 1* | **Prod frontend build for headless** (`next build && next start` + drop cache-bust on Playwright navigations) — single highest-leverage fix for 3 concurrent sims | Nicolas / FE team | `20260608_FE_MVP_hardening.md` item 1 · hardening MVP "MVP ask — the blocker (H0)" |
+| *Nicolas 2* | **Enforced 3-sim cap + overflow queue** at orchestrator (sims-only — trailers moved off-server) | Nicolas / BE | `20260608_FE_MVP_hardening.md` item 2 · hardening MVP item 2 (H5) |
+| ~~*Nicolas 3*~~ | ~~**Trailer mutual-exclusion guard**~~ — **DROPPED (2026-06-08).** Trailers now render on Ivan's local machine off Supabase records, so they can't contend with server sims. No guard needed. | — | `20260608_FE_MVP_hardening.md` "Trailers (out of server scope)" |
+|✅| **DONE (2026-06-05)** — **Landing §6 B2B capture** — two micro-buttons in footer (`Stay updated` / `Bring this to my group`), enhanced waitlist form with `source` + `interest_type` + optional `group_name` | Nicolas | landing v8 §6 "Footer treatment" + "Form payload" |
+|✅| **DONE (2026-06-05)** — **CTA destination change (Option 1)** — all CTA buttons open §6 form (`interest_type = generic`); B2B button pre-selects `b2b_group`. **Note: CTA copy changed to "Request your invite for limited roll-out" — diverges from the locked "Create your Double" verbatim decision (items 3 & 5/§2 row 3); confirm intentional.** | Nicolas | landing v8 "Primary CTA behavior" decision + §6 |
+|✅| **DONE (2026-06-05)** — **Email form line to Option A** — "Request Doubland for your team or group — or just stay in the loop." | Nicolas | landing v8 (implemented per user confirmation) |
 | 7 | **Triage consent for 15 subjects** — brief senior/sensitive first (or leave out); playful ones can be surprised; soft-launch 2–3 allies | Ivan / Ops | VC prep §5 "Recommended approach — triage" |
 | 8 | **Run 15-person Survival season** — daily videos, per-subject shareable clips (vertical), tracked deep-links, manual inbound logging | Ivan / Ops | VC prep §1 "The play", §4 "Tier 1", §8 "Content engine" |
 | 9 | **Source tagging on every CTA / deep link** (`?source=tg-survival-dayN`, `footer-b2b`, etc.) + funnel readout (views → clicks → signups by source + interest_type) | Nicolas + BE | landing v8 §6 "Tracking & attribution" + VC prep §3 "Metrics that matter" |
@@ -61,7 +61,7 @@
 | # | Item | Decision | Why / Ref |
 |---|------|----------|-----------|
 | 0 | Release vehicle | **Telegram Survival demo (15 doubles)** | Unique warm network; zero acquisition cost; inbound B2B is the money slide. VC prep §1 |
-| 1 | Technical scope | **3 concurrent sims on current 3.8 GB box** | Matches measured hardware; prod FE build + capacity budget + trailer exclusion. hardening MVP section |
+| 1 | Technical scope | **3 concurrent sims on current 3.8 GB box** | Matches measured hardware; prod FE build + enforced 3-sim cap. Trailers render off-server (local, off Supabase) — no on-box trailer contention. hardening MVP section |
 | 2 | Landing / funnel | **Enhanced waitlist with B2B capture (§6)** + Option 1 CTA routing + Option A copy | Two micro-buttons, `interest_type` segmentation, source tagging. landing v8 §6 + Decisions |
 | 3 | CTA text | **"Create your Double" kept verbatim everywhere** | Brand continuity; only destination changes to §6 form. landing v8 "CTA text remains unchanged" |
 | 4 | Email form line | **Option A implemented** ("Request Doubland for your team or group — or just stay in the loop.") | Makes request capability unmistakable. landing v8 (user confirmation) |
@@ -80,15 +80,15 @@
 - Unattended launch + orchestration (`reverie.py <origin> <target>` + `POST /api/simulations/{sim_code}/start`).
 - Supabase-first canonical state (`SUPABASE_ONLY_MODE=true`).
 
-**P0 engineering (the blocker list from hardening MVP section):**
+**P0 engineering (the blocker list — reduced 2026-06-08, trailers moved off-server):**
 - H0: Prod frontend build (`next build && next start`) + drop `Cache-Control: no-cache` on Playwright navigations.
-- Capacity budget: shared ~3 "browser units" (sim + trailer) with overflow queue.
-- Trailer mutual-exclusion guard (ops rule + code).
+- Enforced 3-sim cap + overflow queue (sims-only — no trailer weight to budget).
 - Per-subprocess `FRONTEND_URL` not needed for 3 sims (one frontend backs 3 contexts safely per FE §7 Q2).
+- ~~Trailer mutual-exclusion guard~~ — **dropped:** trailers render on Ivan's local machine off Supabase records (`video/extract_day_log.py` reads from Supabase, not server disk), so they never contend with server sims.
 
-**Deferred:** Per-subprocess `FRONTEND_URL` override, browser-free realization (parity risk, 4–6 weeks), 10-sim upsizing.
+**Deferred:** Per-subprocess `FRONTEND_URL` override, browser-free realization (parity risk, 4–6 weeks), 10-sim upsizing, on-server trailer rendering / shared render tier.
 
-**Reference:** `TODO_production_hardening.md` top section "MVP — Parallel Simulations — added 2026-06-04; tuned to ~3 sims" + §2 status update (B2/B3/H3 largely done; H0 still open).
+**Reference:** `20260608_FE_MVP_hardening.md` (the implementation request to Nicolas) · `TODO_production_hardening.md` top section "MVP — Parallel Simulations" + §2 status update (B2/B3/H3 largely done; H0 still open).
 
 ---
 
