@@ -1,7 +1,7 @@
 # MVP Release Gate — Telegram Survival Demo (2026-06-04)
 
 > **Goal:** Turn the 300-person Telegram alumni group (founders / VCs / corporate leaders) into the primary fundraising wedge by running 15 AI doubles through a Survival season and posting daily video updates — proving magnetism + inbound "build one for my group" demand.
-> **Window:** ~3–4 weeks (3-sim hardening + consent triage + season execution).
+> **Window:** ~3–4 weeks (3-sim hardening + season execution). Consent: **manual claim/remove** in group chat — no product build.
 > **Decision:** Ship the demo scoped to the current 3.8 GB hardware (~3 concurrent sims). Enhanced landing B2B capture + Option 1 CTA routing. **Not** full self-serve paid onboarding or 10+ sim scale. This is the release that makes 13 months of foundational work count.
 > **Status:** Strategy locked in `20260603_VC_prep.md` §8 (implementation updates). Landing spec v8 §6 + CTA behavior + Option A copy implemented. **Simulation-binding wizard shipped (2026-06-08)** — operator can assign job + home per Double (CLI + REST; `sot_lifecycle.md` §6.10). **Item 1 FE done + local smoke passed; VPS 3-sim soak is the reliability gate.** Item 1.5 sequenced after soak. Item 2 (BE cap + queue) not started. Technical scope from `TODO_production_hardening.md` MVP section (top of file).
 
@@ -28,8 +28,8 @@
 |✅| **DONE (2026-06-05)** — **CTA destination change (Option 1)** — all CTA buttons open §6 form (`interest_type = generic`); B2B button pre-selects `b2b_group`. **Note: CTA copy changed to "Request your invite for limited roll-out" — diverges from the locked "Create your Double" verbatim decision (items 3 & 5/§2 row 3); confirm intentional.** | Nicolas | landing v8 "Primary CTA behavior" decision + §6 |
 |✅| **DONE (2026-06-05)** — **Email form line to Option A** — "Request Doubland for your team or group — or just stay in the loop." | Nicolas | landing v8 (implemented per user confirmation) |
 |✅| **DONE (2026-06-08)** — **Simulation-binding wizard** — operator assigns each Double a personality-matched **job** + **home** via guided host (CLI + REST; `onboarding_host.py` + gateway routes). Validated on 4-double fork; idempotent finalize. **Unblocks** placing the 15-person cohort. Deferred: sim-only goal slot, operator UI screen. | Ivan / BE | `sot_lifecycle.md` §6.5–§6.10 · VC prep §6.B "Prepare the run" (provisioning spine) |
-| 7 | **Triage consent for 15 subjects** — brief senior/sensitive first (or leave out); playful ones can be surprised; soft-launch 2–3 allies | Ivan / Ops | VC prep §5 "Recommended approach — triage" |
-| 8 | **Run 15-person Survival season** — daily videos, per-subject shareable clips (vertical), tracked deep-links, manual inbound logging | Ivan / Ops | VC prep §1 "The play", §4 "Tier 1", §8 "Content engine" |
+| ✅ | **LOCKED (2026-06-08)** — **Consent / claim / remove — manual, 0 build** — launch sim for group review; post states coincidences are accidental + **"Claim double / Remove double"** in chat. **Claim:** member contacts Ivan → manual account link + optional profile tune via scripts. **Remove:** Ivan removes from sim + flags withdrawn (skip future videos). No self-serve claim UI for MVP. | Ivan / Ops | VC prep §5 (supersedes triage-first recommendation) · §4 below |
+| 8 | **Run 15-person Survival season** — daily videos, per-subject shareable clips (vertical), tracked deep-links, manual inbound logging | Ivan / Ops | VC prep §1 "The play", §4 "Tier 1", §8 "Content engine" *INCLUDE DEEP LINKS TO DESC* |
 | 9 | **Source tagging on every CTA / deep link** (`?source=tg-survival-dayN`, `footer-b2b`, etc.) + funnel readout (views → clicks → signups by source + interest_type) | Nicolas + BE | landing v8 §6 "Tracking & attribution" + VC prep §3 "Metrics that matter" |
 
 ### P1 — Only if P0 is stable (multiplies engagement)
@@ -39,7 +39,7 @@
 | 11 | **Serialized show quality spike** (continuous narration, cliffhangers, season arc) — only if daily-return retention is the gap | Ivan | VC prep §4 "Tier 2" |
 | 12 | **Persona fidelity in Survival** (outcomes reflect known traits) — only if "that's so them" is landing weakly | Ivan | VC prep §4 "Tier 2" |
 
-**Deferred (post-MVP, explicit scope guard):** Full self-serve paid "own doubland" flow, 10+ concurrent sims, browser-free realization (§3.2 in hardening), interactive voting, **self-serve** onboarding quiz rework (Phases A–C in `sot_lifecycle.md` §6.2). Operator simulation-binding (Phase D) is **in scope and shipped** — not deferred. See VC prep §8 "Scope guard".
+**Deferred (post-MVP, explicit scope guard):** Full self-serve paid "own doubland" flow, 10+ concurrent sims, browser-free realization (§3.2 in hardening), interactive voting, **self-serve claim/remove UI + auth** (magic-link claim, in-app tune/delete), **self-serve** onboarding quiz rework (Phases A–C in `sot_lifecycle.md` §6.2). Operator simulation-binding (Phase D) is **in scope and shipped** — not deferred. See VC prep §8 "Scope guard".
 
 ---
 
@@ -69,7 +69,7 @@
 | 3 | CTA text | **"Create your Double" kept verbatim everywhere** | Brand continuity; only destination changes to §6 form. landing v8 "CTA text remains unchanged" |
 | 4 | Email form line | **Option A implemented** ("Request Doubland for your team or group — or just stay in the loop.") | Makes request capability unmistakable. landing v8 (user confirmation) |
 | 5 | Distribution | **Native Telegram vertical clips + tracked links to play page** | Reach (in-feed) + analytics (deep links). VC prep §6 "Distribution" |
-| 6 | Consent | **Triage rollout** (brief senior/sensitive first; playful surprise OK; soft-launch 2–3) | Protects raise; turns subjects into amplifiers. VC prep §5 |
+| 6 | Consent | **Group-review launch + manual claim/remove** — post "Claim double / Remove double"; Ivan handles in background (0 build). Incidental-disclaimer framing in post. | Fast opt-out without product scope; claim via email/DM. VC prep §5 (triage deferred) |
 | 7 | Paid tier | **B2B interest flag in form from day one** | Revenue scaling path + "willingness to pay" signal without building full paid product yet. VC prep §8 |
 | 8 | Scope guard | **No Tier 2/3 until base play numbers justify** | Serialization, persona fidelity, interactive voting deferred. VC prep §4, §8 |
 
@@ -105,7 +105,12 @@
 
 **Daily logging:** YouTube completion (free), in-group reactions/forwards (manual tally), every "can I get one for my X" quote screenshot-attributed to episode.
 
-**Consent (VC prep §5):** Triage into "brief-first" (senior/sensitive/less-flattering) vs "surprise" buckets. Honest-playful framing replaces "incidental" disclaimer. Keep every portrayal affectionate/flattering.
+**Consent (locked 2026-06-08):** Surprise launch for group review — **not** triage-first. Launch post includes incidental-disclaimer framing (*coincidences are accidental*) plus **"Claim double / Remove double"** in the Telegram chat. All handling is **manual operator** (no claim/remove product for MVP).
+
+**Operator runbook (Ivan):**
+1. **Claim** — member DMs/emails → identify their double → manually link account (`dbl_agent`) → tune profile via existing scripts if they send corrections.
+2. **Remove** — member DMs/emails → remove persona from Survival sim → flag **withdrawn** so future daily videos skip them (honor within ~24h).
+3. Keep portrayals affectionate/flattering; removals are no-questions-asked.
 
 **Season length / cadence:** TBD in open decisions (how many days, posting frequency).
 
@@ -148,7 +153,7 @@
 
 ## 7. Open Decisions Needed from Ivan (VC prep §7)
 
-- **Consent / rollout:** confirm triage approach (who to brief vs. surprise; which 2–3 allies to soft-launch with).
+- ~~**Consent / rollout:**~~ **LOCKED** — group-review surprise launch; manual claim/remove via chat (§4 operator runbook).
 - **Season length / cadence:** how many days, posting frequency.
 - **Distribution:** confirm native-Telegram-vertical **+** tracked-link (vs. YouTube-link-only).
 - **Scope guard:** agree to *not* build Tier 2/3 until base play's numbers justify it.
@@ -167,7 +172,7 @@ Anything else is noise.
 
 **End of MVP Release Gate.** All prior strategy (VC prep §1–7) and landing spec (v8 §1–5) remain authoritative. This document is the execution spine with clear TODOs and cross-references.
 
-**Current status (2026-06-08):** Measurement layer + CTA routing complete in landing v8. **Simulation-binding wizard shipped** — cohort can be placed (job + home) without manual scripts. **Item 1 FE done; local H0 smoke supports the prod-build hypothesis.** Agreed sequence: **VPS 3-sim soak** (Nicolas, credentials from Ivan) → **Item 1.5** implement + test → **Item 2** BE cap + queue. Content engine ~85% (provisioning spine done; season execution + consent/cadence still open). Ready to proceed once soak passes and consent/cadence confirmed.
+**Current status (2026-06-08):** Measurement layer + CTA routing complete in landing v8. **Simulation-binding wizard shipped** — cohort can be placed (job + home) without manual scripts. **Consent approach locked** — manual claim/remove in group chat, 0 build. **Item 1 FE done; local H0 smoke supports the prod-build hypothesis.** Agreed sequence: **VPS 3-sim soak** (Nicolas, credentials from Ivan) → **Item 1.5** implement + test → **Item 2** BE cap + queue. Content engine ~85% (provisioning + consent model done; season execution + cadence still open). Ready to proceed once soak passes and cadence confirmed.
 
 ### Progress log
 
@@ -178,3 +183,4 @@ Anything else is noise.
 | 2026-06-08 | Nicolas | Reviewed `20260608_FE_MVP_hardening.md` — scope clear and feasible; documented Item 1.5 |
 | 2026-06-08 | Ivan + Nicolas | Agreed: VPS soak first → Item 1.5 → Item 2. BE deploys from `BE/vercel`; Ivan to share VPS credentials |
 | 2026-06-08 | Ivan | Simulation-binding wizard shipped (`sot_lifecycle.md` §6.10) — job + home assignment via guided host; validated on 4-double fork |
+| 2026-06-08 | Ivan | Consent approach locked — group-review launch; "Claim double / Remove double" in chat; manual operator runbook (0 build); triage-first deferred |
