@@ -3,7 +3,7 @@
 > **Goal:** Turn the 300-person Telegram alumni group (founders / VCs / corporate leaders) into the primary fundraising wedge by running 15 AI doubles through a Survival season and posting daily video updates — proving magnetism + inbound "build one for my group" demand.
 > **Window:** ~3–4 weeks (3-sim hardening + season execution). Consent: **manual claim/remove** in group chat — no product build.
 > **Decision:** Ship the demo scoped to the current 3.8 GB hardware (~3 concurrent sims). Enhanced landing B2B capture + Option 1 CTA routing. **Not** full self-serve paid onboarding or 10+ sim scale. This is the release that makes 13 months of foundational work count.
-> **Status:** Strategy locked in `20260603_VC_prep.md` §8 (implementation updates). Landing spec v8 §6 + CTA behavior + Option A copy implemented. **Simulation-binding wizard shipped (2026-06-08)** — operator can assign job + home per Double (CLI + REST; `sot_lifecycle.md` §6.10). **Item 1 FE done + local smoke passed; VPS 3-sim soak is the reliability gate.** Item 1.5 sequenced after soak. Item 2 (BE cap + queue) not started. Technical scope from `TODO_production_hardening.md` MVP section (top of file).
+> **Status:** Strategy locked in `20260603_VC_prep.md` §8 (implementation updates). Landing spec v8 §6 + CTA behavior + Option A copy implemented. **Simulation-binding wizard shipped (2026-06-08)** — operator can assign job + home per Double (CLI + REST; `sot_lifecycle.md` §6.10). **3-sim hardening complete (2026-06-10):** Item 1 H0 + Item 1.5 VPS soaks passed · Item 2 BE cap + queue deployed (`railway` `e47e08ae`) with `queued_at_capacity: true` proof on VPS. **P0 reliability spine closed** — season execution is next. Technical scope from `TODO_production_hardening.md` MVP section (top of file).
 
 ---
 
@@ -20,17 +20,17 @@
 ### P0 — Must ship for demo launch (the measurement + reliability spine)
 | # | Item | Owner | Ref |
 |---|------|-------|-----|
-| 🔄 *Nicolas 1* | **Prod frontend build for headless (H0)** — **FE done** on `double-front` `main` (`544f288`); paired BE cache-bust off locally; **local smoke passed** (~1.1 s/step, metrics OK — hypothesis confirmed). **NEXT:** VPS deploy (BE from `BE/vercel` branch) + **3-concurrent-sim soak** on 3.8 GB box. Ivan shares server credentials. | Nicolas / FE + Ivan / BE | `20260608_FE_MVP_hardening.md` item 1 · hardening MVP "MVP ask — the blocker (H0)" |
-| ⏳ *Nicolas 1.5* | **Reuse Playwright tab per sim** — recommended quick win; **after Item 1 VPS soak validates**, before Item 2. Cuts per-step `boot_ms`; ~1–2 days. | Nicolas / BE | `20260608_FE_MVP_hardening.md` item 1.5 |
-| *Nicolas 2* | **Enforced 3-sim cap + overflow queue** at orchestrator (sims-only — trailers moved off-server) | Ivan / BE | `20260608_FE_MVP_hardening.md` item 2 · hardening MVP item 2 (H5) |
-| ~~*Nicolas 3*~~ | ~~**Trailer mutual-exclusion guard**~~ — **DROPPED (2026-06-08).** Trailers now render on Ivan's local machine off Supabase records, so they can't contend with server sims. No guard needed. | — | `20260608_FE_MVP_hardening.md` "Trailers (out of server scope)" |
+| *Nicolas* | **Run 15-person Survival season** — daily videos, per-subject shareable clips (vertical), tracked deep-links, manual inbound logging | Ivan / Ops | VC prep §1 "The play", §4 "Tier 1", §8 "Content engine" *INCLUDE DEEP LINKS TO DESC* |
+| *Nicolas* | **Source tagging on every CTA / deep link** (`?source=tg-survival-dayN`, `footer-b2b`, etc.) + funnel readout (views → clicks → signups by source + interest_type) | Nicolas + BE | landing v8 §6 "Tracking & attribution" + VC prep §3 "Metrics that matter" |
+| ✅ | **DONE (2026-06-09)** — **Prod frontend build for headless (H0)** — `double-front` `main` on VPS (`21371fa`); prod `next start` + systemd `double-front.service`; **3×5 + 3×100 VPS soaks passed** (4/4 headless reports/step, no OOM). | Nicolas / FE + Ivan / BE | `20260608_FE_MVP_hardening.md` item 1 · `20260609_vps_generation_deploy_topology.md` |
+| ✅ | **DONE (2026-06-09)** — **Reuse Playwright tab per sim (Item 1.5)** — `HEADLESS_TAB_REUSE=true` on VPS; A/B/C soaks passed (`boot_ms→0` steps 2+; 3×100 final). | Nicolas / BE | `20260608_FE_MVP_hardening.md` item 1.5 |
+| ✅ | **DONE (2026-06-10)** — **Enforced 3-sim cap + overflow queue (Item 2)** — `MAX_CONCURRENT_SIMS=3` on VPS; 4th API start `queued_at_capacity: true`; `COMPLETED.json` mkdir fix shipped. BE `e47e08ae` / FE `21371fa`. | Ivan / BE | `20260608_FE_MVP_hardening.md` item 2 · `scripts/signoff/item2-queue-20260610-meta.json` |
 |✅| **DONE (2026-06-05)** — **Landing §6 B2B capture** — two micro-buttons in footer (`Stay updated` / `Bring this to my group`), enhanced waitlist form with `source` + `interest_type` + optional `group_name` | Nicolas | landing v8 §6 "Footer treatment" + "Form payload" |
 |✅| **DONE (2026-06-05)** — **CTA destination change (Option 1)** — all CTA buttons open §6 form (`interest_type = generic`); B2B button pre-selects `b2b_group`. **Note: CTA copy changed to "Request your invite for limited roll-out" — diverges from the locked "Create your Double" verbatim decision (items 3 & 5/§2 row 3); confirm intentional.** | Nicolas | landing v8 "Primary CTA behavior" decision + §6 |
 |✅| **DONE (2026-06-05)** — **Email form line to Option A** — "Request Doubland for your team or group — or just stay in the loop." | Nicolas | landing v8 (implemented per user confirmation) |
 |✅| **DONE (2026-06-08)** — **Simulation-binding wizard** — operator assigns each Double a personality-matched **job** + **home** via guided host (CLI + REST; `onboarding_host.py` + gateway routes). Validated on 4-double fork; idempotent finalize. **Unblocks** placing the 15-person cohort. Deferred: sim-only goal slot, operator UI screen. | Ivan / BE | `sot_lifecycle.md` §6.5–§6.10 · VC prep §6.B "Prepare the run" (provisioning spine) |
 | ✅ | **LOCKED (2026-06-08)** — **Consent / claim / remove — manual, 0 build** — launch sim for group review; post states coincidences are accidental + **"Claim double / Remove double"** in chat. **Claim:** member contacts Ivan → manual account link + optional profile tune via scripts. **Remove:** Ivan removes from sim + flags withdrawn (skip future videos). No self-serve claim UI for MVP. | Ivan / Ops | VC prep §5 (supersedes triage-first recommendation) · §4 below |
-| 8 | **Run 15-person Survival season** — daily videos, per-subject shareable clips (vertical), tracked deep-links, manual inbound logging | Ivan / Ops | VC prep §1 "The play", §4 "Tier 1", §8 "Content engine" *INCLUDE DEEP LINKS TO DESC* |
-| 9 | **Source tagging on every CTA / deep link** (`?source=tg-survival-dayN`, `footer-b2b`, etc.) + funnel readout (views → clicks → signups by source + interest_type) | Nicolas + BE | landing v8 §6 "Tracking & attribution" + VC prep §3 "Metrics that matter" |
+| DROPPED | ~~**Trailer mutual-exclusion guard**~~ — Trailers now render on Ivan's local machine off Supabase records, so they can't contend with server sims. No guard needed. | — | `20260608_FE_MVP_hardening.md` "Trailers (out of server scope)" |
 
 ### P1 — Only if P0 is stable (multiplies engagement)
 | # | Item | Owner | Ref |
@@ -85,15 +85,15 @@
 - Simulation-binding host — operator assigns job + home per roster Double (`ENABLE_ONBOARDING_HOST`; CLI + `GET/POST /api/onboarding/{sim}/…`). Drives lifecycle §1 steps 4–6.
 
 **P0 engineering (the blocker list — reduced 2026-06-08, trailers moved off-server):**
-- H0: Prod frontend build (`next build && next start`) + drop `Cache-Control: no-cache` on Playwright navigations. **FE shipped; local smoke passed; VPS 3-sim soak pending** (BE deploy from `BE/vercel`).
-- Item 1.5 (optional, sequenced after soak): reuse Playwright tab per sim — next step-time win without browser-free scope.
-- Enforced 3-sim cap + overflow queue (sims-only — no trailer weight to budget). **Not started** (Ivan / BE).
+- H0: Prod frontend build (`next build && next start`) + drop `Cache-Control: no-cache` on Playwright navigations. **DONE** — VPS soaks 2026-06-09 (`21371fa` FE, systemd `:3000`).
+- Item 1.5: reuse Playwright tab per sim. **DONE** — `HEADLESS_TAB_REUSE=true`; 3×100 VPS soak passed 2026-06-09.
+- Enforced 3-sim cap + overflow queue (sims-only). **DONE** — VPS queue proof 2026-06-10 (`e47e08ae` BE; `queued_at_capacity: true`).
 - Per-subprocess `FRONTEND_URL` not needed for 3 sims (one frontend backs 3 contexts safely per FE §7 Q2).
 - ~~Trailer mutual-exclusion guard~~ — **dropped:** trailers render on Ivan's local machine off Supabase records (`video/extract_day_log.py` reads from Supabase, not server disk), so they never contend with server sims.
 
 **Deferred:** Per-subprocess `FRONTEND_URL` override, browser-free realization (parity risk, 4–6 weeks), 10-sim upsizing, on-server trailer rendering / shared render tier.
 
-**Reference:** `20260608_FE_MVP_hardening.md` (the implementation request to Nicolas) · `TODO_production_hardening.md` top section "MVP — Parallel Simulations" + §2 status update (B2/B3/H3 largely done; H0 still open).
+**Reference:** `20260608_FE_MVP_hardening.md` (Items 1 / 1.5 / 2 **closed** 2026-06-10) · `TODO_production_hardening.md` MVP section.
 
 ---
 
@@ -172,7 +172,7 @@ Anything else is noise.
 
 **End of MVP Release Gate.** All prior strategy (VC prep §1–7) and landing spec (v8 §1–5) remain authoritative. This document is the execution spine with clear TODOs and cross-references.
 
-**Current status (2026-06-08):** Measurement layer + CTA routing complete in landing v8. **Simulation-binding wizard shipped** — cohort can be placed (job + home) without manual scripts. **Consent approach locked** — manual claim/remove in group chat, 0 build. **Item 1 FE done; local H0 smoke supports the prod-build hypothesis.** Agreed sequence: **VPS 3-sim soak** (Nicolas, credentials from Ivan) → **Item 1.5** implement + test → **Item 2** BE cap + queue. Content engine ~85% (provisioning + consent model done; season execution + cadence still open). Ready to proceed once soak passes and cadence confirmed.
+**Current status (2026-06-10):** **P0 reliability spine closed.** Items 1 (H0), 1.5 (tab reuse), and 2 (sim cap + queue) validated on VPS `199.80.55.26`. Measurement layer + CTA routing complete in landing v8. **Simulation-binding wizard shipped** — cohort can be placed (job + home). **Consent locked** — manual claim/remove, 0 build. **Next:** 15-person Survival season (P0 row 8) + attribution (row 9) + open cadence decisions (§7).
 
 ### Progress log
 
@@ -184,3 +184,5 @@ Anything else is noise.
 | 2026-06-08 | Ivan + Nicolas | Agreed: VPS soak first → Item 1.5 → Item 2. BE deploys from `BE/vercel`; Ivan to share VPS credentials |
 | 2026-06-08 | Ivan | Simulation-binding wizard shipped (`sot_lifecycle.md` §6.10) — job + home assignment via guided host; validated on 4-double fork |
 | 2026-06-08 | Ivan | Consent approach locked — group-review launch; "Claim double / Remove double" in chat; manual operator runbook (0 build); triage-first deferred |
+| 2026-06-09 | Nicolas | Item 1 H0 + Item 1.5 VPS soaks passed (3×5 + 3×100); Ivan production-generation sign-off `signoff-20260609-2350` |
+| 2026-06-10 | Ivan | Item 2 deployed on VPS (`549d2d41`→`e47e08ae`); queue proof `queued_at_capacity: true`; `COMPLETED.json` mkdir fix; soak script + sign-off meta committed |
