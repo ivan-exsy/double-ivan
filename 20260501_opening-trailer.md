@@ -4,6 +4,75 @@
 
 ---
 
+## v3.0 — Vertical pipeline rebuild on Remotion (match Anya's production) — 2026-06-17
+
+**Direction change.** Anya's hand-edited cut (`video/opening-anya/DOUBLAND1.mov` — 1080×1920 vertical, ~77s) is the quality bar. **Decision (Ivan, 2026-06-17):** keep Python orchestration; **Remotion renders opener visuals**; **vertical-only**; **photo-real cut-outs** (not sketches). Full teardown and phase ledger: `20260617_vertical-trailer-automation.md`.
+
+**Architecture — as built:**
+
+```
+persona_ranker → showrunner (+narration_cache) → tts (VO + timing map)
+              → build_opener_remotion_props → render_opener_remotion (Remotion)
+              → validate_trailer (9:16 + LUFS)
+```
+
+Opener no longer uses FFmpeg `compose_opener_trailer`, Phaser capture, or 16:9 output. Day modes unchanged.
+
+The renderer reads a normalized props file (`script.json` + `narration_timing.json` + cast assets), insulated from showrunner schema drift.
+
+**Exact pipeline changes — file by file:**
+
+| File | Change | Phase |
+|---|---|---|
+| **`video/remotion/`** *(new)* | Code-driven 9:16 engine: `Root.tsx` (data-driven dims/duration via `calculateMetadata`), `OpenerTrailer.tsx` (lays beats as `<Sequence>`s, mixes narration + ducked music w/ tail fade), `beats/{ColdOpen,Concept,Cast,Stakes,EndCard}.tsx`, `components/KineticText.tsx`, `styles.ts`. | **1 — DONE** |
+| **`video/build_remotion_props.py`** | Legacy adapter: reads opener `script.json` + `narration_timing.json` → coarse 5-beat props. Superseded for Anya match by Package A builder. | **1 — DONE** |
+| **`video/build_anya_package_a_props.py`** *(new)* | Package A: reads locked `auto_match_v3_warm` narration timing + stages `opening-anya` assets + Pistsov cut-outs → 18-segment beat map → `props/pistsov_package_a.json`. Ignores stale `opener&004`. | **1c — DONE** |
+| **`video/remotion/src/beats/AnyaBeats.tsx`** *(new)* | Package A visual beats: hook, concept, wordmark, world, season, cast (photo cut-outs), pressure, live, turn, end card — uses Anya PNGs + B-roll loops. | **1c — DONE** |
+| **`generate_trailer.py`** | Opener branch: `render_opener_remotion` + Package A props (no FFmpeg dual render, no Phaser capture). Day modes unchanged. | **4 — DONE** |
+| **`validate_trailer.py`** | Opener: `trailer_9x16.mp4` only (1080×1920, 65–95s) + integrated loudness (LUFS) check. | **4 — DONE** |
+| **`video/render_opener_remotion.py`** *(new)* | Build props + `npx remotion render` → `output/trailer_9x16.mp4`. | **4 — DONE** |
+| **`video/opener_beat_map.py`** *(new)* | Shared 18-beat map + Pistsov relationship graph layout. Used by Package A and generalized props builders. | **2.5 — DONE** |
+| **`video/build_opener_remotion_props.py`** *(new)* | Generalized Package A props from any opener dir (18 segments). | **3 — DONE** |
+| **`video/export_relationship_graph.py`** | Export cast diagram JSON for concept/turn beats. | **3 — DONE** |
+| **`video/assets/scripts-prompts/generate_cutouts.py`** | Grey-backdrop cut-outs from character sheets; `--grok` for photo-real. | **3 — DONE** |
+| **`video/assets/scripts-prompts/generate_group_photo.py`** | Cohort group photo via Grok Imagine. | **3 — DONE** |
+| **`capture_static_assets.py`** | **Skipped for opener** (implemented in `generate_trailer.py` Step 4). Day modes unchanged. | **4 — DONE** |
+| **`compose_trailer.py`** | Opener FFmpeg path **unused**; `compose_opener_trailer` retained for legacy/manual only. Day modes unchanged. | **4 — DONE** |
+| **`showrunner.py`** | **DONE (narration lock):** v3 cues, minimal pauses, dropped "sometimes…" line. *Residual:* emit relationship pairs for dynamic diagram (optional; graph uses defaults today). | **narration — DONE** |
+| **`tts.py`** | **DONE (narration lock 2026-06-17):** `OPENER_VOICE_PROFILE` — ElevenLabs **`eleven_v3`**, stability **0.60**, speed **1.5×**; cues reach the voice, stripped from `narration_timing.json` for beat-matching. Passed via `generate_trailer.py` for opener mode only (day modes keep `eleven_multilingual_v2`). Verified: ~**76.7s** (`video/voiceover/auto_match_v3_warm_x1.5/narration.mp3`). | **narration — DONE** |
+| **`persona_ranker.py`, `narration_cache.py`** | Unchanged. | — |
+
+**Locked narration (Ivan, 2026-06-17) — baked into auto-gen:**
+
+| Setting | Value |
+|---|---|
+| Voice model | ElevenLabs **`eleven_v3`** (not `eleven_multilingual_v2`) |
+| Tone / speed | **Warm** (stability 0.60) at **1.5×** — evolved from the approved `v3_warm_x1.2` experiment |
+| Delivery cues | `[curious]` / `[warmly]` / `[excited]` in fixed opener blocks; sent to TTS, stripped from timing map |
+| Script trim | **Drop** *"And sometimes… you see something about yourself you never noticed before."* (present in `narration_anya.json` but cut in Anya's final audio) |
+| Pauses | Minimal — ~**2.75s** total baked silence (0.1–0.2s between beats) |
+| Verified duration | **~76.7s** — reference render: `video/voiceover/auto_match_v3_warm_x1.5/narration.mp3` |
+
+Cast portraits: **photo-real cut-outs** (not sketches) — per per-scene spec (2026-06-17).
+
+**Reusable "style" layer** — built as Remotion components in `video/remotion/src/components/` (Phases 2 + 2.5): glitch type, matrix readout, AI-core ring, ink figures, relationship graph, gauges, live HUD, gold transition, color grade, wordmark animation, crossfades. Handover note = `video/remotion/README.md`.
+
+**Per-cohort delta** (new cast, same village): run `generate_cutouts.py` (+ optional `generate_group_photo.py`), then `generate_trailer --mode opener`. Brand/village assets reused.
+
+**Status:** Phases 1–4 **DONE**. One-command opener:
+
+```bash
+python -m video.generate_trailer base_family_sim opener --mode opener --top 4 --cohort-name "Pistsov family"
+```
+
+Output: `output/trailer_9x16.mp4` via Remotion (~81s incl. end-card hold).
+
+**Residual quality gaps** (not blocking generation): continuous 0–15s hook montage, transition SFX, Supabase-driven relationship labels, full end-to-end smoke test. See `20260617_vertical-trailer-automation.md` §4.
+
+**Supersedes (opener only):** FFmpeg `compose_opener_trailer` and 16:9 dual render.
+
+---
+
 ## v2.4 — Concept-script rewrite ("Anya cut") — 2026-06-03
 
 **Direction change.** The opener narration is being replaced wholesale with a producer-finalized concept script (worked out with the video team). It drops the Burnett "stakes / vote" framing in favor of a concept-first script that explains what a Double is, shows the season as the concrete example, and turns the question back on the viewer ("what would my Double do?"). Final locked script: `video/anya/narration_anya.json`.
@@ -20,7 +89,7 @@
 
 | Block | Source | Content |
 |---|---|---|
-| 1 — Hook + concept | **Fixed** (cohort-agnostic literal) | "What if…" ×3 → "An AI version of you… talking like you / reacting like you / making choices like you." → "In Doubland, you create an AI Double based on your personality… see something about yourself you never noticed before." |
+| 1 — Hook + concept | **Fixed** (cohort-agnostic literal) | "What if…" ×3 → "An AI version of you… talking like you / reacting like you / making choices like you." → "In Doubland, you create an AI Double based on your personality… Every conversation. Every choice. Every relationship." *(the "sometimes… you never noticed before" line was dropped 2026-06-17 to match Anya's final cut)* |
 | 2 — Season + cast | **AI-generated per cohort** | "This season: the {cohort} enters Survival Mode. Four {relation}. Four personalities. Four Doubles." + one short trait line per persona. |
 | 3 — Promise + features + turn | **Fixed** (cohort-agnostic literal) | "See how people change under pressure… Watch live 24/7. Follow any Double. Replay every moment. These aren't just avatars… what would my Double do?" |
 

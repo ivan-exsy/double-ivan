@@ -1,4 +1,4 @@
-Grok Imagine - foreword:
+## Grok Imagine - foreword:
 ```
 I work on Reality AI show, where AI generated scenarios are visualized via Phaser game engine. For promotion purposes, I am planning to generate images and video materials for video trailers.   
 Assess these top-level screenshots for inspiration - in the attached images.   
@@ -43,3 +43,61 @@ Village Dusk Wind-Down (Day End Stakes)
 What: Closing fly-over retreating from the center at dusk, fading lights in houses and cafe to symbolize routines ending and nightly risks.
 Duration: 4s
 Grok Imagine Prompt: "4-second 3D fly-over of a village at dusk, starting overhead center and retreating outward. Isometric tile layout with depth: houses with dimming windows, cafe lights flickering on, long shadows across paths. Empty, melancholic tension, purple-blue twilight hues, subtle breeze effect. Backward pan, 1080p MP4, 30fps."
+
+
+
+## *How Camera works*
+
+<X: https://x.com/beginnersblog1/status/2065759796104761770>
+
+Cinematographers learn 12 camera moves in film school. 
+
+Most AI creators don't know a single one. Because nobody told the camera what to do.
+.
+.
+
+Here they are:
+
+→ Push-in — moves toward the subject
+Builds tension. Creates intimacy. Use it slowly.
+
+→ Pull-back — retreats to reveal
+Isolation. Scale. Endings. The reveal shot.
+
+→ Pan — horizontal rotation, camera stays fixed
+Suspense lives in what you haven't shown yet.
+
+→ Tilt — vertical version of the pan
+Tilt up on a hero. They look powerful immediately.
+
+→ Tracking shot — camera travels with the subject
+Energy. Forward motion. You feel like you're there.
+
+→ Arc / orbit — circles the subject
+Hero moments. Product showcases. Keep it under 30 degrees.
+
+→ Crane / jib — sweeps vertically on a boom
+Grandeur. Scale. The "god-view" of cinematography.
+
+→ Zoom — focal length changes, camera doesn't move
+Flatter look than a dolly. Fast zoom = music video energy.
+
+→ Dolly zoom — camera goes one way, lens goes the other
+Background warps. Subject stays still. Pure psychological dread.
+
+→ Whip pan / crash zoom — extreme speed for transitions
+Shock. Comedy. Stops the scroll every time.
+
+→ Handheld — natural shake, no stabilisation
+Add "subtle" or the model goes full earthquake.
+
+→ Static + angles — low, high, Dutch, bird's-eye, worm's-eye
+
+Low angle = power.
+Dutch angle = unease.
+Bird's-eye = scale.
+
+The mistake everyone makes: stacking multiple moves into one prompt. One move. One clip. Always.
+
+And add "slow" to almost everything. Slow moves hide what AI can't render cleanly. Fast moves expose every flaw.
+
