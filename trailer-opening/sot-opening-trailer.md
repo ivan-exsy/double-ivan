@@ -28,7 +28,7 @@ On **visual timing, sub-moments, on-screen copy, and SFX sync** → follow `tead
 
 **Reference files reviewed**
 
-- `trailer-opening/teadown/` — **authoritative visual spec** (proxy 76.6s): `cross_cutting_summary.md`, `timecode_index.csv`, `text_log.csv`, `sfx_log.csv`, `scene_spec.md`, `reference_grabs/`
+- `trailer-opening/teadown/` — **authoritative visual spec** (master **76.578s**, native 2160×3840): `cross_cutting_summary.md`, `timecode_index.csv`, `text_log.csv`, `sfx_log.csv`, `scene_spec.md`, `20260624_doubland_master_verification_addendum.md`, `reference_grabs/`
 - `doubland_small.mp4` / `DOUBLAND1.mov` — hand-edited creative reference masters
 - `opener&006` output — Phase 5 P0 baseline (`data/base_family_sim/opener&006/output/trailer_9x16.mp4`)
 - `20260617_vertical-trailer-automation.md` — built state, commands, Phase 6 todos
@@ -55,7 +55,7 @@ The correct solution is therefore not “add more random motion.” It is to bui
 
 ## 2. What the measured comparison shows
 
-The uploaded hand-edited file is a 1280×720 proxy containing the vertical composition in the center. The automated output is a native 1080×1920 vertical file. This prevents a fair pixel-resolution comparison, but it does not prevent comparison of pacing, composition, motion, sound, and visual structure.
+The hand-edited reference is a **native 2160×3840 / 9:16** master (`DOUBLAND1.mov`, 76.578 s). An earlier 1280×720 proxy was used for initial teardown; timing was verified against the master (see `teadown/20260624_doubland_master_verification_addendum.md`). The automated output is native **1080×1920** (50% scale). Pixel comparison should use master-derived grabs, not proxy side margins.
 
 | Measure | Hand-edited reference | Automated (opener&005) | Automated (opener&006) | Meaning |
 |---|---:|---:|---:|---|
@@ -180,7 +180,7 @@ Every trailer should feel like one designed piece rather than a set of interchan
 
 ### 4.1 Macro rhythm
 
-A typical four-person opener is often **~72–84 seconds**, but total length is **flexible**. Use this energy curve as **guidance** — not a strict cap. **Producer-measured section boundaries** (proxy 76.6s) are in `teadown/20260624_doubland_timecode_index.csv`; they supersede the approximate durations below where they differ (e.g. **concept begins ~10.8s**, not ~14s).
+A typical four-person opener is often **~72–84 seconds**, but total length is **flexible**. Use this energy curve as **guidance** — not a strict cap. **Producer-measured section boundaries** (master **76.578s**) are in `teadown/20260624_doubland_timecode_index.csv`; they supersede the approximate durations below where they differ (e.g. **concept begins ~10.8s**, not ~14s).
 
 | Section | Typical duration | Energy purpose |
 |---|---:|---|

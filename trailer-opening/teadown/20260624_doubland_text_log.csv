@@ -1,5 +1,5 @@
 time_sec,exact_string,animation,hold_sec,exit
-0.0,DOUBLE / AN AI VERSION OF YOU,static poster,0.067,hard removal
+0.0,DOUBLE / AN AI VERSION OF YOU,static poster,0.050,hard removal
 0.067,WHAT IF…,quick type/fade then hold,0.833,replaced by ring sentence
 0.9,YOU HAD A SECOND CHANCE,type-on; cursor during type only,~0.7,phrase swap
 2.333,TO MAKE IT RIGHT?,type-on then hold,~1.0,opacity reset to WHAT IF

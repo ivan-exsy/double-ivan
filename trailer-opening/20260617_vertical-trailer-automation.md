@@ -1,116 +1,82 @@
 # Opening Trailer — Implementation Plan
 
-=============================
-PRIMARY implementation doc · Phase 0–5 P0 DONE · Phase 6 OPEN
-Creative bible → 20260501_opening-trailer.md · Visual SOT → teadown/
-=============================
+## References
+PRIMARY implementation doc · Phase 0–6 DONE · P1 OPEN · Latest: `opener&008`
+Creative bible → `sot-opening-trailer.md` · Visual SOT → `teadown/`
 
 
-> **Primary engineering plan** for auto-generating vertical (9:16) opening trailers. Goal: match Anya's hand-edited cut (`video/opening-anya/DOUBLAND1.mov`). Scope locked **2026-06-17: vertical only**. Creative standard + asset map: **`20260501_opening-trailer.md`** (Part I playbook). Visual timing: **`trailer-opening/teadown/`**.
+> **Primary engineering plan** for auto-generating vertical (9:16) opening trailers. Goal: match Anya's hand-edited cut (`video/opening-anya/DOUBLAND1.mov`). Scope locked **2026-06-17: vertical only**. Creative standard + asset map: **`sot-opening-trailer.md`** (Part I playbook). Visual timing: **`trailer-opening/teadown/`**.
 
-**Duration policy:** Total trailer length is **not a hard product requirement**. A few seconds vs Anya's hand cut is fine (e.g. **~76.7s** narration vs **~82–84s** final MP4 on opener&006). **Larger casts are expected to produce longer trailers** — tiered layouts keep the cast *block* efficient (~15–20s), but total runtime may grow with cohort size within validator bounds (today **65–95s**).
+**Duration policy:** Total trailer length is **not a hard product requirement**. A few seconds vs Anya's hand cut is fine (e.g. **~76.7s** narration vs **~77s** final MP4 on `opener&008`). **Larger casts are expected to produce longer trailers** — tiered layouts keep the cast *block* efficient (~15–20s); validator band today **65–95s**.
 
-## Document hierarchy (which doc does what)
+---
+
+## Implementation status
+
+**Latest reference run:** `data/base_family_sim/opener&008` — **~77.2s**, validation **PASS**, poster export @ frame **340** (~11.35s). Visual spec verified against native **2160×3840 / 76.578s** master (`teadown/20260624_doubland_master_verification_addendum.md`). Opening flash + black reset + WHAT IF @ ~0.133s aligned in code post-verification.
+
+The pipeline is **production-capable for Pistsov ×4**: one-command `generate_trailer` → Remotion render → LUFS gate. Producer CSVs drive **text timing**, **SFX timing**, and **section-level beat boundaries**; ~16 macro beats carry **named transition primitives** (poster, cast panel, mid-URL, survival UI, etc.). Full **65 sub-moment Sequences** are not built — sub-moments are in props for QA; visuals attach via beat `phases[]` / overlay flags.
+
+| Milestone | Run | Summary |
+|---|---|---|
+| Phase 0–4 | — | Remotion stack, Package A, `generate_trailer` integration (**§6**) |
+| Phase 5 P0 | `opener&006` | Type-then-hold, hook merge, Talk hero, first poster export, SFX/mix (**§8.10**) |
+| Phase 6A | `opener&007` | CSV planner, `textTrack` overlay, 40 SFX in props, section retiming (**§8.11**) |
+| Phase 6B–6D | `opener&008` | Poster/matrix, end-card takeover, cast panel, mid-URL, world/survival/turn UI scaffolds (**§8.12**) |
+
+### Shipped — brief summaries
+
+- **Phase 6A (`007`):** Vendored `teadown/` CSVs → `opener_visual_planner`; global `SharedCenterReplace` text axis; macro beats retimed to producer sections; 40 SFX events in props.
+- **Phase 6B (`008`):** `generate_matrix_photo.py` + three-band `ConceptPosterBeat`; opening **poster flash** (~50 ms / frames 0–1 @ 30 fps) + **black reset** before WHAT IF @ ~0.133s; **export still** @ 11.35s; `QuestionToUrlTakeover` end card ending **76.578s**; hook `ConversationHud` / `PersistentLayerSwap`. Poster spec: **§8.5**.
+- **Phase 6C (`008`):** `ActiveDoublesPanel` + `CardSelectZoom` on cast beats; `MidUrlPlate` @ 59.4s; `RadialObjectMatch` + live `backgroundCuts`.
+- **Phase 6D (`008`):** `ConceptDeconstruct`, `WorldMapHud`, `UiStateMorph`, `SurvivalDashboard`, `TurnDashboard` — functional scaffolds on macro beats (not pixel-perfect vs Anya boards yet).
+
+### Remaining / TODO
+
+| Priority | Item | Detail in doc |
+|---|---|---|
+| **Now** | Manual QA — diff latest render vs `teadown/reference_grabs/` at CSV timecodes; add **0.133s** (WHAT IF) check | **§8.12**, **§8.13** |
+| **Now** | Per-cohort **Grok group + matrix photos**; stop silent Anya `Family.png` fallback on new sims | **§8.5**, **§8.4** |
+| **Now** | Stage **SFX library** locally (`video/audio/sfx/`) so 40 prop events are audible | **§4**, **§7** |
+| **P1** | Cast scale **1–15**, tiered layouts, cast block ≤ ~20s | **§8.4**, **§6** (P1 list) |
+| **P1** | Supabase relationship graph labels; layout for 2–15 nodes | **§4**, **§8.4** |
+| **P1** | **Editorial-motion validator** (low-motion, visual-change rate ~23.5/min) | **§4**, Playbook Ticket 7 |
+| **P1** | **Trailer VO A/B** (warm vs trailer @ 1.5×) | **§8.3** |
+| **P1** | Polish UI scaffolds toward Anya art fidelity (`DoubleIdentityCard`, map HUD, etc.) | **§8.8**, Playbook §16.12 |
+| **P2** | Golden test set (4/8/15 cast), 60fps, 16:9 master, homepage hero loop | **§6** (P2) |
+
+### Next steps (recommended order)
+
+1. **QA pass** — scrub at **0.033 · 0.133 · 11.3 · 41.4 · 53 · 59.4 · 73.8 · 76.578s** vs grabs (**§8.12–8.13**).
+2. **Cohort assets** — run `generate_group_photo.py` + `generate_matrix_photo.py` for Pistsov; verify poster tiers match (**§8.5**, **§7**).
+3. **SFX staging** — populate `video/audio/sfx/` (or trimmed lib); re-render and spot-check sync.
+4. **P1 kickoff** — cast scale + non-Pistsov asset enforcement (**§8.4**).
+
+```bash
+python -m video.generate_trailer base_family_sim opener --mode opener --top 4 --cohort-name "Pistsov family" --force
+# → data/base_family_sim/opener&008 (or next increment)
+```
+
+---
 
 | Document | Role | When to use |
 |---|---|---|
-| **This doc (`20260617_…`)** | **Primary implementation plan** — built state, commands (§7), gaps (§4, §8), Phase 6 todos | Day-to-day engineering; what's shipped vs what's next |
+| **This doc (`20260617_…`)** | **Primary implementation plan** — built state, commands (§7), gaps (§4, §8), P1 backlog | Day-to-day engineering; what's shipped vs what's next |
 | **`20260501_opening-trailer.md`** | **Opening trailer bible** (draft → `sot-opening-trailer`) — Part I: creative playbook + asset map; Part II: commission punch list | *What good looks like*; asset render policy; cast tiers |
-| **`trailer-opening/teadown/`** | **Visual timing SOT** — ~50 sub-moments, text/SFX logs, reference grabs | Beat implementation; QA diff at a timecode |
+| **`trailer-opening/teadown/`** | **Visual timing SOT** — 65 sub-moments, text/SFX logs, reference grabs; master-verified **76.578s** | Beat implementation; QA diff at a timecode |
 | **`video/video_PRD.md`** | Product requirements for video/trailer features | Scope questions |
 
 **Governance:** Producer teardown wins on **visual timing, sub-moment structure, on-screen copy, and SFX sync**. Opening trailer bible (Part I) wins on **asset policy, cast scale, mix targets, and acceptance framework**. This doc tracks **what code actually does today**.
 
----
-
-## TODO — next steps
-
-**Status:** Phases 0–5 P0 **done**. Phase 6A–6D **done on `opener&008`** (see §8.12). **P1** cast scale + editorial validator next.
-
-### Phase 6 — visual grammar rebuild (`opener&007+`; teardown SOT)
-
-Target: move from ~16 VO-aligned beats to **~50 producer sub-moments** with named transition primitives. Read order: `teadown/20260624_doubland_cross_cutting_summary.md` → `timecode_index.csv` → `text_log.csv` + `sfx_log.csv` → matching rows in `scene_spec.md` → `reference_grabs/` at those timecodes.
-
-#### Phase 6A — foundation (unblocks everything) — **DONE on `opener&007`**
-
-- [x] **Visual sub-moment planner** — consume `teadown/20260624_doubland_timecode_index.csv`; emit timed events independent of 18 VO segment boundaries
-- [x] **Text from `text_log.csv`** — exact strings, `animation`, `hold_sec`, `exit` per row; wired into props + `SharedCenterReplace` overlay
-- [x] **`sharedCenterReplace`** — one center text axis via global `textTrack` in Remotion
-- [x] **SFX from `sfx_log.csv`** — 40 classified hits with `leadsPictureByMs` (staged when library files exist)
-
-#### Phase 6B — P0 visual grammar — **DONE on `opener&008`**
-
-- [x] **Per-cohort assets** + **`generate_matrix_photo.py`** (Pillow fallback; Grok when keyed)
-- [x] **`ConceptPosterBeat` rework** — matrix top / clean bottom; `Family.mp4` reserved for deconstruct only
-- [x] **Caption** — **"AI VERSION OF YOU"** on black band; CSV updated
-- [x] **Poster still @ frame 340 (~11.35s)** + **67ms `posterFlash`** @ t=0
-- [x] **`questionToUrlTakeover`** — end card phases; tail **0.3s** (visual ends ~76.6s)
-- [x] **Hero video policy** — Talk/village/pressure ≥0.9 opacity where wired
-- [x] **Hook §1–3** — `ConversationHud`, `PersistentLayerSwap`, ink figures on Double tease
-
-#### Phase 6C — middle-trailer density — **DONE on `opener&008`**
-
-- [x] **`cardSelectZoom` + ACTIVE DOUBLES panel** on cast beats
-- [x] **Mid-trailer URL plate** @ 59.4s (`midUrlPlate` in props)
-- [x] **`textHoldAcrossBackgroundCut`** — live beat `backgroundCuts`
-- [x] **`radialObjectMatch`** — first pressure beat
-
-#### Phase 6D — rich middle — **DONE on `opener&008`**
-
-- [x] **Concept deconstruct** — `ConceptDeconstruct` overlay after poster hold
-- [x] **Pixel map + portrait cards** — `WorldMapHud` on second world beat
-- [x] **Three-state UI morph** — `UiStateMorph` on concept beat
-- [x] **Survival sequence** — `SurvivalDashboard` on season beat
-- [x] **Turn dashboard** — `TurnDashboard` on second turn beat
-
-**Review gate:** diff `opener&008` vs `teadown/reference_grabs/` at CSV timecodes (manual QA).
-
-**Next run command:**
-
-```bash
-python -m video.generate_trailer base_family_sim opener --mode opener --top 4 --cohort-name "Pistsov family" --force
-# latest: data/base_family_sim/opener&008
-```
-
-### P1 — new simulations & casts (unchanged scope; after Phase 6B)
-
-Target: any sim with 1–15 Doubles renders without manual Remotion edits or wrong-cohort assets.
-
-- [ ] **Cast scale** — `--top` 1–15; tiered layouts for 1–4 / 5–8 / 9–15; cast block ≤ ~20s (Playbook Ticket 5)
-- [ ] **Relationship graph** — Supabase-driven labels; generalize layout for 2–15 nodes
-- [ ] **Per-cohort assets** — auto-generate + verify cutouts and group photo; no silent Pistsov fallback (Playbook §17)
-- [ ] **Component library** — `DoubleIdentityCard`, `WorldMapHUD`, `SurvivalDashboard`, `PersonalityAnalysisPanel`, etc. (Playbook §16.12 P1)
-- [ ] **Editorial validator** — low-motion ratio, static-run length, visual-change rate (~23.5/min target), repetition flags (Playbook Ticket 7)
-- [ ] **Trailer VO A/B** — warm vs trailer profile @ 1.5×; side-by-side with Anya before re-lock (§8.3 · deferred from 006)
-- [ ] **Scale smoke test** — fork sim with 8–15 personas; full asset gen + render (§8.4)
-
-### P2 — defer until Phase 6 + P1 pass
-
-Golden test set (4 / 8 / 15 cast), composition variants, 60fps delivery, thumbnail scoring, homepage hero loop, 16:9 master.
-
-### Phase 5 P0 — completed on `opener&006` (2026-06-22)
-
-- [x] Poster / concept frame + poster still export
-- [x] Text settle — `type-then-hold`; glitch/cursor during type only
-- [x] `Talk.mp4` hero on hard-conversation hook phase
-- [x] Hook morph — merged VO segments 0–2 into `hookContinuous`
-- [x] Partial visual timeline decoupling (~16 beats; full ~50 sub-moments = Phase 6)
-- [x] End card hold wired (4s — **too long vs Anya**; fix in Phase 6B `questionToUrlTakeover`)
-- [x] SFX wiring + loudnorm ~-14 LUFS
-- [x] `Family.mp4` once at concept reveal
-- [x] Asset manifest render policies; block reference boards
-
----
-
 ## 1. Anya's cut — the facts
 
-- **Format:** 2160×3840 (9:16 vertical), 120fps, **76.6s**, HEVC. Mobile-first.
-- **Narration:** ElevenLabs **`eleven_v3`** warm take at **1.5×** (evolved from the `v3_warm_x1.2` experiment), with inline delivery cues `[curious]` / `[warmly]` / `[excited]`. Script = showrunner opener fixed blocks (v2.4 "Anya cut" **minus** the dropped *"sometimes… you never noticed before"* line). Pauses minimal (~2.75s total silence). **Narration audio ~76.7s** — close to Anya's 76.6s VO. **Final MP4** may run longer (opener&005 = **83.6s**) — acceptable; see Duration policy. Reference: `video/voiceover/auto_match_v3_warm_x1.5/narration.mp3`. Legacy producer script still at `video/anya/narration_anya.json`.
+- **Format:** 2160×3840 (9:16 vertical), 120fps, **76.578s** master runtime, HEVC. Mobile-first. Engineering renders **1080×1920** (50% scale); native 9:16 — no proxy side margins.
+- **Narration:** ElevenLabs **`eleven_v3`** warm take at **1.5×** (evolved from the `v3_warm_x1.2` experiment), with inline delivery cues `[curious]` / `[warmly]` / `[excited]`. Script = showrunner opener fixed blocks (v2.4 "Anya cut" **minus** the dropped *"sometimes… you never noticed before"* line). Pauses minimal (~2.75s total silence). **Narration audio ~76.7s** — close to Anya's **76.578s** master. **Final MP4** may run slightly longer when VO tail + composition padding apply — acceptable; see Duration policy. Reference: `video/voiceover/auto_match_v3_warm_x1.5/narration.mp3`. Legacy producer script still at `video/anya/narration_anya.json`.
 - **Her toolkit:** ~24 transparent PNG overlay graphics + 4 short image-to-video B-roll loops (`opening-anya/Anya_animated/{Family,Pressure,Talk,Village}.mp4`, 3–5s each, mixed aspect) + existing anthem + SFX library. **Editor: CapCut** (project file available on request — usable as a *blueprint*, not a render engine; CapCut can't run headless). Reference cut + assets live in `video/opening-anya/`.
 
 ## 2. Beat / shot map
 
-**Authoritative timing:** `trailer-opening/teadown/20260624_doubland_timecode_index.csv` (~50 sub-moments, 76.6s proxy). The coarse table below is a **legacy macro summary** — use producer index for implementation. Key corrections vs old approximations: **concept starts ~10.8s** (not ~15s); **cast starts ~41.4s**; **mid-trailer URL @ ~59.4s**; **end card §18 @ ~71.7–76.6s**.
+**Authoritative timing:** `trailer-opening/teadown/20260624_doubland_timecode_index.csv` (65 sub-moments, **76.578s** master). The coarse table below is a **legacy macro summary** — use producer index for implementation. Key corrections vs old approximations: **concept starts ~10.8s** (not ~15s); **cast starts ~41.4s**; **mid-trailer URL @ ~59.4s**; **end card §18 @ ~71.7–76.578s**; **WHAT IF readable ~0.133s** after poster flash + black reset.
 
 Hard-cut timestamps (ffmpeg scene detection on master): 0, 23.5, 24.0, 27.2, 31.8, 35.0, 43.2, 45.7, 48.3, 49.1, 63.0, 66.4, 71.7, 73.8. Long gaps between cuts = continuous morphing motion-graphic sequences. Macro rhythm guidance: Playbook §4.1, §16.6; micro rhythm: `teadown/20260624_doubland_cross_cutting_summary.md`.
 
@@ -134,8 +100,9 @@ Hard-cut timestamps (ffmpeg scene detection on master): 0, 23.5, 24.0, 27.2, 31.
 | Cast pick | `persona_ranker.py` | Selects featured personas (**today:** importance-led; **target:** Playbook §5.1 conflict/contrast scoring) |
 | Script | `showrunner.py` | Fixed hook/concept/closing + AI season framing + per-cast trait lines (Supabase-cached) |
 | Voice | `tts.py` | Opener: `eleven_v3` / stability 0.60 / **1.5×** → `narration_timing.json` (18 segments) |
-| Assets | `generate_cutouts.py`, `generate_group_photo.py` | Per-cohort cut-outs + group photo (manual/optional before render) |
-| Props | `build_opener_remotion_props.py` | Maps 18 VO segments → Package A beat map + staged assets |
+| Visual plan | `build_opener_visual_planner.py` | Producer CSVs → sub-moments, `textTrack`, SFX events, section boundaries |
+| Assets | `generate_cutouts.py`, `generate_group_photo.py`, `generate_matrix_photo.py` | Per-cohort cut-outs, group photo, matrix tier (optional before render) |
+| Props | `build_opener_remotion_props.py` | VO segments → beat map + CSV overlays + staged assets |
 | Render | `render_opener_remotion.py` | `npx remotion render` → `trailer_9x16.mp4` |
 | Gate | `validate_trailer.py` | **Today:** 9:16, **65–95s** (wide band; longer OK for large casts), LUFS check. **Target (Playbook §11):** editorial-motion gates, ~**-14 LUFS**, true peak ≤ -1 dBTP, poster export — not a strict 70–85s cap |
 
@@ -143,64 +110,80 @@ Hard-cut timestamps (ffmpeg scene detection on master): 0, 23.5, 24.0, 27.2, 31.
 
 **Pistsov reference path (manual):** `build_anya_package_a_props.py` + locked `auto_match_v3_warm` timing — bypasses showrunner/TTS for Anya-asset QA.
 
-## 4. Remaining gap vs Anya's cut
+## 4. Gap vs Anya's cut (post–`opener&008`)
 
-Phases 0–5 P0 closed the render stack and first-pass polish (`opener&006`). The **visual grammar gap** remains — we still render ~16 VO-aligned beats, not ~50 producer sub-moments. Phase 6 closes that gap using `trailer-opening/teadown/` as SOT.
+Phase 6 closed the **structural** gap (timing, text/SFX tracks, named primitives on macro beats). **Polish and scale** gaps remain.
 
 | Gap | Status |
 |---|---|
-| **~50 sub-moment visual planner** | Open — CSV-driven planner not built; 006 still ~16 beats (Phase 6A) |
-| **Named transition primitives** | Open — `sharedCenterReplace`, `cardSelectZoom`, `questionToUrlTakeover`, etc. not implemented |
-| **Producer timecodes** | Partial — concept @ ~10.8s **done (6A/007)**; cast selection panels, mid-URL @ 59.4s still open |
-| **Continuous hook + handoffs** | Partial — `hookContinuous` merged seg 0–2; missing silhouettes, persistent figures, logo impact timing |
-| **Concept deconstruct** | Partial — split poster layout wrong (Family.mp4 top tier); card/tree demo layer = 6D (§4) |
-| **Cast selection rhythm** | Open — no ACTIVE DOUBLES panel or cursor between characters (§9–12) |
-| **Middle-trailer richness** | Open — pixel map, UI morphs, Survival sequence, turn dashboards largely absent |
-| **End card pattern** | Partial — renders but 4s static hold vs Anya `questionToUrlTakeover` (~4.9s structured) |
-| **SFX density** | Partial — ~7 wired on 006 vs ~39 in `sfx_log.csv`; no `leads_picture_by_ms` |
-| **Mix loudness** | **Done on 006** — ~-14 LUFS after loudnorm |
-| **Text type-then-hold** | **Done on 006** — shared text components updated |
-| **Talk.mp4 hero** | **Done on 006** — hero phase on hard-conversation beat |
-| **Poster still export** | Partial — export works but **wrong frame + wrong art on 007**; full fix in **Phase 6B** (§8.5) |
-| **Relationship labels from Supabase** | Partial — layout defaults for Pistsov; graph node label bug on 006 |
-| **Per-cohort group photo / matrix photo** | `generate_group_photo.py` exists; **matrix derive + poster wiring = 6B**; Pistsov may still use Anya kit until Grok run |
-| **Multi-cast (up to 15 doubles)** | Open — pipeline caps at `--top 6` (P1) |
-| **Editorial-motion validator** | Open — no low-motion / visual-change-rate gates yet (P1) |
-| **Trailer VO profile A/B** | Open — still warm @ 1.5× on 006 (deferred) |
+| **CSV visual planner + text/SFX tracks** | **Done (6A/007)** — 65 sub-moments in props; overlay + retiming active |
+| **Named transition primitives** | **Scaffolded (6B–6D/008)** — poster, end card, cast panel, mid-URL, radial match, world/survival/turn UI; art fidelity vs Anya boards still P1 |
+| **Producer timecodes** | **Mostly done** — concept @ 10.8s, cast @ ~41.4s, mid-URL @ 59.4s, end @ ~76.6s |
+| **Poster still / concept card** | **Done (6B/008)** — matrix/clean tiers, flash @ 0, still @ 11.35s; cohort Grok photos may still fallback to Anya kit (**§8.5**) |
+| **End card `questionToUrlTakeover`** | **Done (6B/008)** — phased fog → Q → URL; tail 0.3s |
+| **Hook handoffs §1–3** | **Partial** — ring, Talk hero, conversation HUD, ink figures; continuous morph feel vs Anya still softer |
+| **SFX audible mix** | **Partial** — 40 events in props; library often unstaged locally |
+| **Mix loudness** | **Done** — ~-14 LUFS after loudnorm |
+| **Multi-cast (up to 15)** | **Open (P1)** — `--top` cap 6; tiered layouts not built (**§8.4**) |
+| **Per-cohort assets (non-Pistsov)** | **Open (P1)** — generators exist; enforcement + Grok path (**§8.4**, **§8.5**) |
+| **Editorial-motion validator** | **Open (P1)** — technical LUFS/9:16 only today |
+| **Trailer VO A/B** | **Open (P1)** — warm @ 1.5× locked (**§8.3**) |
+| **Resolution / fps** | **Deferred (P2)** — 1080×1920 @ 30fps vs Anya 2160×3840 @ 120fps |
 
 The original FFmpeg `drawtext` gap is **closed** — opener visuals are Remotion-only.
 
 ## 5. Architecture (as built)
 
-**Today (Phase 4):**
+**Today (`opener&008`):**
 
 ```
-persona_ranker → showrunner (+narration_cache) → tts (VO + 18-segment timing map)
-              → [optional: cutouts / group photo / relationship graph]
+persona_ranker → showrunner → tts (18 segments)
+              → build_opener_visual_planner (CSV) + build_package_a_beats_v2
+              → [optional: cutouts / group_photo / matrix_photo / graph]
               → build_opener_remotion_props → npx remotion render
-              → validate_trailer (9:16 + LUFS)
+              → validate_trailer (9:16 + LUFS) + poster still
 ```
 
-**Target (Playbook §5):** evolve to a spec-driven compiler — cast/conflict selector → **visual sub-moment planner** (producer CSV) → asset resolver → **TrailerSpec JSON** → Remotion transition primitives → SFX/mix pass → technical + **editorial** validator → MP4 + poster + QA report. Phase 6 closes the gap; do not extend the VO-segment = one-scene pattern.
+**Target (Playbook §5):** spec-driven compiler with **editorial validator** + full per-sub-moment Sequences (optional future; macro beats + overlays are the current model).
 
 ### Asset buckets
 - **Reusable once (built):** Remotion components in `video/remotion/src/components/` + `opener_beat_map.py` + brand assets in `opening-anya/`.
 - **Per-village (the_ville = done):** village B-roll, map, night aerial (`video/fly-over/`).
 - **Per-cast:** cut-out portraits, group photo, trait narration, relationship graph data.
 
-## 6. Phased plan
+## 6. Phased plan (reference)
 
-- **Phase 0 — spec lock.** **DONE** — this doc + per-scene spec. Narration + photo-real cut-outs locked 2026-06-17.
-- **Phase 1 — Remotion skeleton.** **DONE**
-- **Phase 1b — narration lock.** **DONE** — v3 warm / 1.5× / ~76.7s **narration audio** (final MP4 length flexible — see Duration policy)
-- **Phase 1c — Package A.** **DONE** — Anya assets wired; `pistsov_package_a.mp4` reference
-- **Phase 2 — motion-graphic components.** **DONE**
-- **Phase 2.5 — visual polish.** **DONE** — AI-core ring, relationship graph, gold transition, color grade
-- **Phase 3 — per-cast automation.** **DONE** — props builder, cut-outs, group photo, relationship export
-- **Phase 4 — integrate + gate.** **DONE** — `generate_trailer` → Remotion; opener validation
-- **Phase 5 — polish pass (post–opener&005 review).** **P0 DONE** on `opener&006` — poster, text settle, Talk hero, hook merge, SFX/mix, Family.mp4 once, asset manifest (§8.10)
-- **Phase 6 — producer teardown rebuild.** **OPEN** — CSV-driven sub-moment planner + transition primitives (`trailer-opening/teadown/`)
-- **Fast-follow (out of scope):** silent center-safe **hero loop** for doubland.ai homepage + **16:9 master**
+| Phase | Status | Summary |
+|---|---|---|
+| 0 — spec lock | **Done** | Narration + cut-outs locked 2026-06-17 |
+| 1 — Remotion skeleton | **Done** | |
+| 1b — narration lock | **Done** | v3 warm / 1.5× / ~76.7s VO |
+| 1c — Package A | **Done** | Anya assets wired |
+| 2 — motion-graphic components | **Done** | |
+| 2.5 — visual polish | **Done** | AI-core ring, graph, gold transition |
+| 3 — per-cast automation | **Done** | Props builder, cut-outs, group photo |
+| 4 — integrate + gate | **Done** | `generate_trailer` → Remotion |
+| 5 — polish P0 | **Done** (`006`) | **§8.10** |
+| 6A — visual spec foundation | **Done** (`007`) | **§8.11** |
+| 6B–6D — visual grammar | **Done** (`008`) | **§8.12** |
+| **P1 — scale & quality** | **Open** | See **§8.4**, **§8.3**, gap table **§4** |
+| **P2 — delivery variants** | **Deferred** | 60fps, 16:9, hero loop, golden test matrix |
+
+### P1 — new simulations & casts (detail: **§8.4**)
+
+Target: any sim with **1–15 Doubles** renders without manual Remotion edits or wrong-cohort assets.
+
+- **Cast scale** — raise `--top` to 15; tiered layouts 1–4 / 5–8 / 9–15; cast block ≤ ~20s
+- **Relationship graph** — Supabase-driven labels; 2–15 node layouts
+- **Per-cohort assets** — auto-generate + verify cutouts, group + matrix photos; fail/warn on missing (**§8.5**)
+- **Component polish** — identity cards, map HUD, survival/turn UI to match Anya boards (**§8.8**)
+- **Editorial validator** — motion density, static-run length, repetition flags
+- **Trailer VO A/B** — warm vs trailer @ 1.5× (**§8.3**)
+- **Scale smoke test** — fork sim 8–15 personas; full asset gen + render
+
+### P2 — defer until P1 pass
+
+Golden test set (4 / 8 / 15 cast), composition variants, 60fps delivery, thumbnail scoring, homepage hero loop, 16:9 master.
 
 **Cost shape:** Style layer is built once. Each new cast ≈ regenerate cut-outs (+ optional group photo) + one `generate_trailer` run.
 
@@ -217,7 +200,7 @@ cd video/remotion && npx remotion render OpenerTrailer out/pistsov_package_a.mp4
 # Per-cohort assets (before or after a run)
 python video/assets/scripts-prompts/generate_cutouts.py --skip-existing
 python video/assets/scripts-prompts/generate_group_photo.py --cohort pistsov_family
-# Phase 6B: python video/assets/scripts-prompts/generate_matrix_photo.py --cohort pistsov_family
+python video/assets/scripts-prompts/generate_matrix_photo.py --cohort pistsov_family
 python -m video.export_relationship_graph --personas video/assets/scripts-prompts/personas_base_family_sim_full.json -o graph.json
 ```
 
@@ -242,20 +225,9 @@ python -m video.export_relationship_graph --personas video/assets/scripts-prompt
 - Beat map, cast cut-outs, village/pressure/aerial B-roll, and end card all render end-to-end.
 - Runtime **83.6s** passes today's validator (65–95s); ~7s longer than Anya's 76.6s reference is **acceptable** — priority is motion quality, not matching seconds.
 
-### 8.2 Fixed text should hold still (no heartbeat / pulse)
+### 8.2 Fixed text should hold still — **shipped (`006`/`007`)**
 
-**Issue:** After a line finishes typing, some headlines keep animating — pulsing glow or RGB "ghost" layers — instead of sitting still for a beat.
-
-**Root cause (code):**
-
-| Component | Behaviour today | Anya intent |
-|---|---|---|
-| `GlitchText.tsx` | Three stacked `TypingText` layers (cyan/red/white) with continuous `sin()` flicker + RGB offset | Typing OK; once done → **static** white type |
-| `AnimatedWordmark.tsx` | `filter: drop-shadow(…)` glow ramps 0→1 over 1.2s on **DOUBLE** + subtitle | Glow on **entry only**; then hold |
-| `AiCoreRing.tsx` | Continuous energy pulse in hook | Fine for abstract hook; not for readable headlines |
-| `WordSwapTitles.tsx` | Fade between rotating phrases | OK for cycling copy; fixed phrases need a **holdSec** plateau with no fade loop |
-
-**Fix direction:** Add a `mode: "type-then-hold"` to shared text components — animate chars while VO speaks, then freeze opacity/transform for ≥0.8s before crossfade. Disable `GlitchText` RGB layers after typing completes (or drop glitch entirely on short headlines like "WHAT IF").
+**Implemented:** `type-then-hold` on shared text components; macro beats use `suppressCenterText` + global `textTrack` overlay (6A). Short headlines may still show residual glitch layers — see **§8.6** (partial).
 
 ### 8.3 Voice — switch warm → trailer (next run)
 
@@ -283,94 +255,74 @@ Current lock (`tts.py` → `OPENER_VOICE_PROFILE`): `eleven_v3`, stability **0.6
 
 **Smoke test for scale:** fork a baseline into a test sim with 8–15 personas, run cutout + group-photo generators, then `generate_trailer --mode opener --top 15`.
 
-### 8.5 Poster frame / default thumbnail (match Anya concept card)
+### 8.5 Poster frame / concept card — **shipped `008`**
 
-**Anya reference** (concept beat ~15–24s; also the frame users see before pressing play):
+**Implemented:** Three-band `ConceptPosterBeat` (matrix top / black band / clean bottom); `generate_matrix_photo.py`; **opening flash** ~50 ms (not a readable hold) + **export still** @ **11.35s** (frame 340); caption **"AI VERSION OF YOU"** on band (locked product copy); `Family.mp4` only in deconstruct overlay, not poster top tier.
+
+**Still open (P1):** Grok-generated cohort photos for non-Pistsov sims; diff matrix art vs `Cards5_family-matrix.png`; optional validator flag for missing cohort assets.
+
+**Two poster moments (do not conflate):**
+
+| Moment | Timing | Purpose |
+|---|---|---|
+| Opening flash | ~0–0.050s master (~frames 0–1 @ 30 fps) | Thumbnail pre-roll only |
+| Export still | ~11.35s | YouTube / custom poster — deliberate readable frame |
+
+**Anya reference layout:**
 
 ```
 ┌─────────────────────────────┐
 │  [group photo + matrix HUD] │  ← matrix-filtered Family + face-scan brackets
 │         DOUBLE            │  ← glowing blue (`Double.png` treatment)
 ├─────────────────────────────┤
-│   AN AI VERSION OF YOU      │  ← white caps, centred on black band
+│   AI VERSION OF YOU         │  ← white caps, centred on black band
 ├─────────────────────────────┤
 │  [group photo — clean]      │  ← photoreal cohort shot, lower third
 └─────────────────────────────┘
 ```
 
-**Our `opener&005` first frame:** dark hook (`WHAT IF` glitch + particle field) — does **not** match.
+**Historical:** `opener&005` opened on hook, not poster. **`007`** had wrong poster art/timing — fixed in **`008`**.
 
-**Fix direction:** **Phase 6B** (see TODO block above). Summary:
-
-1. Rework `ConceptPosterBeat` — **split vertical layout**: matrix layer / black type band / clean photo layer.
-2. Stage `Double.png` wordmark on the black band (not full `DOUBLAND.png` on this beat).
-3. Per-cohort **`group_photo.png`** + derived **`group_photo_matrix.png`** drive both tiers (same photo; matrix = filtered duplicate).
-4. Export explicit **still** at concept-caption hold (~**11.2–11.5s**, not phrase-swap @ 12.6s) → ship as YouTube/custom poster alongside MP4.
-
-Reference still for art direction: `_teardown/montage_concept.png` · matrix ref: `Anya_PNG_assets/Cards5_family-matrix.png`.
-
-**Ivan review notes (2026-06-24) — tracked in Phase 6B:**
+**Ivan review notes (2026-06-24)** — addressed in 6B/008 except cohort Grok path (P1):
 
 - Poster is a **deliberate export still**, not the 67ms first-frame flash in the proxy (optional flash = 6B product call).
 - Lower group photo: OK (all family together); **poster still must not include** CC line "making choices like you".
 - Upper matrix layer: **matrix filter on the same group photo** — not `Family.mp4` or a separate smiling photo.
 - Caption: **"AI VERSION OF YOU"** — drop "an", increase font size on black band.
-- Per cohort: Grok **group photo once** + **matrix filter derived from that photo** (not Pistsov fallback on new sims).
+- Per cohort: Grok **group photo once** + **matrix filter derived from that photo** (P1 enforcement).
 
-**007 regression note:** `ConceptPoster` still plays `Family.mp4` on the top band when staged; 6B removes that from the poster beat.
+Reference: `_teardown/montage_concept.png` · `Anya_PNG_assets/Cards5_family-matrix.png`.
 
-### 8.6 Remove ghost/shadow behind "WHAT IF"
+### 8.6 Remove ghost/shadow behind "WHAT IF" — **partial (`006`)**
 
-**Issue:** RGB offset layers in `GlitchText` read as a blurry double-image behind the headline (see opener&005 @ ~0:01).
+**Issue:** RGB offset in `GlitchText` reads as blur behind headline.
 
-**Fix:** For `headline` beats, replace `GlitchText` with plain `TypingText` (or glitch **only during** char reveal, layers removed on complete). Sub-line ("you had a second chance…") keeps typing cursor — headline holds static once typed.
+**Fix direction:** Glitch only during char reveal, or plain `TypingText` on short headlines. See **§8.2**.
 
-### 8.7 Wire `Talk.mp4` to the hard-conversation VO line
+### 8.7 Wire `Talk.mp4` to hard-conversation hook — **shipped (`006`/`008`)**
 
-**VO line:** *"What if you could practice that hard conversation before it ever happened?"* — **hook ~0:03–0:08**, not the concept section (Playbook §6.1, §16.6).
+Talk hero on hook seg 1 at **≥0.85 opacity** with `ConversationHud`. `Family.mp4` once in concept deconstruct (not poster top). Historical gap audit: **§8.8**.
 
-**Today:** `Talk.mp4` is staged on **hook** seg index 1 (`opener_beat_map.py`) at **0.35–0.45 opacity** under `Connections.png` + relationship graph — easy to miss.
+### 8.8 Gap audit — Anya kit vs auto-gen (snapshot `008`)
 
-**Anya:** `Anya_animated/Talk.mp4` (~9 MB) is a hero motion layer for this exact beat — chat UI, rehearsal energy, full-frame presence.
-
-**Fix direction:** Promote `Talk.mp4` to primary background on the hard-conversation hook beat (≥0.75 opacity); drop or fade static relationship underlays on that beat; align phrase swaps to VO timing. Wire **`Family.mp4` once** for concept/cast reveal (~0:14–0:20), not as a season-loop under static `Family.png` (Playbook §16.12 #3, §6.4).
-
-### 8.8 Gap audit — Anya folder vs auto-gen (`opening-anya/`)
-
-Inventory of Anya's kit and how fully we consume it:
+Inventory of Anya's kit vs **`opener&008`**. Rows marked **P1** = polish or scale still open.
 
 | Asset / technique | Anya (`opening-anya/`) | Auto-gen today | Gap |
 |---|---|---|---|
-| **Reference master** | `DOUBLAND1.mov` — 2160×3840, 120fps, 76.6s | 1080×1920 @ 30fps, **83.6s** (opener&005) | Resolution/fps deferred; runtime delta OK — **motion richness** is Phase 5 focus (Playbook §2) |
-| **Hook 0–15s** | One continuous morph: eclipse ring → network diagram → ink figures | 3 separate hook beats tied to VO segments 0–2 | §4 continuous montage — largest feel gap (Playbook §6.1) |
-| **Concept card** | Split group photo + `Double.png` glow + matrix HUD | Single `WordmarkBeat` with full-frame `Family.png` + `DOUBLAND.png` | §8.5 — poster + concept layout (Playbook §6.2) |
-| **`Talk.mp4`** | Hero layer on hard-conversation **hook** line | Staged on hook seg 1 but low opacity under graph | §8.7 |
-| **`Family.mp4`** | Human/cast reveal (once) | Not wired — static `Family.png` held across beats | Wire **once** at concept reveal (Playbook §16.12 #3) |
-| **`Village.mp4`** | Cinematic exterior → map bridge | Placed on world beat as clip | Partial — needs handoff into dynamic `WorldMapHUD` (Playbook §16.12 #4) |
-| **`Pressure.mp4`** | Night pressure + gauge | Wired + `PressureGauges` component | Mostly OK — compare grade/intensity |
-| **`Connections.png` / `Connections2.png`** | Relationship diagram **reference boards** | Static PNG underlay + `RelationshipGraph` | Open — rebuild live `RelationshipGraph`; do not render boards directly (Playbook §16.8) |
-| **`Cards1–5.png`** | Identity/trait **component templates** | Grey cut-outs only; boards unused | Open — build `DoubleIdentityCard`, trait cards (Playbook §16.4–16.5, P1) |
-| **`Map.png`** | World map **reference board** | Static PNG on world/turn beats | Partial — rebuild `WorldMapHUD` with sim data (Playbook §16.5) |
-| **`Survival.png`** | Season/mode **reference board** | Static PNG on season/turn | Partial — split into dynamic `SeasonModeBanner` + `SurvivalDashboard` (Playbook §16.5) |
-| **`Asset.png` / `Asset2.png`** | Hook motif **reference boards** | Motifs abstracted in `GoldTransition`, `AiCoreRing` | OK as inspiration — **never direct-render boards** (Playbook §16.8) |
-| **`Profile.png`** | Concept montage plate | Not referenced | Open — concept beat supporting layer (Playbook §16.6) |
-| **Individual PNG cut-outs** | Gosha, Ivan, Katya, Luba | Per-agent cutouts or sheets | OK for Pistsov; needs `--grok` path for new casts |
-| **Transition SFX** | Whoosh / typing on beat changes | Not in Remotion audio mix | §4 — library exists, unwired (Playbook §9) |
-| **Narration** | Hand-edited ElevenLabs v3 warm @ 1.5× | Auto warm @ 1.5× | §8.3 — A/B **trailer** profile; lock `trailer_v3_x1.5` if winner (Playbook §9.1) |
-| **CapCut project** | Blueprint for timing/effects | N/A (headless) | Reference for polish passes, not runtime |
+| **Reference master** | `DOUBLAND1.mov` — 2160×3840, 120fps, 76.6s | 1080×1920 @ 30fps, **~77.2s** (`008`) | P2 resolution/fps; runtime OK |
+| **Hook 0–11s** | Continuous morph | `hookContinuous` + HUD + ink figures | Partial — softer than Anya montage |
+| **Concept card** | Split group + matrix HUD | Three-band poster + deconstruct | **Done** scaffold (**§8.5**) |
+| **`Talk.mp4`** | Hero on hook | Hero ≥0.85 + `ConversationHud` | **Done** |
+| **`Family.mp4`** | Cast reveal once | Deconstruct overlay only | **Done** |
+| **`Village.mp4`** | Exterior → map | World beat + `WorldMapHud` scaffold | Partial P1 |
+| **`Pressure.mp4`** | Night pressure + gauge | Wired + gauges + radial match | Mostly OK |
+| **`Connections*.png`** | Reference boards | Dynamic `RelationshipGraph` / `UiStateMorph` | P1 polish |
+| **`Cards1–5.png`** | Component templates | `ConceptDeconstruct` scaffold | P1 `DoubleIdentityCard` |
+| **`Map.png` / `Survival.png`** | Reference boards | `WorldMapHud` / `SurvivalDashboard` | P1 polish |
+| **Transition SFX** | Beat punctuation | 40 in props; often unstaged | Stage library (**§4**) |
+| **Narration** | Hand-edited warm | Auto warm @ 1.5× | P1 A/B (**§8.3**) |
 
-**Implementation order:** follow **Playbook §12 P0** (canonical). The list below mirrors it for quick cross-ref only — if order differs, **Playbook wins**.
-
-1. Poster/concept split frame + poster still export — **Phase 6B** (timing partial in 6A; art + export frame **open** · §8.5 · Playbook P0 #7–8)
-2. `type-then-hold` + remove headline glitch (§8.2, §8.6 · Playbook P0 #3)
-3. Visual timeline decoupling + hook morph (§4 · Playbook P0 #1–2)
-4. `Talk.mp4` hero on hook hard-conversation line (§8.7 · Playbook P0 #4)
-5. End card hold polish + SFX/mix ~-14 LUFS (Playbook P0 #5–6) — not driven by total-second target
-6. `Family.mp4` once at concept reveal; asset manifest + block reference boards (Playbook §16.12)
-7. Trailer VO A/B (§8.3 · Playbook §9.1)
-8. Cast scale 1–15 + component library (§8.4 · Playbook P1)
-
-### 8.9 Next run checklist (`opener&007` — after Phase 6A)
+### 8.9 Run checklist (`opener&008+`)
 
 ```bash
 # One-time if fresh clone
@@ -378,9 +330,11 @@ cd video/remotion && npm install
 
 # Optional: per-cohort assets (required for non-Pistsov sims)
 python video/assets/scripts-prompts/generate_cutouts.py --grok --skip-existing
-python video/assets/scripts-prompts/generate_group_photo.py --cohort <slug>
+python video/assets/scripts-prompts/generate_group_photo.py --cohort pistsov_family
+python video/assets/scripts-prompts/generate_matrix_photo.py --cohort pistsov_family
 
-python -m video.generate_trailer <sim> opener --mode opener --top 4 --cohort-name "<Cohort label>" --force
+python -m video.generate_trailer base_family_sim opener --mode opener --top 4 --cohort-name "Pistsov family" --force
+# → data/base_family_sim/opener&00N/output/trailer_9x16.mp4 + poster.png
 ```
 
 **Review vs Anya:** `teadown/reference_grabs/` at CSV timecodes + `teadown/scene_spec.md` — not side-by-side scrubbing alone.
@@ -394,15 +348,15 @@ python -m video.generate_trailer <sim> opener --mode opener --top 4 --cohort-nam
 | PNG kit | `…/opening-anya/Anya_PNG_assets/` |
 | Concept still | `…/opening-anya/_teardown/montage_concept.png` |
 | Matrix poster ref | `…/Anya_PNG_assets/Cards5_family-matrix.png` |
-| 006 output | `…/data/base_family_sim/opener&006/output/trailer_9x16.mp4` |
-| 006 props | `…/video/remotion/props/base_family_sim__opener_006.json` |
+| 008 output | `…/data/base_family_sim/opener&008/output/trailer_9x16.mp4` |
+| 008 poster | `…/data/base_family_sim/opener&008/output/poster.png` |
 | Staged render assets | `…/video/remotion/public/render/` (rebuilt each props build) |
 
 **Tags:** SOURCE = original kit · STAGED = Remotion copy · REF = design board only (do not full-frame render) · CODE = Remotion component
 
-### 8.10 Review — `base_family_sim/opener&006` (2026-06-22)
+### 8.10 Review — `opener&006` — Phase 5 P0
 
-**Reference run:** first Phase 5 P0 pass after producer teardown was commissioned.
+**Summary:** First polish pass — type-then-hold, `hookContinuous`, Talk hero, coarse poster, 4s end hold, ~7 SFX, ~82.4s. Superseded by Phase 6; baseline for regression.
 
 | Artifact | Value |
 |---|---|
@@ -412,11 +366,11 @@ python -m video.generate_trailer <sim> opener --mode opener --top 4 --cohort-nam
 | Loudness | **~-13.9 LUFS** after loudnorm; validation PASS |
 | Cast | Pistsov ×4 — showrunner-regenerated trait lines (may differ from Anya lock copy in `text_log.csv`) |
 
-**What 006 proved:** one-command path, type-then-hold text, `hookContinuous`, Talk hero, concept poster + Family.mp4 once, SFX pipeline, poster export, asset manifest.
+**What 006 lacked (now addressed in 008):** producer timing, text/SFX CSV tracks, structured end card, cast panel, mid-URL, UI layers — see **§8.12**.
 
-**What 006 still lacks (Phase 6):** ~50 sub-moments, cast selection panels, mid-trailer URL, UI morph layers, producer-accurate timing (concept @ 10.8s), structured end card, ~39 SFX hits. Baseline for gap closure — compare future runs against this + `teadown/`.
+### 8.11 Review — `opener&007` — Phase 6A
 
-### 8.11 Review — `base_family_sim/opener&007` (2026-06-24) — Phase 6A
+**Summary:** CSV planner + `textTrack` overlay + section retiming. Poster art/timing still wrong — fixed in **008** (**§8.5**, **§8.12**).
 
 | Artifact | Value |
 |---|---|
@@ -424,11 +378,9 @@ python -m video.generate_trailer <sim> opener --mode opener --top 4 --cohort-nam
 | Props | `visualTotalSec` 76.6 · `subMoments` 65 · `textTrack` 51 · `sfx` 40 |
 | Retiming | `hookContinuous` ends **10.8s** · `conceptPoster` starts **10.8s** · poster frame **378** (~12.6s) |
 | Overlay | `SharedCenterReplace` global text track; macro beats use `suppressCenterText` |
-| Poster gaps | Upper tier still `Family.mp4`; caption still "AN AI VERSION OF YOU"; still frame on "TALKING LIKE YOU" handoff |
+| Poster gaps (007) | Upper `Family.mp4`; caption "AN…"; still @ 12.6s — **fixed in 008** |
 
-**Next:** Phase 6B — **poster still / concept card (§8.5)**, then `questionToUrlTakeover`, hook handoffs, hero video policy.
-
-### 8.12 Review — `base_family_sim/opener&008` (2026-06-22) — Phase 6B–6D combined
+### 8.12 Review — `opener&008` — Phase 6B–6D (current reference)
 
 | Artifact | Value |
 |---|---|
@@ -439,4 +391,29 @@ python -m video.generate_trailer <sim> opener --mode opener --top 4 --cohort-nam
 
 **Manual QA:** diff vs `teadown/reference_grabs/` at 0.033 · 11.3 · 41.4 · 53 · 59.4 · 73.8s.
 
-**Known gaps (P1):** cohort `group_photo` still Anya fallback until Grok run; SFX files may be unstaged; cast/world UI are functional scaffolds not final art.
+**Known gaps (→ P1):** cohort Grok photos; staged SFX; UI scaffold art fidelity vs Anya boards (**§4**, **§8.8**).
+
+### 8.13 Master verification addendum (2026-06-24)
+
+**Source:** `teadown/20260624_doubland_master_verification_addendum.md` — corrections verified against `DOUBLAND1.mov` (2160×3840 native 9:16, **76.578s**).
+
+**What changed in teadown + code (not a Phase 6 rebuild):**
+
+| Item | Master-correct value | Code status |
+|---|---|---|
+| Runtime metadata | 76.578 s | `visualTotalSec` + end-card `urlOnly` → **76.578** |
+| Poster §0 | 0.000–0.050 s flash | `posterFlash` ≈ frames 0–1 @ 30 fps |
+| Hook §1 start | 0.050 s + black reset | `hookContinuous` retimed; WHAT IF display **0.133 s** |
+| End §18.5 | 76.000–76.578 s URL hold | Phases updated; no post-settle pulse |
+| Native 9:16 | Full canvas, no proxy margins | Remotion 1080×1920 — OK |
+
+**Copy policy (locked 2026-06-24):**
+
+| String | Anya reference master | Product / auto-gen |
+|---|---|---|
+| Poster band | AN AI VERSION OF YOU | **AI VERSION OF YOU** |
+| Season line | THE PISTSOFF FAMILY ENTERS (typo) | **THE PISTSOV FAMILY ENTERS** |
+
+Reference CSVs in `teadown/` keep Anya’s literal strings for audit; `build_text_track()` applies the product corrections above at render time.
+
+**QA timecodes (post-verification):** 0.033 · **0.133** · 11.3 · 41.4 · 53 · 59.4 · 73.8 · **76.578**

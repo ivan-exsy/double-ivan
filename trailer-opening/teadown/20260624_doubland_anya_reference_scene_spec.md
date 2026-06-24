@@ -1,25 +1,25 @@
 # Doubland — Anya reference trailer visual specification
 
 **Prepared:** 2026-06-24  \
-**Analyzed source:** `doubland_small(1).mp4`  \
-**Measured runtime:** 76.600 s  \
-**Proxy encoding:** 1280×720, 30 fps, AAC 48 kHz stereo  \
-**Active picture:** centered ~405×720 vertical image inside black side margins  \
-**Method:** reference-only pass; no comparison against an automated render
+**Analyzed source:** `DOUBLAND1.mov`  \
+**Measured runtime:** 76.578 s  \
+**Encoding:** 2160×3840 native 9:16, HEVC, variable frame cadence, AAC 44.1 kHz stereo  \
+**Method:** reference-only pass; core analysis from compressed proxy, verified against master (see `20260624_doubland_master_verification_addendum.md`)
 
 ## Measurement notes
 
-- Timecodes are measured against the uploaded 30 fps proxy; hard-cut boundaries are frame-aligned where detectable.
-- Scale, crop and opacity values are visual estimates from a flattened export. Treat them as proportional rebuild targets, not source-project metadata.
-- Audio descriptions are classifications from the embedded final mix. Without music/VO/SFX stems, exact source-file names and millisecond starts cannot be guaranteed; listed sync offsets are practical rebuild estimates.
-- The first-frame poster is present for only two frames (~67 ms) in this proxy.
+- Timecodes are measured against the **2160×3840 native master**; hard-cut boundaries are frame-aligned where detectable.
+- Scale, crop and opacity values are visual estimates. Treat them as proportional rebuild targets inside the full 9:16 canvas, not proxy-side-margin metadata.
+- Audio descriptions are classifications from the embedded final mix. Master/proxy audio align at **0 ms offset** with **0.998 normalized waveform correlation**.
+- The first-frame poster is a **three decoded source-frame flash (~50 ms)** — a momentary pre-roll, not a readable hold.
+- Master verification confirmed the original **65-sub-moment structure**; no structural retiming outside head (§0–§1) and tail (§18).
 
 ## Section-level map
 
 | Section | Time | Function | Dominant handoff |
 |---|---:|---|---|
-| 0 · Poster | 0:00.000–0:00.067 | Two-frame concept poster flash | Hard removal to black |
-| 1 · Hook — second chance | 0:00.067–0:04.200 | Question + AI core + human silhouettes | Opacity reset; WHAT IF survives |
+| 0 · Poster | 0:00.000–0:00.050 | Three-frame concept poster flash | Hard removal to black |
+| 1 · Hook — second chance | 0:00.050–0:04.200 | Question + AI core + human silhouettes | Black reset; WHAT IF readable ~0:00.133 |
 | 2 · Hook — hard conversation | 0:04.200–0:08.600 | Conversation rehearsal UI | Upper-layer morph; lower figures persist |
 | 3 · Hook — Double tease | 0:08.600–0:10.800 | Minimal question → brand wordmark | Text meaning becomes logo |
 | 4 · Concept / poster | 0:10.800–0:19.467 | Definition + identity/decision demonstrations | Poster deconstructs into cards/tree |
@@ -33,7 +33,7 @@
 | 15 · Live / replay | 1:00.900–1:06.433 | Live day/night, follow, replay | Text persists across background swaps |
 | 16 · Not just avatars | 1:06.433–1:08.167 | Identity-card row and proof tile | Card-row rebuild |
 | 17 · Learn / change / surprise | 1:08.167–1:11.667 | Dashboard evidence cycles | Lower panel replacement under persistent card row |
-| 18 · End card | 1:11.667–1:16.600 | Reflective scene → final question → URL | Hard callback then opacity takeover |
+| 18 · End card | 1:11.667–1:16.578 | Reflective scene → final question → URL | Hard callback then opacity takeover |
 
 ## Detailed sub-moment specification
 
@@ -41,32 +41,32 @@
 
 | Field | Specification |
 |---|---|
-| **Timecode** | `0:00.000 – 0:00.067` |
-| **Duration feel** | Two-frame flash; functions as a pre-roll poster, not a readable hold. |
+| **Timecode** | `0:00.000 – 0:00.050` |
+| **Duration feel** | Three decoded source-frame flash (~50 ms); pre-roll poster, **not** a readable in-motion card. |
 | **Narration overlap** | No narration yet. |
 | **Background** | Black field with a three-band concept composition inside the active 9:16 frame. |
 | **Mid layer(s)** | Top: darkened family group with faint cyan scan/HUD treatment. Bottom: clean family group at full color. |
 | **Foreground** | Large outlined blue DOUBLE wordmark across the upper group; centered white line AN AI VERSION OF YOU. |
 | **Motion detail** | All elements are already composed on frame 0; no visible entrance before the cut. |
 | **Handoff IN** | Start of file. |
-| **Text on screen** | DOUBLE · AN AI VERSION OF YOU. Static for ~2 frames. |
+| **Text on screen** | DOUBLE · AN AI VERSION OF YOU. Static for ~3 decoded frames (~50 ms). |
 | **Audio** | Music/mix is already present at the head; no isolated SFX can be separated confidently in the flattened mix. |
-| **Handoff OUT** | Abrupt removal to black at 0:00.067; no dissolve. |
+| **Handoff OUT** | Abrupt removal to black at 0:00.050; no dissolve. |
 | **Asset ID(s)** | Family group stills; DOUBLE wordmark; scan/HUD overlay. |
-| **Mobile notes** | Poster is centered and legible, but the 67 ms duration is too short for intentional viewing; treat as a thumbnail flash unless the source master has a longer pre-roll. |
+| **Mobile notes** | Native 9:16 master — the visible composition is the framing reference. Duration too short for intentional reading; treat as thumbnail flash only. |
 
 ### 1.1 · Hook — second chance
 
 | Field | Specification |
 |---|---|
-| **Timecode** | `0:00.067 – 0:00.900` |
-| **Duration feel** | ~0.83s; immediate, sparse opening. |
+| **Timecode** | `0:00.050 – 0:00.900` |
+| **Duration feel** | ~0.85s; sparse opening after brief black reset. |
 | **Narration overlap** | “What if…” |
-| **Background** | Near-black field. |
+| **Background** | Near-black field (brief black reset from poster through ~0:00.133). |
 | **Mid layer(s)** | Very faint grain/particle noise only. |
-| **Foreground** | WHAT IF… centered slightly above vertical middle. |
-| **Motion detail** | Headline appears nearly immediately, then holds perfectly still; no continuous pulse. |
-| **Handoff IN** | Hard cut from the two-frame poster. |
+| **Foreground** | WHAT IF… centered slightly above vertical middle — **becomes visibly readable at approximately 0:00.133**, not on the first post-poster frame. |
+| **Motion detail** | Headline types/fades in after black reset, then holds perfectly still; no continuous pulse. |
+| **Handoff IN** | Hard cut from poster flash to black; brief black gap before headline is readable. |
 | **Text on screen** | WHAT IF… · white bold caps · quick type/fade-on, then static. |
 | **Audio** | VO begins on the headline; low electronic bed continues. A short high-frequency digital tick is audible near the visual start (~0.22s in the mix). |
 | **Handoff OUT** | AI ring begins to reveal above the headline; headline remains as the anchor. |
@@ -319,7 +319,7 @@
 | **Foreground** | TALKING LIKE YOU centered between cards. |
 | **Motion detail** | Cards scale/fade in from opposite directions. Progress bars fill once left→right, then stop. Portraits remain static after entry. |
 | **Handoff IN** | Top/bottom family bands dissolve into the two profile cards; cyan frame language is shared. |
-| **Text on screen** | TALKING LIKE YOU · white caps · type-on, then hold. Card microcopy includes names, AI DOUBLE, ONLINE and match percentages (~78% Katya, ~64% Ivan visible in proxy). |
+| **Text on screen** | TALKING LIKE YOU · white caps · type-on, then hold. Card microcopy includes names, AI DOUBLE, ONLINE and match percentages (**78% Katya, 64% Ivan** confirmed on master). |
 | **Audio** | UI reveal accents around 12.8–13.3s; no continuous typing SFX after the caption settles. |
 | **Handoff OUT** | Cards swap identities/positions without returning to black. |
 | **Asset ID(s)** | Katya and Ivan identity cards; progress bars. |
@@ -461,7 +461,7 @@
 | **Background** | Full-frame top-down pixel-art village map; tiny avatars/NPCs move along paths. |
 | **Mid layer(s)** | No heavy HUD; map itself is the hero. |
 | **Foreground** | THEN YOU WATCH IT LIVE centered. |
-| **Motion detail** | Hard cut, then caption types and stops. Background has continuous small character movement; no artificial zoom is obvious in the proxy. |
+| **Motion detail** | Hard cut, then caption types and stops. Background has continuous small character movement; **no artificial camera zoom** visible in the master. |
 | **Handoff IN** | Hard cut from black, marked by a low digital impact. |
 | **Text on screen** | THEN YOU WATCH IT LIVE · white caps · type-on, hold. |
 | **Audio** | Strong low-frequency hit around 24.22s, ~0–150ms after picture cut; light typing ticks follow. |
@@ -658,7 +658,7 @@
 | **Narration overlap** | “Four Doubles.” |
 | **Background** | Black; family group stays at bottom. |
 | **Mid layer(s)** | Top trait cards remain. Middle: larger four-card ACTIVE DOUBLES panel with Katya, Gosha, Luba/Lyuba, Ivan; white hand cursor moves onto a card and clicks. |
-| **Foreground** | FOUR PERSONALITIES remains briefly, then clears; no separate FOUR DOUBLES caption is visibly readable in the proxy. |
+| **Foreground** | FOUR PERSONALITIES remains briefly, then clears; **no separate FOUR DOUBLES headline is visibly readable** — the four-card selection UI communicates that line. |
 | **Motion detail** | ACTIVE DOUBLES panel scales in and sharpens; cursor moves diagonally and performs a single click. At 41.43s the selected card expands via radial/zoom blur. |
 | **Handoff IN** | The trait-card row is reinterpreted as a selectable cast interface. |
 | **Text on screen** | No new locked headline beyond the lingering FOUR PERSONALITIES; “Four Doubles” is communicated by the four-card UI. |
@@ -1193,8 +1193,8 @@
 
 | Field | Specification |
 |---|---|
-| **Timecode** | `1:16.000 – 1:16.600` |
-| **Duration feel** | ~0.60s; concise final hold. |
+| **Timecode** | `1:16.000 – 1:16.578` |
+| **Duration feel** | ~0.58s; concise final hold. |
 | **Narration overlap** | No narration. |
 | **Background** | Near-black. |
 | **Mid layer(s)** | Wireframe figure is barely visible or gone. |
@@ -1205,7 +1205,7 @@
 | **Audio** | Music/SFX tail fades to end. |
 | **Handoff OUT** | End of file; no additional logo card. |
 | **Asset ID(s)** | URL text. |
-| **Mobile notes** | Final readable hold in this proxy is ~0.6s; longer platform-specific hold may be added separately, but it is not present here. |
+| **Mobile notes** | Final readable hold is ~0.58s on master; no pulse/scale after URL settles. |
 
 ## Cross-cutting summary
 
@@ -1278,7 +1278,7 @@ Two-frame bright poster → near-black cyan/red hook → brighter portrait conce
 - Character faces are kept away from caption bands; full-body captions cross torso/waist, never the face.
 - Dense HUD panels are pushed to upper/lower corners, preserving a central text channel.
 - Full-opacity or near-full-opacity video is used for hero world moments; overlays are darkened locally rather than reducing the whole clip to a faint background.
-- The proxy contains black side margins outside the active 9:16 image; these are encoding margins, not design safe zones.
+- The master is **native 9:16**; the visible composition is the framing reference — not a landscape wrapper with side margins.
 
 ### End-card sequence
 
@@ -1288,8 +1288,8 @@ Two-frame bright poster → near-black cyan/red hook → brighter portrait conce
 | Lead-in | 1:12.733–1:13.800 | Same deck + YOU ASK | Text static after quick reveal. |
 | Question | 1:13.800–1:15.300 | Wireframe speaker + WHAT WOULD MY DOUBLE DO? | No motion in question after settle. |
 | URL takeover | 1:15.300–1:16.000 | Question dims as WWW.DOUBLAND.AI appears | Brief opacity overlap only. |
-| Final hold | 1:16.000–1:16.600 | WWW.DOUBLAND.AI alone | No pulse/scale; faint glow and audio tail. |
+| Final hold | 1:16.000–1:16.578 | WWW.DOUBLAND.AI alone | No pulse/scale; faint glow and audio tail. |
 
 ### Poster frame
 
-Frame 0 is a three-band thumbnail composition: dark scanned family image at top with a large outlined blue DOUBLE wordmark, white AN AI VERSION OF YOU in the center gap, and a brighter clean family image at the bottom. It is visually strong enough to function as a cover image, but in this proxy it lasts only two frames before the hook starts.
+Frame 0 is a three-band thumbnail composition: dark scanned family image at top with a large outlined blue DOUBLE wordmark, white AN AI VERSION OF YOU in the center gap, and a brighter clean family image at the bottom. It is visually strong as a cover image but lasts only **~50 ms (three decoded frames)** before black reset and the hook. Preserve literal reference string `THE PISTSOFF FAMILY ENTERS` unless intentionally correcting product copy.
