@@ -1,0 +1,52 @@
+time_sec,exact_string,animation,hold_sec,exit
+0.0,DOUBLE / AN AI VERSION OF YOU,static poster,0.067,hard removal
+0.067,WHAT IF…,quick type/fade then hold,0.833,replaced by ring sentence
+0.9,YOU HAD A SECOND CHANCE,type-on; cursor during type only,~0.7,phrase swap
+2.333,TO MAKE IT RIGHT?,type-on then hold,~1.0,opacity reset to WHAT IF
+4.2,WHAT IF…,static reset,~0.5,clears for sentence
+4.8,YOU COULD PRACTICE,type-on,~0.4,phrase swap
+5.533,THAT HARD CONVERSATION,type-on then hold,~1.2,phrase swap
+7.467,BEFORE IT EVER HAPPENED?,type-on then hold,~0.6,glitch collapse
+8.6,WHAT IF…,brief glitch/type then hold,~0.5,phrase swap
+9.4,YOU HAD A DOUBLE,type-on then hold,~0.4,word-to-logo
+10.3,DOUBLE,scale/glitch logo hit,~0.5,becomes poster wordmark
+10.8,AN AI VERSION OF YOU,type-on then hold,~1.3,poster deconstructs
+12.6,TALKING LIKE YOU,type-on then hold,~1.0,card swap
+14.2,REACTING LIKE YOU,type-on then hold,~1.0,card swap
+15.9,MAKING CHOICES LIKE YOU,type-on then hold,~1.5,fade to logo
+18.5,DOUBLAND / SIMULATION ACTIVE,scan/flicker in,~1.0,logo match-carry
+20.1,YOU CREATE AN AI DOUBLE,type-on then hold,~0.7,UI build
+21.4,BASED ON YOUR PERSONALITY,type-on then hold,~1.2,fade to black
+24.033,THEN YOU WATCH IT LIVE,type-on then hold,~0.7,phrase swap
+25.4,IN A WORLD WITH OTHER DOUBLES,type-on then hold,~0.6,hard cut
+27.167,EVERY CONVERSATION,type-on then hold,~0.7,UI state morph
+28.633,EVERY CHOICE,type-on then hold,~0.7,UI state morph
+30.0,EVERY RELATIONSHIP,type-on then hold,~1.0,hard cut
+31.767,THIS SEASON,type-on then hold,~0.7,phrase swap
+33.0,THE PISTSOFF FAMILY ENTERS,type-on then hold,~1.4,fade to warning
+35.033,SURVIVAL MODE / INITIATED,scan/glitch reveal,~1.5,fade
+36.833,FOUR FAMILY MEMBERS,type-on then hold,~0.8,phrase swap
+38.3,FOUR PERSONALITIES,type-on then hold,~1.0,clears during selection UI
+41.433,GOSHA THINKS THREE MOVES AHEAD,type-on then hold,~1.1,hard cut to panel
+43.9,IVAN REFUSES TO LOSE,type-on then hold,~1.2,hard cut to panel
+46.3,KATYA KNOWS HOW TO MOVE PEOPLE,type-on then hold,~1.2,hard cut to panel
+49.133,LYUBA STAYS CALM,type-on,~0.5,phrase swap
+50.2,UNTIL EVERYONE REALIZES THEY UNDERESTIMATED HER,multi-line type-on then hold,~1.2,radial blur
+53.067,PRESSURE LEVEL: LOW,embedded gauge label,~1.3,label swap
+54.4,PRESSURE LEVEL: CRITICAL,embedded gauge label,~1.5,fade
+55.9,SEE WHAT HAPPENS,type-on then hold,~0.7,hard cut
+57.0,WHEN RELATIONSHIPS,type-on,~0.7,phrase swap
+58.3,BECOME,quick type-on,~0.25,phrase swap
+58.65,PART OF THE GAME,type-on then hold,~0.7,URL wipe
+59.4,WWW.DOUBLAND.AI,plate reveal then hold,~1.1,clear
+60.9,WATCH LIVE 24/7,type-on then hold,~1.6,background cut; text persists
+63.0,FOLLOW ANY DOUBLE,type-on then hold,~0.8,phrase swap
+64.4,REPLAY EVERY MOMENT,type-on then hold,~1.3,hard cut
+66.433,THESE AREN'T JUST AVATARS,type-on then hold,~1.0,phrase swap
+68.167,THEY LEARN,type-on then hold,~0.5,phrase swap
+69.167,THEY CHANGE,type-on then hold,~0.4,phrase swap
+70.0,THEY SURPRISE YOU,type-on then hold,~1.1,fade
+71.667,AND AFTER A WHILE,type-on then hold,~0.6,phrase swap
+72.733,YOU ASK,quick reveal then hold,~0.7,hard cut
+73.8,WHAT WOULD MY DOUBLE DO?,quick type/fade then hold,~1.5,opacity takeover
+75.3,WWW.DOUBLAND.AI,blue fade/slide in,~0.6 isolated,end

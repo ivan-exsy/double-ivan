@@ -1,6 +1,6 @@
 # Anya Opener Trailer — Per-Scene Production Spec (reverse-engineered)
 
-> Frame-accurate teardown of `video/opening-anya/DOUBLAND1.mov` (1080×1920 vertical, ~76.6s) to rebuild it in auto-gen mode. Companion to `20260617_vertical-trailer-automation.md` (architecture) and the v3.0 section of `20260501_opening-trailer.md` (pipeline change list). Source for timings: ffmpeg frame sampling (0.5–1.5s) + scene-cut detection + Ivan's annotated concept screenshots. **Timecodes are ±0.5s** (sampled, not from Anya's project file).
+> Frame-accurate teardown superseded by **`trailer-opening/teadown/`** (2026-06-24 producer pass). Kept for history. Active docs: [`20260617_vertical-trailer-automation.md`](../../trailer-opening/20260617_vertical-trailer-automation.md) (implementation) · [`20260501_opening-trailer.md`](../../trailer-opening/20260501_opening-trailer.md) (bible).
 
 ## Format & global facts
 
