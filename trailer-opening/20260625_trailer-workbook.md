@@ -32,13 +32,51 @@ Manual Grok work on soul15 is **R&D** — prompts, QA gates, and file layout get
 
 | Phase | Content | Target duration |
 |---|---|---|
-| Open | Active Doubles panel — all 15 visible | ~2–3 s |
-| Body | 15 rapid full-screen hero spotlights + trait VO (one per person) | ~25–35 s |
-| Close | Full-cast matrix / group frame — all 15 online | ~2–3 s |
+| Open | Static 5×3 matrix identity grid — all 15 visible | **3.5 s** |
+| Body | 15 hero spotlights (tile morph in/out + fullscreen hold) + trait VO | **~40 s** visual (~2.6 s × 15; anchors 3.0 s) |
+| Close | Full-cast matrix photo — all 15 online | **2.5 s** |
 
-Pacing target per person: **~1.5–2.2 s** visual hold + trait line in VO (faster than Anya's ~2.3 s per Pistsov hero, but still full-screen and readable).
+**Cast block total (visual only, no VO):** ~**46 s**. Full opener target **~90–105 s** unchanged.
 
-Remotion strategy name (for later engineering): `fifteen_spotlight_montage`.
+Pacing per person: **2.6 s** default spotlight beat (**3.0 s** for `anchor_spotlight` rows in manifest). Trait text appears at **scale-up** (not only fullscreen hold) — see motion grammar above.
+
+Remotion strategy name: `fifteen_spotlight_montage`.
+
+### Cast montage motion grammar (locked 2026-06-25)
+
+**Approved preview:** `video/remotion/out/soul15_seed_20260224_spotlight_preview_v2.mp4`
+
+| Beat | Component | Duration | Behaviour |
+|---|---|---:|---|
+| **3a — Intro** | `MatrixIdentityGrid` (5×3) | **3.5 s** | Static roster; HUD `ACTIVE DOUBLES` / `PERSONALITIES UPLOADED ...`. Last **0.25 s** dims non-selected tiles and highlights spotlight #1 for handoff. |
+| **3b — Per person** | `HeroSpotlightBeat` | **2.6 s** default / **3.0 s** anchors | Six micro-phases per double (below). |
+| **3c — Close** | `FullCastMatrixBeat` | **2.5 s** | Registered `group_photo_matrix.png`; `N DOUBLES ONLINE`. |
+
+**Per-double micro-phases** (content and geometry decoupled — roster stays still):
+
+| Step | Duration | Size | Content |
+|---|---:|---|---|
+| Hold | 0.25 s | Tile | Matrix identity card highlighted; **no pulse / glow** |
+| Content in | 0.35 s | Tile | Card → hero photo crossfade **before** scale |
+| Scale up | 0.45 s | Tile → fullscreen | Photo only; grid fades behind; **name + trait visible** |
+| Hero hold | remainder | Fullscreen | Photo + bottom caption |
+| Scale down | 0.45 s | Fullscreen → tile | Photo only; caption stays |
+| Content out | 0.28 s | Tile | Photo → card for next handoff |
+
+**Rejected (do not reintroduce):** moving carousel / filmstrip intro; combined zoom+crossfade (light→dark flash at large size); fullscreen card layout on collapse; animated box-shadow / grid-scale “glow beat” on phase changes.
+
+**Code map:** `video/fifteen_spotlight_beat_map.py` (timing) · `video/remotion/src/components/matrixGridLayout.ts` (phases) · `video/remotion/src/beats/FifteenSpotlight.tsx` · `video/build_fifteen_spotlight_props.py` (preview props + versioned render name).
+
+**Preview workflow:**
+
+```bash
+python -m video.build_fifteen_spotlight_props --cohort soul15_seed_20260224
+cd video/remotion
+npx remotion render OpenerTrailer out/soul15_seed_20260224_spotlight_preview_vN.mp4 \
+  --props=props/soul15_seed_20260224__spotlight_preview.json
+```
+
+Builder prints the next `_vN` filename automatically (`--version N` to override). Keep prior renders for A/B comparison.
 
 ---
 
@@ -265,8 +303,8 @@ Each item produces **soul15 assets** and an **automation artifact** for the next
 | **0b** | **Seed soul15 manifest in Supabase** — 15 personas, **locked trait lines**, spotlight order; export `manifest.json` for dev | `build_cohort_manifest.py`: sim + personas + souls → **DB rows** (+ optional JSON export); trait lines `approved` on write |
 | **1** | Migrate/register existing character sheets + walkouts (15/15) in Storage + asset table | Upload/register step in asset generators; UUID-keyed paths in DB |
 | **2** | Per-person **new** assets ×15 (cutout, portrait, hero spotlight) | Generators write Storage + asset rows; prompt templates in DB or `prompts/` until prompt registry exists |
-| **3** | Group photo + matrix poster tier | Same — cohort-level asset rows; matrix derived from registered group photo id |
-| **4** | Cast montage assets (Active Doubles 15 + full-cast matrix) | Layout tier in manifest row; Remotion props resolve Storage URLs |
+| **3** | Group photo + matrix poster tier | **Done** — soul15 rows + matrix HUD | Cohort asset rows; matrix derived from group photo |
+| **4** | Cast montage Remotion (`fifteen_spotlight_montage`) | **Done** — preview v2 approved | Layout + morph grammar in repo; props builder + versioned preview |
 | **5** | Trait lines + VO script in Supabase | Showrunner: N `cast_intro` from **manifest/cache trait lines** (no per-render LLM when row exists) |
 | **6** | World / Survival / relationship assets | Sim-scoped asset rows + relationship graph from Supabase edges |
 | **7** | **`prompt_log.md`** — every accepted Grok step | Prompt registry (DB or repo) keyed by `asset_type` + `prompt_hash` |
@@ -314,11 +352,11 @@ Each phase: **manual proof on soul15** → **automation artifact** → **gate be
 | **0b** | Seed soul15 rows — **locked trait lines** (approved 2026-06-25), spotlight order | `build_cohort_manifest.py` writes **Supabase**; exports JSON for dev | 15 rows; all `trait_line_status: approved` |
 | **1** | **Done 2026-06-25** — Max Shoemaker hero + portrait; visual QA pass; 720×1280 accepted | `generate_opener_hero_assets.py` + `register_cohort_trailer_assets.py` | 1 persona asset rows `qa_status: approved` |
 | **1b** | **Auto 2026-06-25** — 14 generated + Max skipped; all uploaded; Ivan spot-check pending | `generate_opener_hero_assets.py --skip-existing --upload` | All 15 approved in DB |
-| **2** | Group photo + matrix tier | Cohort asset rows; matrix links to group photo id | Poster tiers same cast in Storage |
-| **3** | Active Doubles panel + full-cast matrix | 15-node layout spec; props resolve Storage URLs | Readable at phone size |
+| **2** | **Done 2026-06-25** — group photo (3 rows) + matrix tier; Supabase registered | `cast_group_layout.py`, matrix HUD, Storage rows | Poster tiers match cast in Storage |
+| **3** | **Done 2026-06-25** — `fifteen_spotlight_montage` visual QA (**preview v2 approved**) | Beat map + Remotion beats + `build_fifteen_spotlight_props` | Motion grammar locked; versioned previews |
 | **4** | World / Survival / graph assets | Sim asset rows + relationship graph from Supabase | No Pistsov/Anya reuse |
 | **5** | VO + SFX staging | Showrunner reads **trait lines from DB/manifest**; SFX staged (Storage or shared kit) | 15 segments in timing JSON |
-| **6** | Remotion render; upload outputs | `fifteen_spotlight_montage`; `--top 15`; validator | PASS report + run row in DB |
+| **6** | Remotion render; upload outputs | `fifteen_spotlight_montage` cast block done; **full opener render pending** | PASS report + run row in DB |
 | **7** | **Second-cohort smoke test** | Full path without local `video/assets/cohort/` dependency | One command; DB + Storage only |
 
 **Immediate sequence:** Phase 0a → 0b → Phase 1 (one person) → script + Supabase register → Phase 1b → Phase 2.
@@ -407,7 +445,7 @@ No line reads as wrong-cast or generic filler. soul15 lines are **locked** for t
 
 Reorder `spotlight_order` for trailer rhythm after trait lines are drafted.
 
-### 2. Poster And Group Assets
+### 2. Poster And Group Assets — **Phase 2 done 2026-06-25**
 
 Required for the opening flash and poster/export frame:
 
@@ -454,16 +492,18 @@ Every person needs assets for **full-screen spotlight + spoken trait line**:
 
 Optional: 2–3 **anchor** spotlights (slightly longer hold or stronger pose) for montage rhythm — still part of the all-15 sequence.
 
-### 4. Cast Montage Layout Assets (Option A)
+### 4. Cast Montage Layout Assets (Option A) — **Done 2026-06-25 (visual QA: preview v2)**
 
 Supports rapid spotlight montage; **not** 15 separate panel→zoom interstitials.
 
-| Asset | Priority | Role |
-|---|---|---|
-| **Active Doubles panel (15)** | Critical | Opening cast beat — all names/portraits visible before montage |
-| **Full-cast matrix frame** | Critical | Closing cast beat — "all 15 online" |
-| **Cluster group visuals** | Optional | Relationship / pressure sections only — not for introducing cast |
-| **Per-person selection panel** | Skip | Pistsov pattern; not used in Option A |
+| Asset | Priority | Role | Status |
+|---|---|---|---|
+| **Active Doubles grid (15)** | Critical | Opening beat — static 5×3 `MatrixIdentityCard` tiles | **Done** — `MatrixIdentityGrid` |
+| **Hero spotlight morph** | Critical | Tile content-swap → scale up → hold → scale down → content-out | **Done** — `HeroSpotlightBeat` |
+| **Full-cast matrix frame** | Critical | Closing beat — "all 15 online" | **Done** — `FullCastMatrixBeat` |
+| **Cluster group visuals** | Optional | Relationship / pressure sections only | Not started |
+| **Per-person selection panel** | Skip | Pistsov pattern; not used in Option A | N/A |
+| **Moving carousel / filmstrip** | Skip | Rejected — unreadable at 15 cards | N/A |
 
 ### 5. Relationship And Social Assets
 
@@ -781,9 +821,12 @@ Map to phased walkthrough — implement as each pilot phase completes, not after
 | `register_cohort_trailer_assets.py` | 1b | Upload/register cohort hero + portrait paths |
 | `validate_cohort_assets.py` | 1 | Queries DB + Storage, not local paths |
 | Extend cutouts / hero generators for `--cohort` | 1–1b | Storage upload on success |
-| `generate_group_photo.py` + matrix for 15 | 2 | Asset rows + cohort refs |
-| `export_relationship_graph` from Supabase | 4 | 15-node layout |
-| Showrunner: N `cast_intro` from **DB trait lines** | 5 | No per-render LLM when manifest/cache row exists |
-| `fifteen_spotlight_montage` in Remotion | 6 | Props resolve Storage URLs |
+| `generate_group_photo.py` + matrix for 15 | 2 | **Done** — soul15 group + matrix registered |
+| `fifteen_spotlight_beat_map.py` + Remotion cast beats | 3–4 | **Done** — motion grammar locked; preview v2 |
+| `build_fifteen_spotlight_props.py` | 3–4 | **Done** — versioned `_vN` preview outputs |
+| `build_opener_remotion_props.py` `fifteen_spotlight_montage` branch | 6 | Wired — swaps Package A cast beats when strategy set |
+| `export_relationship_graph` from Supabase | 4 | 15-node layout — not started |
+| Showrunner: N `cast_intro` from **DB trait lines** | 5 | **Done** — prefers `cohort_trailer_cast.trait_line` |
+| `fifteen_spotlight_montage` full opener render | 6 | Props resolve Storage URLs; full render + upload pending |
 | `generate_trailer --top 15` + validator ~90–105 s | 6 | Upload render + run metadata |
 | Second-cohort smoke test (DB-only path) | 7 | Automation definition of done |

@@ -230,7 +230,7 @@ Target: any sim with **1–15 Doubles** renders without manual Remotion edits, w
 
 - **Supabase-first foundation** — cohort manifest table, `trailer_asset` registry, Storage buckets; migrate soul15 bootstrap off disk JSON
 - **Trait line workflow** — seed or LLM-generate → write DB/cache with `trait_line_status: approved` in one step; showrunner reads on render (**no manual approval gate**; `pinned` only for hand-edits)
-- **Cast scale** — raise `--top` to 15; soul15 `fifteen_spotlight_montage`; cast block ≤ ~20s where tier allows
+- **Cast scale** — `--top 15`; soul15 `fifteen_spotlight_montage` **cast block implemented** (~46 s visual); full opener ~90–105 s pending VO/world beats
 - **Relationship graph** — Supabase-driven labels; 2–15 node layouts
 - **Per-cohort assets** — generate → **Storage upload + asset row**; validator queries DB; fail/warn on missing (**§8.5**)
 - **Component polish** — identity cards, map HUD, survival/turn UI to match Anya boards (**§8.8**)
@@ -260,6 +260,12 @@ python video/assets/scripts-prompts/generate_cutouts.py --skip-existing
 python video/assets/scripts-prompts/generate_group_photo.py --cohort pistsov_family
 python video/assets/scripts-prompts/generate_matrix_photo.py --cohort pistsov_family
 python -m video.export_relationship_graph --personas video/assets/scripts-prompts/personas_base_family_sim_full.json -o graph.json
+
+# soul15 cast-block preview (fifteen_spotlight_montage) — versioned MP4 for A/B review
+python -m video.build_fifteen_spotlight_props --cohort soul15_seed_20260224
+cd video/remotion && npx remotion render OpenerTrailer out/soul15_seed_20260224_spotlight_preview_vN.mp4 \
+  --props=props/soul15_seed_20260224__spotlight_preview.json
+# ↑ replace vN with the version printed by the props builder (auto-increments)
 ```
 
 ---
