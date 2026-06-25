@@ -9,6 +9,8 @@ Creative bible → `sot-opening-trailer.md` · Visual SOT → `teadown/`
 
 **Duration policy:** Total trailer length is **not a hard product requirement**. A few seconds vs Anya's hand cut is fine (e.g. **~76.7s** narration vs **~77s** final MP4 on `opener&008`). **Larger casts are expected to produce longer trailers** — tiered layouts keep the cast *block* efficient (~15–20s); validator band today **65–95s**.
 
+**Data posture (2026-06-25):** Trailer pipeline must be **Supabase-first** — read cast, scratch, relationships, and trait lines from Supabase; write generated assets, copy, QA status, and render outputs back to **Supabase Storage + DB tables**. Local paths (`video/assets/`, `data/*/opener&*`, `remotion/public/render/`) are **dev/bootstrap or render transport**, not canonical state. See **`20260625_trailer-workbook.md` § Data posture** for the pilot plan; soul15 work should not add new disk-only SOT paths.
+
 ---
 
 ## Implementation status
@@ -35,22 +37,28 @@ The pipeline is **production-capable for Pistsov ×4**: one-command `generate_tr
 
 | Priority | Item | Detail in doc |
 |---|---|---|
+| **Now** | **Supabase-first trailer schema** — cohort manifest, asset registry, Storage buckets; stop growing disk SOT | **§5.1**, workbook Phase 0a |
+| **Now** | **soul15 pilot** — seed manifest + **locked trait lines** in DB; register existing sheets/walkouts | **`20260625_trailer-workbook.md`** |
 | **Now** | Manual QA — diff latest render vs `teadown/reference_grabs/` at CSV timecodes; add **0.133s** (WHAT IF) check | **§8.12**, **§8.13** |
-| **Now** | Per-cohort **Grok group + matrix photos**; stop silent Anya `Family.png` fallback on new sims | **§8.5**, **§8.4** |
-| **Now** | Stage **SFX library** locally (`video/audio/sfx/`) so 40 prop events are audible | **§4**, **§7** |
-| **P1** | Cast scale **1–15**, tiered layouts, cast block ≤ ~20s | **§8.4**, **§6** (P1 list) |
+| **Now** | Per-cohort **Grok group + matrix photos** → **Storage + asset rows**; stop silent Anya `Family.png` fallback | **§8.5**, **§8.4**, **§5.1** |
+| **Now** | Stage **SFX library** (shared kit or Storage); 40 prop events audible | **§4**, **§7** |
+| **P1** | Cast scale **1–15**, tiered layouts, cast block ≤ ~20s; soul15 Option A montage | **§8.4**, **§6** |
+| **P1** | Trait lines from **DB/manifest cache**, not per-render LLM for cohort trailers | **§3**, workbook Phase 5 |
 | **P1** | Supabase relationship graph labels; layout for 2–15 nodes | **§4**, **§8.4** |
 | **P1** | **Editorial-motion validator** (low-motion, visual-change rate ~23.5/min) | **§4**, Playbook Ticket 7 |
 | **P1** | **Trailer VO A/B** (warm vs trailer @ 1.5×) | **§8.3** |
-| **P1** | Polish UI scaffolds toward Anya art fidelity (`DoubleIdentityCard`, map HUD, etc.) | **§8.8**, Playbook §16.12 |
+| **P1** | Polish UI scaffolds toward Anya art fidelity | **§8.8**, Playbook §16.12 |
 | **P2** | Golden test set (4/8/15 cast), 60fps, 16:9 master, homepage hero loop | **§6** (P2) |
 
 ### Next steps (recommended order)
 
-1. **QA pass** — scrub at **0.033 · 0.133 · 11.3 · 41.4 · 53 · 59.4 · 73.8 · 76.578s** vs grabs (**§8.12–8.13**).
-2. **Cohort assets** — run `generate_group_photo.py` + `generate_matrix_photo.py` for Pistsov; verify poster tiers match (**§8.5**, **§7**).
-3. **SFX staging** — populate `video/audio/sfx/` (or trimmed lib); re-render and spot-check sync.
-4. **P1 kickoff** — cast scale + non-Pistsov asset enforcement (**§8.4**).
+1. **Supabase schema (0a)** — `cohort_trailer_manifest`, `trailer_asset`, Storage layout; `db_reference.md`.
+2. **soul15 manifest seed (0b)** — DB rows with **locked trait lines** (no manual approval step in pipeline).
+3. **QA pass** — scrub at **0.033 · 0.133 · 11.3 · 41.4 · 53 · 59.4 · 73.8 · 76.578s** vs grabs (**§8.12–8.13**).
+4. **Asset register** — upload/register soul15 character sheets + walkouts; generators write Storage + DB.
+5. **Cohort Grok assets** — group + matrix photos with Storage register (**§8.5**).
+6. **SFX staging** — populate library; re-render and spot-check sync.
+7. **P1 kickoff** — cast scale + DB-driven asset resolution (**§8.4**).
 
 ```bash
 python -m video.generate_trailer base_family_sim opener --mode opener --top 4 --cohort-name "Pistsov family" --force
@@ -98,10 +106,10 @@ Hard-cut timestamps (ffmpeg scene detection on master): 0, 23.5, 24.0, 27.2, 31.
 | Step | Module | Role |
 |---|---|---|
 | Cast pick | `persona_ranker.py` | Selects featured personas (**today:** importance-led; **target:** Playbook §5.1 conflict/contrast scoring) |
-| Script | `showrunner.py` | Fixed hook/concept/closing + AI season framing + per-cast trait lines (Supabase-cached) |
+| Script | `showrunner.py` | Fixed hook/concept/closing + season framing + per-cast lines (**today:** LLM + `video_narration_cache`; **target:** trait lines from cohort manifest / cache — no manual approval gate) |
 | Voice | `tts.py` | Opener: `eleven_v3` / stability 0.60 / **1.5×** → `narration_timing.json` (18 segments) |
 | Visual plan | `build_opener_visual_planner.py` | Producer CSVs → sub-moments, `textTrack`, SFX events, section boundaries |
-| Assets | `generate_cutouts.py`, `generate_group_photo.py`, `generate_matrix_photo.py` | Per-cohort cut-outs, group photo, matrix tier (optional before render) |
+| Assets | `generate_cutouts.py`, `generate_group_photo.py`, `generate_matrix_photo.py` | Per-cohort assets (**today:** local paths under `video/assets/`; **target:** Supabase Storage + `trailer_asset` rows) |
 | Props | `build_opener_remotion_props.py` | VO segments → beat map + CSV overlays + staged assets |
 | Render | `render_opener_remotion.py` | `npx remotion render` → `trailer_9x16.mp4` |
 | Gate | `validate_trailer.py` | **Today:** 9:16, **65–95s** (wide band; longer OK for large casts), LUFS check. **Target (Playbook §11):** editorial-motion gates, ~**-14 LUFS**, true peak ≤ -1 dBTP, poster export — not a strict 70–85s cap |
@@ -125,7 +133,8 @@ Phase 6 closed the **structural** gap (timing, text/SFX tracks, named primitives
 | **SFX audible mix** | **Partial** — 40 events in props; library often unstaged locally |
 | **Mix loudness** | **Done** — ~-14 LUFS after loudnorm |
 | **Multi-cast (up to 15)** | **Open (P1)** — `--top` cap 6; tiered layouts not built (**§8.4**) |
-| **Per-cohort assets (non-Pistsov)** | **Open (P1)** — generators exist; enforcement + Grok path (**§8.4**, **§8.5**) |
+| **Per-cohort assets (non-Pistsov)** | **Open (P1)** — generators exist; **disk paths today**; need Storage register + DB resolver (**§5.1**, **§8.4**, **§8.5**) |
+| **Supabase-first manifest + assets** | **Open (Now)** — `manifest.json` on disk is pilot bootstrap; no `trailer_asset` table yet | **§5.1** |
 | **Editorial-motion validator** | **Open (P1)** — technical LUFS/9:16 only today |
 | **Trailer VO A/B** | **Open (P1)** — warm @ 1.5× locked (**§8.3**) |
 | **Resolution / fps** | **Deferred (P2)** — 1080×1920 @ 30fps vs Anya 2160×3840 @ 120fps |
@@ -142,14 +151,60 @@ persona_ranker → showrunner → tts (18 segments)
               → [optional: cutouts / group_photo / matrix_photo / graph]
               → build_opener_remotion_props → npx remotion render
               → validate_trailer (9:16 + LUFS) + poster still
+              → output on local disk (data/<sim>/opener&NNN/)
 ```
 
-**Target (Playbook §5):** spec-driven compiler with **editorial validator** + full per-sub-moment Sequences (optional future; macro beats + overlays are the current model).
+**Target (Playbook §5 + Supabase-first, soul15 pilot):**
 
-### Asset buckets
+```
+Supabase: sim roster + scratch + relationships + cohort manifest + trait lines
+       → generate_cohort_assets (Grok/local gen → Storage upload + trailer_asset rows)
+       → showrunner reads trait lines from cohort manifest / video_narration_cache
+       → tts → visual planner → props builder (resolve Storage URLs)
+       → Remotion render (local staging dir = transport only)
+       → upload MP4/poster + validation report to Storage + trailer_run row
+```
+
+### 5.1 Supabase-first data model (to build)
+
+**Already in Supabase (reuse):**
+
+| Table | Trailer use |
+|---|---|
+| `video_narration_cache` | Trait lines, season framing, other LLM narration; `pinned` = optional hand-edit override (not a required approval step) |
+| `persona_scratch` / sim persona tables | `scratch_compact` for trait **generation** when manifest has no pre-seeded line |
+| `persona_day_snapshots` | Day-trailer scratch context |
+| Sim + persona identity | UUID-scoped cast; no filename heuristics |
+
+**New (migration required — names illustrative):**
+
+| Store | Purpose |
+|---|---|
+| `cohort_trailer_manifest` | One row per (sim, persona): spotlight order, featured, trait line text, status, layout tier |
+| `trailer_asset` | One row per asset: sim, persona id (nullable), `asset_type` (cutout, hero, walkout, group_photo, …), Storage path, `prompt_hash`, `qa_status` |
+| `trailer_run` (optional) | Render job: sim, opener id, output URLs, validator JSON, duration |
+| **Storage bucket(s)** | `trailer-assets/{sim}/{persona_id}/{type}.ext` + cohort-level group/matrix + final renders |
+
+**Local disk — allowed roles only:**
+
+| Path | Role |
+|---|---|
+| `video/opening-anya/`, `video/fly-over/` | Shared brand / village kit (or migrate to `brand-assets` bucket) |
+| `video/remotion/public/render/` | Per-render staging copy from Storage URLs |
+| `data/*/opener&*/` | Dev run folder until upload step exists |
+| `video/assets/users/*` | **Legacy** — migrate soul15 inputs to Storage; do not add new cohort folders as SOT |
+
+**Anti-patterns to remove:**
+
+- `manifest.json` as the only place trait lines live
+- Generators that write `video/assets/cohort/<slug>/` without DB + Storage register
+- `build_opener_remotion_props` resolving cohort assets from laptop paths when DB row missing
+- Silent fallback to Anya/Pistsov PNGs when Storage object missing (fail or warn)
+
+### Asset buckets (logical)
 - **Reusable once (built):** Remotion components in `video/remotion/src/components/` + `opener_beat_map.py` + brand assets in `opening-anya/`.
 - **Per-village (the_ville = done):** village B-roll, map, night aerial (`video/fly-over/`).
-- **Per-cast:** cut-out portraits, group photo, trait narration, relationship graph data.
+- **Per-cast:** cut-out portraits, group photo, trait narration, relationship graph data — **registered in Supabase** (Storage + `trailer_asset`); local copies are not authoritative.
 
 ## 6. Phased plan (reference)
 
@@ -169,17 +224,19 @@ persona_ranker → showrunner → tts (18 segments)
 | **P1 — scale & quality** | **Open** | See **§8.4**, **§8.3**, gap table **§4** |
 | **P2 — delivery variants** | **Deferred** | 60fps, 16:9, hero loop, golden test matrix |
 
-### P1 — new simulations & casts (detail: **§8.4**)
+### P1 — new simulations & casts (detail: **§8.4**, **§5.1**)
 
-Target: any sim with **1–15 Doubles** renders without manual Remotion edits or wrong-cohort assets.
+Target: any sim with **1–15 Doubles** renders without manual Remotion edits, wrong-cohort assets, or **laptop-dependent asset folders**.
 
-- **Cast scale** — raise `--top` to 15; tiered layouts 1–4 / 5–8 / 9–15; cast block ≤ ~20s
+- **Supabase-first foundation** — cohort manifest table, `trailer_asset` registry, Storage buckets; migrate soul15 bootstrap off disk JSON
+- **Trait line workflow** — seed or LLM-generate → write DB/cache with `trait_line_status: approved` in one step; showrunner reads on render (**no manual approval gate**; `pinned` only for hand-edits)
+- **Cast scale** — raise `--top` to 15; soul15 `fifteen_spotlight_montage`; cast block ≤ ~20s where tier allows
 - **Relationship graph** — Supabase-driven labels; 2–15 node layouts
-- **Per-cohort assets** — auto-generate + verify cutouts, group + matrix photos; fail/warn on missing (**§8.5**)
+- **Per-cohort assets** — generate → **Storage upload + asset row**; validator queries DB; fail/warn on missing (**§8.5**)
 - **Component polish** — identity cards, map HUD, survival/turn UI to match Anya boards (**§8.8**)
 - **Editorial validator** — motion density, static-run length, repetition flags
 - **Trailer VO A/B** — warm vs trailer @ 1.5× (**§8.3**)
-- **Scale smoke test** — fork sim 8–15 personas; full asset gen + render
+- **Scale smoke test** — second cohort end-to-end using **DB + Storage only** (workbook Phase 7)
 
 ### P2 — defer until P1 pass
 
@@ -198,6 +255,7 @@ python -m video.build_anya_package_a_props
 cd video/remotion && npx remotion render OpenerTrailer out/pistsov_package_a.mp4 --props=props/pistsov_package_a.json
 
 # Per-cohort assets (before or after a run)
+# Target (§5.1): upload to Storage + register trailer_asset rows after each generator
 python video/assets/scripts-prompts/generate_cutouts.py --skip-existing
 python video/assets/scripts-prompts/generate_group_photo.py --cohort pistsov_family
 python video/assets/scripts-prompts/generate_matrix_photo.py --cohort pistsov_family
