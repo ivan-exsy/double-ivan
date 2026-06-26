@@ -10,6 +10,56 @@
 | **Automation baseline** | `data/base_family_sim/opener&009/output/trailer_9x16.mp4` |
 | **Implementation plan** | `trailer-opening/20260617_vertical-trailer-automation.md` |
 
+---
+
+## Status & open TODOs (2026-06-25)
+
+**Readout:** Cast montage is approved (preview v2). Fifteen-person **pipeline code** is in the repo. **No full opener MP4 yet** — world motion assets (Phase 4) must land first.
+
+### Completed
+
+| Area | Status | Notes |
+|---|---|---|
+| **0a–0b** | Done | Supabase manifest, 15 locked trait lines, asset registry |
+| **1 / 1b** | Done · **Ivan approved** | All 15 hero spotlights + portrait crops in Storage |
+| **2** | Done | Group photo (3 rows) + matrix tier registered |
+| **3** | Done · **preview v2 approved** | `fifteen_spotlight_montage` motion grammar locked |
+| **5 — code** | Done (not yet run end-to-end) | See automation table below |
+| **Prompt registry** | Done | `cohort/soul15_seed_20260224/prompt_log.md` backfilled |
+
+**Automation shipped 2026-06-25 (Phase 5 prep + 15-cast glue):**
+
+| Capability | Where |
+|---|---|
+| Manifest export from Supabase | `video/export_cohort_manifest.py` |
+| Opener context up to 15 personas, manifest-first | `video/extract_day_log.py` |
+| Trait-only VO script (no per-person LLM when manifest row exists) | `video/showrunner.py` |
+| Dynamic narration segments (8 + N cast + 6 tail → **29** for soul15) | `video/opener_beat_map.py` |
+| Integrated spotlight props stage narration + music | `video/build_fifteen_spotlight_props.py --integrate-opener` |
+| Package A props accept 29 segments | `video/build_opener_remotion_props.py` |
+| Validator **90–105 s** band for spotlight cohorts | `video/validate_trailer.py` |
+| `generate_trailer opener --top 15`; default voice **`trailer`** | `video/generate_trailer.py`, `video/tts.py` |
+
+### Open TODOs (priority order)
+
+| P | Task | Owner | Depends on | Done when |
+|---|---|---|---|---|
+| **P0** | **Phase 4** — world / survival / relationship Grok assets (strict workbook path) | Ivan | — | soul15 plates registered in Supabase; no Pistsov/Anya reuse |
+| **P0** | Regenerate **per-cohort** `Family.mp4` equivalent for soul15 | Ivan | Phase 4 | Cast-specific motion plate in Storage |
+| **P1** | **Phase 5 run** — first `generate_trailer soul15_seed_20260224 opener --top 15` (trait VO + trailer voice) | Auto | Phase 4 assets for full mix; VO-only path testable earlier | `narration_timing.json` has **29** segments; trait lines match manifest |
+| **P1** | **Phase 6** — first full Remotion render + validation | Auto | Phase 4 + 5 | `trailer_9x16.mp4` passes validator (90–105 s); poster frame exported |
+| **P1** | `export_relationship_graph` — 15-node layout from Supabase | Auto | Phase 4 | Graph JSON feeds concept/turn beats |
+| **P2** | `trailer_run` table + post-render Storage upload | Auto | Phase 6 | Run metadata + MP4 path in DB |
+| **P2** | `generate_cohort_assets` thin orchestrator | Auto | Phase 4 | One command: heroes → group → world rows |
+| **P3** | **Phase 7** — second-cohort smoke test | Auto | Phases 5–6 complete | New sim runs DB + Storage only |
+| **P3** | **CapCut ingest** — recover Anya editorial craft | Ivan + Anya | Anya project package | Motion grammar doc + timing overrides |
+
+### Explicitly deferred / do not do yet
+
+- **Full opener render** until Phase 4 world assets are locked.
+- **Phase 7 smoke test** until Phases 5 and 6 are fully implemented.
+- Re-generate approved heroes (Phase 1b) before full render.
+
 ### Two deliverables (every phase)
 
 | Track | Question | Done when |
@@ -25,8 +75,23 @@ Manual Grok work on soul15 is **R&D** — prompts, QA gates, and file layout get
 
 1. **Every participating Double is introduced** — all 15 get a **full-screen hero moment** and a **spoken trait line** in VO.
 2. **Cast strategy: Option A — rapid spotlight montage** — not the Pistsov/Anya panel→zoom→panel rhythm repeated 15 times. One opening panel, fast full-screen hero cuts with trait lines, bookend on full-cast frame.
-3. **Longer trailer is OK** — target **~90–105 s** total (vs Anya ~77 s). Validator band 65–95 s may need widening for soul15; longer runtime is expected, not a defect.
+3. **Longer trailer is OK** — target **~90–105 s** total (vs Anya ~77 s). Validator uses manifest `target_runtime_sec` for soul15 spotlight cohorts.
 4. **No Pistsov/Anya cast fallbacks** — wrong-cohort assets must fail or warn, not silently substitute.
+
+### Anya animated kit (`video/opening-anya/Anya_animated`)
+
+Four motion plates — **three sim-agnostic**, one cast-specific:
+
+| File | Reuse |
+|---|---|
+| `Village.mp4` | Sim-agnostic |
+| `Pressure.mp4` | Sim-agnostic |
+| `Talk.mp4` | Sim-agnostic (chat / social beat) |
+| `Family.mp4` | **Per-cohort** — regenerate for each new cast |
+
+Phase 4 will produce soul15 equivalents; do not reuse Pistsov `Family.mp4` for soul15.
+
+**Still open:** CapCut ingest (pending Anya project package). See **Status & open TODOs** at top of doc.
 
 ### Cast block shape (Option A)
 
@@ -269,8 +334,9 @@ Soul15: `import_cohort_manifest` loads locked lines; no LLM call for traits.
 | **1a** | `trailer_storage.py` + `trailer_asset_store.py` | **Done** |
 | **1b** | `register_legacy_trailer_assets.py` for soul15 | **Done** — 90 asset rows (6 per persona) |
 | **1c** | `validate_cohort_assets.py` | **Done** — PASS for soul15 |
-| **5** | Showrunner reads DB trait lines | **Done** — `cohort_trailer_cast` preferred over LLM |
-| **6** | Props builder Storage resolution | Render still passes with staged downloads |
+| **5** | Showrunner reads DB trait lines + 15-cast segment map | **Done** | `cohort_trailer_cast` preferred; 29 segments for soul15 |
+| **5b** | `generate_trailer --top 15`, trailer voice, validator 90–105 s | **Done** | First end-to-end run still pending |
+| **6** | Props builder Storage resolution + full render | **Partial** | Integrate-opener stages VO; render blocked on Phase 4 |
 | **9** | `trailer_run` + upload render outputs | MP4 path in DB |
 
 **Gate before Grok hero work:** 0b-2 complete (cast + traits in DB) **and** 1b complete (sheets/walkouts registered) — not necessarily full showrunner wiring.
@@ -293,24 +359,26 @@ Soul15: `import_cohort_manifest` loads locked lines; no LLM call for traits.
 
 ---
 
-## Top TODOs (pilot + automation)
+## Pilot checklist (historical)
+
+> **Current priorities:** see **Status & open TODOs** at the top of this doc.
 
 Each item produces **soul15 assets** and an **automation artifact** for the next cohort. **Supabase register + Storage upload** is part of “done” for any generated asset — not optional follow-up.
 
-| # | Pilot work (soul15) | Automation artifact (next cohort) |
-|---|---|---|
-| **0a** | **Supabase schema** — cohort manifest rows, trailer asset registry, Storage bucket layout | Migration + `db_reference.md`; no new pipeline step stores only on disk |
-| **0b** | **Seed soul15 manifest in Supabase** — 15 personas, **locked trait lines**, spotlight order; export `manifest.json` for dev | `build_cohort_manifest.py`: sim + personas + souls → **DB rows** (+ optional JSON export); trait lines `approved` on write |
-| **1** | Migrate/register existing character sheets + walkouts (15/15) in Storage + asset table | Upload/register step in asset generators; UUID-keyed paths in DB |
-| **2** | Per-person **new** assets ×15 (cutout, portrait, hero spotlight) | Generators write Storage + asset rows; prompt templates in DB or `prompts/` until prompt registry exists |
-| **3** | Group photo + matrix poster tier | **Done** — soul15 rows + matrix HUD | Cohort asset rows; matrix derived from group photo |
-| **4** | Cast montage Remotion (`fifteen_spotlight_montage`) | **Done** — preview v2 approved | Layout + morph grammar in repo; props builder + versioned preview |
-| **5** | Trait lines + VO script in Supabase | Showrunner: N `cast_intro` from **manifest/cache trait lines** (no per-render LLM when row exists) |
-| **6** | World / Survival / relationship assets | Sim-scoped asset rows + relationship graph from Supabase edges |
-| **7** | **`prompt_log.md`** — every accepted Grok step | Prompt registry (DB or repo) keyed by `asset_type` + `prompt_hash` |
-| **8** | QA every asset | `validate_cohort_assets.py` — queries Supabase + Storage, blocking before render |
-| **9** | Remotion test render; upload MP4 + poster to Storage | `fifteen_spotlight_montage` + `generate_trailer --cohort soul15_seed_20260224`; run record in DB |
-| **10** | CapCut ingest (when available) | Motion grammar doc + Remotion timing overrides |
+| # | Pilot work (soul15) | Status | Automation artifact (next cohort) |
+|---|---|---|---|
+| **0a** | Supabase schema — manifest, asset registry, Storage bucket | **Done** | Migration + `db_reference.md` |
+| **0b** | Seed soul15 — 15 personas, locked trait lines, spotlight order | **Done** | `import_cohort_manifest.py` + `export_cohort_manifest.py` |
+| **1** | Register character sheets + walkouts (15/15) | **Done** | `register_legacy_trailer_assets.py` |
+| **2** | Per-person cutout, portrait, hero spotlight ×15 | **Done** | `generate_opener_hero_assets.py` + `--upload` |
+| **3** | Group photo + matrix poster tier | **Done** | `cast_group_layout.py`, matrix HUD |
+| **4** | Cast montage Remotion (`fifteen_spotlight_montage`) | **Done** — preview v2 approved | Beat map + props builder + versioned preview |
+| **5** | Trait VO + opener script assembly | **Code done** — first pipeline run pending | Showrunner + 29-segment map + `trailer` voice |
+| **6** | World / Survival / relationship assets | **Open** — Ivan, Phase 4 | Sim asset rows + `export_relationship_graph` |
+| **7** | `prompt_log.md` — accepted Grok steps | **Done** | `cohort/.../prompt_log.md`; DB registry later |
+| **8** | QA every asset | **Done** (cast pack) | `validate_cohort_assets.py` |
+| **9** | Full Remotion render; upload MP4 + poster | **Blocked** on Phase 4 | `generate_trailer --top 15`; `trailer_run` TBD |
+| **10** | CapCut ingest (when available) | **Open** | Motion grammar doc + Remotion timing overrides |
 
 **Do first:** **0a → 0b** — schema and Supabase manifest (with locked soul15 trait lines) are the contract before heavy Grok spend.
 
@@ -351,15 +419,15 @@ Each phase: **manual proof on soul15** → **automation artifact** → **gate be
 | **0a** | Supabase migration: manifest + asset registry + bucket policy | Schema in `supabase/migrations/` + `db_reference.md` | Service role can read/write trailer tables |
 | **0b** | Seed soul15 rows — **locked trait lines** (approved 2026-06-25), spotlight order | `build_cohort_manifest.py` writes **Supabase**; exports JSON for dev | 15 rows; all `trait_line_status: approved` |
 | **1** | **Done 2026-06-25** — Max Shoemaker hero + portrait; visual QA pass; 720×1280 accepted | `generate_opener_hero_assets.py` + `register_cohort_trailer_assets.py` | 1 persona asset rows `qa_status: approved` |
-| **1b** | **Auto 2026-06-25** — 14 generated + Max skipped; all uploaded; Ivan spot-check pending | `generate_opener_hero_assets.py --skip-existing --upload` | All 15 approved in DB |
+| **1b** | **Done 2026-06-25** — 14 generated + Max; **Ivan approved** all heroes | `generate_opener_hero_assets.py --skip-existing --upload` | All 15 approved in DB |
 | **2** | **Done 2026-06-25** — group photo (3 rows) + matrix tier; Supabase registered | `cast_group_layout.py`, matrix HUD, Storage rows | Poster tiers match cast in Storage |
 | **3** | **Done 2026-06-25** — `fifteen_spotlight_montage` visual QA (**preview v2 approved**) | Beat map + Remotion beats + `build_fifteen_spotlight_props` | Motion grammar locked; versioned previews |
-| **4** | World / Survival / graph assets | Sim asset rows + relationship graph from Supabase | No Pistsov/Anya reuse |
-| **5** | VO + SFX staging | Showrunner reads **trait lines from DB/manifest**; SFX staged (Storage or shared kit) | 15 segments in timing JSON |
-| **6** | Remotion render; upload outputs | `fifteen_spotlight_montage` cast block done; **full opener render pending** | PASS report + run row in DB |
-| **7** | **Second-cohort smoke test** | Full path without local `video/assets/cohort/` dependency | One command; DB + Storage only |
+| **4** | World / Survival / graph assets — **next (Ivan)** | Sim asset rows + relationship graph from Supabase | No Pistsov/Anya reuse |
+| **5** | VO pipeline — **code done 2026-06-25**; first run pending | Trait lines from manifest; 29 segments; `trailer` voice | `narration_timing.json` with 29 segments after `generate_trailer` run |
+| **6** | Full Remotion render + upload — **blocked on Phase 4** | `integrate-opener` props + validator 90–105 s | PASS report + `trailer_run` row (upload TBD) |
+| **7** | **Second-cohort smoke test** — after 5 + 6 | Full path without local `cohort/` dependency | One command; DB + Storage only |
 
-**Immediate sequence:** Phase 0a → 0b → Phase 1 (one person) → script + Supabase register → Phase 1b → Phase 2.
+**Next up:** Phase 4 (world assets) → Phase 5 run → Phase 6 full render.
 
 ---
 
@@ -386,7 +454,7 @@ Manual Grok checklist for soul15 — **each row should become a generator step o
 | `qa_status` | pending / approved / rejected |
 | `automation_step` | Links row to prompt registry |
 
-Export for dev: `export_cohort_manifest.py --cohort soul15_seed_20260224`. Prompt templates: cohort folder `prompts/` or DB prompt registry as schema lands.
+Export for dev: `python -m video.export_cohort_manifest --sim soul15_seed_20260224`. Prompt templates: `cohort/soul15_seed_20260224/prompt_log.md` (pilot backfill).
 
 Personality summaries: `souls/*.md` (ingest target). Roster: `souls/soul15_roster_20260224.json`. Careers: `souls/soul15_seed_20260224_career_assignment.json`.
 
@@ -799,6 +867,7 @@ Changes needed in auto version:
 **Repo / disk (bootstrap & shared kit only):**
 
 - **Soul15 export (dev):** `D:\Coding\generative_agents\video\assets\cohort\soul15_seed_20260224\manifest.json`
+- **Prompt registry (pilot backfill):** `.../cohort/soul15_seed_20260224/prompt_log.md`
 - Anya kit (reference only): `video/opening-anya/`
 - **Character sheets (legacy input, migrate to Storage):** `video/assets/users/character-sheets/{uuid}/`
 - **Sprite walkouts (legacy input):** `video/assets/users/sprite-walkouts/{uuid}.mp4`
@@ -810,23 +879,24 @@ Changes needed in auto version:
 
 Map to phased walkthrough — implement as each pilot phase completes, not after all manual work.
 
-| Item | Pilot phase | Notes |
-|---|---|---|
-| Migration: `20260625_cohort_trailer.sql` | 0a | `cohort_trailer_config`, `cohort_trailer_cast`, `trailer_asset`; see § Supabase implementation plan |
-| `trailer-assets` bucket in `storage_config.py` | 0a | Sim-scoped Grok outputs + renders |
-| `cohort_manifest_store.py` + `import_cohort_manifest.py` | 0b | Seed soul15 from locked JSON |
-| `trailer_storage.py` + `trailer_asset_store.py` | 1a | Register on every upload |
-| `register_legacy_trailer_assets.py` | 1b | soul15 sheets + walkouts → Storage + DB |
-| `generate_opener_hero_assets.py` | 1–1b | Hero + portrait Grok pipeline; `--upload` registers |
-| `register_cohort_trailer_assets.py` | 1b | Upload/register cohort hero + portrait paths |
-| `validate_cohort_assets.py` | 1 | Queries DB + Storage, not local paths |
-| Extend cutouts / hero generators for `--cohort` | 1–1b | Storage upload on success |
-| `generate_group_photo.py` + matrix for 15 | 2 | **Done** — soul15 group + matrix registered |
-| `fifteen_spotlight_beat_map.py` + Remotion cast beats | 3–4 | **Done** — motion grammar locked; preview v2 |
-| `build_fifteen_spotlight_props.py` | 3–4 | **Done** — versioned `_vN` preview outputs |
-| `build_opener_remotion_props.py` `fifteen_spotlight_montage` branch | 6 | Wired — swaps Package A cast beats when strategy set |
-| `export_relationship_graph` from Supabase | 4 | 15-node layout — not started |
-| Showrunner: N `cast_intro` from **DB trait lines** | 5 | **Done** — prefers `cohort_trailer_cast.trait_line` |
-| `fifteen_spotlight_montage` full opener render | 6 | Props resolve Storage URLs; full render + upload pending |
-| `generate_trailer --top 15` + validator ~90–105 s | 6 | Upload render + run metadata |
-| Second-cohort smoke test (DB-only path) | 7 | Automation definition of done |
+| Item | Pilot phase | Status | Notes |
+|---|---|---|---|
+| Migration: `20260625_cohort_trailer.sql` | 0a | **Done** | `cohort_trailer_config`, `cohort_trailer_cast`, `trailer_asset` |
+| `trailer-assets` bucket in `storage_config.py` | 0a | **Done** | Sim-scoped Grok outputs + renders |
+| `cohort_manifest_store.py` + `import_cohort_manifest.py` | 0b | **Done** | Seed soul15 from locked JSON |
+| `export_cohort_manifest.py` | 0b | **Done** | Supabase → dev JSON export |
+| `trailer_storage.py` + `trailer_asset_store.py` | 1a | **Done** | Register on every upload |
+| `register_legacy_trailer_assets.py` | 1b | **Done** | soul15 sheets + walkouts → Storage + DB |
+| `generate_opener_hero_assets.py` | 1–1b | **Done** | Hero + portrait Grok pipeline; `--upload` registers |
+| `register_cohort_trailer_assets.py` | 1b | **Done** | Upload/register cohort hero + portrait paths |
+| `validate_cohort_assets.py` | 1 | **Done** | Queries DB + Storage, not local paths |
+| `generate_group_photo.py` + matrix for 15 | 2 | **Done** | soul15 group + matrix registered |
+| `fifteen_spotlight_beat_map.py` + Remotion cast beats | 3 | **Done** | Motion grammar locked; preview v2 |
+| `build_fifteen_spotlight_props.py` | 3 | **Done** | Versioned `_vN` preview; `--integrate-opener` stages VO |
+| Opener pipeline glue (15 cast, trait-only, trailer voice) | 5 | **Done** | `showrunner`, `opener_beat_map`, `extract_day_log`, `validate_trailer` |
+| `build_opener_remotion_props.py` dynamic segments | 5–6 | **Done** | 29-segment gate; spotlight branch when strategy set |
+| `export_relationship_graph` from Supabase | 4 | **Open** | 15-node layout |
+| `fifteen_spotlight_montage` full opener render | 6 | **Blocked** | Waiting on Phase 4 world assets |
+| `trailer_run` + render upload to Storage | 6 | **Open** | Run metadata in DB |
+| `generate_cohort_assets` orchestrator | 4–6 | **Open** | One-command asset gen for cohort N+1 |
+| Second-cohort smoke test (DB-only path) | 7 | **Open** | Automation definition of done |
