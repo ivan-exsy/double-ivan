@@ -45,7 +45,7 @@
 | P | Task | Owner | Depends on | Done when |
 |---|---|---|---|---|
 | **P0** | **Phase 4** — world / survival / relationship Grok assets (strict workbook path) | Ivan | — | soul15 plates registered in Supabase; no Pistsov/Anya reuse |
-| **P0** | Regenerate **per-cohort** `Family.mp4` equivalent for soul15 | Ivan | Phase 4 | Cast-specific motion plate in Storage |
+| **P0** | Regenerate **per-cohort** `group_anim.mp4` (was Anya `Family.mp4`) | Ivan | Phase 4 | Cast-specific group motion in `cohort/.../motion/group_anim.mp4` |
 | **P1** | **Phase 5 run** — first `generate_trailer soul15_seed_20260224 opener --top 15` (trait VO + trailer voice) | Auto | Phase 4 assets for full mix; VO-only path testable earlier | `narration_timing.json` has **29** segments; trait lines match manifest |
 | **P1** | **Phase 6** — first full Remotion render + validation | Auto | Phase 4 + 5 | `trailer_9x16.mp4` passes validator (90–105 s); poster frame exported |
 | **P1** | `export_relationship_graph` — 15-node layout from Supabase | Auto | Phase 4 | Graph JSON feeds concept/turn beats |
@@ -87,9 +87,9 @@ Four motion plates — **three sim-agnostic**, one cast-specific:
 | `Village.mp4` | Sim-agnostic |
 | `Pressure.mp4` | Sim-agnostic |
 | `Talk.mp4` | Sim-agnostic (chat / social beat) |
-| `Family.mp4` | **Per-cohort** — regenerate for each new cast |
+| `Family.mp4` | **Per-cohort** — regenerate as `group_anim.mp4` for each cast |
 
-Phase 4 will produce soul15 equivalents; do not reuse Pistsov `Family.mp4` for soul15.
+Phase 4 produces soul15 `motion/group_anim.mp4`; do not reuse Pistsov `Family.mp4` for soul15.
 
 **Still open:** CapCut ingest (pending Anya project package). See **Status & open TODOs** at top of doc.
 
@@ -746,7 +746,7 @@ Changes needed in auto version:
 **Time:** 10:8-19:5
 **Scrub:** 11:3, 12:6, 16:8
 **Grabs:** `00-11_500`, `00-16_800`
-**Assets:** `family.png`, `family_anim.mp4`, cutouts x4
+**Assets:** `family.png`, `group_anim.mp4`, cutouts x4
 
 ### 3 - World - Create
 

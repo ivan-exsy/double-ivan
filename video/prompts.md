@@ -15,8 +15,8 @@ I need you to:
 
 ```
 
-1. Village Overhead Fly-Over (Overall Layout)
-'video\fly-over\cinematic_flyover_village_overhead.mp4'
+### 1. Village Overhead Fly-Over (Overall Layout)
+`video\fly-over\cinematic_flyover_village_overhead.mp4`
 What: A sweeping aerial view rising from the village center to reveal the full tile-based layout, highlighting clustered houses, winding paths, and outer boundaries to show isolation.
 Duration: 4s
 Grok Imagine Prompt: "Create a 4-second 3D fly-over video of a quaint isometric village called The Ville, starting low over the central paths and rising to overhead view. Show 20-30 cozy tile-based houses in warm wood and stone, connected by dirt roads, with misty fog adding depth. Empty at dawn, soft golden light, no people. Cinematic, subtle camera pan rightward, 1080p MP4, 30fps, loopable."
@@ -27,19 +27,19 @@ What: Low fly-over approaching a row of family homes, zooming into open windows/
 Duration: 3s
 Grok Imagine Prompt: "3-second 3D video fly-over approaching a row of 6-8 attached houses in a village, isometric style like a 2D tile map but with depth. Start ground-level on a dirt path, rise and pan left to show wooden facades, open windows revealing cozy kitchens and living rooms with soft lamplight. Empty, twilight dusk lighting, subtle wind in trees, no characters. Cinematic tension, 1080p MP4, 30fps."
 
-Cafe Exterior Pan (Social Hub)
-"video\fly-over\cinematic_flyover_cafe_exterior_pan.mp4"
+### Cafe Exterior Pan (Social Hub)
+`video\fly-over\cinematic_flyover_cafe_exterior_pan.mp4`
 What: Ground-level fly-over circling the cafe exterior, emphasizing outdoor seating and entrance to evoke gathering spots for conversations and conflicts.
 Duration: 4s
 Grok Imagine Prompt: "4-second 3D fly-over video circling a rustic village cafe exterior, starting at street level and rising slightly. Isometric view with 3D depth: wooden building with large windows, outdoor tables under string lights, surrounded by paths and flowers. Empty at midday, warm sunlight filtering through, no people. Build subtle anticipation, smooth pan clockwise, 1080p MP4, 30fps, loopable."
 
-Hobbs Cafe Interior Overview Fly-Over (Council Zone)
-"video\fly-over\cinematic_flyover_hobbs_cafe_interior.mp4"
+### Hobbs Cafe Interior Overview Fly-Over (Council Zone)
+`video\fly-over\cinematic_flyover_hobbs_cafe_interior.mp4`
 "Create a 4-second 3D fly-over video of the interior of a cozy village cafe called Hobbs Cafe, inspired by a warm wooden exterior with string lights and patio (reference: inviting alpine-style building with golden-hour glow). Start at the patio entrance door, smoothly rise and pan rightward across the open floor plan: central wooden tables and chairs around a patterned rug, a polished bar/kitchen area with counters and stools on the left, a grand piano in the far corner, large windows letting in soft dusk light, and wooden beams overhead. Isometric perspective with added 3D depth like a tile-map game but volumetric – empty of people, subtle shadows and warm lamp glow creating a welcoming yet tense atmosphere for social gatherings. No characters, cinematic build-up with misty air and fading daylight, 1080p MP4, 30fps, loopable."
 
 
-Village Dusk Wind-Down (Day End Stakes)
-"video\fly-over\cinematic_flyover_village_dusk_wind_down.mp4"
+### Village Dusk Wind-Down (Day End Stakes)
+`video\fly-over\cinematic_flyover_village_dusk_wind_down.mp4`
 What: Closing fly-over retreating from the center at dusk, fading lights in houses and cafe to symbolize routines ending and nightly risks.
 Duration: 4s
 Grok Imagine Prompt: "4-second 3D fly-over of a village at dusk, starting overhead center and retreating outward. Isometric tile layout with depth: houses with dimming windows, cafe lights flickering on, long shadows across paths. Empty, melancholic tension, purple-blue twilight hues, subtle breeze effect. Backward pan, 1080p MP4, 30fps."
@@ -53,8 +53,6 @@ Grok Imagine Prompt: "4-second 3D fly-over of a village at dusk, starting overhe
 Cinematographers learn 12 camera moves in film school. 
 
 Most AI creators don't know a single one. Because nobody told the camera what to do.
-.
-.
 
 Here they are:
 
