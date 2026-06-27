@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| **Simulation (pilot)** | `soul15_seed_20260224` (15 Doubles, Survival Mode, the Ville) |
+| **Simulation (pilot)** | `soul15_seed_20260224` (15 Doubles, Survival Mode, the Ville) — display name **Leadertalks** (was Soul 15) |
 | **Cohort folder** | `D:\Coding\generative_agents\video\assets\cohort\soul15_seed_20260224` |
 | **Reference standard** | Anya cut `video/opening-anya/DOUBLAND1.mov`; timing SOT `trailer-opening/teadown/` |
 | **Automation baseline** | `data/base_family_sim/opener&009/output/trailer_9x16.mp4` |
@@ -12,11 +12,89 @@
 
 ---
 
-## Status & open TODOs (2026-06-25)
+## Status & open TODOs — **PAUSED for MVP** (2026-06-26)
 
-**Readout:** Cast montage is approved (preview v2). Fifteen-person **pipeline code** is in the repo. **No full opener MP4 yet** — world motion assets (Phase 4) must land first.
+**Readout:** Opener pilot is **parked**. Ivan is focusing on **day-overview trailer generation** for MVP release. Pick up opener work from **§ Paused opener — resume checklist** below.
 
-### Completed
+**Latest build:** `D:\Coding\generative_agents\data\soul15_seed_20260224\opener&003\`
+
+| Artifact | Status |
+|---|---|
+| Poster (`output/poster.png`) | **Finalized** — dual-tier layout, DOUBLE on matrix tier, HUD cropped |
+| VO (`audio/narration.mp3`) | **Approved** — warm voice preset; cohort renamed to **Leadertalks** |
+| Full MP4 (`output/trailer_9x16.mp4`) | **Draft only** — ~88 s video vs ~111 s narration; validator FAIL (under 90 s band) |
+| Typing / on-screen copy | **Code shipped** — faster type + hold before line swap (`textMotion.ts`) |
+
+### Completed since 2026-06-25
+
+| Area | Status | Notes |
+|---|---|---|
+| **0a–0b, 1/1b, 2, 3** | Done | Unchanged from prior readout |
+| **Phase 4 (partial)** | Done | `group_anim.mp4` registered; relationship graph JSON (15 nodes) |
+| **Phase 5** | Done | Trait-only VO, 29 segments, `--skip-render` path |
+| **Phase 6 (draft)** | Done | Full Remotion render to `opener&003`; poster still @ frame 1 |
+| **Poster polish** | Done | Layout tiers, matrix crop, translucent DOUBLE plate |
+| **Rename** | Done | Display cohort **Leadertalks** in script + season VO; sim id unchanged |
+| **Default VO preset** | Done | `warm` (documentary); `trailer` = punchier A/B |
+
+### Blockers when you resume opener
+
+| # | Issue | What to do |
+|---|---|---|
+| **B1** | **Picture shorter than voice** (~88 s vs ~111 s) | Extend Remotion `totalSec` / beat map to narration `total_sec`, **or** trim VO into 90–105 s manifest band — decide product-first |
+| **B2** | Validator FAIL | Video under 90 s minimum; tied to B1 |
+| **B3** | Anya text-track residue | CSV still has “PISTSOV FAMILY” etc. — replace or filter for Leadertalks |
+| **B4** | No opener `narration_fits_video` check | Add to `validate_trailer.py` for opener mode (same as day-overview) |
+
+### Script improvement — cast introduction (draft for resume)
+
+**Problem:** The opener jumps from product hook → season framing → trait lines without **who this cast is** in human terms.
+
+**Direction for Leadertalks / Soul 15 (MVP cast):** One short bridge line before Survival Mode / trait montage — who they are and why they’re in Doubland.
+
+**Draft copy (starting point — not locked):**
+
+> *A group of friends, mostly communicating online, decided to come together face-to-face in Doubland.*
+
+**Where it likely lands:** After “Every conversation. Every choice. Every relationship.” (world block) and **before** “This season: Leadertalks enters Survival Mode…” — or woven into season framing if shorter.
+
+**When implementing:**
+
+1. Add to showrunner / `season_framing` or new `cast_intro` artifact in `narration_cache` (sim-scoped).
+2. Regenerate VO segment(s) only (`generate_trailer … --force` or targeted TTS).
+3. Add / retime one visual beat if the line needs screen time (Package A text track or dedicated beat).
+4. Fix grammar on season line if kept: prefer **“Leadertalks enters…”** not *“the Leadertalks enters…”*.
+
+---
+
+## Paused opener — resume checklist
+
+When returning to this pilot (after day-overview MVP):
+
+1. **Listen** to `opener&003/output/trailer_9x16.mp4` end-to-end — note audio cutoff, cast sync, typing pace.
+2. **Decide runtime policy** — full VO (~111 s) vs manifest band (90–105 s).
+3. **Implement B1** — timeline extension or VO trim; re-render.
+4. **Implement cast-intro line** (draft above); re-run Phase 5 VO + Phase 6.
+5. **Fix B3–B4** — text-track product copy + opener narration-fit validator.
+6. **Pass validator** — duration, loudness, narration word count.
+7. **CapCut handoff** (Phase 3 in original plan) — optional editorial pass.
+
+**Resume command:**
+
+```bash
+python -m video.generate_trailer soul15_seed_20260224 opener \
+  --mode opener --top 15 --cohort-name "Leadertalks" \
+  --output-dir "data/soul15_seed_20260224/opener&003" \
+  --voice-profile warm --force
+```
+
+---
+
+## Status archive (2026-06-25 — superseded)
+
+**Readout (historical):** Cast montage approved (preview v2). Fifteen-person pipeline code in repo. No full opener MP4 yet — world motion assets (Phase 4) must land first.
+
+### Completed (2026-06-25 snapshot)
 
 | Area | Status | Notes |
 |---|---|---|
@@ -38,26 +116,19 @@
 | Integrated spotlight props stage narration + music | `video/build_fifteen_spotlight_props.py --integrate-opener` |
 | Package A props accept 29 segments | `video/build_opener_remotion_props.py` |
 | Validator **90–105 s** band for spotlight cohorts | `video/validate_trailer.py` |
-| `generate_trailer opener --top 15`; default voice **`trailer`** | `video/generate_trailer.py`, `video/tts.py` |
+| `generate_trailer opener --top 15`; default voice **`warm`** | `video/generate_trailer.py`, `video/tts.py` |
 
-### Open TODOs (priority order)
+### Open TODOs (2026-06-25 — mostly superseded by work above)
 
-| P | Task | Owner | Depends on | Done when |
-|---|---|---|---|---|
-| **P0** | **Phase 4** — world / survival / relationship Grok assets (strict workbook path) | Ivan | — | soul15 plates registered in Supabase; no Pistsov/Anya reuse |
-| **P0** | Regenerate **per-cohort** `group_anim.mp4` (was Anya `Family.mp4`) | Ivan | Phase 4 | Cast-specific group motion in `cohort/.../motion/group_anim.mp4` |
-| **P1** | **Phase 5 run** — first `generate_trailer soul15_seed_20260224 opener --top 15` (trait VO + trailer voice) | Auto | Phase 4 assets for full mix; VO-only path testable earlier | `narration_timing.json` has **29** segments; trait lines match manifest |
-| **P1** | **Phase 6** — first full Remotion render + validation | Auto | Phase 4 + 5 | `trailer_9x16.mp4` passes validator (90–105 s); poster frame exported |
-| **P1** | `export_relationship_graph` — 15-node layout from Supabase | Auto | Phase 4 | Graph JSON feeds concept/turn beats |
-| **P2** | `trailer_run` table + post-render Storage upload | Auto | Phase 6 | Run metadata + MP4 path in DB |
-| **P2** | `generate_cohort_assets` thin orchestrator | Auto | Phase 4 | One command: heroes → group → world rows |
-| **P3** | **Phase 7** — second-cohort smoke test | Auto | Phases 5–6 complete | New sim runs DB + Storage only |
-| **P3** | **CapCut ingest** — recover Anya editorial craft | Ivan + Anya | Anya project package | Motion grammar doc + timing overrides |
+| P | Task | Notes |
+|---|---|---|
+| ~~**P0** Phase 4 world assets~~ | Partially done | `group_anim` done; full world plate set still optional |
+| ~~**P1** Phase 5–6~~ | Draft done | See blockers B1–B4 |
+| **P3** CapCut ingest | Still open | After timeline + script fixes |
 
 ### Explicitly deferred / do not do yet
 
-- **Full opener render** until Phase 4 world assets are locked.
-- **Phase 7 smoke test** until Phases 5 and 6 are fully implemented.
+- ~~Full opener render until Phase 4~~ → **Draft render exists**; polish blocked on B1 + cast intro.
 - Re-generate approved heroes (Phase 1b) before full render.
 
 ### Two deliverables (every phase)
@@ -895,8 +966,8 @@ Map to phased walkthrough — implement as each pilot phase completes, not after
 | `build_fifteen_spotlight_props.py` | 3 | **Done** | Versioned `_vN` preview; `--integrate-opener` stages VO |
 | Opener pipeline glue (15 cast, trait-only, trailer voice) | 5 | **Done** | `showrunner`, `opener_beat_map`, `extract_day_log`, `validate_trailer` |
 | `build_opener_remotion_props.py` dynamic segments | 5–6 | **Done** | 29-segment gate; spotlight branch when strategy set |
-| `export_relationship_graph` from Supabase | 4 | **Open** | 15-node layout |
-| `fifteen_spotlight_montage` full opener render | 6 | **Blocked** | Waiting on Phase 4 world assets |
+| `export_relationship_graph` from Supabase | 4 | **Done** | 15-node layout in cohort folder |
+| `fifteen_spotlight_montage` full opener render | 6 | **Paused — draft** | `opener&003` ~88 s; timeline + cast intro TBD |
 | `trailer_run` + render upload to Storage | 6 | **Open** | Run metadata in DB |
 | `generate_cohort_assets` orchestrator | 4–6 | **Open** | One-command asset gen for cohort N+1 |
 | Second-cohort smoke test (DB-only path) | 7 | **Open** | Automation definition of done |
