@@ -33,9 +33,8 @@ Hold ≥1.0s when it first appears (~20s).
 
 | ~Time | On-screen text |
 |------:|----------------|
-| 20 | PRESS PLAY |
-| 22 | L-TALKS |
-| 24 | A YEAR OF MESSAGES |
+| 20 | L-TALKS |
+| 22 | A YEAR OF MESSAGES |
 | 28 | TOP 15 |
 | 32 | PRESSED PLAY |
 
@@ -47,41 +46,32 @@ Hold ≥1.0s when it first appears (~20s).
 
 Sequence: `group_photo.png` → `group_photo_matrix.png` → `group_anim.mp4`
 
-Caption (VO): *Fifteen Doubles. Fifteen minds. No one at the keyboard.*
+Caption (VO): *Fifteen Doubles. AI version of real people. No one at the keyboard.*
 
 ---
 
-## Mid-trailer URL (~46–50s)
+## Survival Mode (~46–54s)
 
-```
-doubland.ai
-```
+| ~Time | On-screen text | VO line |
+|------:|----------------|---------|
+| 47 | (minimal) | *We wanted to keep it interesting — so we made it hard for them.* |
+| 48 | **SURVIVAL MODE** badge | *Survival Mode.* |
+| 50 | **ONE OUT EVERY DAY · UNTIL ONE REMAINS** | *Every day, one Double gets eliminated — until only one remains.* |
 
-VO: *Watch it live at doubland.ai.*
-
----
-
-## Survival tease (~50–56s)
-
-```
-SURVIVAL MODE
-```
-
-Visual: Pistsov `Survival.png` badge + `Pressure.mp4` (reuse Pistsov opener grammar)
-
-VO: *But the story doesn't stop at hello. Survival Mode comes next.*
+**Visuals:** `Pressure.mp4` plate under SURVIVAL MODE badge (Pistsov `Survival.png`); rule card. **Hard cut** to Closing on "remains."
 
 ---
 
-## End card (~56–60s)
+## Closing (~54–70s)
 
-```
-What if?
-doubland.ai
-Episode 1 tomorrow · 18:30 (EST)
-```
-
-VO: *What if?*
+| ~Time | On-screen text | VO line |
+|------:|----------------|---------|
+| 55 | (minimal) | *Watch live 24/7. Follow any Double.* |
+| 56 | **doubland.ai** | *(URL plate holds under above)* |
+| 59 | (minimal) | *See how people change under pressure.* |
+| 63 | (minimal) | *It's just like real life. They surprise you.* |
+| 66 | **WHAT WOULD MY DOUBLE DO?** | *And after a while... you ask — what would MY Double do?* |
+| 67 | **WHAT WOULD MY DOUBLE DO?** + **doubland.ai** + Episode 1 tomorrow · 18:30 (EST) | *(final end card — headline + supporting lines)* |
 
 ---
 

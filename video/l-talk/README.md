@@ -1,145 +1,62 @@
-# L-Talks Opening Trailer — Anya Handoff Bundle
+# L-Talks · Press Play — Opening Trailer
 
-**Mode:** Manual CapCut edit (not Remotion automation)  
-**Sim:** `soul15_seed_20260224` (display: **L-Talks** · season **Press Play**)  
-**Target:** ~60s · 9:16 vertical · shareable viral opener [A]
+A ~82s vertical (9:16) opening trailer for the **L-Talks** cohort — a real ~300-member alumni chat group whose 15 most active members were turned into AI Doubles and dropped into Doubland. Manual CapCut edit.
 
-This folder is the single drop zone for Anya. Everything she needs should land here.
+**Cohort:** L-Talks (masked) · **Season:** Press Play · **Sim:** `soul15_seed_20260224`
 
 ---
 
-## Folder map
+## What we need from you
 
-| Folder | Contents | Status |
-|--------|----------|--------|
-| `brief/` | Locked decisions + scenario-writer brief | ✅ ready |
-| `cast/` | Group photos, `group_anim.mp4`, optional spotlight preview; hero/portraits held for [B] | ✅ ready |
-| `brand/` | Village, Survival, Pressure, wordmark, end cards, anthem, SFX | ✅ ready |
-| `script/` | **Draft v1** script + on-screen copy | ⚠️ review before VO |
-| `audio/` | `narration.mp3` + `narration_timing.json` | ❌ after script lock |
-| `world/` | Pointer — survival assets live in `brand/` | ✅ N/A |
-| `reference/` | TODO doc, Anya Pistsov scene spec (style reference only) | ✅ ready |
-
-**Cast filenames:** hero and portrait PNGs use readable names (`Max_Shoemaker.png`, etc.). UUID mapping is in `cast/cast_reference.md`.
+One deliverable: a **final vertical MP4, 9:16, ~82s**, edited in CapCut from the assets below. Sync on-screen cards to the VO beat markers in `audio/narration_timing.json`. The full shot-by-shot map and open notes live in **`HANDOFF.md`** — that is your primary instruction doc.
 
 ---
 
-## Trailer shape (locked — lean [A])
+## What we provide
 
-1. **Concept intro** — what Doubland is, what a Double is (~0–20s)
-2. **Cast overview** — three-hundred-member chat reveal → **`group_photo` → matrix → `group_anim.mp4`**. One VO line; no trait lines.
-3. **Close** — mid URL **`doubland.ai`** + named **Survival Mode** (Pistsov visuals) → **What if?** → end card `Episode 1 tomorrow · 18:30 (EST)`.
-
-Per-Double intros and the 15 trait lines are **not** in this trailer — they belong in daily [B] `day_normal`.
-
-**Pacing reference (optional):** `cast/spotlight_preview_v2.mp4` — Anya may use for rhythm; cast block uses `group_anim` per D1.
-
----
-
-## Locked decisions (2026-07-02)
-
-See `brief/scenario-writer-brief.md` § Locked production decisions (D1–D9).
+| Folder | What's in it |
+|--------|--------------|
+| `audio/` | `narration.mp3` (final VO, 82s) + `narration_timing.json` (31 beat-level segments — lock every on-screen card to these timestamps) |
+| `cast/` | `group_photo.png` → `group_photo_matrix.png` → `group_anim.mp4` (the locked cast stack). `spotlight_preview_v2.mp4` is an optional rhythm reference — do **not** copy its per-person VO structure. |
+| `brand/` | `Village.mp4`, `Survival.png`, `Pressure.mp4`, `Talk.mp4`, wordmark, end cards, `music_anthem.mp3`, `sfx/` (16 cues) |
+| `script/` | `script.md` (locked narration + on-screen cues) · `script.json` (machine source) · `on-screen-copy.md` (every title card with target timecodes) |
+| `reference/` | `anya-scene-spec-pistsov-reference.md` — motion/typography/palette grammar to reuse. Do **not** reuse Pistsov cast assets; L-Talks cast is in `cast/`. |
+| `brief/` | `scenario-writer-brief.md` — the locked production decisions (D1–D9) if you need rationale. |
 
 ---
 
-## Your workflow (Ivan)
+## Trailer shape
 
-### Step 1 — Review draft script v1 ✅ drafted
+| Block | ~Time | What happens |
+|-------|------:|--------------|
+| Hook | 0–17s | "What if you had a Double?" framing |
+| Concept | 17–30s | What Doubland is, what a Double is |
+| L-Talks reveal | 30–49s | 300-member chat → year analyzed → top 15 → Doubles from what they said → pressed play |
+| Cast overview | 49–55s | One VO line over `group_photo` → matrix → `group_anim.mp4`. No trait lines, no names. |
+| Survival Mode | 55–66s | "We made it hard for them" + elimination rule. **Hard cut** out. |
+| Closing | 66–82s | Watch live + `doubland.ai` + "what would MY Double do?" → end card |
 
-Files: `script/script.md`, `script/script.json`, `script/on-screen-copy.md`
+**Final card:** `WHAT WOULD MY DOUBLE DO?` + `doubland.ai` + `Episode 1 tomorrow · 18:30 (EST)`
 
-Lock or send to external writer for polish. Brief is retuned for lean ~60s [A].
-
-### Step 2 — Record VO (`--skip-render`)
-
-From the engineering repo (`generative_agents`), once `script.json` is locked:
-
-```powershell
-cd d:\Coding\generative_agents
-.\venv\Scripts\activate
-python -m video.generate_trailer 20260628-4 opener `
-  --mode opener `
-  --top 15 `
-  --cohort-name "L-Talks" `
-  --season-title "Press Play" `
-  --skip-render `
-  --force `
-  -o "d:\Coding\double-ivan\video\l-talk\audio\_gen"
-```
-
-Then copy into `audio/`:
-
-- `narration.mp3`
-- `narration_timing.json`
-
-Voice is locked: ElevenLabs `eleven_v3` warm @ **1.5×**. Inline cues like `[curious]`, `[warmly]` are welcome in the script.
-
-> **Note:** The pipeline may expect script at a sim output path. If the command regenerates script instead of using yours, place your locked `script.json` at `data/20260628-4/opener&NNN/script.json` (next index) or pass the output dir explicitly and verify the VO matches your copy before handoff.
-
-### Step 3 — Deliver to Anya
-
-All visual assets are in `cast/` and `brand/`. After VO lands in `audio/`, the bundle is complete.
+**Not in this trailer:** 15 spoken trait lines, per-Double hero/portrait cards — those belong in the daily format.
 
 ---
 
-## On-screen copy sheet (template for `script/on-screen-copy.md`)
+## Locked decisions that matter for the edit
 
-Fill after script is locked:
+- **Cast stack (D1):** `group_photo.png` → `group_photo_matrix.png` → `group_anim.mp4`
+- **Survival close (D3):** `Survival.png` + `Pressure.mp4`
+- **End card (D6):** `Episode 1 tomorrow · 18:30 (EST)`
+- **URL plates (D7):** `doubland.ai` mid-trailer + on the end card
+- **Group assets only (D8):** no hero/portrait PNGs in the opener
 
-```
-SEASON LINE (hold ≥1s)
-  L-TALKS · PRESS PLAY
-
-HOOK TITLES
-  WHAT IF…
-  YOU HAD A SECOND CHANCE
-  … (list each beat)
-
-MID-TRAILER URL (~59s mark in Pistsov reference)
-  doubland.ai
-
-END CARD
-  What if?
-  doubland.ai
-  Episode 1 tomorrow · 18:30   ← adjust to launch date
-
-CAPTIONS
-  (paste narration lines with approximate timecodes from narration_timing.json)
-```
+Full list: `brief/scenario-writer-brief.md` § Locked production decisions.
 
 ---
 
-## What Anya reuses from the Pistsov reference
+## Start here
 
-See `reference/anya-scene-spec-pistsov-reference.md` for motion/style grammar (palette, typography, dissolve rhythm). **Do not** reuse Pistsov cast assets — L-Talks cast is in `cast/`.
-
-| Pistsov kit (in `brand/`) | L-Talks use |
-|---------------------------|-------------|
-| `Village.mp4` | World-establishing B-roll |
-| `Talk.mp4` | Concept / conversation beat |
-| `Pressure.mp4` | Survival-tease close (or reference) |
-| `music_anthem.mp3` | Bed under VO |
-| `sfx/` | Whooshes, typing, impacts |
-| Wordmark + end cards | Brand close |
-
-Replace Pistsov `Family.mp4` with `cast/group_anim.mp4`.
-
----
-
-## Open decisions
-
-All production decisions **locked 2026-07-02** — see `brief/scenario-writer-brief.md`.
-
-**Remaining:** script v1 review → VO record → Anya handoff.
-
----
-
-## Source paths (for Ivan — not Anya)
-
-| Asset | Canonical location |
-|-------|-------------------|
-| Cohort cast pack | `generative_agents/video/assets/cohort/soul15_seed_20260224/` |
-| Spotlight preview v2 | `generative_agents/video/remotion/out/soul15_seed_20260224_spotlight_preview_v2.mp4` |
-| Auto script draft | `generative_agents/data/20260628-4/opener&002/script.json` |
-| Active TODO | `double-ivan/video/opening/TODOs-opening-trailer.md` |
-| Video SOT | `double-ivan/video/sot-video.md` §0, §10 |
+1. Read **`HANDOFF.md`** — shot-by-shot visual sequence + open notes
+2. Skim **`script/on-screen-copy.md`** — every title card with timecodes
+3. Open **`audio/narration_timing.json`** — your sync anchors
+4. Cut to `audio/narration.mp3`

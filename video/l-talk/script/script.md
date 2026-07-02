@@ -3,7 +3,7 @@
 **Type:** Opener [A] · manual CapCut · ~60s · 9:16  
 **Cohort:** L-Talks (masked) · **Season:** Press Play  
 **Voice:** ElevenLabs `eleven_v3` warm @ 1.5×  
-**Status:** First draft — Ivan review before VO record
+**Status:** Locked 2026-07-02 — VO record cleared
 
 ---
 
@@ -15,9 +15,8 @@
 | Concept | 11–20s | Doubland + message-derived Double | Wordmark, concept cards; optional `Village.mp4` under VO |
 | L-Talks reveal | 20–34s | 300-member chat → analyze → top 15 → profiles → press play | Minimal UI; season line **L-TALKS · PRESS PLAY** |
 | Cast overview | 34–46s | One line only — full roster, no trait VO | `group_photo.png` → `group_photo_matrix.png` → **`group_anim.mp4`** |
-| Mid URL | 46–50s | doubland.ai spoken + on-screen | Mid-trailer URL plate (Pistsov ~59s pattern, scaled to ~60s) |
-| Survival tease | 50–56s | Survival Mode named | Reuse Pistsov kit: `Pressure.mp4` + **`Survival.png`** badge |
-| End card | 56–60s | "What if?" | `questionToUrlTakeover` → **doubland.ai** → schedule line |
+| Survival Mode | 46–54s | Survival Mode + elimination rule | **SURVIVAL MODE** badge (`Survival.png` + `Pressure.mp4`) · rule card · hard cut out |
+| Closing | 54–70s | Watch live + pressure + real life + what would MY Double do? + end card | `doubland.ai` plate · **WHAT WOULD MY DOUBLE DO?** · end card |
 
 **Not in this trailer:** 15 spoken trait lines, per-Double hero/portrait cards → daily-normal [B].
 
@@ -27,7 +26,7 @@
 
 ### Hook · ~0–11s
 
-[PAUSE 0.2s] [curious] What if... you had a second chance to make it right? [PAUSE 0.15s] What if you could practice that hard conversation — before it ever happened? [PAUSE 0.15s] What if you had a Double? [PAUSE 0.15s] An AI version of you. Talking like you. Reacting like you. Making choices like you.
+[curious] What if... you had a second chance to make it right? [PAUSE 0.15s] What if you could practice that hard conversation — before it ever happened? [PAUSE 0.15s] What if you had a Double? [PAUSE 0.15s] An AI version of you. [PAUSE 0.1s] Talking like you. [PAUSE 0.1s] Reacting like you. [PAUSE 0.1s] Making choices like you.
 
 **On-screen:** WHAT IF… · YOU HAD A SECOND CHANCE · WHAT IF YOU HAD A DOUBLE?
 
@@ -35,7 +34,7 @@
 
 ### Concept · ~11–20s
 
-[PAUSE 0.15s] In Doubland, you build an AI Double from your personality — distilled from how you actually communicate. [PAUSE 0.15s] [warmly] Then you watch it live, in a world with other Doubles. Every conversation. Every choice. Every relationship.
+In Doubland, you build an AI Double from your personality. [PAUSE 0.15s] [warmly] Then you watch it live, in a world with other Doubles. [PAUSE 0.1s] Every conversation. [PAUSE 0.1s] Every choice. [PAUSE 0.1s] Every relationship.
 
 **On-screen:** DOUBLE · AN AI VERSION OF YOU · (optional) TALKING / REACTING / MAKING CHOICES LIKE YOU
 
@@ -43,7 +42,7 @@
 
 ### L-Talks reveal · ~20–34s
 
-[PAUSE 0.2s] This season: Press Play. [PAUSE 0.1s] L-Talks — a three-hundred-member alumni chat. [PAUSE 0.15s] We analyzed a year of every discussion. [PAUSE 0.1s] Found the fifteen most active voices. [PAUSE 0.1s] Built their Doubles from what they wrote — no surveys, no interviews. [PAUSE 0.1s] Changed every name. [PAUSE 0.15s] [excited] And pressed play.
+This season: L-Talks. [PAUSE 0.1s] A three-hundred-member alumni chat group. [PAUSE 0.15s] We analyzed a year of conversations. [PAUSE 0.1s] Found fifteen most active voices. [PAUSE 0.1s] Built their Doubles from what they said — no surveys, no interviews. [PAUSE 0.1s] Dropped them into Doubland. [PAUSE 0.15s] [excited] And pressed play.
 
 **On-screen:** L-TALKS · PRESS PLAY · (optional beat titles) YEAR OF MESSAGES · TOP 15 · PRESSED PLAY
 
@@ -51,34 +50,33 @@
 
 ### Cast overview · ~34–46s
 
-[PAUSE 0.2s] Fifteen Doubles. Fifteen minds. No one at the keyboard.
+Fifteen Doubles. [PAUSE 0.1s] AI version of real people. [PAUSE 0.1s] No one at the keyboard.
 
 **On-screen:** (minimal — let visuals carry)  
 **Visual sequence (locked):** clean group photo → matrix scan → **`group_anim.mp4`** hold through VO tail. No individual names or trait lines.
 
 ---
 
-### Mid URL · ~46–50s
+### Survival Mode · ~46–54s
 
-[PAUSE 0.15s] Watch it live at doubland.ai.
+We wanted to keep it interesting — so we made it hard for them. [PAUSE 0.15s] Survival Mode. [PAUSE 0.1s] Every day, one Double gets eliminated — until only one remains.
 
-**On-screen:** **doubland.ai** (mid-trailer URL plate)
-
----
-
-### Survival tease · ~50–56s
-
-[PAUSE 0.2s] But the story doesn't stop at hello. [PAUSE 0.1s] Survival Mode comes next.
-
-**On-screen:** **SURVIVAL MODE** badge (`Survival.png`) over `Pressure.mp4` or Pistsov survival plate grammar
+**On-screen:**
+- **SURVIVAL MODE** badge (`Survival.png`) over `Pressure.mp4` (~48s, over "Next: Survival Mode")
+- **ONE OUT EVERY DAY · UNTIL ONE REMAINS** (~50s, over the rule line)
+- Hard cut to Closing on "remains"
 
 ---
 
-### End card · ~56–60s
+### Closing · ~54–70s
 
-[PAUSE 0.15s] [curious] What if?
+Watch live 24/7. [PAUSE 0.1s] Follow any Double. [PAUSE 0.15s] See how people change under pressure. [PAUSE 0.2s] It's just like real life. [PAUSE 0.1s] They surprise you. [PAUSE 0.15s] And after a while... you ask — [curious] what would MY Double do?
 
-**On-screen:** What if? → **doubland.ai** → Episode 1 tomorrow · 18:30 (EST)
+**On-screen (sequence):**
+- **doubland.ai** mid-trailer URL plate (~56s, over "Watch live 24/7…")
+- (minimal over "See how people change…" / "relationships become part of the game")
+- **WHAT WOULD MY DOUBLE DO?** title (~66s) — final headline card
+- End card: **WHAT WOULD MY DOUBLE DO?** + **doubland.ai** + Episode 1 tomorrow · 18:30 (EST)
 
 ---
 

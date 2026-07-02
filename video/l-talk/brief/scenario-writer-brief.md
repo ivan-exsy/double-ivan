@@ -174,7 +174,7 @@ Introduce **Press Play** and the selection pipeline. Required beats:
 - A year of every discussion analyzed
 - Fifteen most active voices selected
 - Doubles built from what they wrote — no surveys, no interviews
-- Names changed; **pressed play**
+- Dropped into Doubland; **pressed play**
 
 ### 6.3 Cast overview block (~34–46 s)
 
@@ -193,7 +193,7 @@ Example shape: *Watch it live at doubland.ai. But the story doesn't stop at hell
 
 ### 6.5 End card (~56–60 s)
 
-**"What if?"** → **`doubland.ai`** → **`Episode 1 tomorrow · 18:30 (EST)`** (D6).
+**"WHAT WOULD MY DOUBLE DO?"** + **`doubland.ai`** + **`Episode 1 tomorrow · 18:30 (EST)`** (D6).
 
 ---
 

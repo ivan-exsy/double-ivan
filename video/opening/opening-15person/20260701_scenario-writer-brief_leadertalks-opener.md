@@ -174,7 +174,7 @@ Introduce **Press Play** and the selection pipeline. Required beats:
 - A year of every discussion analyzed
 - Fifteen most active voices selected
 - Doubles built from what they wrote — no surveys, no interviews
-- Names changed; **pressed play**
+- Dropped into Doubland; **pressed play**
 
 ### 6.3 Cast overview block (~34–46 s)
 
