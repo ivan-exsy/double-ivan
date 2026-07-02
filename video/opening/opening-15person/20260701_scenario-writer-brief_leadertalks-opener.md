@@ -4,7 +4,7 @@
 **Cohort display name:** L-Talks (masked; real group name withheld from the trailer)
 **Season:** Press Play
 **Cast size:** 15 Doubles
-**Format:** 9:16 vertical, ~90–105 s total runtime
+**Format:** 9:16 vertical, **~60s** total runtime (SOT L6)
 **Tone:** Intellectual thriller — quieter, tense, ideas have consequences
 **Status:** Brief for an external scenario writer — not a code doc
 
@@ -173,7 +173,7 @@ A one-paragraph explanation of why the 15 beats are ordered the way they are.
 | **Language** | English is the primary language of the trailer narration and on-screen copy. (Inside the simulation, users can chat with Doubles in any language — this fact does not need to appear in the opener.) |
 | **Cast equality** | All 15 are introduced equally. No featured vs. background split. No subgroups, duos, or rivalries surfaced in the trailer. |
 | **No forbidden topics** | The writer is not restricted from any subject area, but should treat the Doubles as the soul profiles describe them — no inventing biographical facts the profiles do not support. |
-| **Format** | 9:16 vertical, mobile-first, must work silent (captions) and with sound. Total runtime ~90–105 s. |
+| **Format** | 9:16 vertical, mobile-first, must work silent (captions) and with sound. Total runtime **~60s** (SOT L6). |
 | **Product clarity** | A cold viewer must understand what Doubland is by the end of the concept block. Do not sacrifice product clarity for atmosphere. |
 | **Audience** | L-Talks group themselves + Doubland product launch audience. Must work for a stranger who knows nothing about the group. |
 
@@ -194,8 +194,8 @@ A one-paragraph explanation of why the 15 beats are ordered the way they are.
 | Current auto-gen script | `d:\Coding\generative_agents\data\20260628-4\opener&002\script.json` | What's there now; the JSON shape to match |
 | 15 soul profiles | `d:\Coding\generative_agents\souls\<uuid>.md` | Primary source for each persona |
 | Trailer workbook (pilot context, cast-intro gap analysis) | `d:\Coding\double-ivan\video\trailer-opening\20260625_trailer-workbook.md` | Why the current script is weak on cast framing |
-| Opening trailer automation plan | `d:\Coding\double-ivan\video\trailer-opening\20260617_vertical-trailer-automation.md` | How the script becomes a video (Remotion, ~90–105 s target) |
-| Opening trailer SOT (creative grammar) | `d:\Coding\double-ivan\video\trailer-opening\sot-opening-trailer.md` | Tone, macro rhythm, motion grammar reference |
+| Opening trailer automation plan | `d:\Coding\double-ivan\video\opening\opening-15person\20260617_vertical-trailer-automation.md` | How the script becomes a video (Remotion, ~60s target) |
+| Opening trailer SOT (creative grammar) | `d:\Coding\double-ivan\video\sot-video.md` | Tone, macro rhythm, motion grammar; §10 opener scene map |
 | Relationship graph (informational only) | `d:\Coding\generative_agents\video\assets\cohort\soul15_seed_20260224\` | Social topology; do not surface in trailer |
 
 ---

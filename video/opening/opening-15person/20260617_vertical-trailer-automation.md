@@ -2,12 +2,12 @@
 
 ## References
 PRIMARY implementation doc · Phase 0–6 DONE · P1 OPEN · Latest: `opener&008`
-Creative bible → `sot-opening-trailer.md` · Visual SOT → `teadown/`
+Creative bible → `../sot-video.md` · Visual SOT → `teadown/`
 
 
-> **Primary engineering plan** for auto-generating vertical (9:16) opening trailers. Goal: match Anya's hand-edited cut (`video/opening-anya/DOUBLAND1.mov`). Scope locked **2026-06-17: vertical only**. Creative standard + asset map: **`sot-opening-trailer.md`** (Part I playbook). Visual timing: **`trailer-opening/teadown/`**.
+> **Primary engineering plan** for auto-generating vertical (9:16) opening trailers. Goal: match Anya's hand-edited cut (`video/opening-anya/DOUBLAND1.mov`). Scope locked **2026-06-17: vertical only**. Creative standard + asset map: **`video/sot-video.md`** (Part I + §10 [A]). Visual timing: **`opening-15person/teadown/`**.
 
-**Duration policy:** Total trailer length is **not a hard product requirement**. A few seconds vs Anya's hand cut is fine (e.g. **~76.7s** narration vs **~77s** final MP4 on `opener&008`). **Larger casts are expected to produce longer trailers** — tiered layouts keep the cast *block* efficient (~15–20s); validator band today **65–95s**.
+**Duration policy:** Opener [A] target **~60s** (SOT L6). Total length is **not a hard product requirement** — a few seconds of slack is fine. **Larger casts** may need slightly more room; tiered layouts keep the cast *block* efficient (~15–20s). Validator band for [A]: **~50–75s**. Anya reference cut (**~76.6s**) informs pacing structure, not target runtime.
 
 **Data posture (2026-06-25):** Trailer pipeline must be **Supabase-first** — read cast, scratch, relationships, and trait lines from Supabase; write generated assets, copy, QA status, and render outputs back to **Supabase Storage + DB tables**. Local paths (`video/assets/`, `data/*/opener&*`, `remotion/public/render/`) are **dev/bootstrap or render transport**, not canonical state. See **`20260625_trailer-workbook.md` § Data posture** for the pilot plan; soul15 work should not add new disk-only SOT paths.
 
@@ -112,7 +112,7 @@ Hard-cut timestamps (ffmpeg scene detection on master): 0, 23.5, 24.0, 27.2, 31.
 | Assets | `generate_cutouts.py`, `generate_group_photo.py`, `generate_matrix_photo.py` | Per-cohort assets (**today:** local paths under `video/assets/`; **target:** Supabase Storage + `trailer_asset` rows) |
 | Props | `build_opener_remotion_props.py` | VO segments → beat map + CSV overlays + staged assets |
 | Render | `render_opener_remotion.py` | `npx remotion render` → `trailer_9x16.mp4` |
-| Gate | `validate_trailer.py` | **Today:** 9:16, **65–95s** (wide band; longer OK for large casts), LUFS check. **Target (Playbook §11):** editorial-motion gates, ~**-14 LUFS**, true peak ≤ -1 dBTP, poster export — not a strict 70–85s cap |
+| Gate | `validate_trailer.py` | **Today:** 9:16, **[A] ~50–75s** (SOT L6 target ~60s), LUFS check. **Target (SOT §9):** editorial-motion gates, ~**-14 LUFS**, true peak ≤ -1 dBTP, poster export |
 
 **Not used for opener anymore:** Phaser static capture, `compose_opener_trailer` (FFmpeg), 16:9 master. Day modes (`day_in_life`, `day_overview`) still use FFmpeg `compose_trailer.py` unchanged.
 
@@ -287,7 +287,7 @@ cd video/remotion && npx remotion render OpenerTrailer out/soul15_seed_20260224_
 - One-command path produces script + VO + props without manual steps (once Remotion deps installed).
 - **Typing animation** on sub-lines reads well — keep `TypingText` for lines that are still being "spoken in."
 - Beat map, cast cut-outs, village/pressure/aerial B-roll, and end card all render end-to-end.
-- Runtime **83.6s** passes today's validator (65–95s); ~7s longer than Anya's 76.6s reference is **acceptable** — priority is motion quality, not matching seconds.
+- Runtime **83.6s** on early builds (pre-L6) — **above** today's [A] target **~60s** (validator ~50–75s). Priority is motion quality; re-cut to SOT length is a separate editorial pass.
 
 ### 8.2 Fixed text should hold still — **shipped (`006`/`007`)**
 

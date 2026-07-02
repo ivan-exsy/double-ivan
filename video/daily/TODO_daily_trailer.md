@@ -4,7 +4,7 @@
 # Day-Overview Trailer — Implementation TODO
 
 > Daily simulation-day recap trailers (Episode 1, 2, 3… at 18:30 owner-local). **Must look and feel like the next episode of the same show as the shipped opener.**
-> **Refs:** Opener SOT `video/trailer-opening/sot-opening-trailer.md` · Opener impl `video/trailer-opening/20260617_vertical-trailer-automation.md` · Opener workbook `video/trailer-opening/20260625_trailer-workbook.md` · Engineering `video/video_PRD.md` §2.2 · Creative `video/video_playbook.md` §3.
+> **Refs:** Video SOT `video/sot-video.md` (Part I shared grammar · §12 [C] · L8 simulation literacy · **L9/L10 duration**) · Blend grammar `video/daily/daily-2D-3D-blend.md` · Opener impl `video/opening-15person/20260617_vertical-trailer-automation.md` · Engineering `video/video_PRD.md` §2.2 · Creative `video/video_playbook.md` §3.
 > **Branch:** `ivan/daily-trailer` (forked from railway). **Last updated: 2026-07-01.**
 
 
@@ -18,7 +18,7 @@
 The daily trailer is indistinguishable in craft from the opener — a viewer can't tell it was built by a different code path. It inherits from the opener:
 
 - **Format:** 9:16 vertical, 1080×1920, mobile-first. **Remotion render** (not the legacy FFmpeg/Phaser path).
-- **Motion system:** continuous journey, motivated handoffs, 3+ depth layers, `type-then-hold` text — the opener motion-design system (SOT §3–4, §7).
+- **Motion system:** continuous journey, motivated handoffs, 3+ depth layers, `type-then-hold` text — shared grammar in `video/sot-video.md` Part I (§3–§7).
 - **Assets:** reuse the opener's Supabase `trailer_asset` registry by `persona_id` — cutouts, hero spotlights, group photo, matrix, relationship graph. **No sketch-portrait re-generation.** Same Doubles appear in both trailers.
 - **Audio:** opener SFX library + planner; mix ~-14 LUFS, true peak ≤ -1 dBTP, music ducked 3–5 dB under speech.
 - **Voice:** ElevenLabs `eleven_v3` warm @ **1.5×** (matches opener).
@@ -32,11 +32,11 @@ The daily trailer is indistinguishable in craft from the opener — a viewer can
 - **Drama >> resolution.** The day closes on a cliffhanger hook for tomorrow, never a bow.
 - **Plain marketer-simple language.** Concrete nouns and verbs, no strategy jargon or abstractions. A viewer who's never seen the show follows every sentence.
 - **Who they are, not just what they did.** Each featured Double's first mention carries a few role/trait words explaining *why* they act, drawn from the producer's status-deltas and persona personality data.
-- **Pacing.** Total trailer **under 90 seconds**. Pauses minimal and matched to the opener (~0.15s per scene, ~3s total silence). First-name-only in voiceover; full names on cards.
+- **Pacing.** Total trailer **under 120 seconds** ([C] `day_survival` per SOT L10). Pauses minimal and matched to the opener (~0.15s per scene, ~3s total silence). First-name-only in voiceover; full names on cards.
 
 ### 3. The 2D→3D "matrix" north-star
 
-The deepest product goal: the viewer **watches** the Phaser 2D visualization but **sees** (mentally) a 3D rendering — as if Doubland is their portal into a matrix where the simulation is indistinguishable from reality. The daily trailer is where that mental translation gets trained.
+The deepest product goal: the viewer **watches** the Phaser 2D visualization but **sees** (mentally) a 3D rendering — as if Doubland is their portal into a matrix where the simulation is indistinguishable from reality. Locked as **L8** in `video/sot-video.md` §0.2. The daily trailer is where that mental translation gets trained; execution rules → `video/daily/daily-2D-3D-blend.md`.
 
 For the day's 1–3 selected high-stakes moments, the trailer cuts from 2D into a short **1–2s cinematic 3D clip** generated from *that moment's actual location and the actual Doubles involved*, then back to 2D. Workflow per selected moment:
 
@@ -78,12 +78,12 @@ For the day's 1–3 selected high-stakes moments, the trailer cuts from 2D into 
 - **B2. Surface event location — ✅ Done (2026-07-01).** Location is parsed from timeline action strings (`@ world:sector:arena:tile` → sector as friendly name) via `_location_from_action` + `_resolve_beat_location` in `showrunner.py`. Arc scenes in `_stitch_overview_script` now carry a resolved `location` field; `build_day_remotion_props.py` passes it as `locationLabel` on pressure/world/turn beats. No maze loading needed — the address is already in the action text. Covered by `video/test_location_resolver.py` (7 tests). Unlocks on-screen location captions and feeds the B4 clip prompt's environmental description. Existing Day-2 script.json has empty locations (pre-B2); next render populates them.
 - **B3. Resolve forked-cohort persona photos — ✅ Done (2026-07-01).** `_resolve_hero_path` now falls back to the baseline cohort by `agent_id` when the fork-named `hero/<fork-slug>/` folder is absent. Baseline is resolved by walking `double.simulations.parent_simulation_id` in Supabase to the root baseline (cached per sim). For `20260628-4` → `soul15_seed_20260224`. Covered by `video/test_hero_baseline_fallback.py` (4 cases, 13/13 tests green). Restores realistic Doubles to the cast panel and gives the clip generator its character references.
 - **B4. Automate Grok Imagine clip generation — fast-follow (post-merge).** New `generate_moment_clips.py`: for each arc beat with a known location (B2) + featured Doubles (B3) + action description, resolve the location plate + persona photos, call Grok Imagine, output a 1–2s `.mp4` into the B1 path. Cache per `(sim, day, beat)`. API facts locked from docs: `POST https://api.x.ai/v1/videos/generations`, model `grok-imagine-video`, `Bearer $XAI_API_KEY`, duration 1–15s, `aspect_ratio: "9:16"`, `resolution: "720p"`, async polling via `request_id`. **Design wrinkle:** image-to-video takes ONE source image; our plate + multiple Double photos need either (a) pre-compositing into one 9:16 still then animating, or (b) the reference-to-video endpoint. Start with (a); escalate to (b) if composited clips don't read cinematic enough.
-- **B5. Creative blend grammar — ✅ Done (2026-07-01).** `video/blend_grammar.md` documents: which beats are clip-eligible (1–3 per day, arc beats only; establishing layer stays 2D), the two transition types (camera dive 2D→3D, pixel fracture 3D→2D), continuity rules (location/pose/lighting match), clip sourcing (B1 manual → B4 automated), and the visual-rhythm target (clips lift the daily from 2.8/min toward 6–8/min, not the opener's 23.5/min — the daily is a slower format by design). Three open creative questions flagged: clip aspect ratio (16:9→9:16), clip audio (recommend silent), clip repetition (recommend no).
+- **B5. Creative blend grammar — ✅ Done (2026-07-01).** `video/daily/daily-2D-3D-blend.md` documents: which beats are clip-eligible (1–3 per day, arc beats only; establishing layer stays 2D), the two transition types (camera dive 2D→3D, pixel fracture 3D→2D), continuity rules (location/pose/lighting match), clip sourcing (B1 manual → B4 automated), and the visual-rhythm target (clips lift the daily from 2.8/min toward 6–8/min, not the opener's 23.5/min — the daily is a slower format by design). Three open creative questions flagged: clip aspect ratio (16:9→9:16), clip audio (recommend silent), clip repetition (recommend no).
 
 ### C. Opener-stack alignment (remaining)
 
 - **C1. End card — ✅ Done (was already wired before this round).** `build_day_remotion_props.py:262-288` already uses the opener's `questionToUrlTakeover` with the producer's `dramatic_question` as the hook and day-episode phases. Tests assert the phases exist. The original TODO's "static DAY N ENDS card" gap was outdated.
-- **C2. Validator — editorial-motion + asset-presence gates — ✅ Done (2026-07-01).** Two new gates in `validate_trailer.py`: `_check_asset_presence` (cross-references scene hero_path/sketch_path against disk; hard-fails on missing files, reports arc scenes with no asset) and `_check_editorial_motion` (samples frames at 2fps, measures visual-change rate ≥16/min + near-static intervals ≤2.5s per SOT §11.2). Both soft/non-blocking initially per SOT guidance. Covered by `video/test_validate_c2_gates.py` (5 tests). **Finding:** Day-2 scores 2.8 visual changes/min (opener ref ~23.5/min) with a 61.5s near-static stretch — the daily trailer is dramatically more static than the opener. The gate reports it; the threshold is not lowered to hide it. The 2D→3D blend (B) is one lever to lift this; intra-card motion improvements are the other.
+- **C2. Validator — editorial-motion + asset-presence gates — ✅ Done (2026-07-01).** Two new gates in `validate_trailer.py`: `_check_asset_presence` (cross-references scene hero_path/sketch_path against disk; hard-fails on missing files, reports arc scenes with no asset) and `_check_editorial_motion` (samples frames at 2fps, measures visual-change rate ≥16/min + near-static intervals ≤2.5s per SOT §9.2). Both soft/non-blocking initially per SOT guidance. Covered by `video/test_validate_c2_gates.py` (5 tests). **Finding:** Day-2 scores 2.8 visual changes/min (opener ref ~23.5/min) with a 61.5s near-static stretch — the daily trailer is dramatically more static than the opener. The gate reports it; the threshold is not lowered to hide it. The 2D→3D blend (B) is one lever to lift this; intra-card motion improvements are the other.
 - **C3. Supabase `trailer_asset` read at render time — ✅ Done (2026-07-01).** New `video/trailer_asset_store.py` module (was referenced by registration/validation scripts but didn't exist on disk) provides `get_asset(sim_code, persona_id, asset_type)` querying `double.trailer_asset`. The `_hero()` helper in `showrunner.py` now tries Supabase first (via `_resolve_hero_from_trailer_asset`, which queries the baseline cohort's `hero_spotlight` row by persona_id and resolves via `metadata.local_path`), then falls back to the fork-named cohort folder, then the baseline-cohort agent_id folder. Covered by `video/test_trailer_asset_read.py` (6 tests). Resolution order: Supabase registry → fork cohort folder → baseline cohort folder → None.
 
 ### D. Gates & merge
@@ -98,7 +98,7 @@ For the day's 1–3 selected high-stakes moments, the trailer cuts from 2D into 
 - **Multi-lead counts:** soft target 1–3 moments / 2–4 featured Doubles; producer flexes within guardrails, no hard rejection (2026-07-01).
 - **Day-1 intro:** daily-specific concept-reset card styled like the opener (option b). Daily is a self-contained episode every day; the opener is **not** the Day-1 trailer (2026-07-01).
 - **Voice:** `eleven_v3` warm @ 1.5×, matching the opener (2026-07-01).
-- **Duration:** total trailer under 90s; duration band 65–95s (2026-07-01).
+- **Duration:** [C] survival daily **<120s**; validator band **60–120s** (SOT L10, 2026-07-02). *[B] `day_normal` target 60–90s when that contract ships (SOT L9).*
 - **Pauses:** opener-matched ~0.15s per scene, ~3s total (2026-07-01).
 - **Language:** plain marketer-simple, no abstractions; weave who-they-are/why into each Double's first mention (2026-07-01).
 - **Persona ranker:** honors `--top N` as a minimum; the producer decides the actual featured-Double count (quiet-day fallback removed, 2026-07-01).
@@ -142,7 +142,7 @@ Pipeline: extract (Supabase or cached `day_log.json`) → two-stage narration (L
 - `video/persona_ranker.py` — ranks personas by storyline potential; honors `--top N`.
 - `video/build_day_remotion_props.py` — maps daily scenes → opener Remotion beat types; stages portraits/assets. **`video` prop currently points to generic opener loops (TODO B1).**
 - `video/render_day_remotion.py` — builds props + calls shared Remotion render.
-- `video/validate_trailer.py` — quality gates (9:16, LUFS, duration 65–95s, word 130–175, scene count, narration-fit).
+- `video/validate_trailer.py` — quality gates (9:16, LUFS, duration per type: [A] ~50–75s · [B] 60–90s · [C] 60–120s, word 130–175, scene count, narration-fit).
 - `video/remotion/src/` — shared Remotion components (`OpenerTrailer.tsx`, `beats/AnyaBeats.tsx` with `BgVideo`/`OffthreadVideo`, `QuestionToUrlTakeover.tsx`, etc.).
 - **Assets:** `video/assets/village/interior/` (39) + `exterior/` (6) — location plates (unused, TODO B2); `video/assets/cohort/soul15_seed_20260224/` — baseline cohort photos (TODO B3); `video/assets/users/sketches/<uuid>.png` — sketch portraits (current fallback).
 - **Opener asset staging:** `video/asset_manifest.py`, `video/build_opener_remotion_props.py`.

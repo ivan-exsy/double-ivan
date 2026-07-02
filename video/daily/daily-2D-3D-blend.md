@@ -1,12 +1,12 @@
-# Daily Trailer — 2D→3D Blend Grammar
+# Daily trailer — 2D↔3D blend grammar
 
-Reference doc for the creative rules governing when and how the daily trailer
-blends 2D sketch/Phaser cards with 3D cinematic clips. Extends the hero video's
-"Core 2D ↔ Cinematic Visual System" (video_playbook.md §84) into the daily
-recap format.
+> **North-star (all trailer types):** `video/sot-video.md` §0.2 **L8** — viewers watch Phaser and see real life.  
+> **Brand philosophy:** [video_playbook.md](video_playbook.md) §Core 2D↔Cinematic Visual System.  
+> **Applies to:** **[B] `day_normal`** and **[C] `day_survival`** dailies (especially [C] arc beats). Opener [A] uses matrix + cinematic tease, not this beat-level clip system.
 
-Status: Active — governs B1 (manual clip drop-in) and B4 (Grok Imagine
-automation, fast-follow).
+Execution rules for when and how daily trailers blend 2D sketch/Phaser cards with 3D cinematic clips.
+
+**Status:** Active — governs B1 (manual clip drop-in) and B4 (Grok Imagine automation, fast-follow). See `video/daily/TODO_daily_trailer.md` §B.
 
 ---
 
@@ -142,11 +142,11 @@ transitions, multi-layer depth, type-then-hold with kinetic timing).
 - 3D→2D pixel fracture: ~0.3s
 - Net effect: each clip-eligible beat gains ~2–3 additional visual changes
   (dive + clip + fracture), lifting the rate from ~2.8/min toward ~6–8/min
-  with 2 clips in an ~85s trailer
+  with 2 clips in a survival daily up to ~120s
 
 This won't reach the opener's 23.5/min — the daily is a slower, more
 contemplative format by design. But it should clear the 16/min SOT floor
-once both the blend and the intra-card motion improvements land.
+(§9.2) once both the blend and the intra-card motion improvements land.
 
 ---
 
