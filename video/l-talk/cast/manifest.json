@@ -1,0 +1,519 @@
+{
+  "manifest_version": "1.0",
+  "cohort_id": "soul15_seed_20260224",
+  "simulation": "soul15_seed_20260224",
+  "cast_size": 15,
+  "cast_strategy": "fifteen_spotlight_montage",
+  "mode": "survival",
+  "world": "the_ville",
+  "target_runtime_sec": {
+    "min": 90,
+    "max": 105
+  },
+  "created_at": "2026-06-25",
+  "cohort_display_name": "Leadertalks",
+  "trait_line_policy": "All 15 featured: full-screen hero spotlight + spoken trait line per person. Trait lines are pipeline-locked \u2014 no manual approval step in automation.",
+  "notes": "Pilot cohort for trailer asset automation. Trait lines locked approved 2026-06-25 (Ivan). Auto-pipeline uses manifest/DB trait lines with no manual approval gate. Character sheets and sprite walkouts under video/assets/users/; migrate to Supabase Storage.",
+  "personas": [
+    {
+      "persona_id": "bcf5fb65-6e7e-464a-83bb-51668f967f77",
+      "display_name": "Max Shoemaker",
+      "spotlight_order": 1,
+      "featured": true,
+      "anchor_spotlight": true,
+      "trait_line": "Max turns ideas into momentum.",
+      "trait_line_status": "approved",
+      "profile_doc": "souls/bcf5fb65-6e7e-464a-83bb-51668f967f77.md",
+      "career": "digital marketer",
+      "location": "remote",
+      "relationship_tags": [
+        "remote",
+        "connector",
+        "builder"
+      ],
+      "full_body_standing": "video/assets/users/character-sheets/bcf5fb65-6e7e-464a-83bb-51668f967f77/full_body_standing.png",
+      "cutout": "video/assets/users/cutouts/bcf5fb65-6e7e-464a-83bb-51668f967f77.png",
+      "portrait_crop": "video/assets/cohort/soul15_seed_20260224/portraits/bcf5fb65-6e7e-464a-83bb-51668f967f77.png",
+      "hero_spotlight": "video/assets/cohort/soul15_seed_20260224/hero/bcf5fb65-6e7e-464a-83bb-51668f967f77.png",
+      "automation_step": null,
+      "qa_status": "pending",
+      "character_sheet_dir": "video/assets/users/character-sheets/bcf5fb65-6e7e-464a-83bb-51668f967f77",
+      "sprite_walkout": "video/assets/users/sprite-walkouts/bcf5fb65-6e7e-464a-83bb-51668f967f77.mp4",
+      "character_sheet": {
+        "front_neutral": "video/assets/users/character-sheets/bcf5fb65-6e7e-464a-83bb-51668f967f77/front_neutral.png",
+        "front_smile": "video/assets/users/character-sheets/bcf5fb65-6e7e-464a-83bb-51668f967f77/front_smile.png",
+        "three_quarter_neutral": "video/assets/users/character-sheets/bcf5fb65-6e7e-464a-83bb-51668f967f77/three_quarter_neutral.png",
+        "profile_neutral": "video/assets/users/character-sheets/bcf5fb65-6e7e-464a-83bb-51668f967f77/profile_neutral.png",
+        "full_body_standing": "video/assets/users/character-sheets/bcf5fb65-6e7e-464a-83bb-51668f967f77/full_body_standing.png"
+      }
+    },
+    {
+      "persona_id": "0e8d6398-bfe5-40c7-9b6d-1eae2b0abc49",
+      "display_name": "Alex Butcher",
+      "spotlight_order": 2,
+      "featured": true,
+      "anchor_spotlight": false,
+      "trait_line": "Alex prototypes before he explains.",
+      "trait_line_status": "approved",
+      "profile_doc": "souls/0e8d6398-bfe5-40c7-9b6d-1eae2b0abc49.md",
+      "career": "barista",
+      "location": "the Ville:Hobbs Cafe:cafe",
+      "relationship_tags": [
+        "cafe",
+        "builder",
+        "wit"
+      ],
+      "full_body_standing": "video/assets/users/character-sheets/0e8d6398-bfe5-40c7-9b6d-1eae2b0abc49/full_body_standing.png",
+      "cutout": "video/assets/users/cutouts/0e8d6398-bfe5-40c7-9b6d-1eae2b0abc49.png",
+      "portrait_crop": "video/assets/cohort/soul15_seed_20260224/portraits/0e8d6398-bfe5-40c7-9b6d-1eae2b0abc49.png",
+      "hero_spotlight": "video/assets/cohort/soul15_seed_20260224/hero/0e8d6398-bfe5-40c7-9b6d-1eae2b0abc49.png",
+      "automation_step": null,
+      "qa_status": "pending",
+      "character_sheet_dir": "video/assets/users/character-sheets/0e8d6398-bfe5-40c7-9b6d-1eae2b0abc49",
+      "sprite_walkout": "video/assets/users/sprite-walkouts/0e8d6398-bfe5-40c7-9b6d-1eae2b0abc49.mp4",
+      "character_sheet": {
+        "front_neutral": "video/assets/users/character-sheets/0e8d6398-bfe5-40c7-9b6d-1eae2b0abc49/front_neutral.png",
+        "front_smile": "video/assets/users/character-sheets/0e8d6398-bfe5-40c7-9b6d-1eae2b0abc49/front_smile.png",
+        "three_quarter_neutral": "video/assets/users/character-sheets/0e8d6398-bfe5-40c7-9b6d-1eae2b0abc49/three_quarter_neutral.png",
+        "profile_neutral": "video/assets/users/character-sheets/0e8d6398-bfe5-40c7-9b6d-1eae2b0abc49/profile_neutral.png",
+        "full_body_standing": "video/assets/users/character-sheets/0e8d6398-bfe5-40c7-9b6d-1eae2b0abc49/full_body_standing.png"
+      }
+    },
+    {
+      "persona_id": "42c86639-8f93-4f97-a541-8cd5baf2fea8",
+      "display_name": "Ivan Pitts",
+      "spotlight_order": 3,
+      "featured": true,
+      "anchor_spotlight": true,
+      "trait_line": "Ivan debates for clarity, not performance.",
+      "trait_line_status": "approved",
+      "profile_doc": "souls/42c86639-8f93-4f97-a541-8cd5baf2fea8.md",
+      "career": "graphic designer",
+      "location": "remote",
+      "relationship_tags": [
+        "remote",
+        "debate",
+        "pragmatist"
+      ],
+      "full_body_standing": "video/assets/users/character-sheets/42c86639-8f93-4f97-a541-8cd5baf2fea8/full_body_standing.png",
+      "cutout": "video/assets/users/cutouts/42c86639-8f93-4f97-a541-8cd5baf2fea8.png",
+      "portrait_crop": "video/assets/cohort/soul15_seed_20260224/portraits/42c86639-8f93-4f97-a541-8cd5baf2fea8.png",
+      "hero_spotlight": "video/assets/cohort/soul15_seed_20260224/hero/42c86639-8f93-4f97-a541-8cd5baf2fea8.png",
+      "automation_step": null,
+      "qa_status": "pending",
+      "character_sheet_dir": "video/assets/users/character-sheets/42c86639-8f93-4f97-a541-8cd5baf2fea8",
+      "sprite_walkout": "video/assets/users/sprite-walkouts/42c86639-8f93-4f97-a541-8cd5baf2fea8.mp4",
+      "character_sheet": {
+        "front_neutral": "video/assets/users/character-sheets/42c86639-8f93-4f97-a541-8cd5baf2fea8/front_neutral.png",
+        "front_smile": "video/assets/users/character-sheets/42c86639-8f93-4f97-a541-8cd5baf2fea8/front_smile.png",
+        "three_quarter_neutral": "video/assets/users/character-sheets/42c86639-8f93-4f97-a541-8cd5baf2fea8/three_quarter_neutral.png",
+        "profile_neutral": "video/assets/users/character-sheets/42c86639-8f93-4f97-a541-8cd5baf2fea8/profile_neutral.png",
+        "full_body_standing": "video/assets/users/character-sheets/42c86639-8f93-4f97-a541-8cd5baf2fea8/full_body_standing.png"
+      }
+    },
+    {
+      "persona_id": "87daf41e-0237-4a55-a1ad-14007cefbefe",
+      "display_name": "Olivia King",
+      "spotlight_order": 4,
+      "featured": true,
+      "anchor_spotlight": false,
+      "trait_line": "Olivia ships \u2014 then asks what's broken.",
+      "trait_line_status": "approved",
+      "profile_doc": "souls/87daf41e-0237-4a55-a1ad-14007cefbefe.md",
+      "career": "horticulturist",
+      "location": "the Ville:Dorm for Oak Hill College:garden",
+      "relationship_tags": [
+        "college",
+        "builder",
+        "operator"
+      ],
+      "full_body_standing": "video/assets/users/character-sheets/87daf41e-0237-4a55-a1ad-14007cefbefe/full_body_standing.png",
+      "cutout": "video/assets/users/cutouts/87daf41e-0237-4a55-a1ad-14007cefbefe.png",
+      "portrait_crop": "video/assets/cohort/soul15_seed_20260224/portraits/87daf41e-0237-4a55-a1ad-14007cefbefe.png",
+      "hero_spotlight": "video/assets/cohort/soul15_seed_20260224/hero/87daf41e-0237-4a55-a1ad-14007cefbefe.png",
+      "automation_step": null,
+      "qa_status": "pending",
+      "character_sheet_dir": "video/assets/users/character-sheets/87daf41e-0237-4a55-a1ad-14007cefbefe",
+      "sprite_walkout": "video/assets/users/sprite-walkouts/87daf41e-0237-4a55-a1ad-14007cefbefe.mp4",
+      "character_sheet": {
+        "front_neutral": "video/assets/users/character-sheets/87daf41e-0237-4a55-a1ad-14007cefbefe/front_neutral.png",
+        "front_smile": "video/assets/users/character-sheets/87daf41e-0237-4a55-a1ad-14007cefbefe/front_smile.png",
+        "three_quarter_neutral": "video/assets/users/character-sheets/87daf41e-0237-4a55-a1ad-14007cefbefe/three_quarter_neutral.png",
+        "profile_neutral": "video/assets/users/character-sheets/87daf41e-0237-4a55-a1ad-14007cefbefe/profile_neutral.png",
+        "full_body_standing": "video/assets/users/character-sheets/87daf41e-0237-4a55-a1ad-14007cefbefe/full_body_standing.png"
+      }
+    },
+    {
+      "persona_id": "021d4622-9b7e-4b73-9f94-322c4e5121da",
+      "display_name": "Diana Ogden",
+      "spotlight_order": 5,
+      "featured": true,
+      "anchor_spotlight": false,
+      "trait_line": "Diana reads the room behind the story.",
+      "trait_line_status": "approved",
+      "profile_doc": "souls/021d4622-9b7e-4b73-9f94-322c4e5121da.md",
+      "career": "social media manager",
+      "location": "remote",
+      "relationship_tags": [
+        "remote",
+        "systems",
+        "articulate"
+      ],
+      "full_body_standing": "video/assets/users/character-sheets/021d4622-9b7e-4b73-9f94-322c4e5121da/full_body_standing.png",
+      "cutout": "video/assets/users/cutouts/021d4622-9b7e-4b73-9f94-322c4e5121da.png",
+      "portrait_crop": "video/assets/cohort/soul15_seed_20260224/portraits/021d4622-9b7e-4b73-9f94-322c4e5121da.png",
+      "hero_spotlight": "video/assets/cohort/soul15_seed_20260224/hero/021d4622-9b7e-4b73-9f94-322c4e5121da.png",
+      "automation_step": null,
+      "qa_status": "pending",
+      "character_sheet_dir": "video/assets/users/character-sheets/021d4622-9b7e-4b73-9f94-322c4e5121da",
+      "sprite_walkout": "video/assets/users/sprite-walkouts/021d4622-9b7e-4b73-9f94-322c4e5121da.mp4",
+      "character_sheet": {
+        "front_neutral": "video/assets/users/character-sheets/021d4622-9b7e-4b73-9f94-322c4e5121da/front_neutral.png",
+        "front_smile": "video/assets/users/character-sheets/021d4622-9b7e-4b73-9f94-322c4e5121da/front_smile.png",
+        "three_quarter_neutral": "video/assets/users/character-sheets/021d4622-9b7e-4b73-9f94-322c4e5121da/three_quarter_neutral.png",
+        "profile_neutral": "video/assets/users/character-sheets/021d4622-9b7e-4b73-9f94-322c4e5121da/profile_neutral.png",
+        "full_body_standing": "video/assets/users/character-sheets/021d4622-9b7e-4b73-9f94-322c4e5121da/full_body_standing.png"
+      }
+    },
+    {
+      "persona_id": "be6de09c-91e4-42c7-a936-2193977dd17c",
+      "display_name": "Andrew Abrams",
+      "spotlight_order": 6,
+      "featured": true,
+      "anchor_spotlight": false,
+      "trait_line": "Andrew follows incentives, not headlines.",
+      "trait_line_status": "approved",
+      "profile_doc": "souls/be6de09c-91e4-42c7-a936-2193977dd17c.md",
+      "career": "curriculum developer",
+      "location": "the Ville:Oak Hill College:classroom",
+      "relationship_tags": [
+        "college",
+        "contrarian",
+        "wit"
+      ],
+      "full_body_standing": "video/assets/users/character-sheets/be6de09c-91e4-42c7-a936-2193977dd17c/full_body_standing.png",
+      "cutout": "video/assets/users/cutouts/be6de09c-91e4-42c7-a936-2193977dd17c.png",
+      "portrait_crop": "video/assets/cohort/soul15_seed_20260224/portraits/be6de09c-91e4-42c7-a936-2193977dd17c.png",
+      "hero_spotlight": "video/assets/cohort/soul15_seed_20260224/hero/be6de09c-91e4-42c7-a936-2193977dd17c.png",
+      "automation_step": null,
+      "qa_status": "pending",
+      "character_sheet_dir": "video/assets/users/character-sheets/be6de09c-91e4-42c7-a936-2193977dd17c",
+      "sprite_walkout": "video/assets/users/sprite-walkouts/be6de09c-91e4-42c7-a936-2193977dd17c.mp4",
+      "character_sheet": {
+        "front_neutral": "video/assets/users/character-sheets/be6de09c-91e4-42c7-a936-2193977dd17c/front_neutral.png",
+        "front_smile": "video/assets/users/character-sheets/be6de09c-91e4-42c7-a936-2193977dd17c/front_smile.png",
+        "three_quarter_neutral": "video/assets/users/character-sheets/be6de09c-91e4-42c7-a936-2193977dd17c/three_quarter_neutral.png",
+        "profile_neutral": "video/assets/users/character-sheets/be6de09c-91e4-42c7-a936-2193977dd17c/profile_neutral.png",
+        "full_body_standing": "video/assets/users/character-sheets/be6de09c-91e4-42c7-a936-2193977dd17c/full_body_standing.png"
+      }
+    },
+    {
+      "persona_id": "eac7be2a-b689-40be-a3a1-b4c4426ae9dc",
+      "display_name": "Irene Dove",
+      "spotlight_order": 7,
+      "featured": true,
+      "anchor_spotlight": false,
+      "trait_line": "Irene warms up the room \u2014 then stress-tests the logic.",
+      "trait_line_status": "approved",
+      "profile_doc": "souls/eac7be2a-b689-40be-a3a1-b4c4426ae9dc.md",
+      "career": "online tutor",
+      "location": "remote",
+      "relationship_tags": [
+        "remote",
+        "connector",
+        "warm"
+      ],
+      "full_body_standing": "video/assets/users/character-sheets/eac7be2a-b689-40be-a3a1-b4c4426ae9dc/full_body_standing.png",
+      "cutout": "video/assets/users/cutouts/eac7be2a-b689-40be-a3a1-b4c4426ae9dc.png",
+      "portrait_crop": "video/assets/cohort/soul15_seed_20260224/portraits/eac7be2a-b689-40be-a3a1-b4c4426ae9dc.png",
+      "hero_spotlight": "video/assets/cohort/soul15_seed_20260224/hero/eac7be2a-b689-40be-a3a1-b4c4426ae9dc.png",
+      "automation_step": null,
+      "qa_status": "pending",
+      "character_sheet_dir": "video/assets/users/character-sheets/eac7be2a-b689-40be-a3a1-b4c4426ae9dc",
+      "sprite_walkout": "video/assets/users/sprite-walkouts/eac7be2a-b689-40be-a3a1-b4c4426ae9dc.mp4",
+      "character_sheet": {
+        "front_neutral": "video/assets/users/character-sheets/eac7be2a-b689-40be-a3a1-b4c4426ae9dc/front_neutral.png",
+        "front_smile": "video/assets/users/character-sheets/eac7be2a-b689-40be-a3a1-b4c4426ae9dc/front_smile.png",
+        "three_quarter_neutral": "video/assets/users/character-sheets/eac7be2a-b689-40be-a3a1-b4c4426ae9dc/three_quarter_neutral.png",
+        "profile_neutral": "video/assets/users/character-sheets/eac7be2a-b689-40be-a3a1-b4c4426ae9dc/profile_neutral.png",
+        "full_body_standing": "video/assets/users/character-sheets/eac7be2a-b689-40be-a3a1-b4c4426ae9dc/full_body_standing.png"
+      }
+    },
+    {
+      "persona_id": "e8c1b20c-dff4-4ab3-836b-cf1d86a8b958",
+      "display_name": "Dean Sanford",
+      "spotlight_order": 8,
+      "featured": true,
+      "anchor_spotlight": false,
+      "trait_line": "Dean calls power when he sees it.",
+      "trait_line_status": "approved",
+      "profile_doc": "souls/e8c1b20c-dff4-4ab3-836b-cf1d86a8b958.md",
+      "career": "lecturer",
+      "location": "the Ville:Oak Hill College:classroom",
+      "relationship_tags": [
+        "college",
+        "candid",
+        "realist"
+      ],
+      "full_body_standing": "video/assets/users/character-sheets/e8c1b20c-dff4-4ab3-836b-cf1d86a8b958/full_body_standing.png",
+      "cutout": "video/assets/users/cutouts/e8c1b20c-dff4-4ab3-836b-cf1d86a8b958.png",
+      "portrait_crop": "video/assets/cohort/soul15_seed_20260224/portraits/e8c1b20c-dff4-4ab3-836b-cf1d86a8b958.png",
+      "hero_spotlight": "video/assets/cohort/soul15_seed_20260224/hero/e8c1b20c-dff4-4ab3-836b-cf1d86a8b958.png",
+      "automation_step": null,
+      "qa_status": "pending",
+      "character_sheet_dir": "video/assets/users/character-sheets/e8c1b20c-dff4-4ab3-836b-cf1d86a8b958",
+      "sprite_walkout": "video/assets/users/sprite-walkouts/e8c1b20c-dff4-4ab3-836b-cf1d86a8b958.mp4",
+      "character_sheet": {
+        "front_neutral": "video/assets/users/character-sheets/e8c1b20c-dff4-4ab3-836b-cf1d86a8b958/front_neutral.png",
+        "front_smile": "video/assets/users/character-sheets/e8c1b20c-dff4-4ab3-836b-cf1d86a8b958/front_smile.png",
+        "three_quarter_neutral": "video/assets/users/character-sheets/e8c1b20c-dff4-4ab3-836b-cf1d86a8b958/three_quarter_neutral.png",
+        "profile_neutral": "video/assets/users/character-sheets/e8c1b20c-dff4-4ab3-836b-cf1d86a8b958/profile_neutral.png",
+        "full_body_standing": "video/assets/users/character-sheets/e8c1b20c-dff4-4ab3-836b-cf1d86a8b958/full_body_standing.png"
+      }
+    },
+    {
+      "persona_id": "0c7ff9b1-44bc-4afe-a189-52d88d2abd09",
+      "display_name": "Alexis Reed",
+      "spotlight_order": 9,
+      "featured": true,
+      "anchor_spotlight": false,
+      "trait_line": "Alexis wants evidence before opinion.",
+      "trait_line_status": "approved",
+      "profile_doc": "souls/0c7ff9b1-44bc-4afe-a189-52d88d2abd09.md",
+      "career": "content writer",
+      "location": "remote",
+      "relationship_tags": [
+        "remote",
+        "skeptic",
+        "realist"
+      ],
+      "full_body_standing": "video/assets/users/character-sheets/0c7ff9b1-44bc-4afe-a189-52d88d2abd09/full_body_standing.png",
+      "cutout": "video/assets/users/cutouts/0c7ff9b1-44bc-4afe-a189-52d88d2abd09.png",
+      "portrait_crop": "video/assets/cohort/soul15_seed_20260224/portraits/0c7ff9b1-44bc-4afe-a189-52d88d2abd09.png",
+      "hero_spotlight": "video/assets/cohort/soul15_seed_20260224/hero/0c7ff9b1-44bc-4afe-a189-52d88d2abd09.png",
+      "automation_step": null,
+      "qa_status": "pending",
+      "character_sheet_dir": "video/assets/users/character-sheets/0c7ff9b1-44bc-4afe-a189-52d88d2abd09",
+      "sprite_walkout": "video/assets/users/sprite-walkouts/0c7ff9b1-44bc-4afe-a189-52d88d2abd09.mp4",
+      "character_sheet": {
+        "front_neutral": "video/assets/users/character-sheets/0c7ff9b1-44bc-4afe-a189-52d88d2abd09/front_neutral.png",
+        "front_smile": "video/assets/users/character-sheets/0c7ff9b1-44bc-4afe-a189-52d88d2abd09/front_smile.png",
+        "three_quarter_neutral": "video/assets/users/character-sheets/0c7ff9b1-44bc-4afe-a189-52d88d2abd09/three_quarter_neutral.png",
+        "profile_neutral": "video/assets/users/character-sheets/0c7ff9b1-44bc-4afe-a189-52d88d2abd09/profile_neutral.png",
+        "full_body_standing": "video/assets/users/character-sheets/0c7ff9b1-44bc-4afe-a189-52d88d2abd09/full_body_standing.png"
+      }
+    },
+    {
+      "persona_id": "cc277da1-521b-4ba8-8f78-a7a1f09c3a32",
+      "display_name": "Owen Logan",
+      "spotlight_order": 10,
+      "featured": true,
+      "anchor_spotlight": false,
+      "trait_line": "Owen treats the headline like a script.",
+      "trait_line_status": "approved",
+      "profile_doc": "souls/cc277da1-521b-4ba8-8f78-a7a1f09c3a32.md",
+      "career": "SEO specialist",
+      "location": "remote",
+      "relationship_tags": [
+        "remote",
+        "analyst",
+        "skeptic"
+      ],
+      "full_body_standing": "video/assets/users/character-sheets/cc277da1-521b-4ba8-8f78-a7a1f09c3a32/full_body_standing.png",
+      "cutout": "video/assets/users/cutouts/cc277da1-521b-4ba8-8f78-a7a1f09c3a32.png",
+      "portrait_crop": "video/assets/cohort/soul15_seed_20260224/portraits/cc277da1-521b-4ba8-8f78-a7a1f09c3a32.png",
+      "hero_spotlight": "video/assets/cohort/soul15_seed_20260224/hero/cc277da1-521b-4ba8-8f78-a7a1f09c3a32.png",
+      "automation_step": null,
+      "qa_status": "pending",
+      "character_sheet_dir": "video/assets/users/character-sheets/cc277da1-521b-4ba8-8f78-a7a1f09c3a32",
+      "sprite_walkout": "video/assets/users/sprite-walkouts/cc277da1-521b-4ba8-8f78-a7a1f09c3a32.mp4",
+      "character_sheet": {
+        "front_neutral": "video/assets/users/character-sheets/cc277da1-521b-4ba8-8f78-a7a1f09c3a32/front_neutral.png",
+        "front_smile": "video/assets/users/character-sheets/cc277da1-521b-4ba8-8f78-a7a1f09c3a32/front_smile.png",
+        "three_quarter_neutral": "video/assets/users/character-sheets/cc277da1-521b-4ba8-8f78-a7a1f09c3a32/three_quarter_neutral.png",
+        "profile_neutral": "video/assets/users/character-sheets/cc277da1-521b-4ba8-8f78-a7a1f09c3a32/profile_neutral.png",
+        "full_body_standing": "video/assets/users/character-sheets/cc277da1-521b-4ba8-8f78-a7a1f09c3a32/full_body_standing.png"
+      }
+    },
+    {
+      "persona_id": "69835d95-c543-48b1-85c0-f7d5351d845d",
+      "display_name": "Vince Vale",
+      "spotlight_order": 11,
+      "featured": true,
+      "anchor_spotlight": false,
+      "trait_line": "Vince measures claims against reality.",
+      "trait_line_status": "approved",
+      "profile_doc": "souls/69835d95-c543-48b1-85c0-f7d5351d845d.md",
+      "career": "virtual assistant",
+      "location": "remote",
+      "relationship_tags": [
+        "remote",
+        "analyst",
+        "measured"
+      ],
+      "full_body_standing": "video/assets/users/character-sheets/69835d95-c543-48b1-85c0-f7d5351d845d/full_body_standing.png",
+      "cutout": "video/assets/users/cutouts/69835d95-c543-48b1-85c0-f7d5351d845d.png",
+      "portrait_crop": "video/assets/cohort/soul15_seed_20260224/portraits/69835d95-c543-48b1-85c0-f7d5351d845d.png",
+      "hero_spotlight": "video/assets/cohort/soul15_seed_20260224/hero/69835d95-c543-48b1-85c0-f7d5351d845d.png",
+      "automation_step": null,
+      "qa_status": "pending",
+      "character_sheet_dir": "video/assets/users/character-sheets/69835d95-c543-48b1-85c0-f7d5351d845d",
+      "sprite_walkout": "video/assets/users/sprite-walkouts/69835d95-c543-48b1-85c0-f7d5351d845d.mp4",
+      "character_sheet": {
+        "front_neutral": "video/assets/users/character-sheets/69835d95-c543-48b1-85c0-f7d5351d845d/front_neutral.png",
+        "front_smile": "video/assets/users/character-sheets/69835d95-c543-48b1-85c0-f7d5351d845d/front_smile.png",
+        "three_quarter_neutral": "video/assets/users/character-sheets/69835d95-c543-48b1-85c0-f7d5351d845d/three_quarter_neutral.png",
+        "profile_neutral": "video/assets/users/character-sheets/69835d95-c543-48b1-85c0-f7d5351d845d/profile_neutral.png",
+        "full_body_standing": "video/assets/users/character-sheets/69835d95-c543-48b1-85c0-f7d5351d845d/full_body_standing.png"
+      }
+    },
+    {
+      "persona_id": "77c2f157-64bb-4fa0-b451-3a644661d1a4",
+      "display_name": "Mike Hooks",
+      "spotlight_order": 12,
+      "featured": true,
+      "anchor_spotlight": false,
+      "trait_line": "Mike argues in definitions, not slogans.",
+      "trait_line_status": "approved",
+      "profile_doc": "souls/77c2f157-64bb-4fa0-b451-3a644661d1a4.md",
+      "career": "archivist",
+      "location": "the Ville:Oak Hill College:library",
+      "relationship_tags": [
+        "college",
+        "analytical",
+        "calm"
+      ],
+      "full_body_standing": "video/assets/users/character-sheets/77c2f157-64bb-4fa0-b451-3a644661d1a4/full_body_standing.png",
+      "cutout": "video/assets/users/cutouts/77c2f157-64bb-4fa0-b451-3a644661d1a4.png",
+      "portrait_crop": "video/assets/cohort/soul15_seed_20260224/portraits/77c2f157-64bb-4fa0-b451-3a644661d1a4.png",
+      "hero_spotlight": "video/assets/cohort/soul15_seed_20260224/hero/77c2f157-64bb-4fa0-b451-3a644661d1a4.png",
+      "automation_step": null,
+      "qa_status": "pending",
+      "character_sheet_dir": "video/assets/users/character-sheets/77c2f157-64bb-4fa0-b451-3a644661d1a4",
+      "sprite_walkout": "video/assets/users/sprite-walkouts/77c2f157-64bb-4fa0-b451-3a644661d1a4.mp4",
+      "character_sheet": {
+        "front_neutral": "video/assets/users/character-sheets/77c2f157-64bb-4fa0-b451-3a644661d1a4/front_neutral.png",
+        "front_smile": "video/assets/users/character-sheets/77c2f157-64bb-4fa0-b451-3a644661d1a4/front_smile.png",
+        "three_quarter_neutral": "video/assets/users/character-sheets/77c2f157-64bb-4fa0-b451-3a644661d1a4/three_quarter_neutral.png",
+        "profile_neutral": "video/assets/users/character-sheets/77c2f157-64bb-4fa0-b451-3a644661d1a4/profile_neutral.png",
+        "full_body_standing": "video/assets/users/character-sheets/77c2f157-64bb-4fa0-b451-3a644661d1a4/full_body_standing.png"
+      }
+    },
+    {
+      "persona_id": "e473df98-8abb-44e9-a73f-f89771ec91d2",
+      "display_name": "Nick Miller",
+      "spotlight_order": 13,
+      "featured": true,
+      "anchor_spotlight": false,
+      "trait_line": "Nick wants solutions that actually work.",
+      "trait_line_status": "approved",
+      "profile_doc": "souls/e473df98-8abb-44e9-a73f-f89771ec91d2.md",
+      "career": "inventory manager",
+      "location": "the Ville:Harvey Oak Supply Store:supply store",
+      "relationship_tags": [
+        "supply_store",
+        "operator",
+        "pragmatist"
+      ],
+      "full_body_standing": "video/assets/users/character-sheets/e473df98-8abb-44e9-a73f-f89771ec91d2/full_body_standing.png",
+      "cutout": "video/assets/users/cutouts/e473df98-8abb-44e9-a73f-f89771ec91d2.png",
+      "portrait_crop": "video/assets/cohort/soul15_seed_20260224/portraits/e473df98-8abb-44e9-a73f-f89771ec91d2.png",
+      "hero_spotlight": "video/assets/cohort/soul15_seed_20260224/hero/e473df98-8abb-44e9-a73f-f89771ec91d2.png",
+      "automation_step": null,
+      "qa_status": "pending",
+      "character_sheet_dir": "video/assets/users/character-sheets/e473df98-8abb-44e9-a73f-f89771ec91d2",
+      "sprite_walkout": "video/assets/users/sprite-walkouts/e473df98-8abb-44e9-a73f-f89771ec91d2.mp4",
+      "character_sheet": {
+        "front_neutral": "video/assets/users/character-sheets/e473df98-8abb-44e9-a73f-f89771ec91d2/front_neutral.png",
+        "front_smile": "video/assets/users/character-sheets/e473df98-8abb-44e9-a73f-f89771ec91d2/front_smile.png",
+        "three_quarter_neutral": "video/assets/users/character-sheets/e473df98-8abb-44e9-a73f-f89771ec91d2/three_quarter_neutral.png",
+        "profile_neutral": "video/assets/users/character-sheets/e473df98-8abb-44e9-a73f-f89771ec91d2/profile_neutral.png",
+        "full_body_standing": "video/assets/users/character-sheets/e473df98-8abb-44e9-a73f-f89771ec91d2/full_body_standing.png"
+      }
+    },
+    {
+      "persona_id": "f428ae04-975d-4163-b7e6-fbaea8befd24",
+      "display_name": "Alex Shepard",
+      "spotlight_order": 14,
+      "featured": true,
+      "anchor_spotlight": false,
+      "trait_line": "Alex sees the gray zones others skip.",
+      "trait_line_status": "approved",
+      "profile_doc": "souls/f428ae04-975d-4163-b7e6-fbaea8befd24.md",
+      "career": "librarian",
+      "location": "the Ville:Oak Hill College:library",
+      "relationship_tags": [
+        "college",
+        "systems",
+        "nuanced"
+      ],
+      "full_body_standing": "video/assets/users/character-sheets/f428ae04-975d-4163-b7e6-fbaea8befd24/full_body_standing.png",
+      "cutout": "video/assets/users/cutouts/f428ae04-975d-4163-b7e6-fbaea8befd24.png",
+      "portrait_crop": "video/assets/cohort/soul15_seed_20260224/portraits/f428ae04-975d-4163-b7e6-fbaea8befd24.png",
+      "hero_spotlight": "video/assets/cohort/soul15_seed_20260224/hero/f428ae04-975d-4163-b7e6-fbaea8befd24.png",
+      "automation_step": null,
+      "qa_status": "pending",
+      "character_sheet_dir": "video/assets/users/character-sheets/f428ae04-975d-4163-b7e6-fbaea8befd24",
+      "sprite_walkout": "video/assets/users/sprite-walkouts/f428ae04-975d-4163-b7e6-fbaea8befd24.mp4",
+      "character_sheet": {
+        "front_neutral": "video/assets/users/character-sheets/f428ae04-975d-4163-b7e6-fbaea8befd24/front_neutral.png",
+        "front_smile": "video/assets/users/character-sheets/f428ae04-975d-4163-b7e6-fbaea8befd24/front_smile.png",
+        "three_quarter_neutral": "video/assets/users/character-sheets/f428ae04-975d-4163-b7e6-fbaea8befd24/three_quarter_neutral.png",
+        "profile_neutral": "video/assets/users/character-sheets/f428ae04-975d-4163-b7e6-fbaea8befd24/profile_neutral.png",
+        "full_body_standing": "video/assets/users/character-sheets/f428ae04-975d-4163-b7e6-fbaea8befd24/full_body_standing.png"
+      }
+    },
+    {
+      "persona_id": "29f18c9f-3ec0-4dc2-89ee-2c9d7066b1ca",
+      "display_name": "Vincent Slater",
+      "spotlight_order": 15,
+      "featured": true,
+      "anchor_spotlight": true,
+      "trait_line": "Vincent asks who benefits \u2014 every time.",
+      "trait_line_status": "approved",
+      "profile_doc": "souls/29f18c9f-3ec0-4dc2-89ee-2c9d7066b1ca.md",
+      "career": "bouncer",
+      "location": "the Ville:The Rose and Crown Pub:pub",
+      "relationship_tags": [
+        "pub",
+        "intense",
+        "analyst"
+      ],
+      "full_body_standing": "video/assets/users/character-sheets/29f18c9f-3ec0-4dc2-89ee-2c9d7066b1ca/full_body_standing.png",
+      "cutout": "video/assets/users/cutouts/29f18c9f-3ec0-4dc2-89ee-2c9d7066b1ca.png",
+      "portrait_crop": "video/assets/cohort/soul15_seed_20260224/portraits/29f18c9f-3ec0-4dc2-89ee-2c9d7066b1ca.png",
+      "hero_spotlight": "video/assets/cohort/soul15_seed_20260224/hero/29f18c9f-3ec0-4dc2-89ee-2c9d7066b1ca.png",
+      "automation_step": null,
+      "qa_status": "pending",
+      "character_sheet_dir": "video/assets/users/character-sheets/29f18c9f-3ec0-4dc2-89ee-2c9d7066b1ca",
+      "sprite_walkout": "video/assets/users/sprite-walkouts/29f18c9f-3ec0-4dc2-89ee-2c9d7066b1ca.mp4",
+      "character_sheet": {
+        "front_neutral": "video/assets/users/character-sheets/29f18c9f-3ec0-4dc2-89ee-2c9d7066b1ca/front_neutral.png",
+        "front_smile": "video/assets/users/character-sheets/29f18c9f-3ec0-4dc2-89ee-2c9d7066b1ca/front_smile.png",
+        "three_quarter_neutral": "video/assets/users/character-sheets/29f18c9f-3ec0-4dc2-89ee-2c9d7066b1ca/three_quarter_neutral.png",
+        "profile_neutral": "video/assets/users/character-sheets/29f18c9f-3ec0-4dc2-89ee-2c9d7066b1ca/profile_neutral.png",
+        "full_body_standing": "video/assets/users/character-sheets/29f18c9f-3ec0-4dc2-89ee-2c9d7066b1ca/full_body_standing.png"
+      }
+    }
+  ],
+  "cohort_assets": {
+    "group_photo": "video/assets/cohort/soul15_seed_20260224/group_photo.png",
+    "group_photo_matrix": "video/assets/cohort/soul15_seed_20260224/group_photo_matrix.png",
+    "active_doubles_panel": "video/assets/cohort/soul15_seed_20260224/active_doubles_panel.png",
+    "full_cast_matrix": "video/assets/cohort/soul15_seed_20260224/full_cast_matrix.png",
+    "relationship_graph": "video/assets/cohort/soul15_seed_20260224/relationship_graph.json"
+  },
+  "canonical_asset_roots": {
+    "character_sheets": "video/assets/users/character-sheets",
+    "sprite_walkouts": "video/assets/users/sprite-walkouts",
+    "cutouts": "video/assets/users/cutouts"
+  },
+  "character_sheet_poses": [
+    "front_neutral",
+    "front_smile",
+    "three_quarter_neutral",
+    "profile_neutral",
+    "full_body_standing"
+  ],
+  "group_photo_matrix": "video/assets/cohort/soul15_seed_20260224/group_photo_matrix.png"
+}

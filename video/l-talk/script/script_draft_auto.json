@@ -1,0 +1,675 @@
+{
+  "title": "Leadertalks",
+  "mode": "opener",
+  "mood": "anthem",
+  "cohort_name": "Leadertalks",
+  "cast_strategy": "fifteen_spotlight_montage",
+  "cold_open": {
+    "line": "[PAUSE 0.2s] [curious] What if... you had a second chance to make it right? [PAUSE 0.15s] What if you could practice that hard conversation before it ever happened? [PAUSE 0.15s] What if you had a Double? [PAUSE 0.15s] An AI version of you — talking like you. Reacting like you. Making choices like you. In Doubland, you create an AI Double based on your personality. [PAUSE 0.15s] [warmly] Then you watch it live in a world with other Doubles. [PAUSE 0.15s] Every conversation. Every choice. Every relationship.",
+    "hook": "[PAUSE 0.2s] [curious] What if... you had a second chance to make it right? [PAUSE 0.15s] What if you could practice that hard conversation before it ever happened? [PAUSE 0.15s] What if you had a Double? [PAUSE 0.15s] An AI version of you — talking like you. Reacting like you. Making choices like you.",
+    "concept_intro": "In Doubland, you create an AI Double based on your personality.",
+    "season_bridge": "This season: the Leadertalks enters Survival Mode.\nFifteen coworkers. Fifteen personalities. Fifteen Doubles.",
+    "cold_open_contradiction": "",
+    "time_range_sec": [
+      0,
+      30
+    ]
+  },
+  "scenes": [
+    {
+      "scene_id": 1,
+      "label": "cast_intro",
+      "time_range_sec": [
+        30,
+        33.0
+      ],
+      "step_range": [
+        0,
+        0
+      ],
+      "key_steps": [
+        0
+      ],
+      "focus_persona": "Max Shoemaker",
+      "camera": {
+        "start_zoom": 1.0,
+        "end_zoom": 1.2,
+        "follow": "Max Shoemaker",
+        "pan_to": {
+          "x": 110,
+          "y": 59
+        },
+        "playback_speed": 1
+      },
+      "transition_in": "fade_from_black",
+      "transition_out": "scene_cut",
+      "narrator_lines": [
+        "Max turns ideas into momentum."
+      ],
+      "subtitle_card": null,
+      "key_dialogue": null,
+      "visual_note": "Snappy card: sprite/portrait + name + one-line trait",
+      "archetype": "observer",
+      "archetype_confidence": 1.0,
+      "bio": "Max",
+      "trait_moment": "Max turns ideas into momentum.",
+      "narration_line": "Max turns ideas into momentum.",
+      "agent_id": "bcf5fb65-6e7e-464a-83bb-51668f967f77",
+      "sketch_path": "video\\assets\\users\\sketches\\bcf5fb65-6e7e-464a-83bb-51668f967f77.png"
+    },
+    {
+      "scene_id": 2,
+      "label": "cast_intro",
+      "time_range_sec": [
+        33.0,
+        35.6
+      ],
+      "step_range": [
+        0,
+        0
+      ],
+      "key_steps": [
+        0
+      ],
+      "focus_persona": "Alex Butcher",
+      "camera": {
+        "start_zoom": 1.0,
+        "end_zoom": 1.2,
+        "follow": "Alex Butcher",
+        "pan_to": {
+          "x": 37,
+          "y": 23
+        },
+        "playback_speed": 1
+      },
+      "transition_in": "scene_cut",
+      "transition_out": "scene_cut",
+      "narrator_lines": [
+        "Alex prototypes before he explains."
+      ],
+      "subtitle_card": null,
+      "key_dialogue": null,
+      "visual_note": "Snappy card: sprite/portrait + name + one-line trait",
+      "archetype": "observer",
+      "archetype_confidence": 1.0,
+      "bio": "Alex",
+      "trait_moment": "Alex prototypes before he explains.",
+      "narration_line": "Alex prototypes before he explains.",
+      "agent_id": "0e8d6398-bfe5-40c7-9b6d-1eae2b0abc49",
+      "sketch_path": "video\\assets\\users\\sketches\\0e8d6398-bfe5-40c7-9b6d-1eae2b0abc49.png"
+    },
+    {
+      "scene_id": 3,
+      "label": "cast_intro",
+      "time_range_sec": [
+        35.6,
+        38.6
+      ],
+      "step_range": [
+        0,
+        0
+      ],
+      "key_steps": [
+        0
+      ],
+      "focus_persona": "Ivan Pitts",
+      "camera": {
+        "start_zoom": 1.0,
+        "end_zoom": 1.2,
+        "follow": "Ivan Pitts",
+        "pan_to": {
+          "x": 125,
+          "y": 56
+        },
+        "playback_speed": 1
+      },
+      "transition_in": "scene_cut",
+      "transition_out": "scene_cut",
+      "narrator_lines": [
+        "Ivan debates for clarity, not performance."
+      ],
+      "subtitle_card": null,
+      "key_dialogue": null,
+      "visual_note": "Snappy card: sprite/portrait + name + one-line trait",
+      "archetype": "observer",
+      "archetype_confidence": 1.0,
+      "bio": "Ivan",
+      "trait_moment": "Ivan debates for clarity, not performance.",
+      "narration_line": "Ivan debates for clarity, not performance.",
+      "agent_id": "42c86639-8f93-4f97-a541-8cd5baf2fea8",
+      "sketch_path": "video\\assets\\users\\sketches\\42c86639-8f93-4f97-a541-8cd5baf2fea8.png"
+    },
+    {
+      "scene_id": 4,
+      "label": "cast_intro",
+      "time_range_sec": [
+        38.6,
+        41.2
+      ],
+      "step_range": [
+        0,
+        0
+      ],
+      "key_steps": [
+        0
+      ],
+      "focus_persona": "Olivia King",
+      "camera": {
+        "start_zoom": 1.0,
+        "end_zoom": 1.2,
+        "follow": "Olivia King",
+        "pan_to": {
+          "x": 22,
+          "y": 65
+        },
+        "playback_speed": 1
+      },
+      "transition_in": "scene_cut",
+      "transition_out": "scene_cut",
+      "narrator_lines": [
+        "Olivia ships — then asks what's broken."
+      ],
+      "subtitle_card": null,
+      "key_dialogue": null,
+      "visual_note": "Snappy card: sprite/portrait + name + one-line trait",
+      "archetype": "observer",
+      "archetype_confidence": 1.0,
+      "bio": "Olivia",
+      "trait_moment": "Olivia ships — then asks what's broken.",
+      "narration_line": "Olivia ships — then asks what's broken.",
+      "agent_id": "87daf41e-0237-4a55-a1ad-14007cefbefe",
+      "sketch_path": "video\\assets\\users\\sketches\\87daf41e-0237-4a55-a1ad-14007cefbefe.png"
+    },
+    {
+      "scene_id": 5,
+      "label": "cast_intro",
+      "time_range_sec": [
+        41.2,
+        43.800000000000004
+      ],
+      "step_range": [
+        0,
+        0
+      ],
+      "key_steps": [
+        0
+      ],
+      "focus_persona": "Diana Ogden",
+      "camera": {
+        "start_zoom": 1.0,
+        "end_zoom": 1.2,
+        "follow": "Diana Ogden",
+        "pan_to": {
+          "x": 114,
+          "y": 59
+        },
+        "playback_speed": 1
+      },
+      "transition_in": "scene_cut",
+      "transition_out": "scene_cut",
+      "narrator_lines": [
+        "Diana reads the room behind the story."
+      ],
+      "subtitle_card": null,
+      "key_dialogue": null,
+      "visual_note": "Snappy card: sprite/portrait + name + one-line trait",
+      "archetype": "observer",
+      "archetype_confidence": 1.0,
+      "bio": "Diana",
+      "trait_moment": "Diana reads the room behind the story.",
+      "narration_line": "Diana reads the room behind the story.",
+      "agent_id": "021d4622-9b7e-4b73-9f94-322c4e5121da",
+      "sketch_path": "video\\assets\\users\\sketches\\021d4622-9b7e-4b73-9f94-322c4e5121da.png"
+    },
+    {
+      "scene_id": 6,
+      "label": "cast_intro",
+      "time_range_sec": [
+        43.800000000000004,
+        46.400000000000006
+      ],
+      "step_range": [
+        0,
+        0
+      ],
+      "key_steps": [
+        0
+      ],
+      "focus_persona": "Andrew Abrams",
+      "camera": {
+        "start_zoom": 1.0,
+        "end_zoom": 1.2,
+        "follow": "Andrew Abrams",
+        "pan_to": {
+          "x": 19,
+          "y": 22
+        },
+        "playback_speed": 1
+      },
+      "transition_in": "scene_cut",
+      "transition_out": "scene_cut",
+      "narrator_lines": [
+        "Andrew follows incentives, not headlines."
+      ],
+      "subtitle_card": null,
+      "key_dialogue": null,
+      "visual_note": "Snappy card: sprite/portrait + name + one-line trait",
+      "archetype": "observer",
+      "archetype_confidence": 1.0,
+      "bio": "Andrew",
+      "trait_moment": "Andrew follows incentives, not headlines.",
+      "narration_line": "Andrew follows incentives, not headlines.",
+      "agent_id": "be6de09c-91e4-42c7-a936-2193977dd17c",
+      "sketch_path": "video\\assets\\users\\sketches\\be6de09c-91e4-42c7-a936-2193977dd17c.png"
+    },
+    {
+      "scene_id": 7,
+      "label": "cast_intro",
+      "time_range_sec": [
+        46.400000000000006,
+        49.00000000000001
+      ],
+      "step_range": [
+        0,
+        0
+      ],
+      "key_steps": [
+        0
+      ],
+      "focus_persona": "Irene Dove",
+      "camera": {
+        "start_zoom": 1.0,
+        "end_zoom": 1.2,
+        "follow": "Irene Dove",
+        "pan_to": {
+          "x": 128,
+          "y": 47
+        },
+        "playback_speed": 1
+      },
+      "transition_in": "scene_cut",
+      "transition_out": "scene_cut",
+      "narrator_lines": [
+        "Irene warms up the room — then stress-tests the logic."
+      ],
+      "subtitle_card": null,
+      "key_dialogue": null,
+      "visual_note": "Snappy card: sprite/portrait + name + one-line trait",
+      "archetype": "observer",
+      "archetype_confidence": 1.0,
+      "bio": "Irene",
+      "trait_moment": "Irene warms up the room — then stress-tests the logic.",
+      "narration_line": "Irene warms up the room — then stress-tests the logic.",
+      "agent_id": "eac7be2a-b689-40be-a3a1-b4c4426ae9dc",
+      "sketch_path": "video\\assets\\users\\sketches\\eac7be2a-b689-40be-a3a1-b4c4426ae9dc.png"
+    },
+    {
+      "scene_id": 8,
+      "label": "cast_intro",
+      "time_range_sec": [
+        49.00000000000001,
+        51.60000000000001
+      ],
+      "step_range": [
+        0,
+        0
+      ],
+      "key_steps": [
+        0
+      ],
+      "focus_persona": "Dean Sanford",
+      "camera": {
+        "start_zoom": 1.0,
+        "end_zoom": 1.2,
+        "follow": "Dean Sanford",
+        "pan_to": {
+          "x": 27,
+          "y": 22
+        },
+        "playback_speed": 1
+      },
+      "transition_in": "scene_cut",
+      "transition_out": "scene_cut",
+      "narrator_lines": [
+        "Dean calls power when he sees it."
+      ],
+      "subtitle_card": null,
+      "key_dialogue": null,
+      "visual_note": "Snappy card: sprite/portrait + name + one-line trait",
+      "archetype": "observer",
+      "archetype_confidence": 1.0,
+      "bio": "Dean",
+      "trait_moment": "Dean calls power when he sees it.",
+      "narration_line": "Dean calls power when he sees it.",
+      "agent_id": "e8c1b20c-dff4-4ab3-836b-cf1d86a8b958",
+      "sketch_path": "video\\assets\\users\\sketches\\e8c1b20c-dff4-4ab3-836b-cf1d86a8b958.png"
+    },
+    {
+      "scene_id": 9,
+      "label": "cast_intro",
+      "time_range_sec": [
+        51.60000000000001,
+        54.20000000000001
+      ],
+      "step_range": [
+        0,
+        0
+      ],
+      "key_steps": [
+        0
+      ],
+      "focus_persona": "Alexis Reed",
+      "camera": {
+        "start_zoom": 1.0,
+        "end_zoom": 1.2,
+        "follow": "Alexis Reed",
+        "pan_to": {
+          "x": 28,
+          "y": 31
+        },
+        "playback_speed": 1
+      },
+      "transition_in": "scene_cut",
+      "transition_out": "scene_cut",
+      "narrator_lines": [
+        "Alexis wants evidence before opinion."
+      ],
+      "subtitle_card": null,
+      "key_dialogue": null,
+      "visual_note": "Snappy card: sprite/portrait + name + one-line trait",
+      "archetype": "observer",
+      "archetype_confidence": 1.0,
+      "bio": "Alexis",
+      "trait_moment": "Alexis wants evidence before opinion.",
+      "narration_line": "Alexis wants evidence before opinion.",
+      "agent_id": "0c7ff9b1-44bc-4afe-a189-52d88d2abd09",
+      "sketch_path": "video\\assets\\users\\sketches\\0c7ff9b1-44bc-4afe-a189-52d88d2abd09.png"
+    },
+    {
+      "scene_id": 10,
+      "label": "cast_intro",
+      "time_range_sec": [
+        54.20000000000001,
+        56.80000000000001
+      ],
+      "step_range": [
+        0,
+        0
+      ],
+      "key_steps": [
+        0
+      ],
+      "focus_persona": "Owen Logan",
+      "camera": {
+        "start_zoom": 1.0,
+        "end_zoom": 1.2,
+        "follow": "Owen Logan",
+        "pan_to": {
+          "x": 58,
+          "y": 15
+        },
+        "playback_speed": 1
+      },
+      "transition_in": "scene_cut",
+      "transition_out": "scene_cut",
+      "narrator_lines": [
+        "Owen treats the headline like a script."
+      ],
+      "subtitle_card": null,
+      "key_dialogue": null,
+      "visual_note": "Snappy card: sprite/portrait + name + one-line trait",
+      "archetype": "observer",
+      "archetype_confidence": 1.0,
+      "bio": "Owen",
+      "trait_moment": "Owen treats the headline like a script.",
+      "narration_line": "Owen treats the headline like a script.",
+      "agent_id": "cc277da1-521b-4ba8-8f78-a7a1f09c3a32",
+      "sketch_path": "video\\assets\\users\\sketches\\cc277da1-521b-4ba8-8f78-a7a1f09c3a32.png"
+    },
+    {
+      "scene_id": 11,
+      "label": "cast_intro",
+      "time_range_sec": [
+        56.80000000000001,
+        59.40000000000001
+      ],
+      "step_range": [
+        0,
+        0
+      ],
+      "key_steps": [
+        0
+      ],
+      "focus_persona": "Vince Vale",
+      "camera": {
+        "start_zoom": 1.0,
+        "end_zoom": 1.2,
+        "follow": "Vince Vale",
+        "pan_to": {
+          "x": 94,
+          "y": 22
+        },
+        "playback_speed": 1
+      },
+      "transition_in": "scene_cut",
+      "transition_out": "scene_cut",
+      "narrator_lines": [
+        "Vince measures claims against reality."
+      ],
+      "subtitle_card": null,
+      "key_dialogue": null,
+      "visual_note": "Snappy card: sprite/portrait + name + one-line trait",
+      "archetype": "observer",
+      "archetype_confidence": 1.0,
+      "bio": "Vince",
+      "trait_moment": "Vince measures claims against reality.",
+      "narration_line": "Vince measures claims against reality.",
+      "agent_id": "69835d95-c543-48b1-85c0-f7d5351d845d",
+      "sketch_path": "video\\assets\\users\\sketches\\69835d95-c543-48b1-85c0-f7d5351d845d.png"
+    },
+    {
+      "scene_id": 12,
+      "label": "cast_intro",
+      "time_range_sec": [
+        59.40000000000001,
+        62.000000000000014
+      ],
+      "step_range": [
+        0,
+        0
+      ],
+      "key_steps": [
+        0
+      ],
+      "focus_persona": "Mike Hooks",
+      "camera": {
+        "start_zoom": 1.0,
+        "end_zoom": 1.2,
+        "follow": "Mike Hooks",
+        "pan_to": {
+          "x": 58,
+          "y": 75
+        },
+        "playback_speed": 1
+      },
+      "transition_in": "scene_cut",
+      "transition_out": "scene_cut",
+      "narrator_lines": [
+        "Mike argues in definitions, not slogans."
+      ],
+      "subtitle_card": null,
+      "key_dialogue": null,
+      "visual_note": "Snappy card: sprite/portrait + name + one-line trait",
+      "archetype": "observer",
+      "archetype_confidence": 1.0,
+      "bio": "Mike",
+      "trait_moment": "Mike argues in definitions, not slogans.",
+      "narration_line": "Mike argues in definitions, not slogans.",
+      "agent_id": "77c2f157-64bb-4fa0-b451-3a644661d1a4",
+      "sketch_path": "video\\assets\\users\\sketches\\77c2f157-64bb-4fa0-b451-3a644661d1a4.png"
+    },
+    {
+      "scene_id": 13,
+      "label": "cast_intro",
+      "time_range_sec": [
+        62.000000000000014,
+        64.60000000000001
+      ],
+      "step_range": [
+        0,
+        0
+      ],
+      "key_steps": [
+        0
+      ],
+      "focus_persona": "Nick Miller",
+      "camera": {
+        "start_zoom": 1.0,
+        "end_zoom": 1.2,
+        "follow": "Nick Miller",
+        "pan_to": {
+          "x": 54,
+          "y": 73
+        },
+        "playback_speed": 1
+      },
+      "transition_in": "scene_cut",
+      "transition_out": "scene_cut",
+      "narrator_lines": [
+        "Nick wants solutions that actually work."
+      ],
+      "subtitle_card": null,
+      "key_dialogue": null,
+      "visual_note": "Snappy card: sprite/portrait + name + one-line trait",
+      "archetype": "observer",
+      "archetype_confidence": 1.0,
+      "bio": "Nick",
+      "trait_moment": "Nick wants solutions that actually work.",
+      "narration_line": "Nick wants solutions that actually work.",
+      "agent_id": "e473df98-8abb-44e9-a73f-f89771ec91d2",
+      "sketch_path": "video\\assets\\users\\sketches\\e473df98-8abb-44e9-a73f-f89771ec91d2.png"
+    },
+    {
+      "scene_id": 14,
+      "label": "cast_intro",
+      "time_range_sec": [
+        64.60000000000001,
+        67.2
+      ],
+      "step_range": [
+        0,
+        0
+      ],
+      "key_steps": [
+        0
+      ],
+      "focus_persona": "Alex Shepard",
+      "camera": {
+        "start_zoom": 1.0,
+        "end_zoom": 1.2,
+        "follow": "Alex Shepard",
+        "pan_to": {
+          "x": 19,
+          "y": 28
+        },
+        "playback_speed": 1
+      },
+      "transition_in": "scene_cut",
+      "transition_out": "scene_cut",
+      "narrator_lines": [
+        "Alex sees the gray zones others skip."
+      ],
+      "subtitle_card": null,
+      "key_dialogue": null,
+      "visual_note": "Snappy card: sprite/portrait + name + one-line trait",
+      "archetype": "observer",
+      "archetype_confidence": 1.0,
+      "bio": "Alex",
+      "trait_moment": "Alex sees the gray zones others skip.",
+      "narration_line": "Alex sees the gray zones others skip.",
+      "agent_id": "f428ae04-975d-4163-b7e6-fbaea8befd24",
+      "sketch_path": "video\\assets\\users\\sketches\\f428ae04-975d-4163-b7e6-fbaea8befd24.png"
+    },
+    {
+      "scene_id": 15,
+      "label": "cast_intro",
+      "time_range_sec": [
+        67.2,
+        70.2
+      ],
+      "step_range": [
+        0,
+        0
+      ],
+      "key_steps": [
+        0
+      ],
+      "focus_persona": "Vincent Slater",
+      "camera": {
+        "start_zoom": 1.0,
+        "end_zoom": 1.2,
+        "follow": "Vincent Slater",
+        "pan_to": {
+          "x": 89,
+          "y": 17
+        },
+        "playback_speed": 1
+      },
+      "transition_in": "scene_cut",
+      "transition_out": "scene_cut",
+      "narrator_lines": [
+        "Vincent asks who benefits — every time."
+      ],
+      "subtitle_card": null,
+      "key_dialogue": null,
+      "visual_note": "Snappy card: sprite/portrait + name + one-line trait",
+      "archetype": "observer",
+      "archetype_confidence": 1.0,
+      "bio": "Vincent",
+      "trait_moment": "Vincent asks who benefits — every time.",
+      "narration_line": "Vincent asks who benefits — every time.",
+      "agent_id": "29f18c9f-3ec0-4dc2-89ee-2c9d7066b1ca",
+      "sketch_path": "video\\assets\\users\\sketches\\29f18c9f-3ec0-4dc2-89ee-2c9d7066b1ca.png"
+    }
+  ],
+  "stakes_montage": {
+    "narration": "See how people change under pressure. [PAUSE 0.1s] See what happens when relationships become part of the game. [PAUSE 0.15s] Watch live 24/7. Follow any Double. Replay every moment. [PAUSE 0.2s] These aren't just avatars. [PAUSE 0.1s] They learn. They change. They surprise you. [PAUSE 0.15s] And after a while... [excited] you ask — what would MY Double do?",
+    "main_character": "And after a while... you ask — what would MY Double do?",
+    "time_range_sec": [
+      70.2,
+      90.2
+    ],
+    "atmospheric_clips": [
+      "fly-over/cinematic_flyover_village_overhead.mp4",
+      "fly-over/cinematic_flyover_homes_row_approach.mp4",
+      "fly-over/cinematic_flyover_hobbs_cafe_interior.mp4",
+      "fly-over/cinematic_flyover_cafe_exterior_pan.mp4",
+      "fly-over/signature_flyover.mp4",
+      "fly-over/cinematic_flyover_village_dusk_wind_down.mp4"
+    ]
+  },
+  "how_to_watch": {
+    "card_lines": [],
+    "time_range_sec": [
+      90.2,
+      90.2
+    ]
+  },
+  "end_card": {
+    "cohort_label": "LEADERTALKS",
+    "question": "What if?",
+    "url_label": "Watch live at",
+    "url": "doubland.ai",
+    "cadence": "Episode 1 tomorrow · 18:30",
+    "title": "LEADERTALKS",
+    "subtitle": "What if?",
+    "body_a": "Watch live at doubland.ai",
+    "body_b": "Episode 1 tomorrow · 18:30",
+    "time_range_sec": [
+      90.2,
+      98.2
+    ]
+  },
+  "narrator_script": "[PAUSE 0.2s] [curious] What if... you had a second chance to make it right? [PAUSE 0.15s] What if you could practice that hard conversation before it ever happened? [PAUSE 0.15s] What if you had a Double? [PAUSE 0.15s] An AI version of you — talking like you. Reacting like you. Making choices like you.\n[PAUSE 0.2s]\nIn Doubland, you create an AI Double based on your personality. [PAUSE 0.15s] [warmly] Then you watch it live in a world with other Doubles. [PAUSE 0.15s] Every conversation. Every choice. Every relationship.\n[PAUSE 0.15s]\nThis season: the Leadertalks enters Survival Mode.\nFifteen coworkers. Fifteen personalities. Fifteen Doubles.\n[PAUSE 0.2s]\nMax turns ideas into momentum.\n[PAUSE 0.1s]\nAlex prototypes before he explains.\n[PAUSE 0.1s]\nIvan debates for clarity, not performance.\n[PAUSE 0.1s]\nOlivia ships — then asks what's broken.\n[PAUSE 0.1s]\nDiana reads the room behind the story.\n[PAUSE 0.1s]\nAndrew follows incentives, not headlines.\n[PAUSE 0.1s]\nIrene warms up the room — then stress-tests the logic.\n[PAUSE 0.1s]\nDean calls power when he sees it.\n[PAUSE 0.1s]\nAlexis wants evidence before opinion.\n[PAUSE 0.1s]\nOwen treats the headline like a script.\n[PAUSE 0.1s]\nVince measures claims against reality.\n[PAUSE 0.1s]\nMike argues in definitions, not slogans.\n[PAUSE 0.1s]\nNick wants solutions that actually work.\n[PAUSE 0.1s]\nAlex sees the gray zones others skip.\n[PAUSE 0.1s]\nVincent asks who benefits — every time.\n[PAUSE 0.2s]\nSee how people change under pressure. [PAUSE 0.1s] See what happens when relationships become part of the game. [PAUSE 0.15s] Watch live 24/7. Follow any Double. Replay every moment. [PAUSE 0.2s] These aren't just avatars. [PAUSE 0.1s] They learn. They change. They surprise you. [PAUSE 0.15s] And after a while... [excited] you ask — what would MY Double do?",
+  "shareable_moment": null
+}
