@@ -6,7 +6,23 @@
 **Cast size:** 15 Doubles
 **Format:** 9:16 vertical, **~60s** total runtime (SOT L6)
 **Tone:** Intellectual thriller — quieter, tense, ideas have consequences
-**Status:** Brief for an external scenario writer — not a code doc
+**Status:** Brief for scenario writer · **Locked decisions 2026-07-02** · draft script v1 in `../script/`
+
+---
+
+## Locked production decisions (2026-07-02)
+
+| ID | Decision |
+|----|----------|
+| **D1** | **Cast stack A:** `group_photo.png` → `group_photo_matrix.png` → **`group_anim.mp4`**. Full roster at a glance. **No spoken trait lines.** |
+| **D2** | **No L-Talks sim run** for opener visuals. `Village.mp4` + cast pack is enough. Per-Double habitats → daily-normal [B]. |
+| **D3** | **Survival close:** Anya **reuses Pistsov opener visuals** — `Survival.png` badge + `Pressure.mp4` (in `brand/`). |
+| **D4** | **Exact scale in VO:** *"a three-hundred-member alumni chat"* (not soft/minimal). |
+| **D5** | **Named survival tease:** **Survival Mode** badge/title at close (Pistsov-style). No survival mechanics in the body. |
+| **D6** | **End card schedule:** `Episode 1 tomorrow · 18:30 (EST)` |
+| **D7** | **Mid-trailer URL:** `doubland.ai` on screen ~46s **and** on end card. |
+| **D8** | **Group assets only** in cast block — no individual hero/portrait PNGs in opener. Portraits held for daily-normal [B]. |
+| **D9** | **`spotlight_preview_v2.mp4`:** optional pacing reference — Anya decides whether to use. |
 
 ---
 
@@ -26,17 +42,21 @@ The current auto-generated script (`data/20260628-4/opener&002/script.json`) hit
 
 This is the narrative material the writer should build from. It is **not** in the current script and it is the strongest thing the trailer has going for it.
 
-**Who they are:** An alumni group of a major US university. Fifteen people, 30–50 years old, scattered mostly across the United States, a few around the globe. Corporate leaders, software engineers, lawyers, VCs, startup founders. They have known each other for years. They stay in touch mostly through a long-running online group chat. They meet face-to-face once every few years. Their bond is conversation — different perspectives, shared network, mutual seriousness.
+**What L-Talks is:** A real online chat group of **~300 members** — an alumni community of a major US university. People stay in touch across time zones, mostly through the group chat; they meet in person only occasionally. The bond is conversation: different perspectives, shared network, mutual seriousness, smart people. Many are corporate leaders, engineers, lawyers, VCs, and founders — but the group itself is **~300 people**, not fifteen.
 
-**What they did this season:** They took their **entire 2025 group chat** and ran an experiment.
+**What this season did:** For the Press Play simulation, Doubland did **not** import the whole chat. It ran a selection-and-profiling pipeline on a year of real group history:
 
-1. Identified the **15 most active members** from a year of messages.
-2. Ran a **proprietary personality assessment based solely on message content** — no surveys, no interviews, just what they actually said to each other.
-3. **Anonymized everyone** — changed all names, gave each person a new identity in Doubland.
-4. **Assigned roles in Doubland based on the assessed personalities.**
-5. **Pressed PLAY.**
+1. **Analyzed all discussions** in the L-Talks group over the past year.
+2. From **~300 members**, identified the **15 most active** participants — the people whose messages showed up most in that year of conversation.
+3. **Analyzed each selected member's full message history** with Doubland's **proprietary algorithm** — no surveys, no interviews. The model builds psychologically and behaviorally accurate profiles from what people actually wrote: personality, argument style, values, tone, what they push back on, what they optimize for.
+4. **Ported those profiles into Doubland** as AI Doubles — each Double carries the personality, speech patterns, and values of its alter ego **as revealed in communication**, not as self-reported biography.
+5. **Anonymized everyone** — new names in Doubland; real identities never appear on screen.
+6. **Assigned roles in Doubland** based on the assessed personalities.
+7. **Pressed PLAY** — fifteen AI versions of fifteen real people, set loose together with no humans at the keyboard.
 
-They did not know what would happen. They wanted to see what their AI selves would do when set loose in a world together, with no humans at the keyboard. This is a group of builders, investors, and argumentative professionals turning the camera on themselves — a witness-protection-for-fun premise where the original identities are real, the Doubles are derived from a year of real conversation, and the names are changed to protect the guilty.
+They did not know what would happen. They wanted to see what their AI selves would do when left to interact on their own. The premise is witness-protection-for-fun: the originals are real, the Doubles are built from a year of what was actually said, and the names are changed to protect the guilty.
+
+**Why this matters for the trailer:** A cold viewer should understand that Doubles here are **not invented characters**. They are **message-derived** — distilled from how real people talk in a real community. The opener should make that pipeline legible: **large real chat → year of messages analyzed → top 15 selected → profiles built from what they wrote → anonymized → play.**
 
 **The emotional spine:** *We wanted to see what would happen. So we pressed play.*
 
@@ -44,23 +64,25 @@ They did not know what would happen. They wanted to see what their AI selves wou
 
 ## 3. The product concept — keep, sharpen
 
-The current script's product explanation is functional and accurate. Keep the meaning, sharpen the language:
+The current script's product explanation is functional but undersells the L-Talks mechanic. Keep the clarity, sharpen the language:
 
 > *In Doubland, you create an AI Double based on your personality. Then you watch it live in a world with other Doubles. Every conversation. Every choice. Every relationship.*
 
-This works. The writer may tighten or rephrase, but must not bury the product clarity — a VC watching cold must understand what Doubland is by the end of the concept block.
+For **this** trailer, the writer should also land that Doubland can build those personalities **from real communication** — not questionnaires. A line or beat that connects "what you say in conversation" → "who your Double becomes" is part of the product story here.
+
+A VC watching cold must understand what Doubland is by the end of the concept block. Do not bury product clarity — but do not present Doubles as generic chatbots either.
 
 ---
 
-## 4. The cast — 15 equal Doubles
+## 4. The cast — 15 Doubles (visual overview only)
 
-All 15 are introduced equally. **No subgroups, no featured-vs-background split, no rivalries or friendships to surface inside the trailer.** The writer's job is to make 15 introductions feel like one designed sequence, not 15 parallel slides.
+All 15 appear **together** in the cast block — no per-Double spoken intros in this trailer. **Trait lines and habitat beats → daily-normal [B].**
 
-### Cast list (anonymized names locked) with current trait lines
+### Cast list (anonymized names locked)
 
-The trait lines below are the **current auto-generated version**. They are individually fine but stylistically uniform — almost all follow "X does Y, not Z" or "X sees Z in Y." The writer should **rewrite for contrast**: vary length, vary register (warm / cold / playful / threatening / quiet / declarative), let some lines be a fragment, let some be a question, let some land as a challenge.
+Reference only — **not spoken in opener VO:**
 
-| # | Name | Current trait line |
+| # | Name | Trait line (for [B] daily-normal) |
 |---:|---|---|
 | 1 | Max Shoemaker | Max turns ideas into momentum. |
 | 2 | Alex Butcher | Alex prototypes before he explains. |
@@ -78,9 +100,15 @@ The trait lines below are the **current auto-generated version**. They are indiv
 | 14 | Alex Shepard | Alex sees the gray zones others skip. |
 | 15 | Vincent Slater | Vincent asks who benefits — every time. |
 
-### Spotlight order is the writer's call
+### Cast block visuals (locked — D1, D8)
 
-The current order is alphabetical-ish with Max first. The writer should **propose a new spotlight order with a narrative arc** — for example, open with the most kinetic energy, close with the most unsettling line; or open with the warmest, close with the coldest; or arrange so the cognitive postures build tension across the 15 beats. Include a one-sentence rationale for the chosen order.
+Anya edits manually. Narration carries one line over the block; visuals carry the roster.
+
+1. `group_photo.png` (clean 3×5)
+2. `group_photo_matrix.png` (matrix scan)
+3. **`group_anim.mp4`** (hold through VO tail)
+
+No hero PNGs, no portrait crops, no name-by-name spotlight in this trailer.
 
 ### Source material the writer has for each persona
 
@@ -110,7 +138,7 @@ UUID-to-name mapping:
 | Alex Shepard | `souls/f428ae04-975d-4163-b7e6-fbaea8befd24.md` |
 | Vincent Slater | `souls/29f18c9f-3ec0-4dc2-89ee-2c9d7066b1ca.md` |
 
-Each profile is ~200 lines, derived from a year of that person's actual messages. It includes identity in 3 lines, core drives, cognitive style, stress behavior, signature speech patterns, and predictive scenarios. **This is the primary source for the trait-line rewrites.** Sample (Max Shoemaker):
+Each profile is ~200 lines, built from that person's messages in the L-Talks group over the past year — not from interviews or self-report. Soul profiles inform **daily-normal [B]** trait lines, not opener VO. Sample (Max Shoemaker):
 
 > *A high-energy builder + connector who turns abstract ideas into products, communities, and experiments. Default lens: incentives → outcomes. Vibe: optimistic, playful, fast ideation.*
 
@@ -124,44 +152,48 @@ A 15-node **relationship graph JSON** also exists in the cohort folder (`video/a
 
 Not premium documentary (too soft for this story), not reality-show pressure (too cheap for this audience). The reference is closer to an intellectual thriller:
 
-- **Quiet but tense.** Ideas have consequences. A line like "Vincent asks who benefits — every time" should land like a chess move, not a caption.
-- **Controlled escalation.** The cold open is calm and curious. The cast intros build pressure — 15 smart people with strong opinions, introduced one by one. The stakes montage is where the tension breaks into the open.
-- **No melodrama.** These are accomplished adults in their 30s–50s. The trailer should respect that. No "will they survive?!?" energy. The stakes are intellectual and social: what happens when you set 15 versions of us loose with no adults at the keyboard.
-- **The reveal is the engine.** The cast-selection process (chat → assess → anonymize → press play) is the slow-burn twist. It should land partway through, not in the first five seconds.
+- **Quiet but tense.** Ideas have consequences — in the L-Talks reveal and the cast block, not in melodramatic survival hype (that waits for the close).
+- **Controlled escalation.** Cold open is calm and curious. The L-Talks pipeline reveal builds pressure. The cast block lands scale (15 at once). Survival Mode is named once at the close (D5).
+- **No melodrama in the body.** These are accomplished adults. Stakes are intellectual and social: message-derived Doubles, no humans at the keyboard. Survival tease is a **named forward look**, not a pressure sequence.
+- **The reveal is the engine.** Pipeline: three-hundred-member chat → year analyzed → top 15 → message-derived profiles → anonymize → press play. Lands ~20–34s, not in the first five seconds.
 
 ---
 
-## 6. What the writer is being asked to produce
+## 6. What the writer is being asked to produce (~60s lean [A])
 
-### 6.1 Rewrite the cold open (0–30 s)
+### 6.1 Hook + concept (~0–20 s)
 
-Today the cold open is three blocks: hook → concept intro → season bridge. The writer should restructure to land the L-Talks story and the cast-selection reveal. Proposed shape (writer may revise):
+1. **Hook** (~0–11 s): "What if you had a Double?" framing — sharpen for tension.
+2. **Product concept** (~11–20 s): what a Double is, what Doubland is, **plus message-derived profiles** (built from how you communicate, not surveys).
 
-1. **Hook** (~0–11 s): the "What if you had a Double?" framing. Keep the spirit of the current hook; sharpen for tension.
-2. **Product concept** (~11–19 s): what a Double is, what Doubland is. Keep the clarity.
-3. **Season bridge + cast-selection reveal** (~19–30 s): introduce L-Talks as a real alumni group, then reveal the process — a year of messages, 15 most active, personality assessment, anonymized, pressed play. This is the twist the current script is missing.
+### 6.2 L-Talks reveal (~20–34 s)
 
-Fix the existing grammar bug: "L-Talks enters," not "the L-Talks enters."
+Introduce **Press Play** and the selection pipeline. Required beats:
 
-### 6.2 Rewrite the 15 cast intro lines (30–70 s)
+- L-Talks — **a three-hundred-member alumni chat** (D4 — exact wording)
+- A year of every discussion analyzed
+- Fifteen most active voices selected
+- Doubles built from what they wrote — no surveys, no interviews
+- Names changed; **pressed play**
 
-- Each line is one short spoken sentence per Double, played over a ~2.6 s full-screen spotlight beat.
-- **No "X does Y, not Z" formula repeated 15 times.** Vary the rhetorical shape. Some lines can be a fragment. Some can be a question. Some can be a challenge. Some can be a quiet confession.
-- Each line must be **evidence-based** from the soul profile — the writer's job is to find the most cinematic one-line distillation of that person's actual cognitive posture, not to invent character.
-- Each line must read on screen at mobile caption size in ~2.6 s. Roughly 6–10 words.
-- Together, the 15 lines should feel like a sequence with a curve — not 15 parallel monads.
+### 6.3 Cast overview block (~34–46 s)
 
-### 6.3 Rewrite the stakes montage (70–90 s)
+**One VO line only** over the visual sequence (D1):
 
-Today this block is generic Doubland product copy ("Watch live 24/7. Follow any Double. Replay every moment. They learn. They change. They surprise you."). The writer should re-ground it in **what's at stake when 15 versions of one real alumni group are left to interact with no humans at the keyboard** — the intellectual and social stakes, not the feature list. The closing line "And after a while... you ask — what would MY Double do?" is strong and can stay.
+> *Fifteen Doubles. Fifteen minds. No one at the keyboard.*
 
-### 6.4 End card (90–98 s)
+Visuals (Anya — not writer's job): group photo → matrix → **`group_anim.mp4`**. No trait lines, no per-person narration.
 
-Lands on **"What if?"** → `doubland.ai` → "Episode 1 tomorrow · 18:30." Keep this. The writer may propose a single line of narration that carries into the end card if it strengthens the button.
+### 6.4 Mid URL + survival tease (~46–56 s)
 
-### 6.5 Spotlight order rationale
+- **Mid URL (D7):** VO + on-screen **`doubland.ai`** (~46 s).
+- **Survival tease (D3, D5):** one or two lines naming **Survival Mode**; visuals reuse Pistsov opener kit (`Survival.png` + `Pressure.mp4`). No feature-list montage.
 
-A one-paragraph explanation of why the 15 beats are ordered the way they are.
+Example shape: *Watch it live at doubland.ai. But the story doesn't stop at hello. Survival Mode comes next.*
+
+### 6.5 End card (~56–60 s)
+
+**"What if?"** → **`doubland.ai`** → **`Episode 1 tomorrow · 18:30 (EST)`** (D6).
 
 ---
 
@@ -181,9 +213,9 @@ A one-paragraph explanation of why the 15 beats are ordered the way they are.
 
 ## 8. Deliverables
 
-1. **Final script** in the same JSON shape as `data/20260628-4/opener&002/script.json` — fields: `cold_open` (with `line`, `hook`, `concept_intro`, `season_bridge`), `scenes` (15 × `cast_intro` with `narration_line` per persona), `stakes_montage` (with `narration`), `end_card`. Keep all non-narration fields (camera, transitions, sketch paths) as-is.
-2. **Spotlight order** — the 15 scenes in the writer's chosen order, with a one-paragraph rationale.
-3. **A short writer's note** (≤ 300 words) on the chosen emotional arc: where the reveal lands, how the 15 intros build, what the trailer leaves the viewer feeling.
+1. **Final script** — `script.md` + JSON with fields: `cold_open`, one `cast_overview` scene (not 15 × `cast_intro`), `stakes_montage` (mid URL + survival tease), `end_card`, `how_to_watch` (mid URL plate). **Draft v1:** `../script/script.json`.
+2. **On-screen copy sheet** — `../script/on-screen-copy.md`.
+3. **Writer's note** (≤ 300 words) on emotional arc — where the reveal lands, how the cast block feels, what the viewer leaves with.
 
 ---
 
@@ -191,7 +223,8 @@ A one-paragraph explanation of why the 15 beats are ordered the way they are.
 
 | Material | Path | Use |
 |---|---|---|
-| Current auto-gen script | `d:\Coding\generative_agents\data\20260628-4\opener&002\script.json` | What's there now; the JSON shape to match |
+| Draft v1 script | `../script/script.md`, `../script/script.json` | Current working draft |
+| Pistsov survival assets | `../brand/Survival.png`, `../brand/Pressure.mp4` | Close tease visuals (D3) |
 | 15 soul profiles | `d:\Coding\generative_agents\souls\<uuid>.md` | Primary source for each persona |
 | Trailer workbook (pilot context, cast-intro gap analysis) | `d:\Coding\double-ivan\video\trailer-opening\20260625_trailer-workbook.md` | Why the current script is weak on cast framing |
 | Opening trailer automation plan | `d:\Coding\double-ivan\video\opening\opening-15person\20260617_vertical-trailer-automation.md` | How the script becomes a video (Remotion, ~60s target) |
@@ -202,14 +235,14 @@ A one-paragraph explanation of why the 15 beats are ordered the way they are.
 
 ## 10. Out of scope for the writer
 
-- Visual / motion grammar (Remotion beat map is locked; writer does not specify animations)
+- Visual / motion grammar (Anya manual edit; cast sequence D1 is locked)
 - Music and SFX selection
-- Voice casting / narration delivery direction (the TTS pipeline handles this; inline delivery cues like `[curious]`, `[warmly]`, `[excited]` are welcome in the script)
-- The 15-node relationship graph as on-screen content
-- Anything outside the four script blocks (cold open, cast intros, stakes montage, end card)
+- Voice delivery (TTS: `eleven_v3` warm @ 1.5×; inline cues welcome)
+- Per-Double trait VO (→ daily-normal [B])
+- Anything outside the five blocks: hook/concept, L-Talks reveal, cast overview, mid URL + survival tease, end card
 
 ---
 
 ## 11. The one-sentence pitch for the writer
 
-> Fifteen accomplished adults turned a year of their own group chat into 15 anonymized AI versions of themselves, pressed play, and watched to see what would happen — this is the trailer that introduces them and the world they stepped into.
+> A real ~300-member alumni chat had a year of conversations analyzed; the 15 most active voices were turned into message-derived AI Doubles, anonymized, and set loose together — this is the trailer that introduces them and the world they stepped into.

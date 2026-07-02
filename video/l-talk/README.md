@@ -12,12 +12,12 @@ This folder is the single drop zone for Anya. Everything she needs should land h
 
 | Folder | Contents | Status |
 |--------|----------|--------|
-| `brief/` | Scenario-writer brief (send to writer after retune) | ⚠️ needs D1 retune before send-out |
-| `cast/` | 15 hero PNGs, 15 portrait crops, group photos, `group_anim.mp4`, pacing preview | ✅ ready |
-| `brand/` | Village B-roll, wordmark, end cards, anthem, SFX, Talk/Pressure clips | ✅ ready (reuse Pistsov kit) |
-| `script/` | Final script + on-screen copy sheet | ❌ blocked on writer |
-| `audio/` | `narration.mp3` + `narration_timing.json` | ❌ blocked on locked script |
-| `world/` | One survival-tease still or short loop for the close | ❌ pending (D3) |
+| `brief/` | Locked decisions + scenario-writer brief | ✅ ready |
+| `cast/` | Group photos, `group_anim.mp4`, optional spotlight preview; hero/portraits held for [B] | ✅ ready |
+| `brand/` | Village, Survival, Pressure, wordmark, end cards, anthem, SFX | ✅ ready |
+| `script/` | **Draft v1** script + on-screen copy | ⚠️ review before VO |
+| `audio/` | `narration.mp3` + `narration_timing.json` | ❌ after script lock |
+| `world/` | Pointer — survival assets live in `brand/` | ✅ N/A |
 | `reference/` | TODO doc, Anya Pistsov scene spec (style reference only) | ✅ ready |
 
 **Cast filenames:** hero and portrait PNGs use readable names (`Max_Shoemaker.png`, etc.). UUID mapping is in `cast/cast_reference.md`.
@@ -27,45 +27,30 @@ This folder is the single drop zone for Anya. Everything she needs should land h
 ## Trailer shape (locked — lean [A])
 
 1. **Concept intro** — what Doubland is, what a Double is (~0–20s)
-2. **Cast overview** — L-Talks alumni chat → "pressed play" reveal → all 15 visible at a glance (group frame / matrix). **No spoken trait lines.**
-3. **Close — survival tease** — one hint at survival episodes ahead → "What if?" → `doubland.ai`
+2. **Cast overview** — three-hundred-member chat reveal → **`group_photo` → matrix → `group_anim.mp4`**. One VO line; no trait lines.
+3. **Close** — mid URL **`doubland.ai`** + named **Survival Mode** (Pistsov visuals) → **What if?** → end card `Episode 1 tomorrow · 18:30 (EST)`.
 
 Per-Double intros and the 15 trait lines are **not** in this trailer — they belong in daily [B] `day_normal`.
 
-**Pacing reference:** watch `cast/spotlight_preview_v2.mp4` for cast-block rhythm only. Do not copy its per-person VO structure.
+**Pacing reference (optional):** `cast/spotlight_preview_v2.mp4` — Anya may use for rhythm; cast block uses `group_anim` per D1.
+
+---
+
+## Locked decisions (2026-07-02)
+
+See `brief/scenario-writer-brief.md` § Locked production decisions (D1–D9).
 
 ---
 
 ## Your workflow (Ivan)
 
-### Step 1 — Retune the writer brief (D1) — **do this first**
+### Step 1 — Review draft script v1 ✅ drafted
 
-The brief in `brief/scenario-writer-brief.md` still asks for 15 spoken trait lines and a stakes montage (§6.2–6.3). That matches the **old** ~90s opener, not the lean ~60s [A] shape.
+Files: `script/script.md`, `script/script.json`, `script/on-screen-copy.md`
 
-Before sending to the scenario writer, update the brief so deliverables are:
+Lock or send to external writer for polish. Brief is retuned for lean ~60s [A].
 
-- Cold open + cast-overview block + survival-tease close (~60s total VO)
-- **No** 15 `cast_intro` narration lines (visual cast block only)
-- **No** survival mechanics in the body — survival hint at close only
-- Fix grammar: "L-Talks enter," not "the L-Talks enters"
-- Masked names stay locked (L-Talks, Press Play)
-
-`script/script_draft_auto.json` is the current auto-gen draft — useful as JSON shape reference, **not** as final copy.
-
-### Step 2 — Commission final script
-
-Send retuned brief → external writer. Deliverables:
-
-1. Final script (markdown + JSON matching opener shape)
-2. Short writer's note on emotional arc (≤300 words)
-
-Drop results in `script/`:
-
-- `script.md` — human-readable
-- `script.json` — locked production script
-- `on-screen-copy.md` — one-page copy sheet (see template below)
-
-### Step 3 — Record VO (`--skip-render`)
+### Step 2 — Record VO (`--skip-render`)
 
 From the engineering repo (`generative_agents`), once `script.json` is locked:
 
@@ -91,32 +76,9 @@ Voice is locked: ElevenLabs `eleven_v3` warm @ **1.5×**. Inline cues like `[cur
 
 > **Note:** The pipeline may expect script at a sim output path. If the command regenerates script instead of using yours, place your locked `script.json` at `data/20260628-4/opener&NNN/script.json` (next index) or pass the output dir explicitly and verify the VO matches your copy before handoff.
 
-### Step 4 — Survival-tease visual (D3)
+### Step 3 — Deliver to Anya
 
-Pick one (low effort):
-
-| Option | Source | Effort |
-|--------|--------|--------|
-| **A — Reuse kit clip** | `brand/Pressure.mp4` or a frame from it | Lowest |
-| **B — Grok still** | One tense "survival season" image, 9:16 | ~30 min |
-| **C — Future sim frame** | Grab from first survival daily when available | Blocks on sim run |
-
-Save as `world/survival_tease.mp4` or `world/survival_tease.png`.
-
-### Step 5 — World beat (D2)
-
-**Recommendation:** reuse `brand/Village.mp4` for the world-establishing beat. No L-Talks sim run required for the lean opener — per-Double habitat visuals are [B], not [A].
-
-### Step 6 — Final handoff check
-
-Before sending to Anya, confirm:
-
-- [ ] `script/script.md` + `script.json` + `on-screen-copy.md`
-- [ ] `audio/narration.mp3` + `narration_timing.json`
-- [ ] `cast/` complete (already done)
-- [ ] `world/survival_tease.*`
-- [ ] `brand/` complete (already done)
-- [ ] Anya has CapCut project access to this folder
+All visual assets are in `cast/` and `brand/`. After VO lands in `audio/`, the bundle is complete.
 
 ---
 
@@ -166,11 +128,9 @@ Replace Pistsov `Family.mp4` with `cast/group_anim.mp4`.
 
 ## Open decisions
 
-| ID | Question | Recommendation |
-|----|----------|----------------|
-| D1 | Retune writer brief for lean [A]? | Yes — before send-out |
-| D2 | Need a normal-day sim run for visuals? | No — Village + cast pack enough |
-| D3 | Survival-tease source? | Start with `Pressure.mp4` frame; upgrade later if needed |
+All production decisions **locked 2026-07-02** — see `brief/scenario-writer-brief.md`.
+
+**Remaining:** script v1 review → VO record → Anya handoff.
 
 ---
 

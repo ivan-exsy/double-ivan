@@ -1,7 +1,7 @@
 # On-screen copy sheet — L-Talks · Press Play opener
 
-> **Status:** TEMPLATE — fill after final script is locked and VO is recorded.
-> Timecodes come from `../audio/narration_timing.json`.
+> **Status:** Draft v1 — aligned with `script.md` / `script.json`  
+> Timecodes are targets (~60s total); finalize from `narration_timing.json` after VO record.
 
 ---
 
@@ -11,7 +11,7 @@
 L-TALKS · PRESS PLAY
 ```
 
-Hold ≥1.0s when it first appears.
+Hold ≥1.0s when it first appears (~20s).
 
 ---
 
@@ -19,43 +19,72 @@ Hold ≥1.0s when it first appears.
 
 | ~Time | On-screen text | Notes |
 |------:|----------------|-------|
-| | WHAT IF… | Glitch type-on |
-| | | |
-| | | |
+| 0.8 | WHAT IF… | Glitch type-on |
+| 2.0 | YOU HAD A SECOND CHANCE | |
+| 3.0 | TO MAKE IT RIGHT? | |
+| 8.5 | WHAT IF YOU HAD A DOUBLE? | |
+| 11.0 | DOUBLE | |
+| 12.0 | AN AI VERSION OF YOU | |
+| 13–18 | TALKING / REACTING / MAKING CHOICES LIKE YOU | Optional word-swap |
 
 ---
 
-## Cast block
+## L-Talks reveal beats (optional title cards)
 
-No per-person spoken lines in this opener. Visual only:
-
-- Group photo → matrix scan → `group_anim.mp4`
-- Optional name tags if script calls for them (usually none in lean [A])
+| ~Time | On-screen text |
+|------:|----------------|
+| 20 | PRESS PLAY |
+| 22 | L-TALKS |
+| 24 | A YEAR OF MESSAGES |
+| 28 | TOP 15 |
+| 32 | PRESSED PLAY |
 
 ---
 
-## Mid-trailer URL plate
+## Cast block (~34–46s)
+
+**Visual only** — no name tags, no trait lines.
+
+Sequence: `group_photo.png` → `group_photo_matrix.png` → `group_anim.mp4`
+
+Caption (VO): *Fifteen Doubles. Fifteen minds. No one at the keyboard.*
+
+---
+
+## Mid-trailer URL (~46–50s)
 
 ```
 doubland.ai
 ```
 
+VO: *Watch it live at doubland.ai.*
+
 ---
 
-## End card
+## Survival tease (~50–56s)
+
+```
+SURVIVAL MODE
+```
+
+Visual: Pistsov `Survival.png` badge + `Pressure.mp4` (reuse Pistsov opener grammar)
+
+VO: *But the story doesn't stop at hello. Survival Mode comes next.*
+
+---
+
+## End card (~56–60s)
 
 ```
 What if?
 doubland.ai
-Episode 1 tomorrow · 18:30
+Episode 1 tomorrow · 18:30 (EST)
 ```
 
-Adjust launch line to actual schedule.
+VO: *What if?*
 
 ---
 
-## Captions (full narration)
+## Full captions (for silent viewing)
 
-| ~Start | Caption text |
-|-------:|--------------|
-| 0.0 | *(paste from locked script / timing JSON)* |
+See `script.md` — all narration blocks double as captions.

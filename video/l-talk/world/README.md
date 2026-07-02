@@ -1,10 +1,8 @@
-# Survival-tease visual — pending
+# Survival close visuals — in `../brand/`
 
-Drop **one** asset here for the trailer close:
+Survival tease uses **Pistsov opener kit** (locked D3, D5):
 
-- `survival_tease.mp4` — short loop (preferred), or
-- `survival_tease.png` — single still
+- `../brand/Survival.png` — Survival Mode badge
+- `../brand/Pressure.mp4` — pressure plate B-roll
 
-**Quick start:** export a still from `../brand/Pressure.mp4` or use Grok for a 9:16 "survival season" tease image.
-
-Decision D3 in `../README.md`.
+No separate asset needed in this folder.

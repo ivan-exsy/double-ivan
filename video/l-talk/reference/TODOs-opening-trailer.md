@@ -1,69 +1,71 @@
-# TODO — L-Talks / Press Play Opening Trailer (manual production)
-
-> **Mode:** Manual — Anya edits by hand in CapCut. Not the automated Remotion pipeline.
-> **Sim:** `soul15_seed_20260224` (15 Doubles, forked from the soul15 baseline).
-> **Cohort display name:** L-Talks (masked) · **Season:** Press Play.
-> **Type:** Opener [A] — lean viral asset. Per `video/sot-video.md` §0 and §10.
-> **Brief for scenario writer:** `opening-15person/20260701_scenario-writer-brief_leadertalks-opener.md`
-
----
-
-## Trailer shape (locked)
-
-Lean, **~60s**, mobile 9:16, shareable. No per-Double intros, no survival mechanics in the body.
-
-1. **Concept intro** — what Doubland is, what a Double is.
-2. **Cast overview** — the L-Talks alumni-chat → "pressed play" reveal, all 15 visible at a glance (group frame / matrix). No spoken trait lines.
-3. **Close — survival tease** — one hint at the real survival episodes ahead → "What if?" → `doubland.ai`.
-
-Per-Double intros and the 15 spoken trait lines move to **[B] `day_normal`** daily (SOT L2).
-
-## Raw materials to prep for Anya
-
-### Narrative (must be produced)
-- [ ] **Final script** — cold open + cast-overview block + survival-tease close. Commission via the scenario-writer brief. **Blocks everything.**
-  - Note: brief §6.3 (stakes montage) and tone section still lean on survival pressure; retune to "normal-day/concept body, survival tease at close only" before send-out.
-- [ ] **VO narration** (`narration.mp3` + `narration_timing.json`) — TTS, `eleven_v3` warm @ 1.5×, from the locked script. Use `--skip-render`; only audio needed for manual mode.
-- [ ] **On-screen copy sheet** — season line `L-TALKS · PRESS PLAY`, captions, mid-URL, end card strings. One-page list so Anya isn't guessing from the JSON.
-
-### Cast pack (already in hand — do not regenerate)
-- [x] 15 hero spotlight PNGs (full-screen safe) — approved
-- [x] 15 portrait / identity card crops
-- [x] Group photo (clean, 3×5) + matrix-filtered tier
-- [x] `group_anim.mp4` (cast motion plate, replaces Pistsov `Family.mp4`)
-- [x] 15 locked trait lines (in Supabase + `video_narration_cache`) — **held for [B], not used in opener VO**
-- [x] `fifteen_spotlight_montage` preview v2 — hand to Anya as cast-block pacing reference only
-
-### World / survival-tease visuals (small new spend)
-- [ ] **One survival-tease still/clip** — single frame or short loop hinting at the survival season, for the close. Low effort, high impact. (Grok or a frame from a future survival run.)
-- [ ] **World-establishing beat** — reuse sim-agnostic `Village.mp4` from the Anya kit (no survival mechanics). Confirm reuse is acceptable for a launch asset.
-
-### Reusable brand kit (no action)
-- [x] End card (`What if?`, URL takeover), mid-trailer URL plate, anthem, SFX library — from `opening-anya/`. Anya reuses.
-
-## Handoff bundle for Anya
-
-Assemble into one folder once the narrative + survival-tease visual are ready:
-
-- Final script (markdown + JSON shape Anya's used to)
-- `narration.mp3` + `narration_timing.json`
-- 15 hero PNGs + 15 portrait crops
-- Group photo (clean + matrix) + `group_anim.mp4`
-- Survival-tease still/clip
-- `fifteen_spotlight_montage` preview v2 (pacing reference)
-- On-screen copy sheet
-- Pointers to reused brand kit (or the actual files)
-
-## Open dependencies / decisions
-
-- **D1.** Update the scenario-writer brief (§6.3 stakes montage + tone) to match the lean [A] shape before sending it out. Owner: Ivan.
-- **D2.** Confirm whether a non-survival first-day sim run for L-Talks is needed to source any world/role visuals, or whether reusing `Village.mp4` + the cast pack is enough for the lean opener. (Per-Double sim-habitat visuals are [B], not [A], so the opener may not need a sim run at all.)
-- **D3.** Decide the survival-tease visual source: Grok still vs. frame from a future survival run vs. simple text+motion card. Affects only the close.
-
-## Order of work
-
-1. Send the (retuned) scenario-writer brief → get final script.
-2. Record VO from the locked script (`--skip-render`).
-3. Generate the one survival-tease visual.
-4. Decide D2 (sim run or not) — likely "not" for the lean opener.
-5. Assemble handoff bundle → deliver to Anya.
+# TODO — L-Talks / Press Play Opening Trailer (manual production)
+
+> **Mode:** Manual — Anya edits by hand in CapCut. Not the automated Remotion pipeline.
+> **Sim:** `soul15_seed_20260224` (15 Doubles, forked from the soul15 baseline).
+> **Cohort display name:** L-Talks (masked) · **Season:** Press Play.
+> **Type:** Opener [A] — lean viral asset. Per `video/sot-video.md` §0 and §10.
+> **Handoff bundle:** `video/l-talk/` · **Draft script v1:** `l-talk/script/script.md`
+
+---
+
+## Trailer shape (locked)
+
+Lean, **~60s**, mobile 9:16, shareable. No per-Double intros, no survival mechanics in the body.
+
+1. **Concept intro** — what Doubland is, what a Double is (message-derived profiles).
+2. **Cast overview** — L-Talks reveal (three-hundred-member chat → year analyzed → top 15 → pressed play) + visual roster: `group_photo` → matrix → **`group_anim.mp4`**. No spoken trait lines.
+3. **Close — survival tease** — mid URL `doubland.ai` + named **Survival Mode** (Pistsov visuals) → "What if?" → end card.
+
+Per-Double intros and the 15 spoken trait lines move to **[B] `day_normal`** daily (SOT L2).
+
+## Locked decisions (2026-07-02)
+
+| ID | Decision |
+|----|----------|
+| D1 | Cast stack: group photo → matrix → `group_anim.mp4` |
+| D2 | No sim run — `Village.mp4` + cast pack |
+| D3 | Survival close: reuse Pistsov `Survival.png` + `Pressure.mp4` |
+| D4 | VO: *"a three-hundred-member alumni chat"* (exact) |
+| D5 | Named Survival Mode badge at close |
+| D6 | End card: `Episode 1 tomorrow · 18:30 (EST)` |
+| D7 | Mid-trailer + end card `doubland.ai` |
+| D8 | Group assets only — no hero/portrait PNGs in opener |
+| D9 | `spotlight_preview_v2.mp4` optional for Anya |
+
+Full detail: `l-talk/brief/scenario-writer-brief.md` § Locked production decisions.
+
+## Raw materials to prep for Anya
+
+### Narrative
+- [x] **Draft script v1** — `l-talk/script/script.md` + `script.json` + `on-screen-copy.md`
+- [ ] **Script lock** — Ivan review / writer polish
+- [ ] **VO narration** (`narration.mp3` + `narration_timing.json`) — TTS from locked script (`--skip-render`)
+- [x] **On-screen copy sheet** — draft in `l-talk/script/on-screen-copy.md`
+
+### Cast pack (ready — do not regenerate)
+- [x] Group photo (clean + matrix) + `group_anim.mp4`
+- [x] Hero/portrait PNGs — **held for [B]; not used in opener (D8)**
+- [x] `spotlight_preview_v2.mp4` — optional reference (D9)
+
+### World / survival close (ready)
+- [x] `Village.mp4` — world beat (D2)
+- [x] `Survival.png` + `Pressure.mp4` — Pistsov survival tease (D3, D5)
+
+### Brand kit (ready)
+- [x] End card, wordmark, anthem, SFX, Talk.mp4 — `l-talk/brand/`
+
+## Order of work
+
+1. ~~Retune brief (D1)~~ · ~~Draft script v1~~
+2. **Lock script** — review draft v1; external writer polish if desired
+3. **Record VO** from locked script (`--skip-render`)
+4. **Deliver `l-talk/` folder to Anya**
+
+## Handoff checklist for Anya
+
+- [x] `script/script.md` + `script.json` + `on-screen-copy.md` (draft v1)
+- [ ] `audio/narration.mp3` + `narration_timing.json`
+- [x] `cast/group_photo*.png` + `group_anim.mp4`
+- [x] `brand/` (Village, Survival, Pressure, end cards, SFX)
+- [x] `cast/spotlight_preview_v2.mp4` (optional)
+

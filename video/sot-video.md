@@ -406,7 +406,7 @@ State change, not pressure sequence (L1). Color shift · season badge (**Press P
 
 ### 10.5 Cast — group overview
 
-All Doubles visible at a glance; cohort/season reveal (e.g. alumni-chat → "pressed play"); **no spoken trait lines**; block ~8–12s for 15 cast. Character-card design may appear without VO traits.
+All Doubles visible at a glance; cohort/season reveal (L-Talks pilot: **~300-member alumni chat → year analyzed → top 15 → message-derived profiles → "pressed play"**); **no spoken trait lines**; block ~8–12s for 15 cast. Character-card design may appear without VO traits.
 
 ### 10.6 Pressure — not in [A]
 
