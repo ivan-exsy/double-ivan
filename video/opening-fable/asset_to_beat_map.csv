@@ -1,0 +1,32 @@
+filename,folder,visual_beat_ids,confidence,notes
+Asset.png,Anya_PNG_assets,B03-B04,medium,Large PNG; likely the rotating ring/scan composite of the hook
+Asset2.png,Anya_PNG_assets,B03-B08,low,Small element; likely HUD scan-line text block (SCANNING/PERSONALITY DETECTED)
+Asset3.png,Anya_PNG_assets,B06-B07,low,Chat-bubble UI element over silhouettes
+Asset4.png,Anya_PNG_assets,B53-B54,medium,Wireframe self-figure / chat ghost element of end card
+Cards1.png,Anya_PNG_assets,B12,medium,Feature card set 1 (TALKING LIKE YOU chat card)
+Cards2.png,Anya_PNG_assets,B13,medium,Feature card set 2 (REACTING LIKE YOU)
+Cards3.png,Anya_PNG_assets,B14,medium,Feature card set 3 (MAKING CHOICES / decision card)
+Cards4.png,Anya_PNG_assets,B21-B23,medium,Conversation/decision/relationship UI cards over wireframe figures
+Cards5.png,Anya_PNG_assets,B28-B29,medium,Identity mini-card row build
+Cards5_family-matrix.png,Anya_PNG_assets,B29-B36,high,Selection panel with 4 family cards (cursor panel between characters)
+matrix-cards_full-cast.png,Anya_PNG_assets,B29-B36 B48,high,Full-cast selection matrix; also dashboard strip at 66.4s
+Connections.png,Anya_PNG_assets,B09,medium,Node-graph family diagram (YOU HAD A DOUBLE)
+Connections2.png,Anya_PNG_assets,B23 B43,medium,Relationship graph / network HUD over night map
+Dasha.png,Anya_PNG_assets,B20 B48,low,Secondary double portrait (map portrait stack / dashboard)
+DOUBLAND.png,Anya_PNG_assets,B15,high,DOUBLAND logo plate (SIMULATION ACTIVE bridge)
+DOUBLAND2.png,Anya_PNG_assets,B44 B54-B55,high,URL/wordmark variant (mid-trailer copper plate and/or final blue URL)
+Double.png,Anya_PNG_assets,B10-B11,high,DOUBLE wordmark for word-to-logo morph and poster
+F1714AC2-78E4-434B-844C-30F0A03D4DD7.png,Anya_PNG_assets,unknown,low,Unidentifiable from name; check pixel content
+Family.png,Anya_PNG_assets,B11-B14 B25 B27,high,Family group photo band (poster + Pistsoff section anchor)
+Gosha .png,Anya_PNG_assets,B31,high,Full-body Gosha on gray (note trailing space in filename)
+Iván.png,Anya_PNG_assets,B33,high,Full-body Ivan on gray (accented filename)
+Luba.png,Anya_PNG_assets,B37-B38,high,Full-body Lyuba on gray
+Katya (missing from manifest),Anya_PNG_assets,B35,high,No Katya PNG in manifest — likely Photoroom_20260611_151820.png; verify
+Photoroom_20260611_151820.png,Anya_PNG_assets,B35,medium,Cut-out portrait; best candidate for Katya full-body
+Map.png,Anya_PNG_assets,B43-B44,medium,Night world-map still under relationship HUD
+Profile.png,Anya_PNG_assets,B17,high,Profile HUD card built over village clip
+Survival.png,Anya_PNG_assets,B26,high,SURVIVAL MODE INITIATED copper plate
+Family.mp4,Anya_animated,B25 B27,high,Animated family/porch sequence (Pistsoff enters)
+Pressure.mp4,Anya_animated,B39-B41,high,Gauge needle animation LOW->CRITICAL
+Talk.mp4,Anya_animated,B06-B07 B21-B23,high,Wireframe conversing figures with bubbles
+Village.mp4,Anya_animated,B16-B17 B24,high,Village aerial / street hero clip

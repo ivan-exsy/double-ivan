@@ -1,0 +1,27 @@
+vo_segment_approx,visual_beats_spanned,visual_continues_across_vo,notes
+"WHAT IF... you had a second chance to make it right? (~0-4.2s)","B02-B04",y,Ring rotates and HUD lines accrete continuously through both phrases; visuals never freeze between lines
+"WHAT IF... you could practice that hard conversation... (~4.2-8.6s)","B05-B07",y,Silhouette pair persists; bubbles keep mutating while phrases swap
+"WHAT IF... you had a DOUBLE (~8.6-10.8s)","B08-B10",y,Word-to-logo morph happens inside the VO tail; not gated on VO end
+"An AI version of you (~10.8-12.6s)","B11",n,1:1 beat but poster keeps assembling during hold
+"Talking / reacting / making choices like you (~12.6-18.5s)","B12-B14",y,Family photo band persists across all 3 phrases; side portraits swap per phrase
+"DOUBLAND simulation active (~18.5-19.5s)","B15",n,Logo bridge beat; purely visual (no VO dependency)
+"You create an AI double based on your personality (~19.5-23.5s)","B16-B18",y,Village clip plays throughout; profile HUD builds mid-sentence
+"Then you watch it live in a world with other doubles (~24-27.2s)","B19-B20",y,Map register enters at phrase 1; portraits populate during phrase 2
+"Every conversation / choice / relationship (~27.2-31.8s)","B21-B23",y,Wireframe figures persist under 3 UI morphs; UI changes mid-word
+"This season the Pistsoff family enters (~31.8-35s)","B24-B25",y,Background cuts twice under one held caption — visual clock faster than VO
+"Survival Mode initiated (~35-36.8s)","B26",n,Plate beat
+"Four family members four personalities (~36.8-41.4s)","B27-B29",y,Card row + selection panel build while VO still running
+"Gosha thinks three moves ahead (~41.4-43.2s)","B30-B31",y,Panel bridge (no VO need) then character; caption types during character hold
+"Ivan refuses to lose (~43.2-45.7s)","B32-B33",y,Same panel->character pattern
+"Katya knows how to move people (~45.7-48.3s)","B34-B35",y,Same pattern; wave gesture mid-hold
+"Lyuba stays calm until everyone realizes... (~48.3-52.5s)","B36-B38",y,Two-stage caption retype + pose change inside one VO sentence
+"(no VO) pressure transition (~52.5-53.1s)","B39",y,Pure visual morph decoupled from narration entirely
+"Pressure low -> critical / see what happens (~53.1-57s)","B40-B42",y,Needle animates continuously; label swaps are visual events not VO events
+"When relationships become part of the game (~57-59.4s)","B43",y,3 text swaps inside one VO phrase; map + HUD animate throughout
+"(no VO) URL plate (~59.4-60.9s)","B44",y,Visual-only beat
+"Watch live 24/7 / follow any double / replay every moment (~60.9-66.4s)","B45-B47",y,Day->night background cut under held text; map register persists across phrases
+"These aren't just avatars (~66.4-68.2s)","B48",n,Dashboard anchor enters
+"They learn / change / surprise you (~68.2-71.7s)","B49-B50",y,Feed rows tick continuously; text cadence 0.4-0.5s outruns VO word rate
+"And after a while you ask (~71.7-73.8s)","B51-B52",y,Scenic persists; fog drift continuous
+"What would my double do? (~73.8-75.3s)","B53",n,Question beat
+"(no VO) URL takeover + hold (~75.3-76.578s)","B54-B55",y,Overlapping takeover is a visual-only schedule

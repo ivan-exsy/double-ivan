@@ -1,0 +1,56 @@
+visual_beat_id,start_sec,end_sec,section_id,transition_primitive,layers_persisting,layers_entering,layers_exiting,on_screen_text,notes
+B01,0.000,0.050,0,hardCut,,poster(logo+cast band),,DOUBLE / AN AI VERSION OF YOU,3-frame poster flash then black reset
+B02,0.050,0.900,1,typeOnCenter,black bg,WHAT IF... center text,poster,WHAT IF...,black frames 2-3 then WHAT IF readable by frame 4
+B03,0.900,2.333,1,sharedCenterReplace,black bg,ring(cyan) + scan HUD(top-left) + answer line,WHAT IF...,YOU HAD A SECOND CHANCE,ring rotates continuously; HUD lines accrete one by one
+B04,2.333,4.200,1,sharedCenterReplace,ring + scan HUD,answer line 2; ring shifts cyan-to-red,answer line 1,TO MAKE IT RIGHT?,ring color drift = only palette change; HUD keeps accreting
+B05,4.200,4.800,2,textResetLoop,black bg; faint silhouettes fade in low,WHAT IF... reset,ring + HUD,WHAT IF...,silhouette pair emerges bottom half during hold
+B06,4.800,6.533,2,persistentLayerSwap,silhouette pair(bottom),chat bubbles UI(top) + phrase,WHAT IF...,YOU COULD PRACTICE / THAT HARD CONVERSATION,bubbles pulse and add while figures persist
+B07,6.533,8.600,2,persistentLayerSwap,silhouette pair,phrase 3; bubble layout mutates,phrase 2,BEFORE IT EVER HAPPENED?,figures never cut; only top UI + text change
+B08,8.600,9.400,3,textResetLoop,black bg,WHAT IF... + small ring re-flash,silhouettes + bubbles,WHAT IF...,glitch flavor on reset
+B09,9.400,10.300,3,sharedCenterReplace,center axis,node-graph family diagram(top) + phrase,WHAT IF...,YOU HAD A DOUBLE,diagram of 4 avatars linked by lines
+B10,10.300,10.800,3,wordToLogoMorph,center axis,DOUBLE wordmark scale/glitch hit,phrase + diagram,DOUBLE,word becomes brand logo in place
+B11,10.800,12.600,4,persistentLayerSwap,DOUBLE wordmark(center),cast photo band(bottom) + caption,,AN AI VERSION OF YOU,poster assembles: logo persists; family photo slides in below
+B12,12.600,14.200,4,persistentLayerSwap,cast photo band,chat-card UI(top) + caption swap,wordmark,TALKING LIKE YOU,poster deconstructs into feature cards; family stays
+B13,14.200,15.900,4,cardSwapOverAnchor,cast photo band,reaction card + solo portrait(Katya),chat card,REACTING LIKE YOU,solo portrait pops beside caption
+B14,15.900,18.500,4,cardSwapOverAnchor,cast photo band,decision card + solo portrait(Gosha),reaction card,MAKING CHOICES LIKE YOU,family photo variant reshuffles mid-beat
+B15,18.500,19.467,4,logoMatchCarry,center axis,DOUBLAND logo + SIMULATION ACTIVE scan,cast band + cards,DOUBLAND / SIMULATION ACTIVE,scan/flicker reveal; bridges into world
+B16,19.467,21.400,5,heroRevealUnderText,center text channel,village aerial clip full-bleed (Village.mp4 style),logo,YOU CREATE AN AI DOUBLE,hero clip at full opacity; text over center
+B17,21.400,23.467,5,persistentLayerSwap,village clip,profile HUD card(center) + phrase swap,phrase 1,BASED ON YOUR PERSONALITY,Profile UI builds over live village
+B18,23.467,24.033,5,fadeToBlackBeat,,black,village + HUD,,breath before watch-live
+B19,24.033,25.400,6,heroRevealUnderText,center text channel,tile-map overhead (game world),black,THEN YOU WATCH IT LIVE,2D map = new visual register
+B20,25.400,27.167,6,persistentLayerSwap,tile map,portrait stack column(right) + phrase swap,,IN A WORLD WITH OTHER DOUBLES,doubles' portraits populate over map
+B21,27.167,28.633,7,persistentLayerSwap,wireframe conversing figures(bottom),alliance/talk card(center) + caption,tile map,EVERY CONVERSATION,figures + bubbles anchor the whole section
+B22,28.633,30.000,7,uiStateMorph,wireframe figures,decision card (Support Luba/Ivan buttons),alliance card,EVERY CHOICE,same slot; card contents morph not cut
+B23,30.000,31.767,7,uiStateMorph,wireframe figures,relationship graph + trust delta chip,decision card,EVERY RELATIONSHIP,+12 TRUST chip animates; then hard cut out
+B24,31.767,33.000,8,heroRevealUnderText,center text channel,street clip dusk full-bleed,wireframe section,THIS SEASON,live-action-style neighborhood
+B25,33.000,35.033,8,textHoldAcrossBackgroundCut,family group photo(bottom) + caption,background cuts street->porch string-lights,,THE PISTSOFF FAMILY ENTERS,family + text persist across 2 location cuts
+B26,35.033,36.833,8,scanGlitchReveal,dark bg,SURVIVAL MODE INITIATED copper plate,family + porch,SURVIVAL MODE / INITIATED,copper/red semantic shift
+B27,36.833,38.300,8,persistentLayerSwap,dark bg,family photo strip returns + phrase,warning plate,FOUR FAMILY MEMBERS,photo re-used as anchor
+B28,38.300,39.900,8,uiStateMorph,family strip,4 identity mini-cards row builds,phrase,FOUR PERSONALITIES,cards assemble above photo
+B29,39.900,41.433,8,cardRowBuild,identity card row,selection panel full UI + cursor,family strip,,cursor appears; bridge into cast section
+B30,41.433,42.100,9,cardSelectZoom,selection panel,cursor moves + Gosha card highlight,,GOSHA_,0.6-0.8s selection bridge
+B31,42.100,43.200,9,cardSelectZoom,,full-body Gosha on gray; blur-in settle,selection panel,GOSHA THINKS THREE MOVES AHEAD,character 1.8-2.3s; light gray bg = brightness peak
+B32,43.200,43.900,10,panelReturn,,selection panel + cursor to Ivan,Gosha,IVAN_,panel is the persistent metronome
+B33,43.900,45.733,10,cardSelectZoom,,full-body Ivan on gray (sleeve-roll gesture),selection panel,IVAN REFUSES TO LOSE,each character has one physical gesture
+B34,45.733,46.300,11,panelReturn,,selection panel + cursor to Katya,Ivan,KATYA_,
+B35,46.300,48.333,11,cardSelectZoom,,full-body Katya on gray (wave gesture),selection panel,KATYA KNOWS HOW TO MOVE PEOPLE,
+B36,48.333,49.133,12,panelReturn,,selection panel + cursor to Lyuba,Katya,LYUBA_,
+B37,49.133,50.200,12,cardSelectZoom,,full-body Lyuba on gray,selection panel,LYUBA STAYS CALM,
+B38,50.200,52.533,12,uiStateMorph,Lyuba full-body,multi-line caption retype + pose change,short caption,UNTIL EVERYONE REALIZES THEY UNDERESTIMATED HER,longest cast hold; pose shifts keep it alive
+B39,52.533,53.067,13,radialObjectMatch,Lyuba silhouette,radial blur -> gauge ring materializes,gray bg,,character blur becomes gauge = signature morph
+B40,53.067,54.400,13,gaugeStateAnim,pressure gauge,needle sweeps in LOW range,,PRESSURE LEVEL: LOW,needle micro-motion continuous
+B41,54.400,55.900,13,gaugeStateAnim,pressure gauge,needle slams to red + label swap,LOW label,PRESSURE LEVEL: CRITICAL,red semantic peak
+B42,55.900,57.000,13,fadeToBlackBeat,center text channel,SEE WHAT HAPPENS,gauge,SEE WHAT HAPPENS,black beat between peaks
+B43,57.000,59.400,14,persistentLayerSwap,night map + HUD frames(top/bottom),3 phrase swaps in center channel,,WHEN RELATIONSHIPS / BECOME / PART OF THE GAME,map glows; HUD panels tick; text swaps fast (0.25-0.7s)
+B44,59.400,60.900,14,urlPlateReveal,night map + HUD,copper URL plate over center,phrase,WWW.DOUBLAND.AI,mid-trailer URL; copper not blue
+B45,60.900,63.000,15,textHoldAcrossBackgroundCut,WATCH LIVE 24/7 text,tile-map day -> tile-map night cut under text,URL plate,WATCH LIVE 24/7,text motionless across the background cut
+B46,63.000,64.400,15,heroRevealUnderText,tile map register,overhead follow-cam map + phrase swap,night map,FOLLOW ANY DOUBLE,camera drifts along path
+B47,64.400,66.433,15,heroRevealUnderText,map register,replay scrub view + phrase swap,follow map,REPLAY EVERY MOMENT,slight zoom keeps motion
+B48,66.433,68.167,16,persistentLayerSwap,cast dashboard strip(top),live activity feed panel(bottom),map,THESE AREN'T JUST AVATARS,active-double row persists while evidence changes
+B49,68.167,70.000,17,uiStateMorph,dashboard strip,feed rows tick + fast phrase swaps,,THEY LEARN / THEY CHANGE,0.4-0.5s text cadence
+B50,70.000,71.667,17,uiStateMorph,feed panel,THEY SURPRISE YOU + feed scroll,dashboard strip,THEY SURPRISE YOU,then fade
+B51,71.667,72.733,18,heroRevealUnderText,center text channel,foggy porch scenic full-bleed,UI layers,AND AFTER A WHILE,quiet reflection; fog drifts
+B52,72.733,73.800,18,persistentLayerSwap,porch scenic,YOU ASK phrase swap,phrase 1,YOU ASK,scenic persists
+B53,73.800,75.300,18,questionToUrlTakeover,wireframe self-figure(dim),final question center,porch scenic,WHAT WOULD MY DOUBLE DO?,dark figure + chat ghosts behind question
+B54,75.300,76.000,18,questionToUrlTakeover,wireframe figure fading,blue URL slides/fades in overlapping question,question text,WWW.DOUBLAND.AI,overlap ~0.7s; both visible briefly
+B55,76.000,76.578,18,isolatedHold,,URL alone on black,figure,WWW.DOUBLAND.AI,0.58s motionless hold; hard end
