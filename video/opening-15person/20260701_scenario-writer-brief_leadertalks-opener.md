@@ -1,7 +1,8 @@
-# Scenario Writer Brief — Leadertalks Opening Trailer
+# Scenario Writer Brief — L-Talks Opening Trailer
 
 **Simulation:** `20260628-4` (forked from `soul15_seed_20260224`)
-**Cohort display name:** Leadertalks
+**Cohort display name:** L-Talks (masked; real group name withheld from the trailer)
+**Season:** Press Play
 **Cast size:** 15 Doubles
 **Format:** 9:16 vertical, ~90–105 s total runtime
 **Tone:** Intellectual thriller — quieter, tense, ideas have consequences
@@ -13,7 +14,7 @@
 
 This trailer has three jobs, in priority order:
 
-1. **A gift to the Leadertalks group itself** — 15 accomplished people see their AI Doubles introduced on screen. They should feel seen, not caricatured.
+1. **A gift to the L-Talks group itself** — 15 accomplished people see their AI Doubles introduced on screen. They should feel seen, not caricatured.
 2. **A product demo for the Doubland MVP** — used in a VC raise and global distribution. A viewer who has never heard of Doubland must finish the trailer knowing what a Double is, what Doubland is, and why they would watch.
 3. **A launch asset** — vertical, mobile-first, must work without sound (captions carry meaning) and with sound (narration + mix carry emotion).
 
@@ -21,7 +22,7 @@ The current auto-generated script (`data/20260628-4/opener&002/script.json`) hit
 
 ---
 
-## 2. The true story of Leadertalks — the hook
+## 2. The true story of L-Talks — the hook
 
 This is the narrative material the writer should build from. It is **not** in the current script and it is the strongest thing the trailer has going for it.
 
@@ -134,13 +135,13 @@ Not premium documentary (too soft for this story), not reality-show pressure (to
 
 ### 6.1 Rewrite the cold open (0–30 s)
 
-Today the cold open is three blocks: hook → concept intro → season bridge. The writer should restructure to land the Leadertalks story and the cast-selection reveal. Proposed shape (writer may revise):
+Today the cold open is three blocks: hook → concept intro → season bridge. The writer should restructure to land the L-Talks story and the cast-selection reveal. Proposed shape (writer may revise):
 
 1. **Hook** (~0–11 s): the "What if you had a Double?" framing. Keep the spirit of the current hook; sharpen for tension.
 2. **Product concept** (~11–19 s): what a Double is, what Doubland is. Keep the clarity.
-3. **Season bridge + cast-selection reveal** (~19–30 s): introduce Leadertalks as a real alumni group, then reveal the process — a year of messages, 15 most active, personality assessment, anonymized, pressed play. This is the twist the current script is missing.
+3. **Season bridge + cast-selection reveal** (~19–30 s): introduce L-Talks as a real alumni group, then reveal the process — a year of messages, 15 most active, personality assessment, anonymized, pressed play. This is the twist the current script is missing.
 
-Fix the existing grammar bug: "Leadertalks enters," not "the Leadertalks enters."
+Fix the existing grammar bug: "L-Talks enters," not "the L-Talks enters."
 
 ### 6.2 Rewrite the 15 cast intro lines (30–70 s)
 
@@ -174,7 +175,7 @@ A one-paragraph explanation of why the 15 beats are ordered the way they are.
 | **No forbidden topics** | The writer is not restricted from any subject area, but should treat the Doubles as the soul profiles describe them — no inventing biographical facts the profiles do not support. |
 | **Format** | 9:16 vertical, mobile-first, must work silent (captions) and with sound. Total runtime ~90–105 s. |
 | **Product clarity** | A cold viewer must understand what Doubland is by the end of the concept block. Do not sacrifice product clarity for atmosphere. |
-| **Audience** | Leadertalks group themselves + Doubland product launch audience. Must work for a stranger who knows nothing about the group. |
+| **Audience** | L-Talks group themselves + Doubland product launch audience. Must work for a stranger who knows nothing about the group. |
 
 ---
 

@@ -1,8 +1,13 @@
+*20260702: DESPITE EVERYTHING IS IMPLEMENTED, THE RESULT IS SHIT*
+
+
 # Day-Overview Trailer — Implementation TODO
 
 > Daily simulation-day recap trailers (Episode 1, 2, 3… at 18:30 owner-local). **Must look and feel like the next episode of the same show as the shipped opener.**
 > **Refs:** Opener SOT `video/trailer-opening/sot-opening-trailer.md` · Opener impl `video/trailer-opening/20260617_vertical-trailer-automation.md` · Opener workbook `video/trailer-opening/20260625_trailer-workbook.md` · Engineering `video/video_PRD.md` §2.2 · Creative `video/video_playbook.md` §3.
 > **Branch:** `ivan/daily-trailer` (forked from railway). **Last updated: 2026-07-01.**
+
+
 
 ---
 
