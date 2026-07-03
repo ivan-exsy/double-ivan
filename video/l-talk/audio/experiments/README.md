@@ -38,3 +38,11 @@ python -m video.render_ltalk_vo_experiment --only v3_oneshot_block_pauses
 ```
 
 Results summary: `manifest.json` in this folder.
+
+## script_cos v2 (team draft)
+
+| Folder | Source | Speed | Length |
+|--------|--------|-------|--------|
+| `script_cos_oneshot_speed12/` | `script/script_cos.md` | 1.2× one-shot | **83.4s** |
+
+Re-render: `python -m video.render_ltalk_cos_oneshot` (from `generative_agents-daily-trailer` root).

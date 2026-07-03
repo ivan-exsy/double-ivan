@@ -1,0 +1,14 @@
+{
+  "narration_path": "d:\\Coding\\double-ivan\\video\\l-talk\\audio\\experiments\\script_cos_oneshot_speed12\\narration.mp3",
+  "total_sec": 83.36,
+  "script_source": "double-ivan/video/l-talk/script/script_cos.md",
+  "voice": "eleven_v3 warm @ 1.2",
+  "segments": [
+    {
+      "index": 0,
+      "content": "What if you had a second chance to make it right? What if you could practice that hard conversation — before it ever happened? What if you had a Double? An AI version of you. Talking like you. Choosing like you. In Doubland, you build an AI Double from your personality. Then you watch it live, in a world with other Doubles. Every conversation. Every choice. Every relationship. This season: L-Talks. Three hundred voices in one alumni chat. We read a year of messages. Picked the fifteen most active. Built their Doubles from what they actually said — no surveys, no interviews. Dropped them in. And pressed play. Fifteen Doubles. AI versions of real people. No one at the keyboard. The show is on — in Survival Mode. Every day, one Double gets eliminated — until only one remains. Watch live 24/7. Follow any Double. See who survives. It's real pressure, real choices. They surprise you. And after a while... you start to wonder — what would MY Double do?",
+      "start_sec": 0.0,
+      "end_sec": 83.36
+    }
+  ]
+}
