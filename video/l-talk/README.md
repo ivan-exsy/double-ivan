@@ -33,7 +33,7 @@ One deliverable: a **final vertical MP4, 9:16, ~82s**, edited in CapCut from the
 | Concept | 17–30s | What Doubland is, what a Double is |
 | L-Talks reveal | 30–49s | 300-member chat → year analyzed → top 15 → Doubles from what they said → pressed play |
 | Cast overview | 49–55s | One VO line over `group_photo` → matrix → `group_anim.mp4`. No trait lines, no names. |
-| Survival Mode | 55–66s | "We made it hard for them" + elimination rule. **Hard cut** out. |
+| Survival Mode | 55–66s | "The show is on — in Survival Mode" + elimination rule. **Hard cut** out. |
 | Closing | 66–82s | Watch live + `doubland.ai` + "what would MY Double do?" → end card |
 
 **Final card:** `WHAT WOULD MY DOUBLE DO?` + `doubland.ai` + `Episode 1 tomorrow · 18:30 (EST)`

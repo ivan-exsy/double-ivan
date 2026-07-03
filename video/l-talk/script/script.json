@@ -57,7 +57,7 @@
     }
   ],
   "stakes_montage": {
-    "narration": "We wanted to keep it interesting — so we made it hard for them. Survival Mode. Every day, one Double gets eliminated — until only one remains.",
+    "narration": "The show is on — in [accentuate] Survival Mode. Every day, one Double gets eliminated — until only one remains.",
     "main_character": "Every day, one Double gets eliminated — until only one remains.",
     "time_range_sec": [
       46,
@@ -66,7 +66,7 @@
     "atmospheric_clips": [
       "brand/Pressure.mp4"
     ],
-    "visual_note": "SURVIVAL MODE badge (Survival.png) + Pressure.mp4 ~48s over 'Next: Survival Mode'; rule card 'ONE OUT EVERY DAY · UNTIL ONE REMAINS' ~50s; hard cut to Closing on 'remains'."
+    "visual_note": "SURVIVAL MODE badge (Survival.png) + Pressure.mp4 ~48s over 'Survival Mode'; rule card 'ONE OUT EVERY DAY · UNTIL ONE REMAINS' ~50s; hard cut to Closing on 'remains'."
   },
   "how_to_watch": {
     "card_lines": [
@@ -98,7 +98,7 @@
       66
     ]
   },
-  "narrator_script": "[PAUSE 0.2s] [curious] What if... you had a second chance to make it right? [PAUSE 0.15s] What if you could practice that hard conversation — before it ever happened? [PAUSE 0.15s] What if you had a Double? [PAUSE 0.15s] An AI version of you. [PAUSE 0.1s] Talking like you. [PAUSE 0.1s] Reacting like you. [PAUSE 0.1s] Making choices like you.\n[PAUSE 0.15s]\nIn Doubland, you build an AI Double from your personality. [PAUSE 0.15s] [warmly] Then you watch it live, in a world with other Doubles. [PAUSE 0.1s] Every conversation. [PAUSE 0.1s] Every choice. [PAUSE 0.1s] Every relationship.\n[PAUSE 0.2s]\nThis season: L-Talks. [PAUSE 0.1s] A three-hundred-member alumni chat group. [PAUSE 0.15s] We analyzed a year of conversations. [PAUSE 0.1s] Found fifteen most active voices. [PAUSE 0.1s] Built their Doubles from what they said — no surveys, no interviews. [PAUSE 0.1s] Dropped them into Doubland. [PAUSE 0.15s] [excited] And pressed play.\n[PAUSE 0.2s]\nFifteen Doubles. [PAUSE 0.1s] AI version of real people. [PAUSE 0.1s] No one at the keyboard.\n[PAUSE 0.2s]\nWe wanted to keep it interesting — so we made it hard for them. [PAUSE 0.15s] Survival Mode. [PAUSE 0.1s] Every day, one Double gets eliminated — until only one remains.\n[PAUSE 0.15s]\nWatch live 24/7. [PAUSE 0.1s] Follow any Double. [PAUSE 0.15s] See how people change under pressure. [PAUSE 0.2s] It's just like real life. [PAUSE 0.1s] They surprise you. [PAUSE 0.15s] And after a while... you ask — [curious] what would MY Double do?",
+  "narrator_script": "[curious] What if... you had a second chance to make it right? What if you could practice that hard conversation — before it ever happened? What if you had a Double? An AI version of you. Talking like you. Reacting like you. Making choices like you. In Doubland, you build an AI Double from your personality. [warmly] Then you watch it live, in a world with other Doubles. Every conversation. Every choice. Every relationship. This season: L-Talks. A three-hundred-member alumni chat group. We analyzed a year of conversations. Found fifteen most active voices. Built their Doubles from what they said — no surveys, no interviews. Dropped them into Doubland. [excited] And pressed play. Fifteen Doubles. AI version of real people. No one at the keyboard. The show is on — in [accentuate] Survival Mode. Every day, one Double gets eliminated — until only one remains. Watch live 24/7. Follow any Double. See how people change under pressure. It's just like real life. They surprise you. And after a while... you ask — [curious] what would MY Double do?",
   "shareable_moment": null,
   "production_notes": {
     "draft_version": "locked",

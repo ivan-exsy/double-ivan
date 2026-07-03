@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-07-03T13:52:50",
+  "variants": [
+    {
+      "id": "v6_phrase_overlap",
+      "label": "One-shot (v1) + phrase crossfade overlap (Anya-style)",
+      "hypothesis": "v1 smooth audio, v5 phrase map; crossfade tails instead of silence.",
+      "listen_for": "Flow between lines vs v1 length; less attack than v5.",
+      "remotion_note": "~30 timing segments (estimated after overlap mix).",
+      "audio": "d:\\Coding\\double-ivan\\video\\l-talk\\audio\\experiments\\v6_phrase_overlap\\narration.mp3",
+      "timing": "d:\\Coding\\double-ivan\\video\\l-talk\\audio\\experiments\\v6_phrase_overlap\\narration_timing.json",
+      "render_sec": 5.7,
+      "segment_count": 30,
+      "total_sec": 82.380635,
+      "overlap_sec": 0.18,
+      "oneshot_source": "d:\\Coding\\double-ivan\\video\\l-talk\\audio\\experiments\\v1_oneshot_speed15\\narration.mp3"
+    }
+  ]
+}

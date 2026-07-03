@@ -54,8 +54,8 @@ Caption (VO): *Fifteen Doubles. AI version of real people. No one at the keyboar
 
 | ~Time | On-screen text | VO line |
 |------:|----------------|---------|
-| 47 | (minimal) | *We wanted to keep it interesting — so we made it hard for them.* |
-| 48 | **SURVIVAL MODE** badge | *Survival Mode.* |
+| 47 | (minimal) | *The show is on — in Survival Mode.* |
+| 48 | **SURVIVAL MODE** badge | *(holds over "Survival Mode")* |
 | 50 | **ONE OUT EVERY DAY · UNTIL ONE REMAINS** | *Every day, one Double gets eliminated — until only one remains.* |
 
 **Visuals:** `Pressure.mp4` plate under SURVIVAL MODE badge (Pistsov `Survival.png`); rule card. **Hard cut** to Closing on "remains."
