@@ -1,8 +1,10 @@
-# L-Talks narration experiment — 5 variants
+# L-Talks narration experiment — 5 variants + locked winner
 
 **Goal:** Pick the best balance of **smooth flow**, **emotional accents**, and **runtime** before updating the auto Remotion pipeline.
 
-**How to listen:** Play each `*/narration.mp3` in order. Use headphones. Score in the table below.
+**Winner (2026-07-06, Ivan + Anya):** `script_cos_oneshot_speed12/` — `script_cos.md` @ **1.2×** one-shot · **~83.4s**. Canonical for manual CapCut handoff.
+
+**How to listen:** Play each `*/narration*.mp3` in order. Use headphones. Score in the table below.
 
 | # | Folder | What it tests | Segments | Length |
 |---|--------|---------------|----------|--------|
@@ -39,10 +41,12 @@ python -m video.render_ltalk_vo_experiment --only v3_oneshot_block_pauses
 
 Results summary: `manifest.json` in this folder.
 
-## script_cos v2 (team draft)
+## script_cos v2 (team draft) — **LOCKED**
 
-| Folder | Source | Speed | Length |
-|--------|--------|-------|--------|
-| `script_cos_oneshot_speed12/` | `script/script_cos.md` | 1.2× one-shot | **83.4s** |
+| Folder | Source | Speed | Length | Status |
+|--------|--------|-------|--------|--------|
+| **`script_cos_oneshot_speed12/`** | `script/script_cos.md` | 1.2× one-shot | **~83.4s** | **Selected with Anya (2026-07-06)** |
 
-Re-render: `python -m video.render_ltalk_cos_oneshot` (from `generative_agents-daily-trailer` root).
+Re-render: `python -m video.render_ltalk_cos_oneshot` (from `generative_agents` repo root).
+
+**Files:** `narration_cos.mp3` · `narration_timing.json` · `script_used.txt`

@@ -461,7 +461,7 @@ Reduce speed after any intensity: wide view → overlays fade → one Double →
 | **Taxonomy [A]/[B]/[C]** | Locked L1–L10 (§0.2) |
 | **Remotion opener pipeline** | Shipped v3.0 — vertical 9:16, photo-real cutouts, `eleven_v3` @ 1.5× |
 | **Automated opener quality** | Functional; visual grammar gap remains — Phase 6 in automation doc |
-| **Opener [A] L-Talks manual** | In flight — `opening/TODOs-opening-trailer.md` |
+| **Opener [A] L-Talks manual** | **Script + VO locked** — `script_cos.md` + `script_cos_oneshot_speed12` (~83s @ 1.2×); Anya CapCut in flight — `opening/TODOs-opening-trailer.md` |
 | **[B] `day_normal`** | Contract stub only (§11) |
 | **[C] `day_survival`** | WIP — `daily/TODO_daily_trailer.md`; blend grammar in `daily/daily-2D-3D-blend.md` |
 | **Legacy FFmpeg / commission tracker** | Archived — `archive/sot-video-history.md` |
@@ -469,6 +469,12 @@ Reduce speed after any intensity: wide view → overlays fade → one Double →
 ---
 
 ## 14. Pipeline changelog
+
+### 2026-07-06 — L-Talks manual opener script + VO locked
+
+- **Script:** `l-talk/script/script_cos.md` (v2) supersedes v1 `script.md`.
+- **VO:** `l-talk/audio/experiments/script_cos_oneshot_speed12/narration_cos.mp3` — `eleven_v3` warm @ **1.2×** one-shot, **~83.4s** (Ivan + Anya).
+- **Close hook:** *"what would MY Double do?"* · decisions D10–D12 in `opening/TODOs-opening-trailer.md`.
 
 ### 2026-07-02 — Duration benchmarks by trailer type
 

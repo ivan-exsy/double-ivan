@@ -1,8 +1,9 @@
-**L-Talks · Press Play — Opening Trailer Script (Draft v2)**
+**L-Talks · Press Play — Opening Trailer Script (Draft v2 — LOCKED 2026-07-06)**
 
-**Type:** Opener [A] · manual CapCut · ~60s · 9:16  
+**Type:** Opener [A] · manual CapCut · **~83s VO** · 9:16  
 **Cohort:** L-Talks (masked) · **Season:** Press Play  
-**Voice:** ElevenLabs `eleven_v3` warm @ 1.5× · one-shot
+**Voice:** ElevenLabs `eleven_v3` warm @ **1.2×** · one-shot · recorded in `audio/experiments/script_cos_oneshot_speed12/`  
+**Supersedes:** `script.md` (v1)
 
 ---
 

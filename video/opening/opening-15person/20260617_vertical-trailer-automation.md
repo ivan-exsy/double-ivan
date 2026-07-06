@@ -7,7 +7,7 @@ Creative bible → `../sot-video.md` · Visual SOT → `teadown/`
 
 > **Primary engineering plan** for auto-generating vertical (9:16) opening trailers. Goal: match Anya's hand-edited cut (`video/opening-anya/DOUBLAND1.mov`). Scope locked **2026-06-17: vertical only**. Creative standard + asset map: **`video/sot-video.md`** (Part I + §10 [A]). Visual timing: **`opening-15person/teadown/`**.
 
-**Duration policy:** Opener [A] target **~60s** (SOT L6). Total length is **not a hard product requirement** — a few seconds of slack is fine. **Larger casts** may need slightly more room; tiered layouts keep the cast *block* efficient (~15–20s). Validator band for [A]: **~50–75s**. Anya reference cut (**~76.6s**) informs pacing structure, not target runtime.
+**Duration policy:** Opener [A] target **~60s** (SOT L6). Total length is **not a hard product requirement** — a few seconds of slack is fine. **L-Talks manual cut:** locked VO **~83s** (`script_cos` @ 1.2× one-shot, 2026-07-06). **Larger casts** may need slightly more room; tiered layouts keep the cast *block* efficient (~15–20s). Validator band for [A]: **~50–75s**. Anya reference cut (**~76.6s**) informs pacing structure, not target runtime.
 
 **Data posture (2026-06-25):** Trailer pipeline must be **Supabase-first** — read cast, scratch, relationships, and trait lines from Supabase; write generated assets, copy, QA status, and render outputs back to **Supabase Storage + DB tables**. Local paths (`video/assets/`, `data/*/opener&*`, `remotion/public/render/`) are **dev/bootstrap or render transport**, not canonical state. See **`20260625_trailer-workbook.md` § Data posture** for the pilot plan; soul15 work should not add new disk-only SOT paths.
 

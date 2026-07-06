@@ -4,9 +4,9 @@
 **Cohort display name:** L-Talks (masked; real group name withheld from the trailer)
 **Season:** Press Play
 **Cast size:** 15 Doubles
-**Format:** 9:16 vertical, **~60s** total runtime (SOT L6)
+**Format:** 9:16 vertical, **~83s** VO (manual cut; SOT [A] target ~60s — accepted longer for L-Talks)
 **Tone:** Intellectual thriller — quieter, tense, ideas have consequences
-**Status:** Brief for scenario writer · **Locked decisions 2026-07-02** · draft script v1 in `../script/`
+**Status:** **Script + VO locked 2026-07-06** (Ivan + Anya) · `../script/script_cos.md` · VO `../audio/experiments/script_cos_oneshot_speed12/`
 
 ---
 
@@ -17,12 +17,15 @@
 | **D1** | **Cast stack A:** `group_photo.png` → `group_photo_matrix.png` → **`group_anim.mp4`**. Full roster at a glance. **No spoken trait lines.** |
 | **D2** | **No L-Talks sim run** for opener visuals. `Village.mp4` + cast pack is enough. Per-Double habitats → daily-normal [B]. |
 | **D3** | **Survival close:** Anya **reuses Pistsov opener visuals** — `Survival.png` badge + `Pressure.mp4` (in `brand/`). |
-| **D4** | **Exact scale in VO:** *"a three-hundred-member alumni chat"* (not soft/minimal). |
+| **D4** | **Scale in VO:** ~300-member chat. Locked copy: *"Three hundred voices in one alumni chat"* (v1 brief had *"a three-hundred-member alumni chat"* — same intent). |
 | **D5** | **Named survival tease:** **Survival Mode** badge/title at close (Pistsov-style). No survival mechanics in the body. |
 | **D6** | **End card schedule:** `Episode 1 tomorrow · 18:30 (EST)` |
-| **D7** | **Mid-trailer URL:** `doubland.ai` on screen ~46s **and** on end card. |
+| **D7** | **Mid-trailer URL:** `doubland.ai` on screen mid-close **and** on end card. |
 | **D8** | **Group assets only** in cast block — no individual hero/portrait PNGs in opener. Portraits held for daily-normal [B]. |
 | **D9** | **`spotlight_preview_v2.mp4`:** optional pacing reference — Anya decides whether to use. |
+| **D10** | **Locked script:** `script_cos.md` (v2 team draft) — supersedes `script.md` (v1). |
+| **D11** | **Locked VO:** `audio/experiments/script_cos_oneshot_speed12/narration_cos.mp3` · `eleven_v3` warm @ **1.2×** one-shot (L-Talks manual exception to SOT 1.5×). |
+| **D12** | **Close hook:** *"what would MY Double do?"* — end card **WHAT WOULD MY DOUBLE DO?** |
 
 ---
 
@@ -34,7 +37,7 @@ This trailer has three jobs, in priority order:
 2. **A product demo for the Doubland MVP** — used in a VC raise and global distribution. A viewer who has never heard of Doubland must finish the trailer knowing what a Double is, what Doubland is, and why they would watch.
 3. **A launch asset** — vertical, mobile-first, must work without sound (captions carry meaning) and with sound (narration + mix carry emotion).
 
-The current auto-generated script (`data/20260628-4/opener&002/script.json`) hits job 2 in a generic way and misses jobs 1 and 3. Your job is to rewrite it so all three land.
+The auto-generated opener script (`data/20260628-4/opener&002/script.json`) was superseded by manual drafts. **Locked for production:** `script_cos.md` (v2), recorded as `script_cos_oneshot_speed12` (~83.4s @ 1.2×).
 
 ---
 
@@ -205,7 +208,7 @@ Example shape: *Watch it live at doubland.ai. But the story doesn't stop at hell
 | **Language** | English is the primary language of the trailer narration and on-screen copy. (Inside the simulation, users can chat with Doubles in any language — this fact does not need to appear in the opener.) |
 | **Cast equality** | All 15 are introduced equally. No featured vs. background split. No subgroups, duos, or rivalries surfaced in the trailer. |
 | **No forbidden topics** | The writer is not restricted from any subject area, but should treat the Doubles as the soul profiles describe them — no inventing biographical facts the profiles do not support. |
-| **Format** | 9:16 vertical, mobile-first, must work silent (captions) and with sound. Total runtime **~60s** (SOT L6). |
+| **Format** | 9:16 vertical, mobile-first, must work silent (captions) and with sound. Locked VO **~83s** (manual L-Talks cut). |
 | **Product clarity** | A cold viewer must understand what Doubland is by the end of the concept block. Do not sacrifice product clarity for atmosphere. |
 | **Audience** | L-Talks group themselves + Doubland product launch audience. Must work for a stranger who knows nothing about the group. |
 
@@ -213,9 +216,11 @@ Example shape: *Watch it live at doubland.ai. But the story doesn't stop at hell
 
 ## 8. Deliverables
 
-1. **Final script** — `script.md` + JSON with fields: `cold_open`, one `cast_overview` scene (not 15 × `cast_intro`), `stakes_montage` (mid URL + survival tease), `end_card`, `how_to_watch` (mid URL plate). **Draft v1:** `../script/script.json`.
-2. **On-screen copy sheet** — `../script/on-screen-copy.md`.
-3. **Writer's note** (≤ 300 words) on emotional arc — where the reveal lands, how the cast block feels, what the viewer leaves with.
+1. **Locked script** — `../script/script_cos.md` (v2) · VO `../audio/experiments/script_cos_oneshot_speed12/`
+2. **On-screen copy sheet** — `../script/on-screen-copy.md` (refresh timecodes from locked VO)
+3. ~~Writer's note~~ — superseded by lock with Anya (2026-07-06)
+
+**Archive:** `../script/script.md` + `script.json` (v1 draft only).
 
 ---
 
@@ -223,7 +228,9 @@ Example shape: *Watch it live at doubland.ai. But the story doesn't stop at hell
 
 | Material | Path | Use |
 |---|---|---|
-| Draft v1 script | `../script/script.md`, `../script/script.json` | Current working draft |
+| **Locked script** | `../script/script_cos.md` | Production narration + block map |
+| **Locked VO** | `../audio/experiments/script_cos_oneshot_speed12/` | `narration_cos.mp3`, `script_used.txt` |
+| v1 draft (archive) | `../script/script.md`, `../script/script.json` | Superseded |
 | Pistsov survival assets | `../brand/Survival.png`, `../brand/Pressure.mp4` | Close tease visuals (D3) |
 | 15 soul profiles | `d:\Coding\generative_agents\souls\<uuid>.md` | Primary source for each persona |
 | Trailer workbook (pilot context, cast-intro gap analysis) | `d:\Coding\double-ivan\video\trailer-opening\20260625_trailer-workbook.md` | Why the current script is weak on cast framing |
@@ -237,7 +244,7 @@ Example shape: *Watch it live at doubland.ai. But the story doesn't stop at hell
 
 - Visual / motion grammar (Anya manual edit; cast sequence D1 is locked)
 - Music and SFX selection
-- Voice delivery (TTS: `eleven_v3` warm @ 1.5×; inline cues welcome)
+- Voice delivery — **locked:** `eleven_v3` warm @ **1.2×** one-shot (`script_cos_oneshot_speed12`)
 - Per-Double trait VO (→ daily-normal [B])
 - Anything outside the five blocks: hook/concept, L-Talks reveal, cast overview, mid URL + survival tease, end card
 

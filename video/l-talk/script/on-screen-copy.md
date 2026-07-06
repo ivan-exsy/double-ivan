@@ -1,7 +1,8 @@
 # On-screen copy sheet — L-Talks · Press Play opener
 
-> **Status:** Draft v1 — aligned with `script.md` / `script.json`  
-> Timecodes are targets (~60s total); finalize from `narration_timing.json` after VO record.
+> **Status:** Locked with **`script_cos.md`** + **`narration_cos.mp3`** (2026-07-06).  
+> **Timecodes:** Word-proportional estimates for **83.36s** one-shot — **fine-tune ±0.3s on waveform** in CapCut.  
+> **Regenerate:** `python audio/experiments/script_cos_oneshot_speed12/_estimate_timecodes.py`
 
 ---
 
@@ -11,70 +12,79 @@
 L-TALKS · PRESS PLAY
 ```
 
-Hold ≥1.0s when it first appears (~20s).
+Hold ≥1.0s when it first appears (**~33.6s**).
 
 ---
 
 ## Hook / concept titles
 
-| ~Time | On-screen text | Notes |
-|------:|----------------|-------|
-| 0.8 | WHAT IF… | Glitch type-on |
-| 2.0 | YOU HAD A SECOND CHANCE | |
-| 3.0 | TO MAKE IT RIGHT? | |
-| 8.5 | WHAT IF YOU HAD A DOUBLE? | |
-| 11.0 | DOUBLE | |
-| 12.0 | AN AI VERSION OF YOU | |
-| 13–18 | TALKING / REACTING / MAKING CHOICES LIKE YOU | Optional word-swap |
+| ~Time | On-screen text | VO anchor |
+|------:|----------------|-----------|
+| 0.0 | WHAT IF… | *What if you had a second chance* |
+| 2.5 | YOU HAD A SECOND CHANCE | |
+| 5.5 | TO MAKE IT RIGHT? | *practice that hard conversation* |
+| 11.5 | WHAT IF YOU HAD A DOUBLE? | *What if you had a Double* |
+| 14.6 | DOUBLE | *An AI version of you* |
+| 16.0 | AN AI VERSION OF YOU | |
+| 18.6 | TALKING / CHOOSING LIKE YOU | *Choosing like you* |
 
 ---
 
-## L-Talks reveal beats (optional title cards)
+## Concept · ~20–34s
 
-| ~Time | On-screen text |
-|------:|----------------|
-| 20 | L-TALKS |
-| 22 | A YEAR OF MESSAGES |
-| 28 | TOP 15 |
-| 32 | PRESSED PLAY |
+| ~Time | On-screen text | VO anchor |
+|------:|----------------|-----------|
+| 20.1 | DOUBLE | *In Doubland* |
+| 30.6 | EVERY CONVERSATION / CHOICE / RELATIONSHIP | *Every conversation* (word-swap) |
 
 ---
 
-## Cast block (~34–46s)
+## L-Talks reveal · ~34–53s
+
+| ~Time | On-screen text | VO anchor |
+|------:|----------------|-----------|
+| 33.6 | L-TALKS · PRESS PLAY | *This season: L-Talks* |
+| 35.2 | A YEAR OF MESSAGES | *Three hundred voices* |
+| 46.0 | TOP 15 | *(optional — mid-reveal)* |
+| 51.7 | PRESSED PLAY | *And pressed play* |
+
+---
+
+## Cast block · ~53–59s
 
 **Visual only** — no name tags, no trait lines.
 
 Sequence: `group_photo.png` → `group_photo_matrix.png` → `group_anim.mp4`
 
-Caption (VO): *Fifteen Doubles. AI version of real people. No one at the keyboard.*
+Caption (VO @ 53.2s): *Fifteen Doubles. AI versions of real people. No one at the keyboard.*
 
 ---
 
-## Survival Mode (~46–54s)
+## Survival Mode · ~59–68s
 
-| ~Time | On-screen text | VO line |
-|------:|----------------|---------|
-| 47 | (minimal) | *The show is on — in Survival Mode.* |
-| 48 | **SURVIVAL MODE** badge | *(holds over "Survival Mode")* |
-| 50 | **ONE OUT EVERY DAY · UNTIL ONE REMAINS** | *Every day, one Double gets eliminated — until only one remains.* |
+| ~Time | On-screen text | VO anchor |
+|------:|----------------|-----------|
+| 59.3 | (minimal) | *The show is on — in Survival Mode* |
+| 61.8 | **SURVIVAL MODE** badge | *Survival Mode* |
+| 63.5 | **ONE OUT EVERY DAY · UNTIL ONE REMAINS** | *Every day, one Double gets eliminated* |
+| 65.8 | — | *until only one remains* → **hard cut** to Closing |
 
-**Visuals:** `Pressure.mp4` plate under SURVIVAL MODE badge (Pistsov `Survival.png`); rule card. **Hard cut** to Closing on "remains."
+**Visuals:** `Pressure.mp4` under badge · `Survival.png`
 
 ---
 
-## Closing (~54–70s)
+## Closing · ~68–83s
 
-| ~Time | On-screen text | VO line |
-|------:|----------------|---------|
-| 55 | (minimal) | *Watch live 24/7. Follow any Double.* |
-| 56 | **doubland.ai** | *(URL plate holds under above)* |
-| 59 | (minimal) | *See how people change under pressure.* |
-| 63 | (minimal) | *It's just like real life. They surprise you.* |
-| 66 | **WHAT WOULD MY DOUBLE DO?** | *And after a while... you ask — what would MY Double do?* |
-| 67 | **WHAT WOULD MY DOUBLE DO?** + **doubland.ai** + Episode 1 tomorrow · 18:30 (EST) | *(final end card — headline + supporting lines)* |
+| ~Time | On-screen text | VO anchor |
+|------:|----------------|-----------|
+| 67.8 | **doubland.ai** | *Watch live 24/7* |
+| 71.3 | (hold URL) | *See who survives* |
+| 75.3 | (minimal) | *They surprise you* |
+| 80.8 | **WHAT WOULD MY DOUBLE DO?** | *what would MY Double do?* |
+| 81.5 | **WHAT WOULD MY DOUBLE DO?** + **doubland.ai** + Episode 1 tomorrow · 18:30 (EST) | end card hold ~2s |
 
 ---
 
 ## Full captions (for silent viewing)
 
-See `script.md` — all narration blocks double as captions.
+See `script_cos.md` — all narration blocks double as captions.

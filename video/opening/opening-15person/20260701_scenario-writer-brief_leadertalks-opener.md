@@ -1,12 +1,14 @@
 # Scenario Writer Brief — L-Talks Opening Trailer
 
+> **Canonical copy:** `video/l-talk/brief/scenario-writer-brief.md` — edit there; this file mirrors it for the `opening-15person/` doc set.
+
 **Simulation:** `20260628-4` (forked from `soul15_seed_20260224`)
 **Cohort display name:** L-Talks (masked; real group name withheld from the trailer)
 **Season:** Press Play
 **Cast size:** 15 Doubles
-**Format:** 9:16 vertical, **~60s** total runtime (SOT L6)
+**Format:** 9:16 vertical, **~83s** VO (manual cut; SOT [A] target ~60s — accepted longer for L-Talks)
 **Tone:** Intellectual thriller — quieter, tense, ideas have consequences
-**Status:** Brief for scenario writer · **Locked decisions 2026-07-02** · draft script v1 in `video/l-talk/script/`
+**Status:** **Script + VO locked 2026-07-06** (Ivan + Anya) · `video/l-talk/script/script_cos.md` · VO `video/l-talk/audio/experiments/script_cos_oneshot_speed12/`
 
 ---
 
@@ -23,6 +25,9 @@
 | **D7** | **Mid-trailer URL:** `doubland.ai` on screen ~46s **and** on end card. |
 | **D8** | **Group assets only** in cast block — no individual hero/portrait PNGs in opener. Portraits held for daily-normal [B]. |
 | **D9** | **`spotlight_preview_v2.mp4`:** optional pacing reference — Anya decides whether to use. |
+| **D10** | **Locked script:** `script_cos.md` (v2) — see `video/l-talk/script/script_cos.md` |
+| **D11** | **Locked VO:** `script_cos_oneshot_speed12/narration_cos.mp3` · `eleven_v3` warm @ **1.2×** one-shot |
+| **D12** | **Close hook:** *"what would MY Double do?"* |
 
 ---
 

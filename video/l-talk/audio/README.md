@@ -1,33 +1,33 @@
-# Narration — locked script
+# Narration — locked (L-Talks opener)
 
-Script: `../script/script.md` + `../script/script.json` (one-shot, no `[PAUSE]` markers).
-Voice: ElevenLabs `eleven_v3` warm @ 1.5×.
+**Locked with Anya (2026-07-06):** `experiments/script_cos_oneshot_speed12/`
 
-## Files in this folder
+| Item | Path |
+|------|------|
+| Script | `../script/script_cos.md` (v2) |
+| VO | `experiments/script_cos_oneshot_speed12/narration_cos.mp3` (~83.4s) |
+| Timing | `experiments/script_cos_oneshot_speed12/narration_timing.json` (1 segment) |
+| TTS input | `experiments/script_cos_oneshot_speed12/script_used.txt` |
+| Voice | ElevenLabs `eleven_v3` warm @ **1.2×** one-shot |
 
-| File | Description |
-|------|-------------|
-| `narration_oneshot.mp3` | **Current** — single v3 take; ElevenLabs handles pacing |
-| `narration_timing_oneshot.json` | Timing map (1 segment — block-level only) |
-| `narration_manual-pauses.mp3` | Previous take with manual `[PAUSE]` segmentation (~79s, 30 beat sync points) |
-| `narration_timing.json` | Timing map for the manual-pauses take |
+**Why not 1.5×:** VO experiment listen — `script_cos` @ 1.2× one-shot beat `script.md` @ 1.5× on flow and runtime. See `experiments/README.md`.
 
-## Re-render one-shot
+## Re-render locked take
 
-From `generative_agents-daily-trailer` repo root:
+From `generative_agents` repo root:
 
 ```powershell
-python -c "
-import json, os, sys
-sys.path.insert(0, '.')
-from dotenv import load_dotenv
-load_dotenv('.env.local')
-from video.tts import OPENER_VOICE_PROFILE, render_narration
-p = r'd:\Coding\double-ivan\video\l-talk\script\script.json'
-d = r'd:\Coding\double-ivan\video\l-talk\audio'
-with open(p, encoding='utf-8') as f: ns = json.load(f)['narrator_script']
-render_narration(ns, os.path.join(d,'narration_oneshot.mp3'), timing_path=os.path.join(d,'narration_timing_oneshot.json'), voice_profile=OPENER_VOICE_PROFILE)
-"
+python -m video.render_ltalk_cos_oneshot
 ```
 
 Do **not** use `python -m video.generate_trailer ...` — it regenerates script from sim data.
+
+## Archive (do not hand to Anya)
+
+| File | Description |
+|------|-------------|
+| `narration_oneshot.mp3` | v1 script @ 1.5× one-shot |
+| `narration_timing_oneshot.json` | Timing for v1 one-shot |
+| `narration_manual-pauses.mp3` | Segmented take with `[PAUSE]` markers |
+| `narration_timing.json` | Timing for manual-pauses take |
+| `experiments/v1_…` through `v6_…` | VO experiment matrix (superseded by `script_cos_oneshot_speed12`) |
