@@ -1,3 +1,41 @@
+## Current status and next steps
+
+**Updated:** 2026-07-06
+
+### Where we are
+
+| Area | Status |
+|------|--------|
+| **Opener (Phase 0)** | With Anya — locked script/VO (`script_cos.md`, ~83s) |
+| **Phase 3.0 — script grounding** | ✅ Shipped in code (`cast_digest`, `fact_ledger`, narration fact gate, slim `day_log`) |
+| **Stand-in sim `20260705-or-smoke`** | **Not fit for daily trailer polish** — see below |
+| **Phase 3.1+ (motion automation)** | **Paused** until a real sim is available |
+| **Manual Track B daily (Anya handoff)** | **Paused** — same blocker |
+
+### Why we are pausing on `20260705-or-smoke`
+
+This smoke sim is **not a valid story substrate** for daily trailer work:
+
+- **Zero chats** — no dialogue on movement records for **any** Double on Day 1 or Day 2 (verified on position data). Survival drama should include social exchange; without it, trailers can only narrate movement and mechanics, not relationships.
+- **Ghost / stale data** — eliminated players still appear in timelines; immunity flags over-count; challenge metadata inconsistent.
+- **Engineering value only** — Phase 3.0 used it to prove digest, fact ledger, and fact gate (output: `overview_day2&003`). That plumbing is done; **further script/motion polish on this sim is wasted effort**.
+
+Do **not** treat `cast_digest.json` / auto `script.json` from this run as creative ground truth.
+
+### Next steps (when the new sim lands)
+
+**Prerequisite:** A completed proper sim with **real chats** and survival gates passing (target: tomorrow).
+
+1. **Re-point the pipeline** — `generate_trailer <new_sim> --mode day_overview --day 2 --force --skip-render`; confirm `cast_digest.md` shows `conversation_count > 0` for multiple Doubles.
+2. **Writer pass** — use `cast_digest.md` + human brief pattern in `video/TODO_script_draft.md`; lock narration before TTS.
+3. **Re-run fact gate** — `fact_ledger.json` + `validate_trailer` narration_facts on locked script.
+4. **Resume Phase 1–2 or Phase 3** — first good daily on the new sim becomes the golden reference (manual Anya cut or auto motion work).
+5. **Follow-ups on plumbing** (non-blocking): fix immunity over-count in digest; slim `day_log` write order; drop eliminated ghosts from cast ranking.
+
+**Until then:** Opener with Anya only; no further daily trailer iteration on `20260705-or-smoke`.
+
+---
+
 ## Part 1 — What daily trailers should inherit from the opener work
 
 The opener manual push locked decisions and exposed failures. Daily auto-gen should treat these as **non-negotiable**, not re-litigate them.
@@ -438,18 +476,17 @@ On mismatch: **reject and retry** Writer (or fail pipeline with actionable diff)
 
 ## What to do right now
 
-**Priority:** Phase 3.0 script grounding (skip manual Track B Day 2 handoff unless Anya needs a reference cut).
+**Paused on daily trailer polish** — see **Current status and next steps** at top. Phase 3.0 code is shipped; wait for the new sim with chats.
 
-1. **3.0.1** — Implement `summarize_cast_day.py`; run on `20260705-or-smoke` Day 2 → `cast_digest.json` + `cast_ranking.json`.
-2. **3.0.2** — Fix `today_elimination` / `trigger_events` day-boundary bugs in extract.
-3. **3.0.3** — Slim `day_log.json` persistence; document artifact roles in overview README.
-4. **3.0.4** — `build_fact_ledger.py` + wire into Narration Writer prompt.
-5. **3.0.5** — Fact-check gate in `validate_trailer.py`.
-6. **3.0.6** — Golden tests from `TODO_script_draft.md` §4; re-verify against live digest.
+**When the new sim is ready:**
 
-**Parallel (optional):** Phase 0 opener with Anya; Phase 1–2 manual daily only if you want a motion golden before Remotion work.
+1. Run digest + pipeline on Day 2; confirm chats exist in `cast_ranking.json`.
+2. Human script from `cast_digest.md` (template: `video/TODO_script_draft.md`).
+3. Lock VO → optional Anya handoff or continue to Phase 3 motion work.
 
-**Sim note:** Use `20260705-or-smoke` for engineering fixtures until `20260628-4` exists in Supabase.
+**Parallel (ongoing):** Phase 0 opener with Anya.
+
+**Do not use:** `20260705-or-smoke` for creative daily work (engineering fixture only).
 
 
 ---
