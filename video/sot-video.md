@@ -470,6 +470,11 @@ Reduce speed after any intensity: wide view → overlays fade → one Double →
 
 ## 14. Pipeline changelog
 
+### 2026-07-09 — Cast digest ranks chat *content*, not count
+
+- Day-overview ranker / cast digest: `chat_impact` from top movement.chat transcripts (depth + vote/alliance keywords); Moments include chat beats.
+- Chat count remains a diagnostic signal only. Engine memory chat-row cleanup stays post-MVP (`PM-MEM-*`).
+
 ### 2026-07-06 — L-Talks manual opener script + VO locked
 
 - **Script:** `l-talk/script/script_cos.md` (v2) supersedes v1 `script.md`.

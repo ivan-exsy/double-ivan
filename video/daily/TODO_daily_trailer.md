@@ -5,7 +5,7 @@
 
 > Daily simulation-day recap trailers (Episode 1, 2, 3… at 18:30 owner-local). **Must look and feel like the next episode of the same show as the shipped opener.**
 > **Refs:** Video SOT `video/sot-video.md` (Part I shared grammar · §12 [C] · L8 simulation literacy · **L9/L10 duration**) · Blend grammar `video/daily/daily-2D-3D-blend.md` · Opener impl `video/opening-15person/20260617_vertical-trailer-automation.md` · Engineering `video/video_PRD.md` §2.2 · Creative `video/video_playbook.md` §3.
-> **Branch:** `ivan/daily-trailer` (forked from railway). **Last updated: 2026-07-01.**
+> **Branch:** `railway` (daily work landed here). **Last updated: 2026-07-09.**
 
 
 
@@ -63,6 +63,8 @@ For the day's 1–3 selected high-stakes moments, the trailer cuts from 2D into 
 | **2D→3D blend** | B1 manual clip slot + B2 location + B5 grammar done; B4 automation fast-follow | ⏳ B1/B2/B5 done; B4 pending |
 | **Day-2+ validation** | Day-2 & Day-3 both pass all gates; cast rotates across days; "Previously on" bridge works (producer-chosen, optional) | ✅ Done |
 | **Comprehension gate** | Never run | ❌ Pending (D1) |
+| **Context prep (cast digest / ranking)** | Chat content + thoughts + clock/schedule fixes shipped (2026-07-09) | ✅ Digest richer; see §E |
+| **Challenge storytelling in VO** | Fact ledger only has challenge *id* + who claimed tokens | ⏳ Enrich card (E1) + story-first prompt (E2): expand only when it strengthens the arc — see §E |
 
 ---
 
@@ -91,6 +93,53 @@ For the day's 1–3 selected high-stakes moments, the trailer cuts from 2D into 
 - **D1. 5-viewer comprehension gate — pending (manual; run after A1 watch-through).** On a passing Day-2 render, 4/5 viewers must name after one watch: the lead(s), the dramatic question, who went home & why (elimination days), and what changes tomorrow. Panel selection deferred until owner confirms A1 renders read well. Runbook, not code: pick 5 viewers (mix: 1 cold, 3 who've seen the opener, 1 close to product), show the final MP4 once with no pauses, capture answers via a 5-question form, score against the rubric.
 - **D2. Merge `ivan/daily-trailer` → `main` — pending.** Standard ff-only protocol (see `git-workflow` rule). First-merge scope: A1 + B2 + B3 + B1 + B5 + C2 + C3 + D1 + D2. B4 (automation) is the only fast-follow. **All code work complete — only D1 (manual watch-through) and D2 (merge) remain.**
 
+### E. Context prep → script writer (2026-07-09)
+
+**What we shipped at context prep (before script):**
+
+| Piece | Change | Why it matters |
+|---|---|---|
+| Cast ranking | Score **chat content impact** (depth + vote/alliance cues), not chat count | Leads reflect strategy talk, not greeting spam |
+| Cast digest Moments | Mix events + thoughts + up to 2 substantive chat beats (short quotes) | Human + algorithm see alliance/vote dialogue |
+| Digest UX | Doubland clock, full-day schedule (sleep collapsed, plot beats kept), today’s eliminated kept, sort by score | Readable writer brief for Survival Day 1+ |
+| Fact ledger | Still built from digest flags + vote tallies | Hard facts for narration fact-check |
+| Soft brief + seek (engine) | Lifestyle leftover hours + walk-toward ally | More intentional chats on *next* sims (not retroactive on chat-probe-v3) |
+
+**What the script writer actually receives today** (not digest alone):
+
+1. Deep day logs for **top 1–3** ranked Doubles (plans, reflections, trimmed chats)
+2. **Fact ledger** (votes, who claimed immunity / competed)
+3. Survival brief + trigger events (mostly eliminations)
+4. Cast digest → mainly feeds the ledger; not pasted in full into the VO prompt
+
+**Open gap — challenge often sounds flat *when it is mentioned*:**
+
+- Engine already knows challenge **name, brief, full description** (`CHALLENGE_CATALOG`) and stores **`challenge_results`** `{day, type, winners, claimants}` + broadcasts a short winner line into memory.
+- Trailer path currently surfaces challenge as an **id** (e.g. `limited_immunity`) plus “X secured a token / competed” — **not** the human rules (“two tokens — claim or negotiate”) or a clear social outcome (“who won, who lost, how that reshapes tonight”).
+- Activity labels like “competing in the final immunity round” add motion, not meaning.
+
+**Hard constraint — time budget ([C] <120s):**  
+Challenge detail is **optional story fuel**, not a mandatory daily beat. Expand on the challenge **only when it strengthens the day’s arc** (pressure under rules, who got protected, how that changes alliances / tonight’s vote). If the day’s drama is elsewhere (vote math, betrayal, cliffhanger), keep the challenge as a one-clause stake or omit the mechanic entirely — never burn seconds on a rules dump that doesn’t move the story.
+
+**Include / expand challenge when:**
+- Outcome creates a clear imbalance (token claimed vs exposed; winner reshapes the vote board)
+- Featured Doubles’ behaviour under the challenge *is* the story (claim, negotiate, fold, overreach)
+- Cold viewers would otherwise hear empty “immunity challenge” with no idea what changed
+
+**Skip or one-clause only when:**
+- Challenge is background and the real turn is vote / alliance / elimination
+- Explaining rules would crowd out who-they-are, connective tissue, or the cliffhanger
+- Catalog description is long — use **name + brief** at most; never paste full rules into VO
+
+**Next (script-writer improvement) — recommended order:**
+
+1. **E1. Challenge card in fact ledger** — Make name + brief + winners/claimants *available* to the producer (catalog + `season.challenge_results`). No new LLM. Availability ≠ obligation to narrate.
+2. **E2. Prompt rule (story-first)** — Story Producer decides whether the challenge earns a beat or a clause. If mentioned: plain-language mechanic + what changed socially. Ban empty “the immunity challenge” with no mechanic. If not story-critical: do not invent a challenge set-piece.
+3. **E3. Optional trigger** — `challenge_resolved` only as an *available* anchor when the producer chooses that beat — not auto-required in every day plan.
+4. **Defer** — Longer uncut chats; engine PM-MEM cleanup.
+
+**Acceptance (E1+E2):** When the VO *does* lean on the challenge, a cold viewer can answer what it was and who came out ahead. When it doesn’t, runtime stays on the stronger arc — no forced challenge lecture.
+
 ---
 
 ## Locked decisions (don't re-litigate)
@@ -102,6 +151,8 @@ For the day's 1–3 selected high-stakes moments, the trailer cuts from 2D into 
 - **Pauses:** opener-matched ~0.15s per scene, ~3s total (2026-07-01).
 - **Language:** plain marketer-simple, no abstractions; weave who-they-are/why into each Double's first mention (2026-07-01).
 - **Persona ranker:** honors `--top N` as a minimum; the producer decides the actual featured-Double count (quiet-day fallback removed, 2026-07-01).
+- **Cast ranking / digest chats (2026-07-09):** score Doubles on **chat content impact** (top transcripts: depth + vote/alliance cues from `movement.chat`), not chat count. Cast digest Moments mix events + thoughts + up to two substantive chat beats. Authoritative chat source for trailers remains position-row transcripts (not `dbl_memory` chat rows).
+- **Challenge in daily VO (2026-07-09):** put challenge name/brief/outcome in the fact ledger so the writer *can* use them; expand in narration **only if it strengthens the day’s storyline**. Under the <120s cap, never force a challenge set-piece or rules dump.
 
 ---
 
@@ -137,14 +188,16 @@ Pipeline: extract (Supabase or cached `day_log.json`) → two-stage narration (L
 ## Key files
 
 - `video/generate_trailer.py` — orchestrator + CLI.
-- `video/extract_day_log.py` — `extract_day_overview` (protagonists, shared timeline, trigger events, prior-day recap, sketch_path resolution). **No `location` field yet (TODO B2).**
+- `video/extract_day_log.py` — `extract_day_overview` (protagonists, shared timeline, trigger events, prior-day recap, location from action text).
 - `video/showrunner.py` — two-stage prompts, beat vocabulary, establishing layer (`_stitch_overview_script`, `_resolve_hero_path`), duration/word bounds, pauses.
-- `video/persona_ranker.py` — ranks personas by storyline potential; honors `--top N`.
-- `video/build_day_remotion_props.py` — maps daily scenes → opener Remotion beat types; stages portraits/assets. **`video` prop currently points to generic opener loops (TODO B1).**
+- `video/persona_ranker.py` — ranks personas by storyline potential; honors `--top N`; chat signal is content impact (not count).
+- `video/summarize_cast_day.py` — cast-wide digest + Moments (events / thoughts / chat beats) for writer briefs and fact ledger.
+- `video/build_fact_ledger.py` — structured vote/immunity facts for narration fact-check (**E1 will enrich challenge card here**).
+- `video/build_day_remotion_props.py` — maps daily scenes → opener Remotion beat types; stages portraits/assets; B1 moment-clip drop-in supported.
 - `video/render_day_remotion.py` — builds props + calls shared Remotion render.
 - `video/validate_trailer.py` — quality gates (9:16, LUFS, duration per type: [A] ~50–75s · [B] 60–90s · [C] 60–120s, word 130–175, scene count, narration-fit).
 - `video/remotion/src/` — shared Remotion components (`OpenerTrailer.tsx`, `beats/AnyaBeats.tsx` with `BgVideo`/`OffthreadVideo`, `QuestionToUrlTakeover.tsx`, etc.).
-- **Assets:** `video/assets/village/interior/` (39) + `exterior/` (6) — location plates (unused, TODO B2); `video/assets/cohort/soul15_seed_20260224/` — baseline cohort photos (TODO B3); `video/assets/users/sketches/<uuid>.png` — sketch portraits (current fallback).
+- **Assets:** `video/assets/village/interior/` (39) + `exterior/` (6) — location plates; `video/assets/cohort/soul15_seed_20260224/` — baseline cohort photos; moment clips under `video/assets/moment_clips/`.
 - **Opener asset staging:** `video/asset_manifest.py`, `video/build_opener_remotion_props.py`.
 
 ---
