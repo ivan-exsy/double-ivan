@@ -64,7 +64,7 @@ For the day's 1–3 selected high-stakes moments, the trailer cuts from 2D into 
 | **Day-2+ validation** | Day-2 & Day-3 both pass all gates; cast rotates across days; "Previously on" bridge works (producer-chosen, optional) | ✅ Done |
 | **Comprehension gate** | Never run | ❌ Pending (D1) |
 | **Context prep (cast digest / ranking)** | Chat content + thoughts + clock/schedule fixes shipped (2026-07-09) | ✅ Digest richer; see §E |
-| **Challenge storytelling in VO** | Fact ledger only has challenge *id* + who claimed tokens | ⏳ Enrich card (E1) + story-first prompt (E2): expand only when it strengthens the arc — see §E |
+| **Challenge storytelling in VO** | Fact ledger challenge card + story-first prompts (E1+E2, 2026-07-09) | ✅ Available; expand only when it strengthens the arc — see §E |
 
 ---
 
@@ -131,12 +131,15 @@ Challenge detail is **optional story fuel**, not a mandatory daily beat. Expand 
 - Explaining rules would crowd out who-they-are, connective tissue, or the cliffhanger
 - Catalog description is long — use **name + brief** at most; never paste full rules into VO
 
-**Next (script-writer improvement) — recommended order:**
+**Shipped (E1+E2, 2026-07-09):**
 
-1. **E1. Challenge card in fact ledger** — Make name + brief + winners/claimants *available* to the producer (catalog + `season.challenge_results`). No new LLM. Availability ≠ obligation to narrate.
-2. **E2. Prompt rule (story-first)** — Story Producer decides whether the challenge earns a beat or a clause. If mentioned: plain-language mechanic + what changed socially. Ban empty “the immunity challenge” with no mechanic. If not story-critical: do not invent a challenge set-piece.
-3. **E3. Optional trigger** — `challenge_resolved` only as an *available* anchor when the producer chooses that beat — not auto-required in every day plan.
-4. **Defer** — Longer uncut chats; engine PM-MEM cleanup.
+1. **E1. Challenge card in fact ledger** — `today.challenge` carries name + brief + winners/claimants (catalog + `season.challenge_results`); plain-language `today_facts`. Availability ≠ obligation to narrate.
+2. **E2. Prompt rule (story-first)** — Story Producer / Narration Writer: expand challenge only if it strengthens the arc; ban empty “immunity challenge”; cache keys bumped to `day_overview_story_v4` / `day_overview_narration_v7`.
+
+**Still deferred:**
+
+3. **E3. Optional trigger** — `challenge_resolved` only if producers still can’t land a challenge beat when they should.
+4. Longer uncut chats; engine PM-MEM cleanup.
 
 **Acceptance (E1+E2):** When the VO *does* lean on the challenge, a cold viewer can answer what it was and who came out ahead. When it doesn’t, runtime stays on the stronger arc — no forced challenge lecture.
 
@@ -168,7 +171,7 @@ Pipeline: extract (Supabase or cached `day_log.json`) → two-stage narration (L
 
 ## Current architecture (reference for the team)
 
-**Two-stage narration** (both cached per day so hand-edits survive re-render; keys `day_overview_story_v3`, `day_overview_narration_v6`):
+**Two-stage narration** (both cached per day so hand-edits survive re-render; keys `day_overview_story_v4`, `day_overview_narration_v7`):
 - **Stage 1 — Day Story Producer:** thesis, featured Doubles, dramatic question, status deltas, flexible beat plan (3–6 beats from a vocabulary) from the full day's context.
 - **Stage 2 — Narration Writer:** the whole voiceover in one pass, threaded across the featured Doubles with connective tissue, plus a one-line on-screen caption per beat.
 

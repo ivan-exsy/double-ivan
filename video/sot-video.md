@@ -470,6 +470,11 @@ Reduce speed after any intensity: wide view → overlays fade → one Double →
 
 ## 14. Pipeline changelog
 
+### 2026-07-09 — Challenge card available; story-first VO
+
+- Fact ledger `today.challenge`: plain-language name + brief + winners (not raw id only).
+- Showrunner prompts: expand challenge only if it strengthens the day’s arc under the <120s cap; cache keys `day_overview_story_v4` / `day_overview_narration_v7`.
+
 ### 2026-07-09 — Cast digest ranks chat *content*, not count
 
 - Day-overview ranker / cast digest: `chat_impact` from top movement.chat transcripts (depth + vote/alliance keywords); Moments include chat beats.
