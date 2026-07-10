@@ -31,7 +31,7 @@ The daily trailer is indistinguishable in craft from the opener — a viewer can
 - **Cold-viewer intro.** Day-1: daily-specific concept-reset card + per-Double cast intros. Day ≥2: brief concept+cast touch + `yesterday_scar` "Previously on" bridge. The opener is **not** the Day-1 trailer — each daily is a self-contained episode.
 - **Drama >> resolution.** The day closes on a cliffhanger hook for tomorrow, never a bow.
 - **Plain marketer-simple language.** Concrete nouns and verbs, no strategy jargon or abstractions. A viewer who's never seen the show follows every sentence.
-- **Who they are, not just what they did.** Each featured Double's first mention carries a few role/trait words explaining *why* they act, drawn from the producer's status-deltas and persona personality data. **First time a Double is featured in any daily this season:** give a full normal-life stamp (job + place + trait). **Return appearances:** short recall line is enough.
+- **Who they are, not just what they did.** Each featured Double's first mention carries a few role/trait words explaining *why* they act. **First time featured (or named farewell) this sim (L11 / F1):** full normal-life stamp (job + place + trait from bio/scratch). **Return appearances:** short recall only (“Max at Hobbs…”). Survival Day 1 always full. History persists in Supabase; written only when the script is locked.
 - **Pacing.** Survival daily target **~100–115s** when character stamps need room; hard cap still **under 120 seconds** ([C] `day_survival` per SOT L10). Pauses minimal and matched to the opener (~0.15s per scene, ~3s total silence). First-name-only in voiceover after stamps; full names on cards / first stamp.
 
 ### 3. The 2D→3D "matrix" north-star
@@ -65,6 +65,9 @@ For the day's 1–3 selected high-stakes moments, the trailer cuts from 2D into 
 | **Comprehension gate** | Never run | ❌ Pending (D1) |
 | **Context prep (cast digest / ranking)** | Chat content + thoughts + clock/schedule fixes shipped (2026-07-09) | ✅ Digest richer; see §E |
 | **Challenge storytelling in VO** | Fact ledger challenge card + story-first prompts (E1+E2, 2026-07-09) | ✅ Available; expand only when it strengthens the arc — see §E |
+| **First-feature intro memory (F1)** | Supabase history + `intro_mode` + lock CLI (2026-07-10) | ✅ L11; live proof on next locked Survival Day 1+ package |
+| **Spicy ranking + coverage** | Drama-gap + last-slot never-featured (2026-07-10) | ✅ Digest + `rank_personas` |
+| **Prior-day scars (F3)** | `scar.json` + `trailer_day_scar` + showrunner prior_scars (2026-07-10) | ✅ Lock Day N before Day N+1 |
 
 ---
 
@@ -143,16 +146,22 @@ Challenge detail is **optional story fuel**, not a mandatory daily beat. Expand 
 
 **Acceptance (E1+E2):** When the VO *does* lean on the challenge, a cold viewer can answer what it was and who came out ahead. When it doesn’t, runtime stays on the stronger arc — no forced challenge lecture.
 
-### F. Follow-up fixes (approved 2026-07-09 — implement next)
+### F. Follow-up fixes (approved 2026-07-09)
 
-Locked creative/product rules; code not shipped yet.
-
-#### F1. First-feature character intro (season memory)
+#### F1. First-feature character intro (season memory) — ✅ DONE (2026-07-10) · SOT **L11**
 
 - **Problem:** Limited runtime; viewers still need to meet Doubles as *people* (normal-life job/place/trait), not only as vote pieces.
-- **Rule:** The **first time** a Double is featured in any daily trailer this season → full stamp (job + place + why they act). Later feature days → short recall only.
-- **Impl sketch:** Persist `featured_history` per `(sim_code or season_id, persona)` (file or Supabase). Story Producer / Narration Writer get `intro_mode: full | recall` per featured name. Cast-intro establishing layer can shorten on recall days.
-- **Acceptance:** Across a season, every Double who ever features gets one clear normal-life intro; returnees don’t burn 15s re-introducing.
+- **Shipped:**
+  1. Supabase `double.trailer_featured_history` + load/upsert RPCs; helper `video/featured_history.py` (migration applied on double-openrouter).
+  2. Showrunner resolves `intro_mode` full|recall (**Survival Day 1 = engine day 2** always full; premiere/grace engine day 1 also full); producer + writer prompts + light gate; cache keys `day_overview_story_v6` / `day_overview_narration_v9`.
+  3. Establishing / cast cards: per-person full (~6s) or recall (~3s); all-recall days keep brief group card (“Today: A, B, and C”).
+  4. Lock-only writes via `python -m video.lock_day_script` (featured + named farewell). Draft `generate_trailer` never writes history.
+- **Rules locked:** featured = cast leads **or** named farewell; season key = `sim_code`; stamp facts from bio/scratch only; **no backfill** of chat-probe human lock.
+- **Operator flow:**
+  1. `python -m video.generate_trailer <sim> --mode day_overview --day N …` (draft)
+  2. Human accept / edit VO as needed
+  3. `python -m video.lock_day_script <sim> --day N --script data/<sim>/trailer_ready_dayN/script.json`
+- **Lesson:** old establishing logic keyed off engine `day == 1` (grace). Competitive Survival Day 1 trailers use `--day 2` — F1 fixed that for intro modes/cards.
 
 #### F2. Stop “eliminated = automatic #1” ranking — ✅ DONE (2026-07-09)
 
@@ -160,20 +169,30 @@ Locked creative/product rules; code not shipped yet.
 - **Shipped:**
   1. Removed `TRIGGER_EVENT_BONUS` (+50) from `persona_ranker` scoring; replaced with soft `ELIMINATED_TODAY_BONUS = +2` (F2b) so boot status is a faint nudge, not auto-#1.
   2. Showrunner prompts + producer `farewell_guidance`: if boot ∉ featured/protagonists, compress open and spend more `vote_reveal` on farewell.
-  3. Cache keys bumped to `day_overview_story_v5` / `day_overview_narration_v8`.
+  3. Cache keys were `day_overview_story_v5` / `day_overview_narration_v8` at F2 ship; **superseded by F1** → `v6` / `v9`.
 - **Verified:** unit tests; cast digest regenerated for `20260707-chat-probe-v3` Day 2 (Vincent no longer auto-#1 from +50).
 
 #### F2b. Soft elimination nudge (+2) — ✅ DONE (2026-07-09)
 
 - Soft `+2` for `eliminated_today` so farewell candidates edge up when drama scores are tied; must stay ≪ relationship/chat weights.
-#### F3. Prior-day locked scripts as producer context
 
-- **Problem:** From Survival Day 2 onward, today’s social/emotional dynamics depend on yesterday’s choices; producer only sees today’s extract.
-- **Rule:** For engine day ≥ 3 (Survival Day ≥ 2), attach **previous days’ locked narrator scripts** (preferred) or last accepted `script.json` narrator text into Story Producer context (compact: thesis + featured + cliffhanger + key status shifts — not full day_logs).
-- **Impl sketch:** `generate_trailer` / showrunner loads `data/<sim>/trailer_ready_day{N-1}/script_used.txt` or `script.json` → `prior_scripts[]` in producer prompt. Human-locked text wins over auto draft when both exist.
-- **Acceptance:** Day 3+ VO can reference yesterday’s scar in character terms (“after Vincent went home…”) without inventing continuity.
+#### Spicy ranking + coverage slot — ✅ DONE (2026-07-10)
 
-**Suggested implement order:** F1 (intro mode) → F3 (prior scripts). **F2 shipped 2026-07-09.** **Locked Day 2 VO** pasted + re-TTS’d into `trailer_ready_day2/` (2026-07-09, **106.4s**).
+- **Spicy:** `rank_score = base + 1.75*(base − day median)`; locations weight **0.05**; story-role bonuses (elim +2, immunity +3, top vote-receiver +3, cap ~6).
+- **Coverage:** last of top-N reserved for highest-spicy **alive never-featured** (F1 history: featured|farewell). Digest flags `coverage` / coverage-candidate.
+- Elim soft +2 stays; never restore +50.
+
+#### F3. Prior-day scar cards — ✅ DONE (2026-07-10)
+
+- **Problem:** From Survival Day 2 onward, today’s social/emotional dynamics depend on yesterday’s choices; producer only saw a thin prior-day line (and day indexing was wrong).
+- **Shipped:**
+  1. Fixed `_build_prior_day_summary` to map prior **engine** day → survival **season** day (grace skipped).
+  2. Compact `scar.json` on lock + Supabase `double.trailer_day_scar` (migration `20260710190000_trailer_day_scar.sql`).
+  3. Showrunner loads last 1–2 scars into producer/writer (`prior_scars_block`); cache `day_overview_story_v7` / `day_overview_narration_v10`.
+- **Operator:** lock Day N before generating Day N+1. Do **not** backfill chat-probe history/scars.
+- **Acceptance:** Day 3+ VO can reference yesterday’s scar without inventing continuity.
+
+**Suggested implement order:** ~~F3 / spicy~~ **shipped.** Apply scar migration before locking a live script that should feed Day N+1.
 
 ---
 
@@ -185,7 +204,7 @@ Locked creative/product rules; code not shipped yet.
 - **Duration:** [C] survival daily **<120s** hard cap; **working target ~100–115s** when first-feature stamps need room (2026-07-09). Validator band **60–120s** (SOT L10). *[B] `day_normal` target 60–90s when that contract ships (SOT L9).*
 - **Pauses:** opener-matched ~0.15s per scene, ~3s total (2026-07-01).
 - **Language:** plain marketer-simple, no abstractions; weave who-they-are/why into each Double's first mention (2026-07-01).
-- **First-feature intro (2026-07-09):** full normal-life stamp the first time a Double is featured in a daily this season; shorter recall on later feature days.
+- **First-feature intro (2026-07-10) — DONE:** full normal-life stamp the first time a Double is featured (or named in farewell) in a daily this sim; shorter recall on later feature days. History in Supabase; written only on `lock_day_script`. Survival Day 1 always full.
 - **Elimination ranking (2026-07-09) — DONE:** no +50 for eliminated-today; soft **+2** farewell nudge only (F2b); boot outside top-3 → compress open + farewell close (showrunner guidance).
 - **Prior-day script context (2026-07-09, pending code):** from engine Day 3 / Survival Day 2 onward, feed previous days’ locked narrator scripts into the Story Producer so today’s social/emotional dynamics carry forward.
 - **Persona ranker:** honors `--top N` as a minimum; the producer decides the actual featured-Double count (quiet-day fallback removed, 2026-07-01).

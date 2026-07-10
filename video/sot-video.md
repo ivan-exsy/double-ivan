@@ -38,6 +38,7 @@ Authoritative source of truth for Doubland's **three trailer types**. Part I is 
 | L8 | **Simulation literacy:** Doubles read as pixelated in the interface; lived moments may resolve into cinematic reality. Trailers train viewers to **watch Phaser and see real life** — 2D is the system, 3D punctuates truth. Opener [A] establishes the duality (matrix, cinematic tease); dailies [B]/[C] execute it per `daily/daily-2D-3D-blend.md`. | Product north-star; brand philosophy in [video playbook](video_playbook.md) §Core 2D↔Cinematic. |
 | L9 | **[B] `day_normal` 60–90s.** | Room for per-Double habitat intros; still under a minute at the short end. |
 | L10 | **[C] `day_survival` <120s.** | Survival recaps need more story beats than normal-day dailies. |
+| L11 | **First-feature intro memory (F1, 2026-07-10).** Per `sim_code`, the first time a Double is **featured** or gets a **named farewell**, VO + cast card use a full normal-life stamp (job + place + one trait from bio/scratch only). Later appearances → short recall. **Survival Day 1** (engine day 2) always forces full stamps. History written only on script **lock** (`lock_day_script`), never on draft generate. | Cold viewers meet people, not vote pieces; returnees don’t burn runtime re-introducing. |
 
 ### 0.3 Voice, tone & brand (shared)
 
@@ -442,7 +443,11 @@ Reduce speed after any intensity: wide view → overlays fade → one Double →
 
 **Job (L3):** moment-driven survival-day recap — 1–3 impactful moments, 2–4 featured Doubles, flexible 3–6 beat plan, cliffhanger close. Pressure, alliances, stakes per §8.7 / §10.6 patterns in daily form.
 
-**Duration (L10):** **<120s** (validator band 60–120s).
+**Duration (L10):** **<120s** hard cap (validator band 60–120s). Working target **~100–115s** when multiple first-feature stamps need room (L11).
+
+**Character intro (L11):** `intro_mode` full|recall from Supabase `trailer_featured_history`. Full = job + place + trait (scratch/bio only). Recall = first name + short place reminder. Survival Day 1 always full. Named farewell outside the featured cast still consumes a first-feature slot. Operator lock: `python -m video.lock_day_script <sim> --day N --script …`.
+
+**Day indexing note:** CLI `--day` is **engine** calendar day. Survival Day 1 = engine **day 2** (day 1 = grace/premiere). Do not treat engine day 1 as the first competitive daily.
 
 **Inherits:** Part I grammar. Same show as opener — Remotion 9:16, shared asset registry, `eleven_v3` @ 1.5×, `questionToUrlTakeover` end card with day-episode copy.
 
@@ -458,24 +463,39 @@ Reduce speed after any intensity: wide view → overlays fade → one Double →
 
 | Area | Status |
 |---|---|
-| **Taxonomy [A]/[B]/[C]** | Locked L1–L10 (§0.2) |
+| **Taxonomy [A]/[B]/[C]** | Locked L1–L11 (§0.2) |
 | **Remotion opener pipeline** | Shipped v3.0 — vertical 9:16, photo-real cutouts, `eleven_v3` @ 1.5× |
 | **Automated opener quality** | Functional; visual grammar gap remains — Phase 6 in automation doc |
 | **Opener [A] L-Talks manual** | **Script + VO locked** — `script_cos.md` + `script_cos_oneshot_speed12` (~83s @ 1.2×); Anya CapCut in flight — `opening/TODOs-opening-trailer.md` |
 | **[B] `day_normal`** | Contract stub only (§11) |
-| **[C] `day_survival`** | WIP — `daily/TODO_daily_trailer.md`; blend grammar in `daily/daily-2D-3D-blend.md` |
+| **[C] `day_survival`** | WIP — F1 + spicy ranking + F3 scars shipped; picture/Remotion polish open — `daily/TODO_daily_trailer.md` |
 | **Legacy FFmpeg / commission tracker** | Archived — `archive/sot-video-history.md` |
 
 ---
 
 ## 14. Pipeline changelog
 
+### 2026-07-10 — Spicy ranking + coverage + F3 scar cards
+
+- **Spicy ranking:** drama-gap amplify vs day median (`DRAMA_GAP_K=1.75`); locations weight 0.05; story-role bonuses (elim +2 / immunity +3 / top votes +3). Soft elim never restored to +50.
+- **Coverage:** last featured slot prefers highest-spicy alive Double not yet in F1 history (featured|farewell).
+- **F3 scars:** lock writes `scar.json` + `double.trailer_day_scar`; Day N+1 producer/writer get compact prior scars; prior-day summary day-index fixed (season vs engine); cache `story_v7` / `narration_v10`.
+- Operator: lock Day N before generating Day N+1. No chat-probe history/scar backfill.
+
+### 2026-07-10 — F1 first-feature intro memory (L11)
+
+- **Product:** first feature (or named farewell) → full job/place/trait stamp; returnees → short recall. Survival Day 1 always full.
+- **Storage:** `double.trailer_featured_history` keyed by `sim_code`; write only via `python -m video.lock_day_script` (draft generate is read-only).
+- **Pipeline:** showrunner `intro_mode` + stamp facts from scratch/bio; establishing cards full ~6s / recall ~3s; cache `day_overview_story_v6` / `day_overview_narration_v9` (superseded by spicy/F3 → v7/v10).
+- **Day-index fix:** Survival Day 1 = engine `--day 2` (not engine day 1 grace).
+- **No backfill** of `20260707-chat-probe-v3` human lock — F1 starts clean on the next sim.
+
 ### 2026-07-09 — Character care + ranking/continuity follow-ups
 
 - Survival daily working target **~100–115s** (hard cap still <120s) when first-feature stamps need room.
 - Locked chat-probe Day 2 plain-text VO in `video/todo_script_draft.md` (Vincent / Max / Olivia stamps + want/turn).
-- Ranking F2 (2026-07-09): no elimination +50; farewell close when boot ∉ top-3 (`day_overview_story_v5` / `day_overview_narration_v8`).
-- Pending code (§F): first-feature intro memory (F1); prior-day locked scripts into producer from Day 3+ (F3).
+- Ranking F2 (2026-07-09): no elimination +50; farewell close when boot ∉ top-3; soft +2 (F2b).
+- F1 first-feature intro memory shipped 2026-07-10 (see above).
 
 ### 2026-07-09 — Challenge card available; story-first VO
 

@@ -5,6 +5,8 @@
 **Sources of truth:** `fact_ledger.json`, `cast_digest.md`, `day_log.json`, auto `script.json` (do **not** ship as-is).  
 **Audience:** Human lock of narration before re-TTS and Remotion render.
 
+**Status (2026-07-10):** VO + TTS locked for this package (pre-F1). Treat as a **creative reference**, not the F1 history seed — F1 starts clean on the next sim (`lock_day_script` only). Picture pipeline (re-stitch → Remotion → watch) still open.
+
 ---
 
 ## 1. What we are aiming for
@@ -26,7 +28,7 @@ Deliver the **first Survival-night episode** as a **~100–115s, 9:16 daily trai
 | Doc | Why |
 |-----|-----|
 | `double-ivan/video/daily/TODO_daily_trailer.md` | Day arc, duration, follow-up rules (§F) |
-| `double-ivan/video/sot-video.md` | [C] <120s, voice, shared grammar |
+| `double-ivan/video/sot-video.md` | [C] <120s, voice, shared grammar, **L11** first-feature intro |
 | `trailer_ready_day2/fact_ledger.json` | Authoritative vote / challenge / elimination |
 | `trailer_ready_day2/cast_digest.md` | Ranking, moments, chat beats |
 
@@ -37,6 +39,8 @@ Deliver the **first Survival-night episode** as a **~100–115s, 9:16 daily trai
 3. **No reason to care** — plot moves without human stamps (violates day-arc “who they are, not just what they did”).
 4. **Old draft doc** pointed at `20260705-or-smoke` (Mike/Max/Vincent, no boot) — superseded by this package.
 
+**Why this package still matters after F1:** it is the gold example of *full* Survival Day 1 stamps (job + place + want). Auto drafts should sound like this; F1’s `intro_mode=full` + stamp facts exist so the pipeline can enforce that shape without a hand rewrite every time.
+
 ---
 
 ## 2. Day facts (locked)
@@ -46,7 +50,7 @@ Deliver the **first Survival-night episode** as a **~100–115s, 9:16 daily trai
 | **Challenge** | Limited Immunity — two tokens; claim or negotiate |
 | **Challenge winner (ledger)** | Irene Dove protected |
 | **Eliminated tonight** | **Vincent Slater** — **2 votes** |
-| **Featured (auto rank)** | Vincent, Max, Olivia |
+| **Featured (editorial lock)** | Vincent, Max, Olivia *(human choice; post-F2 ranker may differ)* |
 | **Jobs** | Vincent: curriculum, Oak Hill · Max: pastry, Hobbs · Olivia: waitstaff, Hobbs |
 | **Yesterday scar** | None (first Survival day) |
 
@@ -82,7 +86,8 @@ When the vote lands, Vincent goes home on two votes. Olivia is one of them.
 Day one ends with a new imbalance. Max still has cover. Olivia looks like the broker. And the man who tried to solve the board is already gone — so who does the room trust tomorrow?
 ```
 
-**Word count:** ~231 · **Est. delivery @ 1.5× warm (~2.1 wps) + light pauses:** ~110–113s (inside 100–115 target, under 120 hard cap).
+**Word count:** ~231 · **Est. delivery @ 1.5× warm (~2.1 wps) + light pauses:** ~110–113s (inside 100–115 target, under 120 hard cap).  
+**Measured TTS:** **106.4s** (in package `audio/narration.mp3`).
 
 ### Structure map
 
@@ -90,7 +95,7 @@ Day one ends with a new imbalance. Max still has cover. Olivia looks like the br
 |-------|---------|
 | Concept | Doubles line |
 | Frame | First Survival night + three names |
-| **Character stamps** | Job + place + want/trait (why care) |
+| **Character stamps** | Job + place + want/trait (why care) — **F1 `full` shape** |
 | Challenge clause | Limited Immunity + Irene safe + Vincent must talk |
 | Vincent want | Solve the board / Diana / shared plan |
 | Max turn | Irene pact + soft loyalty |
@@ -120,12 +125,22 @@ Day one ends with a new imbalance. Max still has cover. Olivia looks like the br
 4. Remotion render + validate (duration band 60–120s).
 5. Owner watch-through + optional D1 comprehension gate.
 
+**Do not** run `lock_day_script` on this package to seed F1 history — product decision: F1 starts clean on the next sim.
+
 ---
 
-## 6. Follow-up product rules (not in this VO yet)
+## 6. Follow-up product rules (pipeline status)
 
-Documented for implementation in `daily/TODO_daily_trailer.md` §F:
+Documented in `daily/TODO_daily_trailer.md` §F · SOT `sot-video.md` **L11**:
 
-1. **First-feature intro** — full “normal life” stamp the first time a Double is featured; shorter recall if they return later.
-2. **Elimination ranking** — remove +50 elimination bonus; if boot is outside top-3, compress open stamps and spend close on farewell.
-3. **Prior-day scripts as context** — from Day 3 onward, feed previous locked VOs into the producer so social/emotional continuity carries forward.
+| Rule | Status |
+|------|--------|
+| **F1 First-feature intro** — full stamp first time; recall later; Survival Day 1 always full; lock-only history | ✅ **DONE** (2026-07-10) |
+| **F2 Elimination ranking** — no +50 auto-#1; soft +2; farewell if boot ∉ top-3 | ✅ **DONE** (2026-07-09) |
+| **F3 Prior-day scripts** — from engine Day 3+, feed locked VOs into producer | ⏳ Pending |
+
+**Next sim operator reminder:** after accepting a day-overview draft:
+
+```bash
+python -m video.lock_day_script <sim> --day N --script data/<sim>/trailer_ready_dayN/script.json
+```
