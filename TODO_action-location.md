@@ -1,19 +1,20 @@
 # TODO — Action-Location
 
-**Status:** **OPEN — MVP ship path locked; Path B post-MVP**  
-**Updated:** 2026-07-09  
+**Status:** **LOCATION MVP GREEN** — Path B post-MVP residual only  
+**Updated:** 2026-07-09 (full report verified)  
 **MVP tracker:** [`double-docs/20260705_close-for-mvp.md`](../double-docs/20260705_close-for-mvp.md)  
-**Decision basis:** [`20260709_action-location-midflight-report.md`](20260709_action-location-midflight-report.md)
+**Decision basis:** [`20260709_action-location-midflight-report.md`](20260709_action-location-midflight-report.md) · full report `generative_agents/tests/reports/_20260708_mvp_a_action_location.txt`
 
 ---
 
 ## Locked decisions (2026-07-09)
 
-1. **Hallucination is MVP-green.** Mid-flight **0.6%** (3/508) on `20260708-mvp-a` — treat as fixed. Do **not** prioritize Tier 2 flat-enum for MVP.
-2. **Finish `20260708-mvp-a` to 2,600.** Do not abort. Use the full run for hallucination lock-in + final Class A inventory.
-3. **Ship MVP by loosening the Class A gate** if the full run shows **no dramatic worsening** vs mid-flight (~18 @ ~1,843, ~1.2% of unique actions).
-4. **`desk → table / podium / student seating` is NOT Class A.** Same-room synonym / leaf mismatch — scorer and product rule, not a world bug.
+1. **Hallucination is MVP-green.** Full run **0.6%** (4/675) on `20260708-mvp-a` @ 2,600 — **confirmed fixed**. Do **not** prioritize Tier 2 flat-enum for MVP.
+2. ~~**Finish `20260708-mvp-a` to 2,600.**~~ **Done** — sim completed; report downloaded locally.
+3. **Class A location ship call: PASS.** Full raw **21** → desk-synonym excluded **15** ≤ **20**. No dramatic worsening vs mid-flight 18; residual = Path B debt.
+4. **`desk → table / podium / student seating` is NOT Class A.** Same-room synonym / leaf mismatch — scorer and product rule, not a world bug. Excluded **6** of 21 on this run.
 5. **Old Option 1 polish folds into Path B** (post-MVP), run by an autonomous agent on a dedicated worktree — not required to unblock launch.
+6. **Survival RCA-1 still blocks overall MVP** (separate from location) — see close-for-mvp tracker.
 
 ---
 
@@ -44,18 +45,19 @@ Close location as an MVP blocker with an honest product gate, then release. Path
 
 **Sources of the 18:** `llm_location_v1` ~14, `parent_location_inherit_v1` ~4.
 
-### Residual themes (mid-flight) — how we treat them for MVP
+### Residual themes (full run, after desk exclusion) — Path B debt
 
-| Theme | ~Count | MVP treatment |
-|-------|-------:|---------------|
+| Theme | Count | MVP treatment |
+|------|------:|---------------|
 | Computer where arena has no PC (supply / pharmacy / library table) | 5 | **Known launch debt** → Path B |
-| Desk → library table / podium / student seating | 5 | **Not Class A** (product rule) |
-| Cafe counter vs seating / wrong venue leaf | 3 | **Known launch debt** → Path B |
-| Bed still in desc after transition | 2 | Soft / timing — watch; do not block |
-| Refrigerator @ pub seating | 1 | Path B (Issue 2 adjacent) |
+| Cafe counter vs seating / wrong venue leaf | 4 | **Known launch debt** → Path B |
+| Bed still in desc after transition | 2 | Soft / timing — watch |
+| Refrigerator @ pub seating | 1 | Path B |
 | Piano @ bar seating | 1 | Path B |
+| Desk text at shelf (anchor already `desk`) | 1 | Keep as Class A; Path B |
+| Desk → library table / podium / student seating | 6 | **Excluded** (product rule) |
 
-**Player-visible takeaway:** ~1 in 80 unique actions looks slightly wrong (wrong furniture for a sensible action in roughly the right place). Not cross-building chaos. Not invented locations.
+**Player-visible takeaway:** ~15 / 2001 unique actions (~0.75%) still look slightly wrong after desk exclusion. Not cross-building chaos. Not invented locations.
 
 ### Revised MVP ship gate (after full 2,600)
 
@@ -70,21 +72,25 @@ Ship location if **all** of the following hold on `20260708-mvp-a` (or equivalen
 
 **Dramatic worsening (do not ship on this run alone):** Class A (desk-excluded) jumps well past ~20, or hallucination regresses ≥ 5%, or cross-building chaos returns.
 
+### Full-run ship call (`20260708-mvp-a` @ 2,600) — **PASS**
+
+| Gate | Result | Call |
+|------|--------|------|
+| Hallucination | **0.6%** (4/675) | **PASS** |
+| Class A raw | **21** / 2001 unique actions | (old ≤5 would fail) |
+| Class A desk-excl. | **15** (excluded 6 desk→table/podium/seating) | **PASS ≤20** |
+| Chaos / invented flood | No; residual = computer×5, cafe counter×4, soft bed×2, fridge×1, piano×1 | **PASS** |
+| Monitoring | Full 2600 movement; `action_id` path live | **PASS** |
+
+Desk exclusions (product rule): Alex Shepard×2 (library desk/table/podium), Diana (student desk→seating), Nick (desk→podium), Vince×2 (desk→student seating). Owen “sitting at the desk” @ shelf with anchor `desk` kept as Class A.
+
 ### Checklist — while / after this sim
 
-- [ ] Leave `20260708-mvp-a` running to **2,600**
-- [ ] Final analyzer package:
-
-```bash
-# On VPS
-curl -sk https://localhost:8001/api/simulations/20260708-mvp-a/status/current | python3 -m json.tool
-python3 tests/analyze_action-location.py 20260708-mvp-a > tests/reports/_20260708_mvp_a_action_location.txt 2>&1
-grep -E "Class A real bugs|Hallucinated picks|Class B" tests/reports/_20260708_mvp_a_action_location.txt
-```
-
-- [ ] Apply desk-synonym exclusion when interpreting Class A (scorer update can land with Path B; for this ship call, exclude manually if needed)
-- [ ] If gates pass → mark location MVP green in [`20260705_close-for-mvp.md`](../double-docs/20260705_close-for-mvp.md); proceed with survival / RCA-1 on same run as needed
-- [ ] If dramatic worsening → stop and re-open Option 1-style patch before ship (do not loosen further blindly)
+- [x] Leave `20260708-mvp-a` running to **2,600** — completed
+- [x] Final analyzer package generated on VPS (`_20260708_mvp_a_action_location.txt`); hallucination **0.6%** locked
+- [x] Download full report locally + desk-synonym exclusion → **15** ≤ 20
+- [x] Location MVP green in [`20260705_close-for-mvp.md`](../double-docs/20260705_close-for-mvp.md)
+- [x] No dramatic worsening — Path B for residual themes only
 
 ### Explicit non-goals for MVP
 
@@ -101,7 +107,7 @@ grep -E "Class A real bugs|Hallucinated picks|Class B" tests/reports/_20260708_m
 | `20260706-map-smoke` | 250 | 3 | 0% | Map/prompt OK at smoke |
 | `20260707-chat-probe-v3` | 2,600 | unscored* | ~14% | *no `action_id` |
 | `20260708-mvp-signoff` | ~384 abort | 8 mid | 0.6% | Token fix only; aborted for Path A |
-| **`20260708-mvp-a`** | **~1,843** / 2,600 | **18** mid | **0.6%** | Path A live; halluc PASS; old Class A FAIL — [report](20260709_action-location-midflight-report.md) |
+| **`20260708-mvp-a`** | **2,600** | raw **21** → desk-excl. **15** | **0.6%** (4/675) | **Location MVP PASS** — [full report](../generative_agents/tests/reports/_20260708_mvp_a_action_location.txt) · [midflight](20260709_action-location-midflight-report.md) |
 
 ---
 
@@ -158,7 +164,8 @@ Old “Option 1” is **not** one vague bag. Split:
 
 - Issue 1 — post-validate vs orphan redirect ✅  
 - Issue 3a — map registry + prompt grounding ✅  
-- Hallucination token-budget fix ✅ (confirm on full `20260708-mvp-a`)  
+- Hallucination token-budget fix ✅ — confirmed **0.6%** on full `20260708-mvp-a` @ 2,600  
+
 - Issue 2 — cafe refrigerator fixture — deferred into Path B unless it dominates residual
 
 ---

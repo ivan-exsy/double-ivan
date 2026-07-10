@@ -1,6 +1,6 @@
 # OpenRouter Migration — DeepSeek V4 + Gemini Embeddings
 
-**Updated:** 2026-07-05 (post `20260705-or-smoke`) · **Branch:** merged on `railway`
+**Updated:** 2026-07-09 (post `20260708-mvp-a`) · **Branch:** merged on `railway`
 
 ---
 
@@ -36,8 +36,8 @@ pgvector schema stays `vector(768)`. Out of scope: memory data model, Supabase R
 
 | Area | Status |
 |------|--------|
-| **Tier 1.5 location** | **Smoke ✅ — full validation open.** Stages 1–2 shipped (orphan redirect + post-validate exemption). `20260705-or-smoke`: Class A **2** (gate ≤5). **Pending:** 2,600-step sign-off run. |
-| **Tier 0 survival** (trailer beats) | **✅ Validated on `railway`** — `20260703-or-2`: meals 14/14, sleep 14/14, RCA-1 recovery 14/14, 5 P0s green. |
+| **Tier 1.5 location** | **PASS on `20260708-mvp-a`** — halluc **0.6%**; Class A desk-excl. **15** ≤20. Tier 2 flat-enum **not** required for MVP. |
+| **Tier 0 survival** (trailer beats) | Meals/sleep/P0s ✅ on `20260708-mvp-a`; **RCA-1 FAIL** (post-elim vote-prep language). Prior recovery green on `20260703-or-2`. |
 | **Embedding reindex** | Script exists; full `dbl_memory` reindex not run (point of no return) |
 | **Gateway cutover** | Chat with Double + card summary still need OpenRouter validation |
 | **Merge + production** | Merged to `railway` + VPS deployed; **`railway`→`main` promotion open** |
@@ -219,14 +219,14 @@ Assumption: survival MVP gates pass on **`railway` + OpenAI** first; OpenRouter 
 | **Still failing** | Gap 2 **2** on `20260705-or-smoke` smoke (Owen @ pub counter) — down from 707 on `20260630-1-deep`. Staff cascade on inherit still deferred. |
 | **Next** | Monitor on 2,600-step sign-off; staff cascade (Tier 1b) if Gap 2 spikes on full run. |
 
-### 3. LLM location hallucination
+### 3. LLM location hallucination — **MVP CLOSED**
 
 | | |
 |--|--|
-| **Issue** | Unified location resolver picks addresses not in maze (7.5% on baseline, 24/319 calls). |
-| **Tried** | Run 1c added thinking + `max_tokens` 30→100 on `action_location_unified`. |
-| **Still failing** | 0% in Run 1c but only 14 LLM calls — inconclusive at 250 steps. |
-| **Next** | Re-measure at 900+ steps after Tier 1. **Tier 2** (strict location enum) only if still >5%. |
+| **Issue** | Unified location resolver picks addresses not in maze (was ~14% at 2,600 on two runs). |
+| **Tried** | Run 1c thinking + tokens; map/prompt Tier 1; **`max_tokens` 100→800** (token-budget fix). |
+| **MVP result** | **`20260708-mvp-a` @ 2,600: 0.6% (4/675)** — gate &lt; 5% **PASS**. |
+| **Next** | Tier 2 flat-enum deferred to Path B / post-MVP (`20260708_hallucinations.md`). Do not block launch. |
 
 ### 4. Survival / trailer beats (Tier 0)
 
@@ -287,13 +287,13 @@ Assumption: survival MVP gates pass on **`railway` + OpenAI** first; OpenRouter 
 1. ~~Railway: finish `15sim-polish` + survival validation~~ ✅ `20260703-or-2`
 2. ~~OpenRouter: Tier 1.5 smoke~~ ✅ `20260705-or-smoke`, Class A 2
 3. ~~**Merge** OpenRouter onto `railway`~~ ✅ deployed VPS
-4. **2,600-step sign-off run** — Class A + survival + Gap 2 on one scored run
-5. Embedding reindex (dry-run → full)
+4. ~~**2,600-step sign-off run**~~ — `20260708-mvp-a`: location PASS (halluc 0.6%, Class A desk-excl. 15); first-vote/meals/sleep/P0s green; **RCA-1 still open**
+5. Finish RCA-1 → then embedding reindex (dry-run → full)
 6. Gateway smoke (Chat with Double + card summary)
 7. Full validation + Naturalness Gate; update `sot_llm.md`
 8. `railway`→`main` promotion; retire `OPENAI_API_KEY`; 24h monitor
 
-**Deferred:** Tier 2 strict location enum — only if Class A > 5 **after** Tier 1.5 at 250+ steps.
+**Deferred:** Tier 2 flat-enum — Path B / post-MVP (hallucination already &lt; 5%).
 
 ---
 

@@ -1,13 +1,26 @@
 # Handoff: Tier 2 flat-enum for LLM location hallucination
 
-**Date:** 2026-07-08 · **Owner:** TBD · **Priority:** P1 — last open blocker class for MVP location gate
-**Branch to work on:** new `ivan/`-or-`nicolas/`-prefixed branch off `railway`
+**Date:** 2026-07-08 · **Updated:** 2026-07-09 · **Owner:** TBD  
+**MVP status:** **CLOSED for MVP** — hallucination gate passed on full `20260708-mvp-a`. Tier 2 is **Path B / post-MVP** hardening only (do not prioritize to unblock launch).  
+**Branch if revisited:** new `ivan/`-or-`nicolas/`-prefixed branch off `railway`
 
 ---
 
-## Problem statement
+## MVP verdict (2026-07-09)
 
-The unified LLM location call (`run_gpt_prompt_action_location_unified`) picks locations that are **not in the valid location tree** it was offered — a "hallucination". Measured rate:
+| Run | Steps | Hallucination rate | Target | Call |
+|-----|------:|-------------------:|--------|------|
+| `20260705-or-smoke` | 2,600 | **14.7%** | &lt; 5% | Failed — triggered Tier 2 plan |
+| `20260707-chat-probe-v3` | 2,600 | **14.0%** | &lt; 5% | Failed |
+| **`20260708-mvp-a`** | **2,600** | **0.6%** (4/675) | &lt; 5% | **PASS — MVP green** |
+
+**What fixed it for MVP:** `max_tokens` 100→800 on unified location (token-budget / truncation), plus Path A measurement hygiene — not flat-enum. Flat-enum remains useful long-term (zero invented addresses by construction) but is **not** required to ship.
+
+---
+
+## Problem statement (historical — why Tier 2 was drafted)
+
+The unified LLM location call (`run_gpt_prompt_action_location_unified`) picks locations that are **not in the valid location tree** it was offered — a "hallucination". Pre-fix measured rate:
 
 | Run | Steps | Hallucination rate | Target |
 |-----|------:|-------------------:|--------|
@@ -15,7 +28,7 @@ The unified LLM location call (`run_gpt_prompt_action_location_unified`) picks l
 | `20260706-map-smoke` | 250 | 0% (6 calls — tiny sample) | < 5% |
 | `20260707-chat-probe-v3` | 2,600 | **14.0%** | < 5% |
 
-Two full runs at ~14% **after** the Tier 1 fixes shipped (see below). Per the MVP tracker (`double-docs/20260705_close-for-mvp.md`, open-work item 4), this meets the trigger condition for Tier 2.
+Two full runs at ~14% **after** the Tier 1 map/prompt fixes. That met the old trigger for Tier 2 — **superseded** by the token-budget confirmation on `20260708-mvp-a`.
 
 **Impact note:** hallucinated picks are caught by validation and never ship a broken address — the cost is retries/fail-safes (latency, LLM spend) and fallback to less appropriate locations. It inflates Class A indirectly.
 

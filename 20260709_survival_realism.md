@@ -28,3 +28,6 @@ Engine “make chat memories the dramatic-moments source” (`PM-MEM-*`) stays p
 
 ## Verified
 Unit tests + `tests/smoke_social_seek.py` (brief text, seek redirect, expiry). Digest/ranker chat-content tests in `video/test_day_overview_facts.py`. Full multi-day survival sim not re-run yet — next check: schedule variety + seek→chat rates on a live/forked day, then regenerate cast digest.
+
+## Not covered by `20260708-mvp-a` MVP scoreboard
+Meals / sleep / first-vote / RCA-1 / Class A / hallucination gates do **not** close this doc. Still needs a digest-level check (schedule variety + intentional seek→chat) on a post-realism-fix run — keep open until that pass.
