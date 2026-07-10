@@ -21,3 +21,5 @@ Current Limited Immunity collapses to “everyone claims → social capital rank
 
 ## Next
 Invoke `@cos` on task `2026-07-10-002` (or open the brief and dispatch RealityTV).
+
+**SOT catalog:** `double-docs/sot/sot_challenges.md` (Draft) — full challenge list + polish plan + design bar.
