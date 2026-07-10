@@ -5,7 +5,7 @@
 
 > Daily simulation-day recap trailers (Episode 1, 2, 3… at 18:30 owner-local). **Must look and feel like the next episode of the same show as the shipped opener.**
 > **Refs:** Video SOT `video/sot-video.md` (Part I shared grammar · §12 [C] · L8 simulation literacy · **L9/L10 duration**) · Blend grammar `video/daily/daily-2D-3D-blend.md` · Opener impl `video/opening-15person/20260617_vertical-trailer-automation.md` · Engineering `video/video_PRD.md` §2.2 · Creative `video/video_playbook.md` §3.
-> **Branch:** `railway` (daily work landed here). **Last updated: 2026-07-09.**
+> **Branch:** `railway` (daily work landed here). **Last updated: 2026-07-10.**
 
 
 
@@ -27,8 +27,8 @@ The daily trailer is indistinguishable in craft from the opener — a viewer can
 
 ### 2. The day arc (story)
 
-- **Multi-lead, moment-driven.** The producer ranks the day's events, selects **1–3 impactful moments** and **2–4 featured Doubles**, then drafts a flexible **3–6 beat plan** sized to those moments. The fixed 5-beat template is a fallback shape, not the default.
-- **Cold-viewer intro.** Day-1: daily-specific concept-reset card + per-Double cast intros. Day ≥2: brief concept+cast touch + `yesterday_scar` "Previously on" bridge. The opener is **not** the Day-1 trailer — each daily is a self-contained episode.
+- **Multi-lead, moment-driven.** The producer ranks the day's events with **spicy** drama-gap scores (L12), selects **1–3 impactful moments** and **2–4 featured Doubles** (last slot prefers never-featured coverage), then drafts a flexible **3–6 beat plan** sized to those moments. The fixed 5-beat template is a fallback shape, not the default.
+- **Cold-viewer intro.** Day-1: daily-specific concept-reset card + per-Double cast intros. Day ≥2: brief concept+cast touch + `yesterday_scar` "Previously on" bridge fed by **locked scar cards** (L13). The opener is **not** the Day-1 trailer — each daily is a self-contained episode.
 - **Drama >> resolution.** The day closes on a cliffhanger hook for tomorrow, never a bow.
 - **Plain marketer-simple language.** Concrete nouns and verbs, no strategy jargon or abstractions. A viewer who's never seen the show follows every sentence.
 - **Who they are, not just what they did.** Each featured Double's first mention carries a few role/trait words explaining *why* they act. **First time featured (or named farewell) this sim (L11 / F1):** full normal-life stamp (job + place + trait from bio/scratch). **Return appearances:** short recall only (“Max at Hobbs…”). Survival Day 1 always full. History persists in Supabase; written only when the script is locked.
@@ -63,7 +63,7 @@ For the day's 1–3 selected high-stakes moments, the trailer cuts from 2D into 
 | **2D→3D blend** | B1 manual clip slot + B2 location + B5 grammar done; B4 automation fast-follow | ⏳ B1/B2/B5 done; B4 pending |
 | **Day-2+ validation** | Day-2 & Day-3 both pass all gates; cast rotates across days; "Previously on" bridge works (producer-chosen, optional) | ✅ Done |
 | **Comprehension gate** | Never run | ❌ Pending (D1) |
-| **Context prep (cast digest / ranking)** | Chat content + thoughts + clock/schedule fixes shipped (2026-07-09) | ✅ Digest richer; see §E |
+| **Context prep (cast digest / ranking)** | Chat content + spicy drama-gap + coverage (2026-07-10) | ✅ L12; see §F |
 | **Challenge storytelling in VO** | Fact ledger challenge card + story-first prompts (E1+E2, 2026-07-09) | ✅ Available; expand only when it strengthens the arc — see §E |
 | **First-feature intro memory (F1)** | Supabase history + `intro_mode` + lock CLI (2026-07-10) | ✅ L11; live proof on next locked Survival Day 1+ package |
 | **Spicy ranking + coverage** | Drama-gap + last-slot never-featured (2026-07-10) | ✅ Digest + `rank_personas` |
@@ -169,7 +169,7 @@ Challenge detail is **optional story fuel**, not a mandatory daily beat. Expand 
 - **Shipped:**
   1. Removed `TRIGGER_EVENT_BONUS` (+50) from `persona_ranker` scoring; replaced with soft `ELIMINATED_TODAY_BONUS = +2` (F2b) so boot status is a faint nudge, not auto-#1.
   2. Showrunner prompts + producer `farewell_guidance`: if boot ∉ featured/protagonists, compress open and spend more `vote_reveal` on farewell.
-  3. Cache keys were `day_overview_story_v5` / `day_overview_narration_v8` at F2 ship; **superseded by F1** → `v6` / `v9`.
+  3. Cache keys were `day_overview_story_v5` / `day_overview_narration_v8` at F2 ship; F1 → `v6` / `v9`; **current (spicy/F3)** → `v7` / `v10`.
 - **Verified:** unit tests; cast digest regenerated for `20260707-chat-probe-v3` Day 2 (Vincent no longer auto-#1 from +50).
 
 #### F2b. Soft elimination nudge (+2) — ✅ DONE (2026-07-09)
@@ -192,7 +192,7 @@ Challenge detail is **optional story fuel**, not a mandatory daily beat. Expand 
 - **Operator:** lock Day N before generating Day N+1. Do **not** backfill chat-probe history/scars.
 - **Acceptance:** Day 3+ VO can reference yesterday’s scar without inventing continuity.
 
-**Suggested implement order:** ~~F3 / spicy~~ **shipped.** Apply scar migration before locking a live script that should feed Day N+1.
+**Suggested implement order:** ~~F3 / spicy~~ **shipped.** Scar migration `20260710190000_trailer_day_scar.sql` **already applied** on double-openrouter.
 
 ---
 
@@ -204,10 +204,11 @@ Challenge detail is **optional story fuel**, not a mandatory daily beat. Expand 
 - **Duration:** [C] survival daily **<120s** hard cap; **working target ~100–115s** when first-feature stamps need room (2026-07-09). Validator band **60–120s** (SOT L10). *[B] `day_normal` target 60–90s when that contract ships (SOT L9).*
 - **Pauses:** opener-matched ~0.15s per scene, ~3s total (2026-07-01).
 - **Language:** plain marketer-simple, no abstractions; weave who-they-are/why into each Double's first mention (2026-07-01).
-- **First-feature intro (2026-07-10) — DONE:** full normal-life stamp the first time a Double is featured (or named in farewell) in a daily this sim; shorter recall on later feature days. History in Supabase; written only on `lock_day_script`. Survival Day 1 always full.
+- **First-feature intro (2026-07-10) — DONE · L11:** full normal-life stamp the first time a Double is featured (or named in farewell) in a daily this sim; shorter recall on later feature days. History in Supabase; written only on `lock_day_script`. Survival Day 1 always full.
 - **Elimination ranking (2026-07-09) — DONE:** no +50 for eliminated-today; soft **+2** farewell nudge only (F2b); boot outside top-3 → compress open + farewell close (showrunner guidance).
-- **Prior-day script context (2026-07-09, pending code):** from engine Day 3 / Survival Day 2 onward, feed previous days’ locked narrator scripts into the Story Producer so today’s social/emotional dynamics carry forward.
-- **Persona ranker:** honors `--top N` as a minimum; the producer decides the actual featured-Double count (quiet-day fallback removed, 2026-07-01).
+- **Spicy ranking + coverage (2026-07-10) — DONE · L12:** drama-gap `rank_score`; last top-N slot prefers never-featured alive Doubles; digest flags coverage candidate.
+- **Prior-day scar cards (2026-07-10) — DONE · L13:** lock writes compact scar (file + Supabase); Day N+1 producer/writer load prior scars; season/engine day indexing fixed. Lock Day N before generating Day N+1.
+- **Persona ranker:** honors `--top N` as a minimum; the producer decides the actual featured-Double count (quiet-day fallback removed, 2026-07-01). Coverage may force the last slot away from pure spicy order.
 - **Cast ranking / digest chats (2026-07-09):** score Doubles on **chat content impact** (top transcripts: depth + vote/alliance cues from `movement.chat`), not chat count. Cast digest Moments mix events + thoughts + up to two substantive chat beats. Authoritative chat source for trailers remains position-row transcripts (not `dbl_memory` chat rows).
 - **Challenge in daily VO (2026-07-09):** put challenge name/brief/outcome in the fact ledger so the writer *can* use them; expand in narration **only if it strengthens the day’s storyline**. Under the <120s cap, never force a challenge set-piece or rules dump.
 
@@ -225,8 +226,8 @@ Pipeline: extract (Supabase or cached `day_log.json`) → two-stage narration (L
 
 ## Current architecture (reference for the team)
 
-**Two-stage narration** (both cached per day so hand-edits survive re-render; keys `day_overview_story_v5`, `day_overview_narration_v8`):
-- **Stage 1 — Day Story Producer:** thesis, featured Doubles, dramatic question, status deltas, flexible beat plan (3–6 beats from a vocabulary) from the full day's context.
+**Two-stage narration** (both cached per day so hand-edits survive re-render; keys `day_overview_story_v7`, `day_overview_narration_v10`):
+- **Stage 1 — Day Story Producer:** thesis, featured Doubles, dramatic question, status deltas, flexible beat plan (3–6 beats from a vocabulary) from the full day's context + prior scar cards (engine day ≥3).
 - **Stage 2 — Narration Writer:** the whole voiceover in one pass, threaded across the featured Doubles with connective tissue, plus a one-line on-screen caption per beat.
 
 **Beat vocabulary** (producer picks 3–6): `yesterday_scar` (Day>1, beat #1), `today_pressure`, `apparent_plan`, `countermove`, `vote_reveal` (elimination days) / `pressure_peak` (non-elimination days — mutually exclusive), `new_imbalance` / `unresolved` (cliffhanger close). `concept_reset` + `cast_intro` are auto-prepended (not producer-chosen).

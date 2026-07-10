@@ -5,7 +5,9 @@
 **Sources of truth:** `fact_ledger.json`, `cast_digest.md`, `day_log.json`, auto `script.json` (do **not** ship as-is).  
 **Audience:** Human lock of narration before re-TTS and Remotion render.
 
-**Status (2026-07-10):** VO + TTS locked for this package (pre-F1). Treat as a **creative reference**, not the F1 history seed — F1 starts clean on the next sim (`lock_day_script` only). Picture pipeline (re-stitch → Remotion → watch) still open.
+**Status (2026-07-10):** Prior VO + TTS exist in-package but are **not final** — owner review: challenge + middle/close need a kid-plain rewrite. **Manual rewrite inquiry:** `daily/20260710_inquiry_survival-day1-vo-rewrite_chat-probe.md`. Keep intros (job/place/want). Do **not** `lock_day_script` to seed F1/F3. Picture wait until new VO is approved.
+
+**Ranking note (post-ship):** Regenerated spicy digest for this day puts **Olivia / Max / Vincent** at the top (Vincent is also the coverage-candidate with empty history). The **editorial lock below stays Vincent / Max / Olivia** — do not re-lock this package to chase auto ranking.
 
 ---
 
@@ -27,7 +29,8 @@ Deliver the **first Survival-night episode** as a **~100–115s, 9:16 daily trai
 
 | Doc | Why |
 |-----|-----|
-| `double-ivan/video/daily/TODO_daily_trailer.md` | Day arc, duration, follow-up rules (§F) |
+| `double-ivan/video/daily/TODO_daily_trailer.md` | Day arc, duration, follow-up rules (§F · L11–L13) |
+| `double-ivan/video/sot-video.md` | [C] contract + laws L11–L13 |
 | `double-ivan/video/sot-video.md` | [C] <120s, voice, shared grammar, **L11** first-feature intro |
 | `trailer_ready_day2/fact_ledger.json` | Authoritative vote / challenge / elimination |
 | `trailer_ready_day2/cast_digest.md` | Ranking, moments, chat beats |
@@ -50,7 +53,7 @@ Deliver the **first Survival-night episode** as a **~100–115s, 9:16 daily trai
 | **Challenge** | Limited Immunity — two tokens; claim or negotiate |
 | **Challenge winner (ledger)** | Irene Dove protected |
 | **Eliminated tonight** | **Vincent Slater** — **2 votes** |
-| **Featured (editorial lock)** | Vincent, Max, Olivia *(human choice; post-F2 ranker may differ)* |
+| **Featured (editorial lock)** | Vincent, Max, Olivia *(human choice; spicy auto-rank now also lands Olivia/Max/Vincent — coincidence, not a reason to re-lock)* |
 | **Jobs** | Vincent: curriculum, Oak Hill · Max: pastry, Hobbs · Olivia: waitstaff, Hobbs |
 | **Yesterday scar** | None (first Survival day) |
 
@@ -121,26 +124,29 @@ Day one ends with a new imbalance. Max still has cover. Olivia looks like the br
 
 1. ~~Paste locked text into `script.json` `narrator_script` (or `script_used.txt` beside audio).~~ **DONE 2026-07-09** — `trailer_ready_day2/script.json` + `script_used.txt`.
 2. ~~Re-TTS warm @ 1.5×; refresh `narration_timing.json`.~~ **DONE** — `audio/narration.mp3` (**106.4s**).
-3. Re-stitch beats / locations from `day_log.json`.
+3. ~~Re-stitch beats / locations from `day_log.json`.~~ **DONE 2026-07-10** — `python -m video.restitch_day_script …` filled Remotion `location` labels (VO untouched).
 4. Remotion render + validate (duration band 60–120s).
 5. Owner watch-through + optional D1 comprehension gate.
 
-**Do not** run `lock_day_script` on this package to seed F1 history — product decision: F1 starts clean on the next sim.
+**Do not** run `lock_day_script` on this package to seed F1 history **or** F3 scars — product decision: both start clean on the next sim.
 
 ---
 
 ## 6. Follow-up product rules (pipeline status)
 
-Documented in `daily/TODO_daily_trailer.md` §F · SOT `sot-video.md` **L11**:
+Documented in `daily/TODO_daily_trailer.md` §F · SOT `sot-video.md` **L11–L13**:
 
 | Rule | Status |
 |------|--------|
-| **F1 First-feature intro** — full stamp first time; recall later; Survival Day 1 always full; lock-only history | ✅ **DONE** (2026-07-10) |
+| **F1 First-feature intro (L11)** — full stamp first time; recall later; Survival Day 1 always full; lock-only history | ✅ **DONE** (2026-07-10) |
 | **F2 Elimination ranking** — no +50 auto-#1; soft +2; farewell if boot ∉ top-3 | ✅ **DONE** (2026-07-09) |
-| **F3 Prior-day scripts** — from engine Day 3+, feed locked VOs into producer | ⏳ Pending |
+| **Spicy ranking + coverage (L12)** — drama-gap scores; last slot prefers never-featured | ✅ **DONE** (2026-07-10) |
+| **F3 Prior-day scar cards (L13)** — lock writes compact scar; Day N+1 producer/writer load prior scars | ✅ **DONE** (2026-07-10) |
 
 **Next sim operator reminder:** after accepting a day-overview draft:
 
 ```bash
 python -m video.lock_day_script <sim> --day N --script data/<sim>/trailer_ready_dayN/script.json
 ```
+
+That lock writes **both** featured history (F1) and the scar card (F3). Generate Day N+1 only after Day N is locked.
