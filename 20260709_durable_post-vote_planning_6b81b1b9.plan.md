@@ -1,38 +1,55 @@
 ---
 name: durable post-vote planning
 overview: Make post-vote recovery authoritative until midnight, scope planning caches to the inputs that produced them, and keep normal-mode performance unchanged. Reuse the already-persisted Survival elimination record as the restart-safe source of truth, avoiding a database migration or new per-step reads.
+status: shipped_awaiting_live_proof
+shipped_commit: 1db8cbe2
+shipped_branch: railway
+proof_sim: 20260709-1
 todos:
   - id: cache-contract
     content: Add and test context-scoped daily-plan cache keys without changing wake-up or replay behavior
-    status: in_progress
+    status: completed
   - id: planner-context
     content: Wire stable planning stages into full-day and task-decomposition cache decisions
-    status: pending
+    status: completed
   - id: post-vote-barrier
     content: Keep recovery authoritative across the same step, restart, and midnight rollover
-    status: pending
+    status: completed
+  - id: stall-breaker
+    content: Hold first recovery action (head home) when post-vote is active
+    status: completed
   - id: prompt-gates
     content: Remove future vote cues from all fallback planning inputs after elimination
-    status: pending
+    status: completed
   - id: scorer-integrity
     content: Paginate and tighten the RCA-1 acceptance scorer
-    status: pending
+    status: completed
   - id: verify-simplify
     content: Run focused checks, project verification, performance gates, simplify, and worklog update
+    status: completed
+  - id: live-proof
+    content: Score VPS sim 20260709-1 with analyze_20260630_1.py after ~2600 steps; close RCA-1 only on PASS
     status: pending
 isProject: false
 ---
 
-# Durable Post-Vote Planning
+# Durable Post-Vote Planning — shipped
 
-## Design
-- Treat the current-day elimination in persisted `SeasonState` as the durable source of truth and derive `post_vote_active` into each survivor’s existing Scratch survival context. This avoids a duplicate database field and any new database read.
-- Use three stable planning stages: `normal`, `survival_pre_vote`, and `survival_post_vote`. Hash that stage plus the daily brief, lifestyle, and Survival overlay only when full-day planning runs—not every simulation step.
-- Keep the deterministic recovery schedule authoritative through midnight. Cache invalidation is logical through the new fingerprint; do not clear other personas’ plans, wake-up caches, or the whole task-decomposition cache.
+**Status:** Code shipped to VPS `railway` at `1db8cbe2` (2026-07-09). Unit suites green. **RCA-1 not closed until live proof on `20260709-1`.**
+
+**Proof run:** `20260709-1` — forked from `soul15_seed_20260224`, sprint + `diagnostic_mode`, 2600 steps, started ~2026-07-10 01:11 UTC. Checklist: [`20260710_checklist.md`](20260710_checklist.md).
+
+## Design (as built)
+
+- Current-day elimination in persisted `SeasonState` is the restart-safe source of truth. At injection / resume sync, derive `scratch.survival["post_vote_date"]` (today’s date string). No DB migration; no new per-step DB reads.
+- Three planning stages: `normal` | `survival_pre_vote` | `survival_post_vote`. Fingerprint = stage + daily brief + lifestyle + overlay, hashed only inside full-day planning (not every step).
+- Deterministic recovery schedule stays authoritative until midnight. Cache miss is logical via fingerprint; wake-up cache and other personas’ plans are untouched.
+- Stall-breaker does **not** advance the schedule index while post-vote is active (keeps “leave gathering / head home”).
+- Fallback prompts (identity overlay, daily fixed-events, hourly calendar) replace upcoming-vote cues with “vote concluded → return home” when the marker matches today.
 
 ```mermaid
 flowchart LR
-    persistedElimination["Persisted current-day elimination"] --> postVoteMarker["Derived post-vote marker"]
+    persistedElimination["Persisted current-day elimination"] --> postVoteMarker["scratch post_vote_date"]
     postVoteMarker --> recoveryBarrier["Recovery schedule stays authoritative"]
     fullPlanRequest["Full-day planning request"] --> contextFingerprint["Stable context fingerprint"]
     contextFingerprint --> exactCache{"Exact cache match?"}
@@ -40,40 +57,30 @@ flowchart LR
     exactCache -->|No| freshPlan["Generate once and cache"]
 ```
 
-## Implementation chunks
+## What shipped (by chunk)
 
-1. **Add the context-scoped cache contract** — files: [planning_cache.py](D:/Coding/generative_agents/reverie/backend_server/persona/cognitive_modules/planning_cache.py), [test_planning_cache_per_sim.py](D:/Coding/generative_agents/tests/test_planning_cache_per_sim.py), [test_small_cast_forces_replan.py](D:/Coding/generative_agents/tests/test_small_cast_forces_replan.py).
-   - Add an optional context fingerprint to plan cache keys and payloads; runtime callers will always supply it, while replay fixtures retain their existing explicit no-context path.
-   - Prove same context hits, changed context misses, wake-up caching is unchanged, and one simulation cannot leak into another.
-   - Check: `python -m pytest tests/test_planning_cache_per_sim.py tests/test_small_cast_forces_replan.py -q`.
+| # | Chunk | Result |
+|---|-------|--------|
+| 1 | Context-scoped cache contract | Optional `context_fingerprint` on plan cache keys/payloads; legacy no-fingerprint path kept for replay. Tests in `test_planning_cache_per_sim.py`. |
+| 2 | Planner context | `_is_post_vote_active`, `_planning_stage`, `_planning_context_fingerprint` in `plan.py`; post-vote skips full-day replan; stage in decomp pack. Removed unsafe wake-hour “New day” probe in `schedule_validator.py`. New `test_planning_context_fingerprint.py`. |
+| 3 | Post-vote barrier | Injection stamps `last_planned_date` to today + `post_vote_date`; supersedes `(b)` and residual `(c) … tonight's vote`; `_sync_post_vote_markers` on `on_step` for resume. |
+| 4 | Stall-breaker | Folded into chunk 3 — no schedule advance while post-vote active. |
+| 5 | Prompt gates | Post-vote overlay branch; `_scratch_post_vote_active` gates daily fixed-events + hourly calendar in `run_gpt_prompt.py`. Tests in `test_hourly_schedule_calendar.py` + overlay case in `test_survival_rca_refix_20260630.py`. Raw/cleanup prompt contracts unchanged. |
+| 6 | Scorer | `analyze_20260630_1.py`: step-window pagination, fail-closed incomplete 2311–2400 window, tightened `VOTE_PREP_RE` (no bare `\bvote\b`), flag only vote-prep **and** Hobbs. |
 
-2. **Wire stable context into full-day and decomposition planning** — files: [plan.py](D:/Coding/generative_agents/reverie/backend_server/persona/cognitive_modules/plan.py), [schedule_validator.py](D:/Coding/generative_agents/reverie/backend_server/persona/cognitive_modules/schedule_validator.py), and a focused new planning-context test.
-   - Compute the fingerprint only inside `_long_term_planning`; use the coarse stage rather than raw hourly Survival phases so normal pre-vote cache hits do not fragment.
-   - Let the exact cache lookup restore a plan; remove the validator’s unsafe early return based on a generic wake-hour key.
-   - Add the coarse stage to the existing task-decomposition context hash instead of globally clearing its cache.
-   - Prove normal mode makes the same number of planning LLM calls, unchanged context still hits, and one meaningful context change causes exactly one intended miss.
+**Out of scope (intentionally not rewritten):** morning `build_survival_daily_plan_req` — injection supersedes `(b)`/`(c)` in Scratch; lifestyle rewrite gated by `_post_vote_injected_for`.
 
-3. **Make post-vote recovery restart-safe and authoritative** — files: [controller.py](D:/Coding/generative_agents/reverie/backend_server/survival/controller.py), [test_survival_rca_20260627.py](D:/Coding/generative_agents/tests/test_survival_rca_20260627.py), [test_survival_rca_refix_20260630.py](D:/Coding/generative_agents/tests/test_survival_rca_refix_20260630.py).
-   - At elimination, set the derived marker, keep the deterministic remaining-day schedule, invalidate the old action, and stamp `last_planned_date` to today rather than triggering generic full-day planning.
-   - On restart, reconstruct the marker from the persisted current-day elimination and restore recovery once if persona Scratch was saved before injection completed.
-   - Prove an actual stale pre-vote cache cannot overwrite recovery, no full-day LLM call occurs post-vote, repeated recovery is idempotent, and normal next-day planning resumes after midnight.
+## Verification already done
 
-4. **Protect the first recovery action** — files: [plan.py](D:/Coding/generative_agents/reverie/backend_server/persona/cognitive_modules/plan.py) and [test_survival_rca_refix_20260630.py](D:/Coding/generative_agents/tests/test_survival_rca_refix_20260630.py).
-   - Prevent the generic stall-breaker’s forced schedule advance when `post_vote_active`; it must select “leave the gathering area and head home,” not skip to the following block.
-   - Prove the normal stall-breaker still advances unrelated stuck actions.
+- Focused pytest: planning cache, fingerprint, hourly calendar, RCA-1 / re-fix, small-cast replan — pass
+- `python tests/test_movement_realism.py` — pass
+- Simplify: deduped post-vote date helper in prompt module; overlay fallback date-matches
+- Worklog prepended under branch `ivan/durable-post-vote-planning`
+- Deployed: local → `origin/railway` `1db8cbe2`; VPS pull + `systemctl restart double-api` confirmed on that SHA
 
-5. **Gate all fallback planning prompts** — files: [run_gpt_prompt.py](D:/Coding/generative_agents/reverie/backend_server/persona/prompt_template/run_gpt_prompt.py), [controller.py](D:/Coding/generative_agents/reverie/backend_server/survival/controller.py), and one new post-vote prompt test.
-   - When post-vote is active, replace deadline/gathering cues with a concluded-vote recovery statement in the identity overlay, daily fixed-events block, hourly calendar block, and decomposition context.
-   - Keep non-Survival and pre-vote prompt inputs byte-for-byte unchanged; output and cleanup contracts do not change.
-   - Run the project prompt-verification workflow plus focused prompt/overlay tests.
+## Remaining — live proof (do not close RCA-1 until this)
 
-6. **Make acceptance scoring trustworthy** — files: [analyze_20260630_1.py](D:/Coding/generative_agents/tests/analyze_20260630_1.py) and a new scorer unit test.
-   - Paginate `personas_coords`, fail loudly on incomplete gate-window coverage, and narrow vote-prep matching so legitimate post-vote reflection is not flagged.
-   - Align labels with what is measured: vote-preparation anywhere, rather than claiming “at Hobbs” while checking all locations.
-
-## Final verification
-- Run all focused tests after their respective chunks; stop on the first failure.
-- Run `python tests/test_movement_realism.py`, replay cache tests, and prompt verification.
-- Performance gates: no new database calls, no per-step hashing, unchanged normal/pre-vote cache-hit behavior, and zero full-day planning LLM calls after elimination.
-- Run the paginated scorer on the next full Survival candidate; do not close RCA-1 until it reports complete row coverage and zero stale post-vote restores.
-- Run the simplify review, then prepend the required code-change entry to [worklog.md](D:/Coding/double-docs/worklog.md).
+1. Let `20260709-1` finish (~2600 steps / ~18–24h sprint).
+2. Score: `python3 tests/analyze_20260630_1.py 20260709-1`
+3. Require: complete row coverage for 2311–2400 (no “INCOMPLETE WINDOW”), zero vote-prep-at-Hobbs in that window, ≥10/14 bed/en-route @ 2450, ≥10/14 in bed @ 2489.
+4. Tick [`20260710_checklist.md`](20260710_checklist.md) §A RCA-1 + deploy checkpoint; then close [`20260709_rca1-expert-inquiry.md`](20260709_rca1-expert-inquiry.md).
