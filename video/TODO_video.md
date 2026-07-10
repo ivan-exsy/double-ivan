@@ -80,7 +80,7 @@ The opener manual push locked decisions and exposed failures. Daily auto-gen sho
 
 | Inherit | Detail |
 |--------|--------|
-| **Two-stage narration** | Day Story Producer → Narration Writer (cached per day; keys `story_v7` / `narration_v10`). **Phase 3.0 adds deterministic fact ledger between stages** — Writer must not infer beyond it. |
+| **Two-stage narration** | Day Story Producer → Narration Writer (cached per day; keys `story_v8` / `narration_v11`). **Phase 3.0 adds deterministic fact ledger between stages** — Writer must not infer beyond it. |
 | **Cast digest before LLM** | One positions fetch → all-Double day summary (`cast_digest.json`); spicy ranking + coverage candidate; deep extract top 3 only. |
 | **Spicy ranking + coverage (L12)** | Drama-gap `rank_score`; last top-N prefers never-featured alive Doubles; soft elim +2 only (never +50). |
 | **First-feature intro (L11)** | `intro_mode` full\|recall; Survival Day 1 (engine day 2) always full; history written only on `lock_day_script`. |

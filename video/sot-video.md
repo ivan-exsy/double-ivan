@@ -481,12 +481,19 @@ Reduce speed after any intensity: wide view → overlays fade → one Double →
 
 ## 14. Pipeline changelog
 
+### 2026-07-10 — Expert VO → auto-gen (challenge teach + thin tallies)
+
+- Fact ledger: plain challenge fields; winners from season only; `safe_vo` / `do_not_say` for thin tallies.
+- Soft-default `challenge_job` (first type → teach; repeat → one clause); `exposed_leads` + ≤5 soft-signal bullets.
+- Writer teach contract + Survival CTA (`doubland.ai`); full-intro budget 210–250; cache `story_v8` / `narration_v11`.
+- Craft SOT: `COS/tasks/2026-07-10-001/final.md` (pipeline only — no chat-probe VO lock this round).
+
 ### 2026-07-10 — Spicy ranking + coverage + F3 scar cards
 
 - **Laws:** **L12** (spicy + coverage), **L13** (scar cards).
 - **Spicy ranking:** drama-gap amplify vs day median (`DRAMA_GAP_K=1.75`); locations weight 0.05; story-role bonuses (elim +2 / immunity +3 / top votes +3). Soft elim never restored to +50.
 - **Coverage:** last featured slot prefers highest-spicy alive Double not yet in F1 history (featured|farewell).
-- **F3 scars:** lock writes `scar.json` + `double.trailer_day_scar`; Day N+1 producer/writer get compact prior scars; prior-day summary day-index fixed (season vs engine); cache `story_v7` / `narration_v10`.
+- **F3 scars:** lock writes `scar.json` + `double.trailer_day_scar`; Day N+1 producer/writer get compact prior scars; prior-day summary day-index fixed (season vs engine); cache later `story_v8` / `narration_v11` (was v7/v10).
 - Operator: lock Day N before generating Day N+1. No chat-probe history/scar backfill. Migration applied on double-openrouter.
 
 ### 2026-07-10 — F1 first-feature intro memory (L11)

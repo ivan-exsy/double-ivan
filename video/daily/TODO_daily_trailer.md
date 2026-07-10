@@ -64,7 +64,7 @@ For the day's 1–3 selected high-stakes moments, the trailer cuts from 2D into 
 | **Day-2+ validation** | Day-2 & Day-3 both pass all gates; cast rotates across days; "Previously on" bridge works (producer-chosen, optional) | ✅ Done |
 | **Comprehension gate** | Never run | ❌ Pending (D1) |
 | **Context prep (cast digest / ranking)** | Chat content + spicy drama-gap + coverage (2026-07-10) | ✅ L12; see §F |
-| **Challenge storytelling in VO** | Fact ledger challenge card + story-first prompts (E1+E2, 2026-07-09) | ✅ Available; expand only when it strengthens the arc — see §E |
+| **Challenge storytelling in VO** | Expert teach contract + thin-tally safety (2026-07-10) | ✅ First type appearance → teach; repeats → one clause; see §E |
 | **First-feature intro memory (F1)** | Supabase history + `intro_mode` + lock CLI (2026-07-10) | ✅ L11; live proof on next locked Survival Day 1+ package |
 | **Spicy ranking + coverage** | Drama-gap + last-slot never-featured (2026-07-10) | ✅ Digest + `rank_personas` |
 | **Prior-day scars (F3)** | `scar.json` + `trailer_day_scar` + showrunner prior_scars (2026-07-10) | ✅ Lock Day N before Day N+1 |
@@ -134,15 +134,16 @@ Challenge detail is **optional story fuel**, not a mandatory daily beat. Expand 
 - Explaining rules would crowd out who-they-are, connective tissue, or the cliffhanger
 - Catalog description is long — use **name + brief** at most; never paste full rules into VO
 
-**Shipped (E1+E2, 2026-07-09):**
+**Shipped (E1+E2, 2026-07-09; expert VO auto-gen 2026-07-10):**
 
-1. **E1. Challenge card in fact ledger** — `today.challenge` carries name + brief + winners/claimants (catalog + `season.challenge_results`); plain-language `today_facts`. Availability ≠ obligation to narrate.
-2. **E2. Prompt rule (story-first)** — Story Producer / Narration Writer: expand challenge only if it strengthens the arc; ban empty “immunity challenge”; cache keys bumped to `day_overview_story_v4` / `day_overview_narration_v7`.
+1. **E1. Challenge card in fact ledger** — `today.challenge` carries name + brief + winners/claimants + `tokens_available` / `effect_plain` / `how_to_compete_plain`; winners from season `challenge_results` only (claim flags ≠ win). Thin tallies → `safe_vo` + `do_not_say`.
+2. **E2. Prompt rule (teach vs short)** — first time this challenge *type* appears → `teach_and_stakes`; later → `one_clause`. Soft-default `challenge_job` in code; optional producer field; `exposed_leads` code-only. Soft signals ≤5 labeled bullets. Full-intro budget **210–250** words; cliff CTA `Follow live at doubland.ai.` Cache `day_overview_story_v8` / `day_overview_narration_v11`. Craft SOT: `COS/tasks/2026-07-10-001/final.md`.
 
 **Still deferred:**
 
 3. **E3. Optional trigger** — `challenge_resolved` only if producers still can’t land a challenge beat when they should.
 4. Longer uncut chats; engine PM-MEM cleanup.
+5. Paste expert v1.3 into chat-probe / re-TTS (pipeline-only this round).
 
 **Acceptance (E1+E2):** When the VO *does* lean on the challenge, a cold viewer can answer what it was and who came out ahead. When it doesn’t, runtime stays on the stronger arc — no forced challenge lecture.
 
@@ -188,7 +189,7 @@ Challenge detail is **optional story fuel**, not a mandatory daily beat. Expand 
 - **Shipped:**
   1. Fixed `_build_prior_day_summary` to map prior **engine** day → survival **season** day (grace skipped).
   2. Compact `scar.json` on lock + Supabase `double.trailer_day_scar` (migration `20260710190000_trailer_day_scar.sql`).
-  3. Showrunner loads last 1–2 scars into producer/writer (`prior_scars_block`); cache `day_overview_story_v7` / `day_overview_narration_v10`.
+  3. Showrunner loads last 1–2 scars into producer/writer (`prior_scars_block`); cache later bumped for expert VO → `day_overview_story_v8` / `day_overview_narration_v11`.
 - **Operator:** lock Day N before generating Day N+1. Do **not** backfill chat-probe history/scars.
 - **Acceptance:** Day 3+ VO can reference yesterday’s scar without inventing continuity.
 
@@ -210,7 +211,7 @@ Challenge detail is **optional story fuel**, not a mandatory daily beat. Expand 
 - **Prior-day scar cards (2026-07-10) — DONE · L13:** lock writes compact scar (file + Supabase); Day N+1 producer/writer load prior scars; season/engine day indexing fixed. Lock Day N before generating Day N+1.
 - **Persona ranker:** honors `--top N` as a minimum; the producer decides the actual featured-Double count (quiet-day fallback removed, 2026-07-01). Coverage may force the last slot away from pure spicy order.
 - **Cast ranking / digest chats (2026-07-09):** score Doubles on **chat content impact** (top transcripts: depth + vote/alliance cues from `movement.chat`), not chat count. Cast digest Moments mix events + thoughts + up to two substantive chat beats. Authoritative chat source for trailers remains position-row transcripts (not `dbl_memory` chat rows).
-- **Challenge in daily VO (2026-07-09):** put challenge name/brief/outcome in the fact ledger so the writer *can* use them; expand in narration **only if it strengthens the day’s storyline**. Under the <120s cap, never force a challenge set-piece or rules dump.
+- **Challenge in daily VO (2026-07-10):** first appearance of a challenge *type* → cold-viewer teach; repeats → one clause. Winners from season results only; thin tallies → messy/split VO + hard `do_not_say`. Cliff must include `doubland.ai`. Craft reference: COS `2026-07-10-001`.
 
 ---
 
@@ -226,7 +227,7 @@ Pipeline: extract (Supabase or cached `day_log.json`) → two-stage narration (L
 
 ## Current architecture (reference for the team)
 
-**Two-stage narration** (both cached per day so hand-edits survive re-render; keys `day_overview_story_v7`, `day_overview_narration_v10`):
+**Two-stage narration** (both cached per day so hand-edits survive re-render; keys `day_overview_story_v8`, `day_overview_narration_v11`):
 - **Stage 1 — Day Story Producer:** thesis, featured Doubles, dramatic question, status deltas, flexible beat plan (3–6 beats from a vocabulary) from the full day's context + prior scar cards (engine day ≥3).
 - **Stage 2 — Narration Writer:** the whole voiceover in one pass, threaded across the featured Doubles with connective tissue, plus a one-line on-screen caption per beat.
 
