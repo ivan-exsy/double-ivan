@@ -31,8 +31,8 @@ The daily trailer is indistinguishable in craft from the opener — a viewer can
 - **Cold-viewer intro.** Day-1: daily-specific concept-reset card + per-Double cast intros. Day ≥2: brief concept+cast touch + `yesterday_scar` "Previously on" bridge. The opener is **not** the Day-1 trailer — each daily is a self-contained episode.
 - **Drama >> resolution.** The day closes on a cliffhanger hook for tomorrow, never a bow.
 - **Plain marketer-simple language.** Concrete nouns and verbs, no strategy jargon or abstractions. A viewer who's never seen the show follows every sentence.
-- **Who they are, not just what they did.** Each featured Double's first mention carries a few role/trait words explaining *why* they act, drawn from the producer's status-deltas and persona personality data.
-- **Pacing.** Total trailer **under 120 seconds** ([C] `day_survival` per SOT L10). Pauses minimal and matched to the opener (~0.15s per scene, ~3s total silence). First-name-only in voiceover; full names on cards.
+- **Who they are, not just what they did.** Each featured Double's first mention carries a few role/trait words explaining *why* they act, drawn from the producer's status-deltas and persona personality data. **First time a Double is featured in any daily this season:** give a full normal-life stamp (job + place + trait). **Return appearances:** short recall line is enough.
+- **Pacing.** Survival daily target **~100–115s** when character stamps need room; hard cap still **under 120 seconds** ([C] `day_survival` per SOT L10). Pauses minimal and matched to the opener (~0.15s per scene, ~3s total silence). First-name-only in voiceover after stamps; full names on cards / first stamp.
 
 ### 3. The 2D→3D "matrix" north-star
 
@@ -143,6 +143,38 @@ Challenge detail is **optional story fuel**, not a mandatory daily beat. Expand 
 
 **Acceptance (E1+E2):** When the VO *does* lean on the challenge, a cold viewer can answer what it was and who came out ahead. When it doesn’t, runtime stays on the stronger arc — no forced challenge lecture.
 
+### F. Follow-up fixes (approved 2026-07-09 — implement next)
+
+Locked creative/product rules; code not shipped yet.
+
+#### F1. First-feature character intro (season memory)
+
+- **Problem:** Limited runtime; viewers still need to meet Doubles as *people* (normal-life job/place/trait), not only as vote pieces.
+- **Rule:** The **first time** a Double is featured in any daily trailer this season → full stamp (job + place + why they act). Later feature days → short recall only.
+- **Impl sketch:** Persist `featured_history` per `(sim_code or season_id, persona)` (file or Supabase). Story Producer / Narration Writer get `intro_mode: full | recall` per featured name. Cast-intro establishing layer can shorten on recall days.
+- **Acceptance:** Across a season, every Double who ever features gets one clear normal-life intro; returnees don’t burn 15s re-introducing.
+
+#### F2. Stop “eliminated = automatic #1” ranking — ✅ DONE (2026-07-09)
+
+- **Problem:** `+50` elimination bonus almost guaranteed the boot was featured lead → viewers learned the rhythm and guessed who goes home from the cast list alone.
+- **Shipped:**
+  1. Removed `TRIGGER_EVENT_BONUS` (+50) from `persona_ranker` scoring; replaced with soft `ELIMINATED_TODAY_BONUS = +2` (F2b) so boot status is a faint nudge, not auto-#1.
+  2. Showrunner prompts + producer `farewell_guidance`: if boot ∉ featured/protagonists, compress open and spend more `vote_reveal` on farewell.
+  3. Cache keys bumped to `day_overview_story_v5` / `day_overview_narration_v8`.
+- **Verified:** unit tests; cast digest regenerated for `20260707-chat-probe-v3` Day 2 (Vincent no longer auto-#1 from +50).
+
+#### F2b. Soft elimination nudge (+2) — ✅ DONE (2026-07-09)
+
+- Soft `+2` for `eliminated_today` so farewell candidates edge up when drama scores are tied; must stay ≪ relationship/chat weights.
+#### F3. Prior-day locked scripts as producer context
+
+- **Problem:** From Survival Day 2 onward, today’s social/emotional dynamics depend on yesterday’s choices; producer only sees today’s extract.
+- **Rule:** For engine day ≥ 3 (Survival Day ≥ 2), attach **previous days’ locked narrator scripts** (preferred) or last accepted `script.json` narrator text into Story Producer context (compact: thesis + featured + cliffhanger + key status shifts — not full day_logs).
+- **Impl sketch:** `generate_trailer` / showrunner loads `data/<sim>/trailer_ready_day{N-1}/script_used.txt` or `script.json` → `prior_scripts[]` in producer prompt. Human-locked text wins over auto draft when both exist.
+- **Acceptance:** Day 3+ VO can reference yesterday’s scar in character terms (“after Vincent went home…”) without inventing continuity.
+
+**Suggested implement order:** F1 (intro mode) → F3 (prior scripts). **F2 shipped 2026-07-09.** **Locked Day 2 VO** pasted + re-TTS’d into `trailer_ready_day2/` (2026-07-09, **106.4s**).
+
 ---
 
 ## Locked decisions (don't re-litigate)
@@ -150,9 +182,12 @@ Challenge detail is **optional story fuel**, not a mandatory daily beat. Expand 
 - **Multi-lead counts:** soft target 1–3 moments / 2–4 featured Doubles; producer flexes within guardrails, no hard rejection (2026-07-01).
 - **Day-1 intro:** daily-specific concept-reset card styled like the opener (option b). Daily is a self-contained episode every day; the opener is **not** the Day-1 trailer (2026-07-01).
 - **Voice:** `eleven_v3` warm @ 1.5×, matching the opener (2026-07-01).
-- **Duration:** [C] survival daily **<120s**; validator band **60–120s** (SOT L10, 2026-07-02). *[B] `day_normal` target 60–90s when that contract ships (SOT L9).*
+- **Duration:** [C] survival daily **<120s** hard cap; **working target ~100–115s** when first-feature stamps need room (2026-07-09). Validator band **60–120s** (SOT L10). *[B] `day_normal` target 60–90s when that contract ships (SOT L9).*
 - **Pauses:** opener-matched ~0.15s per scene, ~3s total (2026-07-01).
 - **Language:** plain marketer-simple, no abstractions; weave who-they-are/why into each Double's first mention (2026-07-01).
+- **First-feature intro (2026-07-09):** full normal-life stamp the first time a Double is featured in a daily this season; shorter recall on later feature days.
+- **Elimination ranking (2026-07-09) — DONE:** no +50 for eliminated-today; soft **+2** farewell nudge only (F2b); boot outside top-3 → compress open + farewell close (showrunner guidance).
+- **Prior-day script context (2026-07-09, pending code):** from engine Day 3 / Survival Day 2 onward, feed previous days’ locked narrator scripts into the Story Producer so today’s social/emotional dynamics carry forward.
 - **Persona ranker:** honors `--top N` as a minimum; the producer decides the actual featured-Double count (quiet-day fallback removed, 2026-07-01).
 - **Cast ranking / digest chats (2026-07-09):** score Doubles on **chat content impact** (top transcripts: depth + vote/alliance cues from `movement.chat`), not chat count. Cast digest Moments mix events + thoughts + up to two substantive chat beats. Authoritative chat source for trailers remains position-row transcripts (not `dbl_memory` chat rows).
 - **Challenge in daily VO (2026-07-09):** put challenge name/brief/outcome in the fact ledger so the writer *can* use them; expand in narration **only if it strengthens the day’s storyline**. Under the <120s cap, never force a challenge set-piece or rules dump.
@@ -171,7 +206,7 @@ Pipeline: extract (Supabase or cached `day_log.json`) → two-stage narration (L
 
 ## Current architecture (reference for the team)
 
-**Two-stage narration** (both cached per day so hand-edits survive re-render; keys `day_overview_story_v4`, `day_overview_narration_v7`):
+**Two-stage narration** (both cached per day so hand-edits survive re-render; keys `day_overview_story_v5`, `day_overview_narration_v8`):
 - **Stage 1 — Day Story Producer:** thesis, featured Doubles, dramatic question, status deltas, flexible beat plan (3–6 beats from a vocabulary) from the full day's context.
 - **Stage 2 — Narration Writer:** the whole voiceover in one pass, threaded across the featured Doubles with connective tissue, plus a one-line on-screen caption per beat.
 

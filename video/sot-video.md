@@ -470,6 +470,13 @@ Reduce speed after any intensity: wide view → overlays fade → one Double →
 
 ## 14. Pipeline changelog
 
+### 2026-07-09 — Character care + ranking/continuity follow-ups
+
+- Survival daily working target **~100–115s** (hard cap still <120s) when first-feature stamps need room.
+- Locked chat-probe Day 2 plain-text VO in `video/todo_script_draft.md` (Vincent / Max / Olivia stamps + want/turn).
+- Ranking F2 (2026-07-09): no elimination +50; farewell close when boot ∉ top-3 (`day_overview_story_v5` / `day_overview_narration_v8`).
+- Pending code (§F): first-feature intro memory (F1); prior-day locked scripts into producer from Day 3+ (F3).
+
 ### 2026-07-09 — Challenge card available; story-first VO
 
 - Fact ledger `today.challenge`: plain-language name + brief + winners (not raw id only).
