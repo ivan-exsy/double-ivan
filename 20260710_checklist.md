@@ -6,6 +6,8 @@
 **Baseline (already green on `20260708-mvp-a` — re-verify on new sim):** first-vote 15/15 · meals 14/14 · sleep 14/14 @ 1050 · P0s GREEN · halluc 0.6% · Class A desk-excl. 15 ≤20.  
 **Only known open blocker before this run:** RCA-1 (inquiry: [`20260709_rca1-expert-inquiry.md`](20260709_rca1-expert-inquiry.md) · plan: [`20260709_durable_post-vote_planning_6b81b1b9.plan.md`](20260709_durable_post-vote_planning_6b81b1b9.plan.md)).
 
+**Scored 2026-07-10 evening** from VPS pack `tests/reports/_20260709-1_checklist_pack` + Day-1 snapshot meals query. Sim stopped at step **2489** (`status=stopped`, enough for RCA-1 window; planned max was 2600).
+
 Details / history: [`../double-docs/20260705_close-for-mvp.md`](../double-docs/20260705_close-for-mvp.md). Tick here only.
 
 ---
@@ -14,52 +16,54 @@ Details / history: [`../double-docs/20260705_close-for-mvp.md`](../double-docs/2
 
 Confirm the overnight proof run is the build we think it is, then score.
 
-- [ ] **VPS still on fix** — `cd /var/www/generative_agents && git log -1 --oneline` shows `1db8cbe2`
-- [ ] **Sim finished or far enough** — status shows `20260709-1` completed / step ≥ 2489 (RCA-1 window needs through midnight)
+- [x] **VPS still on fix** — `cd /var/www/generative_agents && git log -1 --oneline` shows `1db8cbe2`
+- [x] **Sim finished or far enough** — status shows `20260709-1` completed / step ≥ 2489 (RCA-1 window needs through midnight) — **stopped @ 2489**
   ```bash
   curl -k https://localhost:8001/api/simulations/20260709-1/status/current | python3 -m json.tool
   ```
-- [ ] **Sprint stayed on** — `live_mode: false` throughout (if it slept at a chunk boundary, do not treat as a clean RCA-1 proof)
-- [ ] **RCA-1 scorer first** — `python3 tests/analyze_20260630_1.py 20260709-1`
+- [x] **Sprint stayed on** — `live_mode: false` throughout (if it slept at a chunk boundary, do not treat as a clean RCA-1 proof)
+- [x] **RCA-1 scorer first** — `python3 tests/analyze_20260630_1.py 20260709-1`
   - Must **not** print `INCOMPLETE WINDOW` for steps 2,311–2,400
   - Gate text is **vote-prep at Hobbs** (tightened regex — bare “vote has concluded” must not false-fail)
   - Record PASS/FAIL under §A RCA-1 below before running the rest of the suite
+  - **Result: PASS** (no incomplete window)
 
 If §0 fails (wrong SHA, incomplete window, or live-mode stall): **stop** — do not tick §A green; diagnose before another fork.
 
 ---
 
-## A. MVP sign-off gates (must all pass)
+## A. MVP sign-off gates (must all pass) — **ALL GREEN on `20260709-1`**
 
-Scorers: `analyze_20260630_1.py` · `score_rca2_meals.py` · `analyze_action-location.py`
+Scorers: `analyze_20260630_1.py` · Day-1 `persona_day_snapshots` meals query · `analyze_action-location.py`
 
-- [ ] **RCA-1** — steps 2,311–2,400: **zero** vote-prep **at Hobbs** (tightened scorer: vote-prep intent + Hobbs; not bare `\bvote\b`); ≥10/14 bed/en-route @ 2,450; ≥10/14 in bed @ 2,489.  
-  Ref: inquiry + plan + [`../double-docs/15sim-polish.md`](../double-docs/15sim-polish.md) §RCA-1 · **FAIL on mvp-a** (Owen @ classroom ×42)
-- [ ] **First-vote attendance** — near-full cast ballots (not thin tally + phantoms).  
-  Already ✅ 15/15 on mvp-a — re-check
-- [ ] **Meals** — lunch ≥13, dinner ≥13 via `score_rca2_meals.py` (ignore analyze 0/15 artifact)
-- [ ] **Sleep @ 1,050** — ≥11/14 in bed
-- [ ] **Closed P0s** — vote gate, labeling, day persistence, elimination wiring, open-ended all GREEN
-- [ ] **Hallucination** — &lt; 5% (mvp-a was 0.6%)
-- [ ] **Class A** — desk-excl. ≤20, no chaos (mvp-a was 15); full report, not `--max-steps 200`
+- [x] **RCA-1** — steps 2,311–2,400: **zero** vote-prep **at Hobbs**; **14/14** bed/en-route @ 2,450; **14/14** in bed @ 2,489.  
+  Ref: inquiry + plan + [`../double-docs/15sim-polish.md`](../double-docs/15sim-polish.md) §RCA-1 · **FAIL on mvp-a** (Owen @ classroom ×42) → **PASS on this run**
+- [x] **First-vote attendance** — **15/15** cast ballots; boot **Ivan Pitts**
+- [x] **Meals** — lunch **15/15**, dinner **15/15** from Day-1 snapshots (live `score_rca2_meals.py` at end-of-run reads Day-2 night scratch — ignore that 0/14; also ignore analyze hour-parse 0/15 artifact)
+- [x] **Sleep @ 1,050** — **14/14** in bed
+- [x] **Closed P0s** — vote gate, labeling, day persistence, elimination wiring, open-ended all **GREEN**
+- [x] **Hallucination** — **0.0%** (0/726) — gate &lt; 5%
+- [x] **Class A** — raw **24** → desk-excl. **17** ≤20; Class B cross-building 5 (no chaos); full report in pack `13_action_location.txt`
 
 ## B. Survival realism (same run if fix is already deployed)
 
-- [ ] **Soft day brief** — leftover hours = jobs/hobbies, not everyone “reviewing challenge notes.”  
+- [x] **Soft day brief** — briefs use soft template + real jobs/lifestyles (“rest of the day should still feel like this person's life”); not the old shared note-spam cue.  
   Ref: [`20260709_survival_realism.md`](20260709_survival_realism.md)
-- [ ] **Seek → real meet** — some Doubles walk toward a named person, then chat when close.  
+- [x] **Seek → real meet** — seek intents present (`looking for X to talk strategy`) + chats in same windows (159 seek hits / 479 chat payloads sampled).  
   Ref: same · [`../double-docs/sot/sot_survival.md`](../double-docs/sot/sot_survival.md)
 
 ## C. Trailer cast / ranking (regen Day 2 / Survival Day 1 digest)
 
-- [ ] **Chat impact, not chat count** — ranking + Moments use substantive vote/alliance talk.  
+Artifacts: `generative_agents/data/20260709-1/trailer_ready_day2/` (`cast_ranking.json`, `cast_digest.json`, `cast_digest.md`).
+
+- [x] **Chat impact, not chat count** — ranking justifications use `chat_impact` (not count-as-lead); Moments include substantive vote/alliance chats. `conversation_count` is capped diagnostic (25).  
   Ref: [`video/daily/TODO_daily_trailer.md`](video/daily/TODO_daily_trailer.md) · [`20260709_survival_realism.md`](20260709_survival_realism.md)
-- [ ] **F2 / F2b** — boot not auto-#1 from +50; soft +2 only; if boot ∉ top-3, digest still names them + farewell.  
+- [x] **F2 / F2b** — boot **Ivan Pitts = #8** (not auto-#1); justification shows soft `eliminated_today(+2)` only; digest has **Today elimination** section naming Ivan + vote tally.  
   Ref: [`video/daily/TODO_daily_trailer.md`](video/daily/TODO_daily_trailer.md) §F2 / F2b
-- [ ] **Challenge card** — digest / fact ledger names today’s challenge in plain language.  
+- [ ] **Challenge card** — **GAP:** `challenge_today: null` / digest header **Challenge: (none)** even though season Day 1 was Limited Immunity (present in chats/schedules + survival export). Fact-ledger challenge card (TODO §E / E1) not populated on this digest.  
   Ref: same §E · [`video/sot-video.md`](video/sot-video.md)
-- [ ] **Featured cast / VO** (if auto-regen) — follows **current** ranking.  
-  Ref: [`video/todo_script_draft.md`](video/todo_script_draft.md) · `generative_agents/data/<sim>/trailer_ready_day2/`
+- [x] **Featured cast / VO** (if auto-regen) — digest ranking order is the featured order (Vincent → Max → Olivia …); no VO auto-regen this pass (N/A until `generate_trailer`).  
+  Ref: [`video/todo_script_draft.md`](video/todo_script_draft.md) · `generative_agents/data/20260709-1/trailer_ready_day2/`
 
 ## Quick commands
 
@@ -70,15 +74,15 @@ cd /var/www/generative_agents && git log -1 --oneline
 
 # MVP scorers (this proof sim)
 python3 tests/analyze_20260630_1.py 20260709-1
-python3 tests/score_rca2_meals.py 20260709-1
+# Meals: prefer Day-1 persona_day_snapshots (live scratch at end-of-run is Day-2 night)
 python3 tests/analyze_action-location.py 20260709-1 > tests/reports/_20260709-1_action_location.txt
-python -m video.summarize_cast_day 20260709-1 --day 2 -o data/20260709-1/trailer_ready_day2
+python3 -m video.summarize_cast_day 20260709-1 --day 2 --output-dir data/20260709-1/trailer_ready_day2
 ```
 
 ## Out of scope for this checklist
 
 Path B Class A residual · embedding reindex / gateway / retire `OPENAI_API_KEY` (Phase 8) · spicy ranking · observation-queue P1.  
-Do **not** promote `railway`→`main` until §A all green.
+**§A is green** — doc DONE + Step 3 ops (`sot_llm.md`, `railway`→`main`, VPS cleanup) can proceed; §C digest is trailer-only follow-up.
 
 ---
 
@@ -98,4 +102,4 @@ Do **not** promote `railway`→`main` until §A all green.
 **Then (Step 3 ops — not “doc DONE” alone):** update `sot/sot_llm.md` · `railway`→`main` · VPS diagnostic cleanup · 24h monitor.
 
 **Keep open after §A (not closed by this run alone):**  
-[`20260709_survival_realism.md`](20260709_survival_realism.md) until §B ticks · `TODO_action-location.md` §B Path B · merge/OpenRouter **Phase 8**.
+`TODO_action-location.md` §B Path B · merge/OpenRouter **Phase 8** · §C digest ticks above.
