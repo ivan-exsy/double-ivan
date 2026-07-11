@@ -60,7 +60,8 @@ Artifacts: `generative_agents/data/20260709-1/trailer_ready_day2/` (`cast_rankin
   Ref: [`video/daily/TODO_daily_trailer.md`](video/daily/TODO_daily_trailer.md) · [`20260709_survival_realism.md`](20260709_survival_realism.md)
 - [x] **F2 / F2b** — boot **Ivan Pitts = #8** (not auto-#1); justification shows soft `eliminated_today(+2)` only; digest has **Today elimination** section naming Ivan + vote tally.  
   Ref: [`video/daily/TODO_daily_trailer.md`](video/daily/TODO_daily_trailer.md) §F2 / F2b
-- [ ] **Challenge card** — **GAP:** `challenge_today: null` / digest header **Challenge: (none)** even though season Day 1 was Limited Immunity (present in chats/schedules + survival export). Fact-ledger challenge card (TODO §E / E1) not populated on this digest.  
+- [ ] **Challenge card** — **FIX SHIPPED** (`ivan/digest-challenge-card-from-season` → `railway`): digest now prefers season `challenge_results` over cleared scratch. Re-run to close: `python3 -m video.summarize_cast_day 20260709-1 --day 2 --output-dir data/20260709-1/trailer_ready_day2` → expect **Limited Immunity** + winners Alex/Diana (not `(none)`).  
+  **Inquiry for eng:** [`video/daily/20260710_inquiry_trailer-polish-challenge-card-digest.md`](video/daily/20260710_inquiry_trailer-polish-challenge-card-digest.md)  
   Ref: same §E · [`video/sot-video.md`](video/sot-video.md)
 - [x] **Featured cast / VO** (if auto-regen) — digest ranking order is the featured order (Vincent → Max → Olivia …); no VO auto-regen this pass (N/A until `generate_trailer`).  
   Ref: [`video/todo_script_draft.md`](video/todo_script_draft.md) · `generative_agents/data/20260709-1/trailer_ready_day2/`
