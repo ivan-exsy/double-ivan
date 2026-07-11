@@ -1,6 +1,6 @@
 # OpenRouter Migration — DeepSeek V4 + Gemini Embeddings
 
-**Updated:** 2026-07-09 (post `20260708-mvp-a`) · **Branch:** merged on `railway`
+**Updated:** 2026-07-10 (MVP signed off on `20260709-1`) · **Branch:** merged on `railway`
 
 ---
 
@@ -25,23 +25,22 @@ pgvector schema stays `vector(768)`. Out of scope: memory data model, Supabase R
 
 | Area | Evidence |
 |------|----------|
-| OpenRouter plumbing | Client factory, reasoning control, json_schema + response-healing, provider prefs — branch `ivan/openrouter-deepseek-v4` |
-| Sim engine on OpenRouter | 15-player survival runs complete (`20260628-10-openrouter` ~921 steps; `20260629-4-OR` 250 steps) |
+| OpenRouter plumbing | Client factory, reasoning control, json_schema + response-healing, provider prefs — on `railway` |
+| Sim engine on OpenRouter | Full survival MVP proof `20260709-1` (RCA-1 + meals/sleep/P0s/vote/halluc/Class A) |
 | Thinking safety | Tier A = `effort:none`; Tier B routine = `none`; 6 hard prompts = `high` + bumped `max_tokens` |
-| Run 1c config adopted | Flash + selective thinking; +$0.18/250 steps; Class A 24→2 |
-| Gemini embeddings (dev) | Wired in code; writes/reads work in sim runs |
-| Legacy comparison | OpenAI `20260628-4` was already weak at object/fixture level — OpenRouter gap is ~1.7× on divergence, not a clean→broken regression |
+| Gemini embeddings (dev/runtime writes) | Wired in code; writes/reads work in sim runs |
+| **SOT production posture** | [`sot/sot_llm.md`](../double-docs/sot/sot_llm.md) v1.7 updated 2026-07-10 → OpenRouter as VPS/`railway` prod |
+| **Sim-engine MVP sign-off** | Closed via `20260705_close-for-mvp.md` / `15sim-polish.md` on `20260709-1` |
 
-### Still pending / not production-ready ⏳
+### Still pending / not production-complete ⏳
 
 | Area | Status |
 |------|--------|
-| **Tier 1.5 location** | **PASS on `20260708-mvp-a`** — halluc **0.6%**; Class A desk-excl. **15** ≤20. Tier 2 flat-enum **not** required for MVP. |
-| **Tier 0 survival** (trailer beats) | Meals/sleep/P0s ✅ on `20260708-mvp-a`; **RCA-1 FAIL** (post-elim vote-prep language). Prior recovery green on `20260703-or-2`. |
-| **Embedding reindex** | Script exists; full `dbl_memory` reindex not run (point of no return) |
-| **Gateway cutover** | Chat with Double + card summary still need OpenRouter validation |
-| **Merge + production** | Merged to `railway` + VPS deployed; **`railway`→`main` promotion open** |
-| **SOT sign-off** | `sot_llm.md` not updated; Naturalness Gate at full scale not re-certified |
+| **Embedding reindex** | Script exists; full `dbl_memory` reindex not run (point of no return) — Phase 8 |
+| **Gateway cutover** | Chat with Double + card summary still need OpenRouter validation — Phase 8 |
+| **`railway`→`main` promotion** | Open (Step 3 ops) |
+| **Retire `OPENAI_API_KEY`** | Keep until Phase 8 + promote complete |
+| Naturalness Gate at full scale | Not re-certified as a formal gate this cycle |
 
 ### Sim comparison
 
@@ -287,11 +286,11 @@ Assumption: survival MVP gates pass on **`railway` + OpenAI** first; OpenRouter 
 1. ~~Railway: finish `15sim-polish` + survival validation~~ ✅ `20260703-or-2`
 2. ~~OpenRouter: Tier 1.5 smoke~~ ✅ `20260705-or-smoke`, Class A 2
 3. ~~**Merge** OpenRouter onto `railway`~~ ✅ deployed VPS
-4. ~~**2,600-step sign-off run**~~ — `20260708-mvp-a`: location PASS (halluc 0.6%, Class A desk-excl. 15); first-vote/meals/sleep/P0s green; **RCA-1 still open**
-5. Finish RCA-1 → then embedding reindex (dry-run → full)
-6. Gateway smoke (Chat with Double + card summary)
-7. Full validation + Naturalness Gate; update `sot_llm.md`
-8. `railway`→`main` promotion; retire `OPENAI_API_KEY`; 24h monitor
+4. ~~**2,600-step sign-off run**~~ — `20260708-mvp-a` location PASS; **`20260709-1` survival MVP PASS** (RCA-1 closed)
+5. ~~Update `sot_llm.md` production posture~~ ✅ v1.7 (2026-07-10)
+6. Embedding reindex (dry-run → full) — **Phase 8 open**
+7. Gateway smoke (Chat with Double + card summary) — **Phase 8 open**
+8. `railway`→`main` promotion; retire `OPENAI_API_KEY`; 24h monitor — **Step 3 ops open**
 
 **Deferred:** Tier 2 flat-enum — Path B / post-MVP (hallucination already &lt; 5%).
 

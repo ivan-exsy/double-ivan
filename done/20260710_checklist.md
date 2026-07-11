@@ -4,7 +4,7 @@
 **Deploy SHA:** `1db8cbe2` on `railway` (confirmed via `git log -1` on VPS before start).  
 **Run params:** baseline `soul15_seed_20260224` · `max_steps=2600` · `generation_mode=sprint` · `diagnostic_mode=true` · PID at start `182024`.  
 **Baseline (already green on `20260708-mvp-a` — re-verify on new sim):** first-vote 15/15 · meals 14/14 · sleep 14/14 @ 1050 · P0s GREEN · halluc 0.6% · Class A desk-excl. 15 ≤20.  
-**Only known open blocker before this run:** RCA-1 (inquiry: [`20260709_rca1-expert-inquiry.md`](20260709_rca1-expert-inquiry.md) · plan: [`20260709_durable_post-vote_planning_6b81b1b9.plan.md`](20260709_durable_post-vote_planning_6b81b1b9.plan.md)).
+**Only known open blocker before this run:** RCA-1 (inquiry: [`done/20260709_rca1-expert-inquiry.md`](done/20260709_rca1-expert-inquiry.md) · plan: [`done/20260709_durable_post-vote_planning_6b81b1b9.plan.md`](done/20260709_durable_post-vote_planning_6b81b1b9.plan.md)).
 
 **Scored 2026-07-10 evening** from VPS pack `tests/reports/_20260709-1_checklist_pack` + Day-1 snapshot meals query. Sim stopped at step **2489** (`status=stopped`, enough for RCA-1 window; planned max was 2600).
 
@@ -48,7 +48,7 @@ Scorers: `analyze_20260630_1.py` · Day-1 `persona_day_snapshots` meals query ·
 ## B. Survival realism (same run if fix is already deployed)
 
 - [x] **Soft day brief** — briefs use soft template + real jobs/lifestyles (“rest of the day should still feel like this person's life”); not the old shared note-spam cue.  
-  Ref: [`20260709_survival_realism.md`](20260709_survival_realism.md)
+  Ref: [`done/20260709_survival_realism.md`](done/20260709_survival_realism.md)
 - [x] **Seek → real meet** — seek intents present (`looking for X to talk strategy`) + chats in same windows (159 seek hits / 479 chat payloads sampled).  
   Ref: same · [`../double-docs/sot/sot_survival.md`](../double-docs/sot/sot_survival.md)
 
@@ -57,7 +57,7 @@ Scorers: `analyze_20260630_1.py` · Day-1 `persona_day_snapshots` meals query ·
 Artifacts: `generative_agents/data/20260709-1/trailer_ready_day2/` (`cast_ranking.json`, `cast_digest.json`, `cast_digest.md`).
 
 - [x] **Chat impact, not chat count** — ranking justifications use `chat_impact` (not count-as-lead); Moments include substantive vote/alliance chats. `conversation_count` is capped diagnostic (25).  
-  Ref: [`video/daily/TODO_daily_trailer.md`](video/daily/TODO_daily_trailer.md) · [`20260709_survival_realism.md`](20260709_survival_realism.md)
+  Ref: [`video/daily/TODO_daily_trailer.md`](video/daily/TODO_daily_trailer.md) · [`done/20260709_survival_realism.md`](done/20260709_survival_realism.md)
 - [x] **F2 / F2b** — boot **Ivan Pitts = #8** (not auto-#1); justification shows soft `eliminated_today(+2)` only; digest has **Today elimination** section naming Ivan + vote tally.  
   Ref: [`video/daily/TODO_daily_trailer.md`](video/daily/TODO_daily_trailer.md) §F2 / F2b
 - [ ] **Challenge card** — **FIX SHIPPED** (`ivan/digest-challenge-card-from-season` → `railway`): digest now prefers season `challenge_results` over cleared scratch. Re-run to close: `python3 -m video.summarize_cast_day 20260709-1 --day 2 --output-dir data/20260709-1/trailer_ready_day2` → expect **Limited Immunity** + winners Alex/Diana (not `(none)`).  
@@ -87,20 +87,21 @@ Path B Class A residual · embedding reindex / gateway / retire `OPENAI_API_KEY`
 
 ---
 
-## Docs to mark DONE after §A passes on the new sim
+## Docs to mark DONE after §A passes on the new sim — **executed 2026-07-10**
 
-| Doc | Action |
-|-----|--------|
-| [`../double-docs/20260705_close-for-mvp.md`](../double-docs/20260705_close-for-mvp.md) | Mark complete → **DONE** |
-| [`../double-docs/15sim-polish.md`](../double-docs/15sim-polish.md) | MVP sign-off in header → **DONE** |
-| [`../double-docs/20260630_merge-openrouter-railway.md`](../double-docs/20260630_merge-openrouter-railway.md) | Phase 7 ✅ → **DONE** (Phase 8 stays open / post-MVP) |
-| [`TODO_action-location.md`](TODO_action-location.md) | Location MVP already green — confirm final scoreboard; Path B stays open |
-| [`20260708_hallucinations.md`](20260708_hallucinations.md) | Already MVP-closed — archive / leave as Path B note |
-| [`20260709_rca1-expert-inquiry.md`](20260709_rca1-expert-inquiry.md) | Close when RCA-1 PASS proven on this sim |
-| [`20260709_durable_post-vote_planning_6b81b1b9.plan.md`](20260709_durable_post-vote_planning_6b81b1b9.plan.md) | Mark `live-proof` todo completed when scorer PASS |
-| [`20260627_openrouter.md`](20260627_openrouter.md) | Sim-engine sign-off path complete; SOT/`main`/Phase 8 still need Step 3 ops |
+| Doc | Action | Result |
+|-----|--------|--------|
+| [`../double-docs/20260705_close-for-mvp.md`](../double-docs/20260705_close-for-mvp.md) | Mark complete → **DONE** | ✅ Done (stays in `double-docs/`) |
+| [`../double-docs/15sim-polish.md`](../double-docs/15sim-polish.md) | MVP sign-off in header → **DONE** | ✅ Done |
+| [`../double-docs/20260630_merge-openrouter-railway.md`](../double-docs/20260630_merge-openrouter-railway.md) | Phase 7 ✅ → **DONE** (Phase 8 stays open) | ✅ Done |
+| [`TODO_action-location.md`](TODO_action-location.md) | Confirm scoreboard; Path B stays open | ✅ Updated (`20260709-1` row); **keep open** |
+| [`done/20260708_hallucinations.md`](done/20260708_hallucinations.md) | Archive | ✅ → `done/` |
+| [`done/20260709_rca1-expert-inquiry.md`](done/20260709_rca1-expert-inquiry.md) | Close on RCA-1 PASS | ✅ → `done/` |
+| [`done/20260709_durable_post-vote_planning_6b81b1b9.plan.md`](done/20260709_durable_post-vote_planning_6b81b1b9.plan.md) | live-proof completed | ✅ → `done/` |
+| [`done/20260709_survival_realism.md`](done/20260709_survival_realism.md) | §B verified | ✅ → `done/` |
+| [`20260627_openrouter.md`](20260627_openrouter.md) | Sim-engine path complete; Phase 8 / `main` open | ✅ Status updated; **keep open** |
+| [`../double-docs/sot/sot_llm.md`](../double-docs/sot/sot_llm.md) | Production posture → OpenRouter | ✅ v1.7 |
 
-**Then (Step 3 ops — not “doc DONE” alone):** update `sot/sot_llm.md` · `railway`→`main` · VPS diagnostic cleanup · 24h monitor.
+**Step 3 ops still open:** `railway`→`main` · VPS diagnostic cleanup · 24h monitor.
 
-**Keep open after §A (not closed by this run alone):**  
-`TODO_action-location.md` §B Path B · merge/OpenRouter **Phase 8** · §C digest ticks above.
+**Keep open:** `TODO_action-location.md` §B Path B · `20260627_openrouter.md` Phase 8 · §C challenge-card re-verify · this checklist until Step 3 done.

@@ -27,7 +27,8 @@ Engine “make chat memories the dramatic-moments source” (`PM-MEM-*`) stays p
 - `double-docs/TODO_post_mvp.md` — near-term trailer mitigation note updated.
 
 ## Verified
-Unit tests + `tests/smoke_social_seek.py` (brief text, seek redirect, expiry). Digest/ranker chat-content tests in `video/test_day_overview_facts.py`. Full multi-day survival sim not re-run yet — next check: schedule variety + seek→chat rates on a live/forked day, then regenerate cast digest.
+Unit tests + `tests/smoke_social_seek.py` (brief text, seek redirect, expiry). Digest/ranker chat-content tests in `video/test_day_overview_facts.py`.
 
-## Not covered by `20260708-mvp-a` MVP scoreboard
-Meals / sleep / first-vote / RCA-1 / Class A / hallucination gates do **not** close this doc. Still needs a digest-level check (schedule variety + intentional seek→chat) on a post-realism-fix run — keep open until that pass.
+**Live proof (2026-07-10) on `20260709-1`:** soft briefs include real jobs/lifestyles; seek intents + chats observed in movement windows; cast digest ranking uses `chat_impact`. Checklist §B ticked. Residual schedule lines that still say “reviewing challenge notes” are LLM activity phrasing, not the old shared brief — optional polish only.
+
+**Status:** **DONE** — archived to `double-ivan/done/` (2026-07-10).

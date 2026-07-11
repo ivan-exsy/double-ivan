@@ -1,7 +1,7 @@
 ---
 name: durable post-vote planning
 overview: Make post-vote recovery authoritative until midnight, scope planning caches to the inputs that produced them, and keep normal-mode performance unchanged. Reuse the already-persisted Survival elimination record as the restart-safe source of truth, avoiding a database migration or new per-step reads.
-status: shipped_awaiting_live_proof
+status: done
 shipped_commit: 1db8cbe2
 shipped_branch: railway
 proof_sim: 20260709-1
@@ -29,15 +29,13 @@ todos:
     status: completed
   - id: live-proof
     content: Score VPS sim 20260709-1 with analyze_20260630_1.py after ~2600 steps; close RCA-1 only on PASS
-    status: pending
+    status: completed
 isProject: false
 ---
 
-# Durable Post-Vote Planning — shipped
+# Durable Post-Vote Planning — **DONE**
 
-**Status:** Code shipped to VPS `railway` at `1db8cbe2` (2026-07-09). Unit suites green. **RCA-1 not closed until live proof on `20260709-1`.**
-
-**Proof run:** `20260709-1` — forked from `soul15_seed_20260224`, sprint + `diagnostic_mode`, 2600 steps, started ~2026-07-10 01:11 UTC. Checklist: [`20260710_checklist.md`](20260710_checklist.md).
+**Status:** **DONE** (2026-07-10). Code shipped `1db8cbe2` on `railway`. **Live proof PASS** on `20260709-1` (RCA-1: 0 vote-prep@Hobbs 2311–2400; 14/14 bed @2450 & 2489). Checklist: [`../20260710_checklist.md`](../20260710_checklist.md).
 
 ## Design (as built)
 
@@ -78,9 +76,9 @@ flowchart LR
 - Worklog prepended under branch `ivan/durable-post-vote-planning`
 - Deployed: local → `origin/railway` `1db8cbe2`; VPS pull + `systemctl restart double-api` confirmed on that SHA
 
-## Remaining — live proof (do not close RCA-1 until this)
+## Remaining — live proof — **DONE**
 
-1. Let `20260709-1` finish (~2600 steps / ~18–24h sprint).
-2. Score: `python3 tests/analyze_20260630_1.py 20260709-1`
-3. Require: complete row coverage for 2311–2400 (no “INCOMPLETE WINDOW”), zero vote-prep-at-Hobbs in that window, ≥10/14 bed/en-route @ 2450, ≥10/14 in bed @ 2489.
-4. Tick [`20260710_checklist.md`](20260710_checklist.md) §A RCA-1 + deploy checkpoint; then close [`20260709_rca1-expert-inquiry.md`](20260709_rca1-expert-inquiry.md).
+1. ~~Let `20260709-1` finish~~ — stopped @ 2489 (enough for RCA-1 window).
+2. ~~Score~~ — `analyze_20260630_1.py 20260709-1` → **RCA-1 OVERALL: PASS**
+3. ~~Require complete window / zero vote-prep@Hobbs / bed gates~~ — all met.
+4. ~~Tick checklist + close inquiry~~ — done 2026-07-10; this plan archived to `done/`.

@@ -1,4 +1,12 @@
-# Expert inquiry — RCA-1 post-vote recovery (only remaining MVP blocker)
+# Expert inquiry — RCA-1 post-vote recovery — **DONE**
+
+**Status:** **DONE** (2026-07-10) · Proof sim `20260709-1` · Fix SHA `1db8cbe2`  
+**Outcome:** RCA-1 **PASS** — 0 vote-prep at Hobbs steps 2,311–2,400; 14/14 bed/en-route @ 2,450; 14/14 in bed @ 2,489.  
+**Plan:** [`20260709_durable_post-vote_planning_6b81b1b9.plan.md`](20260709_durable_post-vote_planning_6b81b1b9.plan.md) · Checklist: [`20260710_checklist.md`](../20260710_checklist.md)
+
+> Historical inquiry body below (root-cause analysis on `20260708-mvp-a`). Kept for forensics after archive to `done/`.
+
+---
 
 ## 0. RCA findings — 2026-07-09
 

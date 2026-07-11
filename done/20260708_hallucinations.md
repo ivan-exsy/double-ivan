@@ -1,8 +1,8 @@
 # Handoff: Tier 2 flat-enum for LLM location hallucination
 
 **Date:** 2026-07-08 · **Updated:** 2026-07-09 · **Owner:** TBD  
-**MVP status:** **CLOSED for MVP** — hallucination gate passed on full `20260708-mvp-a`. Tier 2 is **Path B / post-MVP** hardening only (do not prioritize to unblock launch).  
-**Branch if revisited:** new `ivan/`-or-`nicolas/`-prefixed branch off `railway`
+**MVP status:** **CLOSED for MVP** (2026-07-09 on `20260708-mvp-a`; re-confirmed **0.0%** on `20260709-1`). Tier 2 is **Path B / post-MVP** hardening only.  
+**Archive:** Moved to `double-ivan/done/` on 2026-07-10 with MVP doc closure.
 
 ---
 
