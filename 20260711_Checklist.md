@@ -1,51 +1,71 @@
-# 2026-07-11 — Verify Survival catalog on `20260710`
+# 2026-07-13 — Verify Survival catalog on `20260711-1`
 
-## Closed yesterday (2026-07-10)
+Proof sim: **`20260711-1`** (post challenge-persist fix `6bb60115`).  
+(Checklist originally said `20260710`; that run was aborted — this is the scored proof.)
 
-1. **Locked Survival challenge catalog** — product-locked 14 challenges for **new sims only**; random rotation (no repeats until pool exhausted); legacy sims unchanged.
-2. **Cast digest challenge card** — end-of-day digest no longer blanks after scratch clears; reads season `challenge_results` instead.
-3. **VPS re-score on `20260709-1` Day 2** — **PASS**: `Limited Immunity — winners: Alex Butcher, Diana Ogden` (was `(none)`).
-4. **MVP doc closure** — polish / RCA-1 / close-for-mvp archived under `done/`; `sot_llm.md` v1.7 OpenRouter posture.
-5. **`railway` → `main`** — treat as **done** (promoted).
+## Closed earlier
+
+1. Locked Survival challenge catalog + random rotation (new sims).
+2. Cast digest challenge card from season `challenge_results`.
+3. Challenge **persist-after-resolve** (so mid-flight / end digests see results).
+4. Stop-API fix (undefined `parameters`).
 
 ## Deployed (VPS)
 
-- Build includes catalog + digest fix (`2729b4a8` on `railway` / now on `main`).
-- `double-api` restarted after pull.
-- Ready for new sim **`20260710`**.
+- Tip: `6bb60115` on `railway` (proof run).
+- Proof run: `20260711-1`, sprint + diagnostic, requested 2600 steps.
+- **Post-fix (schedule integrity):** on branch `railway` — pad/trim day schedules to 1440, reject empty decomp slot replaces, safe schedule indexing, skip proactive refresh while live action is sleep. Prevents the Dean midnight crash below. **Not yet redeployed / re-proofed.**
 
 ---
 
-## A. Verify on `20260710` (mid-flight + after first Survival morning)
+## A. Verify on `20260711-1` — scored 2026-07-13
 
 Engine day 2 = Survival day 1 for digests/trailers.
 
-- [ ] **Sim healthy** — status climbing / completed; `live_mode: false` if sprint; no unexpected stall.
-- [ ] **Locked pool only** — first challenge id is from the locked catalog (not legacy-only ids outside the 14).
-- [ ] **No Limited Immunity / Reputation Tax on new sim** — those stay legacy-only; new run should not schedule them.
-- [ ] **Random + no immediate repeat** — if a second challenge fires in-window, it differs from the first; `used_challenge_ids` grows in season state.
-- [ ] **Catalog version** — season shows `challenge_catalog_version` / locked catalog path for new sim.
-- [ ] **Digest challenge card** — after Survival morning resolves, cast digest shows real challenge name + winners (not `(none)` / null).
-  ```bash
-  python3 -m video.summarize_cast_day 20260710 --day 2 --output-dir data/20260710/trailer_ready_day2
+- [x] **Sim healthy** — ran through grace + Survival day 1 + into Survival day 2 night; `live_mode: false`. Stopped @ step **2489** (see stop note below).
+- [x] **Locked pool only** — day-1 challenge = **`roll_for_shield`** (locked catalog).
+- [x] **No Limited Immunity / Reputation Tax** — not scheduled.
+- [x] **Random + used ids** — `used_challenge_ids=['roll_for_shield']`; only one challenge in window (repeat N/A).
+- [x] **Catalog version** — `challenge_catalog_version=locked_v1`.
+- [x] **Digest challenge card** — **PASS**
   ```
-- [ ] **Legacy still fine** — no need to re-break `20260709-1`; that path already re-scored PASS.
-
-## B. Ops hygiene (same day if bandwidth)
-
-- [ ] **VPS diagnostic cleanup** — after you’re done inspecting `20260709-1`, trim large diagnostic storage (movement/environment/logs) so disk doesn’t fill. Keep Supabase as SOT.
-  ```bash
-  du -sh /var/www/generative_agents/environment/frontend_server/storage/20260709-1
-  # only after scoring is locked:
-  # rm -rf .../storage/20260709-1/{movement,environment}
+  Challenge: Roll For Shield — winners: Diana Ogden
   ```
-- [ ] **Confirm `main` on VPS** — `git log -1 --oneline` matches the promoted tip you expect (catalog + digest fix present).
-- [ ] **24h smoke glance** — after promote/restart, one status check that `double-api` is healthy and `20260710` (or next run) is progressing.
+  JSON: type `roll_for_shield`, winners `[Diana Ogden]`, claimants `15`.
+- [x] **Persist fix** — season disk had full `challenge_results` (name, winners, public_board) before night-only flush would have been required.
+- [x] **Elimination path** — Ivan Pitts booted Survival day 1 (9 votes); 14 remain.
+- [x] **Legacy still fine** — prior `20260709-1` Limited Immunity re-score unchanged.
 
-## C. Not tomorrow morning (parked)
+### Stop @ 2490 (not 2600) — RCA + fix (post-fix state)
 
-- Day-1 Limited Immunity **redesign** (COS `2026-07-10-002`) — design only; not in this deploy.
-- **OpenRouter Phase 8** — embedding reindex (dry-run → full), gateway Chat-with-Double validation, retire `OPENAI_API_KEY` (`done/20260627_openrouter.md`).
-- **Path B Class A residual** — computers / cafe counter / fridge / piano (`TODO_action-location.md`).
-- Trailer Supabase migrations (`featured_history`, `day_scar`) — only if those features are used.
-- Daily trailer CupCat / Day-0 script work (`20260713_launch.md`).
+| Signal | Reading |
+|--------|---------|
+| Requested | 2600 steps |
+| Actual | **2490** (= `06:30` Jul 11 → `00:00` Jul 13 exactly) |
+| Season status | still **`running`** (not `completed`) |
+| Winner / ended_day | **None** |
+| Phase at stop | **NIGHT**, `current_day=2` |
+| `COMPLETED.json` | **missing** |
+
+**Root cause (confirmed):** not Survival auto-stop / stall-safety / last-standing. Process crashed on **Dean Sanford** at **23:59** with `IndexError: list index out of range` while reading the next hour of his day plan. After the vote, his plan was short of a full day (sleep tail missing), so looking ahead near midnight walked off the end of the list.
+
+**Fix (on `railway`, not yet re-proofed on VPS):** keep every day plan exactly 24h via a sleep pad/trim; never wipe a plan slot with an empty breakdown; clamp plan-index reads; do not force a replan while someone is already sleeping. Catalog/digest PASS above still stands.
+
+### Challenge story (Survival day 1)
+
+- **Roll for the Shield** — Diana Ogden won (kept a 6; several others risked and tied/lost).
+- Full public board persisted (dice + keep/risk) — trailer-legible.
+
+---
+
+## B. Ops hygiene
+
+- [ ] **VPS diagnostic cleanup** — trim `20260709-1` / large `20260711-1` movement+environment when disk tight (keep Supabase SOT).
+- [ ] **OpenRouter key rotate** — between runs only (do not restart API mid-sim).
+- [x] **24h smoke** — `20260711-1` progressed and finished scoring window.
+- [ ] **Redeploy + midnight re-proof** — ship schedule-integrity tip to VPS; confirm a post-vote night crosses midnight without Dean-class IndexError.
+
+## C. Parked
+
+- Day-1 Limited Immunity redesign (COS) — separate from this locked-catalog proof.
+- OpenRouter Phase 8 / Path B Class A / trailer CupCat (`20260713_launch.md`).
