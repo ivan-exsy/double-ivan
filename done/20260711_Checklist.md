@@ -9,12 +9,13 @@ Proof sim: **`20260711-1`** (post challenge-persist fix `6bb60115`).
 2. Cast digest challenge card from season `challenge_results`.
 3. Challenge **persist-after-resolve** (so mid-flight / end digests see results).
 4. Stop-API fix (undefined `parameters`).
+5. Schedule-integrity fix (Dean midnight `IndexError`) — code on VPS.
 
 ## Deployed (VPS)
 
-- Tip: `6bb60115` on `railway` (proof run).
-- Proof run: `20260711-1`, sprint + diagnostic, requested 2600 steps.
-- **Post-fix (schedule integrity):** on branch `railway` — pad/trim day schedules to 1440, reject empty decomp slot replaces, safe schedule indexing, skip proactive refresh while live action is sleep. Prevents the Dean midnight crash below. **Not yet redeployed / re-proofed.**
+- Tip: **`83f9913e`** on `railway` (schedule integrity). Prior proof tip was `6bb60115`.
+- Proof run (pre-fix): `20260711-1`, sprint + diagnostic, requested 2600 steps — stopped @ 2489 on Dean midnight crash.
+- **Post-fix deploy (2026-07-13):** `git pull` → `83f9913e`; `sudo systemctl restart api-gateway.service` → **active**. Ready for a new midnight re-proof sim (not started yet).
 
 ---
 
@@ -49,7 +50,7 @@ Engine day 2 = Survival day 1 for digests/trailers.
 
 **Root cause (confirmed):** not Survival auto-stop / stall-safety / last-standing. Process crashed on **Dean Sanford** at **23:59** with `IndexError: list index out of range` while reading the next hour of his day plan. After the vote, his plan was short of a full day (sleep tail missing), so looking ahead near midnight walked off the end of the list.
 
-**Fix (on `railway`, not yet re-proofed on VPS):** keep every day plan exactly 24h via a sleep pad/trim; never wipe a plan slot with an empty breakdown; clamp plan-index reads; do not force a replan while someone is already sleeping. Catalog/digest PASS above still stands.
+**Fix:** keep every day plan exactly 24h via a sleep pad/trim; never wipe a plan slot with an empty breakdown; clamp plan-index reads; do not force a replan while someone is already sleeping. **On VPS @ `83f9913e` + api-gateway restarted.** Catalog/digest PASS above still stands. **Midnight re-proof sim still pending.**
 
 ### Challenge story (Survival day 1)
 
@@ -60,10 +61,11 @@ Engine day 2 = Survival day 1 for digests/trailers.
 
 ## B. Ops hygiene
 
-- [ ] **VPS diagnostic cleanup** — trim `20260709-1` / large `20260711-1` movement+environment when disk tight (keep Supabase SOT).
-- [ ] **OpenRouter key rotate** — between runs only (do not restart API mid-sim).
+- [x] **VPS diagnostic cleanup** — done 2026-07-13: trimmed `movement`+`environment` on `20260709-1` (~1.1G→725M) and `20260711-1` (~1.1G→731M). Disk ~39% used / 54G free — not tight. Optional later: same trim on other ~1G finished diagnostics (`20260708-mvp-a`, `20260703-or-2`, `20260705-or-smoke`, …).
+- [x] **OpenRouter key rotate** — done 2026-07-13 (between runs; do not restart API mid-sim).
 - [x] **24h smoke** — `20260711-1` progressed and finished scoring window.
-- [ ] **Redeploy + midnight re-proof** — ship schedule-integrity tip to VPS; confirm a post-vote night crosses midnight without Dean-class IndexError.
+- [x] **Ship schedule-integrity tip** — VPS @ `83f9913e`; api-gateway restarted / active.
+- [ ] **Midnight re-proof** — new sim (sprint + diagnostic, ~2600 steps); confirm a post-vote night crosses midnight without Dean-class IndexError / early stop at day boundary.
 
 ## C. Parked
 
