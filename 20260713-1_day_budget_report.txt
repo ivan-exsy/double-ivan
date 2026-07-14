@@ -1,0 +1,319 @@
+==============================================
+DAY-BUDGET INVESTIGATION — 20260713-1
+generated: 2026-07-14T23:23:36Z
+base: /var/www/generative_agents/environment/frontend_server/storage/20260713-1
+==============================================
+
+=== 0) API STATUS ===
+{
+    "sim_code": "20260713-1",
+    "current_step": 2599,
+    "total_steps": 2600,
+    "status": "completed",
+    "websocket_available": false,
+    "playback_mode": "http_only",
+    "backend_process_active": false,
+    "backend_process_pid": null,
+    "current_day_number": 3,
+    "is_survival": true,
+    "current_day_label": "Survival Season Day 2",
+    "engine_day": 3,
+    "curr_time": "2026-07-15T01:50:00+00:00",
+    "start_date": "2026-07-13",
+    "owner_timezone": null,
+    "sec_per_step": 60,
+    "live_mode": false,
+    "published_step": null,
+    "reveal_step": 2452,
+    "is_generating": false,
+    "last_generated_at": "2026-07-14T22:47:48.814555+00:00",
+    "read_only": true,
+    "message": "Backend simulation runs independently - API provides read-only access",
+    "timestamp": "2026-07-14T23:23:38.162898"
+}
+
+=== 1) META / START CLOCK ===
+--- meta.json exists=True ---
+{
+  "current_step": 2599,
+  "timestamp": "2026-07-14T22:47:48.779736Z",
+  "status": "completed",
+  "total_steps": 2600,
+  "curr_time": "July 15, 2026, 01:50:00",
+  "coordinate_system": "tiles"
+}
+--- reverie/meta.json exists=True ---
+{
+  "fork_sim_code": "20260713-1",
+  "start_date": "July 14, 2026",
+  "curr_time": "July 15, 2026, 01:50:00",
+  "sec_per_step": 60,
+  "maze_name": "the_ville",
+  "persona_names": [
+    "Diana Ogden",
+    "Alexis Reed",
+    "Alex Butcher",
+    "Vincent Slater",
+    "Ivan Pitts",
+    "Vince Vale",
+    "Mike Hooks",
+    "Olivia King",
+    "Max Shoemaker",
+    "Andrew Abrams",
+    "Owen Logan",
+    "Nick Miller",
+    "Dean Sanford",
+    "Irene Dove",
+    "Alex Shepard"
+  ],
+  "step": 2600
+}
+--- COMPLETED.json exists=False ---
+--- STATUS.json exists=False ---
+
+sec_per_step: 60
+meta.start_date: July 14, 2026
+meta.curr_time: July 15, 2026, 01:50:00
+storage meta.current_step: 2599
+persona_count: 15
+BACK-CALC start_from_end_minus_steps: 2026-07-13 06:31:00
+engine_span_hours: 43.32
+
+=== 2) SEASON STATE SNAPSHOT ===
+exists True mtime 1784068863.1206627 size 12393
+sim_code: 20260713-1
+current_day: 2
+phase: NIGHT
+status: running
+active_challenge_id: None
+used_challenge_ids: ['hold_for_shield']
+winner: None
+ended_day: None
+total_days: 0
+immunity_holder: None
+remaining_players: 14
+eliminated: 1
+  elim: {'name': 'Ivan Pitts', 'day': 1, 'vote_count': 6.0}
+challenge_results: 1
+  day=1 type=hold_for_shield name=Hold for the Shield decisions=15 real_reasons=7 absent=8 winners=['Irene Dove']
+
+=== 3) PHASE TRIGGER LOG (spatial vs deadline) + CLOCK MAP ===
+path /var/www/generative_agents/environment/frontend_server/storage/20260713-1/logs/survival_phase_trigger.ndjson exists True size 331
+events 2
+{"absent": ["Alex Butcher", "Alex Shepard", "Alexis Reed", "Andrew Abrams", "Dean Sanford", "Diana Ogden", "Nick Miller", "Owen Logan"], "day": 1, "phase": "challenge", "reason": "deadline", "sim_time": "11:00", "step": 1710}
+{"absent": [], "day": 1, "phase": "voting", "reason": "spatial_gate", "sim_time": "19:00", "step": 2190}
+
+STEP -> CLOCK
+start: 2026-07-13 06:31:00
+end  : 2026-07-15 01:50:00
+  step= 1710  clock=2026-07-14 11:01:00  tod=11:01  phase=challenge  day=1  reason=deadline
+  step= 2190  clock=2026-07-14 19:01:00  tod=19:01  phase=voting  day=1  reason=spatial_gate
+
+=== 4) BUDGET MATH — why Day 2 morning may have been missed ===
+steps=2599 sec_per_step=60 hours=43.32
+start=2026-07-13 06:31:00
+end  =2026-07-15 01:50:00
+
+milestone clocks:
+  step     0: 2026-07-13 06:31:00  tod=06:31 date=2026-07-13
+  step   360: 2026-07-13 12:31:00  tod=12:31 date=2026-07-13
+  step   720: 2026-07-13 18:31:00  tod=18:31 date=2026-07-13
+  step  1080: 2026-07-14 00:31:00  tod=00:31 date=2026-07-14
+  step  1440: 2026-07-14 06:31:00  tod=06:31 date=2026-07-14
+  step  1710: 2026-07-14 11:01:00  tod=11:01 date=2026-07-14
+  step  1800: 2026-07-14 12:31:00  tod=12:31 date=2026-07-14
+  step  2160: 2026-07-14 18:31:00  tod=18:31 date=2026-07-14
+  step  2190: 2026-07-14 19:01:00  tod=19:01 date=2026-07-14
+  step  2400: 2026-07-14 22:31:00  tod=22:31 date=2026-07-14
+  step  2599: 2026-07-15 01:50:00  tod=01:50 date=2026-07-15
+
+calendar-day first step approx:
+  2026-07-13: first_seen_step≈0
+  2026-07-14: first_seen_step≈1050
+  2026-07-15: first_seen_step≈2490
+  2026-07-16: first_seen_step≈None
+
+ACTUAL triggers:
+  {'reason': 'deadline', 'phase': 'challenge', 'day': 1, 'step': 1710, 'sim_time': '11:00', 'absent': ['Alex Butcher', 'Alex Shepard', 'Alexis Reed', 'Andrew Abrams', 'Dean Sanford', 'Diana Ogden', 'Nick Miller', 'Owen Logan']}
+  {'reason': 'spatial_gate', 'phase': 'voting', 'day': 1, 'step': 2190, 'sim_time': '19:00', 'absent': []}
+
+After last trigger (voting @ 2026-07-14 19:01:00):
+  remaining sim hours in run: 6.82h
+  hours needed to reach next 06:00: 10.98h
+  gap: SHORT (remaining - needed = -4.17h)
+
+INTERPRET GUIDE:
+- Prior good 2600-step runs: grace day + Season Day 1 challenge/vote finish with
+  enough leftover night to still be 'complete Day 1'. Day 2 challenge needs the
+  NEXT morning (~06:00), which often falls AFTER step 2600 if Day 1 vote was late.
+- If challenge/vote reason=deadline (not spatial_gate), events slid later in the day
+  and ate the overnight budget.
+- If start clock is later than usual, you get fewer daytime hours inside 2600 steps.
+
+
+=== 5) SURVIVAL LLM CALLS (challenge / vote / absent) ===
+exists True size 3125
+by_function: {'challenge_decision': 7, 'vote_decision': 15}
+by_day: {'1': 22}
+by_status: {'entry': 22}
+challenge_decision count: 7
+   ('Irene Dove', 1710, 'hold_for_shield', 'entry')
+   ('Ivan Pitts', 1710, 'hold_for_shield', 'entry')
+   ('Max Shoemaker', 1710, 'hold_for_shield', 'entry')
+   ('Mike Hooks', 1710, 'hold_for_shield', 'entry')
+   ('Olivia King', 1710, 'hold_for_shield', 'entry')
+   ('Vince Vale', 1710, 'hold_for_shield', 'entry')
+   ('Vincent Slater', 1710, 'hold_for_shield', 'entry')
+vote-related count: 15
+   ('Alex Butcher', 2190, 'entry', 'vote_decision')
+   ('Alex Shepard', 2190, 'entry', 'vote_decision')
+   ('Alexis Reed', 2190, 'entry', 'vote_decision')
+   ('Andrew Abrams', 2190, 'entry', 'vote_decision')
+   ('Dean Sanford', 2190, 'entry', 'vote_decision')
+   ('Diana Ogden', 2190, 'entry', 'vote_decision')
+   ('Irene Dove', 2190, 'entry', 'vote_decision')
+   ('Ivan Pitts', 2190, 'entry', 'vote_decision')
+   ('Max Shoemaker', 2190, 'entry', 'vote_decision')
+   ('Mike Hooks', 2190, 'entry', 'vote_decision')
+   ('Nick Miller', 2190, 'entry', 'vote_decision')
+   ('Olivia King', 2190, 'entry', 'vote_decision')
+   ('Owen Logan', 2190, 'entry', 'vote_decision')
+   ('Vince Vale', 2190, 'entry', 'vote_decision')
+   ('Vincent Slater', 2190, 'entry', 'vote_decision')
+other functions: {}
+
+ABSENT vs LLM coverage:
+  [NO_LLM] Alex Butcher: action=fold reason=absent
+  [NO_LLM] Alex Shepard: action=fold reason=absent
+  [NO_LLM] Alexis Reed: action=fold reason=absent
+  [NO_LLM] Andrew Abrams: action=fold reason=absent
+  [NO_LLM] Dean Sanford: action=fold reason=absent
+  [NO_LLM] Diana Ogden: action=fold reason=absent
+  [HAS_LLM] Irene Dove: action=hold reason=I value clear commitments and early coordination—if I fold, I'm leaving the outcome to cha
+  [HAS_LLM] Ivan Pitts: action=fold reason=I value epistemic integrity — holding with a 4 means I'm betting on others folding or havi
+  [HAS_LLM] Max Shoemaker: action=hold reason=I'm a builder who ships demos and tests things — holding with a 5 is a solid bet to see wh
+  [HAS_LLM] Mike Hooks: action=fold reason=I'm a cashier who deals in probabilities and incentives, not gambles. A rank 2 has a 6-in-
+  [NO_LLM] Nick Miller: action=fold reason=absent
+  [HAS_LLM] Olivia King: action=fold reason=I'm a practical builder-operator who ships real things — holding a 1 is not shipping anyth
+  [NO_LLM] Owen Logan: action=fold reason=absent
+  [HAS_LLM] Vince Vale: action=hold reason=As a systems-minded analyst, I assess that holding a 6 gives me a strong probability of be
+  [HAS_LLM] Vincent Slater: action=fold reason=A 3 out of 7 is below average, and I value concrete data over blind risk — holding a low c
+
+=== 6) REFLECTIONS / POST-VOTE MEMORY SIGNALS ===
+files with reflection/elim keywords (top 40):
+  hits=  20 size=   19239 monitoring/step_2416.json
+  hits=   8 size=    7793 monitoring/step_2490.json
+  hits=   7 size=   14558 monitoring/step_1050.json
+  hits=   7 size=   14879 monitoring/step_1051.json
+  hits=   6 size=   29121 monitoring/step_0.json
+  hits=   6 size=    6335 monitoring/step_2415.json
+  hits=   6 size=    7726 monitoring/step_2491.json
+  hits=   5 size=    6507 monitoring/step_990.json
+  hits=   3 size=    5214 monitoring/step_2375.json
+  hits=   3 size=    4198 monitoring/step_930.json
+  hits=   3 size=    7196 monitoring/step_931.json
+  hits=   3 size=    4730 monitoring/step_991.json
+  hits=   2 size=    3882 monitoring/step_2371.json
+  hits=   2 size=    2666 monitoring/step_2420.json
+  hits=   2 size=    3169 monitoring/step_984.json
+  hits=   1 size=    5444 monitoring/step_2280.json
+  hits=   1 size=    5704 monitoring/step_2376.json
+  hits=   1 size=    5002 monitoring/step_2391.json
+  hits=   1 size=    2544 monitoring/step_758.json
+  hits=   1 size=    5012 monitoring/step_816.json
+  hits=   1 size=    3776 monitoring/step_870.json
+  hits=   1 size=    1972 monitoring/step_929.json
+
+persona memory vote_concluded / eliminated samples:
+  [Nick Miller] The Day 1 Survival Day 1, engine Day 2)
+  [Mike Hooks] The Day 1 Survival Day 1, engine Day 2)
+  [Olivia King] The Day 1 Survival Day 1, engine Day 2)
+  [Alex Shepard] The Day 1 Survival Day 1, engine Day 2)
+  [Irene Dove] The Day 1 Survival Day 1, engine Day 2)
+  [Alex Butcher] The Day 1 Survival Day 1, engine Day 2)
+  [Max Shoemaker] The Day 1 Survival Day 1, engine Day 2)
+  [Dean Sanford] The Day 1 Survival Day 1, engine Day 2)
+  [Alexis Reed] The Day 1 Survival Day 1, engine Day 2)
+  [Vincent Slater] The Day 1 Survival Day 1, engine Day 2)
+  [Andrew Abrams] The Day 1 Survival Day 1, engine Day 2)
+  [Owen Logan] The Day 1 Survival Day 1, engine Day 2)
+  [Vince Vale] The Day 1 Survival Day 1, engine Day 2)
+  [Diana Ogden] The Day 1 Survival Day 1, engine Day 2)
+printed 14 memory samples
+
+=== 7) GATHERING LOCATIONS AROUND CHALLENGE / VOTE STEPS ===
+monitoring top keys: ['step_number', 'timestamp', 'personas', 'source_artifacts', 'data_completeness', 'traceability_summary']
+
+step 1700: top locations
+   3 None
+
+step 1710: top locations
+   4 None
+
+step 1720: top locations
+   4 None
+
+step 2180: top locations
+   4 None
+
+step 2190: top locations
+   8 None
+
+step 2200: top locations
+   5 None
+
+step 2300: top locations
+   2 None
+
+step 2400: top locations
+   3 None
+
+step 2500: top locations
+
+step 2590: top locations
+
+=== 8) SUPABASE vs LOCAL SEASON DIFF ===
+[DIR] Storage Config Loaded:
+   Use Supabase: True
+   Supabase URL: https://kkjhsozszgoorwehhsdg.supabase.co...
+   Local Base: ../../environment/frontend_server
+✅ Storage manager initialized (Supabase: True)
+📝 Memory SOT config: MEMORY_PRIMARY='supabase', USE_DB_MEMORY_READS=True, MEMORY_JSON_BACKUP=False, READ_FALLBACK_ON_DB_ERROR=True
+local: day 2 phase NIGHT used ['hold_for_shield'] results 1
+supabase: day 2 phase NIGHT used [] results 1
+DIFF used_challenge_ids: local=['hold_for_shield'] supabase=[]
+
+=== 9) RECENT LOG GREP (advance / grace / director / gates) ===
+
+--- /var/www/generative_agents/environment/frontend_server/storage/20260713-1/logs/survival_llm_calls.ndjson matches=7 ---
+{"function": "challenge_decision", "status": "entry", "day": 1, "step": 1710, "persona": "Irene Dove", "challenge_id": "hold_for_shield"}
+{"function": "challenge_decision", "status": "entry", "day": 1, "step": 1710, "persona": "Ivan Pitts", "challenge_id": "hold_for_shield"}
+{"function": "challenge_decision", "status": "entry", "day": 1, "step": 1710, "persona": "Max Shoemaker", "challenge_id": "hold_for_shield"}
+{"function": "challenge_decision", "status": "entry", "day": 1, "step": 1710, "persona": "Mike Hooks", "challenge_id": "hold_for_shield"}
+{"function": "challenge_decision", "status": "entry", "day": 1, "step": 1710, "persona": "Olivia King", "challenge_id": "hold_for_shield"}
+{"function": "challenge_decision", "status": "entry", "day": 1, "step": 1710, "persona": "Vince Vale", "challenge_id": "hold_for_shield"}
+{"function": "challenge_decision", "status": "entry", "day": 1, "step": 1710, "persona": "Vincent Slater", "challenge_id": "hold_for_shield"}
+
+--- /var/www/generative_agents/environment/frontend_server/storage/20260713-1/logs/survival_phase_trigger.ndjson matches=2 ---
+{"reason": "deadline", "phase": "challenge", "day": 1, "step": 1710, "sim_time": "11:00", "absent": ["Alex Butcher", "Alex Shepard", "Alexis Reed", "Andrew Abrams", "Dean Sanford", "Diana Ogden", "Nick Miller", "Owen Logan"]}
+{"reason": "spatial_gate", "phase": "voting", "day": 1, "step": 2190, "sim_time": "19:00", "absent": []}
+done grep, lines_printed≈ 9
+
+=== 10) ONE-PAGE SUMMARY ===
+sim: 20260713-1
+steps: 2599 (43.3h)
+start~: 2026-07-13 06:31:00
+end  ~: 2026-07-15 01:50:00
+season_day: 2 phase: NIGHT used: ['hold_for_shield']
+elim_count: 1
+challenge_results: 1
+phase_triggers:
+  step=1710 clock=2026-07-14 11:01:00 phase=challenge day=1 reason=deadline
+  step=2190 clock=2026-07-14 19:01:00 phase=voting day=1 reason=spatial_gate
+hours AFTER last trigger (voting): 6.8h
+hours needed to next 06:00: 11.0h
+Day2-morning budget: SHORT
+
+Paste this whole report back for analysis.
+
+DONE

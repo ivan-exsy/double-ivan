@@ -1,6 +1,6 @@
 # Epic: Self-serve owned Double (Rehears → Doubland)
 
-**Status:** Active — Weeks 1–2 **CLOSED** (local live smoke 2026-07-14); Week 3 next  
+**Status:** Active — Weeks 1–3 **CLOSED**; **Week 3.1 identity publish** implemented (Path A); Week 4 + deferred backlog next  
 **Branch / worktree:** `ivan/dev` → `D:\Coding\generative_agents-ivan-dev` · FE `ivan/self-serve-double`  
 **Base:** forked from current `railway` (`0e393ca6`, 2026-07-14). VPS stays on `railway`; implement only in this worktree.  
 **Architecture:** Port into Doubland (not permanent two-app). One Auth. Doubland-owned profile SOT.  
@@ -176,19 +176,21 @@ curl -s "http://localhost:8001/api/me/doubles" -H "Authorization: Bearer $ACCESS
 
 ---
 
-### Week 3 — Interview v1 + completeness + Phase D self-serve path
+### Week 3 — Interview v1 + completeness + creator chat (slice B)
 
-**Build**
+**Status:** **CLOSED** 2026-07-14 (local live smoke). Phase D self-serve bind and product “Talk to my Double” UI are **explicitly deferred** — see [Deferred from Weeks 1–3](#deferred-from-weeks-1–3) below.
+
+**Build (done)**
 1. Short interview (values / lifestyle / goals / voice) → fills `learned` / `currently` / goals seeds.
-2. Soft completeness gate (“prediction-ready”) vs hard block for “my Double” claims.
-3. Self-serve entry into **existing** Phase D host (REST already shipped): user-owned Double on a roster → job/home finalize **or** auto-bind solo path.
-4. Chat v4 **slice B**: system prompt “talking to your creator” when `user_id` owns the persona.
+2. Soft completeness gate (`prediction_ready`) vs hard block for “my Double” claims.
+3. Chat v4 **slice B**: system prompt “talking to your creator” when owner + `prediction_ready`.
+4. ~~Self-serve Phase D host entry~~ → **deferred** (operator Phase D REST still shipped; self-serve FE/bind not in Week 3 close).
 
 **Acceptance**
 - [x] Incomplete profile → soft gate message; complete → eligible for bind flags. *(API `prediction_ready` / FE Finish interview CTA)*
-- [ ] User can bind **their** Double via Phase D API (or auto-bind); operator CLI still works. *(thin bind deferred)*
 - [x] Owner chat prompt differs when owner + prediction_ready (creator mode / slice B).
-- [ ] End-to-end live smoke: sign in → quiz → interview → seed → chat with **owned** Double → (optional) bind.
+- [x] End-to-end live smoke: sign in → quiz → interview → seed → chat with **owned** Double. *(live 2026-07-14: interview `prediction_ready`; creator chat thread `4fb0dceb-…` on host sim `20260714-owned-double-smoke`, persona `ipistsov's Double`, `user_id=c2677e73-…`; reply referenced startup aim + quiz traits.)*
+- [ ] ~~User can bind **their** Double via Phase D API (or auto-bind)~~ → moved to **Deferred**
 
 **Expert input accepted 2026-07-14** — implemented from §9 / COS `2026-07-14-002` only (no invented content).
 
@@ -199,8 +201,46 @@ curl -s "http://localhost:8001/api/me/doubles" -H "Authorization: Bearer $ACCESS
 - [x] Completeness flags on `GET /api/me/profile`
 - [x] Creator chat system-prompt + soul overlay when ready
 - [x] FE `/onboarding/interview` + quiz soft-incomplete CTA
-- [ ] Live interview submit smoke + owned-Double chat
-- [ ] Thin self-serve Phase D bind
+- [x] Live interview submit smoke + owned-Double chat *(API path; temporary host sim + step-1 coords seed)*
+
+---
+
+### Week 3.1 — Identity publish (Path A) + living chapters
+
+**Status:** **IMPLEMENTED** 2026-07-14 (code + migration; live retake smoke recommended)
+
+**Goal:** Quiz/interview author the Double; active identity is published into scratch ISS + profile (same path cast souls use). Retakes supersede the active chapter, archive the prior one, and re-publish.
+
+**Build**
+1. Migration: `identity_revision` / `identity_effective_from` / `identity_pending` on profile; `user_identity_versions` history table.
+2. `identity_publish_service`: archive prior chapter, bump revision, write ISS to `persona_scratch` (non-generating sims), sync `dbl_agent.config`.
+3. Wire `submit_interview` + `submit_quiz` (quiz keeps interview chapter on retake).
+4. Chat: prefer scratch ISS; fill blanks from `soul_seeds` only (no full overwrite).
+
+**Acceptance**
+- [x] Publish service + unit tests (merge, overlay prefer-scratch)
+- [x] Interview/quiz submit call publish
+- [x] Chat overlay prefer-scratch
+- [x] Profile payload exposes `identity_revision` / `identity_effective_from`
+- [x] Live retake smoke: revision bumps, history row, scratch ISS updated *(2026-07-14: rev 1→2, history row, host sim scratch lifestyle publish; marker cleaned)*
+
+**Out of 3.1 (still deferred):** D1 Talk-to-my-Double UI · D2 Phase D bind · D3 host-sim productization · D4 stale-scratch chat guard · chapter-changed memory injection
+
+---
+
+### Deferred from Weeks 1–3
+
+Items consciously **not** required to call Weeks 1–3 done. Track here so they are not forgotten; pick up in Week 4+ or a dedicated follow-up.
+
+| # | Item | Why deferred | Unblocks |
+|---|------|--------------|----------|
+| D1 | **Product “Talk to my Double” UI** — button/route after interview success (or profile) that opens creator chat without operator smoke scripts | Week 3 proved creator mode via API + temp host sim; no FE entry yet | Non-operator can chat with *their* Double in the browser |
+| D2 | **Self-serve Phase D bind** — place owned Double on a real sim roster (job/home finalize or auto-bind solo); operator CLI/REST already works | Optional for “prediction-ready” and creator chat proof; not needed for profile completeness | Village presence, cast-like chat without temp host sim |
+| D3 | **Host-sim productization** — replace ad-hoc `20260714-owned-double-smoke` + manual step-1 coords seed with a supported path (auto-host or bind-first) | Smoke-only scaffolding; chat still requires sim + scratch | Removes operator/API-only gap between profile and chat |
+| D4 | **Owned-Double chat without temp coords/stale-scratch workaround** — chat loader treats step-0 + no memories as “stale baseline” (returns 404); smoke needed step ≥1 coords | Engineered around for smoke only; root product fix deferred | Reliable first chat for brand-new owned personas |
+| D5 | **Chat trait spot-check as product QA** (not cast Vincent) — ongoing quality bar for creator replies vs quiz/interview seeds | One live turn passed; no permanent harness | Regression safety before VPS promote |
+| D6 | **Adult IPIP stem expert sign-off** (optional research) — current adult stems OK for integration; dedicated audit not blocking | Expert inquiry left as open research | Stem quality / cultural neutrality |
+| D7 | **Railway / Vercel promote** of self-serve path | Explicit epic rule: local only until Ivan sign-off | Public demo of self-serve Double |
 
 ---
 
