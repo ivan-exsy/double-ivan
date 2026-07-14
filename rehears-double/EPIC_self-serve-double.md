@@ -1,6 +1,6 @@
 # Epic: Self-serve owned Double (Rehears → Doubland)
 
-**Status:** Active — Weeks 1–3 **CLOSED**; **Week 3.1 identity publish** implemented (Path A); Week 4 + deferred backlog next  
+**Status:** Active — Weeks 1–3 **CLOSED**; **3.1 identity publish** + **3.2 Talk-to-my-Double API (D1-BE)** shipped; **3.3 post-chat learning** blocked on expert inquiry; Week 4 + deferred backlog next  
 **Branch / worktree:** `ivan/dev` → `D:\Coding\generative_agents-ivan-dev` · FE `ivan/self-serve-double`  
 **Base:** forked from current `railway` (`0e393ca6`, 2026-07-14). VPS stays on `railway`; implement only in this worktree.  
 **Architecture:** Port into Doubland (not permanent two-app). One Auth. Doubland-owned profile SOT.  
@@ -228,16 +228,38 @@ curl -s "http://localhost:8001/api/me/doubles" -H "Authorization: Bearer $ACCESS
 
 ---
 
+### Week 3.2 — Talk-to-my-Double API (D1-BE)
+
+**Status:** **IMPLEMENTED** 2026-07-14 (live smoke)
+
+**Build**
+1. `GET /api/me/double` — resolve owned Double + personal host sim (`owned-<user8>`)
+2. `POST /api/me/double/chat` — creator chat; auto host + scratch ISS; reuses `handle_chat_message`
+3. Stale-baseline exception: step-0 scratch with non-empty ISS allowed (owned host path)
+4. FE Talk button **not** shipped → **D1-FE** deferred
+
+**Live smoke:** `GET` 200 host `owned-c2677e73`; `POST` thread `dd85d1c6-…` creator_mode true; reply used startup aims.
+
+### Week 3.3 — Post-chat profile learning (blocked)
+
+**Status:** **BLOCKED** on behavior-science inquiry  
+**Inquiry:** `double-ivan/rehears-double/20260714_behavior_science_inquiry_week3_3_post_chat_learning.md`  
+**Intent:** After creator chat sessions, assess transcript for reliable non-clinical signal → propose (default) / apply profile chapter updates via Path A.  
+**Engineering:** do not invent assessment content, apply rules, or auto-mutate ISS until report accepted.
+
+---
+
 ### Deferred from Weeks 1–3
 
 Items consciously **not** required to call Weeks 1–3 done. Track here so they are not forgotten; pick up in Week 4+ or a dedicated follow-up.
 
 | # | Item | Why deferred | Unblocks |
 |---|------|--------------|----------|
-| D1 | **Product “Talk to my Double” UI** — button/route after interview success (or profile) that opens creator chat without operator smoke scripts | Week 3 proved creator mode via API + temp host sim; no FE entry yet | Non-operator can chat with *their* Double in the browser |
+| D1-FE | **Talk to my Double UI** — button/route after interview success (or profile) calling `GET/POST /api/me/double*` | **D1-BE done** (Week 3.2 API + host); browser shell postponed | Non-operator chats in product UI without curl |
+| D1-BE | ~~Talk-to-my-Double API~~ | **DONE** Week 3.2 | — |
 | D2 | **Self-serve Phase D bind** — place owned Double on a real sim roster (job/home finalize or auto-bind solo); operator CLI/REST already works | Optional for “prediction-ready” and creator chat proof; not needed for profile completeness | Village presence, cast-like chat without temp host sim |
-| D3 | **Host-sim productization** — replace ad-hoc `20260714-owned-double-smoke` + manual step-1 coords seed with a supported path (auto-host or bind-first) | Smoke-only scaffolding; chat still requires sim + scratch | Removes operator/API-only gap between profile and chat |
-| D4 | **Owned-Double chat without temp coords/stale-scratch workaround** — chat loader treats step-0 + no memories as “stale baseline” (returns 404); smoke needed step ≥1 coords | Engineered around for smoke only; root product fix deferred | Reliable first chat for brand-new owned personas |
+| D3 | **Host-sim productization (village-grade)** — beyond personal `owned-*` chat host | Personal chat host shipped in 3.2; full village host/tools still open | Operator-grade hosts / multi-agent |
+| D4 | **Broader chat loader polish** | Owned path: step-0 + ISS allowed (3.2); other empty-baseline edge cases may remain | Cast/edge reliability |
 | D5 | **Chat trait spot-check as product QA** (not cast Vincent) — ongoing quality bar for creator replies vs quiz/interview seeds | One live turn passed; no permanent harness | Regression safety before VPS promote |
 | D6 | **Adult IPIP stem expert sign-off** (optional research) — current adult stems OK for integration; dedicated audit not blocking | Expert inquiry left as open research | Stem quality / cultural neutrality |
 | D7 | **Railway / Vercel promote** of self-serve path | Explicit epic rule: local only until Ivan sign-off | Public demo of self-serve Double |
