@@ -9,9 +9,10 @@
 | **Opener (Phase 0)** | With Anya — locked script/VO (`script_cos.md`, ~83s) |
 | **Phase 3.0 — script grounding** | ✅ Shipped (`cast_digest`, `fact_ledger`, narration fact gate, slim `day_log`) |
 | **Story selection / continuity (L11–L13)** | ✅ Shipped 2026-07-10 — F1 intro memory, spicy ranking + coverage, F3 scar cards — see `daily/TODO_daily_trailer.md` §F · `sot-video.md` |
-| **Creative reference package** | `20260707-chat-probe-v3` Day 2 — human VO locked; **locations restitched 2026-07-10**; **do not** `lock_day_script` to seed history/scars |
+| **Narration Writer continuous VO (Part 2)** | ✅ Encoded 2026-07-15 — Writer-owned `blocks[]` + want stamps; cache `narration_v12`; craft gates in `video/vo_craft.py` |
+| **Creative reference package** | `20260713-1` Day 2 (`overview_day2&001`) — human VO locked in `script_used.txt`; **do not** overwrite without product lock |
 | **Stand-in sim `20260705-or-smoke`** | **Not fit for daily trailer polish** — engineering fixture only |
-| **Phase 3.1+ (motion / Remotion picture)** | **Next** — Remotion render → validate → watch on chat-probe package |
+| **Phase 3.1+ (motion / Remotion picture)** | **Next** — Remotion render → validate → watch |
 | **Manual Track B daily (Anya handoff)** | Optional; auto path preferred once picture pass lands |
 
 ### Why we paused on `20260705-or-smoke` (still true)

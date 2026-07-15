@@ -137,7 +137,7 @@ Challenge detail is **optional story fuel**, not a mandatory daily beat. Expand 
 **Shipped (E1+E2, 2026-07-09; expert VO auto-gen 2026-07-10):**
 
 1. **E1. Challenge card in fact ledger** — `today.challenge` carries name + brief + winners/claimants + `tokens_available` / `effect_plain` / `how_to_compete_plain`; winners from season `challenge_results` only (claim flags ≠ win). Thin tallies → `safe_vo` + `do_not_say`.
-2. **E2. Prompt rule (teach vs short)** — first time this challenge *type* appears → `teach_and_stakes`; later → `one_clause`. Soft-default `challenge_job` in code; optional producer field; `exposed_leads` code-only. Soft signals ≤5 labeled bullets. Full-intro budget **210–250** words; cliff CTA `Follow live at doubland.ai.` Cache `day_overview_story_v8` / `day_overview_narration_v11`. Craft SOT: `COS/tasks/2026-07-10-001/final.md`.
+2. **E2. Prompt rule (teach vs short)** — first time this challenge *type* appears → `teach_and_stakes`; later → `one_clause`. Soft-default `challenge_job` in code; optional producer field; `exposed_leads` code-only. Soft signals ≤5 labeled bullets. Full-intro budget **210–250** words; cliff CTA `doubland.ai`. Cache `day_overview_story_v8` / `day_overview_narration_v12`. **Part 2 encode (2026-07-15):** Narration Writer owns continuous spoken blocks (concept → stamps with **want** → challenge teach → mid → cost → cliff → CTA → optional itch); no trait-composed cast cards. Craft: `video/vo_craft.py` + `20260715_script_followup.md` §7.
 
 **Still deferred:**
 
@@ -189,7 +189,7 @@ Challenge detail is **optional story fuel**, not a mandatory daily beat. Expand 
 - **Shipped:**
   1. Fixed `_build_prior_day_summary` to map prior **engine** day → survival **season** day (grace skipped).
   2. Compact `scar.json` on lock + Supabase `double.trailer_day_scar` (migration `20260710190000_trailer_day_scar.sql`).
-  3. Showrunner loads last 1–2 scars into producer/writer (`prior_scars_block`); cache later bumped for expert VO → `day_overview_story_v8` / `day_overview_narration_v11`.
+  3. Showrunner loads last 1–2 scars into producer/writer (`prior_scars_block`); cache later bumped for continuous VO → `day_overview_story_v8` / `day_overview_narration_v12`.
 - **Operator:** lock Day N before generating Day N+1. Do **not** backfill chat-probe history/scars.
 - **Acceptance:** Day 3+ VO can reference yesterday’s scar without inventing continuity.
 
@@ -227,13 +227,14 @@ Pipeline: extract (Supabase or cached `day_log.json`) → two-stage narration (L
 
 ## Current architecture (reference for the team)
 
-**Two-stage narration** (both cached per day so hand-edits survive re-render; keys `day_overview_story_v8`, `day_overview_narration_v11`):
-- **Stage 1 — Day Story Producer:** thesis, featured Doubles, dramatic question, status deltas, flexible beat plan (3–6 beats from a vocabulary) from the full day's context + prior scar cards (engine day ≥3).
-- **Stage 2 — Narration Writer:** the whole voiceover in one pass, threaded across the featured Doubles with connective tissue, plus a one-line on-screen caption per beat.
+**Two-stage narration** (both cached per day so hand-edits survive re-render; keys `day_overview_story_v8`, `day_overview_narration_v12`):
 
-**Beat vocabulary** (producer picks 3–6): `yesterday_scar` (Day>1, beat #1), `today_pressure`, `apparent_plan`, `countermove`, `vote_reveal` (elimination days) / `pressure_peak` (non-elimination days — mutually exclusive), `new_imbalance` / `unresolved` (cliffhanger close). `concept_reset` + `cast_intro` are auto-prepended (not producer-chosen).
+- **Stage 1 — Day Story Producer:** featured Doubles, thesis, dramatic question, visual beat_plan / moment refs (not spoken stamps).
+- **Stage 2 — Narration Writer:** full continuous VO as ordered `blocks[]` (want stamps once, then first names; challenge teach from ledger; CTA `doubland.ai`). Stitch concatenates blocks — no auto trait-based concept/cast cards.
 
-**Establishing layer:** Day-1 = concept-reset + one cast-intro per Double (~24s). Day ≥2 = brief concept+cast touch (~12s) + `yesterday_scar`. Composed (not recorded) over realistic cohort images.
+**Beat vocabulary** (producer picks 3–6 for *visual* spine): `yesterday_scar` (Day>1, beat #1), `today_pressure`, `apparent_plan`, `countermove`, `vote_reveal` (elimination days) / `pressure_peak` (non-elimination days — mutually exclusive), `new_imbalance` / `unresolved` (cliffhanger close). Spoken concept/stamps/CTA come from Writer blocks (mapped to Remotion `concept_reset` / `cast_intro` / arc beats).
+
+**Establishing VO:** Writer `concept` + `survival_frame` + per-featured `stamp` (job+place+want). No separate dry trait-composed cards.
 
 **Render path:** `generate_trailer --mode day_overview` → `render_day_remotion.render_day_trailer()` → `build_day_remotion_props.build_day_props()` → shared `OpenerTrailer` Remotion composition (same as opener). Beats map to opener components via `_BEAT_TYPE` (e.g. `vote_reveal`/`countermove`→`turn`, `today_pressure`/`pressure_peak`→`pressure`).
 
