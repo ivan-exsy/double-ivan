@@ -1,10 +1,13 @@
-# 2026-07-14 checklist — score `20260713-1` (P0 + Light + gather lock)
+# 2026-07-14 checklist — score Survival fidelity (P0 + Light + gather lock)
 
-**Sim:** `20260713-1`  
+**Historical sim (closed):** `20260713-1` — Legs 1–2 scored 2026-07-15 (gather lock soft-fail / sleep-stuck).  
+**Next score sim:** fresh Survival sprint after **2026-07-15 sleep-stuck + all-absent fixes** — fill **§11** (do **not** continue Day-5 scratch of `20260713-1`).
+
 **Shipped for this score:**
 - P0 Survival fidelity + Challenge Director + Light reason slots (8 IDs)
 - **2026-07-14:** Personality attraction (weighted challenge pick / soft priors)
 - **2026-07-14:** Gather prewindow lock (soft day outside appointments; hard last-hour cafe destination; seek paused in window; honest spatial absentees; opportunistic Survival talk on natural meet)
+- **2026-07-15:** Sleep-stuck RCA fixes — no midnight `post_vote_date` restamp; regenerate plan on empty/all-sleep; gather lock wakes sleepers; all-absent vote fail-closed
 
 **Mode:** normal sprint (`diagnostic_mode: false`) — product data in Supabase / season state is enough  
 **Gate triad (scoring only, after unblind):** Ivan · Diana · Mike  
@@ -18,9 +21,10 @@ Do **not** expect Remotion / public VO / share CTA from this run.
 | Leg | Steps | What happened |
 |-----|------:|---------------|
 | Leg 1 | ~2600 | Grace + Season Day 1 complete (challenge + Ivan elim). Day 1 challenge fired by **deadline** at 11:00 with **8/15 absent** (pre–gather-lock). Stopped overnight before Day 2 challenge (~4h short). |
-| Leg 2 (continue) | +~4800 → **7399/7400 completed** | Gather lock + attraction live. Ended Season Day 5 morning (`claim_the_slot` active, unresolved). **Scored 2026-07-15.** |
+| Leg 2 (continue) | +~4800 → **7399/7400 completed** | Gather lock + attraction live. Ended Season Day 5 morning (`claim_the_slot` active, unresolved). **Scored 2026-07-15 — FAIL sleep-stuck Days 3–4.** |
+| Leg 3 (fresh) | TBD | Deploy 2026-07-15 fixes → **new** sim code (not continue `20260713-1`). Score **§11** first; then §§1–3 / 8–10 if clean through Day 3+. |
 
-**Score Day 1 Keep / Director Day 1 from Leg 1.** Score gather lock, Days 2–3 Director, Light, attraction from **Leg 2+** only.
+**Score Day 1 Keep / Director Day 1 from Leg 1.** Score gather lock, Days 2–3 Director, Light, attraction from **Leg 2+** only (historical). **Leg 3:** use §11 as the primary gate before re-opening Light/blind.
 
 ### Post-run score (2026-07-15) — verdict
 
@@ -28,22 +32,23 @@ Do **not** expect Remotion / public VO / share CTA from this run.
 
 ---
 
-## Mid-flight check (while Leg 2 still running)
+## Mid-flight check (while a score leg is still running)
 
-Use this **before** the full post-run score. Product data lands when a challenge **resolves** — empty new `challenge_results` mid-day is normal if phase is still `DIRECTIVE` / social.
+Use this **before** the full post-run score. Product data lands when a challenge **resolves** — empty new `challenge_results` mid-day is normal if phase is still `DIRECTIVE` / social. For **Leg 3**, prioritize §11 probes F–H.
 
 ### What you can verify mid-flight
 
 | Checklist § | Mid-flight? | Signal |
 |-------------|-------------|--------|
-| §0 run alive | Yes | step climbing past ~2599, process alive, `is_survival: true` |
-| §1 Director Day 1 | Done (Leg 1) | `used` / results include `hold_for_shield` |
+| §0 run alive | Yes | step climbing, process alive, `is_survival: true` |
+| §1 Director Day 1 | After Day 1 resolve | `used` / results include `hold_for_shield` |
 | §1 Days 2–3 | Only after each day resolves | `silent_pact` then `alliance_lock_in` in `used_challenge_ids` / results |
 | §2 reason persistence | Only after resolve | `decisions[].reasoning` — expect far fewer `"absent"` on Day 2+ |
 | §3 Light soul reasons | Only Day 4+ after resolve | Light IDs in results |
 | §8 Gather lock | Yes (Day 2+ challenge/vote windows) | Prefer `spatial_gate`; env census ≥12/15 at Hobbs in prewindow |
 | §9 Soft day + talk | Soft | Jobs outside lock; chats may mention challenge/vote when people meet |
 | §10 Attraction | After Day 4+ / weighted picks | Not always same high-SC person centered; `choice_reason_plain` if present |
+| **§11 Sleep-stuck / all-absent** | **Yes (Leg 3)** | Morning after vote: not all-bed; schedules ≠ sleeping-1440; no empty-tally elim |
 | §4 blind sheet / §6 teach | No | post-run trailer package |
 | §5 clone smell | Soft | skim soak chat lines; not decisive |
 
@@ -275,7 +280,119 @@ Only once Day 4+ / weighted picks actually run:
 
 ---
 
+## 11. Sleep-stuck + all-absent regression (2026-07-15) — Leg 3 primary gate
+
+**Purpose:** Confirm the RCA fixes on a **fresh** Survival sim before treating Light / blind as scorable again.  
+**Do not** continue `20260713-1` Day-5 sleep-stuck scratch.  
+**Minimum run:** through **Season Day 3 morning** after Day 2’s vote (ideally Day 4 for Light).  
+**Replace `SIM=`** in probes with the new sim code.
+
+### Pass / fail matrix
+
+| Fix | Pass signal | Fail / degradation |
+|-----|-------------|--------------------|
+| Midnight `post_vote_date` | After a vote overnight, next morning cast is **not** all in bed; schedules multi-block | Cast asleep through 10–11 again; `post_vote_date` equals **new** calendar morning |
+| Degenerate-schedule plan | Morning after vote: `daily_req` / hourly plan regenerates (not empty + sleeping-1440) | Same-evening post-vote recovery clobbered into a full-day replan before midnight |
+| Gather lock wakes | Day 2–3 challenge (ideally vote) lean **`spatial_gate`**; Hobbs ≥ ~80% in last hour | Sleepers ignored; **or** soft-day destroyed (everyone cafe all day outside windows) |
+| All-absent fail-closed | If mass-absent: **no** elim with empty tally / `vote_count: 1`; NDJSON `all_absent_no_quorum`; same cast next morning | Phantom lottery elim returns |
+
+### Checkboxes (Leg 3)
+
+- [ ] Fresh sim (new code); not a continue of sleep-stuck `20260713-1`  
+- [ ] After Day 1 vote → Day 2 morning: sample scratch schedules **≠** `[['sleeping', 1440]]` for alive cast  
+- [ ] `post_vote_date` on survivors stays the **vote calendar date**, not restamped to the next morning  
+- [ ] Day 2+ challenge fire prefers **`spatial_gate`** (or deadline with low absent — not 100% bed)  
+- [ ] Day 2+ challenge `absent` rate far below Day 1’s 8/15 and **not** all-alive  
+- [ ] Soft hours outside 10:00–11:00 / 19:00–20:00 still show jobs / school / errands  
+- [ ] No elimination with empty `vote_tally` + `vote_count: 1` while everyone was absent  
+- [ ] If `all_absent_no_quorum` appears in phase-trigger NDJSON: remaining cast unchanged that night  
+- [ ] Director Days 1–3 still `hold_for_shield` → `silent_pact` → `alliance_lock_in` (regression)  
+- [ ] Only if Days 2–3 clean: proceed to Light (§3) / blind (§4) on Day 4+  
+
+### Mid-flight probes (Leg 3) — copy-paste on VPS
+
+```bash
+SIM=YYYYMMDD-N   # set to the fresh sim
+
+# F) Schedule shape + post_vote_date (run ~06:30–09:00 after a vote night)
+python3 - <<PY
+import json
+from pathlib import Path
+base = Path("/var/www/generative_agents/environment/frontend_server/storage/$SIM")
+for pdir in sorted((base / "personas").iterdir()):
+    sp = pdir / "bootstrap_memory" / "scratch.json"
+    if not sp.exists():
+        continue
+    s = json.loads(sp.read_text())
+    sched = s.get("f_daily_schedule") or []
+    labels = [str(x[0])[:36] for x in sched[:4] if isinstance(x, (list, tuple)) and x]
+    total = sum(int(x[1]) for x in sched if isinstance(x, (list, tuple)) and len(x) >= 2)
+    pv = (s.get("survival") or {}).get("post_vote_date")
+    print(f"{pdir.name}: blocks={len(sched)} total={total} post_vote={pv} head={labels}")
+PY
+
+# G) Phase triggers — watch spatial vs deadline + all_absent_no_quorum
+python3 - <<PY
+import json
+from pathlib import Path
+p = Path("/var/www/generative_agents/environment/frontend_server/storage/$SIM/logs/survival_phase_trigger.ndjson")
+if not p.exists():
+    print("MISSING", p)
+else:
+    for line in p.read_text().splitlines():
+        if not line.strip():
+            continue
+        o = json.loads(line)
+        print(json.dumps({k: o.get(k) for k in ("day", "phase", "reason", "step", "absent") if k in o or o.get(k) is not None}, sort_keys=True))
+PY
+
+# H) Elim integrity — flag empty-tally / vote_count==1 phantoms
+python3 - <<PY
+import json
+from pathlib import Path
+d = json.loads(Path("/var/www/generative_agents/environment/frontend_server/storage/$SIM/survival/season_state.json").read_text())
+for e in d.get("eliminated") or []:
+    tally = e.get("vote_tally") or {}
+    reasons = e.get("vote_reasons") or {}
+    print({
+        "day": e.get("day"),
+        "name": e.get("name"),
+        "vote_count": e.get("vote_count"),
+        "tally_n": len(tally),
+        "reasons_n": len(reasons),
+        "suspicious": (not tally) and float(e.get("vote_count") or 0) <= 1,
+    })
+PY
+```
+
+### Leg 3 verdict
+
+Pick one:
+
+- [ ] **§11 pass** — sleep-stuck + all-absent gates clear; continue to Light/blind score on this sim  
+- [ ] **§11 soft-fail** — gather/census still weak but no all-day sleep; tune lock/quorum before Light  
+- [ ] **§11 fail** — sleep-stuck or phantom elim recurred; do not score Light; deeper forensics  
+
+### Leg 3 capture
+
+| Field | Fill in |
+|-------|---------|
+| New sim code | |
+| Days completed (season) | |
+| Day 2 morning schedule OK? | yes / no (note sleeping-1440 rate) |
+| `post_vote_date` vs next morning | preserved / restamped |
+| Day 2+ challenge fires | spatial_gate / deadline (per day) |
+| Day 2+ absent rates | |
+| `all_absent_no_quorum` seen? | yes / no — elim skipped? |
+| Soft-day outside lock OK? | |
+| §11 verdict | pass / soft-fail / fail |
+| Next action | |
+
+---
+
 ## 7. Verdict for tomorrow’s call
+
+**Note:** Checkboxes below record the **Leg 2 (`20260713-1`)** call. For the next ship call, prefer **§11 Leg 3 verdict** after the fresh run.
 
 Pick one:
 
@@ -311,3 +428,4 @@ Pick one:
 - Changing Director Days 1–3 order  
 - Re-scoring Day 1 mass-absent as a gather-lock failure (pre-fix baseline)  
 - Self-serve Double / post-chat learning (separate epic — not this sim score)  
+- Continuing or “repairing” `20260713-1` Day-5 sleep-stuck scratch to validate §11 (use a fresh sim)  

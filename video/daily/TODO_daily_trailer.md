@@ -31,7 +31,7 @@ The daily trailer is indistinguishable in craft from the opener — a viewer can
 - **Cold-viewer intro.** Day-1: daily-specific concept-reset card + per-Double cast intros. Day ≥2: brief concept+cast touch + `yesterday_scar` "Previously on" bridge fed by **locked scar cards** (L13). The opener is **not** the Day-1 trailer — each daily is a self-contained episode.
 - **Drama >> resolution.** The day closes on a cliffhanger hook for tomorrow, never a bow.
 - **Plain marketer-simple language.** Concrete nouns and verbs, no strategy jargon or abstractions. A viewer who's never seen the show follows every sentence.
-- **Who they are, not just what they did.** Each featured Double's first mention carries a few role/trait words explaining *why* they act. **First time featured (or named farewell) this sim (L11 / F1):** full normal-life stamp (job + place + trait from bio/scratch). **Return appearances:** short recall only (“Max at Hobbs…”). Survival Day 1 always full. History persists in Supabase; written only when the script is locked.
+- **Who they are, not just what they did.** Each featured Double's first mention carries job/place/want explaining *why* they act. **First time featured (or named farewell) this sim (L11 / F1):** full spoken stamp (**job + place + want** from bio/scratch; no clinical trait labels). Cast cards may show a short trait line. **Return appearances:** short recall only (“Max at Hobbs…”). Survival Day 1 always full. History persists in Supabase; written only when the script is locked.
 - **Pacing.** Survival daily target **~100–115s** when character stamps need room; hard cap still **under 120 seconds** ([C] `day_survival` per SOT L10). Pauses minimal and matched to the opener (~0.15s per scene, ~3s total silence). First-name-only in voiceover after stamps; full names on cards / first stamp.
 
 ### 3. The 2D→3D "matrix" north-star
@@ -151,7 +151,7 @@ Challenge detail is **optional story fuel**, not a mandatory daily beat. Expand 
 
 #### F1. First-feature character intro (season memory) — ✅ DONE (2026-07-10) · SOT **L11**
 
-- **Problem:** Limited runtime; viewers still need to meet Doubles as *people* (normal-life job/place/trait), not only as vote pieces.
+- **Problem:** Limited runtime; viewers still need to meet Doubles as *people* (normal-life job/place/want), not only as vote pieces.
 - **Shipped:**
   1. Supabase `double.trailer_featured_history` + load/upsert RPCs; helper `video/featured_history.py` (migration applied on double-openrouter).
   2. Showrunner resolves `intro_mode` full|recall (**Survival Day 1 = engine day 2** always full; premiere/grace engine day 1 also full); producer + writer prompts + light gate; cache keys `day_overview_story_v6` / `day_overview_narration_v9`.

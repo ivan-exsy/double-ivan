@@ -38,13 +38,13 @@ Authoritative source of truth for Doubland's **three trailer types**. Part I is 
 | L8 | **Simulation literacy:** Doubles read as pixelated in the interface; lived moments may resolve into cinematic reality. Trailers train viewers to **watch Phaser and see real life** — 2D is the system, 3D punctuates truth. Opener [A] establishes the duality (matrix, cinematic tease); dailies [B]/[C] execute it per `daily/daily-2D-3D-blend.md`. | Product north-star; brand philosophy in [video playbook](video_playbook.md) §Core 2D↔Cinematic. |
 | L9 | **[B] `day_normal` 60–90s.** | Room for per-Double habitat intros; still under a minute at the short end. |
 | L10 | **[C] `day_survival` <120s.** | Survival recaps need more story beats than normal-day dailies. |
-| L11 | **First-feature intro memory (F1, 2026-07-10).** Per `sim_code`, the first time a Double is **featured** or gets a **named farewell**, VO + cast card use a full normal-life stamp (job + place + one trait from bio/scratch only). Later appearances → short recall. **Survival Day 1** (engine day 2) always forces full stamps. History written only on script **lock** (`lock_day_script`), never on draft generate. | Cold viewers meet people, not vote pieces; returnees don’t burn runtime re-introducing. |
+| L11 | **First-feature intro memory (F1, 2026-07-10; VO stamp clarified 2026-07-15).** Per `sim_code`, the first time a Double is **featured** or gets a **named farewell**, spoken VO uses a full normal-life stamp: **job + place + want** (want sourced from bio/scratch only — never clinical trait labels). Cast cards may still show a short trait line; **VO stamp is want**. Later appearances → short recall. **Survival Day 1** (engine day 2) always forces full stamps. History written only on script **lock** (`lock_day_script`), never on draft generate. | Cold viewers meet people, not vote pieces; returnees don’t burn runtime re-introducing. |
 | L12 | **Spicy cast ranking + coverage (2026-07-10).** Featured leads sort by drama-gap `rank_score` (amplify vs day median); locations lightly weighted; soft story-role bonuses (elim +2, immunity +3, top vote-receivers +3). **Never** restore elim +50. Last of top-N prefers highest-spicy **alive never-featured** (F1 history: featured\|farewell). Farewell still covers boots who never led. | Viewers can’t guess the boot from cast order alone; every Double gets screen time at least once. |
 | L13 | **Prior-day scar cards (F3, 2026-07-10).** On lock, write compact continuity (`scar.json` + `double.trailer_day_scar`): thesis, featured, elim, status deltas — not full VO. Engine day ≥3 loads last 1–2 scars into producer/writer. Prior-day “Previously on” uses season-day indexing (not raw engine−1). Operator locks Day N before generating Day N+1. | Day N+1 continues yesterday’s arc without inventing continuity. |
 
 ### 0.3 Voice, tone & brand (shared)
 
-**Voice:** warm omniscient narrator — see [video playbook](video_playbook.md) for full register. **Never mocks the Doubles.** ElevenLabs `eleven_v3` warm @ **1.5×** locked (opener + daily).
+**Voice:** warm omniscient narrator — see [video playbook](video_playbook.md) for full register. **Never mocks the Doubles.** ElevenLabs `eleven_v3` warm @ **1.2×** locked (opener + daily; API max).
 
 **Terminology (L5):** first-touch override lines permitted; must immediately resolve into brand voice ("your Double", "personality twin", "the version of you that…").
 
@@ -212,7 +212,7 @@ type TextMotionMode =
 
 ### 7.1 Voice
 
-ElevenLabs **`eleven_v3`**, warm stability **0.60**, speed **1.5×** — locked for opener and daily. Pronunciation: `Doubland` → Dub-land via `TTS_PRONUNCIATION_OVERRIDES` in `tts.py`.
+ElevenLabs **`eleven_v3`**, warm stability **0.60**, speed **1.2×** (API max; do not send 1.5) — locked for opener and daily. Pronunciation: `Doubland` / `doubland.ai` → fused `Dubland` / `dubland` via `TTS_PRONUNCIATION_OVERRIDES` in `tts.py` (**no hyphen** — hyphenated `Dub-land` made TTS say “dash”).
 
 ### 7.2 Mix targets
 
@@ -447,7 +447,7 @@ Reduce speed after any intensity: wide view → overlays fade → one Double →
 
 **Duration (L10):** **<120s** hard cap (validator band 60–120s). Working target **~100–115s** when multiple first-feature stamps need room (L11).
 
-**Character intro (L11):** `intro_mode` full|recall from Supabase `trailer_featured_history`. Full = job + place + trait (scratch/bio only). Recall = first name + short place reminder. Survival Day 1 always full. Named farewell outside the featured cast still consumes a first-feature slot. Operator lock: `python -m video.lock_day_script <sim> --day N --script …`.
+**Character intro (L11):** `intro_mode` full|recall from Supabase `trailer_featured_history`. Full spoken stamp = **job + place + want** (scratch/bio only; no clinical trait labels). Cast cards may show a short trait line; VO stamp is want. Recall = first name + short place reminder. Survival Day 1 always full. Named farewell outside the featured cast still consumes a first-feature slot. Operator lock: `python -m video.lock_day_script <sim> --day N --script …`.
 
 **Cast selection (L12):** spicy `rank_score` (drama-gap vs day median) + reserved last top-N slot for never-featured alive Doubles. Soft elim +2 only — never +50 auto-#1. Digest shows full spicy order + coverage candidate.
 
@@ -455,7 +455,7 @@ Reduce speed after any intensity: wide view → overlays fade → one Double →
 
 **Day indexing note:** CLI `--day` is **engine** calendar day. Survival Day 1 = engine **day 2** (day 1 = grace/premiere). Do not treat engine day 1 as the first competitive daily.
 
-**Inherits:** Part I grammar. Same show as opener — Remotion 9:16, shared asset registry, `eleven_v3` @ 1.5×, `questionToUrlTakeover` end card with day-episode copy.
+**Inherits:** Part I grammar. Same show as opener — Remotion 9:16, shared asset registry, `eleven_v3` @ 1.2×, `questionToUrlTakeover` end card with day-episode copy.
 
 **2D↔3D blend (L8):** primary execution home for simulation literacy — clip-eligible arc beats, camera dive / pixel fracture transitions, continuity rules, clip sourcing. Full rules → **`daily/daily-2D-3D-blend.md`**.
 
@@ -470,7 +470,7 @@ Reduce speed after any intensity: wide view → overlays fade → one Double →
 | Area | Status |
 |---|---|
 | **Taxonomy [A]/[B]/[C]** | Locked L1–L13 (§0.2) |
-| **Remotion opener pipeline** | Shipped v3.0 — vertical 9:16, photo-real cutouts, `eleven_v3` @ 1.5× |
+| **Remotion opener pipeline** | Shipped v3.0 — vertical 9:16, photo-real cutouts, `eleven_v3` @ 1.2× |
 | **Automated opener quality** | Functional; visual grammar gap remains — Phase 6 in automation doc |
 | **Opener [A] L-Talks manual** | **Script + VO locked** — `script_cos.md` + `script_cos_oneshot_speed12` (~83s @ 1.2×); Anya CapCut in flight — `opening/TODOs-opening-trailer.md` |
 | **[B] `day_normal`** | Contract stub only (§11) |
@@ -480,6 +480,11 @@ Reduce speed after any intensity: wide view → overlays fade → one Double →
 ---
 
 ## 14. Pipeline changelog
+
+### 2026-07-15 — Screenwriter Phase B: spoken stamp = want
+
+- **L11 / §12:** full spoken VO stamp clarified as **job + place + want** (from bio/scratch). Cast-card trait lines unchanged; clinical Big Five labels banned in spoken VO.
+- COS `agents/screenwriter/` Phase B doctrine cites this SOT; gold VO specimens already used want-shaped stamps.
 
 ### 2026-07-10 — Expert VO → auto-gen (challenge teach + thin tallies)
 
@@ -498,7 +503,7 @@ Reduce speed after any intensity: wide view → overlays fade → one Double →
 
 ### 2026-07-10 — F1 first-feature intro memory (L11)
 
-- **Product:** first feature (or named farewell) → full job/place/trait stamp; returnees → short recall. Survival Day 1 always full.
+- **Product:** first feature (or named farewell) → full job/place/want stamp (VO; clarified 2026-07-15); returnees → short recall. Survival Day 1 always full.
 - **Storage:** `double.trailer_featured_history` keyed by `sim_code`; write only via `python -m video.lock_day_script` (draft generate is read-only).
 - **Pipeline:** showrunner `intro_mode` + stamp facts from scratch/bio; establishing cards full ~6s / recall ~3s; cache `day_overview_story_v6` / `day_overview_narration_v9` (superseded by spicy/F3 → v7/v10).
 - **Day-index fix:** Survival Day 1 = engine `--day 2` (not engine day 1 grace).
@@ -553,7 +558,7 @@ persona_ranker → showrunner (+narration_cache) → tts
 
 Opener no longer uses FFmpeg `compose_opener_trailer`, Phaser capture, or 16:9. Day modes unchanged.
 
-**Locked narration:** `eleven_v3` warm @ 1.5× · minimal pauses (~2.75s total) · drop "sometimes… you never noticed" line · ~76.7s VO reference.
+**Locked narration:** `eleven_v3` warm @ 1.2× · minimal pauses (~2.75s total) · drop "sometimes… you never noticed" line · ~76.7s VO reference.
 
 **Command:**
 
