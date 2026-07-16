@@ -124,7 +124,7 @@ Observed while scoring; **not** required to close this inquiry:
 | Doc / artifact | Role |
 |----------------|------|
 | `double-ivan/20260710_checklist.md` §C | Gate that stayed open: challenge card |
-| `double-ivan/video/daily/TODO_daily_trailer.md` §E (E1) | Challenge card in fact ledger — shipped; digest feed still thin |
+| `double-ivan/done/video/daily/TODO_daily_trailer.md` §E (E1) | Challenge card in fact ledger — shipped; digest feed still thin |
 | `double-ivan/20260709_survival_realism.md` | Soft brief + chat-impact ranking (already verified on this sim) |
 | `generative_agents/data/20260709-1/trailer_ready_day2/` | Digest package to re-score after fix |
 | `generative_agents/tests/reports/_20260709-1_checklist_pack/` | Full MVP + realism pack from VPS |

@@ -1,6 +1,6 @@
 # Video SOT — Doubland Trailer System
 
-> **Nav:** [Opener WIP](opening/TODOs-opening-trailer.md) · [Opener implementation](opening-15person/20260617_vertical-trailer-automation.md) · [Opener visual timing](opening-15person/teadown/) · [Survival daily WIP](daily/TODO_daily_trailer.md) · [2D↔3D blend](daily/daily-2D-3D-blend.md) · [Video playbook](video_playbook.md) · [Prompts](prompts.md) · [Archive history](archive/sot-video-history.md) · Engineering PRD: `video/video_PRD.md`
+> **Nav:** [Opener WIP](opening/TODOs-opening-trailer.md) · [Opener implementation](opening-15person/20260617_vertical-trailer-automation.md) · [Opener visual timing](opening-15person/teadown/) · [Survival daily WIP](TODO_video.md) · [2D↔3D blend](../done/video/daily/daily-2D-3D-blend.md) · [Video playbook](video_playbook.md) · [Prompts](../done/video/prompts.md) · [Archive history](archive/sot-video-history.md) · Engineering PRD: `video/video_PRD.md`
 
 Authoritative source of truth for Doubland's **three trailer types**. Part I is shared creative grammar (all types inherit). Part II is per-type contracts. Part III is locked production status and recent changelog — not active task lists.
 
@@ -20,7 +20,7 @@ Authoritative source of truth for Doubland's **three trailer types**. Part I is 
 |---|---|---|---:|---|
 | **[A]** | **Opening trailer** | Introduce Doubland + season cast at a glance; **shareable viral growth asset**. Lean — no per-Double intros, no survival mechanics in the body. | **~60s** | §10 |
 | **[B]** | **Normal-day daily** (`day_normal`) | Brief concept reminder + **introduce every cast member in their simulation habitat** (role + normal-day beat) + close tease. Per-Double intros and spoken trait lines live here. | **60–90s** | §11 (TBD) |
-| **[C]** | **Survival-day daily** (`day_survival`) | Moment-driven survival recap — pressure, stakes, cliffhanger close. | **<120s** | §12 · detail in `daily/TODO_daily_trailer.md` |
+| **[C]** | **Survival-day daily** (`day_survival`) | Moment-driven survival recap — pressure, stakes, cliffhanger close. | **<120s** | §12 · active WIP `TODO_video.md` |
 
 **Same show, next episode.** All three share format, motion system, voice, end-card pattern, and validators. Type differences are **content and scene map**, not craft.
 
@@ -32,10 +32,10 @@ Authoritative source of truth for Doubland's **three trailer types**. Part I is 
 | L2 | Per-Double intros + spoken trait lines → **[B] `day_normal`**. | Natural home for 15 locked trait lines and habitat beats. |
 | L3 | Two daily modes: `day_normal` [B] and `day_survival` [C], each with its own contract. | Pre-survival vs survival days have different story jobs. |
 | L4 | Playbook **6-emotion sequence is guidance**, not a separate deliverable. Opener [A] absorbs those principles. | One primary viral asset. |
-| L5 | **Terminology exception (temporary, global).** "AI version of you", "AI Doubles of real people", "AI twin of your personality" permitted for first-touch clarity until Doubland is self-evident; then drop. | Supersedes forbidden-terms in `daily/TODO_daily_trailer.md` §Brand discipline for now. |
+| L5 | **Terminology exception (temporary, global).** "AI version of you", "AI Doubles of real people", "AI twin of your personality" permitted for first-touch clarity until Doubland is self-evident; then drop. | Supersedes forbidden-terms in archived daily brand notes (`done/video/daily/TODO_daily_trailer.md`) for now. |
 | L6 | Opener [A] **~60s** (lean, no per-Double block). | Viral-share length; tighter than Anya reference cut. |
 | L7 | **Season masking:** cohort display names masked externally. Pilot: `soul15_seed_20260224` → **L-Talks** · season **Press Play**. | Cohort recognizes itself; asset stays shareable. |
-| L8 | **Simulation literacy:** Doubles read as pixelated in the interface; lived moments may resolve into cinematic reality. Trailers train viewers to **watch Phaser and see real life** — 2D is the system, 3D punctuates truth. Opener [A] establishes the duality (matrix, cinematic tease); dailies [B]/[C] execute it per `daily/daily-2D-3D-blend.md`. | Product north-star; brand philosophy in [video playbook](video_playbook.md) §Core 2D↔Cinematic. |
+| L8 | **Simulation literacy:** Doubles read as pixelated in the interface; lived moments may resolve into cinematic reality. Trailers train viewers to **watch Phaser and see real life** — 2D is the system, 3D punctuates truth. Opener [A] establishes the duality (matrix, cinematic tease); dailies [B]/[C] execute it per `done/video/daily/daily-2D-3D-blend.md` (summary also in `TODO_video.md`). | Product north-star; brand philosophy in [video playbook](video_playbook.md) §Core 2D↔Cinematic. |
 | L9 | **[B] `day_normal` 60–90s.** | Room for per-Double habitat intros; still under a minute at the short end. |
 | L10 | **[C] `day_survival` <120s.** | Survival recaps need more story beats than normal-day dailies. |
 | L11 | **First-feature intro memory (F1, 2026-07-10; VO stamp clarified 2026-07-15).** Per `sim_code`, the first time a Double is **featured** or gets a **named farewell**, spoken VO uses a full normal-life stamp: **job + place + want** (want sourced from bio/scratch only — never clinical trait labels). Cast cards may still show a short trait line; **VO stamp is want**. Later appearances → short recall. **Survival Day 1** (engine day 2) always forces full stamps. History written only on script **lock** (`lock_day_script`), never on draft generate. | Cold viewers meet people, not vote pieces; returnees don’t burn runtime re-introducing. |
@@ -69,15 +69,16 @@ Authoritative source of truth for Doubland's **three trailer types**. Part I is 
 |---|---|
 | **This doc** | Shared grammar (Part I) + type contracts (Part II) + status (Part III) |
 | **`opening/TODOs-opening-trailer.md`** | Active opener [A] WIP — archive when done, then update §10 + §13 here |
-| **`daily/TODO_daily_trailer.md`** | Active [C] survival-daily WIP + full scene map until promoted to §12 |
+| **`TODO_video.md`** | Active [C] survival-daily WIP (picture pass + gates) |
 | **`opening-15person/teadown/`** | Opener visual timing — ~50 sub-moments, timecodes, text/SFX logs |
 | **`opening-15person/20260617_vertical-trailer-automation.md`** | Opener engineering — built state, Phase 6 backlog |
-| **`daily/daily-2D-3D-blend.md`** | Simulation literacy execution — when/how Phaser/sketch resolves into cinematic life ([B]/[C]; especially [C] arc beats) |
-| **`video/prompts.md`** | AI asset-generation prompts (Grok/Midjourney catalog) |
+| **`done/video/daily/daily-2D-3D-blend.md`** | Simulation literacy execution — when/how Phaser/sketch resolves into cinematic life ([B]/[C]; especially [C] arc beats) |
+| **`done/video/prompts.md`** | AI asset-generation prompts catalog (archived) |
 | **`generative_agents/.../scripts-prompts/!prompts.md`** | Codegen script templates (engineering repo) |
+| **`done/video/daily/TODO_daily_trailer.md`** | Historical [C] implementation tracker (archived 2026-07-15) |
 | **`archive/sot-video-history.md`** | Pre-Remotion diagnostic, commission tracker, implementation phases |
 
-On **visual timing, sub-moments, on-screen copy, SFX sync** → `teadown/` CSVs. On **asset policy, cast scale, mix, validation** → Part I below. On **2D↔3D blend rules** → `daily/daily-2D-3D-blend.md`. On **implementation backlog** → automation doc (not this SOT).
+On **visual timing, sub-moments, on-screen copy, SFX sync** → `teadown/` CSVs. On **asset policy, cast scale, mix, validation** → Part I below. On **2D↔3D blend rules** → `done/video/daily/daily-2D-3D-blend.md`. On **daily implementation backlog** → `TODO_video.md`.
 
 ---
 
@@ -264,7 +265,7 @@ Tagged library: `whoosh_soft`, `whoosh_fast`, `digital_reveal`, `typing`, `scan`
 
 **Motion-clip rules:** no visible looping; don't slow to static; if beat exceeds clip duration, transition to still/component.
 
-**Generation prompts for new cohorts:** `video/prompts.md`. **Resolver rejections:** wrong cohort; reference-only in final render; baked text mismatch; below min resolution; landscape full-screen without approved crop; same hero asset in neighboring beats.
+**Generation prompts for new cohorts:** `done/video/prompts.md` (catalog) · engineering templates in `generative_agents/.../scripts-prompts/`. **Resolver rejections:** wrong cohort; reference-only in final render; baked text mismatch; below min resolution; landscape full-screen without approved crop; same hero asset in neighboring beats.
 
 ### 8.3 Component library
 
@@ -383,7 +384,7 @@ New sim + cast renders without manual Remotion edits; 4/8/15-Double layouts succ
 
 **Shape (L1, L6):** lean **~60s** · 9:16 · concept intro → **group cast overview** → survival tease close. No per-Double spoken intros. No pressure mechanics in body.
 
-**2D↔3D (L8):** opener establishes simulation-vs-life duality via matrix filter, cinematic flyovers, and photo cutouts — not daily arc clips (camera dive / pixel fracture). See [video playbook](video_playbook.md) §Core 2D↔Cinematic; daily execution rules → `daily/daily-2D-3D-blend.md`.
+**2D↔3D (L8):** opener establishes simulation-vs-life duality via matrix filter, cinematic flyovers, and photo cutouts — not daily arc clips (camera dive / pixel fracture). See [video playbook](video_playbook.md) §Core 2D↔Cinematic; daily execution rules → `done/video/daily/daily-2D-3D-blend.md`.
 
 **Active WIP:** `opening/TODOs-opening-trailer.md` (L-Talks / Press Play manual production).
 
@@ -435,7 +436,7 @@ Reduce speed after any intensity: wide view → overlays fade → one Double →
 
 **Scene map:** **TBD.** Per-Double `DoubleIdentityCard` + habitat visuals + trait VO per §8.6.
 
-**2D↔3D (L8):** establishing layer (concept reset, cast intro) stays **permanently 2D** — sketch portrait is the brand language for "this is a Double." Habitat beats may use selective cinematic punctuation per `daily/daily-2D-3D-blend.md` §6 (when contract is written).
+**2D↔3D (L8):** establishing layer (concept reset, cast intro) stays **permanently 2D** — sketch portrait is the brand language for "this is a Double." Habitat beats may use selective cinematic punctuation per `done/video/daily/daily-2D-3D-blend.md` §6 (when contract is written).
 
 **WIP doc:** none yet. When created, follow opener TODO pattern; promote contract here when archived.
 
@@ -457,9 +458,9 @@ Reduce speed after any intensity: wide view → overlays fade → one Double →
 
 **Inherits:** Part I grammar. Same show as opener — Remotion 9:16, shared asset registry, `eleven_v3` @ 1.2×, `questionToUrlTakeover` end card with day-episode copy.
 
-**2D↔3D blend (L8):** primary execution home for simulation literacy — clip-eligible arc beats, camera dive / pixel fracture transitions, continuity rules, clip sourcing. Full rules → **`daily/daily-2D-3D-blend.md`**.
+**2D↔3D blend (L8):** primary execution home for simulation literacy — clip-eligible arc beats, camera dive / pixel fracture transitions, continuity rules, clip sourcing. Full rules → **`done/video/daily/daily-2D-3D-blend.md`** (summary in `TODO_video.md`).
 
-**Full contract + scene map + implementation status:** `daily/TODO_daily_trailer.md` until stable, then summarize here and trim the TODO.
+**Active implementation status / picture pass:** `TODO_video.md`. Historical scene-map tracker: `done/video/daily/TODO_daily_trailer.md`.
 
 ---
 
@@ -474,7 +475,7 @@ Reduce speed after any intensity: wide view → overlays fade → one Double →
 | **Automated opener quality** | Functional; visual grammar gap remains — Phase 6 in automation doc |
 | **Opener [A] L-Talks manual** | **Script + VO locked** — `script_cos.md` + `script_cos_oneshot_speed12` (~83s @ 1.2×); Anya CapCut in flight — `opening/TODOs-opening-trailer.md` |
 | **[B] `day_normal`** | Contract stub only (§11) |
-| **[C] `day_survival`** | Story plumbing shipped (L11–L13); picture/Remotion polish + live lock proof open — `daily/TODO_daily_trailer.md` |
+| **[C] `day_survival`** | Story plumbing shipped (L11–L13); picture/Remotion polish + live lock proof open — `TODO_video.md` |
 | **Legacy FFmpeg / commission tracker** | Archived — `archive/sot-video-history.md` |
 
 ---

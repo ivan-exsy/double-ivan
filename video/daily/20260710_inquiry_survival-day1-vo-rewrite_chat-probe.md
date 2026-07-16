@@ -167,8 +167,8 @@ Key opener Survival line to rhyme with (don’t copy blindly):
 | Doc | Path | Why |
 |-----|------|-----|
 | **Video SOT** | `double-ivan/video/sot-video.md` | Part I grammar · §12 `[C] day_survival` · L10 duration · L11 first-feature stamps · L12/L13 ranking/scars |
-| **Daily TODO / contract** | `double-ivan/video/daily/TODO_daily_trailer.md` | Ideal outcome, plain language, cliffhanger, same-show-as-opener |
-| **Prior screenwriter task** | `double-ivan/video/TODO_script_draft.md` | Earlier lock notes (now superseded by this inquiry’s rewrite ask) |
+| **Daily TODO / contract** | `double-ivan/video/TODO_video.md` (active) · archived tracker `done/video/daily/TODO_daily_trailer.md` | Ideal outcome, plain language, cliffhanger, same-show-as-opener |
+| **Prior screenwriter task** | `double-ivan/done/video/TODO_script_draft.md` | Earlier lock notes (now superseded by this inquiry’s rewrite ask) |
 | **Program TODO** | `double-ivan/video/TODO_video.md` | Daily priority over opener automation |
 
 ### This package (facts + current draft)

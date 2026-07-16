@@ -8,6 +8,7 @@
 - **2026-07-14:** Personality attraction (weighted challenge pick / soft priors)
 - **2026-07-14:** Gather prewindow lock (soft day outside appointments; hard last-hour cafe destination; seek paused in window; honest spatial absentees; opportunistic Survival talk on natural meet)
 - **2026-07-15:** Sleep-stuck RCA fixes — no midnight `post_vote_date` restamp; regenerate plan on empty/all-sleep; gather lock wakes sleepers; all-absent vote fail-closed
+- **2026-07-16:** Gather-hour crash pack (`20260715-1` @ step 1650) — word-boundary sleep detection (no `rest`⊂`restock`); gather lock mints complete travel action (never `None` duration); null-safe position reconciler; persist `season.phase` on transition; `/status/current` grace = `Premiere`
 
 **Mode:** normal sprint (`diagnostic_mode: false`) — product data in Supabase / season state is enough  
 **Gate triad (scoring only, after unblind):** Ivan · Diana · Mike  
@@ -22,7 +23,7 @@ Do **not** expect Remotion / public VO / share CTA from this run.
 |-----|------:|---------------|
 | Leg 1 | ~2600 | Grace + Season Day 1 complete (challenge + Ivan elim). Day 1 challenge fired by **deadline** at 11:00 with **8/15 absent** (pre–gather-lock). Stopped overnight before Day 2 challenge (~4h short). |
 | Leg 2 (continue) | +~4800 → **7399/7400 completed** | Gather lock + attraction live. Ended Season Day 5 morning (`claim_the_slot` active, unresolved). **Scored 2026-07-15 — FAIL sleep-stuck Days 3–4.** |
-| Leg 3 (fresh) | TBD | Deploy 2026-07-15 fixes → **new** sim code (not continue `20260713-1`). Score **§11** first; then §§1–3 / 8–10 if clean through Day 3+. |
+| Leg 3 (fresh) | `20260715-1` → **crashed step 1650** @ Day 1 10:00 | Grace OK; Director armed `hold_for_shield`; gather lock opened then **fatal** `act_duration=None` (false sleep on `restock` → WAKE cleared timers → reconciler `None*6`). **Do not score until 2026-07-16 crash pack is deployed**; then continue or fresh Leg 3. |
 
 **Score Day 1 Keep / Director Day 1 from Leg 1.** Score gather lock, Days 2–3 Director, Light, attraction from **Leg 2+** only (historical). **Leg 3:** use §11 as the primary gate before re-opening Light/blind.
 
@@ -293,7 +294,7 @@ Only once Day 4+ / weighted picks actually run:
 |-----|-------------|--------------------|
 | Midnight `post_vote_date` | After a vote overnight, next morning cast is **not** all in bed; schedules multi-block | Cast asleep through 10–11 again; `post_vote_date` equals **new** calendar morning |
 | Degenerate-schedule plan | Morning after vote: `daily_req` / hourly plan regenerates (not empty + sleeping-1440) | Same-evening post-vote recovery clobbered into a full-day replan before midnight |
-| Gather lock wakes | Day 2–3 challenge (ideally vote) lean **`spatial_gate`**; Hobbs ≥ ~80% in last hour | Sleepers ignored; **or** soft-day destroyed (everyone cafe all day outside windows) |
+| Gather lock wakes | Day 2–3 challenge (ideally vote) lean **`spatial_gate`**; Hobbs ≥ ~80% in last hour; **no** runner crash at 10:00 / 19:00 | Sleepers ignored; **or** soft-day destroyed; **or** TypeError on `act_duration` (pre–2026-07-16) |
 | All-absent fail-closed | If mass-absent: **no** elim with empty tally / `vote_count: 1`; NDJSON `all_absent_no_quorum`; same cast next morning | Phantom lottery elim returns |
 
 ### Checkboxes (Leg 3)
