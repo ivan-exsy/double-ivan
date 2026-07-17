@@ -16,7 +16,7 @@
 | **VO audio** | `l-talk/audio/experiments/script_cos_oneshot_speed12/narration_cos.mp3` | **~83.4s** one-shot take |
 | **Timing** | `…/script_cos_oneshot_speed12/narration_timing.json` | Single segment — Anya marks title cards from the waveform, not pre-segmented beats |
 | **TTS input** | `…/script_cos_oneshot_speed12/script_used.txt` | Exact string sent to ElevenLabs (inline `[curious]` / `[warmly]` / `[excited]` / `[accentuate]`) |
-| **Voice** | `eleven_v3` warm @ **1.2×** | **L-Talks manual exception** to SOT default 1.5× — chosen after VO experiment listen (`audio/experiments/README.md`) |
+| **Voice** | `eleven_v3` warm @ **1.2×** | Matches SOT global lock (§0.3 / §7.1). Chosen after VO experiment listen (`audio/experiments/README.md`); earlier v1 tried 1.5× and was rejected for flow/runtime. |
 | **Re-render** | `python -m video.render_ltalk_cos_oneshot` | From `generative_agents` repo root |
 
 **Why this beat v1:** Tighter `script_cos` copy + 1.2× one-shot landed better flow and runtime than `script.md` @ 1.5× (`v1_oneshot_speed15`). Close hook locked to *"what would MY Double do?"* (not generic "What if?").

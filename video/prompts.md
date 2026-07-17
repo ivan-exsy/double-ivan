@@ -1,6 +1,6 @@
-﻿# Moved
+﻿# Asset-generation prompts catalog
 
-**Archived:** `done/video/prompts.md` (2026-07-15)  
-**Engineering prompt templates:** `generative_agents/video/assets/scripts-prompts/`  
+**Canonical path:** this file (`video/prompts.md`).  
+**Status:** Index stub — engineering paste templates live in `generative_agents/video/assets/scripts-prompts/`. A `done/video/prompts.md` archive was never created.  
 **Active daily trailer work:** [`TODO_video.md`](TODO_video.md)  
 **Contracts:** [`sot-video.md`](sot-video.md)

@@ -100,7 +100,7 @@ Rule of thumb: **1–3 clips max** (establishing stamps stay portrait cards).
 | Who / UUID | `cast_reference.md` + hero/portrait/sketch paths above |
 | Place still | Village plates (#1 ready + #2 new Willows / Oak Hill) |
 | Facts (winner, boot, messy six) | `fact_ledger.json` |
-| Blend grammar | `done/video/daily/daily-2D-3D-blend.md` (dive in / fracture out; silent clips; 1–3/day) |
+| Blend grammar | `daily/daily-2D-3D-blend.md` (dive in / fracture out; silent clips; 1–3/day) |
 | Drop-in path | `build_day_remotion_props.py` → `moment_clips/<sim>/<day>/beat_<id>.mp4` |
 
 **Generalized recipe (every future daily)**
@@ -128,11 +128,11 @@ Rule of thumb: **1–3 clips max** (establishing stamps stay portrait cards).
 
 # Daily Trailers — primary work doc
 
-**Updated:** 2026-07-15  
+**Updated:** 2026-07-16  
 **This file is the primary checklist for finishing [C] Survival dailies.** Contracts stay in `sot-video.md`. Older working docs listed below can move to `video/DONE/` after you skim this once.
 
 **Live package:** `generative_agents/data/20260713-1/overview_day2&001/`  
-**Locked VO:** `VO_LOCKED.md` (= `script.json` spoken text = `script_used.txt`) · TTS ~109.5s @ warm **1.2×**  
+**VO working file:** `VO_LOCKED.md` — **V3.2 clarity draft** (not yet compress-locked / TTS-locked).  
 **Do not** overwrite VO / re-TTS while Anya review is open. **Do not** `lock_day_script` until picture + VO are both accepted.
 
 ---
@@ -141,8 +141,15 @@ Rule of thumb: **1–3 clips max** (establishing stamps stay portrait cards).
 
 ### Gate A — VO (Anya)
 
-- [ ] Anya approves locked Survival Day 1 VO (package above).
-- [ ] If she requests edits: update `VO_LOCKED.md` + `script.json` + re-TTS together; keep Remotion off until text is final again.
+- [x] Anya + founder review V0 (2026-07-16): **not approved** — clarity / drama / challenge teach / 15-vs-3 ensemble gaps.
+- [x] V1 long-form + V2 clarity revise on package (see `VO_LOCKED.md`).
+- [x] Screenwriter **V3** + founder **V3.1 mid-beat** + **V3.2 day-projection stamps** on `VO_LOCKED.md`.
+- [x] Eng verify Ivan vote-defense: **NONE** — “keep votes off himself” stays cut.
+- [x] DEV ACK compress budget @ 1.2× / ~2.2 wps (2026-07-16).
+- [x] First **Short version of Ver.3** compress draft on `VO_LOCKED.md` (~263 words / ~118s est.).
+- [ ] Founder → Anya **approve short VO meaning** (then measured TTS @ 1.2×).
+- [ ] If measured &gt;120s: trim non-sacred only; re-TTS; then update `script.json` + Remotion.
+- [ ] Anya approves compressed spoken VO. Keep Remotion off until text+audio final.
 
 ### Gate B — Picture (you — see audit at top)
 
@@ -164,6 +171,37 @@ Follow **Tomorrow order of work** in the audit section. Short form:
 - [ ] Optional D1: 5-viewer comprehension gate (4/5 pass).
 - [ ] Merge daily-trailer branch work to `main` when picture path is product-accepted (ff-only protocol).
 
+### Gate E — Automate daily trailer script gen (after this Day 1 VO is script-locked)
+
+**When:** only after Gate A compress + Anya VO OK **and** Gate C `lock_day_script` on this package — treat V3.2 → compress as the **gold specimen**, not as a one-off rewrite forever.
+
+**Goal:** every Survival day can produce a cold-viewer-safe `[C]` VO draft without repeating the V0→V3.2 human recovery loop.
+
+**Encode lessons from V3.2 lock (do not regress):**
+
+| Lesson | Automation requirement |
+|--------|------------------------|
+| Long → approve → compress | Optional long/clarity draft mode; ship cut respects L10; never optimize TTS before meaning approve (`vo-long-then-compress`) |
+| Leave timing | Same-night elim after tally — never “by morning” (`sot_survival` VOTING) |
+| Ensemble | State 15 Doubles / all play + vote; simple trio intro — **no** ranking dump in VO |
+| Stamps (L11) | **job + place + day-projection want** (personality × today’s dynamics); vary sentence frames; omit want if thin; **no** durable `scratch.want` required; **no** clinical `innate`; **no** `_default_want_for_role` into fact-locked want |
+| Challenge teach | Kid-plain number card hold/fold → Shield = safe **tonight only** before celebrating winner |
+| Behavior vs invention | Cite ledger / `day_reasoning` / digest only; eng-verify pattern for soft claims (e.g. Ivan vote-defense = NONE → never invent lobby) |
+| Mid beats | Keep cafe/social talk **separate** from vote-scatter; no fused “room never settles on one plan” unless evidenced |
+| Cliff | Shield spent after tonight; trust vacuum — no multi-day immunity implication |
+| Fact-lock | Messy boards stay messy; no invented blocs / second winners |
+
+**Work items (eng + COS craft):**
+
+- [ ] **E1 — Gold package:** freeze accepted compressed VO as regression gold (`VO_LOCKED.md` / `script.json` + short “why V3.2” notes) under `agents/screenwriter` / package archive.
+- [ ] **E2 — Emit day-intro fields:** day-overview packages persist `day_intro_want` (or equivalent) + `source_refs` for featured Doubles; role defaults only as non-authoritative `want_fallback` (or delete); on-disk `stamp_facts.json` matches what VO may cite.
+- [ ] **E3 — Narration Writer / showrunner policy:** replace caption-card / role-fallback stamp behavior with V3.2 spine + day-projection stamp rules; bake leave-timing + Shield-tonight-only + ensemble one-liners into prompts/validators.
+- [ ] **E4 — Soft-claim gate:** pipeline flags unsupported VO claims (vote-defense, alliances, clean blocs) against ledger/digest; omit or `needs-review` instead of inventing.
+- [ ] **E5 — Compress assist (optional):** after meaning approve, suggest L10 cut list from “runtime debt” sacred vs cuttable tags (human still owns final cut for first N days).
+- [ ] **E6 — CTO brief:** open `@cto` on `generative_agents` when Gate C green — scope E2–E4 first; E5 later.
+
+**Out of scope for Gate E:** Remotion picture automation (Gate B / B4); `[B] day_normal`; durable soul `scratch.want` schema (not required for day-projection stamps).
+
 ### Fast-follow (do not block Gate B)
 
 - [ ] **B4** — automate Grok Imagine moment clips (`generate_moment_clips.py`); manual drop-in is enough for first ship.
@@ -178,7 +216,7 @@ Follow **Tomorrow order of work** in the audit section. Short form:
 |------|--------|
 | Format | 9:16 Remotion, same show as opener |
 | Runtime [C] | ~100–115s typical; hard cap **under 120s** |
-| VO craft | Job+place+**want** stamps once → first names; challenge teach from ledger; messy boards stay messy; cliff + `doubland.ai` + optional itch |
+| VO craft | Job+place+**day-projection want** stamps once (varied frames) → first names; kid-plain challenge teach; messy boards stay messy; same-night elim; Shield tonight-only cliff + `doubland.ai` + optional itch |
 | Picture | Portraits for stamps; **1–3** silent cinematic clips on arc beats only |
 | Continuity | Lock Day N before generating Day N+1 |
 | Bad substrate | Never polish creatively on `20260705-or-smoke` |
@@ -186,7 +224,7 @@ Follow **Tomorrow order of work** in the audit section. Short form:
 **VO spine (encoded as `narration_v12`):**  
 concept → survival_frame → stamp×N → challenge_teach → mid_turn → cost → cliff → cta_sim → itch?
 
-**2D↔3D blend (summary):** establishing = 2D cards; clips only on pressure / turn / vote-class beats; camera dive in / pixel fracture out; silent clips; ≤3/day. Detail: `done/video/daily/daily-2D-3D-blend.md`.
+**2D↔3D blend (summary):** establishing = 2D cards; clips only on pressure / turn / vote-class beats; camera dive in / pixel fracture out; silent clips; ≤3/day. Detail: `daily/daily-2D-3D-blend.md`.
 
 ---
 
@@ -225,18 +263,16 @@ python -m video.lock_day_script data/20260713-1/overview_day2&001
 | Package `VO_LOCKED.md` / `script.json` / `fact_ledger.json` | Locked episode facts + edit spine |
 | `generative_agents/video/assets/...` | Heroes, village plates, moment_clips |
 
-## Archived working docs → `done/video/` (2026-07-15)
+## Older working docs (still under `video/` — 2026-07-16)
 
-Stubs remain at the old paths. Canonical copies:
+Canonical living paths (do **not** use a `done/video/` prefix — that folder was never created):
 
-| Archived | Path |
-|----------|------|
-| Daily implementation tracker | `done/video/daily/TODO_daily_trailer.md` |
-| Chat-probe VO lock | `done/video/TODO_script_draft.md` |
-| 2026-07-15 VO inquiry | `done/video/daily/20260715_script.md` |
-| 2026-07-15 VO follow-up / framework | `done/video/daily/20260715_script_followup.md` |
-| 2D↔3D blend grammar | `done/video/daily/daily-2D-3D-blend.md` |
-| Asset prompt catalog | `done/video/prompts.md` |
+| Doc | Path |
+|-----|------|
+| 2D↔3D blend grammar | `daily/daily-2D-3D-blend.md` |
+| Asset prompt catalog | `prompts.md` |
+| 2026-07-10 inquiries (historical) | `daily/20260710_inquiry_*.md` |
+| Day-1 VO rewrite brief | package `VO_LOCKED.md` (V0 + expert V1 notes) — supersedes missing `20260715_script*.md` stubs |
 
 ---
 
@@ -266,4 +302,4 @@ Stubs remain at the old paths. Canonical copies:
 - `20260705-or-smoke` = engineering fixture only.
 
 ### Explicitly not done (see open checklist)
-- Anya VO sign-off · Willows/Oak Hill plates · moment clips · Remotion watch on locked package · `lock_day_script` · D1 comprehension · B4 clip automation · [B] day_normal.
+- Anya VO sign-off on **V3.2** · compress · Willows/Oak Hill plates · moment clips · Remotion watch · `lock_day_script` · D1 comprehension · **Gate E script automation** · B4 clip automation · [B] day_normal.

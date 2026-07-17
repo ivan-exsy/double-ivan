@@ -1,7 +1,7 @@
 ﻿# Video SOT — Archived history
 
 > Extracted from `sot-video.md` on **2026-07-02** during the three-type SOT compression refactor.
-> **Active contracts:** `video/sot-video.md` · **Daily WIP:** `video/TODO_video.md` · **Prompts (archived):** `done/video/prompts.md` · **Opener WIP:** `video/opening/TODOs-opening-trailer.md`
+> **Active contracts:** `video/sot-video.md` · **Daily WIP:** `video/TODO_video.md` · **Prompts:** `video/prompts.md` · **Opener WIP:** `video/opening/TODOs-opening-trailer.md`
 
 ---
 
