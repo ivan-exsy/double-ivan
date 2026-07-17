@@ -1,516 +1,496 @@
-# SOT — New Daily Trailers (temporary)
+# SOT — Daily Trailers (Tonight’s Scar)
 
-> **Status:** Temporary product/eng contract for daily trailers (2026-07-16).  
-> **Audience:** DEV / Remotion / narration pipeline / ops.  
-> **Authority:** For **daily** work, this file **supersedes** `../sot-video.md` §11–§12 and L11 spoken-stamp law until folded back into the main Video SOT.  
-> **Does not replace:** Part I shared grammar in `../sot-video.md` (9:16, voice, mix, assets, validators baseline) · opener [A] · `daily-2D-3D-blend.md` · fact-lock to sim ledger.  
-> **Origin:** COS task `2026-07-16-003` (Tonight’s Scar + Share Edges). Decision wiki: COS `agents/videoproducer/kb/wiki/decision/tonight-scar-asset-split.md`.
+> **Audience:** DEV / Remotion / narration pipeline / CapCut ops  
+> **Authority:** For **daily** trailers, this file **supersedes** `../sot-video.md` §11–§12 and L11 spoken-stamp law until folded into the main Video SOT.  
+> **Does not replace:** Part I shared grammar in `../sot-video.md` (9:16, voice, mix, assets, baseline validators) · opener `[A]` · `daily-2D-3D-blend.md` · fact-lock to the sim ledger.  
+> **Locked VO gold:** [`VO_LOCKED.md`](VO_LOCKED.md) §V6 (Survival Day 1).  
+> **History / debate:** [`archive/SOT-new-daily-history.md`](archive/SOT-new-daily-history.md)
 
-**Nav:** [Video SOT (legacy reference)](../sot-video.md) · [Old [C] WIP](../TODO_video.md) · [2D↔3D](daily-2D-3D-blend.md) · [Prompts](../prompts.md)
-
----
-
-## 0. Why this exists
-
-Old `[C] day_survival` optimized for a **correct day encyclopedia**:
-
-`concept_reset → survival_frame → stamp×N → challenge_teach → mid_turn → cost → cliff → CTA`
-
-That stack is **paused as the default daily**. New default: short **episode of unfinished social pressure**, plus separate **share edges**. Product literacy and create-Double stay on opener `[A]` + landing.
+**Nav:** [Video SOT](../sot-video.md) · [Legacy encyclopedia WIP](../TODO_video.md) · [2D↔3D](daily-2D-3D-blend.md) · [Prompts](../prompts.md) · [VO locked](VO_LOCKED.md)
 
 ---
 
-## 1. Asset stack (jobs)
+## Contents
 
-| ID | Name | Runtime | Job | Ship for L-Talks pilot? |
-|----|------|--------:|-----|-------------------------|
-| **D1** | **Tonight’s Scar** (aka Night Cliff / Tonight’s Clip) | **45–60s** hard creative target (absolute max **75s**) | In-network daily episode: return tomorrow + one Door into today’s proof | **Yes — primary** |
-| **D2** | **Share Spark** | **12–20s** | Mute-safe sendable beat (cost/turn only) | **Yes — sibling of D1** |
-| **D3** | **Personal Edge** (“MY Double…”) | **8–15s** | Per-Double hard-side share clip | **Yes — P1 after D1 template** |
-| **[A]** | Opener | ~60s | Product literacy + create itch | Unchanged (see opener WIP) |
-| **[B]** | `day_normal` | — | Cast habitat directory | **Paused** — do not build |
-
-**Naming for code:** prefer `tonight_scar` / `share_spark` / `personal_edge`. Legacy type `day_survival` / `[C]` may alias to `tonight_scar` during migration.
+1. [Intent](#1-intent)  
+2. [Asset stack](#2-asset-stack)  
+3. [D1 — Tonight’s Scar](#3-d1--tonights-scar)  
+4. [Continuity (Scar Chain)](#4-continuity-scar-chain)  
+5. [Cast & season coverage](#5-cast--season-coverage)  
+6. [D2 — Share Spark](#6-d2--share-spark)  
+7. [D3 — Personal Edge](#7-d3--personal-edge)  
+8. [Moment picker](#8-moment-picker)  
+9. [VO contract & templates](#9-vo-contract--templates)  
+10. [CapCut / Remotion bins](#10-capcut--remotion-bins)  
+11. [Eng pipeline & schema](#11-eng-pipeline--schema)  
+12. [Validators](#12-validators)  
+13. [Guardrails](#13-guardrails)  
+14. [DEV backlog](#14-dev-backlog)  
+15. [Changelog](#15-changelog)
 
 ---
 
-## 2. D1 — Tonight’s Scar (primary daily)
+## 1. Intent
 
-### 2.1 One-line job
+Default daily is **not** a full-day encyclopedia.
+
+| Paused (do not build as default) | Ship instead |
+|----------------------------------|--------------|
+| `concept_reset → stamps×N → challenge_teach → full-day recap` | **D1 Tonight’s Scar** — unfinished social pressure → return itch → one Door |
+| `[B] day_normal` cast directory | `[A]` opener + landing for product literacy / create |
+
+**Code names:** `tonight_scar` · `share_spark` · `personal_edge`  
+Legacy alias: `day_survival` / `[C]` → `tonight_scar` during migration.
+
+---
+
+## 2. Asset stack
+
+| ID | Name | Runtime | Job | L-Talks pilot |
+|----|------|--------:|-----|---------------|
+| **D1** | Tonight’s Scar | **45–60s** target (max **75s**) | Daily episode: return tomorrow + one Door | **Primary** |
+| **D2** | Share Spark | **12–20s** | Mute-safe Peak crop | Sibling of D1 |
+| **D3** | Personal Edge | **8–15s** | Hard-side “MY Double…” | After D1 CapCut proven (§7) |
+| **[A]** | Opener | ~60s | Product literacy + create | Unchanged |
+| **[B]** | `day_normal` | — | Cast habitat directory | **Paused** |
+
+---
+
+## 3. D1 — Tonight’s Scar
+
+### 3.1 Job
 
 Make **tonight’s unfinished social scar** feel personal, then hand the viewer **one Door** into live proof. Not a full-day recap. Not a product demo.
 
-### 2.2 Planning order (non-negotiable)
+### 3.2 Roles
+
+| Role | Definition |
+|------|------------|
+| **Peak** | Share-turn person (what changed / who won) |
+| **Cost / protagonist** | Person the open question and Door are about (usually who paid / left) |
+| **Satellite** | Named only if causal (§5.1) |
+
+Peak and Cost **may be different people**. Cold quiz must still yield **one clear lead**.
+
+### 3.3 Production order
 
 ```
-1. Moment pick (share / emergence) from locked ledger
-2. Lock: protagonist + share peak + open question + Door target
-3. Write five-beat VO (want → pressure → turn → cost → open question)
-4. Picture cut into CapCut / Remotion bins (fit to locked VO)
-5. TTS / mix / end card
+1. Moment pick from locked ledger (§8)
+2. Lock Peak + Cost + open question + Door
+3. Draft VO from beat map (§9) — not encyclopedia spine
+4. Meaning-lock in VO_LOCKED.md
+5. CapCut / Remotion bins fit to locked VO (§10)
+6. TTS / mix / end card
+7. Export Spark; write scar.json for Day N+1 (§4)
 ```
 
-**Specimen S' / this week:** picker → scar VO lock (§14.2) → CapCut to VO (§12.7). Picture-first is later ops only.  
-**Do not** generate VO against the old `narration_v12` encyclopedia spine. Do not ship thin Specimen S (rejected).
+**Default this pilot:** CapCut fits **picture to VO**. Do not generate against legacy `narration_v12` encyclopedia prompts.
 
-### 2.3 CapCut / Remotion bins (template)
+### 3.4 Sacred VO beats (every night)
 
-| Bin | Time (guide) | Content | VO |
-|-----|-------------:|---------|-----|
-| **A Hook** | 0–3s | Extreme close: reaction face **or** social move mid-action | Silent or after image lands — **never** season essay |
-| **B Stake** | 3–12s | Hero face + name card; optional place lower-third ≤2s; scar chip if needed | **Day 1:** concept → season-stakes → protagonist want (§12.1, §12.11). Later nights: scar chip max → want |
-| **C Pressure** | 10–35s | Challenge/alliance/hunt *felt* in bodies; ≤1 kid-plain caption for challenge name | Cold first-teach / consequence-first (§12.14) — not insider reminder. Peak may steal time (§12.9) |
-| **D Peak** | 35–50s | **THE share moment** — hold reaction | Turn + cost. If Peak ≠ protagonist: satellite VO rule §12.10 |
-| **E Cliff+Door** | 50–60s | Open question + end card | Cliff line; Door copy per §12.12; soft mirror **usually omit** (§12.4) |
+1. Want (concrete, tonight)  
+2. Pressure (kid-plain fork)  
+3. Turn (ledger result)  
+4. Cost (human, dignified)  
+5. Honest open question  
+6. One Door  
 
-### 2.4 Spoken VO contract
+**Day 1 only — Stake literacy (after mute Hook):**
 
-**Sacred (must exist):**
+1. ≤1 concept clause — e.g. *These are Doubles — AI versions of real people, making choices no one wrote for them.*  
+2. ≤1 season-stakes clause — e.g. *Fifteen of them entered Survival mode: someone is voted out every night until one remains.*  
+3. Then follow + wants  
 
-1. Want (concrete, tonight)
-2. Pressure (social or rule — kid-plain, just-in-time)
-3. Turn (ledger result)
-4. Cost (human, dignified)
-5. Honest open question (tomorrow matters)
+**Later nights:** no concept / Survival primer. Scar chip → follow (optional) → wants (§4).
 
-**Spine sentence (authoring aid):**
+### 3.5 Kill list
 
-> `[Name] needed [outcome] tonight — but [pressure]. When [turn], it cost [cost], and now [open question].`
+| Kill | Do instead |
+|------|------------|
+| Nightly `concept_reset` / Survival primer | Day 1 Stake only |
+| Spoken stamp walls (job+place+want ×N) | Visual job/place cards + spoken want/behavior |
+| Separate challenge-teach scene | Bodies + ≤1 caption; consequence-first VO |
+| Mid-body product UI | Never |
+| Dual CTA (watch + create) / create sermon | One Door; soft mirror usually omit |
+| Full-day chronological completeness | Moment pick; if score &lt;18 → shorter clip, not encyclopedia |
+| “Previously on” recap | Scar chip (§4) |
+| Hollow third name (no causal beat) | Picture-only or omit |
+| RNG / “dice decided” as thesis | Personality-led choice under pressure |
 
-**Protagonist** = person the open question / Door is about (usually Cost payer). Peak and Cost may be two different people (§12.2, §12.10).
+### 3.6 Visual rules
 
-**Pass bar — L-Talks pilot = cold trailer drop-in** (§12.3): lead · want · fork · turn · cost · open question · Door. Soft secondary: “would you text a friend.” Spark/[A] own hard acquisition.
+- Job + place on **cards / lower-thirds**, not spoken directory.  
+- Cast: **1 protagonist + ≤2 satellites**.  
+- 2D↔3D: ≤3 silent 9:16 clips on Pressure/Peak — see `daily-2D-3D-blend.md`.  
+- Dignity: warm narrator; boot = cost not punchline; no pile-on.
 
-- Who was the lead?
-- What did they want?
-- What made it hard?
-- What changed?
-- What did it cost?
-- What’s still open?
-- What is a Double / what mode (Day 1)?
-- Would you text a friend one sentence about it?
+### 3.7 Door / CTA
 
-**Explicitly not required every night:** feature triad, full cast jobs, recurring Survival primer, chat/replay/zoom verbs, create sermon.  
-**Day-1 Stake exception:** ≤1 concept clause + ≤1 season-stakes clause (§12.1).
+End card always includes `doubland.ai` (reuse opener end-card motion where possible).
 
-### 2.5 Kill list (default daily)
+| Priority | Copy |
+|----------|------|
+| 1 | Cliff / open question (required) |
+| 2 | Door (required) — pilot OK: *Watch every conversation, challenge, and vote live at doubland.ai.* Prefer *Watch tonight at doubland.ai* when click hits a real surface |
+| 3 | Soft mirror — usually **omit** |
+| 4 | Create sermon — **forbidden** |
 
-| Kill | Replacement |
-|------|-------------|
-| `concept_reset` every day | **Day-1 Stake only:** ≤1 concept clause after Hook (§12.1). Never Hook essay. Later nights: `[A]` / landing / end-card microcopy |
-| Full Survival primer every day | **First elimination night only:** ≤1 season-stakes clause in Stake (§12.1); later nights = scar chip max |
-| Spoken stamp chapters (job + place + want ×N) | **Visual cards** + themness via authorship under pressure (§12.13) — not directory VO |
-| `challenge_teach` as its own scene | Bodies + ≤1 caption; Day-1 VO teaches fork **consequence-first** in Pressure (§12.14) — not a separate teach scene |
-| Mid-body product UI teaching | Never |
-| Dual hard CTA (watch + create) | One Door; soft mirror **usually omit** (§12.4); create sermon forbidden |
-| Chronological full-day completeness | Moment pick; if best score &lt;18/25 → shorter Clip, not encyclopedia |
+Picker may store intended `door.type` for eng while `artifact_id` is null. **No fake deep links.** Speak a specific Door only when the URL hits that surface.
 
-### 2.6 Visual / literacy rules
+### 3.8 Pass bar (cold drop-in)
 
-- **Job + place:** on-screen cards / lower-thirds during Stake — not spoken directory.
-- **Cast:** 1 protagonist + ≤2 satellites. Names on picture.
-- **2D↔3D:** ≤3 silent 9:16 cinematic clips on Pressure/Peak only; establishing stays 2D; dive in / pixel fracture out — see `daily-2D-3D-blend.md`.
-- **Challenge:** show the ask in bodies; ban “the dice decided” / RNG-as-thesis (personality-led drama).
-- **Dignity:** warm narrator; never mock Doubles; boot = cost not punchline; no pile-on share bait.
-
-### 2.7 End — Cliff Door (not brand void)
-
-End card always includes `doubland.ai` motion pattern (reuse opener `questionToUrlTakeover` where possible).
-
-**Primary end action = exactly one Door** from tonight’s ledger (live artifacts only):
-
-| Door type | Example label |
-|-----------|----------------|
-| Vote / ballot thread | “Open tonight’s vote chat” |
-| Farewell / cost replay | “Replay [Name]’s farewell” |
-| Chat-with-Double | “Ask [Name] what tonight cost” |
-| Challenge scrub point | “Jump to the Shield moment” |
-
-**CTA ladder (spoken, max):**
-
-1. Cliff / open question (required)  
-2. Door CTA (required) — **generic** (“Watch tonight at doubland.ai”) until the click hits the real surface (§12.12)  
-3. Soft mirror — “Would yours do that?” (**usually omit** this pilot; optional if Door is weak)  
-4. Create-Double sermon — **forbidden** in default D1  
-
-If deep links are not wired yet: picker may keep intended `door.type` for eng; spoken/end-card stay generic + homepage URL; `artifact_id: null`. No fake deep links.
-
-### 2.8 Continuity (keep from old L13)
-
-- On lock: write compact `scar.json` / `trailer_day_scar` (thesis, featured, elim, status deltas).
-- Day N+1 may show **one scar chip** (visual + ≤1 clause) — never a cold-open encyclopedia “Previously on.”
-- Operator locks Day N before generating Day N+1.
-- Engine day indexing unchanged: Survival Day 1 = engine `--day 2`.
-
-### 2.9 Cast selection (keep from old L12 — as picker input)
-
-Spicy / drama-gap ranking + coverage for never-featured remain **inputs to moment pick**, not a requirement to narrate everyone. Last slot preference for never-featured alive Doubles still applies to **who can appear**, not to VO roll-call.
-
-### 2.10 First-feature memory (L11 — revised)
-
-| Old law | New law |
-|---------|---------|
-| Full spoken job + place + want on first feature | **Visual** job/place on first feature; spoken want optional for protagonist only |
-| Survival Day 1 always full spoken stamps ×N | Survival Day 1: visual cards for featured; **no** spoken stamp wall |
-| History write on `lock_day_script` | Keep — still write F1 history on lock so recall mode works for picture/selection |
+After one watch: lead · want · pressure fork · turn · cost · open question · Door.  
+Soft secondary: “would you text a friend.” Hard acquisition stays on Spark / `[A]`.
 
 ---
 
-## 3. Moment picker (selection before craft)
+## 4. Continuity (Scar Chain)
 
-### 3.1 Score candidates 1–5 each
+### 4.1 Lock gate
 
-| Dimension | Role | Question |
-|-----------|------|----------|
-| Face | **Scored** | Readable reaction? |
-| Themness | **Scored** | “That’s so them”? |
-| Break | **Scored** | Violated group prediction? |
-| Stakes | **Scored** | Status / relationship moved? |
-| Mute | **Scored** | Lands with captions, sound off? |
-| Failure clarity | Tie-break only | Cost legible in one breath? *(systems)* |
-| Authorship | Tie-break only | Choice feels *theirs*? *(systems)* |
+1. Operator **locks Day N** before drafting Day N+1.  
+2. Engine day index: Survival Day 1 = engine `--day 2`.  
+3. CapCut **blocked** without Day N−1 `scar.json` — regenerate from ledger + locked meaning; do not paste yesterday’s full VO.
 
-**Five scored dims, max 25. Ship if ≥18.** Tie-break: Failure/Authorship notes, then “would a friend text this with zero context.”  
-**If best score &lt; 18/25:** ship shorter D1 or flag coverage gap — **do not** fall back to full-day encyclopedia. JSON `scores` = five fields only (§12.5). Picker veto = **founder**; Anya may flag (§12.9).
+### 4.2 `scar.json` (write on lock)
 
-### 3.2 Output of picker (required JSON shape — draft)
+Required fields:
+
+| Field | Purpose |
+|-------|---------|
+| `thesis` | ≤12 words |
+| `featured` | Peak + Cost ids/names |
+| `elim` / status deltas | Who left / power spent |
+| `open_question` | Unfinished thread |
+| `door` | type / label / url used |
+| `challenge_type_taught` | Shorten teach on later nights |
+| `chip_one_liner` | ≤12 words for next Stake |
+| `unfinished_thread` | 1 line |
+| `coverage_queue` | Alive never-featured ids |
+
+### 4.3 Viewer scar chip (later nights)
+
+| Layer | Rule |
+|-------|------|
+| **Picture** | **Default on** — one card, one idea (left / power spent / census), ≤2.5s in bin B |
+| **Spoken** | **Optional (A/B)** — ≤1 clause if tonight’s want needs last night’s status; **skip** if Hook already carries debt |
+| **Forbidden** | “Previously on” montage; Day-1 literacy replay |
+
+Chip must be cold-readable without having watched Day N−1.
+
+### 4.4 Author vs CapCut packs
+
+| Role | Gets |
+|------|------|
+| **Writer** | Day N−1 **full** locked VO + `scar.json`; optional N−2/N−3 **chip + spine only**; Day N ledger (sole facts); coverage board. Full last-3 VOs = optional skim later — never paste into Stake |
+| **CapCut** | `scar.json` + tonight locked VO + F1 recall cards for tonight’s featured (+ tagged picture satellites) |
+
+---
+
+## 5. Cast & season coverage
+
+### 5.1 Spoken cast
+
+**Default: Peak + Cost.** Follow line: *Today we’re following [Peak] and [Cost].*  
+Drop Follow if scar chip already named both.
+
+| Rule | Detail |
+|------|--------|
+| Third named | Only if causal to same pressure→turn→cost **and** ≥1 verb beat before Cost |
+| Else | Picture-only — no spoken name |
+| Cap | 1 protagonist + ≤2 satellites |
+
+### 5.2 Bonding (themness)
+
+**Want × costly choice × face** — not job stamps, not clinical vibe labels.
+
+| Spoken | Picture |
+|--------|---------|
+| Tonight-want / behavior for featured | Name card + optional job/place chip + choice body + reaction |
+
+Hard-side “MY Double…” → **D3**, not D1 VO.
+
+### 5.3 Peak ≠ Cost VO
+
+Name Peak + what happened + **≤1 want clause if it explains the turn**. No spoken job/place.
+
+### 5.4 Challenge VO
+
+Consequence-first (e.g. Shield = immunity from **tonight’s** vote). Day 1 may include clock + name + fork in one breath. Later nights: shorter if type already taught. Teach while bodies act; ≤1 caption.
+
+### 5.5 “Featured ≥1×”
+
+**Counts:** D1 spoken Peak **or** Cost, **or** shipped **D3**.  
+**Does not count:** unnamed group texture; name-and-drop without a verb beat.
+
+### 5.6 Coverage SLA
+
+| Layer | Rule |
+|-------|------|
+| **Soft** | Never-featured preference on **ties** / last seat / picture-only — **never** demote a clearer ≥18 Peak/Cost pair |
+| **Hard** | Every Double gets ≥1 **D3** before they leave **or** by mid-season (whichever first). Leave-face Edge OK if never edged before |
+
+Maintain a **Cast Coverage Board** (Double × D1 Peak/Cost/picture · D2 · D3 · elim). If many alive stay at 0 features → Edge sprint, not D1 cast expansion.
+
+### 5.7 First-feature memory
+
+On `lock_day_script`: write F1 history for **picture/recall** (job/place chips). Spoken full stamps stay **off**.
+
+---
+
+## 6. D2 — Share Spark
+
+| Field | Rule |
+|-------|------|
+| Source | Crop from D1 Peak (+ minimal Stake if needed) |
+| Runtime | 12–20s |
+| VO | Optional; prefer caption / mute-safe |
+| Content | One sendable beat — no stamps, rules, or CTA ladder |
+| End | ≤1s `doubland.ai` |
+| Export | Auto-sibling when D1 locks |
+
+---
+
+## 7. D3 — Personal Edge
+
+| Field | Rule |
+|-------|------|
+| Audience | Hard-side / cast-adjacent |
+| Runtime | 8–15s |
+| Content | One attributable moment for **one** Double |
+| Caption | Name + moment + “our season” — not product education |
+| Counts as featured | Yes (§5.5) |
+| **L-Talks sequence** | Prove **Day-2 D1 CapCut** (1–2 nights), **then** parallel **2–3 Edges** for never-featured **same week** |
+
+Do not expand D1 spoken cast to meet coverage.
+
+---
+
+## 8. Moment picker
+
+### 8.1 Score (1–5 each)
+
+| Scored | Tie-break only |
+|--------|----------------|
+| Face · Themness · Break · Stakes · Mute | Failure clarity · Authorship |
+
+**Max 25. Ship if ≥18.** Prefer Themness ≥4.  
+If best &lt;18: shorter D1 or flag gap — **not** encyclopedia fallback.  
+Veto: **founder**; Anya may flag.
+
+### 8.2 Pick order
+
+1. Score candidates.  
+2. Lock Peak + Cost.  
+3. Never-featured soft preference on ties only.  
+4. Do not demote clear Peak/Cost for fairness.
+
+### 8.3 Picker JSON (normative contract)
+
+**Roles are first-class.** `peak_id` = Share-turn person; `cost_id` = Door / open-question person (SOT §3.2). Peak and Cost may differ. Both are required to ship.
+
+**Retired:** treating a lone `protagonist_id` as Peak. Legacy `protagonist_id` is a **Cost alias only** (maps to `cost_id`). Do not invent Peak from `satellite_ids`.
 
 ```json
 {
   "asset": "tonight_scar",
   "sim_code": "…",
   "engine_day": 2,
-  "protagonist_id": "uuid",
-  "satellite_ids": ["uuid"],
+  "peak_id": "uuid-or-name",
+  "cost_id": "uuid-or-name",
+  "satellite_ids": ["uuid-or-name"],
   "share_peak": {
     "beat_id": "…",
     "ledger_refs": ["…"],
-    "one_line": "Irene wins Shield; room still scatters"
+    "one_line": "…"
   },
-  "open_question": "Who does anyone trust tomorrow?",
+  "open_question": "…",
   "door": {
-    "type": "vote_chat | farewell | chat_double | challenge_scrub",
+    "type": "vote_chat | farewell | chat_double | challenge_scrub | homepage",
     "label": "Watch tonight at doubland.ai",
     "intended_label": "Open tonight’s vote chat",
     "artifact_id": null,
     "url": "https://doubland.ai"
   },
-  "scar_chip": { "from_day": null, "one_line": null },
+  "scar_chip": { "from_day": null, "one_line": null, "spoken": false },
+  "unfinished_thread": null,
+  "coverage_queue": [],
   "scores": { "face": 0, "themness": 0, "break": 0, "stakes": 0, "mute": 0 }
 }
 ```
 
-Human override retained until picker quality is proven.
+**Day 1 V6 example:** `peak_id` = Irene Dove · `cost_id` = Ivan Pitts.
+
+Human override until picker quality is proven.
 
 ---
 
-## 4. D2 — Share Spark
+## 9. VO contract & templates
 
-| Field | Rule |
-|-------|------|
-| Source | Crop from D1 Peak (+ minimal Stake context if needed) |
-| Runtime | 12–20s |
-| VO | Optional; prefer caption-first / mute-safe |
-| Content | Single sendable beat only — no stamps, no rules, no CTA ladder |
-| End | ≤1s soft brand / `doubland.ai` |
-| Export | Auto-sibling whenever D1 locks |
+### 9.1 Gold specimen
 
-**Metric targets (product):** share rate; Spark completion ≥95%.
+**Day 1 locked text:** `VO_LOCKED.md` §V6 — do not silently rewrite. CapCut/TTS for Day 1 cut to that text.
 
----
+### 9.2 Beat map
 
-## 5. D3 — Personal Edge
+| # | Beat | Day 1 | Later nights |
+|---|------|-------|--------------|
+| 0 | Hook | Mute face/move — no VO | Same |
+| 1 | Stake | Concept + Survival | Picture scar chip; spoken clause optional (A/B) or skip |
+| 2 | Follow | Peak + Cost names | Optional if chip named them |
+| 3 | Wants | One line each | Protagonist required; Peak if causal |
+| 4 | Pressure | Challenge name + fork + tonight consequence | Shorter if known |
+| 5 | Peak | Winner / power — tonight-only | Same |
+| 6 | Mid | Optional generic social→votes (no invented blocs) | Only if ledger supports |
+| 7 | Cost | Votes / leave + Peak ballot if true | Same |
+| 8 | Census | Optional N→N−1 | Elim nights |
+| 9 | Cliff | Power spent + open tomorrow | Specific debt, not season essay |
+| 10 | Door | Catalog or “Watch tonight…” | Same until deep links |
 
-| Field | Rule |
-|-------|------|
-| Audience | Hard-side / cast-adjacent (“MY Double / OUR friend”) |
-| Runtime | 8–15s |
-| Content | One attributable moment for **one** Double (turn or cost) |
-| Caption | Name + moment + “our season” — not product education |
-| Priority | P1 after D1 CapCut template proven |
+**Spine aid:** `[Cost] needed [want] — but [pressure]. When [Peak turn], it cost [Cost], and now [open question].`
 
-Do **not** require Personal Edge to ship before first Tonight’s Scar Remotion template.
+### 9.3 Slot template (Day N)
 
----
+```
+[Day 1 only] These are Doubles — AI versions of real people, making choices no one wrote for them.
+[Day 1 only] [N] of them entered Survival mode: someone is voted out every night until one remains.
+[Later] [Picture scar chip — CapCut default]
+[Later] [Optional spoken scar ≤1 clause — A/B]
 
-## 6. Pipeline phases (eng)
+Today we’re following [Peak] and [Cost].   ← drop if chip already named both
+[Peak] [tonight-want / behavior].
+[Cost] [tonight-want / behavior].
 
-### Phase 0 — Human doctrine (now)
+[Challenge: name + fork + tonight consequence]
+[Peak turn]
+[Optional mid: generic social → votes]
+[Cost: votes / leave — Peak ballot if true]
+[Optional census]
+[Cliff: specific unfinished debt]
+[Door]
+```
 
-- [x] This SOT (+ §14 Specimen S' ear revise)  
-- [x] Specimen S' working VO locked in §14.2 / Day-1 `VO_LOCKED.md` (awaiting founder meaning approve)  
-- [ ] Anya CapCut Clip Kit: bins A–E locked  
+### 9.4 Day N ops checklist
 
-### Phase 1 — Manual Clip Kit (repeatable)
+```
+1. Day N−1 locked (scar.json + VO_LOCKED section). CapCut blocked without packet.
+2. Author pack: N−1 VO + scar.json; optional older chips; Day N ledger; coverage_queue.
+3. Moment pick ≥18; Peak/Cost lock; soft coverage on ties only.
+4. Draft VO from §9.2–9.3 (Day-1 literacy OFF after Day 1).
+5. Scar chip: picture on; spoken on/off for this night (A/B).
+6. Fact audit + cold quiz.
+7. Meaning-lock → VO_LOCKED.md.
+8. CapCut bins → TTS @ 1.2× (warn >60s, fail >75s).
+9. Export Spark; write scar.json; update coverage board.
+10. After Day-2 CapCut proven: queue D3 Edges (§7).
+```
 
-Anya (or ops) fills bins daily from picker output + locked scar VO. **Default this week:** CapCut fits picture to VO (§12.7). Picture-first OK later — **never** encyclopedia VO-first.
-
-### Phase 2 — Remotion clone (after 3–5 approved Clip Kits)
-
-Automate **only** proven bins:
-
-1. `moment_picker` (ledger + spicy + clip availability; human override)  
-2. Props: hero, satellites, captions, ≤3 `moment_clips`, music, end card, door  
-3. Timeline mirrors bins A–E  
-4. Auto-export Share Spark from Peak  
-
-**Do not** port `narration_v12` / concept→stamps→teach into Remotion.
-
-### Phase 3 — Doors + Personal Edge
-
-Wire `door` deep links to live artifacts; generate D3 per featured/hard-side Double.
-
----
-
-## 7. Data & CLI (migration notes)
-
-| Concern | Keep | Change |
-|---------|------|--------|
-| Fact ledger / no invented drama | Yes | — |
-| `lock_day_script` | Yes | Lock writes picker JSON + scar + F1 history; script schema for D1 bins |
-| Spicy rank / coverage | Yes | Feed picker; not VO chapters |
-| Scar cards L13 | Yes | Chip only in Stake/Cliff |
-| `intro_mode` full\|recall | Yes for **picture** | Spoken full stamp **off** by default |
-| Narration cache keys | Bump | New family e.g. `tonight_scar_v1` — do not reuse encyclopedia prompts |
-| Duration validators | Update | D1 target 45–60s (warn &gt;60, fail &gt;75); Spark 12–20; Edge 8–15 |
-| Old `[C]` &lt;120s encyclopedia | Deprecated | Keep code path behind flag `legacy_day_survival_encyclopedia=false` default |
-
-**Suggested script.json scene ids for D1:**
-
-`hook | stake | pressure | peak | cliff_door`
-
-(Not: `concept_reset | survival_frame | stamp_* | challenge_teach | …`)
+Creative chain: screenwriter → engagement (Door) → videoproducer. Pull realitytv only if mechanics are open.
 
 ---
 
-## 8. Validators (daily-specific)
+## 10. CapCut / Remotion bins
 
-Add / replace encyclopedia checks:
+Bin times are **guides**. Peak may steal runtime from Pressure.
+
+| Bin | Guide | Picture | VO — Day 1 | VO — later |
+|-----|------:|---------|------------|------------|
+| **A Hook** | 0–3s | Mute Cost or Peak face/move | None | Same |
+| **B Stake** | 3–12s | Day 1: name cards + job/place ≤2s. Later: scar chip ≤2.5s → name cards | Concept → Survival → follow → wants | Chip → optional spoken → follow → wants |
+| **C Pressure** | 10–35s | Challenge bodies; ≤1 caption; never-featured faces OK without VO names | Challenge teach | Shorter if known |
+| **D Peak** | 35–50s | Peak reaction **hold** | Turn / power | Same |
+| **E Cliff+Door** | 50–60s | Ballots / leave dignity; end card | Cost + census + cliff + Door | Same |
+
+Reminder tax ≤ ~3.5s; protect ≥8s Pressure for bodies.
+
+---
+
+## 11. Eng pipeline & schema
+
+### 11.1 Phases
+
+| Phase | Status / action |
+|-------|-----------------|
+| **0 Doctrine** | This SOT + V6 gold locked |
+| **1 Manual Clip Kit** | Anya fills bins from picker + locked VO |
+| **2 Remotion** | After 3–5 approved kits: picker props → bins A–E → auto Spark |
+| **3 Doors + Edge** | Wire deep links; generate D3 per coverage SLA |
+
+**Do not** port `narration_v12` / concept→stamps→teach into Remotion.  
+**Do not** implement `[B]`.  
+**Do not** rebuild spoken stamp pipeline.
+
+### 11.2 Data / CLI
+
+| Concern | Rule |
+|---------|------|
+| Fact ledger | Absolute — no invented drama |
+| `lock_day_script` | Writes picker JSON + scar + F1 history; D1 bin schema |
+| Spicy / coverage | Picker input only — not VO chapters |
+| `intro_mode` | Picture recall OK; spoken full stamp **off** |
+| Narration cache | New family e.g. `tonight_scar_v1` — do not reuse encyclopedia keys |
+| Legacy encyclopedia path | Flag `legacy_day_survival_encyclopedia=false` by default |
+
+**`script.json` scene ids:** `hook | stake | pressure | peak | cliff_door`
+
+### 11.3 Legacy map
+
+| Old (`sot-video.md` / TODO) | This SOT |
+|-----------------------------|----------|
+| `[C]` full-day recap | D1 scar episode |
+| L10 &lt;120s | D1 45–60s (max 75) |
+| L11 spoken stamps | Visual cards + want/behavior |
+| L13 scars | Scar chip + `scar.json` |
+| Encyclopedia Remotion polish | Do not block on stamp plates |
+
+Fold into main `sot-video.md` when Remotion + CapCut templates are proven.
+
+---
+
+## 12. Validators
 
 | Check | Pass |
 |-------|------|
-| Hook ≠ concept | First 3s is face/move, not “Doubles are…” / logo essay |
-| Share peak exists | Picker `share_peak` non-null; Peak bin non-empty |
-| Runtime | D1 ≤75s; warn if &gt;60s |
-| VO word budget | ~90–120 words @ 1.2× creative target |
-| No RNG thesis | Banlist on luck-as-story lines |
-| Door present | `door.label` set; URL or artifact when wired |
-| Stamp VO | Fail if ≥2 consecutive spoken job+place directory lines |
-| Spark sibling | On D1 lock, Spark export job queued |
-| Dignity | Existing ethics gates unchanged |
+| Hook ≠ concept | First 3s = face/move, not “Doubles are…” |
+| Share peak | `share_peak` non-null; Peak bin non-empty |
+| Runtime | D1 ≤75s; warn &gt;60s |
+| VO budget | Soft ~90–160 @ 1.2×; Day-1 literacy may run longer |
+| No RNG thesis | Banlist |
+| Door | `door.label` + url/artifact |
+| Stamp VO | Fail ≥2 consecutive spoken job+place directory lines |
+| Cast VO | Fail third name without causal verb beat |
+| Scar chip | No “Previously on” stack; spoken ≤1 clause; picture ≤ one idea |
+| Coverage | Soft preference must not override ≥18 Peak/Cost |
+| Peak ballot | Prefer naming Peak’s ballot on Cost when ledger-true |
+| Spark | Queued on D1 lock |
+| Dignity | Existing ethics gates |
 
-Shared Part I checks (9:16, LUFS, visual-change rate, end card) still apply — see `../sot-video.md` §9.
-
----
-
-## 9. Relationship to legacy Video SOT
-
-| Legacy (`sot-video.md`) | This file |
-|-------------------------|-----------|
-| [C] moment-driven **recap** | D1 **scar / episode** |
-| L10 &lt;120s | D1 **45–60s** (max 75) |
-| L11 spoken full stamps | Visual cards; spoken want optional for lead |
-| L12 spicy | Picker input |
-| L13 scars | Continuity chip |
-| [B] required later | **Paused** |
-| [C] as viral growth | **No** — D2/D3 + [A] |
-| `TODO_video.md` encyclopedia picture pass | Re-aim assets at bins A–E; do not block on stamp plates for VO chapters |
-
-When this temporary SOT is proven (Specimen S + CapCut forwards), fold into main `sot-video.md` and retire this file’s “temporary” banner.
+Shared Part I checks (9:16, LUFS, visual-change rate, end card): `../sot-video.md` §9.
 
 ---
 
-## 10. Guardrails
+## 13. Guardrails
 
-- Fact-lock absolute — no invented alliances/votes/motives  
-- Teen dignity — no humiliation-as-hook, no FOMO / create-or-belong pressure  
-- Doors only to **shipped** artifacts that week  
-- Personal Edge opt-in / non-spam; no “tag 5 friends” dark patterns  
+- Fact-lock absolute  
+- Teen dignity — no humiliation-as-hook, no FOMO create pressure  
+- Doors only to **shipped** artifacts  
+- Personal Edge non-spam; no “tag 5 friends” dark patterns  
 - Masked cohort rules unchanged (L7)
 
 ---
 
-## 11. Immediate DEV backlog (suggested order)
-
-1. **Schema:** `tonight_scar` picker JSON + `script.json` bin ids; bump narration cache key.  
-2. **Flag:** default off legacy encyclopedia spine.  
-3. **Remotion:** stub composition for bins A–E reusing opener end-card / music patterns.  
-4. **Export:** Share Spark crop job from Peak.  
-5. **Door:** prop fields + placeholder deep-link table (wire when FE ready).  
-6. **Do not:** rebuild spoken stamp pipeline; do not implement `[B]`.
-
-Creative Specimen S (scar-first Day-1 VO/picture) can proceed in parallel with Anya CapCut — eng should not wait on encyclopedia Remotion polish in `TODO_video.md`.
-
----
-
-## 12. Clarifications (2026-07-16 — DEV follow-up + founder ear revise)
-
-Locked answers so Specimen S / CapCut / schema do not guess. Supersede any softer wording above on conflict. Founder Specimen S critique amended §12.1 / §12.3 / §12.11 / §12.13–12.14 (task `2026-07-16-005`).
-
-### 12.1 Season Day 1 — concept + Survival framing
-
-**Day-1 Stake literacy after Hook (scar-first Hook unchanged).**
-
-1. **≤1 concept clause** — founder-locked OK: *These are Doubles — AI versions of real people, making choices no one wrote for them.*
-2. **≤1 season-stakes clause** — founder wording: *Fifteen Doubles, in Survival mode — someone leaves every day. Until one remains.*
-3. Protagonist want
-
-- Do **not** open Hook on concept or season essay.
-- Later nights: **no** recurring concept or Survival primer — scar chip / just-in-time pressure only.
-- Visual/end-card may reinforce; does not replace Day-1 spoken clauses.
-
-### 12.2 Protagonist when Peak ≠ Cost
-
-**Protagonist = the person the open question is about** (whose unfinished scar the Door serves). Often that is the **Cost** payer; Peak may star someone else.
-
-- Peak and Cost **may be two different named people**.
-- Cast rule still: **1 protagonist + ≤2 satellites**.
-- Cold quiz must still yield **one clear lead** (who wanted what).
-
-### 12.3 Pass bar for L-Talks pilot
-
-**Primary ship gate = cold trailer drop-in** (never saw the sim; may not have seen [A]).
-
-After one watch: lead · want · pressure fork · turn · cost · open question · Door path. Soft secondary: in-network “would you text a friend” / cohort themness.
-
-- D1 **job** stays return + one Door. Spark / Personal Edge / [A] still own hard acquisition.
-- Day-1 spoken: concept + Survival cadence (§12.1). “Felt only via 2D↔3D” is **insufficient alone** for Day-1 trailer-cold.
-- Later nights: scar chip + picture identity + Door — no recurring concept/season primer.
-- No stamp walls, no feature triad, no create sermon.
-
-### 12.4 Soft mirror
-
-**Usually omit** on default D1 during the pilot. Optional if Door is weak. Never a create sermon.
-
-### 12.5 Moment score model
-
-**Five scored dims, max 25, ship if ≥18.** Failure clarity + Authorship = tie-break only.
-
-Scored: Face · Themness · Break · Stakes · Mute.
-
-**Themness floor:** prefer Themness ≥4/5 for Specimen / cold gate. If themness fails, fix choice cut + want — not stamp intros.
-
-### 12.6 Door for Specimen S / first CapCut nights
-
-**Acceptable now:** intended `door.type` in picker + spoken/end-card **generic** homepage CTA + `url = https://doubland.ai` + `artifact_id: null` (§12.12).
-
-| Door type | L-Talks week |
-|-----------|----------------|
-| Homepage / season watch | **In** (default spoken CTA while deep links null) |
-| Vote / ballot / farewell / challenge scrub / chat | **In** when live — then speak specific; else eng-only intended type |
-
-No fake deep links.
-
-### 12.7 Specimen S production default
-
-**Picker lock → short scar-first VO lock → CapCut bins fit to VO.**
-
-### 12.8 Day-1 V3.2 Short vs Specimen S / S'
-
-**Specimen S' = fresh scar-first rewrite from the same locked ledger.** V3.2 = Specimen E (control) only — do not compress-patch encyclopedia into scar shape.
-
-### 12.9 Nice-to-haves
-
-- Bin times A–E are guides; **Peak may steal runtime from Pressure**.
-- Squad Bet deferred.
-- Picker veto = **founder**; Anya may flag.
-
-### 12.10 Peak person when they aren’t the protagonist (F1)
-
-**Default (b):** name + what happened + **one want clause only if it causally explains the turn**. No job/place. Picture + name card always OK.
-
-### 12.11 Day-1 Stake order — bin B (F2)
-
-**Not a sixth bin. Not inside Hook.**
-
-**Day-1 order in B:** concept clause → season-stakes clause → protagonist want.
-
-### 12.12 Door copy honesty while deep links are null (F3)
-
-**Viewer-facing = generic** (“Watch tonight at doubland.ai”) until the click hits that real surface. Picker may keep intended label for eng; do not speak it early.
-
-### 12.13 Themness without intros (F4)
-
-Stamp walls stay **off**. Alter-ego fidelity = **authorship under pressure**:
-
-| Do | Don’t |
-|----|--------|
-| Protagonist want as concrete desire | Job / workplace / Big Five |
-| One decisive choice that expresses that want | Narrator saying “that’s so them” |
-| Peak satellite ≤1 causal want (§12.10) | Stamp walls to “fix” cold ear |
-| Picture: name card + choice body + reaction hold | Clinical labels |
-
-Hard-side “MY Double…” → **D3 Personal Edge**. Cold pass: stranger can say “he won’t bet without proof” / “she grabbed cover first” without knowing jobs.
-
-### 12.14 Challenge / vote VO — cold first-teach (F5)
-
-Just-in-time ≠ insider reminder. Assume **zero** prior sim watch on Day 1.
-
-| Do | Don’t |
-|----|--------|
-| Consequence-first (Shield = safe from vote; fold = sit out) | “Tonight they faced…” / “as we saw” |
-| Teach fork while bodies do it; ≤1 caption | Separate challenge teach scene |
-| Personality-led authorship | RNG thesis / box-score as the story |
-| Cost as human scar + irony | Unexplained insider slang without kid-plain join |
-
----
-
-## 14. Founder considerations — Specimen S ear revise (2026-07-16)
-
-**Source:** Founder critique of Specimen S (92w) + COS council task `2026-07-16-005` (screenwriter · videoproducer · engagement · realitytv · jordanpeterson).  
-**Status:** Doctrine amended in §12.1 / §12.3 / §12.11 / §12.13–12.14. Working VO = Specimen S' below.
-
-### 14.1 Cos verdict
-
-You were right that Specimen S overcorrected. Scar-first Hook stays; the bounce was **Stake/Pressure packaging**, not a reason to restore the encyclopedia.
-
-| Your note | Council / Cos call |
-|-----------|-------------------|
-| 1. Keep Doubles/AI concept open | **Day-1 Stake only** after Hook — not Hook essay, not every night |
-| 2. Survival mode + every day | **Accept** as Day-1 season-stakes clause |
-| 3. No intros → “that’s so them”? | **Themness = want × costly choice × face** — do **not** restore stamp walls |
-| 4. Challenge/vote = sim reminder | **Cold first-teach / consequence-first** Pressure |
-
-**Still do not reopen:** nightly concept_reset · spoken stamp walls · mid-body product UI · [B] · encyclopedia Remotion spine.
-
-### 14.2 Working Specimen S' (~137 words)
-
-```
-These are Doubles — AI versions of real people, making choices no one wrote for them.
-
-Fifteen Doubles, in Survival mode — someone leaves every day. Until one remains.
-
-Ivan needed hard proof before he bet on anyone — a real read of the room, not a guess.
-
-Tonight they got secret cards: hold to fight for the Shield — safe from tonight's vote — or fold and sit out. Ivan had a four. No evidence to hold. He folded.
-
-Irene held a seven. She needed cover before the vote — she kept hers, and won the Shield.
-
-Then six votes found Ivan — the board still messy. Irene's ballot was one of them. Same night, he goes home.
-
-Who does the room trust tomorrow?
-Watch tonight at doubland.ai.
-```
-
-**Picture co-design (required):** Hook = Ivan face/move silent → Stake name card → Pressure = hold/fold bodies before VO finishes the rule → Peak = Irene reaction hold → Cost = messy six + farewell dignity. Mute-first should still carry scar + tomorrow question.
-
-**TTS:** ~137 may sit over soft 90–120 band; cut adjectives before concept / turn / cost. Optional CapCut fix: if “board still messy” isn’t visually clear, rewrite Cost to kid-plain scatter language.
-
-### 14.3 Cos considerations
-
-1. **Cold gate ≠ cold encyclopedia.** One concept breath + one Survival breath on Day 1 fixes trailer-first entry without stamp tax.
-2. **Themness is selection + choice, not bio.** If alter-ego fidelity fails, raise Themness picker floor and hold faces — don’t reintroduce job intros.
-3. **Pass bar shift:** ship S' against a **cold** quiz first; in-network share is secondary. D1 job is still return + Door.
-4. **Falsifier:** if mute CapCut already teaches AI Double + Survival + scar, A/B spoken concept down to end-card later — don’t assume VO must carry everything forever.
-5. **Your note 3 is the deepest gap.** Killing intros without naming a substitute created the fidelity hole; the substitute is authorship under pressure (§12.13), not pharmacy/cafe stamps.
-
-### 14.4 Expert seeds (one line each)
-
-- Screenwriter: Day-1 cold literacy ≠ encyclopedia; just-in-time must mean first-hear.
-- Videoproducer: concept in Stake after mute Hook; themness = want-as-behavior + choice bodies.
-- Engagement: cold-primary ship gate; every-night concept = habit poison.
-- Realitytv: scar-first Hook stays; Stake/Pressure packaging was the bounce.
-- Psych: install the social forum before card arithmetic; status scar is Ivan home, not four vs seven.
+## 14. DEV backlog
+
+1. Schema: `tonight_scar` picker JSON + `script.json` bin ids; bump narration cache key.  
+2. Flag: legacy encyclopedia spine **off** by default.  
+3. Remotion stub: bins A–E (reuse opener end-card / music patterns).  
+4. Auto-export Share Spark from Peak.  
+5. Door props + deep-link table (wire when FE ready).  
+6. `scar.json` writer on lock + CapCut gate.  
+7. Coverage board + D3 queue after Day-2 CapCut proven.  
+8. **Do not:** spoken stamp pipeline; `[B]`; encyclopedia Remotion as blocker.
+
+Creative CapCut for Day 1 V6 can proceed in parallel with schema work.
 
 ---
 
@@ -518,9 +498,8 @@ Watch tonight at doubland.ai.
 
 | Date | Change |
 |------|--------|
-| 2026-07-16 | Temporary SOT created from COS `2026-07-16-003` / Tonight’s Scar asset split (founder-approved). |
-| 2026-07-16 | §12 clarifications locked from DEV follow-up. |
-| 2026-07-16 | §12.10–12.12: Peak satellite VO, season-stakes → bin B, honest Door copy. |
-| 2026-07-16 | Body §§2–3 / §6 synced to §12 locks. |
-| 2026-07-16 | §14 founder Specimen S ear revise; §12.1/12.3/12.11/12.13–12.14 amended. Task `2026-07-16-005`. |
-| 2026-07-16 | Day-1 package landed Specimen S' in `VO_LOCKED.md`; thin S marked rejected; §2.3 Pressure synced to §12.14. |
+| 2026-07-16 | Tonight’s Scar asset split — temp daily SOT created (COS `2026-07-16-003`). |
+| 2026-07-17 | V6 Day-1 gold + two-featured cast (COS `2026-07-17-001`). |
+| 2026-07-17 | Day 2+ Scar Chain + coverage SLA A–E (COS `2026-07-17-002`). |
+| 2026-07-17 | **Normative cleanup** — single DEV contract; history moved to `archive/SOT-new-daily-history.md`. |
+| 2026-07-17 | **§8.3 Peak/Cost first-class** — `peak_id` + `cost_id` required; retire `protagonist_id`-as-Peak; legacy `protagonist_id` = Cost alias only. |
