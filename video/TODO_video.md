@@ -40,8 +40,22 @@ Paths: `video/assets/cohort/soul15_seed_20260224/{hero,portraits}/<uuid>.png` ·
 
 - ✅ **Hobbs Cafe** — `village/interior/cafe_int_counter.png`, `cafe_int_dining.png` · exterior `village/exterior/hobbs_cafe_exterior_wide.png`
 - ✅ **Dorm / night common** (vote / “room” pressure proxy) — `dorm_int_common.png`, `dorm_int_common_vertical.png`, bedrooms/baths
-- ✅ **Library** (weak college proxy only) — `library_int_reading.png`, `library_int_stacks.png` · exterior `library_exterior_wide.png`
-- ✅ Other interiors on disk (apts / houses / artist commons) — 39 interior files total; 6 exteriors
+- ✅ **Library** — `library_int_reading.png`, `library_int_stacks.png` · exterior `library_exterior_wide.png`
+- ✅ **Oak Hill College classroom** — `college_int_classroom.png` (Vince workplace stamp)
+- ✅ **Willows Market & Pharmacy** — `willows_pharmacy_int_counter.png`, `willows_market_int_aisle.png`
+- ✅ **Harvey Oak Supply Store** — `supply_int.png`
+- ✅ **Rose and Crown Pub** — `pub_int.png`
+- ✅ **Apartments 1–5** — `apt{N}_int_main.png` + baths
+- ✅ **Houses 1–3 mains** + **Houses 4–6** commons/bedrooms/baths
+- ✅ **Artist co-living** — common + studio rooms 1–5 + baths
+- ✅ **Johnson Park** (outdoor) — `village/exterior/johnson_park_exterior_wide.png`
+- ✅ Phaser property top-downs for the above under `video/assets/phaser/_moodboard/` (manual crops; see that folder’s README)
+- Inventory coverage: **57 DONE / 0 TODO / 6 N/A** (`village/interior/_room_inventory.md`)
+
+**Still optional / not blocking Day-1 picture pass**
+
+- [ ] **Oak Hill College exterior** (library exterior ≠ college facade)
+- [ ] **Willows exterior** (optional stamp / establish)
 
 **Audio / edit package**
 
@@ -62,19 +76,19 @@ Paths: `video/assets/cohort/soul15_seed_20260224/{hero,portraits}/<uuid>.png` ·
 
 ---
 
-### 2. Generate next (Ivan — stills / environment plates)
+### 2. Generate next (Ivan — stills / environment plates) — mostly DONE 2026-07-18
 
-These are **reusable village assets** (not one-off per trailer). Inventory already flags them as missing; this VO needs the first two badly.
+Reusable village plates for Day-1 stamps + future social scenes. Inventory is **0 TODO** interiors.
 
-| Priority | Asset to generate | Why this package needs it | Notes |
-|:--------:|-------------------|---------------------------|--------|
-| **P0** | **The Willows Market and Pharmacy — interior (store)** | Ivan’s stamp workplace; hunt/cost beats can live here | No `willows*` / pharmacy plate on disk today |
-| **P0** | **Oak Hill College — classroom interior** | Vince’s stamp workplace | No classroom plate; library is only a weak stand-in |
-| **P1** | **Oak Hill College exterior** (optional) | Stamp / establish Vince’s place from outside | Not on disk (library exterior ≠ college) |
-| **P1** | **Willows exterior** (optional) | Stamp / establish Ivan’s place | Not on disk |
-| **P2** | Other inventory TODOs (pub, supply store, remaining house mains, etc.) | Future days / other featured Doubles | See `village/interior/_room_inventory.md` — do **not** block this Day-1 picture pass |
+| Priority | Asset | Status | Paths |
+|:--------:|-------|:------:|-------|
+| **P0** | Willows Market & Pharmacy interiors | ✅ | `willows_pharmacy_int_counter.png`, `willows_market_int_aisle.png` |
+| **P0** | Oak Hill College classroom | ✅ | `college_int_classroom.png` |
+| **P1** | Oak Hill College exterior | [ ] optional | Not on disk (library exterior ≠ college) |
+| **P1** | Willows exterior | [ ] optional | Not on disk |
+| **P2** | Pub · supply · apt/house/artist remaining rooms · Johnson Park outdoor | ✅ | `pub_int.png`, `supply_int.png`, apt/house/artist plates, `johnson_park_exterior_wide.png` |
 
-**Acceptance for #2:** Named stills land under `video/assets/village/{interior,exterior}/` with clear filenames (e.g. `willows_pharmacy_int_store.png`, `oak_hill_college_int_classroom.png`) so clip prompts and location labels can point at them without guessing.
+**Acceptance for #2:** Named stills under `video/assets/village/{interior,exterior}/` with clear filenames; Phaser layout refs under `phaser/_moodboard/`. **Met for all interior TODOs + Johnson Park outdoor (2026-07-18).**
 
 ---
 
@@ -98,7 +112,7 @@ Rule of thumb: **1–3 clips max** (establishing stamps stay portrait cards).
 |-------|--------|
 | Scene action / VO line | `script.json` `narrator_lines` + `VO_LOCKED.md` |
 | Who / UUID | `cast_reference.md` + hero/portrait/sketch paths above |
-| Place still | Village plates (#1 ready + #2 new Willows / Oak Hill) |
+| Place still | Village plates (Willows / Oak Hill classroom / cafe / dorm / etc. now on disk) |
 | Facts (winner, boot, messy six) | `fact_ledger.json` |
 | Blend grammar | `daily/daily-2D-3D-blend.md` (dive in / fracture out; silent clips; 1–3/day) |
 | Drop-in path | `build_day_remotion_props.py` → `moment_clips/<sim>/<day>/beat_<id>.mp4` |
@@ -111,24 +125,25 @@ Rule of thumb: **1–3 clips max** (establishing stamps stay portrait cards).
 4. Re-run Remotion props/render only (do **not** regenerate locked VO).  
 5. Verify: clip plays on the right beat, continuity vs portrait, no audio fight with VO.
 
-**When #2 is done:** re-check this section — confirm Willows + Oak Hill paths, then generate clips A–C and do the first Remotion watch pass.
+**#2 plates are on disk** — confirm Willows + Oak Hill classroom paths, then generate clips A–C and do the first Remotion watch pass.
 
 ---
 
 ### Tomorrow order of work (suggested)
 
-1. [ ] Generate **Willows pharmacy interior** (+ optional exterior).  
-2. [ ] Generate **Oak Hill classroom** (+ optional exterior).  
-3. [ ] (Optional) Fill `location` on scenes 3–8 in script / props path.  
-4. [ ] First Remotion render **without** moment clips (portraits + existing plates only) — baseline watch.  
-5. [ ] Generate moment clips A–C → drop in → re-render → compare.  
-6. [ ] Only after picture + Anya VO OK: `lock_day_script`.
+1. [x] Generate **Willows pharmacy interior** (+ optional exterior still open).  
+2. [x] Generate **Oak Hill classroom** (+ optional exterior still open).  
+3. [x] Village interior baseline fill (pub, supply, houses, artist studios) + **Johnson Park outdoor**.  
+4. [ ] (Optional) Fill `location` on scenes 3–8 in script / props path.  
+5. [ ] First Remotion render **without** moment clips (portraits + existing plates only) — baseline watch.  
+6. [ ] Generate moment clips A–C → drop in → re-render → compare.  
+7. [ ] Only after picture + Anya VO OK: `lock_day_script`.
 
 ---
 
 # Daily Trailers — primary work doc
 
-**Updated:** 2026-07-16  
+**Updated:** 2026-07-18  
 **This file is the primary checklist for finishing [C] Survival dailies.** Contracts stay in `sot-video.md`. Older working docs listed below can move to `video/DONE/` after you skim this once.
 
 **Live package:** `generative_agents/data/20260713-1/overview_day2&001/`  
@@ -153,12 +168,14 @@ Rule of thumb: **1–3 clips max** (establishing stamps stay portrait cards).
 
 ### Gate B — Picture (you — see audit at top)
 
-Follow **Tomorrow order of work** in the audit section. Short form:
+Village interior plates + Johnson Park outdoor are on disk (inventory **0 TODO**). Remaining picture work:
 
-1. [ ] P0 plates: Willows pharmacy interior · Oak Hill classroom (+ optional exteriors).
-2. [ ] Baseline Remotion render (no moment clips) → phone watch.
-3. [ ] Moment clips A–C (challenge / hunt / boot) → drop-in → re-render.
-4. [ ] Verify props gaps: scenes 6–9 `hero_path` resolve; optional `location` labels.
+1. [x] P0 plates: Willows pharmacy interior · Oak Hill classroom.
+2. [x] P2 village fill: pub · supply · houses/apts/artist studios · Johnson Park outdoor.
+3. [ ] Optional exteriors: Willows · Oak Hill College facade.
+4. [ ] Baseline Remotion render (no moment clips) → phone watch.
+5. [ ] Moment clips A–C (challenge / hunt / boot) → drop-in → re-render.
+6. [ ] Verify props gaps: scenes 6–9 `hero_path` resolve; optional `location` labels.
 
 ### Gate C — Lock & prove continuity
 
@@ -302,4 +319,5 @@ Canonical living paths (do **not** use a `done/video/` prefix — that folder wa
 - `20260705-or-smoke` = engineering fixture only.
 
 ### Explicitly not done (see open checklist)
-- Anya VO sign-off on **V3.2** · compress · Willows/Oak Hill plates · moment clips · Remotion watch · `lock_day_script` · D1 comprehension · **Gate E script automation** · B4 clip automation · [B] day_normal.
+- Anya VO sign-off on **V3.2** · compress · optional Willows/Oak Hill **exteriors** · moment clips · Remotion watch · `lock_day_script` · D1 comprehension · **Gate E script automation** · B4 clip automation · [B] day_normal.
+- Village **interior** plate fill + Johnson Park outdoor: **DONE 2026-07-18** (inventory 57 DONE / 0 TODO).

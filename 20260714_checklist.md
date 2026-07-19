@@ -1,9 +1,9 @@
 # 2026-07-14 checklist — score Survival fidelity (P0 + Light + gather lock)
 
-## Status snapshot (2026-07-18) — read this first
+## Status snapshot (2026-07-19) — read this first
 
-**Active score sim:** `20260717-1` (Leg 3b) — **still running** at last check (~step **4692**, Season Day 3 ~12:42 SOCIAL, same PID).  
-**§11 (sleep-stuck / all-absent / gather lock regression): PASS** mid-flight. Safe to continue this sim into Day 4+ for Light/blind.
+**Active score sim:** `20260717-1` (Leg 3b) — **still running** at last check (~step **5172**, Season Day 3 **~20:42 VOTING**, same PID **1108378**).  
+**§11 (sleep-stuck / all-absent / gather lock regression): PASS** mid-flight. **Day 2–3 full fire path (chal + vote) all `spatial_gate`.** Safe to continue into Day 4+ for Light/blind.
 
 ### Still failing / not tested / needs confirm
 
@@ -13,23 +13,24 @@
 | **§4 Blind triad** (Ivan · Diana · Mike) | **Not tested** | Needs Light day package + unblind sheet after Day 4+ resolve. |
 | **§6 Teach cards / day package** | **Absent (expected)** | VPS check 2026-07-18: `survival/` = `season_state.json` + `agents/` only — no blind/teach/day_reasoning/trailer/package files. Generate after Light day. |
 | **§10 Attraction (weighted Day 4+ picks)** | **Not tested** | Needs Day 4+ catalog picks; Keep days alone are insufficient. |
-| **Day 3 vote** | **Pending on live run** | Challenge D3 resolved via spatial; vote window not yet in mid-flight dump — confirm spatial + real tallies. |
+| **Day 3 vote resolve / elim #3** | **In progress** | Vote **opened** `spatial_gate` @5072 (3 absents). Phase still **VOTING** at step ~5172 — confirm final elim tally when phase leaves VOTING. |
 | **Day 4+ Director** (no ID repeat) | **Pending** | Days 1–3 order OK; confirm first Light ID is new + reasoned. |
-| **Prewindow Hobbs ≥80% at fire step** | **Soft / not fully instrumented** | Fire log proves `spatial_gate` D2–D3; exact last-hour census at fire step not captured (midday SOCIAL sample was ~10/13). Optional: census at fire steps 3145 / 3630 / 4585. |
+| **Prewindow Hobbs ≥80% at fire step** | **Soft / not fully instrumented** | Fire log proves `spatial_gate` D2–D3 chal+vote; optional disk census at 3145 / 3630 / 4585 / **5072**. |
 | **§9 Soft-hour chat mix (life + game)** | **Soft PASS** | 2026-07-18 skim: movement chat payloads 0 on disk; persona act/memory lines mix cafe life + challenge/vote (see §9). Cast-wide dialogue still thin. |
-| **Ship call (§7)** | **Blocked on Light** | Plumbing + gather + §11 + soft-day look shippable; **do not** call full fidelity/Light ship until Day 4+ reasons + blind triad. |
+| **Ship call (§7)** | **Blocked on Light** | Plumbing + gather + §11 + soft-day + Keep spatial arc look shippable; **do not** call full fidelity/Light ship until Day 4+ reasons + blind triad. |
 | Historical Leg 2 (`20260713-1`) | **Closed FAIL** | Sleep-stuck Days 3–4 — do not re-score or continue. |
 | Crashed Leg 3a (`20260715-1`) | **Closed** | Step-1650 `act_duration=None`; crash pack deployed before Leg 3b. |
 
 ### What’s already good on `20260717-1` (do not re-litigate)
 
 - Director Days 1–3: `hold_for_shield` → `silent_pact` → `alliance_lock_in`
-- Day 2–3 challenges + Day 1–2 votes: **`spatial_gate`** (only D1 challenge = deadline)
-- Real reasons: D1 10/15 · D2 11/14 · D3 10/13 — **not** mass-absent
-- Elims real: Vincent D1 (tally 14), Ivan D2 (tally 13) — no phantom `vote_count: 1`
+- **All Day 2–3 challenges and votes:** **`spatial_gate`** (only D1 challenge = deadline)
+- Day 3 vote open: **spatial_gate @5072**, absents Mike / Nick / Vince (3) — not mass-absent
+- Real challenge reasons: D1 10/15 · D2 11/14 · D3 10/13 — **not** mass-absent
+- Elims real so far: Vincent D1 (tally 14), Ivan D2 (tally 13) — no phantom `vote_count: 1` (Day 3 elim still pending mid-vote)
 - Sleep-stuck fixed: `sleeping_1440_like=0`; `post_vote_date` preserved (`2026-07-18` on survivors)
 - Banlist: **0/31** on reasoned challenge rows
-- No runner crash through Day 3 afternoon
+- No runner crash through Day 3 evening vote
 - §9 soft-day: multi-block schedules + cafe act lines mix breakfast/lunch/people-watching with challenge notes / vote (Alex Butcher sample)
 - §6 package: confirmed **not on disk yet** (expected pre-Light)
 
@@ -60,7 +61,7 @@ Do **not** expect Remotion / public VO / share CTA from this run.
 | Leg 1 | ~2600 | Grace + Season Day 1 complete (challenge + elim). Day 1 challenge fired by **deadline** at 11:00 with mass absent (pre–gather-lock era / historical). Stopped overnight before Day 2 challenge. |
 | Leg 2 (continue) `20260713-1` | +~4800 → **7399/7400 completed** | Gather lock + attraction live. Ended Season Day 5 morning (`claim_the_slot` active, unresolved). **Scored 2026-07-15 — FAIL sleep-stuck Days 3–4.** |
 | Leg 3a (fresh) `20260715-1` | **crashed step 1650** @ Day 1 10:00 | Grace OK; Director armed `hold_for_shield`; gather lock opened then **fatal** `act_duration=None` (false sleep on `restock`). Superseded by crash pack + Leg 3b. |
-| **Leg 3b (fresh) `20260717-1`** | **~4692+ running** @ Day 3 ~12:42 | **Mid-flight 2026-07-18:** §11 PASS. Director D1–3 OK. Spatial D2–D3 chal + D1–2 votes. Real reasons ~10–11/cast. 2 real elims. No sleep-1440. **Still need Day 3 vote + Day 4+ Light.** |
+| **Leg 3b (fresh) `20260717-1`** | **~5172+ running** @ Day 3 ~20:42 **VOTING** | **Mid-flight 2026-07-19:** §11 PASS. Director D1–3 OK. Spatial D2–D3 **chal + vote** (D3 vote @5072). Real reasons ~10–11/cast. 2 real elims so far. No sleep-1440. **Need Day 3 vote resolve + Day 4+ Light.** |
 
 **Scoring authority now:** use **`20260717-1` (Leg 3b)** for gather lock, §11, Director, Keep reasons. Historical Leg 1–2 only for closed RCA. Light/blind only after Day 4+ on Leg 3b.
 
@@ -68,15 +69,15 @@ Do **not** expect Remotion / public VO / share CTA from this run.
 
 **Gather lock soft-fail + deeper forensics needed** on `20260713-1`. Director Days 1–3 OK. Day 2 challenge = spatial + mostly real reasons. Days 3–4 = deadline + **everyone still in bed** (`f_daily_schedule = [['sleeping', 1440]]`); gather lock skips sleep so cafe census stayed **0**. Light (`whisper_chain`) ran with **0 real reasons**. Day 3–4 elims have empty tallies/`vote_count: 1`. **Do not use Leg 2 for Light/blind ship call.**
 
-### Mid-flight score (2026-07-18) — Leg 3b verdict (open run)
+### Mid-flight score (2026-07-18 → 2026-07-19) — Leg 3b verdict (open run)
 
-**§11 PASS on `20260717-1`.** Sleep-stuck + phantom-elim + Day 2–3 spatial gather look fixed. Keep Director + reason persistence good enough to proceed. **Light / blind / attraction still blocked until Day 4+.** Keep process running; do not restart `double-api` mid-run.
+**§11 PASS on `20260717-1`.** Sleep-stuck + phantom-elim + Day 2–3 spatial gather look fixed. **2026-07-19:** Day 3 vote opened via **`spatial_gate` @5072** (3 absents); phase still **VOTING** at ~5172 — Keep spatial arc complete through vote *open*. Keep Director + reason persistence good enough to proceed. **Light / blind / attraction still blocked until Day 4+.** Keep process running; do not restart `double-api` mid-run.
 
 ---
 
 ## Mid-flight check (while a score leg is still running)
 
-Use this **before** the full post-run score. Product data lands when a challenge **resolves** — empty new `challenge_results` mid-day is normal if phase is still `DIRECTIVE` / social. For **Leg 3b**, prioritize Day 3 vote + Day 4+ Light after §11 already cleared.
+Use this **before** the full post-run score. Product data lands when a challenge **resolves** — empty new `challenge_results` mid-day is normal if phase is still `DIRECTIVE` / social. For **Leg 3b**, prioritize Day 3 vote **resolve** + Day 4+ Light after §11 and Day 3 vote *open* already cleared.
 
 ### What you can verify mid-flight
 
@@ -173,15 +174,15 @@ PY
 
 **Leg 2 (closed FAIL):** sleep-stuck Days 3–4 — see historical capture below.
 
-**Leg 3b (`20260717-1`) mid-flight 2026-07-18:**
+**Leg 3b (`20260717-1`) mid-flight 2026-07-19:**
 
-- [x] Steps advancing; backend process alive (PID 1108378 through ~4692+)
-- [x] Day 2+ challenge prefers **`spatial_gate`** (D2 + D3 chal; D1–2 votes spatial)
+- [x] Steps advancing; backend process alive (PID 1108378 through ~5172+)
+- [x] Day 2+ challenge **and vote** prefer **`spatial_gate`** (D2 + D3 chal; D1–3 votes spatial)
 - [x] After Day 2–3 resolve: `silent_pact` then `alliance_lock_in`
 - [x] Day 2+ reasons mostly real (D2 11/14, D3 10/13 — not `"absent"` mass)
 - [ ] Do **not** fail Light / blind triad until Day 4+ exists *(still waiting)*
 
-**Leg 3b fire log (as of Day 3 SOCIAL):**
+**Leg 3b fire log (as of Day 3 VOTING ~20:42 / step 5172):**
 
 | Day | Phase | Reason | Step | Absents (n) |
 |----:|-------|--------|-----:|------------:|
@@ -190,7 +191,7 @@ PY
 | 2 | challenge | spatial_gate | 3145 | 3 |
 | 2 | voting | spatial_gate | 3630 | 1 |
 | 3 | challenge | spatial_gate | 4585 | 3 |
-| 3 | voting | *(pending)* | — | — |
+| 3 | voting | **spatial_gate** | **5072** | **3** (Mike Hooks, Nick Miller, Vince Vale) |
 
 ---
 
@@ -205,11 +206,12 @@ PY
 
 ### Leg 3b `20260717-1` (active)
 
-- [ ] Sim finished — **still running** at last check (~4692, Day 3 SOCIAL)  
+- [ ] Sim finished — **still running** at last check (~5172, Day 3 **VOTING** ~20:42)  
 - [x] Season row exists; `challenge_results` has Days **1–3** Keep IDs resolved  
-- [x] No mid-run crash through Day 3 afternoon (past Leg 3a step-1650 failure)  
-- [x] Day count so far: **Season Day 3** (3 challenges resolved; Day 3 vote + Day 4+ still needed for Light)  
+- [x] No mid-run crash through Day 3 evening vote open (past Leg 3a step-1650 failure)  
+- [x] Day count so far: **Season Day 3** (3 challenges resolved; Day 3 vote **in progress**; Day 4+ still needed for Light)  
 - [x] §11 primary gate cleared mid-flight — OK to treat this run as the score carrier  
+- [x] Day 3 vote **opened** via spatial_gate @5072 (3 absents) — resolve/elim still pending  
 
 **Quick status:**
 ```bash
@@ -231,7 +233,7 @@ Expected fixed open:
 
 - [x] Day 1 = `hold_for_shield` *(Leg 3b confirmed)*  
 - [x] Day 2 = `silent_pact` *(Leg 3b confirmed)*  
-- [x] Day 3 = `alliance_lock_in` *(Leg 3b confirmed; active in SOCIAL after resolve)*  
+- [x] Day 3 = `alliance_lock_in` *(Leg 3b confirmed; still `active` during Day 3 VOTING)*  
 - [ ] Later days ≠ repeat of already-played IDs *(pending Day 4+ on Leg 3b; Leg 2 had Day 4 `whisper_chain` / Day 5 `claim_the_slot` but unscorable)*  
 
 ---
@@ -243,7 +245,7 @@ For each completed challenge day in `challenge_results`:
 - [x] `decisions[]` present (not just winners / narrative)  
 - [x] Most decision rows have non-empty **real** `reasoning` (not `"absent"`) — **Day 2+ bar** *(Leg 3b: D1 10/15, D2 11/14, D3 10/13 — PASS; Leg 2 Days 3–4 were 0/N — closed FAIL)*  
 - [ ] If `leaders_burden` ran: `mark` / penalty target **and** `mark_reasoning` present *(N/A — has not run on Leg 3b)*  
-- [x] Elimination / vote days: vote reasons present where expected *(Leg 3b Days 1–2: tallies 14 and 13, reasons_n match; Day 3 vote pending)*  
+- [x] Elimination / vote days: vote reasons present where expected *(Leg 3b Days 1–2: tallies 14 and 13, reasons_n match; Day 3 vote opened spatial @5072 — final tally/reasons pending mid-VOTING)*  
 
 **Pass bar:** reasons exist as first-class data you can read without digging LLM dumps.
 
@@ -325,20 +327,20 @@ Score on **Day 2+** challenge/vote only (Day 1 deadline baseline is OK / out of 
 
 ### Leg 3b `20260717-1` (authoritative)
 
-- [x] Challenge (and votes so far) fire via **`spatial_gate`** more often than late **`deadline`** *(D2 chal, D2 vote, D3 chal = spatial; only D1 chal = deadline; D3 vote pending)*  
-- [ ] Env census in last hour before deadline: **≥12/15** at Hobbs at **fire** step *(not fully captured; spatial_gate implies quorum path; optional census at steps 3145 / 3630 / 4585. Midday SOCIAL sample ~10/13 after D3 chal — not the prewindow bar.)*  
+- [x] Challenge (and votes so far) fire via **`spatial_gate`** more often than late **`deadline`** *(D2 chal, D2 vote, D3 chal, **D3 vote** = spatial; only D1 chal = deadline)*  
+- [ ] Env census in last hour before deadline: **≥12/15** at Hobbs at **fire** step *(not fully captured on disk; spatial_gate implies quorum path; optional census at 3145 / 3630 / 4585 / **5072**. Midday SOCIAL sample ~10/13 after D3 chal — not the prewindow bar.)*  
 - [x] Far fewer `"absent"` challenge reasons than historical Day 1 mass-absent *(Leg 3b D2 3/14, D3 3/13 — PASS)*  
-- [x] Phase-trigger NDJSON on spatial success lists **true** absentees (non-empty OK)  
+- [x] Phase-trigger NDJSON on spatial success lists **true** absentees (non-empty OK) *(D3 vote listed 3)*  
 - [x] Soft hours still show multi-block lifestyle schedules outside lock windows *(Leg 3b: 39–80 blocks/day, not sleeping-1440)*  
 
-**Leg 3b gather lock:** **PASS mid-flight** (spatial Day 2–3; real absents only). Optional fire-step Hobbs census still nice-to-have.
+**Leg 3b gather lock:** **PASS mid-flight** through full Keep chal+vote arc (spatial Day 2–3). Optional fire-step Hobbs census still nice-to-have.
 
 ### Leg 2 `20260713-1` (closed FAIL)
 
 - Day 2 chal spatial; Day 2 vote + Days 3–4 chal/vote deadline; Days 3–4 **0 at Hobbs** / all bed — **FAIL** (superseded by Leg 3b).
 
 **Fail this section →** do not call gather lock “shipped”; fix before treating Light score as clean.  
-**Current call:** gather lock **shippable on plumbing** from Leg 3b; still confirm D3 vote + optional fire-step census.
+**Current call:** gather lock **shippable on plumbing** from Leg 3b (D3 vote open confirmed spatial). Still confirm D3 vote **resolve**/elim integrity + optional fire-step census.
 
 ---
 
@@ -382,18 +384,19 @@ Only once Day 4+ / weighted picks actually run:
 | Gather lock wakes | Day 2–3 challenge (ideally vote) lean **`spatial_gate`**; Hobbs ≥ ~80% in last hour; **no** runner crash at 10:00 / 19:00 | Sleepers ignored; **or** soft-day destroyed; **or** TypeError on `act_duration` (pre–2026-07-16) |
 | All-absent fail-closed | If mass-absent: **no** elim with empty tally / `vote_count: 1`; NDJSON `all_absent_no_quorum`; same cast next morning | Phantom lottery elim returns |
 
-### Checkboxes (Leg 3b — `20260717-1`, mid-flight 2026-07-18)
+### Checkboxes (Leg 3b — `20260717-1`, mid-flight 2026-07-19)
 
 - [x] Fresh sim (new code); not a continue of sleep-stuck `20260713-1`  
 - [x] After vote nights → next days: sample scratch schedules **≠** `[['sleeping', 1440]]` for alive cast *(0× sleeping-1440-like; 39–80 blocks)*  
 - [x] `post_vote_date` on survivors stays the **vote calendar date**, not restamped to the next morning *(survivors `post_vote=2026-07-18` during Day 3; not restamped to 2026-07-19)*  
 - [x] Day 2+ challenge fire prefers **`spatial_gate`** (D2 + D3)  
+- [x] Day 2+ **votes** fire prefers **`spatial_gate`** (D1–D3; D3 vote @5072, 3 absents)  
 - [x] Day 2+ challenge `absent` rate far below mass-absent / not all-alive *(3/14, 3/13)*  
 - [x] Soft hours outside lock windows still multi-block (jobs/school/errands shape)  
-- [x] No elimination with empty `vote_tally` + `vote_count: 1` *(Vincent D1 tally_n=14; Ivan D2 tally_n=13)*  
+- [x] No elimination with empty `vote_tally` + `vote_count: 1` *(Vincent D1 tally_n=14; Ivan D2 tally_n=13; Day 3 elim not yet written mid-VOTING)*  
 - [x] `all_absent_no_quorum` **not** seen (and no phantom elim)  
 - [x] Director Days 1–3 still `hold_for_shield` → `silent_pact` → `alliance_lock_in`  
-- [ ] Only if Days 2–3 clean: proceed to Light (§3) / blind (§4) on Day 4+ — **Days 2–3 clean; Light still pending on live run**  
+- [ ] Only if Days 2–3 clean: proceed to Light (§3) / blind (§4) on Day 4+ — **Keep days clean through D3 vote open; Light still pending; confirm D3 elim when VOTING ends**  
 
 ### Mid-flight probes (Leg 3) — copy-paste on VPS
 
@@ -464,15 +467,15 @@ Pick one:
 | Field | Fill in |
 |-------|---------|
 | New sim code | **`20260717-1`** (Leg 3b; Leg 3a `20260715-1` crashed @1650) |
-| Days completed (season) | **3 challenges resolved** mid-flight; Day 3 vote + Day 4+ pending (sim still running ~step 4692 / Day 3 ~12:42) |
+| Days completed (season) | **3 challenges resolved**; Day 3 vote **opened** spatial @5072; still **VOTING** at ~step 5172 / Day 3 ~20:42; Day 4+ pending |
 | Day 2 morning schedule OK? | **yes** — `sleeping_1440_like=0`; multi-block schedules |
 | `post_vote_date` vs next morning | **preserved** (`2026-07-18` on survivors during Day 3) |
-| Day 2+ challenge fires | D2 chal **spatial_gate** @3145 · D2 vote **spatial_gate** @3630 · D3 chal **spatial_gate** @4585 · D3 vote **pending** |
-| Day 2+ absent rates | D2 chal **3/14** · D3 chal **3/13** (decision absents); D1 chal 5/15 deadline baseline |
+| Day 2+ challenge fires | D2 chal **spatial_gate** @3145 · D2 vote **spatial_gate** @3630 · D3 chal **spatial_gate** @4585 · D3 vote **spatial_gate** @5072 |
+| Day 2+ absent rates | D2 chal **3/14** · D3 chal **3/13** · D3 vote open **3** absents (Mike/Nick/Vince); D1 chal 5/15 deadline baseline |
 | `all_absent_no_quorum` seen? | **no** |
 | Soft-day outside lock OK? | **yes** — schedules multi-block; §9 soft skim **PASS** (cafe life + challenge/vote acts); package still absent |
 | §11 verdict | **pass** |
-| Next action | Keep running through **Day 3 vote** → **Day 4+ Light**; package blind sheet; Ivan/Diana/Mike triad; then §7 ship call |
+| Next action | Wait for Day 3 VOTING to **resolve** (elim integrity) → **Day 4+ Light**; package blind sheet; Ivan/Diana/Mike triad; then §7 ship call |
 
 ---
 
@@ -493,18 +496,18 @@ Pick one (update after Day 4+ Light):
 
 | Field | Leg 2 (closed) | Leg 3b (active) |
 |-------|----------------|-----------------|
-| Days completed | Days 2–4 resolved; Day 5 started; ended step 7399 | Days 1–3 challenges resolved; running ~4692 Day 3 SOCIAL |
+| Days completed | Days 2–4 resolved; Day 5 started; ended step 7399 | Days 1–3 challenges resolved; D3 vote **open** spatial @5072; running ~5172 Day 3 **VOTING** |
 | Light IDs that ran | `whisper_chain` all-absent; `claim_the_slot` unresolved | **none yet** |
-| Day 2+ challenge fire reason | D2 spatial; D3–4 deadline | D2–D3 **spatial_gate** |
-| Day 2+ absent rate | D2 3/14; D3–4 13/13, 12/12 | D2 3/14; D3 3/13 |
-| Gather lock pass/fail | **FAIL** (sleep-stuck) | **PASS** mid-flight |
+| Day 2+ challenge fire reason | D2 spatial; D3–4 deadline | D2–D3 chal+vote all **spatial_gate** |
+| Day 2+ absent rate | D2 3/14; D3–4 13/13, 12/12 | D2 3/14; D3 chal 3/13; D3 vote open 3 absents |
+| Gather lock pass/fail | **FAIL** (sleep-stuck) | **PASS** mid-flight (full Keep arc) |
 | Soft-day talk spot-check | D2 OK; D3+ unusable | **Soft PASS** (2026-07-18 act/memory skim); movement chats 0 on disk |
 | Teach / blind package | Not packaged | **Absent** on VPS (`season_state` + `agents` only) — expected pre-Light |
 | Attraction note | Unscorable | **Not tested** (need Day 4+) |
 | Blind triad pass/fail | **Blocked** | **Blocked** until Light package |
 | Worst attractor | N/A | N/A |
-| Next action | Deploy fixes; fresh sim | **Continue `20260717-1` → Day 4+ Light + blind triad** |
-| RCA (2026-07-15) | Midnight `post_vote_date` restamp → sleeping-1440 → gather skip → phantom elims. **Fix shipped 2026-07-15 + crash pack 2026-07-16.** | Leg 3b validates fixes mid-flight (§11 pass). |
+| Next action | Deploy fixes; fresh sim | **Continue `20260717-1` → D3 vote resolve → Day 4+ Light + blind triad** |
+| RCA (2026-07-15) | Midnight `post_vote_date` restamp → sleeping-1440 → gather skip → phantom elims. **Fix shipped 2026-07-15 + crash pack 2026-07-16.** | Leg 3b validates fixes mid-flight (§11 pass); D3 vote open spatial 2026-07-19. |
 
 ---
 
