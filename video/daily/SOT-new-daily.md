@@ -14,6 +14,7 @@
 
 1. [Intent](#1-intent)  
 2. [Asset stack](#2-asset-stack)  
+   - [2.1 Village place plates](#21-village-place-plates-interiors)  
 3. [D1 — Tonight’s Scar](#3-d1--tonights-scar)  
 4. [Continuity (Scar Chain)](#4-continuity-scar-chain)  
 5. [Cast & season coverage](#5-cast--season-coverage)  
@@ -22,6 +23,7 @@
 8. [Moment picker](#8-moment-picker)  
 9. [VO contract & templates](#9-vo-contract--templates)  
 10. [CapCut / Remotion bins](#10-capcut--remotion-bins)  
+   - [10.1 Picture kit commission (G1–G8)](#101-picture-kit-commission-g1g8)  
 11. [Eng pipeline & schema](#11-eng-pipeline--schema)  
 12. [Validators](#12-validators)  
 13. [Guardrails](#13-guardrails)  
@@ -53,6 +55,42 @@ Legacy alias: `day_survival` / `[C]` → `tonight_scar` during migration.
 | **D3** | Personal Edge | **8–15s** | Hard-side “MY Double…” | After D1 CapCut proven (§7) |
 | **[A]** | Opener | ~60s | Product literacy + create | Unchanged |
 | **[B]** | `day_normal` | — | Cast habitat directory | **Paused** |
+
+### 2.1 Village place plates (interiors)
+
+Reusable **empty** eye-level stills of Doubland locations (cafe, dorm, Willows, classroom, …). CapCut / Remotion use them for **job+place cards**, habitat under Stake, and social / hunt backgrounds — not as one-off per trailer art.
+
+**Paths**
+
+| Kind | Path |
+|------|------|
+| Finished plates | `generative_agents/video/assets/village/interior/` (+ `exterior/` when needed) |
+| Manual Phaser layout crops | `generative_agents/video/assets/phaser/_moodboard/` (see README there) |
+| Maze furniture inventory | `…/village/interior/_room_inventory.md` |
+| Paste-ready prompts | `…/village/interior/_interior_prompts_TODO.md` |
+
+**Commission order (required)**
+
+```
+0. Manual Phaser top-down of THAT property → save under phaser/_moodboard/
+1. generate_room_inventory.py          (maze furniture → LAYOUT)
+2. generate_interior_prompts.py        (Grok prompts + Phaser gate notes)
+3. Grok Imagine: Phaser layout + style frame + continuity interior
+4. Save plate → register EXISTING_INTERIORS → re-run 1–2
+```
+
+| Rule | Detail |
+|------|--------|
+| **Manual Phaser only** | Hand-capture or hand-crop the property top-down. **Do not** auto-crop from `1-village-birdeye.png` (too low-res; clips neighbors). |
+| **Unlabeled crop** | Never feed `raw/*_labeled.png` into Imagine (text confuses generation). |
+| **Register the crop** | Add filename to `SECTOR_PHASER_LAYOUT` or `ARENA_PHASER_LAYOUT` in `generate_interior_prompts.py`. Missing crop → prompt emits **BLOCKED**. |
+| **Imagine ref stack** | (1) manual Phaser layout · (2) `_style_frame_master.png` · (3) continuity plate (e.g. `cafe_int_counter.png`) |
+| **Two cameras OK** | Same building may ship 2 plates (e.g. Willows pharmacy counter + grocery aisle) like cafe counter + dining. |
+| **Empty room** | No people / Doubles in place plates — cast goes on later hero/moment layers. |
+
+**the_ville Phaser crops on disk (examples):** `2-hobbs-cafe.png` · `3-dorm.png` · `4-oak-hill-library.png` · `5-willows-market.png` · `Harvey-Oak-Supply-Store.png` · `johnson-park.png`. Oak Hill **classroom** still needs its own crop before commissioning.
+
+Historical / opener detail: `../archive/sot-video-history.md` §TODO-O.
 
 ---
 
@@ -119,7 +157,7 @@ Peak and Cost **may be different people**. Cold quiz must still yield **one clea
 
 ### 3.6 Visual rules
 
-- Job + place on **cards / lower-thirds**, not spoken directory.  
+- Job + place on **cards / lower-thirds**, not spoken directory. Prefer real **village place plates** (§2.1) under Stake / habitat beats when the featured workplace exists on disk.  
 - Cast: **1 protagonist + ≤2 satellites**.  
 - 2D↔3D: ≤3 silent 9:16 clips on Pressure/Peak — see `daily-2D-3D-blend.md`.  
 - Dignity: warm narrator; boot = cost not punchline; no pile-on.
@@ -396,12 +434,68 @@ Bin times are **guides**. Peak may steal runtime from Pressure.
 | Bin | Guide | Picture | VO — Day 1 | VO — later |
 |-----|------:|---------|------------|------------|
 | **A Hook** | 0–3s | Mute Cost or Peak face/move | None | Same |
-| **B Stake** | 3–12s | Day 1: name cards + job/place ≤2s. Later: scar chip ≤2.5s → name cards | Concept → Survival → follow → wants | Chip → optional spoken → follow → wants |
-| **C Pressure** | 10–35s | Challenge bodies; ≤1 caption; never-featured faces OK without VO names | Challenge teach | Shorter if known |
-| **D Peak** | 35–50s | Peak reaction **hold** | Turn / power | Same |
-| **E Cliff+Door** | 50–60s | Ballots / leave dignity; end card | Cost + census + cliff + Door | Same |
+| **B Stake** | 3–12s | Day 1: **name cards (G8)** + optional job/place chip ≤2s + **habitat plates (G1/G2)** from §2.1. Later: scar chip ≤2.5s → name cards | Concept → Survival → follow → wants | Chip → optional spoken → follow → wants |
+| **C Pressure** | 10–35s | Challenge bodies (**G3**); ≤1 caption; never-featured faces OK without VO names | Challenge teach | Shorter if known |
+| **D Peak** | 35–50s | Peak reaction **hold** (**G4**) | Turn / power | Same |
+| **E Cliff+Door** | 50–60s | **Ballots (G6)** / leave dignity (**G5**) / **census (G7)**; end card | Cost + census + cliff + Door | Same |
 
 Reminder tax ≤ ~3.5s; protect ≥8s Pressure for bodies.
+
+### 10.1 Picture kit commission (G1–G8)
+
+**Worked example (ship):** Survival Day 1 · sim `20260713-1` · package `generative_agents/data/20260713-1/trailer_ready_day2/` · Anya sheet `CAPCUT_EDIT_SHEET.md` · bins `clip_kit/bins/`.  
+**Ops detail / automation notes also mirrored:** `../opening/TODOs-opening-trailer.md` § Automate CapCut picture gen.
+
+CapCut **fits picture to locked VO**. Commission stills / micro-clips into bins A–E — do not wait on Remotion.
+
+#### Commission table (normative beat → asset)
+
+| ID | Priority | Beat (VO) | Bin / drop | Medium (default) | Fact / picture lock |
+|----|----------|-----------|------------|------------------|---------------------|
+| **G1** | A | Peak want | `B_stake/{peak}_habitat.png` | Still (or 1–2s loop) | Sim **workplace** + face + §2.1 place plate (not marketing cards) |
+| **G2** | A | Cost want | `B_stake/{cost}_habitat.png` | Still (or 1–2s loop) | Same |
+| **G3** | A | Challenge teach | `C_pressure/challenge_*.mp4` | **Still → 1–2s clip** | Gather arena; hold/fold from ledger; unique per-Double micro-moves; **no winner crown** |
+| **G4** | A | Peak / turn | `D_peak/{peak}_*.png` | Still (or 1–2s hold) | Peak hero + winning fact; soft BG OK; same set continuity as G3 when same arena |
+| **G5** | A | Cost / leave | `E_cliff_door/{cost}_leave.png` | Still (or 1–2s) | Dignity exit; cooler/evening light if vote is evening; **no celebration pile-on** |
+| **G6** | B | “every Double casts a ballot” | `E_cliff_door/ballots.mp4` | **Still → 1–2s clip** | Hands + blank ballots @ evening gather; faces soft/partial; **no alliance labels / named tallies** |
+| **G7** | B | Census N→N−1 | `E_cliff_door/census_* .png` | Still | Prefer **group matrix with elim face dimmed** (+ optional quiet `N → N−1`); else card-flip graphic |
+| **G8** | B | “Today we’re following…” | `B_stake/{peak\|cost}_namecard.png` | Still | Face-led name plate; **names only** — no job/place stamps baked into art (chips stay CapCut-optional) |
+
+**Day 1 V6 defaults that shipped:** G6 hands→bowl @ Hobbs evening · G7 dim one face on `group_photo` + quiet `15 → 14` · G8 Irene / Ivan name plates.  
+**Ship bar:** Priority **A (G1–G5)** required for a good first cut. **B (G6–G8)** upgrades the mid/census/follow beats — ship when ready; stock Village/Talk/Family remain interim bridges only.
+
+#### Hard locks (fail the job if missing)
+
+1. **Fact lock** — Peak/Cost, workplaces, gather arena, challenge cards / hold·fold, elim identity → ledger / `stamp_facts` / picker. Never invent.  
+2. **Identity lock** — attach exact baseline portrait(s) as Imagine refs (`_refs/*_face.png`). Prompt-only “X-like” is reject.  
+3. **Location lock** — attach empty §2.1 interior plate for habitat / gather.  
+4. **VO / story lock** — picture serves the locked line; bonding = habitat under wants; G3 teaches rule before G4 win; Cost stays dignified.
+
+#### Two-step Grok Imagine (required for motion)
+
+Per [xAI video generation](https://docs.x.ai/developers/model-capabilities/video/generation) / [image-to-video](https://docs.x.ai/developers/model-capabilities/video/image-to-video):
+
+| Step | Output | Rule |
+|------|--------|------|
+| **1. Still** | Hero frame 9:16 → `*_ref.png` / bin still | All face + place refs attached; photoreal; no text overlay unless the beat is a **name card (G8)** or quiet census numeral (G7) |
+| **2. Clip** | 1–2s MP4 from that still | `POST /v1/videos/generations` · model `grok-imagine-video-1.5` · `image.url` = data URI · `duration` 1–2 · `aspect_ratio` `9:16` · motion prompt = tension + **unique** per-person micro-moves · preserve faces/set |
+
+Auth: `XAI_API_KEY`. Stills-only beats (typical G1/G2/G4/G5/G7/G8) stop after step 1 unless Anya asks for a micro-loop.
+
+#### Automation stages (eng)
+
+```
+locked VO + picker/ledger
+  → emit CAPCUT_EDIT_SHEET + JSON job list (G1…G8)
+  → stage clip_kit/_refs/ (faces + interiors)
+  → for each job: prompt template → still (+ optional i2v)
+  → human eyeball / gate → mark READY on sheet + clip_kit.json
+  → zip: sheet + vo_locked + narration mp3 + bins/
+```
+
+**Do not automate yet:** CapCut timeline XML; inventing facts when ledger fields are missing (fail instead); Remotion replacement for Anya’s cut.
+
+**Quality rejects:** marketing job/place on habitat · face drift · wrong interior · G3 winner crown / G5 celebration · identical gestures on multi-body clips · i2v without freezing the approved still.
 
 ---
 
@@ -412,7 +506,8 @@ Reminder tax ≤ ~3.5s; protect ≥8s Pressure for bodies.
 | Phase | Status / action |
 |-------|-----------------|
 | **0 Doctrine** | This SOT + V6 gold locked |
-| **1 Manual Clip Kit** | Anya fills bins from picker + locked VO |
+| **1 Manual Clip Kit** | **Proved Day 1 V6** — G1–G8 picture kit + CapCut sheet (`trailer_ready_day2/`). Next nights: repeat §10.1 from picker + locked VO |
+| **1b Picture gen automation** | Codify §10.1 (`build_capcut_picture_kit` / Imagine still + optional i2v) — see §14 |
 | **2 Remotion** | After 3–5 approved kits: picker props → bins A–E → auto Spark |
 | **3 Doors + Edge** | Wire deep links; generate D3 per coverage SLA |
 
@@ -488,9 +583,10 @@ Shared Part I checks (9:16, LUFS, visual-change rate, end card): `../sot-video.m
 5. Door props + deep-link table (wire when FE ready).  
 6. `scar.json` writer on lock + CapCut gate.  
 7. Coverage board + D3 queue after Day-2 CapCut proven.  
-8. **Do not:** spoken stamp pipeline; `[B]`; encyclopedia Remotion as blocker.
+8. **Picture kit automation (§10.1):** emit GENERATE jobs from picker + locked VO → stage `_refs/` → Imagine still (+ i2v for G3/G6) → gate → `clip_kit.json` + Anya zip. Prompt templates per G1–G8 family.  
+9. **Do not:** spoken stamp pipeline; `[B]`; encyclopedia Remotion as blocker; invent facts when ledger fields are missing.
 
-Creative CapCut for Day 1 V6 can proceed in parallel with schema work.
+Creative CapCut for Day 1 V6 **G1–G8 READY** — Anya can cut; further nights reuse the same commission table.
 
 ---
 
@@ -503,3 +599,5 @@ Creative CapCut for Day 1 V6 can proceed in parallel with schema work.
 | 2026-07-17 | Day 2+ Scar Chain + coverage SLA A–E (COS `2026-07-17-002`). |
 | 2026-07-17 | **Normative cleanup** — single DEV contract; history moved to `archive/SOT-new-daily-history.md`. |
 | 2026-07-17 | **§8.3 Peak/Cost first-class** — `peak_id` + `cost_id` required; retire `protagonist_id`-as-Peak; legacy `protagonist_id` = Cost alias only. |
+| 2026-07-18 | **§2.1 Village place plates** — commission interiors only after a **manual** Phaser property top-down (`phaser/_moodboard/`); no auto-crop from village birdseye; maze LAYOUT + Imagine ref stack; CapCut B Stake prefers habitat plates when on disk. |
+| 2026-07-18 | **§10.1 Picture kit G1–G8** — CapCut commission table + fact/identity/location locks; two-step Grok Imagine (still → 1–2s i2v for G3/G6); Priority A required / B upgrades; Day 1 V6 kit proved (`trailer_ready_day2/`); automation stages + DEV backlog item 8. |
