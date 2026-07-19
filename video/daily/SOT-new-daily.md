@@ -88,7 +88,7 @@ Reusable **empty** eye-level stills of Doubland locations (cafe, dorm, Willows, 
 | **Two cameras OK** | Same building may ship 2 plates (e.g. Willows pharmacy counter + grocery aisle) like cafe counter + dining. |
 | **Empty room** | No people / Doubles in place plates — cast goes on later hero/moment layers. |
 
-**the_ville Phaser crops on disk (examples):** `2-hobbs-cafe.png` · `3-dorm.png` · `4-oak-hill-library.png` · `5-willows-market.png` · `Harvey-Oak-Supply-Store.png` · `johnson-park.png`. Oak Hill **classroom** still needs its own crop before commissioning.
+**the_ville Phaser crops on disk (examples):** `2-hobbs-cafe.png` · `3-dorm.png` · `4-oak-hill-library.png` · `willows-market.png` · `oak-hill-college-classroom.png` · `Harvey-Oak-Supply-Store.png` · `johnson-park.png` · houses/apts/pub/artists co-living under `phaser/_moodboard/`.
 
 Historical / opener detail: `../archive/sot-video-history.md` §TODO-O.
 
