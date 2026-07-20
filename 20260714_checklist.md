@@ -1,5 +1,11 @@
 # 2026-07-14 checklist — score Survival fidelity (P0 + Light + gather lock)
 
+> **RETIRED 2026-07-20.** Historical score carrier for Survival Keep / gather / §11 on `20260717-1`.  
+> **Do not score new runs here.** Next launch checklist: `20260720_launch.md` → **§ 20260720-1**.  
+> Body/place/label fixes shipped on branch `ivan/action-location` (see reflection below); Survival Light Day 4+ remains open and is carried into the new doc if still needed.
+
+---
+
 ## Brief summary
 
 **Leg 3b (`20260717-1`) is done.** It closed the big Survival plumbing gates: gather lock, sleep-stuck / phantom-elim (§11), Keep Director order, and real challenge/vote reasons through Season Day 3. Three boots were real votes (Vincent → Ivan → Mike). The run stopped on the **~5200 step budget** during Day 3 elimination night — clean complete, not a crash — so **Day 4+ Light never ran**.
@@ -12,7 +18,31 @@
 | Keep reason persistence | Attraction Day 4+ (§10) |
 | Soft-day shape (soft pass) | Full fidelity/Light ship call (§7) |
 
-Movement/body jank (teleports, staff-zone, labels) is a **separate** track: `TODO_action-location.md` — not a Survival checklist fail.
+Movement/body jank (teleports, staff-zone, labels) was a **separate** track: `TODO_action-location.md` — not a Survival checklist fail on this doc. **Implemented 2026-07-20** on `ivan/action-location` (verify on a fresh sim via `20260720_launch.md`).
+
+---
+
+## Reflection — what shipped after this checklist (2026-07-20)
+
+For future readers retiring this file: Leg 3b proved Survival **plumbing**. Immersion pain (blink walks, kitchen customers, label fights) was RCA’d on the same sim and fixed on **`ivan/action-location`** without reopening gather/Director/§11.
+
+| Theme | Shipped behaviour (naturalness-first) | How to re-verify |
+|-------|----------------------------------------|------------------|
+| **R3 teleports** | Zone-anchor fallback no longer undoes the per-step speed clamp mid-travel — bodies walk multi-step; destination stays intent | Playback cross-town; realism TELEPORT @ sample-rate **1** |
+| **R1 staff zones** | Non-workers not planned onto kitchen/behind-counter; Phase-8 evicts staff leaves; display can prefer seating **without** body warp | Gap1/Gap2 non-worker hits down; Hobbs lunch looks like a cafe |
+| **R2 labels** | Travel copy = “heading to X” + `@` presence; stationary `@` matches presence leaf | One step’s text answers where + going |
+| **R6 piano** | Default/Phase-8 skip `affordance_required` unless action matches | Piano only when playing |
+| **R7 leaf thrash** | Sticky object while same action family + in-place modes | Class/cafe prop stable for a stretch |
+| **R5 / R8 analyzers** | True-home Apartment suppressed; description-only chat shells not “missing payload” | Analyzer noise down (not product policy) |
+| **R4** | Analyzer documented to match **end** depth-tier cooldowns; **no** gather mute | True spam still possible — policy later if needed |
+| **R9** | Watch only | — |
+
+**Unit green (pre-sim):** emit finalize, Phase-8 staff evict, affordance/piano, R2 helpers, movement realism suite.  
+**Not proven until fresh sim:** Gap/TELEPORT count drops + human playback (that is the job of `20260720_launch.md`).
+
+**Still not closed by this retirement:** Light soul reasons / blind triad / Day 4+ — need longer Survival budget (≥7500–9000). Carry that gate only if product still prioritizes it next to natural-movement ship.
+
+**Do not re-litigate on new runs:** gather lock spatial D2–3, sleep-stuck/phantom elim, Keep Director Days 1–3, Keep reason persistence — all **PASS** on `20260717-1`.
 
 Earlier legs: Leg 2 (`20260713-1`) FAIL sleep-stuck · Leg 3a (`20260715-1`) crash @1650 — superseded.
 
