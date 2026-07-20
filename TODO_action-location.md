@@ -1,7 +1,7 @@
 # TODO — Action / location & movement realism (RCA backlog)
 
-**Status:** RCA complete (2026-07-18) — findings below; fixes not yet implemented.  
-**Updated:** 2026-07-18  
+**Status:** Implementation on `ivan/action-location` (2026-07-20) — R1–R3, R5–R8 ship-order fixes landed; R4 analyzer-aligned to end-path depth tiers (no gather mute); R9 watch-only. Needs fresh sim re-measure.  
+**Updated:** 2026-07-20  
 **Evidence sim:** `20260717-1` (Leg 3b Survival sprint; Supabase through ~step 4795)  
 **Tools run:**
 - `python tests/analyze_action-location.py 20260717-1 --source supabase`
