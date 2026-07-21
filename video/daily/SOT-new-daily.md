@@ -154,12 +154,18 @@ Peak and Cost **may be different people**. Cold quiz must still yield **one clea
 | “Previously on” recap | Scar chip (§4) |
 | Hollow third name (no causal beat) | Picture-only or omit |
 | RNG / “dice decided” as thesis | Personality-led choice under pressure |
+| All-cinematic daily (no Phaser) | Required 2D↔3D literacy (§3.6) — plant + Peak/Cost dive + Door tease |
 
 ### 3.6 Visual rules
 
 - Job + place on **cards / lower-thirds**, not spoken directory. Prefer real **village place plates** (§2.1) under Stake / habitat beats when the featured workplace exists on disk.  
 - Cast: **1 protagonist + ≤2 satellites**.  
-- 2D↔3D: ≤3 silent 9:16 clips on Pressure/Peak — see `daily-2D-3D-blend.md`.  
+- **2D↔3D literacy (L8) — required every D1 ship** (detail: `daily-2D-3D-blend.md`):  
+  1. **Phaser plant** — ≥1 early beat (Stake / Survival literacy on Day 1; scar chip or follow on later nights) that shows the **live sim look** (top-down Phaser / schematic sprites). Silent — no new VO.  
+  2. **Peak/Cost bridge** — ≥1 **camera dive** (2D → cinematic) on Pressure, Peak, **or Cost**; prefer **Cost** when the scar is a leave/boot. Optional **pixel fracture** back to Phaser before the next graphic.  
+  3. **Door tease** — ≥1 short Phaser beat at/under the Door so `doubland.ai` matches the watch surface.  
+  4. **Caps** — ≤3 silent cinematic punctuations on arc beats; establishing (namecards, census, end-card lockup) stay cards/2D, not a full movie world.  
+  5. **Fail** — all-cinematic picture with zero Phaser = bait-and-switch vs live product; do not ship.  
 - Dignity: warm narrator; boot = cost not punchline; no pile-on.
 
 ### 3.7 Door / CTA
@@ -178,7 +184,8 @@ Picker may store intended `door.type` for eng while `artifact_id` is null. **No 
 ### 3.8 Pass bar (cold drop-in)
 
 After one watch: lead · want · pressure fork · turn · cost · open question · Door.  
-Soft secondary: “would you text a friend.” Hard acquisition stays on Spark / `[A]`.
+Soft secondary: “would you text a friend.” Hard acquisition stays on Spark / `[A]`.  
+**Simulation literacy:** viewer must recognize that live Doubland looks like Phaser (pixel map / sprites), and that cinematic beats are *inside* that world — not a different product.
 
 ---
 
@@ -559,6 +566,7 @@ Fold into main `sot-video.md` when Remotion + CapCut templates are proven.
 | Peak ballot | Prefer naming Peak’s ballot on Cost when ledger-true |
 | Spark | Queued on D1 lock |
 | Dignity | Existing ethics gates |
+| **2D↔3D literacy** | Fail if zero Phaser plant **or** zero Peak/Cost dive **or** Door has no Phaser tease; fail if &gt;3 cinematic arc punctuations; fail all-cinematic cut |
 
 Shared Part I checks (9:16, LUFS, visual-change rate, end card): `../sot-video.md` §9.
 
@@ -570,7 +578,8 @@ Shared Part I checks (9:16, LUFS, visual-change rate, end card): `../sot-video.m
 - Teen dignity — no humiliation-as-hook, no FOMO create pressure  
 - Doors only to **shipped** artifacts  
 - Personal Edge non-spam; no “tag 5 friends” dark patterns  
-- Masked cohort rules unchanged (L7)
+- Masked cohort rules unchanged (L7)  
+- **No all-cinematic daily** — Phaser plant + Peak/Cost dive + Door tease are ship gates (§3.6 / §12)
 
 ---
 
@@ -601,3 +610,4 @@ Creative CapCut for Day 1 V6 **G1–G8 READY** — Anya can cut; further nights 
 | 2026-07-17 | **§8.3 Peak/Cost first-class** — `peak_id` + `cost_id` required; retire `protagonist_id`-as-Peak; legacy `protagonist_id` = Cost alias only. |
 | 2026-07-18 | **§2.1 Village place plates** — commission interiors only after a **manual** Phaser property top-down (`phaser/_moodboard/`); no auto-crop from village birdseye; maze LAYOUT + Imagine ref stack; CapCut B Stake prefers habitat plates when on disk. |
 | 2026-07-18 | **§10.1 Picture kit G1–G8** — CapCut commission table + fact/identity/location locks; two-step Grok Imagine (still → 1–2s i2v for G3/G6); Priority A required / B upgrades; Day 1 V6 kit proved (`trailer_ready_day2/`); automation stages + DEV backlog item 8. |
+| 2026-07-20 | **§3.6 / §12 2D↔3D literacy mandatory** — every D1 ship: Phaser plant + Peak/Cost dive (≥1) + Door Phaser tease; ≤3 cinematic arc punctuations; all-cinematic cut fails validators; matches CapCut practice (`trailer_ready_day2` F_phaser pack). |
