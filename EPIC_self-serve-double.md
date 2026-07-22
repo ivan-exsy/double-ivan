@@ -1,6 +1,6 @@
 # Epic: Self-serve owned Double (Rehears → Doubland)
 
-**Status:** Active — Weeks 1–3 core **CLOSED**; **3.1** identity publish + **3.2** Talk-to-my-Double API + **3.3** post-chat learning **shipped (code)**. Residual: apply 3.3 migration + live smoke; open product work in **[TODOs](#todos)**.
+**Status:** Active — Weeks 1–3 core **CLOSED**; **3.1** identity publish + **3.2** Talk-to-my-Double API + **3.3** post-chat learning **shipped** (migration applied + API live smoke 2026-07-22). Open product work in **[TODOs](#todos)**.
 **Branch / worktree:** `ivan/dev` → `D:\Coding\generative_agents-ivan-dev` · FE `ivan/self-serve-double`  
 **Base:** forked from current `railway` (`0e393ca6`, 2026-07-14). VPS stays on `railway`; implement only in this worktree.  
 **Architecture:** Port into Doubland (not permanent two-app). One Auth. Doubland-owned profile SOT.  
@@ -23,7 +23,6 @@ Open work only. Completed weeks (including **3.3 code**) stay under **Week plan*
 | **D5** | Permanent owned-Double chat QA harness (not one-off smoke) | Product path already green via 3.2 |
 | **D6** | Adult IPIP stem expert sign-off | Optional research; not blocking |
 | **D7** | Railway / Vercel promote of self-serve path | Local-only until Ivan sign-off |
-| **3.3-ops** | Apply migration `20260717120000` + live smoke (session-end → FE confirm → Path A) | **3.3 product code shipped**; residual ops/QA only |
 | **W4-a** | Onboarding/quiz UX design pass (Doubland language) | Week 4 candidate |
 | **W4-b** | Daily Dilemma adult bank **or** “what would my Double do?” mode | Week 4 candidate |
 | **W4-c** | Re-test / profile versioning product surface | Week 4 candidate |
@@ -43,7 +42,7 @@ Open work only. Completed weeks (including **3.3 code**) stay under **Week plan*
 | **Chat with Double v1** | **Shipped** — threads, memory retrieve, write-back (P3-1), rate limits | Open endpoint when gate off; service-role |
 | **Chat v4 slice A** | **Shipped** (Week 1) | `user_id` on threads + JWT ownership; creator prompt = **slice B / Week 3** |
 | **Auth** | **Productized for self-serve path** (Week 1) | Gateway JWKS ES256 + FE magic link; `CHAT_REQUIRE_AUTH` default off on VPS |
-| **Post-chat learning (W3.3)** | **Shipped (code)** — assess store + FE confirm + Path A `source=post_chat` | Migration apply + live smoke residual (`3.3-ops`); never silent ISS |
+| **Post-chat learning (W3.3)** | **Shipped** — assess store + confirm API + Path A `source=post_chat` | Migration applied + API live smoke 2026-07-22; never silent ISS |
 | **MVP consent** | Manual claim in Telegram | Self-serve claim/auth was explicitly out of MVP scope — this epic is the post-MVP unlock |
 
 **Implication for Week 1:** Build only the missing **identity + ownership spine**. Everything else (quiz, interview, Phase D self-serve UI) hangs off that spine.
@@ -272,7 +271,7 @@ FE Talk UI → **TODOs** D1-FE (explicitly skipped for now).
 
 ### Week 3.3 — Post-chat profile learning
 
-**Status:** **IMPLEMENTED (code)** 2026-07-14/17 — expert accepted COS `2026-07-14-003`; residual ops: migration apply + live smoke (see **TODOs** `3.3-ops`)
+**Status:** **CLOSED / SHIPPED** 2026-07-22 — expert accepted COS `2026-07-14-003`; migration applied on shared Supabase; API live smoke green
 
 **Inquiry §9:** `double-ivan/rehears-double/20260714_behavior_science_inquiry_week3_3_post_chat_learning.md`  
 **Canonical:** `COS/tasks/2026-07-14-003/final.md` · KB `agents/jordanpeterson/kb/raw/task-deliverables/2026-07-14-week33-post-chat-learning.md` · decision `wiki/decision/post-chat-learning-v1.md`
@@ -299,10 +298,12 @@ FE Talk UI → **TODOs** D1-FE (explicitly skipped for now).
 - [x] Confirm → Path A `source=post_chat`; innate preserved; dismiss leaves ISS unchanged
 - [x] Stale revision guard on confirm
 - [x] FE review surface (not API-only production apply)
-- [ ] Migration applied on Supabase project
-- [ ] Live smoke: consent → session-end → FE confirm → revision bump / ISS life-chapter update; dismiss path clean
+- [x] Migration applied on Supabase project (`kkjhsozszgoorwehhsdg`, 2026-07-22)
+- [x] Live smoke (API): consent → session-end store (`iss_mutated: false`) → confirm Path A `source=post_chat` (revision bump, innate preserved) → stale revision 409 → dismiss clean → consent off; soul restored (`scripts/smoke_post_chat_33.py`)
 
-**Out of 3.3:** full Talk-to-my-Double shell (D1-FE); mid-session assess; silent auto-apply; quiz score moves; teen instruments. Residual ops → **TODOs** `3.3-ops`.
+**Bugfix during smoke:** `run_session_end_assessment` must pass `require_auth=True` into `_assert_thread_access`.
+
+**Out of 3.3:** full Talk-to-my-Double shell (D1-FE); mid-session assess; silent auto-apply; quiz score moves; teen instruments. Full LLM assessor on a long thread is optional follow-up (session-end skip/store path verified; confirm uses validated pending assessment).
 
 ### Week 4 — Design pass + retention candidates (only if Weeks 1–3 green)
 
