@@ -1,6 +1,6 @@
 # Epic: Self-serve owned Double (Rehears → Doubland)
 
-**Status:** Active — Weeks 1–3 + **D1-FE Talk** + **D2-BE/FE bind** shipped and joint-smoked locally (2026-07-22). Open work: Week 4 candidates, BE D3/D4, **D7** promote.
+**Status:** Active — Weeks 1–3 + **D1-FE Talk** + **D2 bind** + **D8** (BE auto-assign/map seed + **D8-FE** look picker) shipped locally (2026-07-22). Open work: Week 4 candidates, BE D3/D4, **D7** promote.
 **Branch / worktree:** BE `ivan/dev` → `D:\Coding\generative_agents-ivan-dev` · FE `local` (`double-front`)
 **Base:** forked from current `railway` (`0e393ca6`, 2026-07-14). VPS stays on `railway`; implement only in this worktree.
 **Architecture:** Port into Doubland (not permanent two-app). One Auth. Doubland-owned profile SOT.
@@ -25,6 +25,7 @@ Backlog for this epic. **Status** = open or done. **Project** = primary repo/wor
 
 | ID | Status | Project | One-liner | Notes |
 |----|--------|---------|-----------|--------|
+| **D8-FE** | *done* | `double-front` | Avatar / atlas picker UI against `GET/POST /api/me/double/avatar` | Shipped 2026-07-22 on FE `local`: optional **Your look** step prior to Join World list (`prediction_ready`); auto-assign kept + **Change look**. |
 | **D3** | open | `generative_agents` | Village-grade host productization beyond personal `owned-*` chat host | Personal chat host shipped 3.2. |
 | **D4** | open | `generative_agents` | Broader chat loader polish (non-owned empty-baseline edges) | Owned step-0 + ISS fixed 3.2. |
 | **D6** | open | `double-ivan` | Adult IPIP stem expert sign-off | Optional research; not blocking. |
@@ -35,11 +36,12 @@ Backlog for this epic. **Status** = open or done. **Project** = primary repo/wor
 | **Misc** | open | `generative_agents` | Chapter-changed memory injection after identity retake | Nice follow-up to 3.1. |
 | **Misc** | *done* | `double-front` | Wire chat UI “end session” → `POST /api/me/double/session/end` | Shipped 2026-07-22 with D1-FE Talk page; joint smoke confirmed. |
 | **D1-FE** | *done* | `double-front` | Talk to my Double **UI** (interview/profile → `GET/POST /api/me/double*`) | Shipped 2026-07-22 on FE `local`: `/onboarding/talk`. Joint smoke: chat + End session (`iss_mutated` false path). |
-| **D2-FE** | *done* | `double-front` | Self-serve Phase D job/home picker UI | Shipped 2026-07-22: `/onboarding/join-world`. Joint smoke green on `20260711-1`; BE verified roster + job/home in DB. Map sticker deferred until sim runs. |
+| **D2-FE** | *done* | `double-front` | Self-serve Phase D job/home picker UI | Shipped 2026-07-22: `/onboarding/join-world`. Joint smoke green on `20260711-1`; BE verified roster + job/home in DB. **Map proof:** Double seeded at step 2489 House 2 `(30,60)`; gateway now accepts `'s Double` names; open sim at step 2489 to see sticker. |
 | D2-B | *done* | `generative_agents` | Auto-join + private/open access + allowlist | Shipped 2026-07-22: `self_serve_access`, allowlist table, `POST …/bind/{sim}/join`, gates (capacity, timing, one village bind). |
 | D2-BE v1 | *done* | `generative_agents` | Bind options + finalize for owned Double | Shipped 2026-07-22: joinable flag, options shortlists (fast non-LLM path), single-persona finalize. |
 | 3.3-ops | *done* | `generative_agents` | Post-chat learning migration + API smoke | Shipped 2026-07-22: migration applied; consent → session-end → confirm/dismiss. |
 | **D5** | *done* | `generative_agents` | Permanent owned-Double chat QA harness (not one-off smoke) | Shipped 2026-07-22: unit `scripts/run_self_serve_spine_unit.py` (`-m self_serve_spine`); live `scripts/smoke_self_serve_spine.py --live` (bind join/finalize opt-in via env). |
+| **D8** | *done* (BE) | `generative_agents` | Auto-assign generalized atlas + auto-seed map coords on join/finalize; JWT pick APIs | Shipped 2026-07-22 on `ivan/dev`: `persona_sprite_service`; join/finalize hook; `GET/POST /api/me/double/avatar`. FE picker: **D8-FE** done. |
 
 **Project key:** `generative_agents` = BE (`ivan/dev` worktree) · `double-front` = FE (`local`) · `double-ivan` = product/docs/research.
 
@@ -355,7 +357,11 @@ curl -s "http://localhost:8001/api/me/doubles" -H "Authorization: Bearer $ACCESS
 
 **Operator prep (private demo):** `ENABLE_ONBOARDING_HOST=true` → set access `private` → PUT allowlist emails → user join → options → finalize.
 
-**Local smoke note (2026-07-22):** Map/avatar visibility after bind is deferred until the village sim is run (stopped sim has binding data but no live map presence). Options hang during smoke was multi-LLM board build — BE fixed to fast non-LLM shortlist.
+**Local smoke note (2026-07-22):** Map/avatar after bind needs a `personas_coords` row (late join had none) + gateway persona-name validation must allow apostrophe (`ipistsov's Double`). Seeded step **2489** at House 2 `(30,60)`; `GET /api/simulations/20260711-1/step/2489` includes the Double. Continuation run started for live steps (day-boundary LLM is slow).
+
+**D8 BE (2026-07-22):** Join + finalize now auto-assign a generalized atlas (if none active) and seed `personas_coords` from scratch `curr_tile` at the sim’s latest step — no manual rescue for join → map. FE handoff: `GET/POST /api/me/double/avatar` (catalog + pick). Talk host also auto-assigns atlas.
+
+**D8-FE (2026-07-22):** `/onboarding/join-world` starts with optional **Your look** (gated on `prediction_ready`); **Change look** posts `atlas_code`; **Continue to worlds** keeps prior bind flow. Auto-assign remains the default.
 
 ### Week D1-FE — Talk to my Double UI
 
@@ -419,6 +425,12 @@ curl -s "http://localhost:8001/api/me/doubles" -H "Authorization: Bearer $ACCESS
 3. **Job/home:** API shortlists; FE picker **shipped** (D2-FE `/onboarding/join-world`).  
 4. **Auto-join:** `POST …/join` links prediction-ready owned Double; join only when stopped/paused and not generating/live.  
 5. **Capacity** default 15; **one** active non-`owned-*` village bind; name suffix on collision; no unjoin in this ship.
+
+## Decision log (locked 2026-07-22 — D8-FE look)
+
+1. **Placement:** Prior Join World step (not Talk settings).  
+2. **Gate:** `prediction_ready` (same soft gate as join).  
+3. **Required?** No — keep BE auto-assign; UI is **Change look** optional.
 
 ## Decision log (locked 2026-07-22 — joint FE smoke)
 
