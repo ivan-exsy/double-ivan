@@ -1,6 +1,6 @@
 # Epic: Self-serve owned Double (Rehears → Doubland)
 
-**Status:** Active — Weeks 1–3 core **CLOSED**; **3.1** identity publish + **3.2** Talk-to-my-Double API + **3.3** post-chat learning **shipped** (migration applied + API live smoke 2026-07-22). Open product work in **[TODOs](#todos)**.
+**Status:** Active — Weeks 1–3 + **D2-BE v1/B** self-serve bind **shipped**. Open product work in **[TODOs](#todos)** (mostly FE).
 **Branch / worktree:** `ivan/dev` → `D:\Coding\generative_agents-ivan-dev` · FE `ivan/self-serve-double`  
 **Base:** forked from current `railway` (`0e393ca6`, 2026-07-14). VPS stays on `railway`; implement only in this worktree.  
 **Architecture:** Port into Doubland (not permanent two-app). One Auth. Doubland-owned profile SOT.  
@@ -12,23 +12,27 @@
 
 ## TODOs
 
-Open work only. Completed weeks (including **3.3 code**) stay under **Week plan** below for history.
+Backlog for this epic. **Status** = open or done. **Project** = primary repo/worktree.
 
-| ID | One-liner | Notes |
-|----|-----------|--------|
-| **D1-FE** | Talk to my Double **UI** (interview/profile → `GET/POST /api/me/double*`) | D1-BE done (3.2). **Explicitly skipped for now** (Ivan 2026-07-14). Not a blocker for 3.3 confirm UI (separate page). |
-| **D2** | Self-serve Phase D bind — owned Double on a real sim roster | Operator Phase D CLI/REST exists |
-| **D3** | Village-grade host productization beyond personal `owned-*` chat host | Personal chat host shipped 3.2 |
-| **D4** | Broader chat loader polish (non-owned empty-baseline edges) | Owned step-0 + ISS fixed 3.2 |
-| **D5** | Permanent owned-Double chat QA harness (not one-off smoke) | Product path already green via 3.2 |
-| **D6** | Adult IPIP stem expert sign-off | Optional research; not blocking |
-| **D7** | Railway / Vercel promote of self-serve path | Local-only until Ivan sign-off |
-| **W4-a** | Onboarding/quiz UX design pass (Doubland language) | Week 4 candidate |
-| **W4-b** | Daily Dilemma adult bank **or** “what would my Double do?” mode | Week 4 candidate |
-| **W4-c** | Re-test / profile versioning product surface | Week 4 candidate |
-| **Misc** | Chapter-changed memory injection after identity retake | Nice follow-up to 3.1 |
-| **Misc** | Self-serve Phase D job/home FE | Tied to D2 |
-| **Misc** | Wire chat UI “end session” → `POST /api/me/double/session/end` | Optional; API exists; assessor also callable after thread |
+| ID | Status | Project | One-liner | Notes |
+|----|--------|---------|-----------|--------|
+| **D1-FE** | open | `double-front` | Talk to my Double **UI** (interview/profile → `GET/POST /api/me/double*`) | D1-BE done (3.2). **Explicitly skipped for now** (Ivan 2026-07-14). Not a blocker for 3.3 confirm UI (separate page). |
+| **D2-FE** | open | `double-front` | Self-serve Phase D job/home picker UI | D2-BE v1 + **D2-B** API shipped 2026-07-22 (join, access modes, allowlist). |
+| D2-B | *done* | `generative_agents` | Auto-join + private/open access + allowlist | Shipped 2026-07-22: `self_serve_access`, allowlist table, `POST …/bind/{sim}/join`, gates (capacity, timing, one village bind). |
+| D2-BE v1 | *done* | `generative_agents` | Bind options + finalize for owned Double | Shipped 2026-07-22: joinable flag, options shortlists, single-persona finalize. |
+| 3.3-ops | *done* | `generative_agents` | Post-chat learning migration + API smoke | Shipped 2026-07-22: migration applied; consent → session-end → confirm/dismiss. |
+| **D3** | open | `generative_agents` | Village-grade host productization beyond personal `owned-*` chat host | Personal chat host shipped 3.2. |
+| **D4** | open | `generative_agents` | Broader chat loader polish (non-owned empty-baseline edges) | Owned step-0 + ISS fixed 3.2. |
+| **D5** | *done* | `generative_agents` | Permanent owned-Double chat QA harness (not one-off smoke) | Shipped 2026-07-22: unit `scripts/run_self_serve_spine_unit.py` (`-m self_serve_spine`); live `scripts/smoke_self_serve_spine.py --live` (bind join/finalize opt-in via env). |
+| **D6** | open | `double-ivan` | Adult IPIP stem expert sign-off | Optional research; not blocking. |
+| **D7** | open | `generative_agents` + `double-front` | Railway / Vercel promote of self-serve path | Local-only until Ivan sign-off. |
+| **W4-a** | open | `double-front` | Onboarding/quiz UX design pass (Doubland language) | Week 4 candidate. |
+| **W4-b** | open | `generative_agents` + `double-front` | Daily Dilemma adult bank **or** “what would my Double do?” mode | Week 4 candidate (bank BE + mode/UI FE). |
+| **W4-c** | open | `double-front` | Re-test / profile versioning product surface | Week 4 candidate (history data already on BE). |
+| **Misc** | open | `generative_agents` | Chapter-changed memory injection after identity retake | Nice follow-up to 3.1. |
+| **Misc** | open | `double-front` | Wire chat UI “end session” → `POST /api/me/double/session/end` | Optional; API exists; assessor also callable after thread. |
+
+**Project key:** `generative_agents` = BE (`ivan/dev` worktree) · `double-front` = FE · `double-ivan` = product/docs/research.
 
 ---
 
@@ -36,7 +40,7 @@ Open work only. Completed weeks (including **3.3 code**) stay under **Week plan*
 
 | Area | Status | Reuse / gap |
 |------|--------|-------------|
-| **Lifecycle Phase D** — job/home binding | **Shipped** CLI+REST (`ENABLE_ONBOARDING_HOST`); finalize writes scratch + report | Self-serve FE still missing; sim-only goal slot deferred |
+| **Lifecycle Phase D** — job/home binding | **Shipped** CLI+REST + self-serve D2-BE v1/B | Joinable access modes + allowlist + auto-join; FE picker (D2-FE) open; sim-only goal slot deferred |
 | **Lifecycle Phases A–C** | **Deferred** in SOT (post-MVP) | This epic *implements* A–C (account, profile, completeness) |
 | **Profile pipeline** | Operator/soul docs + snippets; `get_persona_profile_context` | Adapter must **write** these paths, not invent parallel storage |
 | **Chat with Double v1** | **Shipped** — threads, memory retrieve, write-back (P3-1), rate limits | Open endpoint when gate off; service-role |
@@ -305,6 +309,45 @@ FE Talk UI → **TODOs** D1-FE (explicitly skipped for now).
 
 **Out of 3.3:** full Talk-to-my-Double shell (D1-FE); mid-session assess; silent auto-apply; quiz score moves; teen instruments. Full LLM assessor on a long thread is optional follow-up (session-end skip/store path verified; confirm uses validated pending assessment).
 
+### Week D2 — Self-serve Phase D bind API (v1 + D2-B)
+
+**Status:** **SHIPPED (BE)** 2026-07-22 — D2-FE still open
+
+**Product decisions (locked)**
+1. Access modes: `closed` | `private` (allowlist required) | `open` (any prediction-ready user). Default `closed`.
+2. Allowlist: email and/or `user_id` (normalized). Allowlist always wins in `private`.
+3. Job/home: shortlists for later FE picker (not auto-pick).
+4. Auto-join: `POST …/join` links owned Double onto roster (prediction_ready only).
+5. Join only when sim is `stopped`/`paused`, not generating, not live.
+6. Capacity: `self_serve_max_roster` (default 15). One active non-`owned-*` village bind per persona.
+7. Name collision: suffix ` (2)`, ` (3)`, … on global persona name when needed.
+
+**Build**
+1. Migrations `20260722140000` + `20260722180000` (joinable, access, max_roster, allowlist table).
+2. Operator (`ENABLE_ONBOARDING_HOST`):
+   - `POST /api/onboarding/{sim}/self-serve-access` `{access, max_roster?}`
+   - `GET|PUT /api/onboarding/{sim}/self-serve-allowlist`
+   - `POST …/self-serve-joinable` legacy alias (`true`→`open`, `false`→`closed`)
+3. JWT self-serve:
+   - `GET /api/me/double/bind/sims` (private worlds filtered to allowlisted callers)
+   - `GET /api/me/double/bind/{sim}/options`
+   - `POST /api/me/double/bind/{sim}/join`
+   - `POST /api/me/double/bind/{sim}/finalize`
+4. Engine: single-persona board filter + `target_personas` finalize.
+
+**Acceptance**
+- [x] `closed` → `not_joinable`; `private` empty allowlist → `allowlist_required`; not on list → `not_allowed`
+- [x] Running/live/generating → `sim_not_joinable_now`
+- [x] Full roster → `roster_full`; second village → `already_bound`
+- [x] Join links roster + seeds scratch ISS (no identity_revision bump); idempotent re-join
+- [x] Options/finalize require allowlist in private even if pre-linked
+- [x] Finalize writes only owned Double; taken homes blocked
+- [ ] FE picker (D2-FE)
+
+**Operator prep (private demo):** `ENABLE_ONBOARDING_HOST=true` → set access `private` → PUT allowlist emails → user join → options → finalize.
+
+---
+
 ### Week 4 — Design pass + retention candidates (only if Weeks 1–3 green)
 
 **Build (pick by need)**
@@ -334,7 +377,7 @@ FE Talk UI → **TODOs** D1-FE (explicitly skipped for now).
 **Prefer existing hooks**
 - `dbl_agent.user_id` already ties agents to users in memory RPCs.
 - Chat tables + RPCs exist; extend with `user_id`, do not redesign chat.
-- Phase D host stays operator-grade for self-serve; self-serve bind/FE still **TODOs** (D2).
+- Phase D host stays operator-grade for full-roster bind; self-serve bind is D2-BE (access/allowlist/join/options/finalize); FE picker is D2-FE.
 
 **Flag**
 - `CHAT_REQUIRE_AUTH=true` (or equivalent) — default off in prod until FE ships; on in worktree/dev.
@@ -346,4 +389,12 @@ FE Talk UI → **TODOs** D1-FE (explicitly skipped for now).
 ## Decision log (locked 2026-07-14)
 
 1. Port into Doubland · 2. One Auth · 3. Doubland profile SOT · 4. Big-5 + interview for full Double · 5. Soft gate for demos, hard for “my Double” claims · 6. Solo loops inside Doubland later · 7. Modular schemas now, extract onboarding later.
+
+## Decision log (locked 2026-07-22 — D2 bind + D2-B)
+
+1. **Access:** `closed` | `private` (allowlist required) | `open`; default `closed`.  
+2. **Allowlist:** email and/or `user_id`; always wins in private (pre-link alone is not enough).  
+3. **Job/home:** API shortlists; FE picker later.  
+4. **Auto-join:** `POST …/join` links prediction-ready owned Double; join only when stopped/paused and not generating/live.  
+5. **Capacity** default 15; **one** active non-`owned-*` village bind; name suffix on collision; no unjoin in this ship.
 
