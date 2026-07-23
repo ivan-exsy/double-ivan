@@ -1,0 +1,55 @@
+{
+  "sim": "20260723-1",
+  "started_approx_utc": "2026-07-23T19:42:00Z",
+  "sec_per_step_estimate": 30,
+  "target_steps": 7600,
+  "poll_interval_sec": 900,
+  "stall_minutes": 15,
+  "checkpoints": [
+    {
+      "id": "cp100",
+      "min_step": 100,
+      "gates": [
+        "1_screenshots_midflight"
+      ]
+    },
+    {
+      "id": "cp500",
+      "min_step": 500,
+      "gates": [
+        "2_recycle_first"
+      ]
+    },
+    {
+      "id": "cp1000",
+      "min_step": 1000,
+      "gates": [
+        "2_recycle_second"
+      ]
+    },
+    {
+      "id": "cp7500",
+      "min_step": 7500,
+      "gates": [
+        "near_end_hygiene"
+      ]
+    }
+  ],
+  "completed_checkpoints": [],
+  "last_probe": {
+    "probe_utc": "2026-07-23T20:00:00Z",
+    "verdict": {
+      "fatal": false,
+      "fatals": [],
+      "warnings": [],
+      "step": 30,
+      "status": "running",
+      "new_checkpoints": []
+    }
+  },
+  "last_step": 30,
+  "last_generated_at": "2026-07-23T19:58:23.829924+00:00",
+  "fatal_stopped": false,
+  "loop_active": true,
+  "notes": []
+}
