@@ -109,12 +109,14 @@ Please investigate and propose; pick the smallest path that hits acceptance:
 
 ## 8. Ask back from eng
 
-**BE slice A status (2026-07-23):** Implemented on `ivan/headless-memory-hygiene` + applied RPC migration on shared Supabase.
+**BE slice A status (2026-07-23):** Implemented on `ivan/headless-memory-hygiene` + applied RPC migration on shared Supabase.  
+**FE slice B status (2026-07-23):** Done on `double-front` `local` — emit clamp prefix + replay/CDN consume hardened. Joint acceptance = new headless score run.
 
 1. **Root cause:** Intent-only leaves `path: null`. FE `actual_path` was passed as `p_actual_path` but RPC only wrote `movement.path` (not `actual_path`), and intent rewrites could leave path null. Gateway step read also did not surface `actual_path`.
 2. **Fix:** RPC merges both `actual_path` + `path`; preserves realized paths on intent-only rewrites; gateway returns `actual_path`; acceptance script `scripts/analyze_travel_path_coverage.py`.
-3. **ETA:** BE A done; FE B separate; verify on **new** score run with headless ON.
+3. **ETA:** BE A done; **FE B done** (2026-07-23) on `double-front` `local`: clamp→`__remainingPaths`, non-empty `actual_path` preference, CDN regression tests. Verify on **new** score run with headless ON.
 4. **Risk:** Low to railway; old sims unchanged. New run required for acceptance (≥95% travel path coverage).
+5. **Scrub exception (deliberate):** scrub **drag** may teleport / mid-path interpolate; continuous walk is for **play / LIVE**. After scrub, play resumes from trimmed remaining path (`SCRUB-002`).
 
 ---
 
