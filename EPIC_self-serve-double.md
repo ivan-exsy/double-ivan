@@ -1,6 +1,6 @@
 # Epic: Self-serve owned Double (Rehears → Doubland)
 
-**Status:** Active — Weeks 1–3 + **D1-FE Talk** + **D2 bind** + **D8** (BE auto-assign/map seed + **D8-FE** look picker) shipped locally (2026-07-22). Open work: Week 4 candidates, BE D3/D4, **D7** promote.
+**Status:** Active — Weeks 1–3 + **D1–D2/D8** + **D7 FE** (Vercel promote) shipped (2026-07-23). Open work: Week 4 candidates, BE D3/D4.
 **Branch / worktree:** BE `ivan/dev` → `D:\Coding\generative_agents-ivan-dev` · FE `local` (`double-front`)
 **Base:** forked from current `railway` (`0e393ca6`, 2026-07-14). VPS stays on `railway`; implement only in this worktree.
 **Architecture:** Port into Doubland (not permanent two-app). One Auth. Doubland-owned profile SOT.
@@ -25,11 +25,10 @@ Backlog for this epic. **Status** = open or done. **Project** = primary repo/wor
 
 | ID | Status | Project | One-liner | Notes |
 |----|--------|---------|-----------|--------|
-| **D8-FE** | *done* | `double-front` | Avatar / atlas picker UI against `GET/POST /api/me/double/avatar` | Shipped 2026-07-22 on FE `local`: optional **Your look** step prior to Join World list (`prediction_ready`); auto-assign kept + **Change look**. |
 | **D3** | open | `generative_agents` | Village-grade host productization beyond personal `owned-*` chat host | Personal chat host shipped 3.2. |
 | **D4** | open | `generative_agents` | Broader chat loader polish (non-owned empty-baseline edges) | Owned step-0 + ISS fixed 3.2. |
 | **D6** | open | `double-ivan` | Adult IPIP stem expert sign-off | Optional research; not blocking. |
-| **D7** | open | `generative_agents` + `double-front` | Railway / Vercel promote of self-serve path | Prod verify in `20260723-1_checklist.md` §§4–9 (dormant 4–8; optional punchline §9). |
+| **D7** | *done* | `generative_agents` + `double-front` | Railway / Vercel promote of self-serve path | FE: promoted to Vercel prod track (`vercel`) 2026-07-23. Prod verify checklist: `20260723-1_checklist.md`. |
 | **W4-a** | open | `double-front` | Onboarding/quiz UX design pass (Doubland language) | Week 4 candidate. |
 | **W4-b** | open | `generative_agents` + `double-front` | Daily Dilemma adult bank **or** “what would my Double do?” mode | Week 4 candidate (bank BE + mode/UI FE). |
 | **W4-c** | open | `double-front` | Re-test / profile versioning product surface | Week 4 candidate (history data already on BE). |
@@ -42,6 +41,7 @@ Backlog for this epic. **Status** = open or done. **Project** = primary repo/wor
 | 3.3-ops | *done* | `generative_agents` | Post-chat learning migration + API smoke | Shipped 2026-07-22: migration applied; consent → session-end → confirm/dismiss. |
 | **D5** | *done* | `generative_agents` | Permanent owned-Double chat QA harness (not one-off smoke) | Shipped 2026-07-22: unit `scripts/run_self_serve_spine_unit.py` (`-m self_serve_spine`); live `scripts/smoke_self_serve_spine.py --live` (bind join/finalize opt-in via env). |
 | **D8** | *done* (BE) | `generative_agents` | Auto-assign generalized atlas + auto-seed map coords on join/finalize; JWT pick APIs | Shipped 2026-07-22 on `ivan/dev`: `persona_sprite_service`; join/finalize hook; `GET/POST /api/me/double/avatar`. FE picker: **D8-FE** done. |
+| **D8-FE** | *done* | `double-front` | Avatar / atlas picker UI against `GET/POST /api/me/double/avatar` | Shipped 2026-07-22 on FE `local`: optional **Your look** step prior to Join World list (`prediction_ready`); auto-assign kept + **Change look**. |
 
 **Project key:** `generative_agents` = BE (`ivan/dev` worktree) · `double-front` = FE (`local`) · `double-ivan` = product/docs/research.
 
@@ -437,5 +437,9 @@ curl -s "http://localhost:8001/api/me/doubles" -H "Authorization: Bearer $ACCESS
 1. **FE branch for self-serve UI:** `local` on `double-front` (not `ivan/self-serve-double`).  
 2. **D1-FE + session-end + D2-FE** closed via local joint smoke with BE.  
 3. **Map presence** after bind is out of scope for stopped historical sims; DB roster + scratch job/home is the acceptance gate.  
-4. **D7** remain blocked on Ivan sign-off (no Railway/Vercel promote yet).
+4. **D7** FE Vercel promote **done** 2026-07-23 (self-serve path on prod FE track).
 
+## Decision log (locked 2026-07-23 — D7 FE)
+
+1. **FE promote:** `local` → `vercel` (Vercel production track) for self-serve onboarding UI.  
+2. **Build gate:** `ChatBubbleHTML._tipDy` typed as `number` so `next build` passes before promote.
