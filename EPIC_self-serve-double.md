@@ -29,7 +29,7 @@ Backlog for this epic. **Status** = open or done. **Project** = primary repo/wor
 | **D3** | open | `generative_agents` | Village-grade host productization beyond personal `owned-*` chat host | Personal chat host shipped 3.2. |
 | **D4** | open | `generative_agents` | Broader chat loader polish (non-owned empty-baseline edges) | Owned step-0 + ISS fixed 3.2. |
 | **D6** | open | `double-ivan` | Adult IPIP stem expert sign-off | Optional research; not blocking. |
-| **D7** | open | `generative_agents` + `double-front` | Railway / Vercel promote of self-serve path | Local-only until Ivan sign-off. |
+| **D7** | open | `generative_agents` + `double-front` | Railway / Vercel promote of self-serve path | Prod verify in `20260723-1_checklist.md` §§4–9 (dormant 4–8; optional punchline §9). |
 | **W4-a** | open | `double-front` | Onboarding/quiz UX design pass (Doubland language) | Week 4 candidate. |
 | **W4-b** | open | `generative_agents` + `double-front` | Daily Dilemma adult bank **or** “what would my Double do?” mode | Week 4 candidate (bank BE + mode/UI FE). |
 | **W4-c** | open | `double-front` | Re-test / profile versioning product surface | Week 4 candidate (history data already on BE). |
