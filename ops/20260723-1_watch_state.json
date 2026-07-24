@@ -35,21 +35,43 @@
       ]
     }
   ],
-  "completed_checkpoints": [],
+  "completed_checkpoints": [
+    "cp100",
+    "cp500",
+    "cp1000"
+  ],
   "last_probe": {
-    "probe_utc": "2026-07-23T20:00:00Z",
+    "probe_utc": "2026-07-24T16:13:02Z",
     "verdict": {
       "fatal": false,
       "fatals": [],
       "warnings": [],
-      "step": 30,
+      "step": 2179,
       "status": "running",
       "new_checkpoints": []
     }
   },
-  "last_step": 30,
-  "last_generated_at": "2026-07-23T19:58:23.829924+00:00",
+  "last_step": 2179,
+  "last_generated_at": "2026-07-24T16:12:10.150297+00:00",
   "fatal_stopped": false,
-  "loop_active": true,
-  "notes": []
+  "loop_active": false,
+  "notes": [
+    {
+      "utc": "2026-07-24T14:30:43Z",
+      "action": "fatal_detected",
+      "fatals": [
+        "status_api_error: The read operation timed out"
+      ]
+    },
+    {
+      "utc": "2026-07-24T14:32:00Z",
+      "action": "false_alarm_cleared",
+      "detail": "Probe used wrong URL (/status/current). Runner PID 1547525 still alive; /status shows step 2080. Did not stop sim."
+    },
+    {
+      "utc": "2026-07-24T16:15:00Z",
+      "action": "watch_loop_stopped_by_user",
+      "detail": "Continuous 15m Cursor loop aborted; one-shot verify done at step ~2180"
+    }
+  ]
 }

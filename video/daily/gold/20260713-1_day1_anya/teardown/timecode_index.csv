@@ -1,0 +1,28 @@
+t_sec,grab,on_screen_summary,sheet_scene_guess,layer_family
+0,001,"Ivan full-body walk-in; blue LED matrix BG; HUD badge DOUBLE ONLINE / ACTIVE",0_hook,hud_portrait
+1,002,"Group cast matrix (15); kinetic word THESE",1_stake_concept,group_matrix
+3,004,"Group cast; kinetic AI",1_stake_concept,group_matrix
+7,008,"Phaser village top-down; LIVE SIMULATION + 15 ACTIVE badges; kinetic NO ONE",1-2_phaser_plant,phaser_hud
+10,011,"Phaser continue (literacy hold)",2_survival,phaser_hud
+13,014,"Phaser close; kinetic IS VOTED OUT",2_survival,phaser_hud
+16,017,"Dark HUD: large 1 ACTIVE + 15-dot grid (one lit)",2_survival_census_tease,hud_graphic
+18,019,"Irene Dove namecard — code/glyph projection on face; gold name type",3_follow,namecard_cinematic
+20,021,"Irene barista habitat Hobbs counter; apron; soft practical light",4_irene_want,habitat_cinematic
+23,024,"(transition / hold)",4-5,mixed
+28,029,"Ivan portrait + HUD PLAYER OBJECTIVE / READ THE ROOM / OBSERVE.ANALYZE.ACT",5_ivan_want,hud_objective_card
+33,034,"Full-frame challenge title card HOLD FOR THE SHIELD + shield icon",6_pressure,hud_challenge_title
+38,039,"Card table Hobbs; STEP1/STEP2 HUD; HOLD TO STAY kinetic",6_pressure,challenge_teach_overlay
+42,043,"Same table; STEP3 HIGHEST CARD WINS; kinetic HIGHEST CARD",6_pressure,challenge_teach_overlay
+45,046,"(challenge mid)",6-7,challenge
+48,049,"Cards revealed 7/6/5/4; Irene holds 7; kinetic IRENE GOT THE HIGHEST CARD",7_peak,peak_reveal
+51,052,"(peak hold / cut)",7_peak,peak
+55,056,"Abstract wireframe couple + CONVERSATIONS TURN INTO ALLIANCES + LIVE FEED chrome",8_social,hud_abstract_social
+58,059,"(social / ballot approach)",8-9,mixed
+62,063,"Hobbs evening; wooden ballot bowl foreground; hands dropping slips; kinetic TONIGHT",9_ballots,ballots_cinematic
+66,067,"Phaser cafe interior; tags Irene (inside) + Ivan (outside path); kinetic IRENE'S",10_cost_phaser_in,phaser_dive
+70,071,"Cinematic Ivan leave with duffel; Irene seated BG; dusk interior",10_cost_leave,leave_cinematic
+74,075,"Irene behind translucent blue SHIELD hologram; kinetic THE SHIELD",11-12_power_spent,hud_shield_spent
+78,079,"Radar NEW TARGETS WILL EMERGE; silhouettes; SCANNING 63%",12_cliff,hud_cliff_targets
+82,083,"(cliff / door approach)",12-14,mixed
+85,086,"Phaser village wide; kinetic AND VOTE; blue energy top edge",14_door_phaser,phaser_door
+87,088,"End lockup L-TALKS + DOUBLAND.AI + WATCH LIVE (neon HUD)",14_end_card,end_card_brand

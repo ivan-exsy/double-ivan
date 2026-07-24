@@ -1,0 +1,1338 @@
+{
+  "draft_name": "L-talks Day 1",
+  "draft_id": "94B575EE-E577-41F8-8774-CEC7A4FAF2F4",
+  "duration_s": 88.233,
+  "fps": 30.0,
+  "canvas": {
+    "ratio": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "background": null
+  },
+  "platform": {
+    "os": "mac",
+    "os_version": "26.5.2",
+    "app_id": 359289,
+    "app_version": "7.8.8-beta1",
+    "app_source": "cc",
+    "device_id": "e0d1be0192e56b594c744aa7f525ac2d",
+    "hard_disk_id": "48ae7deefc52aa2cdc2c281863c0ad3d",
+    "mac_address": "0ce9c3339f6f866cc1aa7b167e2bd69d"
+  },
+  "original_fold_path": "/Users/anyaf/Movies/CapCut/User Data/Projects/com.lveditor.draft/0720",
+  "track_summary": [
+    {
+      "track_index": 0,
+      "type": "video",
+      "segment_count": 3
+    },
+    {
+      "track_index": 1,
+      "type": "video",
+      "segment_count": 12
+    },
+    {
+      "track_index": 2,
+      "type": "video",
+      "segment_count": 7
+    },
+    {
+      "track_index": 3,
+      "type": "video",
+      "segment_count": 3
+    },
+    {
+      "track_index": 4,
+      "type": "effect",
+      "segment_count": 1
+    },
+    {
+      "track_index": 5,
+      "type": "video",
+      "segment_count": 3
+    },
+    {
+      "track_index": 6,
+      "type": "video",
+      "segment_count": 3
+    },
+    {
+      "track_index": 7,
+      "type": "video",
+      "segment_count": 11
+    },
+    {
+      "track_index": 8,
+      "type": "video",
+      "segment_count": 1
+    },
+    {
+      "track_index": 9,
+      "type": "video",
+      "segment_count": 8
+    },
+    {
+      "track_index": 10,
+      "type": "video",
+      "segment_count": 3
+    },
+    {
+      "track_index": 11,
+      "type": "effect",
+      "segment_count": 3
+    },
+    {
+      "track_index": 12,
+      "type": "text",
+      "segment_count": 43
+    },
+    {
+      "track_index": 13,
+      "type": "audio",
+      "segment_count": 6
+    },
+    {
+      "track_index": 14,
+      "type": "audio",
+      "segment_count": 1
+    },
+    {
+      "track_index": 15,
+      "type": "audio",
+      "segment_count": 1
+    },
+    {
+      "track_index": 16,
+      "type": "audio",
+      "segment_count": 2
+    },
+    {
+      "track_index": 17,
+      "type": "audio",
+      "segment_count": 12
+    },
+    {
+      "track_index": 18,
+      "type": "audio",
+      "segment_count": 1
+    },
+    {
+      "track_index": 19,
+      "type": "audio",
+      "segment_count": 6
+    },
+    {
+      "track_index": 20,
+      "type": "audio",
+      "segment_count": 3
+    }
+  ],
+  "counts": {
+    "tracks": 21,
+    "segments": 133,
+    "text_segments": 43,
+    "video_segments": 54,
+    "audio_segments": 32,
+    "effect_segments": 4,
+    "materials_videos": 54,
+    "materials_audios": 32,
+    "materials_texts": 43,
+    "text_templates": 43,
+    "transitions": 6,
+    "video_effects": 6,
+    "material_animations": 93,
+    "legend_files": 47,
+    "legend_used": 32,
+    "legend_unused": 15,
+    "materials_resolved_to_kit": 62
+  },
+  "transitions": [
+    "Blue Scan",
+    "Scan Modeling",
+    "Scanline Compression",
+    "Tremble Zoom"
+  ],
+  "video_effects": [
+    "Blu-ray Scanning",
+    "Nervous Shaking",
+    "Shake",
+    "Spectrum Scan"
+  ],
+  "text_template_names": [
+    "向上渐显 微发光"
+  ],
+  "audio_on_timeline": {
+    "Digital Device Gadget Scanning Programming Sound2": 9,
+    "v6_narration.mp3": 2,
+    "music_drama.mp3": 6,
+    "Glitching Signal Glitch Futuristic Effect 2": 2,
+    "Cinematic Whoosh Hit Low 2": 3,
+    "Horror Trailer Opener": 4,
+    "Short Whoosh 4": 6
+  },
+  "source_class_on_av_timeline": {
+    "legend_still": 22,
+    "staged_kit": 10,
+    "legend_hf": 18,
+    "staged_phaser": 4,
+    "capcut_stock": 24,
+    "staged_audio": 8
+  },
+  "top_media": [
+    [
+      "Digital Device Gadget Scanning Programming Sound2",
+      9
+    ],
+    [
+      "music_drama.mp3",
+      6
+    ],
+    [
+      "Short Whoosh 4",
+      6
+    ],
+    [
+      "C30B9252-9BC7-4BCF-8B25-E2252BEC5865.PNG",
+      4
+    ],
+    [
+      "Horror Trailer Opener",
+      4
+    ],
+    [
+      "Screenshot 2026-07-20 at 9.20.16 PM.png",
+      3
+    ],
+    [
+      "signature_flyover.mp4",
+      3
+    ],
+    [
+      "hf_20260721_210518_e3cbd9ab-4729-4a63-b39e-3371b37d1c41.mp4",
+      3
+    ],
+    [
+      "Cinematic Whoosh Hit Low 2",
+      3
+    ],
+    [
+      "Talk.mp4",
+      2
+    ],
+    [
+      "D7AF15A5-3171-428E-9408-6135AA533103.PNG",
+      2
+    ],
+    [
+      "v6_narration.mp3",
+      2
+    ],
+    [
+      "Glitching Signal Glitch Futuristic Effect 2",
+      2
+    ],
+    [
+      "ivan_face.png",
+      1
+    ],
+    [
+      "A6FEF219-C756-4B3D-B0B1-A19F7A436019.PNG",
+      1
+    ],
+    [
+      "group_photo.png",
+      1
+    ],
+    [
+      "F3EE7A0F-9754-4C2C-A19E-ABB85F901033.PNG",
+      1
+    ],
+    [
+      "hf_20260721_180849_1bca4562-8648-4f59-9057-639cf31ae7aa.mp4",
+      1
+    ],
+    [
+      "BD21D20E-C654-46F0-B35F-317407F4313E.PNG",
+      1
+    ],
+    [
+      "81812E74-D0C7-4122-B014-A03C89E83C29.PNG",
+      1
+    ],
+    [
+      "hf_20260707_234503_7bb94590-20a2-489c-afdb-5a2305e6c91a 2.MP4",
+      1
+    ],
+    [
+      "648FD450-3CA8-4DB0-A398-CBCC1C3436D9.PNG",
+      1
+    ],
+    [
+      "irene_namecard.png",
+      1
+    ],
+    [
+      "ivan_namecard.png",
+      1
+    ],
+    [
+      "hf_20260721_213332_a8ad8e8d-3160-41a8-be5c-4578f6ccc2bb.mp4",
+      1
+    ],
+    [
+      "B1B40450-11F2-497D-AA63-BE33285A0C33.PNG",
+      1
+    ],
+    [
+      "hf_20260721_213451_2bc1bd7a-cd39-4d44-b256-5c9a451bd4a3.mp4",
+      1
+    ],
+    [
+      "A62E65DB-9C24-48C9-9155-AC75D9BCAB3A.PNG",
+      1
+    ],
+    [
+      "B604EDFB-6058-4236-BB11-8368131FD45A.PNG",
+      1
+    ],
+    [
+      "9290B06D-5B1B-4F0C-9EF2-C20BBE2E1D33.PNG",
+      1
+    ],
+    [
+      "hf_20260722_033205_dbb4b386-0a93-4fb2-add2-4f8abbf5e02c.mp4",
+      1
+    ],
+    [
+      "challenge_hold_for_shield.mp4",
+      1
+    ],
+    [
+      "hf_20260722_180656_6cd309a4-5585-4bce-be92-dacb62838d73.mp4",
+      1
+    ],
+    [
+      "8A0C4969-AA3E-467D-A5F6-9629E2DABF3C.PNG",
+      1
+    ],
+    [
+      "hf_20260722_180145_39d9caec-adc3-408b-bd8d-8562938f5a23.mp4",
+      1
+    ],
+    [
+      "hf_20260722_180743_7444f0ec-98b3-462f-9877-dc4190a104e0.mp4",
+      1
+    ],
+    [
+      "Village.mp4",
+      1
+    ],
+    [
+      "ballots.mp4",
+      1
+    ],
+    [
+      "A9AF9451-8517-4889-8FCE-B225B77A95FC.PNG",
+      1
+    ],
+    [
+      "ivan_leave_phaser.jpg",
+      1
+    ]
+  ],
+  "legend_used_files": [
+    "22F06DF6-E91F-4F98-9A12-B7CB1BE8A142.PNG",
+    "2C03C154-F2C4-4558-9FEE-E8DA7D8D896E.PNG",
+    "648FD450-3CA8-4DB0-A398-CBCC1C3436D9.PNG",
+    "81812E74-D0C7-4122-B014-A03C89E83C29.PNG",
+    "8A0C4969-AA3E-467D-A5F6-9629E2DABF3C.PNG",
+    "9290B06D-5B1B-4F0C-9EF2-C20BBE2E1D33.PNG",
+    "A62E65DB-9C24-48C9-9155-AC75D9BCAB3A.PNG",
+    "A6FEF219-C756-4B3D-B0B1-A19F7A436019.PNG",
+    "A9AF9451-8517-4889-8FCE-B225B77A95FC.PNG",
+    "B1B40450-11F2-497D-AA63-BE33285A0C33.PNG",
+    "B604EDFB-6058-4236-BB11-8368131FD45A.PNG",
+    "BD21D20E-C654-46F0-B35F-317407F4313E.PNG",
+    "C30B9252-9BC7-4BCF-8B25-E2252BEC5865.PNG",
+    "D7AF15A5-3171-428E-9408-6135AA533103.PNG",
+    "F3EE7A0F-9754-4C2C-A19E-ABB85F901033.PNG",
+    "hf_20260707_234503_7bb94590-20a2-489c-afdb-5a2305e6c91a 2.MP4",
+    "hf_20260708_015857_9a406841-b4e2-4dd6-9a1e-4243d8f5b282 2.MP4",
+    "hf_20260721_180849_1bca4562-8648-4f59-9057-639cf31ae7aa.mp4",
+    "hf_20260721_210518_e3cbd9ab-4729-4a63-b39e-3371b37d1c41.mp4",
+    "hf_20260721_213332_a8ad8e8d-3160-41a8-be5c-4578f6ccc2bb.mp4",
+    "hf_20260721_213451_2bc1bd7a-cd39-4d44-b256-5c9a451bd4a3.mp4",
+    "hf_20260722_033205_dbb4b386-0a93-4fb2-add2-4f8abbf5e02c.mp4",
+    "hf_20260722_180145_39d9caec-adc3-408b-bd8d-8562938f5a23.mp4",
+    "hf_20260722_180656_6cd309a4-5585-4bce-be92-dacb62838d73.mp4",
+    "hf_20260722_180743_7444f0ec-98b3-462f-9877-dc4190a104e0.mp4",
+    "hf_20260722_181212_32030a6f-2158-4d31-bb14-3680c68392a2.mp4",
+    "hf_20260722_215402_d173dd7d-b468-402d-b3b0-df4cb632300e.mp4",
+    "hf_20260722_224930_b79c5195-4d80-496b-9254-260b9dcab667.mp4",
+    "hf_20260722_225047_3d0ced5c-c8db-4b60-b39d-59fbaf7bb889.mp4",
+    "hf_20260722_230056_75260568-f1c8-4c85-ac18-5dfd29b58798.mp4",
+    "hf_20260722_230756_90488b12-a80b-4f14-85e0-5f6398983f8a.mp4",
+    "Screenshot 2026-07-20 at 9.20.16 PM.png"
+  ],
+  "legend_unused_files": [
+    "2571CF95-C752-413E-B0D1-70D8A9232D60.PNG",
+    "60E3F4BE-CFB9-44F1-BF2B-472FF6073F78.jpg",
+    "6293D2AC-D429-45CF-8334-7EE82DBDD29C.jpg",
+    "94FF59B2-04B0-4AD5-8DFD-FF8A1BC984F5 2.PNG",
+    "94FF59B2-04B0-4AD5-8DFD-FF8A1BC984F5 3.PNG",
+    "C126101E-9860-4276-BA11-56E05319E50D.PNG",
+    "cinematic_flyover_village_dusk_wind_down.MP4",
+    "D3AE994C-50EA-4F7A-9979-216CAEB319CB.PNG",
+    "ECDC03D9-18FE-47D7-A5B7-6258DD90332A.jpg",
+    "F5655AC9-AF6C-4979-96DB-E1F6061EF2BC 2.jpg",
+    "group_photo 2.PNG",
+    "hf_20260707_234016_8512f999-71e4-47f9-b11b-7c9a4109e3d6.mp4",
+    "hf_20260722_025127_e78204e8-848f-4cd2-a888-3070cc2b7364.mp4",
+    "hf_20260722_030045_0f43461d-dd95-466f-99cb-039f7524b224.mp4",
+    "IMG_4873.jpg"
+  ],
+  "text_full_sequence": [
+    {
+      "start_s": 0.9,
+      "end_s": 1.9,
+      "text": "THESE ARE",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 2.8,
+      "end_s": 4.3,
+      "text": "AI VERSIONS OF",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 4.3,
+      "end_s": 5.4,
+      "text": "REAL PEOPLE",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 5.4,
+      "end_s": 6.9,
+      "text": "MAKING CHOICES",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 6.9,
+      "end_s": 7.6,
+      "text": "NO ONE WROTE FOR THEM",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 7.6,
+      "end_s": 9.033,
+      "text": "WROTE FOR THEM",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 9.133,
+      "end_s": 10.5,
+      "text": "FIFTEEN OF THEM ENTERED",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 12.3,
+      "end_s": 12.767,
+      "text": "SOMEONE IS VOTED OUT",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 12.767,
+      "end_s": 13.8,
+      "text": "IS VOTED OUT",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 13.8,
+      "end_s": 14.833,
+      "text": "EVERY NIGHT",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 14.833,
+      "end_s": 16.367,
+      "text": "UNTIL ONE REMAINS",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 16.467,
+      "end_s": 18.033,
+      "text": "TODAY WE'RE FOLLOWING",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 20.3,
+      "end_s": 22.1,
+      "text": "IRENE GOES HARD FOR COVER",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 23.567,
+      "end_s": 25.067,
+      "text": "IVAN WATCHES PEOPLE",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 25.067,
+      "end_s": 26.167,
+      "text": "BEFORE HE BETS",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 29.433,
+      "end_s": 30.633,
+      "text": "AT 11:00AM",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 30.633,
+      "end_s": 32.933,
+      "text": "A DAILY CHALLENGE BEGINS",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 34.767,
+      "end_s": 37.533,
+      "text": "EACH DOUBLE GETS A SECRET CARD",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 37.667,
+      "end_s": 39.433,
+      "text": "HOLD TO STAY IN THE FIGHT",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 39.433,
+      "end_s": 41.267,
+      "text": "OR FOLD AND SIT OUT",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 41.633,
+      "end_s": 43.0,
+      "text": "HIGHEST CARD REMAINING",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 43.0,
+      "end_s": 44.267,
+      "text": "WINS THE SHIELD",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 44.467,
+      "end_s": 44.767,
+      "text": "AND IMMUNITY",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 44.767,
+      "end_s": 46.467,
+      "text": "FROM TONIGHT'S VOTE",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 46.467,
+      "end_s": 48.533,
+      "text": "IRENE GOT THE HIGHEST CARD",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 48.933,
+      "end_s": 50.3,
+      "text": "SHE WINS THE SHIELD",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 50.3,
+      "end_s": 51.7,
+      "text": "AND IS SAFE TONIGHT",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 51.7,
+      "end_s": 53.3,
+      "text": "AS THE DAY CONTINUES",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 58.567,
+      "end_s": 59.767,
+      "text": "AT THE END OF THE DAY",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 59.767,
+      "end_s": 62.067,
+      "text": "EVERY DOUBLE CASTS A BALLOT",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 62.233,
+      "end_s": 64.4,
+      "text": "TONIGHT SIX VOTES LAND ON",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 64.4,
+      "end_s": 65.433,
+      "text": "IVAN PITS",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 65.9,
+      "end_s": 68.0,
+      "text": "IRENE'S BALLOT IS ONE OF THEM",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 68.5,
+      "end_s": 71.0,
+      "text": "IVAN IS GONE",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 73.033,
+      "end_s": 74.067,
+      "text": "TOMORROW",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 74.067,
+      "end_s": 75.833,
+      "text": "THE SHIELD IS GONE",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 75.833,
+      "end_s": 78.033,
+      "text": "NEW ALLIANCES WILL FORM",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 78.3,
+      "end_s": 79.7,
+      "text": "NEW TARGETS WILL EMERGE",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 80.233,
+      "end_s": 81.4,
+      "text": "AND ANOTHER DOUBLE",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 81.4,
+      "end_s": 82.9,
+      "text": "WILL LEAVE THE GAME",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 82.9,
+      "end_s": 84.467,
+      "text": "WATCH EVERY CONVERSATION",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 84.467,
+      "end_s": 85.333,
+      "text": "CHALLENGE",
+      "template": "向上渐显 微发光"
+    },
+    {
+      "start_s": 85.333,
+      "end_s": 86.167,
+      "text": "AND VOTE",
+      "template": "向上渐显 微发光"
+    }
+  ],
+  "beat_buckets": {
+    "0_hook": {
+      "media": [
+        {
+          "start_s": 0.0,
+          "end_s": 23.733,
+          "track": 0,
+          "name": "Screenshot 2026-07-20 at 9.20.16 PM.png",
+          "class": "legend_still"
+        },
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "track": 1,
+          "name": "ivan_face.png",
+          "class": "staged_kit"
+        },
+        {
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "track": 7,
+          "name": "A6FEF219-C756-4B3D-B0B1-A19F7A436019.PNG",
+          "class": "legend_still"
+        },
+        {
+          "start_s": 1.0,
+          "end_s": 3.133,
+          "track": 7,
+          "name": "group_photo.png",
+          "class": "staged_kit"
+        }
+      ],
+      "texts": [
+        {
+          "start_s": 0.9,
+          "end_s": 1.9,
+          "text": "THESE ARE"
+        }
+      ]
+    },
+    "1_concept": {
+      "media": [
+        {
+          "start_s": 1.933,
+          "end_s": 3.267,
+          "track": 9,
+          "name": "F3EE7A0F-9754-4C2C-A19E-ABB85F901033.PNG",
+          "class": "legend_still"
+        },
+        {
+          "start_s": 3.133,
+          "end_s": 5.633,
+          "track": 7,
+          "name": "hf_20260721_180849_1bca4562-8648-4f59-9057-639cf31ae7aa.mp4",
+          "class": "legend_hf"
+        },
+        {
+          "start_s": 5.633,
+          "end_s": 9.133,
+          "track": 1,
+          "name": "BD21D20E-C654-46F0-B35F-317407F4313E.PNG",
+          "class": "legend_still"
+        },
+        {
+          "start_s": 5.633,
+          "end_s": 9.133,
+          "track": 7,
+          "name": "signature_flyover.mp4",
+          "class": "staged_phaser"
+        },
+        {
+          "start_s": 5.633,
+          "end_s": 9.133,
+          "track": 9,
+          "name": "81812E74-D0C7-4122-B014-A03C89E83C29.PNG",
+          "class": "legend_still"
+        }
+      ],
+      "texts": [
+        {
+          "start_s": 2.8,
+          "end_s": 4.3,
+          "text": "AI VERSIONS OF"
+        },
+        {
+          "start_s": 4.3,
+          "end_s": 5.4,
+          "text": "REAL PEOPLE"
+        },
+        {
+          "start_s": 5.4,
+          "end_s": 6.9,
+          "text": "MAKING CHOICES"
+        },
+        {
+          "start_s": 6.9,
+          "end_s": 7.6,
+          "text": "NO ONE WROTE FOR THEM"
+        }
+      ]
+    },
+    "2_survival_phaser": {
+      "media": [
+        {
+          "start_s": 9.133,
+          "end_s": 11.167,
+          "track": 7,
+          "name": "hf_20260707_234503_7bb94590-20a2-489c-afdb-5a2305e6c91a 2.MP4",
+          "class": "legend_hf"
+        },
+        {
+          "start_s": 10.7,
+          "end_s": 12.067,
+          "track": 9,
+          "name": "648FD450-3CA8-4DB0-A398-CBCC1C3436D9.PNG",
+          "class": "legend_still"
+        },
+        {
+          "start_s": 12.067,
+          "end_s": 14.667,
+          "track": 9,
+          "name": "signature_flyover.mp4",
+          "class": "staged_phaser"
+        },
+        {
+          "start_s": 14.667,
+          "end_s": 15.3,
+          "track": 9,
+          "name": "hf_20260721_210518_e3cbd9ab-4729-4a63-b39e-3371b37d1c41.mp4",
+          "class": "legend_hf"
+        },
+        {
+          "start_s": 14.667,
+          "end_s": 16.6,
+          "track": 10,
+          "name": "hf_20260721_210518_e3cbd9ab-4729-4a63-b39e-3371b37d1c41.mp4",
+          "class": "legend_hf"
+        },
+        {
+          "start_s": 15.3,
+          "end_s": 16.6,
+          "track": 9,
+          "name": "hf_20260721_210518_e3cbd9ab-4729-4a63-b39e-3371b37d1c41.mp4",
+          "class": "legend_hf"
+        }
+      ],
+      "texts": [
+        {
+          "start_s": 7.6,
+          "end_s": 9.033,
+          "text": "WROTE FOR THEM"
+        },
+        {
+          "start_s": 9.133,
+          "end_s": 10.5,
+          "text": "FIFTEEN OF THEM ENTERED"
+        },
+        {
+          "start_s": 12.3,
+          "end_s": 12.767,
+          "text": "SOMEONE IS VOTED OUT"
+        },
+        {
+          "start_s": 12.767,
+          "end_s": 13.8,
+          "text": "IS VOTED OUT"
+        },
+        {
+          "start_s": 13.8,
+          "end_s": 14.833,
+          "text": "EVERY NIGHT"
+        },
+        {
+          "start_s": 14.833,
+          "end_s": 16.367,
+          "text": "UNTIL ONE REMAINS"
+        }
+      ]
+    },
+    "2b_one_active": {
+      "media": [
+        {
+          "start_s": 17.433,
+          "end_s": 20.3,
+          "track": 9,
+          "name": "irene_namecard.png",
+          "class": "staged_kit"
+        }
+      ],
+      "texts": [
+        {
+          "start_s": 16.467,
+          "end_s": 18.033,
+          "text": "TODAY WE'RE FOLLOWING"
+        }
+      ]
+    },
+    "3_follow": {
+      "media": [
+        {
+          "start_s": 18.733,
+          "end_s": 20.3,
+          "track": 10,
+          "name": "ivan_namecard.png",
+          "class": "staged_kit"
+        },
+        {
+          "start_s": 20.333,
+          "end_s": 22.233,
+          "track": 1,
+          "name": "hf_20260721_213332_a8ad8e8d-3160-41a8-be5c-4578f6ccc2bb.mp4",
+          "class": "legend_hf"
+        }
+      ],
+      "texts": [
+        {
+          "start_s": 20.3,
+          "end_s": 22.1,
+          "text": "IRENE GOES HARD FOR COVER"
+        }
+      ]
+    },
+    "4_irene_want": {
+      "media": [
+        {
+          "start_s": 22.233,
+          "end_s": 23.733,
+          "track": 7,
+          "name": "B1B40450-11F2-497D-AA63-BE33285A0C33.PNG",
+          "class": "legend_still"
+        },
+        {
+          "start_s": 23.733,
+          "end_s": 29.667,
+          "track": 0,
+          "name": "Screenshot 2026-07-20 at 9.20.16 PM.png",
+          "class": "legend_still"
+        },
+        {
+          "start_s": 23.733,
+          "end_s": 26.467,
+          "track": 1,
+          "name": "hf_20260721_213451_2bc1bd7a-cd39-4d44-b256-5c9a451bd4a3.mp4",
+          "class": "legend_hf"
+        },
+        {
+          "start_s": 26.467,
+          "end_s": 29.433,
+          "track": 1,
+          "name": "A62E65DB-9C24-48C9-9155-AC75D9BCAB3A.PNG",
+          "class": "legend_still"
+        }
+      ],
+      "texts": [
+        {
+          "start_s": 23.567,
+          "end_s": 25.067,
+          "text": "IVAN WATCHES PEOPLE"
+        },
+        {
+          "start_s": 25.067,
+          "end_s": 26.167,
+          "text": "BEFORE HE BETS"
+        }
+      ]
+    },
+    "5_ivan_want": {
+      "media": [
+        {
+          "start_s": 29.667,
+          "end_s": 88.233,
+          "track": 0,
+          "name": "Screenshot 2026-07-20 at 9.20.16 PM.png",
+          "class": "legend_still"
+        },
+        {
+          "start_s": 30.433,
+          "end_s": 32.933,
+          "track": 7,
+          "name": "B604EDFB-6058-4236-BB11-8368131FD45A.PNG",
+          "class": "legend_still"
+        },
+        {
+          "start_s": 32.933,
+          "end_s": 35.067,
+          "track": 7,
+          "name": "9290B06D-5B1B-4F0C-9EF2-C20BBE2E1D33.PNG",
+          "class": "legend_still"
+        }
+      ],
+      "texts": [
+        {
+          "start_s": 29.433,
+          "end_s": 30.633,
+          "text": "AT 11:00AM"
+        },
+        {
+          "start_s": 30.633,
+          "end_s": 32.933,
+          "text": "A DAILY CHALLENGE BEGINS"
+        }
+      ]
+    },
+    "6_challenge": {
+      "media": [
+        {
+          "start_s": 34.933,
+          "end_s": 46.733,
+          "track": 8,
+          "name": "C30B9252-9BC7-4BCF-8B25-E2252BEC5865.PNG",
+          "class": "legend_still"
+        },
+        {
+          "start_s": 34.967,
+          "end_s": 46.733,
+          "track": 1,
+          "name": "hf_20260722_033205_dbb4b386-0a93-4fb2-add2-4f8abbf5e02c.mp4",
+          "class": "legend_hf"
+        },
+        {
+          "start_s": 37.667,
+          "end_s": 46.733,
+          "track": 9,
+          "name": "C30B9252-9BC7-4BCF-8B25-E2252BEC5865.PNG",
+          "class": "legend_still"
+        },
+        {
+          "start_s": 41.333,
+          "end_s": 46.733,
+          "track": 7,
+          "name": "C30B9252-9BC7-4BCF-8B25-E2252BEC5865.PNG",
+          "class": "legend_still"
+        },
+        {
+          "start_s": 44.4,
+          "end_s": 46.733,
+          "track": 10,
+          "name": "C30B9252-9BC7-4BCF-8B25-E2252BEC5865.PNG",
+          "class": "legend_still"
+        },
+        {
+          "start_s": 46.733,
+          "end_s": 48.533,
+          "track": 1,
+          "name": "challenge_hold_for_shield.mp4",
+          "class": "staged_kit"
+        }
+      ],
+      "texts": [
+        {
+          "start_s": 34.767,
+          "end_s": 37.533,
+          "text": "EACH DOUBLE GETS A SECRET CARD"
+        },
+        {
+          "start_s": 37.667,
+          "end_s": 39.433,
+          "text": "HOLD TO STAY IN THE FIGHT"
+        },
+        {
+          "start_s": 39.433,
+          "end_s": 41.267,
+          "text": "OR FOLD AND SIT OUT"
+        },
+        {
+          "start_s": 41.633,
+          "end_s": 43.0,
+          "text": "HIGHEST CARD REMAINING"
+        },
+        {
+          "start_s": 43.0,
+          "end_s": 44.267,
+          "text": "WINS THE SHIELD"
+        },
+        {
+          "start_s": 44.467,
+          "end_s": 44.767,
+          "text": "AND IMMUNITY"
+        },
+        {
+          "start_s": 44.767,
+          "end_s": 46.467,
+          "text": "FROM TONIGHT'S VOTE"
+        },
+        {
+          "start_s": 46.467,
+          "end_s": 48.533,
+          "text": "IRENE GOT THE HIGHEST CARD"
+        }
+      ]
+    },
+    "7_peak": {
+      "media": [
+        {
+          "start_s": 48.533,
+          "end_s": 49.933,
+          "track": 1,
+          "name": "hf_20260722_180656_6cd309a4-5585-4bce-be92-dacb62838d73.mp4",
+          "class": "legend_hf"
+        },
+        {
+          "start_s": 48.533,
+          "end_s": 51.933,
+          "track": 7,
+          "name": "8A0C4969-AA3E-467D-A5F6-9629E2DABF3C.PNG",
+          "class": "legend_still"
+        },
+        {
+          "start_s": 49.933,
+          "end_s": 51.933,
+          "track": 1,
+          "name": "hf_20260722_180145_39d9caec-adc3-408b-bd8d-8562938f5a23.mp4",
+          "class": "legend_hf"
+        },
+        {
+          "start_s": 51.933,
+          "end_s": 54.133,
+          "track": 1,
+          "name": "hf_20260722_180743_7444f0ec-98b3-462f-9877-dc4190a104e0.mp4",
+          "class": "legend_hf"
+        },
+        {
+          "start_s": 53.767,
+          "end_s": 56.833,
+          "track": 6,
+          "name": "Talk.mp4",
+          "class": "staged_kit"
+        },
+        {
+          "start_s": 53.767,
+          "end_s": 58.733,
+          "track": 7,
+          "name": "D7AF15A5-3171-428E-9408-6135AA533103.PNG",
+          "class": "legend_still"
+        }
+      ],
+      "texts": [
+        {
+          "start_s": 48.933,
+          "end_s": 50.3,
+          "text": "SHE WINS THE SHIELD"
+        },
+        {
+          "start_s": 50.3,
+          "end_s": 51.7,
+          "text": "AND IS SAFE TONIGHT"
+        },
+        {
+          "start_s": 51.7,
+          "end_s": 53.3,
+          "text": "AS THE DAY CONTINUES"
+        }
+      ]
+    },
+    "8_social": {
+      "media": [
+        {
+          "start_s": 56.833,
+          "end_s": 58.733,
+          "track": 6,
+          "name": "D7AF15A5-3171-428E-9408-6135AA533103.PNG",
+          "class": "legend_still"
+        },
+        {
+          "start_s": 58.733,
+          "end_s": 60.033,
+          "track": 1,
+          "name": "Village.mp4",
+          "class": "staged_kit"
+        },
+        {
+          "start_s": 60.033,
+          "end_s": 63.067,
+          "track": 1,
+          "name": "ballots.mp4",
+          "class": "staged_kit"
+        }
+      ],
+      "texts": [
+        {
+          "start_s": 58.567,
+          "end_s": 59.767,
+          "text": "AT THE END OF THE DAY"
+        },
+        {
+          "start_s": 59.767,
+          "end_s": 62.067,
+          "text": "EVERY DOUBLE CASTS A BALLOT"
+        }
+      ]
+    },
+    "9_ballots": {
+      "media": [
+        {
+          "start_s": 63.0,
+          "end_s": 66.0,
+          "track": 6,
+          "name": "A9AF9451-8517-4889-8FCE-B225B77A95FC.PNG",
+          "class": "legend_still"
+        },
+        {
+          "start_s": 66.0,
+          "end_s": 68.367,
+          "track": 2,
+          "name": "ivan_leave_phaser.jpg",
+          "class": "staged_phaser"
+        }
+      ],
+      "texts": [
+        {
+          "start_s": 62.233,
+          "end_s": 64.4,
+          "text": "TONIGHT SIX VOTES LAND ON"
+        },
+        {
+          "start_s": 64.4,
+          "end_s": 65.433,
+          "text": "IVAN PITS"
+        },
+        {
+          "start_s": 65.9,
+          "end_s": 68.0,
+          "text": "IRENE'S BALLOT IS ONE OF THEM"
+        }
+      ]
+    },
+    "10_cost": {
+      "media": [
+        {
+          "start_s": 68.367,
+          "end_s": 71.633,
+          "track": 2,
+          "name": "hf_20260722_181212_32030a6f-2158-4d31-bb14-3680c68392a2.mp4",
+          "class": "legend_hf"
+        },
+        {
+          "start_s": 71.633,
+          "end_s": 73.267,
+          "track": 2,
+          "name": "hf_20260722_215402_d173dd7d-b468-402d-b3b0-df4cb632300e.mp4",
+          "class": "legend_hf"
+        },
+        {
+          "start_s": 71.633,
+          "end_s": 73.267,
+          "track": 5,
+          "name": "2C03C154-F2C4-4558-9FEE-E8DA7D8D896E.PNG",
+          "class": "legend_still"
+        }
+      ],
+      "texts": [
+        {
+          "start_s": 68.5,
+          "end_s": 71.0,
+          "text": "IVAN IS GONE"
+        },
+        {
+          "start_s": 73.033,
+          "end_s": 74.067,
+          "text": "TOMORROW"
+        }
+      ]
+    },
+    "11_12_cliff": {
+      "media": [
+        {
+          "start_s": 74.233,
+          "end_s": 75.833,
+          "track": 2,
+          "name": "hf_20260722_224930_b79c5195-4d80-496b-9254-260b9dcab667.mp4",
+          "class": "legend_hf"
+        },
+        {
+          "start_s": 74.233,
+          "end_s": 75.833,
+          "track": 5,
+          "name": "irene_face.png",
+          "class": "staged_kit"
+        },
+        {
+          "start_s": 75.833,
+          "end_s": 78.367,
+          "track": 2,
+          "name": "hf_20260708_015857_9a406841-b4e2-4dd6-9a1e-4243d8f5b282 2.MP4",
+          "class": "legend_hf"
+        },
+        {
+          "start_s": 75.833,
+          "end_s": 78.367,
+          "track": 5,
+          "name": "Talk.mp4",
+          "class": "staged_kit"
+        },
+        {
+          "start_s": 78.367,
+          "end_s": 80.6,
+          "track": 2,
+          "name": "hf_20260722_225047_3d0ced5c-c8db-4b60-b39d-59fbaf7bb889.mp4",
+          "class": "legend_hf"
+        },
+        {
+          "start_s": 80.6,
+          "end_s": 82.9,
+          "track": 2,
+          "name": "hf_20260722_230056_75260568-f1c8-4c85-ac18-5dfd29b58798.mp4",
+          "class": "legend_hf"
+        }
+      ],
+      "texts": [
+        {
+          "start_s": 74.067,
+          "end_s": 75.833,
+          "text": "THE SHIELD IS GONE"
+        },
+        {
+          "start_s": 75.833,
+          "end_s": 78.033,
+          "text": "NEW ALLIANCES WILL FORM"
+        },
+        {
+          "start_s": 78.3,
+          "end_s": 79.7,
+          "text": "NEW TARGETS WILL EMERGE"
+        },
+        {
+          "start_s": 80.233,
+          "end_s": 81.4,
+          "text": "AND ANOTHER DOUBLE"
+        },
+        {
+          "start_s": 81.4,
+          "end_s": 82.9,
+          "text": "WILL LEAVE THE GAME"
+        }
+      ]
+    },
+    "14_door_end": {
+      "media": [
+        {
+          "start_s": 82.9,
+          "end_s": 85.6,
+          "track": 3,
+          "name": "hf_20260722_230756_90488b12-a80b-4f14-85e0-5f6398983f8a.mp4",
+          "class": "legend_hf"
+        },
+        {
+          "start_s": 85.6,
+          "end_s": 86.733,
+          "track": 3,
+          "name": "signature_flyover.mp4",
+          "class": "staged_phaser"
+        },
+        {
+          "start_s": 86.733,
+          "end_s": 88.233,
+          "track": 3,
+          "name": "22F06DF6-E91F-4F98-9A12-B7CB1BE8A142.PNG",
+          "class": "legend_still"
+        }
+      ],
+      "texts": [
+        {
+          "start_s": 82.9,
+          "end_s": 84.467,
+          "text": "WATCH EVERY CONVERSATION"
+        },
+        {
+          "start_s": 84.467,
+          "end_s": 85.333,
+          "text": "CHALLENGE"
+        },
+        {
+          "start_s": 85.333,
+          "end_s": 86.167,
+          "text": "AND VOTE"
+        }
+      ]
+    }
+  },
+  "canonical_paths": {
+    "capcut_proj": "D:\\Coding\\generative_agents-ivan-dev\\data\\20260713-1\\trailer_ready_day2\\clip_kit\\bins\\capcut_proj",
+    "master_mp4": "D:\\Coding\\generative_agents-ivan-dev\\data\\20260713-1\\trailer_ready_day2\\clip_kit\\bins\\video\\0720(1).mp4",
+    "gold_capcut_out": "D:\\Coding\\double-ivan\\video\\daily\\gold\\20260713-1_day1_anya\\capcut"
+  }
+}

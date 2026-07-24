@@ -101,8 +101,12 @@ def evaluate(data: dict, state: dict) -> dict:
             "terminal": True,
         }
 
+    # Status API flake alone is not fatal if the runner process is still alive.
     if st.get("error"):
-        fatals.append(f"status_api_error: {st.get('error')}")
+        if data.get("backend_pid_alive"):
+            warnings.append(f"status_api_error: {st.get('error')}")
+        else:
+            fatals.append(f"status_api_error: {st.get('error')}")
 
     if active is False and status == "running":
         fatals.append("backend_dead_while_running")

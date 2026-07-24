@@ -1,0 +1,1041 @@
+{
+  "sim": "20260723-1",
+  "step_band": [
+    170,
+    220
+  ],
+  "cases": {
+    "Alex Shepard": {
+      "window_mins": [
+        570,
+        576
+      ],
+      "n": 7,
+      "rows": [
+        {
+          "step": 180,
+          "x": 34,
+          "y": 28,
+          "curr_time": "July 23, 2026, 09:30:00",
+          "description": "grabbing bag and keys from closet (heading to artist's co-living space) @ the Ville:artist's co-living space:common room",
+          "address_label": "the Ville:artist's co-living space:common room",
+          "pronunciatio": "\ud83d\udc5c\ud83d\udd11",
+          "path": null,
+          "actual_path": null,
+          "planned_pos": [
+            34,
+            28
+          ],
+          "start_pos": [
+            38,
+            30
+          ],
+          "target_zone": {
+            "max_x": 17,
+            "max_y": 29,
+            "min_x": 16,
+            "min_y": 29
+          },
+          "movement_xy": [
+            34,
+            28
+          ]
+        },
+        {
+          "step": 181,
+          "x": 30,
+          "y": 26,
+          "curr_time": "July 23, 2026, 09:31:00",
+          "description": "grabbing bag and keys from closet (heading to artist's co-living space) @ the Ville:artist's co-living space",
+          "address_label": "the Ville:artist's co-living space",
+          "pronunciatio": "\ud83d\udc5c\ud83d\udd11",
+          "path": null,
+          "actual_path": null,
+          "planned_pos": [
+            30,
+            26
+          ],
+          "start_pos": [
+            34,
+            28
+          ],
+          "target_zone": {
+            "max_x": 17,
+            "max_y": 29,
+            "min_x": 16,
+            "min_y": 29
+          },
+          "movement_xy": [
+            30,
+            26
+          ]
+        },
+        {
+          "step": 182,
+          "x": 35,
+          "y": 26,
+          "curr_time": "July 23, 2026, 09:32:00",
+          "description": "arriving at the library and setting up at the archives desk (heading to Oak Hill College) @ the Ville:artist's co-living space:common room",
+          "address_label": "the Ville:artist's co-living space:common room",
+          "pronunciatio": "\ud83d\udcda\ud83d\uddc2",
+          "path": null,
+          "actual_path": null,
+          "planned_pos": [
+            35,
+            26
+          ],
+          "start_pos": [
+            30,
+            26
+          ],
+          "target_zone": {
+            "max_x": 122,
+            "max_y": 24,
+            "min_x": 119,
+            "min_y": 22
+          },
+          "movement_xy": [
+            35,
+            26
+          ]
+        },
+        {
+          "step": 183,
+          "x": 40,
+          "y": 26,
+          "curr_time": "July 23, 2026, 09:33:00",
+          "description": "arriving at the library and setting up at the archives desk (heading to Oak Hill College) @ the Ville:artist's co-living space:common room",
+          "address_label": "the Ville:artist's co-living space:common room",
+          "pronunciatio": "\ud83d\udcda\ud83d\uddc2",
+          "path": null,
+          "actual_path": null,
+          "planned_pos": [
+            40,
+            26
+          ],
+          "start_pos": [
+            35,
+            26
+          ],
+          "target_zone": {
+            "max_x": 122,
+            "max_y": 24,
+            "min_x": 119,
+            "min_y": 22
+          },
+          "movement_xy": [
+            40,
+            26
+          ]
+        },
+        {
+          "step": 184,
+          "x": 45,
+          "y": 26,
+          "curr_time": "July 23, 2026, 09:34:00",
+          "description": "arriving at the library and setting up at the archives desk (heading to Oak Hill College) @ the Ville",
+          "address_label": "the Ville",
+          "pronunciatio": "\ud83d\udcda\ud83d\uddc2",
+          "path": null,
+          "actual_path": null,
+          "planned_pos": [
+            45,
+            26
+          ],
+          "start_pos": [
+            40,
+            26
+          ],
+          "target_zone": {
+            "max_x": 122,
+            "max_y": 24,
+            "min_x": 119,
+            "min_y": 22
+          },
+          "movement_xy": [
+            45,
+            26
+          ]
+        },
+        {
+          "step": 185,
+          "x": 50,
+          "y": 26,
+          "curr_time": "July 23, 2026, 09:35:00",
+          "description": "arriving at the library and setting up at the archives desk (heading to Oak Hill College) @ the Ville",
+          "address_label": "the Ville",
+          "pronunciatio": "\ud83d\udcda\ud83d\uddc2",
+          "path": null,
+          "actual_path": null,
+          "planned_pos": [
+            50,
+            26
+          ],
+          "start_pos": [
+            45,
+            26
+          ],
+          "target_zone": {
+            "max_x": 122,
+            "max_y": 24,
+            "min_x": 119,
+            "min_y": 22
+          },
+          "movement_xy": [
+            50,
+            26
+          ]
+        },
+        {
+          "step": 186,
+          "x": 55,
+          "y": 26,
+          "curr_time": "July 23, 2026, 09:36:00",
+          "description": "arriving at the library and setting up at the archives desk (heading to Oak Hill College) @ the Ville:The Rose and Crown Pub:pub",
+          "address_label": "the Ville:The Rose and Crown Pub:pub",
+          "pronunciatio": "\ud83d\udcda\ud83d\uddc2",
+          "path": null,
+          "actual_path": null,
+          "planned_pos": [
+            55,
+            26
+          ],
+          "start_pos": [
+            50,
+            26
+          ],
+          "target_zone": {
+            "max_x": 122,
+            "max_y": 24,
+            "min_x": 119,
+            "min_y": 22
+          },
+          "movement_xy": [
+            55,
+            26
+          ]
+        }
+      ],
+      "jumps_ge3": [
+        {
+          "manhattan": 6,
+          "from_xy": [
+            34,
+            28
+          ],
+          "to_xy": [
+            30,
+            26
+          ],
+          "from_step": 180,
+          "to_step": 181,
+          "from_t": "July 23, 2026, 09:30:00",
+          "to_t": "July 23, 2026, 09:31:00",
+          "from_desc": "grabbing bag and keys from closet (heading to artist's co-living space) @ the Ville:artist's co-living space:common room",
+          "to_desc": "grabbing bag and keys from closet (heading to artist's co-living space) @ the Ville:artist's co-living space",
+          "from_addr": "the Ville:artist's co-living space:common room",
+          "to_addr": "the Ville:artist's co-living space"
+        },
+        {
+          "manhattan": 5,
+          "from_xy": [
+            30,
+            26
+          ],
+          "to_xy": [
+            35,
+            26
+          ],
+          "from_step": 181,
+          "to_step": 182,
+          "from_t": "July 23, 2026, 09:31:00",
+          "to_t": "July 23, 2026, 09:32:00",
+          "from_desc": "grabbing bag and keys from closet (heading to artist's co-living space) @ the Ville:artist's co-living space",
+          "to_desc": "arriving at the library and setting up at the archives desk (heading to Oak Hill College) @ the Ville:artist's co-living space:common room",
+          "from_addr": "the Ville:artist's co-living space",
+          "to_addr": "the Ville:artist's co-living space:common room"
+        },
+        {
+          "manhattan": 5,
+          "from_xy": [
+            35,
+            26
+          ],
+          "to_xy": [
+            40,
+            26
+          ],
+          "from_step": 182,
+          "to_step": 183,
+          "from_t": "July 23, 2026, 09:32:00",
+          "to_t": "July 23, 2026, 09:33:00",
+          "from_desc": "arriving at the library and setting up at the archives desk (heading to Oak Hill College) @ the Ville:artist's co-living space:common room",
+          "to_desc": "arriving at the library and setting up at the archives desk (heading to Oak Hill College) @ the Ville:artist's co-living space:common room",
+          "from_addr": "the Ville:artist's co-living space:common room",
+          "to_addr": "the Ville:artist's co-living space:common room"
+        },
+        {
+          "manhattan": 5,
+          "from_xy": [
+            40,
+            26
+          ],
+          "to_xy": [
+            45,
+            26
+          ],
+          "from_step": 183,
+          "to_step": 184,
+          "from_t": "July 23, 2026, 09:33:00",
+          "to_t": "July 23, 2026, 09:34:00",
+          "from_desc": "arriving at the library and setting up at the archives desk (heading to Oak Hill College) @ the Ville:artist's co-living space:common room",
+          "to_desc": "arriving at the library and setting up at the archives desk (heading to Oak Hill College) @ the Ville",
+          "from_addr": "the Ville:artist's co-living space:common room",
+          "to_addr": "the Ville"
+        },
+        {
+          "manhattan": 5,
+          "from_xy": [
+            45,
+            26
+          ],
+          "to_xy": [
+            50,
+            26
+          ],
+          "from_step": 184,
+          "to_step": 185,
+          "from_t": "July 23, 2026, 09:34:00",
+          "to_t": "July 23, 2026, 09:35:00",
+          "from_desc": "arriving at the library and setting up at the archives desk (heading to Oak Hill College) @ the Ville",
+          "to_desc": "arriving at the library and setting up at the archives desk (heading to Oak Hill College) @ the Ville",
+          "from_addr": "the Ville",
+          "to_addr": "the Ville"
+        },
+        {
+          "manhattan": 5,
+          "from_xy": [
+            50,
+            26
+          ],
+          "to_xy": [
+            55,
+            26
+          ],
+          "from_step": 185,
+          "to_step": 186,
+          "from_t": "July 23, 2026, 09:35:00",
+          "to_t": "July 23, 2026, 09:36:00",
+          "from_desc": "arriving at the library and setting up at the archives desk (heading to Oak Hill College) @ the Ville",
+          "to_desc": "arriving at the library and setting up at the archives desk (heading to Oak Hill College) @ the Ville:The Rose and Crown Pub:pub",
+          "from_addr": "the Ville",
+          "to_addr": "the Ville:The Rose and Crown Pub:pub"
+        }
+      ]
+    },
+    "Max Shoemaker": {
+      "window_mins": [
+        578,
+        582
+      ],
+      "n": 5,
+      "rows": [
+        {
+          "step": 188,
+          "x": 93,
+          "y": 30,
+          "curr_time": "July 23, 2026, 09:38:00",
+          "description": "portioning the dough into equal pieces (heading to Dorm for Oak Hill College) @ the Ville",
+          "address_label": "the Ville",
+          "pronunciatio": "\ud83d\udd2a\u2696",
+          "path": null,
+          "actual_path": null,
+          "planned_pos": [
+            93,
+            30
+          ],
+          "start_pos": [
+            90,
+            30
+          ],
+          "target_zone": {
+            "max_x": 107,
+            "max_y": 57,
+            "min_x": 107,
+            "min_y": 57
+          },
+          "movement_xy": [
+            93,
+            30
+          ]
+        },
+        {
+          "step": 189,
+          "x": 96,
+          "y": 30,
+          "curr_time": "July 23, 2026, 09:39:00",
+          "description": "portioning the dough into equal pieces (heading to Dorm for Oak Hill College) @ the Ville",
+          "address_label": "the Ville",
+          "pronunciatio": "\ud83d\udd2a\u2696",
+          "path": null,
+          "actual_path": null,
+          "planned_pos": [
+            96,
+            30
+          ],
+          "start_pos": [
+            93,
+            30
+          ],
+          "target_zone": {
+            "max_x": 107,
+            "max_y": 57,
+            "min_x": 107,
+            "min_y": 57
+          },
+          "movement_xy": [
+            96,
+            30
+          ]
+        },
+        {
+          "step": 190,
+          "x": 99,
+          "y": 30,
+          "curr_time": "July 23, 2026, 09:40:00",
+          "description": "portioning the dough into equal pieces (heading to Dorm for Oak Hill College) @ the Ville",
+          "address_label": "the Ville",
+          "pronunciatio": "\ud83d\udd2a\u2696",
+          "path": null,
+          "actual_path": null,
+          "planned_pos": [
+            99,
+            30
+          ],
+          "start_pos": [
+            96,
+            30
+          ],
+          "target_zone": {
+            "max_x": 107,
+            "max_y": 57,
+            "min_x": 107,
+            "min_y": 57
+          },
+          "movement_xy": [
+            99,
+            30
+          ]
+        },
+        {
+          "step": 191,
+          "x": 103,
+          "y": 32,
+          "curr_time": "July 23, 2026, 09:41:00",
+          "description": "portioning the dough into equal pieces (heading to Dorm for Oak Hill College) @ the Ville",
+          "address_label": "the Ville",
+          "pronunciatio": "\ud83d\udd2a\u2696",
+          "path": null,
+          "actual_path": null,
+          "planned_pos": [
+            103,
+            32
+          ],
+          "start_pos": [
+            99,
+            30
+          ],
+          "target_zone": {
+            "max_x": 107,
+            "max_y": 57,
+            "min_x": 107,
+            "min_y": 57
+          },
+          "movement_xy": [
+            103,
+            32
+          ]
+        },
+        {
+          "step": 192,
+          "x": 107,
+          "y": 34,
+          "curr_time": "July 23, 2026, 09:42:00",
+          "description": "portioning the dough into equal pieces (heading to Dorm for Oak Hill College) @ the Ville",
+          "address_label": "the Ville",
+          "pronunciatio": "\ud83d\udd2a\u2696",
+          "path": null,
+          "actual_path": null,
+          "planned_pos": [
+            107,
+            34
+          ],
+          "start_pos": [
+            103,
+            32
+          ],
+          "target_zone": {
+            "max_x": 107,
+            "max_y": 57,
+            "min_x": 107,
+            "min_y": 57
+          },
+          "movement_xy": [
+            107,
+            34
+          ]
+        }
+      ],
+      "jumps_ge3": [
+        {
+          "manhattan": 3,
+          "from_xy": [
+            93,
+            30
+          ],
+          "to_xy": [
+            96,
+            30
+          ],
+          "from_step": 188,
+          "to_step": 189,
+          "from_t": "July 23, 2026, 09:38:00",
+          "to_t": "July 23, 2026, 09:39:00",
+          "from_desc": "portioning the dough into equal pieces (heading to Dorm for Oak Hill College) @ the Ville",
+          "to_desc": "portioning the dough into equal pieces (heading to Dorm for Oak Hill College) @ the Ville",
+          "from_addr": "the Ville",
+          "to_addr": "the Ville"
+        },
+        {
+          "manhattan": 3,
+          "from_xy": [
+            96,
+            30
+          ],
+          "to_xy": [
+            99,
+            30
+          ],
+          "from_step": 189,
+          "to_step": 190,
+          "from_t": "July 23, 2026, 09:39:00",
+          "to_t": "July 23, 2026, 09:40:00",
+          "from_desc": "portioning the dough into equal pieces (heading to Dorm for Oak Hill College) @ the Ville",
+          "to_desc": "portioning the dough into equal pieces (heading to Dorm for Oak Hill College) @ the Ville",
+          "from_addr": "the Ville",
+          "to_addr": "the Ville"
+        },
+        {
+          "manhattan": 6,
+          "from_xy": [
+            99,
+            30
+          ],
+          "to_xy": [
+            103,
+            32
+          ],
+          "from_step": 190,
+          "to_step": 191,
+          "from_t": "July 23, 2026, 09:40:00",
+          "to_t": "July 23, 2026, 09:41:00",
+          "from_desc": "portioning the dough into equal pieces (heading to Dorm for Oak Hill College) @ the Ville",
+          "to_desc": "portioning the dough into equal pieces (heading to Dorm for Oak Hill College) @ the Ville",
+          "from_addr": "the Ville",
+          "to_addr": "the Ville"
+        },
+        {
+          "manhattan": 6,
+          "from_xy": [
+            103,
+            32
+          ],
+          "to_xy": [
+            107,
+            34
+          ],
+          "from_step": 191,
+          "to_step": 192,
+          "from_t": "July 23, 2026, 09:41:00",
+          "to_t": "July 23, 2026, 09:42:00",
+          "from_desc": "portioning the dough into equal pieces (heading to Dorm for Oak Hill College) @ the Ville",
+          "to_desc": "portioning the dough into equal pieces (heading to Dorm for Oak Hill College) @ the Ville",
+          "from_addr": "the Ville",
+          "to_addr": "the Ville"
+        }
+      ]
+    },
+    "Vincent Slater": {
+      "window_mins": [
+        598,
+        602
+      ],
+      "n": 5,
+      "rows": [
+        {
+          "step": 208,
+          "x": 119,
+          "y": 24,
+          "curr_time": "July 23, 2026, 09:58:00",
+          "description": "reading curriculum materials @ the Ville:Oak Hill College:library:library table",
+          "address_label": "the Ville:Oak Hill College:library:library table",
+          "pronunciatio": "\ud83d\udcda",
+          "path": null,
+          "actual_path": null,
+          "planned_pos": [
+            119,
+            24
+          ],
+          "start_pos": [
+            119,
+            24
+          ],
+          "target_zone": {
+            "max_x": 122,
+            "max_y": 24,
+            "min_x": 119,
+            "min_y": 22
+          },
+          "movement_xy": [
+            119,
+            24
+          ]
+        },
+        {
+          "step": 209,
+          "x": 119,
+          "y": 27,
+          "curr_time": "July 23, 2026, 09:59:00",
+          "description": "walking to the library (heading to Apartment 4) @ the Ville:Oak Hill College:library",
+          "address_label": "the Ville:Oak Hill College:library",
+          "pronunciatio": "\ud83d\udeb6\u2642",
+          "path": null,
+          "actual_path": null,
+          "planned_pos": [
+            119,
+            27
+          ],
+          "start_pos": [
+            119,
+            24
+          ],
+          "target_zone": {
+            "max_x": 87,
+            "max_y": 21,
+            "min_x": 87,
+            "min_y": 21
+          },
+          "movement_xy": [
+            119,
+            27
+          ]
+        },
+        {
+          "step": 210,
+          "x": 116,
+          "y": 30,
+          "curr_time": "July 23, 2026, 10:00:00",
+          "description": "walking to the library (heading to Apartment 4) @ the Ville:Oak Hill College:hallway",
+          "address_label": "the Ville:Oak Hill College:hallway",
+          "pronunciatio": "\ud83d\udeb6\u2642",
+          "path": null,
+          "actual_path": null,
+          "planned_pos": [
+            116,
+            30
+          ],
+          "start_pos": [
+            119,
+            27
+          ],
+          "target_zone": {
+            "max_x": 87,
+            "max_y": 21,
+            "min_x": 87,
+            "min_y": 21
+          },
+          "movement_xy": [
+            116,
+            30
+          ]
+        },
+        {
+          "step": 211,
+          "x": 113,
+          "y": 30,
+          "curr_time": "July 23, 2026, 10:01:00",
+          "description": "walking to the library (heading to Apartment 4) @ the Ville:Oak Hill College:hallway",
+          "address_label": "the Ville:Oak Hill College:hallway",
+          "pronunciatio": "\ud83d\udeb6\u2642",
+          "path": null,
+          "actual_path": null,
+          "planned_pos": [
+            113,
+            30
+          ],
+          "start_pos": [
+            116,
+            30
+          ],
+          "target_zone": {
+            "max_x": 87,
+            "max_y": 21,
+            "min_x": 87,
+            "min_y": 21
+          },
+          "movement_xy": [
+            113,
+            30
+          ]
+        },
+        {
+          "step": 212,
+          "x": 109,
+          "y": 32,
+          "curr_time": "July 23, 2026, 10:02:00",
+          "description": "walking to the library (heading to Apartment 4) @ the Ville",
+          "address_label": "the Ville",
+          "pronunciatio": "\ud83d\udeb6\u2642",
+          "path": null,
+          "actual_path": null,
+          "planned_pos": [
+            109,
+            32
+          ],
+          "start_pos": [
+            113,
+            30
+          ],
+          "target_zone": {
+            "max_x": 87,
+            "max_y": 21,
+            "min_x": 87,
+            "min_y": 21
+          },
+          "movement_xy": [
+            109,
+            32
+          ]
+        }
+      ],
+      "jumps_ge3": [
+        {
+          "manhattan": 3,
+          "from_xy": [
+            119,
+            24
+          ],
+          "to_xy": [
+            119,
+            27
+          ],
+          "from_step": 208,
+          "to_step": 209,
+          "from_t": "July 23, 2026, 09:58:00",
+          "to_t": "July 23, 2026, 09:59:00",
+          "from_desc": "reading curriculum materials @ the Ville:Oak Hill College:library:library table",
+          "to_desc": "walking to the library (heading to Apartment 4) @ the Ville:Oak Hill College:library",
+          "from_addr": "the Ville:Oak Hill College:library:library table",
+          "to_addr": "the Ville:Oak Hill College:library"
+        },
+        {
+          "manhattan": 6,
+          "from_xy": [
+            119,
+            27
+          ],
+          "to_xy": [
+            116,
+            30
+          ],
+          "from_step": 209,
+          "to_step": 210,
+          "from_t": "July 23, 2026, 09:59:00",
+          "to_t": "July 23, 2026, 10:00:00",
+          "from_desc": "walking to the library (heading to Apartment 4) @ the Ville:Oak Hill College:library",
+          "to_desc": "walking to the library (heading to Apartment 4) @ the Ville:Oak Hill College:hallway",
+          "from_addr": "the Ville:Oak Hill College:library",
+          "to_addr": "the Ville:Oak Hill College:hallway"
+        },
+        {
+          "manhattan": 3,
+          "from_xy": [
+            116,
+            30
+          ],
+          "to_xy": [
+            113,
+            30
+          ],
+          "from_step": 210,
+          "to_step": 211,
+          "from_t": "July 23, 2026, 10:00:00",
+          "to_t": "July 23, 2026, 10:01:00",
+          "from_desc": "walking to the library (heading to Apartment 4) @ the Ville:Oak Hill College:hallway",
+          "to_desc": "walking to the library (heading to Apartment 4) @ the Ville:Oak Hill College:hallway",
+          "from_addr": "the Ville:Oak Hill College:hallway",
+          "to_addr": "the Ville:Oak Hill College:hallway"
+        },
+        {
+          "manhattan": 6,
+          "from_xy": [
+            113,
+            30
+          ],
+          "to_xy": [
+            109,
+            32
+          ],
+          "from_step": 211,
+          "to_step": 212,
+          "from_t": "July 23, 2026, 10:01:00",
+          "to_t": "July 23, 2026, 10:02:00",
+          "from_desc": "walking to the library (heading to Apartment 4) @ the Ville:Oak Hill College:hallway",
+          "to_desc": "walking to the library (heading to Apartment 4) @ the Ville",
+          "from_addr": "the Ville:Oak Hill College:hallway",
+          "to_addr": "the Ville"
+        }
+      ]
+    }
+  },
+  "focus": {
+    "alex_0933_0934": [
+      {
+        "step": 183,
+        "x": 40,
+        "y": 26,
+        "curr_time": "July 23, 2026, 09:33:00",
+        "description": "arriving at the library and setting up at the archives desk (heading to Oak Hill College) @ the Ville:artist's co-living space:common room",
+        "address_label": "the Ville:artist's co-living space:common room",
+        "pronunciatio": "\ud83d\udcda\ud83d\uddc2",
+        "path": null,
+        "actual_path": null,
+        "planned_pos": [
+          40,
+          26
+        ],
+        "start_pos": [
+          35,
+          26
+        ],
+        "target_zone": {
+          "max_x": 122,
+          "max_y": 24,
+          "min_x": 119,
+          "min_y": 22
+        },
+        "movement_xy": [
+          40,
+          26
+        ]
+      },
+      {
+        "step": 184,
+        "x": 45,
+        "y": 26,
+        "curr_time": "July 23, 2026, 09:34:00",
+        "description": "arriving at the library and setting up at the archives desk (heading to Oak Hill College) @ the Ville",
+        "address_label": "the Ville",
+        "pronunciatio": "\ud83d\udcda\ud83d\uddc2",
+        "path": null,
+        "actual_path": null,
+        "planned_pos": [
+          45,
+          26
+        ],
+        "start_pos": [
+          40,
+          26
+        ],
+        "target_zone": {
+          "max_x": 122,
+          "max_y": 24,
+          "min_x": 119,
+          "min_y": 22
+        },
+        "movement_xy": [
+          45,
+          26
+        ]
+      }
+    ],
+    "max_0940": [
+      {
+        "step": 189,
+        "x": 96,
+        "y": 30,
+        "curr_time": "July 23, 2026, 09:39:00",
+        "description": "portioning the dough into equal pieces (heading to Dorm for Oak Hill College) @ the Ville",
+        "address_label": "the Ville",
+        "pronunciatio": "\ud83d\udd2a\u2696",
+        "path": null,
+        "actual_path": null,
+        "planned_pos": [
+          96,
+          30
+        ],
+        "start_pos": [
+          93,
+          30
+        ],
+        "target_zone": {
+          "max_x": 107,
+          "max_y": 57,
+          "min_x": 107,
+          "min_y": 57
+        },
+        "movement_xy": [
+          96,
+          30
+        ]
+      },
+      {
+        "step": 190,
+        "x": 99,
+        "y": 30,
+        "curr_time": "July 23, 2026, 09:40:00",
+        "description": "portioning the dough into equal pieces (heading to Dorm for Oak Hill College) @ the Ville",
+        "address_label": "the Ville",
+        "pronunciatio": "\ud83d\udd2a\u2696",
+        "path": null,
+        "actual_path": null,
+        "planned_pos": [
+          99,
+          30
+        ],
+        "start_pos": [
+          96,
+          30
+        ],
+        "target_zone": {
+          "max_x": 107,
+          "max_y": 57,
+          "min_x": 107,
+          "min_y": 57
+        },
+        "movement_xy": [
+          99,
+          30
+        ]
+      },
+      {
+        "step": 191,
+        "x": 103,
+        "y": 32,
+        "curr_time": "July 23, 2026, 09:41:00",
+        "description": "portioning the dough into equal pieces (heading to Dorm for Oak Hill College) @ the Ville",
+        "address_label": "the Ville",
+        "pronunciatio": "\ud83d\udd2a\u2696",
+        "path": null,
+        "actual_path": null,
+        "planned_pos": [
+          103,
+          32
+        ],
+        "start_pos": [
+          99,
+          30
+        ],
+        "target_zone": {
+          "max_x": 107,
+          "max_y": 57,
+          "min_x": 107,
+          "min_y": 57
+        },
+        "movement_xy": [
+          103,
+          32
+        ]
+      }
+    ],
+    "vince_1000": [
+      {
+        "step": 209,
+        "x": 119,
+        "y": 27,
+        "curr_time": "July 23, 2026, 09:59:00",
+        "description": "walking to the library (heading to Apartment 4) @ the Ville:Oak Hill College:library",
+        "address_label": "the Ville:Oak Hill College:library",
+        "pronunciatio": "\ud83d\udeb6\u2642",
+        "path": null,
+        "actual_path": null,
+        "planned_pos": [
+          119,
+          27
+        ],
+        "start_pos": [
+          119,
+          24
+        ],
+        "target_zone": {
+          "max_x": 87,
+          "max_y": 21,
+          "min_x": 87,
+          "min_y": 21
+        },
+        "movement_xy": [
+          119,
+          27
+        ]
+      },
+      {
+        "step": 210,
+        "x": 116,
+        "y": 30,
+        "curr_time": "July 23, 2026, 10:00:00",
+        "description": "walking to the library (heading to Apartment 4) @ the Ville:Oak Hill College:hallway",
+        "address_label": "the Ville:Oak Hill College:hallway",
+        "pronunciatio": "\ud83d\udeb6\u2642",
+        "path": null,
+        "actual_path": null,
+        "planned_pos": [
+          116,
+          30
+        ],
+        "start_pos": [
+          119,
+          27
+        ],
+        "target_zone": {
+          "max_x": 87,
+          "max_y": 21,
+          "min_x": 87,
+          "min_y": 21
+        },
+        "movement_xy": [
+          116,
+          30
+        ]
+      },
+      {
+        "step": 211,
+        "x": 113,
+        "y": 30,
+        "curr_time": "July 23, 2026, 10:01:00",
+        "description": "walking to the library (heading to Apartment 4) @ the Ville:Oak Hill College:hallway",
+        "address_label": "the Ville:Oak Hill College:hallway",
+        "pronunciatio": "\ud83d\udeb6\u2642",
+        "path": null,
+        "actual_path": null,
+        "planned_pos": [
+          113,
+          30
+        ],
+        "start_pos": [
+          116,
+          30
+        ],
+        "target_zone": {
+          "max_x": 87,
+          "max_y": 21,
+          "min_x": 87,
+          "min_y": 21
+        },
+        "movement_xy": [
+          113,
+          30
+        ]
+      }
+    ]
+  }
+}

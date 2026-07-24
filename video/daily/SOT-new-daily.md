@@ -50,7 +50,7 @@ Legacy alias: `day_survival` / `[C]` → `tonight_scar` during migration.
 
 | ID | Name | Runtime | Job | L-Talks pilot |
 |----|------|--------:|-----|---------------|
-| **D1** | Tonight’s Scar | **45–60s** target (max **75s**) | Daily episode: return tomorrow + one Door | **Primary** |
+| **D1** | Tonight’s Scar | **45–60s** target; **soft warn >90s**; **hard max 120s** | Daily episode: return tomorrow + one Door | **Primary** · Day-1 gold (Anya CapCut) **~88s** accepted |
 | **D2** | Share Spark | **12–20s** | Mute-safe Peak crop | Sibling of D1 |
 | **D3** | Personal Edge | **8–15s** | Hard-side “MY Double…” | After D1 CapCut proven (§7) |
 | **[A]** | Opener | ~60s | Product literacy + create | Unchanged |
@@ -425,7 +425,7 @@ Today we’re following [Peak] and [Cost].   ← drop if chip already named both
 5. Scar chip: picture on; spoken on/off for this night (A/B).
 6. Fact audit + cold quiz.
 7. Meaning-lock → VO_LOCKED.md.
-8. CapCut bins → TTS @ 1.2× (warn >60s, fail >75s).
+8. CapCut bins → TTS @ 1.2× (warn >90s, fail >120s). Day-1 literacy may land longer than later nights.
 9. Export Spark; write scar.json; update coverage board.
 10. After Day-2 CapCut proven: queue D3 Edges (§7).
 ```
@@ -540,7 +540,7 @@ locked VO + picker/ledger
 | Old (`sot-video.md` / TODO) | This SOT |
 |-----------------------------|----------|
 | `[C]` full-day recap | D1 scar episode |
-| L10 &lt;120s | D1 45–60s (max 75) |
+| L10 &lt;120s | D1 45–60s target; hard max **120s** (was 75; relaxed 2026-07-23 for Anya gold / auto-gen) |
 | L11 spoken stamps | Visual cards + want/behavior |
 | L13 scars | Scar chip + `scar.json` |
 | Encyclopedia Remotion polish | Do not block on stamp plates |
@@ -555,7 +555,7 @@ Fold into main `sot-video.md` when Remotion + CapCut templates are proven.
 |-------|------|
 | Hook ≠ concept | First 3s = face/move, not “Doubles are…” |
 | Share peak | `share_peak` non-null; Peak bin non-empty |
-| Runtime | D1 ≤75s; warn &gt;60s |
+| Runtime | D1 ≤**120s** hard; warn &gt;**90s**; target 45–60s (later nights prefer tighter) |
 | VO budget | Soft ~90–160 @ 1.2×; Day-1 literacy may run longer |
 | No RNG thesis | Banlist |
 | Door | `door.label` + url/artifact |
@@ -593,6 +593,7 @@ Shared Part I checks (9:16, LUFS, visual-change rate, end card): `../sot-video.m
 6. `scar.json` writer on lock + CapCut gate.  
 7. Coverage board + D3 queue after Day-2 CapCut proven.  
 8. **Picture kit automation (§10.1):** emit GENERATE jobs from picker + locked VO → stage `_refs/` → Imagine still (+ i2v for G3/G6) → gate → `clip_kit.json` + Anya zip. Prompt templates per G1–G8 family.  
+   - **Started 2026-07-23:** `video/picture_kit_jobs.py` + `prompt_families_picture_kit.md`; Day-1 gold forensics under `double-ivan/video/daily/gold/20260713-1_day1_anya/`. Next: still generator + human READY; HUD families optional until taste lock.  
 9. **Do not:** spoken stamp pipeline; `[B]`; encyclopedia Remotion as blocker; invent facts when ledger fields are missing.
 
 Creative CapCut for Day 1 V6 **G1–G8 READY** — Anya can cut; further nights reuse the same commission table.
@@ -611,3 +612,4 @@ Creative CapCut for Day 1 V6 **G1–G8 READY** — Anya can cut; further nights 
 | 2026-07-18 | **§2.1 Village place plates** — commission interiors only after a **manual** Phaser property top-down (`phaser/_moodboard/`); no auto-crop from village birdseye; maze LAYOUT + Imagine ref stack; CapCut B Stake prefers habitat plates when on disk. |
 | 2026-07-18 | **§10.1 Picture kit G1–G8** — CapCut commission table + fact/identity/location locks; two-step Grok Imagine (still → 1–2s i2v for G3/G6); Priority A required / B upgrades; Day 1 V6 kit proved (`trailer_ready_day2/`); automation stages + DEV backlog item 8. |
 | 2026-07-20 | **§3.6 / §12 2D↔3D literacy mandatory** — every D1 ship: Phaser plant + Peak/Cost dive (≥1) + Door Phaser tease; ≤3 cinematic arc punctuations; all-cinematic cut fails validators; matches CapCut practice (`trailer_ready_day2` F_phaser pack). |
+| 2026-07-23 | **Runtime relaxed** — D1 hard max **120s** (was 75); soft warn **>90s**; target still 45–60s. Anya CapCut Day-1 gold **~88s** accepted as creative north star (`daily/gold/20260713-1_day1_anya/`). Auto-gen may flex up to 120s. |

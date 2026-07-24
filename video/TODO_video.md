@@ -1,3 +1,123 @@
+# North star — Anya CapCut Day 1 (start now)
+
+**Updated:** 2026-07-23 (A/C/D executed — taste gate open)  
+**Authority:** Creative bar = Anya’s approved cut. Contracts stay in [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md). Older encyclopedia / Gate A–E notes below are **historical** unless a task below re-opens them.
+
+| | |
+|--|--|
+| **Gold film** | `generative_agents/data/20260713-1/trailer_ready_day2/clip_kit/bins/!CapCut Anya!/0720(1).mp4` (~88s, 9:16, 2160×3840) |
+| **Proxy / short export** | same folder `0720.mp4` (~73s) |
+| **Gold forensics package** | [`daily/gold/20260713-1_day1_anya/`](daily/gold/20260713-1_day1_anya/GOLD.md) |
+| **Staged kit we gave her** | `…/trailer_ready_day2/clip_kit/` (bins A–E + F_phaser + VO + sheet) |
+| **Her extra assets** | `…/clip_kit/bins/F_Anya-legend/` (47 files — stills + `hf_*` clips) |
+| **CapCut project** | **Missing today** — Anya shares tomorrow. Do **not** block eng on it. |
+| **Pre-Anya baseline** | `…/clip_kit_v0/` (**immutable**) |
+| **Locked VO (do not rewrite)** | `clip_kit/vo_locked.txt` ≡ V6 · package `scar.json` / `script.json` already written |
+| **Runtime (founder lock)** | Gold **~88s** accepted · auto target 45–60s · **warn >90s** · **hard max 120s** |
+
+**Product goal:** raise auto-gen pipeline standards until a cold kit + Remotion/CapCut path can approach **Anya’s look and clarity**, night after night — not reverse-engineer CapCut XML on day one.
+
+**Explicitly out of scope until later:** CapCut project import; encyclopedia `narration_v12` Remotion polish; `[B] day_normal`; inventing facts when ledger fields are missing.
+
+---
+
+## Now — status (2026-07-23)
+
+### Track A — Freeze the gold (forensics) — **DONE**
+
+- [x] **A1 — Register gold package** → [`daily/gold/20260713-1_day1_anya/GOLD.md`](daily/gold/20260713-1_day1_anya/GOLD.md)
+- [x] **A2 — 1fps teardown** → `teardown/reference_grabs/` (88) + `timecode_index.csv`
+- [x] **A3 — Beat map** → [`gold_beat_map.md`](daily/gold/20260713-1_day1_anya/gold_beat_map.md)
+- [x] **A4 — Legend catalog** → `legend_catalog/files_raw.csv` + README (used_in_gold pending CapCut project / pHash)
+- [x] **A5 — Craft notes** → [`craft_notes.md`](daily/gold/20260713-1_day1_anya/craft_notes.md)
+
+### Track B — Close the kit / handoff hygiene
+
+- [x] **B1 — CapCut project received** → `bins/capcut_proj/` (draft **L-talks Day 1**) · exports in `bins/video/`
+- [ ] **B2 — Normalize folder names** in next `START_HERE` template (`capcut_proj/` · `video/` · `F_Anya-legend/`)
+- [x] **B3 — Diff staged vs gold** → `gold_beat_map.md` + CapCut breakdown
+- [x] **B4 — Preserve `clip_kit_v0`** — documented immutable
+- [x] **B5 — CapCut breakdown + extracts** → [`daily/gold/…/capcut_project_breakdown.md`](daily/gold/20260713-1_day1_anya/capcut_project_breakdown.md) · [`capcut/`](daily/gold/20260713-1_day1_anya/capcut/) CSVs (43 texts, 32/47 legend used, SFX/FX palette)
+
+### Track C — Quality bar → validators — **DONE draft; taste open**
+
+- [x] **C1 — Anya bar rubric** → [`anya_bar_rubric.md`](daily/gold/20260713-1_day1_anya/anya_bar_rubric.md)
+- [x] **C2 — Runtime policy** → founder: gold 88s OK; auto **warn >90 / fail >120** (SOT updated 2026-07-23)
+- [x] **C3 — Validator gap map** → inside rubric §E
+- [x] **C4 — 2D↔3D freeze** → plant ~t7–13 · cost dive ~t66→70 · door ~t85
+
+### Track D — Pipeline eng Phase 1b — **schema + stubs DONE; gen path next**
+
+- [x] **D1 — Job list schema + dry-run** → `generative_agents/video/picture_kit_jobs.py`  
+  Day1 write: `clip_kit/picture_kit_jobs.json` (22 jobs · 12 required · **15 ready_on_disk**)
+- [x] **D2 — Prompt family stubs** → `generative_agents/video/prompt_families_picture_kit.md`
+- [ ] **D3 — Still generation path** (Imagine still-only + human READY) — **next eng**, after taste on HUD optional set
+- [ ] **D4 — Legend pHash → promote winners** — needs CapCut project or manual match pass
+- [ ] **D5 — Remotion baseline watch** — optional parallel; not blocking
+- [x] **D6 — Out of scope held** — no CapCut XML / encyclopedia Remotion
+
+### ⏸ Founder taste gate (required before forcing gold HUD into auto-gen)
+
+Answer in [`craft_notes.md`](daily/gold/20260713-1_day1_anya/craft_notes.md) open questions — summary:
+
+1. Kinetic VO words every beat — mandatory / nice / CapCut-only?  
+2. Challenge STEP 1–2–3 overlays every immunity day?  
+3. Cost want = objective HUD vs workplace habitat?  
+4. Abstract alliances card vs real social clip?  
+5. Custom L-Talks end lockup every night?  
+6. NEW TARGETS radar brand vs one-off?  
+7. Is ~88s **preferred** Day-1 length or only acceptable ≤120?
+
+Until then: eng ships **G1–G8 + Phaser** as required; **H_*** jobs stay `optional`.
+
+### Track E — CapCut project (received 2026-07-24)
+
+- [x] **E1 — Ingest project** → `bins/capcut_proj/`; duration matches master 88.233s
+- [x] **E2 — Timeline extract** → `capcut/*.csv` + `capcut_summary.json` (no EDL needed)
+- [x] **E3 — SFX / transition / type inventory** → breakdown §4–6
+- [ ] **E4 — Rebuild path decision** Remotion type+SFX layer vs CapCut template reuse (after taste gate)
+- [ ] **E5 — Promote 32 used legend assets** to stable `moment_clips` / asset names; archive 15 unused from required lists
+
+---
+
+## Suggested order this week
+
+| When | Do |
+|------|----|
+| **Today** | A1–A2 start · B4 freeze v0 · C2 runtime decision (even a sticky note) · D1 job-list dry-run design |
+| **Today–tomorrow** | A3–A5 · B2–B3 · C1/C3/C4 |
+| **Tomorrow** | B1 + Track E when Anya sends project |
+| **This week** | D2–D3 still path on Day 1 regen · D5 baseline Remotion watch |
+| **After 1–2 more human nights** | Phase 2 Remotion parity push; Spark auto-crop; coverage/D3 |
+
+---
+
+## Definition of “project started”
+
+We can say the auto-gen uplift has started when **all** of these are true:
+
+1. Gold film + legend are **registered and not overwriteable**.  
+2. A beat map exists: sheet scene ↔ gold picture ↔ kit gap.  
+3. Anya-bar rubric draft exists (even if not coded).  
+4. G1–G8 job list **dry-runs** from Day 1 picker/VO without calling Imagine yet.
+
+CapCut project in hand is a **bonus** for E-track craft extraction — not the start gate.
+
+---
+
+## Pointers
+
+| Doc / path | Use |
+|------------|-----|
+| [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md) | Normative D1 contract, bins, G1–G8, eng phases |
+| [`daily/VO_LOCKED.md`](daily/VO_LOCKED.md) | V6 gold spoken text |
+| [`daily/daily-2D-3D-blend.md`](daily/daily-2D-3D-blend.md) | Phaser literacy grammar |
+| `generative_agents/video/build_clip_kit.py` | Stages CapCut kit today |
+| `generative_agents/video/validate_clip_kit.py` | Kit gates |
+| Below on this page | Legacy encyclopedia / Gate A–E notes — **do not** treat as active spine |
+
+---
+
 ## Picture-pass asset audit — `20260713-1` / `overview_day2&001` (2026-07-15)
 
 **Package:** Survival Day 1 locked VO (`VO_LOCKED.md` ≡ `script.json` ≡ `script_used.txt`).  
