@@ -46,18 +46,18 @@
   ],
   "completed_checkpoints": [],
   "last_probe": {
-    "probe_utc": "2026-07-24T20:14:55Z",
+    "probe_utc": "2026-07-24T21:01:05Z",
     "verdict": {
       "fatal": false,
       "fatals": [],
       "warnings": [],
-      "step": 0,
+      "step": 42,
       "status": "running",
       "new_checkpoints": []
     }
   },
-  "last_step": 0,
-  "last_generated_at": null,
+  "last_step": 42,
+  "last_generated_at": "2026-07-24T20:52:31.774199+00:00",
   "fatal_stopped": false,
   "loop_active": true,
   "notes": [
