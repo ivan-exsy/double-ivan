@@ -1,0 +1,70 @@
+{
+  "sim": "20260724-2",
+  "started_approx_utc": "2026-07-24T20:14:04Z",
+  "sec_per_step_estimate": 30,
+  "target_steps": 7600,
+  "poll_interval_sec": 900,
+  "stall_minutes": 15,
+  "checkpoints": [
+    {
+      "id": "cp100",
+      "min_step": 100,
+      "gates": [
+        "1_screenshots_midflight",
+        "headless_15_15"
+      ]
+    },
+    {
+      "id": "cp500",
+      "min_step": 500,
+      "gates": [
+        "2_recycle_first"
+      ]
+    },
+    {
+      "id": "cp1000",
+      "min_step": 1000,
+      "gates": [
+        "2_recycle_second"
+      ]
+    },
+    {
+      "id": "cp2000",
+      "min_step": 2000,
+      "gates": [
+        "2_recycle_third"
+      ]
+    },
+    {
+      "id": "cp7500",
+      "min_step": 7500,
+      "gates": [
+        "near_end_hygiene",
+        "path_coverage"
+      ]
+    }
+  ],
+  "completed_checkpoints": [],
+  "last_probe": {
+    "probe_utc": "2026-07-24T20:14:55Z",
+    "verdict": {
+      "fatal": false,
+      "fatals": [],
+      "warnings": [],
+      "step": 0,
+      "status": "running",
+      "new_checkpoints": []
+    }
+  },
+  "last_step": 0,
+  "last_generated_at": null,
+  "fatal_stopped": false,
+  "loop_active": true,
+  "notes": [
+    {
+      "utc": "2026-07-24T20:15:00Z",
+      "action": "score_started",
+      "detail": "Forked+started 7600-step sprint; RSS monitor on; Cursor 15m evaluate loop armed"
+    }
+  ]
+}
