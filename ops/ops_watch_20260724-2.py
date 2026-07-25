@@ -162,15 +162,33 @@ def evaluate(data: dict, state: dict) -> dict:
     if SIM not in rss and "monitor_reverie_rss" not in rss:
         warnings.append("rss_monitor_not_running")
 
-    # Headless integrity (P0 gate for this score run)
+    # Headless integrity (P0 gate for this score run).
+    # Ignore the current in-flight step: ACCEPTED lines stream in before
+    # "Headless execution completed", so a partial count is not a failure.
     if int(hl.get("strict_failures") or 0) > 0:
         fatals.append(f"headless_strict_failures_{hl.get('strict_failures')}")
-    steps_lt = int(hl.get("steps_lt_15") or 0)
-    min_acc = hl.get("min_recent_accepted")
-    if steps_lt > 0:
-        fatals.append(f"headless_accepted_lt_15_recent_steps_{steps_lt}_min_{min_acc}")
-    elif min_acc is not None and int(min_acc) < 15:
-        fatals.append(f"headless_accepted_min_{min_acc}")
+    recent = hl.get("recent_accepted_by_step") or {}
+    completed_n = int(hl.get("headless_completed") or 0)
+    finished = {}
+    for k, v in recent.items():
+        try:
+            s = int(k)
+        except Exception:
+            continue
+        # completed_n is count of completions; steps are 0-indexed, so
+        # completions cover steps 0..completed_n-1 when starting at 0.
+        if s < completed_n:
+            finished[s] = int(v)
+    bad = {s: n for s, n in finished.items() if n < 15}
+    if bad:
+        min_acc = min(bad.values())
+        fatals.append(
+            f"headless_accepted_lt_15_finished_steps_{len(bad)}_min_{min_acc}"
+        )
+    elif finished:
+        min_acc = min(finished.values())
+        if min_acc < 15:
+            fatals.append(f"headless_accepted_min_{min_acc}")
 
     done = set(state.get("completed_checkpoints") or [])
     new_cps = []

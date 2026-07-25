@@ -44,20 +44,22 @@
       ]
     }
   ],
-  "completed_checkpoints": [],
+  "completed_checkpoints": [
+    "cp100"
+  ],
   "last_probe": {
-    "probe_utc": "2026-07-24T21:01:05Z",
+    "probe_utc": "2026-07-25T00:01:21Z",
     "verdict": {
       "fatal": false,
       "fatals": [],
       "warnings": [],
-      "step": 42,
+      "step": 280,
       "status": "running",
       "new_checkpoints": []
     }
   },
-  "last_step": 42,
-  "last_generated_at": "2026-07-24T20:52:31.774199+00:00",
+  "last_step": 280,
+  "last_generated_at": "2026-07-24T23:59:10.375928+00:00",
   "fatal_stopped": false,
   "loop_active": true,
   "notes": [
@@ -65,6 +67,18 @@
       "utc": "2026-07-24T20:15:00Z",
       "action": "score_started",
       "detail": "Forked+started 7600-step sprint; RSS monitor on; Cursor 15m evaluate loop armed"
+    },
+    {
+      "utc": "2026-07-24T21:46:02Z",
+      "action": "fatal_detected",
+      "fatals": [
+        "headless_accepted_lt_15_recent_steps_1_min_1"
+      ]
+    },
+    {
+      "utc": "2026-07-24T21:46:30Z",
+      "action": "false_alarm_cleared",
+      "detail": "step 111 had 1 ACCEPTED mid-headless; completed 15/15. Did not stop. Watch now ignores in-flight step."
     }
   ]
 }

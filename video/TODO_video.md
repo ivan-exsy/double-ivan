@@ -1,34 +1,96 @@
-# North star — Anya CapCut Day 1 (start now)
+# North star — Anya CapCut Day 1 → auto-gen uplift
 
-**Updated:** 2026-07-23 (A/C/D executed — taste gate open)  
+**Updated:** 2026-07-24 (resume spine + gold-replay status)  
 **Authority:** Creative bar = Anya’s approved cut. Contracts stay in [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md). Older encyclopedia / Gate A–E notes below are **historical** unless a task below re-opens them.
 
 | | |
 |--|--|
-| **Gold film** | `generative_agents/data/20260713-1/trailer_ready_day2/clip_kit/bins/!CapCut Anya!/0720(1).mp4` (~88s, 9:16, 2160×3840) |
+| **Gold film (master)** | `generative_agents/…/clip_kit/bins/video/0720(1).mp4` (~88.2s, 9:16, 2160×3840) |
 | **Proxy / short export** | same folder `0720.mp4` (~73s) |
 | **Gold forensics package** | [`daily/gold/20260713-1_day1_anya/`](daily/gold/20260713-1_day1_anya/GOLD.md) |
 | **Staged kit we gave her** | `…/trailer_ready_day2/clip_kit/` (bins A–E + F_phaser + VO + sheet) |
-| **Her extra assets** | `…/clip_kit/bins/F_Anya-legend/` (47 files — stills + `hf_*` clips) |
-| **CapCut project** | **Missing today** — Anya shares tomorrow. Do **not** block eng on it. |
+| **Her extra assets** | `…/clip_kit/bins/F_Anya-legend/` (47 files — 32 used in CapCut) |
+| **CapCut project** | `…/clip_kit/bins/capcut_proj/` · draft **L-talks Day 1** · **ingested** |
 | **Pre-Anya baseline** | `…/clip_kit_v0/` (**immutable**) |
 | **Locked VO (do not rewrite)** | `clip_kit/vo_locked.txt` ≡ V6 · package `scar.json` / `script.json` already written |
 | **Runtime (founder lock)** | Gold **~88s** accepted · auto target 45–60s · **warn >90s** · **hard max 120s** |
+| **Remotion gold replay** | `generative_agents` · composition `DailyGoldReplay` · props via `python -m video.build_gold_replay_props` |
+| **Cinematic flyover pack** | **C1–C3 done** (landscape; crop to 9:16) · **C4–C8 next = native portrait** · `COMMISSION_cinematic_pack.md` |
 
-**Product goal:** raise auto-gen pipeline standards until a cold kit + Remotion/CapCut path can approach **Anya’s look and clarity**, night after night — not reverse-engineer CapCut XML on day one.
+**Product goal:** raise auto-gen pipeline standards until a cold kit + Remotion path can approach **Anya’s look and clarity**, night after night.
 
-**Explicitly out of scope until later:** CapCut project import; encyclopedia `narration_v12` Remotion polish; `[B] day_normal`; inventing facts when ledger fields are missing.
+**Explicitly out of scope until later:** CapCut XML reverse-import as product path; encyclopedia `narration_v12` Remotion polish; `[B] day_normal`; inventing facts when ledger fields are missing.
 
 ---
 
-## Now — status (2026-07-23)
+## ▶ Resume after flyovers (read this first)
+
+**You are here (2026-07-24):** founder is **manually generating** the Doubland cinematic village pack (C1–C8). Eng gold-replay Phase 1 is usable; world plates in the cut are still the wrong/old flyovers until the new pack ships.
+
+### Done (do not re-open unless broken)
+
+| Area | Status |
+|------|--------|
+| Gold forensics A1–A5 | ✅ Registered package, 1fps teardown, beat map, legend catalog, craft notes |
+| CapCut ingest B1/B5 + E1–E3 | ✅ Project + CSV extracts + breakdown |
+| Runtime + Anya bar C1–C4 | ✅ Draft rubric; 88s gold / warn>90 / fail>120 |
+| Picture-kit schema D1–D2 | ✅ Job list dry-run + prompt family stubs |
+| **Remotion gold replay Phase 1** | ✅ CapCut CSV → edit plan → `DailyGoldReplay` layers (plates, kinetic type, VO, music, SFX stand-ins) |
+| A/V alignment | ✅ CapCut `source_timerange` offsets (fixes double-VO / music restart); VO clip2 `sourceStartSec≈7.78` |
+| Music bed | ✅ Loopable `music_intrigue_loopable.mp3` + Anya volume envelope (not short `music_drama` restart) |
+| End-of-film cleanup | ✅ Post-boot (~68.5s): fade music/VO tail, thin stacked plates, soft door — **FX still deferred** |
+| Flyover commission brief | ✅ Locked shot list + foundation plate rules (see path above) |
+
+### Parked on founder (creative — not eng)
+
+- [ ] **Manual cinematic pack C4–C8** (C1–C3 **done**)  
+  - Brief: `generative_agents/video/fly-over/COMMISSION_cinematic_pack.md`  
+  - **Done:** `c1.2.mp4` · `C2.mp4` · `C3.png` — **landscape masters**; crop/scale to 9:16 in edit (do not re-gen portrait)  
+  - **Next:** C4–C8 **native 9:16** (courtyard / cafe / homes)  
+  - Foundation: `village_overhead_wide.png` · Phaser plant stays `signature_flyover.mp4`  
+- [ ] Drop remaining accepted masters into `video/fly-over/` (or note final names in commission doc)
+- [ ] Optional: taste-gate Qs in [`craft_notes.md`](daily/gold/20260713-1_day1_anya/craft_notes.md) when convenient
+
+### Next eng — after C1–C8 are accepted (order)
+
+1. **Wire new plates into gold replay**  
+   - Map CapCut world/cinematic slots (wrong Doubland beds ~31s / ~52s and any other mismatched B-roll) → new C* files  
+   - Rebuild props + render `DailyGoldReplay` → phone watch vs master  
+2. **Optional CapCut-parity FX** (scanlines, glitch, light leaks) — only after plates look right  
+3. **Promote used legend / moment assets** (E5) + archive unused from required lists  
+4. **Picture-kit still path (D3)** — Imagine still-only + human READY for missing G-jobs  
+5. **Daily auto path** — lift gold-replay craft (type, SFX roles, music duck, plate grammar) into night-over-night pipeline; keep taste gate before forcing HUD/optional H_* jobs  
+6. **E4 decision** — Remotion-as-product vs CapCut template reuse (can wait until after one clean gold-replay watch with new plates)
+
+### Commands (gold replay — eng repo `generative_agents-ivan-dev` / `ivan/dev`)
+
+```bash
+python -m video.build_gold_replay_props
+cd video/remotion
+npx remotion still DailyGoldReplay out/gold_replay_smoke.png --props=props/gold_replay_day1.json --frame=90
+npx remotion render DailyGoldReplay out/gold_replay_day1.mp4 --props=props/gold_replay_day1.json
+```
+
+Compare against master `clip_kit/bins/video/0720(1).mp4`. Details: [`GOLD.md` § Remotion gold replay](daily/gold/20260713-1_day1_anya/GOLD.md).
+
+### Do not do while flyovers are in progress
+
+- Re-open VO rewrite / re-TTS (V6 locked)  
+- Force optional HUD (`H_*`) into auto-gen before taste gate  
+- Replace Phaser `signature_flyover` with cinematic overheads  
+- Commission morning / park-only / library-only packs before C1–C8 accepted  
+- Treat encyclopedia Gate A–E or “Suggested order this week (2026-07-23)” below as the active spine
+
+---
+
+## Now — status (2026-07-24)
 
 ### Track A — Freeze the gold (forensics) — **DONE**
 
 - [x] **A1 — Register gold package** → [`daily/gold/20260713-1_day1_anya/GOLD.md`](daily/gold/20260713-1_day1_anya/GOLD.md)
 - [x] **A2 — 1fps teardown** → `teardown/reference_grabs/` (88) + `timecode_index.csv`
 - [x] **A3 — Beat map** → [`gold_beat_map.md`](daily/gold/20260713-1_day1_anya/gold_beat_map.md)
-- [x] **A4 — Legend catalog** → `legend_catalog/files_raw.csv` + README (used_in_gold pending CapCut project / pHash)
+- [x] **A4 — Legend catalog** → `legend_catalog/files_raw.csv` + README (+ CapCut `legend_usage.csv`)
 - [x] **A5 — Craft notes** → [`craft_notes.md`](daily/gold/20260713-1_day1_anya/craft_notes.md)
 
 ### Track B — Close the kit / handoff hygiene
@@ -37,28 +99,39 @@
 - [ ] **B2 — Normalize folder names** in next `START_HERE` template (`capcut_proj/` · `video/` · `F_Anya-legend/`)
 - [x] **B3 — Diff staged vs gold** → `gold_beat_map.md` + CapCut breakdown
 - [x] **B4 — Preserve `clip_kit_v0`** — documented immutable
-- [x] **B5 — CapCut breakdown + extracts** → [`daily/gold/…/capcut_project_breakdown.md`](daily/gold/20260713-1_day1_anya/capcut_project_breakdown.md) · [`capcut/`](daily/gold/20260713-1_day1_anya/capcut/) CSVs (43 texts, 32/47 legend used, SFX/FX palette)
+- [x] **B5 — CapCut breakdown + extracts** → [`capcut_project_breakdown.md`](daily/gold/20260713-1_day1_anya/capcut_project_breakdown.md) · [`capcut/`](daily/gold/20260713-1_day1_anya/capcut/) CSVs
 
 ### Track C — Quality bar → validators — **DONE draft; taste open**
 
 - [x] **C1 — Anya bar rubric** → [`anya_bar_rubric.md`](daily/gold/20260713-1_day1_anya/anya_bar_rubric.md)
-- [x] **C2 — Runtime policy** → founder: gold 88s OK; auto **warn >90 / fail >120** (SOT updated 2026-07-23)
+- [x] **C2 — Runtime policy** → founder: gold 88s OK; auto **warn >90 / fail >120**
 - [x] **C3 — Validator gap map** → inside rubric §E
 - [x] **C4 — 2D↔3D freeze** → plant ~t7–13 · cost dive ~t66→70 · door ~t85
 
-### Track D — Pipeline eng Phase 1b — **schema + stubs DONE; gen path next**
+### Track D — Pipeline eng
 
-- [x] **D1 — Job list schema + dry-run** → `generative_agents/video/picture_kit_jobs.py`  
-  Day1 write: `clip_kit/picture_kit_jobs.json` (22 jobs · 12 required · **15 ready_on_disk**)
+- [x] **D1 — Job list schema + dry-run** → `generative_agents/video/picture_kit_jobs.py`
 - [x] **D2 — Prompt family stubs** → `generative_agents/video/prompt_families_picture_kit.md`
-- [ ] **D3 — Still generation path** (Imagine still-only + human READY) — **next eng**, after taste on HUD optional set
-- [ ] **D4 — Legend pHash → promote winners** — needs CapCut project or manual match pass
-- [ ] **D5 — Remotion baseline watch** — optional parallel; not blocking
-- [x] **D6 — Out of scope held** — no CapCut XML / encyclopedia Remotion
+- [x] **D5 — Remotion gold replay Phase 1** → `DailyGoldReplay` + `build_gold_replay_props.py` (VO/music offsets, loopable bed, end cleanup). **Not** optional anymore — this is the active rebuild path.
+- [ ] **D5b — Wire cinematic pack into gold replay** — **blocked on founder C1–C8**
+- [ ] **D5c — Optional FX layer** after plates pass watch
+- [ ] **D3 — Still generation path** (Imagine still-only + human READY)
+- [ ] **D4 — Legend pHash → promote winners** (CapCut usage list exists; promote/archive still open)
+- [x] **D6 — Out of scope held** — no CapCut XML product path / encyclopedia Remotion as spine
 
-### ⏸ Founder taste gate (required before forcing gold HUD into auto-gen)
+### Track F — Cinematic village pack (founder) — **IN PROGRESS**
 
-Answer in [`craft_notes.md`](daily/gold/20260713-1_day1_anya/craft_notes.md) open questions — summary:
+- [x] Commission brief locked (foundation = `village_overhead_wide`, day/dusk/night, alive-empty)
+- [x] **C1** → `c1.2.mp4` (backup `c1.mp4`) — landscape video
+- [x] **C2** → `C2.mp4` — landscape dynamic dusk drone
+- [x] **C3** → `C3.png` — landscape night **still**
+- [x] Aspect policy: C1–C3 landscape + crop to 9:16; **C4–C8 native portrait**
+- [ ] C4–C8 masters (9:16 courtyard / cafe / homes)
+- [ ] Retire mismatched old cinematic flyovers from gold-replay / opener beds after watch pass
+
+### ⏸ Founder taste gate (before forcing gold HUD into auto-gen)
+
+Answer in [`craft_notes.md`](daily/gold/20260713-1_day1_anya/craft_notes.md) when ready — summary:
 
 1. Kinetic VO words every beat — mandatory / nice / CapCut-only?  
 2. Challenge STEP 1–2–3 overlays every immunity day?  
@@ -73,35 +146,34 @@ Until then: eng ships **G1–G8 + Phaser** as required; **H_*** jobs stay `optio
 ### Track E — CapCut project (received 2026-07-24)
 
 - [x] **E1 — Ingest project** → `bins/capcut_proj/`; duration matches master 88.233s
-- [x] **E2 — Timeline extract** → `capcut/*.csv` + `capcut_summary.json` (no EDL needed)
+- [x] **E2 — Timeline extract** → `capcut/*.csv` + `capcut_summary.json`
 - [x] **E3 — SFX / transition / type inventory** → breakdown §4–6
-- [ ] **E4 — Rebuild path decision** Remotion type+SFX layer vs CapCut template reuse (after taste gate)
-- [ ] **E5 — Promote 32 used legend assets** to stable `moment_clips` / asset names; archive 15 unused from required lists
+- [ ] **E4 — Rebuild path decision** Remotion-as-product vs CapCut template reuse (after new-plate gold-replay watch + taste gate)
+- [ ] **E5 — Promote 32 used legend assets** to stable names; archive 15 unused from required lists
 
 ---
 
-## Suggested order this week
+## Suggested order (from 2026-07-24)
 
 | When | Do |
 |------|----|
-| **Today** | A1–A2 start · B4 freeze v0 · C2 runtime decision (even a sticky note) · D1 job-list dry-run design |
-| **Today–tomorrow** | A3–A5 · B2–B3 · C1/C3/C4 |
-| **Tomorrow** | B1 + Track E when Anya sends project |
-| **This week** | D2–D3 still path on Day 1 regen · D5 baseline Remotion watch |
-| **After 1–2 more human nights** | Phase 2 Remotion parity push; Spark auto-crop; coverage/D3 |
+| **Now (founder)** | Finish manual **C1–C8** cinematic pack per commission brief |
+| **Next eng session** | Wire C* into gold replay → render → watch vs Anya master |
+| **Then** | Optional FX · E5 legend promote · D3 still path |
+| **After taste + one clean replay** | Lift craft into daily auto-gen; E4 product-path decision |
+| **Later** | Phase 2 parity polish; Spark auto-crop; `[B] day_normal` |
 
 ---
 
-## Definition of “project started”
+## Definition of “project started” — **MET (2026-07-24)**
 
-We can say the auto-gen uplift has started when **all** of these are true:
+1. ✅ Gold film + legend registered and not overwriteable.  
+2. ✅ Beat map: sheet scene ↔ gold picture ↔ kit gap (+ CapCut).  
+3. ✅ Anya-bar rubric draft exists.  
+4. ✅ G1–G8 job list dry-runs from Day 1 without Imagine.  
+5. ✅ CapCut draft ingested; Remotion gold replay Phase 1 renders.
 
-1. Gold film + legend are **registered and not overwriteable**.  
-2. A beat map exists: sheet scene ↔ gold picture ↔ kit gap.  
-3. Anya-bar rubric draft exists (even if not coded).  
-4. G1–G8 job list **dry-runs** from Day 1 picker/VO without calling Imagine yet.
-
-CapCut project in hand is a **bonus** for E-track craft extraction — not the start gate.
+Remaining uplift = **plates + auto path**, not “has the project started.”
 
 ---
 
@@ -109,12 +181,17 @@ CapCut project in hand is a **bonus** for E-track craft extraction — not the s
 
 | Doc / path | Use |
 |------------|-----|
+| **This section ↑** | Active resume spine after flyovers |
+| [`daily/gold/…/GOLD.md`](daily/gold/20260713-1_day1_anya/GOLD.md) | Gold hub + Remotion replay commands |
 | [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md) | Normative D1 contract, bins, G1–G8, eng phases |
 | [`daily/VO_LOCKED.md`](daily/VO_LOCKED.md) | V6 gold spoken text |
 | [`daily/daily-2D-3D-blend.md`](daily/daily-2D-3D-blend.md) | Phaser literacy grammar |
-| `generative_agents/video/build_clip_kit.py` | Stages CapCut kit today |
+| `generative_agents/video/fly-over/COMMISSION_cinematic_pack.md` | Flyover pack · **C1–C3 done** · **C4–C8 = 9:16** · foundation `village_overhead_wide` |
+| `generative_agents/video/build_gold_replay_props.py` | CapCut CSV → DailyGoldReplay props |
+| `generative_agents/video/build_clip_kit.py` | Stages CapCut kit |
 | `generative_agents/video/validate_clip_kit.py` | Kit gates |
-| Below on this page | Legacy encyclopedia / Gate A–E notes — **do not** treat as active spine |
+| `generative_agents/video/picture_kit_jobs.py` | G1–G8 / H_* job list |
+| Below on this page | Legacy encyclopedia / Gate A–E notes — **not** the active spine |
 
 ---
 
