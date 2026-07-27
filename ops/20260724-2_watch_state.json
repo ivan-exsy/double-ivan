@@ -116,6 +116,11 @@
       "utc": "2026-07-27T12:00:00Z",
       "action": "fatal_stopped_disarm",
       "detail": "Step 3620 HEADLESS_STRICT_ABORT: accepted=11/14 missing Diana Ogden, Irene Dove, Owen Logan. Runner dead; marked stopped in Supabase; disarm 15m watch."
+    },
+    {
+      "utc": "2026-07-27T16:25:00Z",
+      "action": "loop_rearmed_post_intent_persist_gate",
+      "detail": "Deployed INTENT_PERSIST retry+hard-fail; cleaned stale 3620 pending MRs; resumed max_steps=5290. Recovered 14/14 write+headless at 3620 then 3621. expected_accepted=14."
     }
   ]
 }
