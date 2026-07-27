@@ -22,3 +22,4 @@ Doc / concept / video-WIP repo for Doubland. **Process rules** that are global l
 ## Recent Learnings / Changes
 
 - 2026-07-21: Confirmed main-track posture after FF-merging stray feature-branch history back to `main` and deleting `ivan/digest-challenge-card-checklist`.
+- 2026-07-27: Re-confirmed main-track only; added `.cursor/rules/main-track.mdc`. Sibling `double-docs` cleaned the same day (feature branches deleted; eng `git-workflow` scoped so it cannot leak `ivan/*` into doc repos).

@@ -1,0 +1,13 @@
+---
+description: Doc/ops repo is main-track only — never create feature branches here
+alwaysApply: true
+---
+
+# double-ivan — main-track only
+
+This repository is concept / video-WIP / ops notes only.
+
+- Commit and push on **`main` only**.
+- Do **not** create `ivan/*`, `nicolas/*`, `feat/*`, `fix/*`, or any other feature branch unless the founder explicitly asks.
+- If the multi-root workspace also includes `generative_agents`, **ignore** that repo’s author-prefixed branch rules for any work under `double-ivan/`.
+- Before committing: `git branch --show-current` must be `main`. If not, `git checkout main` and bring changes onto `main` (no new branch).
