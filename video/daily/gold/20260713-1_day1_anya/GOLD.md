@@ -30,6 +30,12 @@ npx remotion render DailyGoldReplay out/gold_replay_day1.mp4 --props=props/gold_
 - Props builder: `video/build_gold_replay_props.py` (reads `capcut/*.csv`)
 - Composition: `DailyGoldReplay`
 - CapCut stock SFX use local stand-ins under `video/audio/sfx/` until licensed packs land
+- **World-plate swaps (2026-07-25):** mismatched Doubland geography → C1–C8 pack under `video/fly-over/`  
+  - Alpine alumni still `B604…PNG` (~30.4–32.9s) → **C1** `c1.2.mp4`  
+  - Open-roof `Village.mp4` (~58.7–60.0s) → **C1**  
+  - Phaser `signature_flyover` **kept** (plant / door literacy)  
+  - Pack map + legacy flyover fallbacks live in `WORLD_PLATE_REPLACEMENTS` in the props builder  
+  - Brief: `generative_agents/video/fly-over/COMMISSION_cinematic_pack.md`
 - Compare against master `bins/video/0720(1).mp4`
 
 ## Canonical media (do not duplicate large binaries here)

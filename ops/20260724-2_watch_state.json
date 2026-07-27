@@ -5,6 +5,8 @@
   "target_steps": 7600,
   "poll_interval_sec": 900,
   "stall_minutes": 15,
+  "expected_accepted": 14,
+  "strict_failures_baseline": 0,
   "checkpoints": [
     {
       "id": "cp100",
@@ -45,23 +47,31 @@
     }
   ],
   "completed_checkpoints": [
-    "cp100"
+    "cp100",
+    "cp500",
+    "cp1000",
+    "cp2000"
   ],
   "last_probe": {
-    "probe_utc": "2026-07-25T00:01:21Z",
+    "probe_utc": "2026-07-27T11:59:56Z",
     "verdict": {
-      "fatal": false,
-      "fatals": [],
+      "fatal": true,
+      "fatals": [
+        "backend_dead_while_running",
+        "stall_step_3620_for_16m",
+        "headless_strict_failures_3_above_baseline_0",
+        "headless_accepted_lt_14_finished_steps_1_min_11"
+      ],
       "warnings": [],
-      "step": 280,
+      "step": 3620,
       "status": "running",
       "new_checkpoints": []
     }
   },
-  "last_step": 280,
-  "last_generated_at": "2026-07-24T23:59:10.375928+00:00",
-  "fatal_stopped": false,
-  "loop_active": true,
+  "last_step": 3620,
+  "last_generated_at": "2026-07-27T11:44:13.227747+00:00",
+  "fatal_stopped": true,
+  "loop_active": false,
   "notes": [
     {
       "utc": "2026-07-24T20:15:00Z",
@@ -79,6 +89,33 @@
       "utc": "2026-07-24T21:46:30Z",
       "action": "false_alarm_cleared",
       "detail": "step 111 had 1 ACCEPTED mid-headless; completed 15/15. Did not stop. Watch now ignores in-flight step."
+    },
+    {
+      "utc": "2026-07-25T21:03:14Z",
+      "action": "fatal_detected",
+      "fatals": [
+        "oom_or_kill_hints_in_journal"
+      ]
+    },
+    {
+      "utc": "2026-07-25T21:03:30Z",
+      "action": "false_alarm_cleared",
+      "detail": "oom_or_kill_hints was our soak-log probe (pid 1773653 python3) OOM-killed ~20:58Z; score runner still alive at step 2273. Did not stop."
+    },
+    {
+      "utc": "2026-07-25T22:47:00Z",
+      "action": "loop_disarmed",
+      "detail": "Sim terminal at 2310 (Vincent headless strict abort); disarm auto-watch until resume decision."
+    },
+    {
+      "utc": "2026-07-26T23:58:00Z",
+      "action": "loop_rearmed_post_elim_resume",
+      "detail": "Resumed after elim-grace fix + env/2311 handshake materialize; expected_accepted=14; strict_failures_baseline=3 (Vincent abort); RSS still on; 15m evaluate loop re-armed."
+    },
+    {
+      "utc": "2026-07-27T12:00:00Z",
+      "action": "fatal_stopped_disarm",
+      "detail": "Step 3620 HEADLESS_STRICT_ABORT: accepted=11/14 missing Diana Ogden, Irene Dove, Owen Logan. Runner dead; marked stopped in Supabase; disarm 15m watch."
     }
   ]
 }

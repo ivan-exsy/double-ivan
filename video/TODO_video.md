@@ -1,6 +1,6 @@
 # North star — Anya CapCut Day 1 → auto-gen uplift
 
-**Updated:** 2026-07-24 (resume spine + gold-replay status)  
+**Updated:** 2026-07-25 (C1–C8 wired into gold replay)  
 **Authority:** Creative bar = Anya’s approved cut. Contracts stay in [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md). Older encyclopedia / Gate A–E notes below are **historical** unless a task below re-opens them.
 
 | | |
@@ -15,7 +15,7 @@
 | **Locked VO (do not rewrite)** | `clip_kit/vo_locked.txt` ≡ V6 · package `scar.json` / `script.json` already written |
 | **Runtime (founder lock)** | Gold **~88s** accepted · auto target 45–60s · **warn >90s** · **hard max 120s** |
 | **Remotion gold replay** | `generative_agents` · composition `DailyGoldReplay` · props via `python -m video.build_gold_replay_props` |
-| **Cinematic flyover pack** | **C1–C3 done** (landscape; crop to 9:16) · **C4–C8 next = native portrait** · `COMMISSION_cinematic_pack.md` |
+| **Cinematic flyover pack** | **C1–C8 COMPLETE** · **wired into gold replay** (alpine still + `Village.mp4` → C1) · `COMMISSION_cinematic_pack.md` |
 
 **Product goal:** raise auto-gen pipeline standards until a cold kit + Remotion path can approach **Anya’s look and clarity**, night after night.
 
@@ -23,9 +23,9 @@
 
 ---
 
-## ▶ Resume after flyovers (read this first)
+## ▶ Resume spine (read this first)
 
-**You are here (2026-07-24):** founder is **manually generating** the Doubland cinematic village pack (C1–C8). Eng gold-replay Phase 1 is usable; world plates in the cut are still the wrong/old flyovers until the new pack ships.
+**You are here (2026-07-25):** C1–C8 pack **generated and wired into gold replay**. Next = founder phone-watch of replay plates, then opener beds / optional FX.
 
 ### Done (do not re-open unless broken)
 
@@ -40,27 +40,30 @@
 | Music bed | ✅ Loopable `music_intrigue_loopable.mp3` + Anya volume envelope (not short `music_drama` restart) |
 | End-of-film cleanup | ✅ Post-boot (~68.5s): fade music/VO tail, thin stacked plates, soft door — **FX still deferred** |
 | Flyover commission brief | ✅ Locked shot list + foundation plate rules (see path above) |
+| **C1–C8 pack on disk** | ✅ Landscape C1–C3 · portrait C4–C8 · working names under `video/fly-over/` |
+| **D5b gold-replay wire** | ✅ Alpine still `B604…` (~30.4s) + open-roof `Village.mp4` (~58.7s) → **C1** `c1.2.mp4`; Phaser `signature_flyover` kept; props rebuild + unit tests green |
 
 ### Parked on founder (creative — not eng)
 
-- [ ] **Manual cinematic pack C4–C8** (C1–C3 **done**)  
+- [x] **Manual cinematic pack C1–C8** — **COMPLETE**  
   - Brief: `generative_agents/video/fly-over/COMMISSION_cinematic_pack.md`  
-  - **Done:** `c1.2.mp4` · `C2.mp4` · `C3.png` — **landscape masters**; crop/scale to 9:16 in edit (do not re-gen portrait)  
-  - **Next:** C4–C8 **native 9:16** (courtyard / cafe / homes)  
-  - Foundation: `village_overhead_wide.png` · Phaser plant stays `signature_flyover.mp4`  
-- [ ] Drop remaining accepted masters into `video/fly-over/` (or note final names in commission doc)
-- [ ] Optional: taste-gate Qs in [`craft_notes.md`](daily/gold/20260713-1_day1_anya/craft_notes.md) when convenient
+  - Landscape: `c1.2.mp4` · `C2.mp4` · `C3.png` (crop to 9:16 in edit)  
+  - Portrait: `C4`–`C8` stills (+ videos where present)  
+  - Keep `signature_flyover.mp4` for Phaser plant/door  
+- [ ] **Phone-watch gold replay** at ~31s and ~59s (new C1 plates) vs Anya master  
+- [ ] Optional: taste-gate Qs in [`craft_notes.md`](daily/gold/20260713-1_day1_anya/craft_notes.md) when convenient  
+- [ ] Optional: sharpen C5/C7 · Hobbs-branded cafe · canonical renames on disk
 
-### Next eng — after C1–C8 are accepted (order)
+### Next eng (order)
 
-1. **Wire new plates into gold replay**  
-   - Map CapCut world/cinematic slots (wrong Doubland beds ~31s / ~52s and any other mismatched B-roll) → new C* files  
-   - Rebuild props + render `DailyGoldReplay` → phone watch vs master  
-2. **Optional CapCut-parity FX** (scanlines, glitch, light leaks) — only after plates look right  
-3. **Promote used legend / moment assets** (E5) + archive unused from required lists  
-4. **Picture-kit still path (D3)** — Imagine still-only + human READY for missing G-jobs  
-5. **Daily auto path** — lift gold-replay craft (type, SFX roles, music duck, plate grammar) into night-over-night pipeline; keep taste gate before forcing HUD/optional H_* jobs  
-6. **E4 decision** — Remotion-as-product vs CapCut template reuse (can wait until after one clean gold-replay watch with new plates)
+1. ~~**Wire new plates into gold replay**~~ ✅ (2026-07-25) — see D5b  
+2. **Wire pack into opener beds** (`compose_trailer` still lists old flyover filenames)  
+3. **Full 88s gold-replay render** after watch OK (or sooner if you want a file to scrub)  
+4. **Optional CapCut-parity FX** (scanlines, glitch, light leaks) — only after plates look right  
+5. **Promote used legend / moment assets** (E5) + archive unused from required lists  
+6. **Picture-kit still path (D3)** — Imagine still-only + human READY for missing G-jobs  
+7. **Daily auto path** — lift gold-replay craft into night-over-night pipeline; taste gate before HUD/H_*  
+8. **E4 decision** — Remotion-as-product vs CapCut template reuse
 
 ### Commands (gold replay — eng repo `generative_agents-ivan-dev` / `ivan/dev`)
 
@@ -113,21 +116,20 @@ Compare against master `clip_kit/bins/video/0720(1).mp4`. Details: [`GOLD.md` §
 - [x] **D1 — Job list schema + dry-run** → `generative_agents/video/picture_kit_jobs.py`
 - [x] **D2 — Prompt family stubs** → `generative_agents/video/prompt_families_picture_kit.md`
 - [x] **D5 — Remotion gold replay Phase 1** → `DailyGoldReplay` + `build_gold_replay_props.py` (VO/music offsets, loopable bed, end cleanup). **Not** optional anymore — this is the active rebuild path.
-- [ ] **D5b — Wire cinematic pack into gold replay** — **blocked on founder C1–C8**
+- [x] **D5b — Wire cinematic pack into gold replay** — alpine `B604…` + `Village.mp4` → C1; Phaser flyover kept; `WORLD_PLATE_REPLACEMENTS` + pack resolve in props builder
 - [ ] **D5c — Optional FX layer** after plates pass watch
+- [ ] **D5d — Opener beds** — point `compose_trailer` flyover list at C1–C8 (retire old cinematic heroes after watch)
 - [ ] **D3 — Still generation path** (Imagine still-only + human READY)
 - [ ] **D4 — Legend pHash → promote winners** (CapCut usage list exists; promote/archive still open)
 - [x] **D6 — Out of scope held** — no CapCut XML product path / encyclopedia Remotion as spine
 
-### Track F — Cinematic village pack (founder) — **IN PROGRESS**
+### Track F — Cinematic village pack (founder) — **DONE**
 
-- [x] Commission brief locked (foundation = `village_overhead_wide`, day/dusk/night, alive-empty)
-- [x] **C1** → `c1.2.mp4` (backup `c1.mp4`) — landscape video
-- [x] **C2** → `C2.mp4` — landscape dynamic dusk drone
-- [x] **C3** → `C3.png` — landscape night **still**
-- [x] Aspect policy: C1–C3 landscape + crop to 9:16; **C4–C8 native portrait**
-- [ ] C4–C8 masters (9:16 courtyard / cafe / homes)
-- [ ] Retire mismatched old cinematic flyovers from gold-replay / opener beds after watch pass
+- [x] Commission brief + aspect policy (C1–C3 landscape; C4–C8 9:16)
+- [x] **C1–C8** masters on disk under `video/fly-over/` (`c1.2`, `C2`, `C3`, `C4`–`C8` stills/videos)
+- [x] Gold-replay wire (wrong world plates → C1)
+- [ ] Opener wire + retire mismatched old cinematic flyovers after watch
+- [ ] Optional: canonical renames · sharpen C5/C7 · Hobbs-branded cafe take
 
 ### ⏸ Founder taste gate (before forcing gold HUD into auto-gen)
 
@@ -157,8 +159,8 @@ Until then: eng ships **G1–G8 + Phaser** as required; **H_*** jobs stay `optio
 
 | When | Do |
 |------|----|
-| **Now (founder)** | Finish manual **C1–C8** cinematic pack per commission brief |
-| **Next eng session** | Wire C* into gold replay → render → watch vs Anya master |
+| **Now (founder)** | Phone-watch gold replay ~31s / ~59s (C1 plates) vs Anya master |
+| **Next eng** | Opener beds → C1–C8 · full 88s render if watch OK |
 | **Then** | Optional FX · E5 legend promote · D3 still path |
 | **After taste + one clean replay** | Lift craft into daily auto-gen; E4 product-path decision |
 | **Later** | Phase 2 parity polish; Spark auto-crop; `[B] day_normal` |
@@ -186,7 +188,7 @@ Remaining uplift = **plates + auto path**, not “has the project started.”
 | [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md) | Normative D1 contract, bins, G1–G8, eng phases |
 | [`daily/VO_LOCKED.md`](daily/VO_LOCKED.md) | V6 gold spoken text |
 | [`daily/daily-2D-3D-blend.md`](daily/daily-2D-3D-blend.md) | Phaser literacy grammar |
-| `generative_agents/video/fly-over/COMMISSION_cinematic_pack.md` | Flyover pack · **C1–C3 done** · **C4–C8 = 9:16** · foundation `village_overhead_wide` |
+| `generative_agents/video/fly-over/COMMISSION_cinematic_pack.md` | Flyover pack · **C1–C8 COMPLETE** · foundation `village_overhead_wide` |
 | `generative_agents/video/build_gold_replay_props.py` | CapCut CSV → DailyGoldReplay props |
 | `generative_agents/video/build_clip_kit.py` | Stages CapCut kit |
 | `generative_agents/video/validate_clip_kit.py` | Kit gates |

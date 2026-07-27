@@ -124,8 +124,17 @@ def evaluate(data: dict, state: dict) -> dict:
     if data.get("backend_pid_alive") is False and active:
         fatals.append("backend_pid_missing")
 
+    # OOM journal noise is common from one-off probes; only fatal if host is
+    # critically low or the score runner itself looks dead.
     if data.get("oom_hints"):
-        fatals.append("oom_or_kill_hints_in_journal")
+        avail = data.get("host_avail_mb")
+        runner_ok = bool(data.get("backend_pid_alive")) and active is not False
+        if avail is not None and float(avail) < 200:
+            fatals.append("oom_or_kill_hints_in_journal")
+        elif not runner_ok:
+            fatals.append("oom_or_kill_hints_in_journal")
+        else:
+            warnings.append("oom_journal_noise_runner_ok")
 
     avail = data.get("host_avail_mb")
     if isinstance(avail, int) and avail < 200:
@@ -165,8 +174,15 @@ def evaluate(data: dict, state: dict) -> dict:
     # Headless integrity (P0 gate for this score run).
     # Ignore the current in-flight step: ACCEPTED lines stream in before
     # "Headless execution completed", so a partial count is not a failure.
-    if int(hl.get("strict_failures") or 0) > 0:
-        fatals.append(f"headless_strict_failures_{hl.get('strict_failures')}")
+    # After Day-1 elim, alive agents = 14 — set expected_accepted=14 in state.
+    # strict_failures is cumulative in the soak log; baseline ignores pre-resume aborts.
+    expected = int(state.get("expected_accepted") or 15)
+    strict_baseline = int(state.get("strict_failures_baseline") or 0)
+    strict_n = int(hl.get("strict_failures") or 0)
+    if strict_n > strict_baseline:
+        fatals.append(
+            f"headless_strict_failures_{strict_n}_above_baseline_{strict_baseline}"
+        )
     recent = hl.get("recent_accepted_by_step") or {}
     completed_n = int(hl.get("headless_completed") or 0)
     finished = {}
@@ -179,15 +195,15 @@ def evaluate(data: dict, state: dict) -> dict:
         # completions cover steps 0..completed_n-1 when starting at 0.
         if s < completed_n:
             finished[s] = int(v)
-    bad = {s: n for s, n in finished.items() if n < 15}
+    bad = {s: n for s, n in finished.items() if n < expected}
     if bad:
         min_acc = min(bad.values())
         fatals.append(
-            f"headless_accepted_lt_15_finished_steps_{len(bad)}_min_{min_acc}"
+            f"headless_accepted_lt_{expected}_finished_steps_{len(bad)}_min_{min_acc}"
         )
     elif finished:
         min_acc = min(finished.values())
-        if min_acc < 15:
+        if min_acc < expected:
             fatals.append(f"headless_accepted_min_{min_acc}")
 
     done = set(state.get("completed_checkpoints") or [])
