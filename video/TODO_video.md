@@ -1,6 +1,6 @@
 # North star — Anya CapCut Day 1 → auto-gen uplift
 
-**Updated:** 2026-07-25 (C1–C8 wired into gold replay)  
+**Updated:** 2026-07-27 (Phase 1 portrait HUD grammar)  
 **Authority:** Creative bar = Anya’s approved cut. Contracts stay in [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md). Older encyclopedia / Gate A–E notes below are **historical** unless a task below re-opens them.
 
 | | |
@@ -25,7 +25,7 @@
 
 ## ▶ Resume spine (read this first)
 
-**You are here (2026-07-25):** C1–C8 pack **generated and wired into gold replay**. Next = founder phone-watch of replay plates, then opener beds / optional FX.
+**You are here (2026-07-27):** **Legend HUD stacking + FX + SFX** landed on gold replay (full multi-panel STEP/want/immunity chrome, CapCut scan/shake + craft black-hit/zoom, stock SFX volume floors). Next = founder phone-watch full ~88s re-render vs Anya master.
 
 ### Done (do not re-open unless broken)
 
@@ -42,6 +42,8 @@
 | Flyover commission brief | ✅ Locked shot list + foundation plate rules (see path above) |
 | **C1–C8 pack on disk** | ✅ Landscape C1–C3 · portrait C4–C8 · working names under `video/fly-over/` |
 | **D5b gold-replay wire** | ✅ Alpine still `B604…` (~30.4s) + open-roof `Village.mp4` (~58.7s) → **C1** `c1.2.mp4`; Phaser `signature_flyover` kept; props rebuild + unit tests green |
+| **Phase 1 portrait HUD** | ✅ Lower-third kinetic type · wide badges `contain` · Survival stamp red-only · (later superseded by stacking pass) · night alpine → **C3** · end audio fade ~2.2s |
+| **Legend HUD stack + FX + SFX** | ✅ (2026-07-27 watch-pass retune) Full multi-panel STEP/alliances `hud_stack` · want HUDs · immunity gold strength · cyan bloom · CapCut FX track + craft black-hit/radial-zoom · stock SFX palette floors (24 hits, 5 families) · still smokes OK |
 
 ### Parked on founder (creative — not eng)
 
@@ -50,20 +52,22 @@
   - Landscape: `c1.2.mp4` · `C2.mp4` · `C3.png` (crop to 9:16 in edit)  
   - Portrait: `C4`–`C8` stills (+ videos where present)  
   - Keep `signature_flyover.mp4` for Phaser plant/door  
-- [ ] **Phone-watch gold replay** at ~31s and ~59s (new C1 plates) vs Anya master  
+- [ ] **Phone-watch gold replay** full ~88s (HUD stack + FX + SFX + C1/C3) vs Anya master — priority checks: ~0.5s badge+scan, ~11s stamp, ~22–29s want HUDs, ~36–46s **stacked** STEP panels, ~50s immunity bar, ~55s alliances, ~60s vote hit, ~84s C3 night, ~87s lockup + soft audio out  
 - [ ] Optional: taste-gate Qs in [`craft_notes.md`](daily/gold/20260713-1_day1_anya/craft_notes.md) when convenient  
-- [ ] Optional: sharpen C5/C7 · Hobbs-branded cafe · canonical renames on disk
+- [ ] Optional: sharpen C5/C7 · Hobbs-branded cafe · canonical renames on disk  
+- [x] **Roster seat-map legend (Soul15)** — deterministic plate regen 2026-07-27; `seat_map.json` + `cast_roster_framed.png` (Ivan=1.3); old plate archived; Grok API still max-3 images
 
 ### Next eng (order)
 
 1. ~~**Wire new plates into gold replay**~~ ✅ (2026-07-25) — see D5b  
-2. **Wire pack into opener beds** (`compose_trailer` still lists old flyover filenames)  
-3. **Full 88s gold-replay render** after watch OK (or sooner if you want a file to scrub)  
-4. **Optional CapCut-parity FX** (scanlines, glitch, light leaks) — only after plates look right  
-5. **Promote used legend / moment assets** (E5) + archive unused from required lists  
-6. **Picture-kit still path (D3)** — Imagine still-only + human READY for missing G-jobs  
-7. **Daily auto path** — lift gold-replay craft into night-over-night pipeline; taste gate before HUD/H_*  
-8. **E4 decision** — Remotion-as-product vs CapCut template reuse
+2. ~~**Phase 1 portrait HUD grammar**~~ ✅ (2026-07-27)  
+3. ~~**Legend HUD stacking + CapCut FX + SFX floors**~~ ✅ (2026-07-27) — watch-pass retune  
+4. **Full 88s gold-replay re-render** for phone-watch (`out/gold_replay_day1.mp4`)  
+5. **Wire pack into opener beds** (`compose_trailer` still lists old flyover filenames)  
+6. **Promote used legend / moment assets** (E5) + archive unused from required lists  
+7. **Picture-kit still path (D3)** — Imagine still-only + human READY for missing G-jobs  
+8. **Daily auto path** — lift gold-replay craft into night-over-night pipeline; taste gate before HUD/H_*  
+9. **E4 decision** — Remotion-as-product vs CapCut template reuse
 
 ### Commands (gold replay — eng repo `generative_agents-ivan-dev` / `ivan/dev`)
 
@@ -117,7 +121,7 @@ Compare against master `clip_kit/bins/video/0720(1).mp4`. Details: [`GOLD.md` §
 - [x] **D2 — Prompt family stubs** → `generative_agents/video/prompt_families_picture_kit.md`
 - [x] **D5 — Remotion gold replay Phase 1** → `DailyGoldReplay` + `build_gold_replay_props.py` (VO/music offsets, loopable bed, end cleanup). **Not** optional anymore — this is the active rebuild path.
 - [x] **D5b — Wire cinematic pack into gold replay** — alpine `B604…` + `Village.mp4` → C1; Phaser flyover kept; `WORLD_PLATE_REPLACEMENTS` + pack resolve in props builder
-- [ ] **D5c — Optional FX layer** after plates pass watch
+- [x] **D5c — CapCut-parity FX + SFX floors** — scan/shake from CapCut effect track + craft black-hit/radial-zoom; stock SFX volume floors via `sfx`/`sfx_raw`
 - [ ] **D5d — Opener beds** — point `compose_trailer` flyover list at C1–C8 (retire old cinematic heroes after watch)
 - [ ] **D3 — Still generation path** (Imagine still-only + human READY)
 - [ ] **D4 — Legend pHash → promote winners** (CapCut usage list exists; promote/archive still open)
