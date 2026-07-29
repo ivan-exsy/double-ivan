@@ -74,8 +74,14 @@
 - [x] **Roll for the Shield teach pack** — SOT §5.5 `commissioned` (title+icon steps, large type)  
 - [x] **Captain's Pick teach pack** — SOT §5.6 `commissioned` (true red/blue title; pressure status)  
 - [x] **Whisper Chain teach pack** — SOT §5.7 `commissioned` (3× vote status)  
-- [ ] **Call the Bluff teach pack** — SOT §5.8 + draft art (`call_the_bluff/`) — taste-gate next  
-- [ ] **Commission remaining challenge teach packs** (`leaders_burden`, …) per COMMISSION § Challenge visual bank  
+- [x] **Call the Bluff teach pack** — SOT §5.8 `commissioned`  
+- [x] **Leader's Burden teach pack** — SOT §5.9 `commissioned`  
+- [x] **Bid for the Vest teach pack** — SOT §5.10 `commissioned`  
+- [x] **Group Betrayal teach pack** — SOT §5.11 `commissioned` (crowd = half vote)  
+- [x] **Trial Night teach pack** — SOT §5.12 `commissioned`  
+- [x] **Vote Heist teach pack** — SOT §5.13 `commissioned` (hard steal ×2 / 0)  
+- [x] **Claim the Slot teach pack** — SOT §5.14 `commissioned` (full / half)  
+- [x] **Shared Survival Pool teach pack** — SOT §5.15 `commissioned` (hold ×2 / break half + greed +2) — **catalog teach bank complete**  
 - [ ] **Length A/B:** render short + long for N nights; lock long budgets after feedback  
 
 ### Next eng (order)
