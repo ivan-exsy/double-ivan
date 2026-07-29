@@ -52,7 +52,7 @@ Legacy alias: `day_survival` / `[C]` → `tonight_scar` during migration.
 
 | ID | Name | Runtime | Job | L-Talks pilot |
 |----|------|--------:|-----|---------------|
-| **D1** | Tonight’s Scar | **45–60s** target; **soft warn >90s**; **hard max 120s** | Daily episode: return tomorrow + one Door | **Primary** · Day-1 gold (Anya CapCut) **~88s** accepted |
+| **D1** | Tonight’s Scar | **`short` (default):** 45–60s target; soft warn >90s; **hard max 120s**. **`long` (experiment):** deeper featured character/drama; strawman warn >150s / hard **180s** until founder locks — explicit `length_mode=long` only | Daily episode: return tomorrow + one Door | **Primary** · Day-1 gold (Anya CapCut) **~88s** accepted |
 | **D2** | Share Spark | **12–20s** | Mute-safe Peak crop | Sibling of D1 |
 | **D3** | Personal Edge | **8–15s** | Hard-side “MY Double…” | After D1 CapCut proven (§7) |
 | **[A]** | Opener | ~60s | Product literacy + create | Unchanged |
@@ -148,8 +148,8 @@ Peak and Cost **may be different people**. Cold quiz must still yield **one clea
 | Kill | Do instead |
 |------|------------|
 | Nightly `concept_reset` / Survival primer | Day 1 Stake only |
-| Spoken stamp walls (job+place+want ×N) | Visual job/place cards + spoken want/behavior |
-| Separate challenge-teach scene | Bodies + ≤1 caption; consequence-first VO |
+| Spoken stamp **walls** (job+place+want ×N directory) | **One** spoken role+place clause per featured first-intro + day-projection want; habitat picture under it (§3.6) |
+| Challenge teach with invented rules art | Teach pack from `sot_challenges.md` §5.1–§5.2 + G3 bodies; kid-plain VO before title celebration |
 | Mid-body product UI | Never |
 | Dual CTA (watch + create) / create sermon | One Door; soft mirror usually omit |
 | Full-day chronological completeness | Moment pick; if score &lt;18 → shorter clip, not encyclopedia |
@@ -160,7 +160,10 @@ Peak and Cost **may be different people**. Cold quiz must still yield **one clea
 
 ### 3.6 Visual rules
 
-- Job + place on **cards / lower-thirds**, not spoken directory. Prefer real **village place plates** (§2.1) under Stake / habitat beats when the featured workplace exists on disk.  
+- **Featured role intro (VO):** first time a Double is featured (or Survival Day 1), spoken VO includes **one** kid-plain **job + place** clause (e.g. “Irene Dove is a barista at Hobbs Cafe”). Sit that line on **habitat** still/clip (G1/G2 / §2.1 plates). Day-projection **want** may follow in the same stamp window. Returnees → short recall (no full role re-read). Not a multi-sentence bio wall.  
+- Job/place **cards / lower-thirds** remain optional picture support — do not replace the spoken role clause on first feature.  
+- Prefer real **village place plates** (§2.1) under Stake / habitat beats when the featured workplace exists on disk.  
+- **Challenge teach:** resolve `today.challenge.id` → trailer teach pack in `double-docs/sot/sot_challenges.md` §5 (VO brief + visual library). Specimen: `hold_for_shield`.  
 - Cast: **1 protagonist + ≤2 satellites**.  
 - **2D↔3D literacy (L8) — required every D1 ship** (detail: `daily-2D-3D-blend.md`):  
   1. **Phaser plant** — ≥1 early beat (Stake / Survival literacy on Day 1; scar chip or follow on later nights) that shows the **live sim look** (top-down Phaser / schematic sprites). Silent — no new VO.  
@@ -584,6 +587,8 @@ sim (Supabase + transport)
 | `validate_clip_kit.py` | Kit completeness before Anya / Remotion |
 | `picture_kit_jobs.py` · `prompt_families_picture_kit.md` | G1–G8 job list + prompt families |
 | `generate_picture_stills.py` · `mark_picture_jobs.py` · `xai_imagine.py` | Still queue / optional Imagine / human READY (D3) |
+| `NIGHTLY_CRAFT_GAP.md` | Phase A gap freeze: gold vs day props + nightly checklist |
+| `assets/challenges/<challenge_id>/` | Challenge teach visual bank (see `sot_challenges.md` §5) |
 | `promote_legend_assets.py` | CapCut-used legend → stable names (E5) |
 | `cinematic_pack.py` | C1–C8 resolve · opener beds (+ Phaser `signature_flyover`) |
 | `compose_trailer.py` · `showrunner.py` | Opener stakes montage uses pack beds |
@@ -664,7 +669,8 @@ data/<sim_code>/trailer_ready_dayN/clip_kit/   # or package-dir override
 4. **No encyclopedia spine** — do not call `narration_v12` / stamp walls / concept-reset nightly.  
 5. **2D↔3D literacy** — every ship needs Phaser plant + Peak/Cost dive + Door Phaser tease (§3.6 / §12).  
 6. **Snapshot before overwrite** — never clobber a founder-approved MP4 without copying first (`out/gold_replay_day1_YYYYMMDD_*.mp4` or `scripts/snapshot_and_render_gold.ps1`).  
-7. **Runtime** — target 45–60s; soft warn >90s; hard max **120s**; Day-1 gold ~88s accepted.
+7. **Runtime** — default `length_mode=short`: target 45–60s; soft warn >90s; hard max **120s**; Day-1 gold ~88s accepted. Experimental `long`: strawman warn >150 / hard 180 until founder locks; never silently exceed short max on the short lane.  
+8. **Challenge teach pack** — VO + visuals from `sot_challenges.md` §5 when pack exists; missing → warn + soft fallback.
 
 ### 11.5 Gold Remotion replay (Day-1 north star)
 
@@ -787,10 +793,12 @@ Shared Part I checks (9:16, LUFS, visual-change rate, end card): `../sot-video.m
 8. **Picture kit automation (§10.1):** emit GENERATE jobs from picker + locked VO → stage `_refs/` → Imagine still (+ i2v for G3/G6) → gate → `clip_kit.json` + Anya zip. Prompt templates per G1–G8 family.  
    - **Started 2026-07-23:** `picture_kit_jobs.py` + prompt families.  
    - **Still path 2026-07-29:** `generate_picture_stills` (queue / optional xAI) + `mark_picture_jobs` human READY. i2v for G3/G6 still open. HUD families optional until taste lock.  
-9. **Gold replay → generic night (daily auto path):** promote §11.5 HUD grammar (alliances two-beat, seat-map grey-out, end VO full-bleed, 9:16 lockup pad, C1–C8 swaps) into `build_day_remotion_props` once 3–5 kits approved. **← active next**  
+9. **Gold replay → generic night (daily auto path):** promote §11.5 HUD grammar (alliances two-beat, seat-map grey-out, end VO full-bleed, 9:16 lockup pad, C1–C8 swaps) into `build_day_remotion_props` once 3–5 kits approved. Gap freeze: `generative_agents/video/NIGHTLY_CRAFT_GAP.md`. **← active next (Phase B+)**  
 10. **C3.mp4** — true night overhead motion plate (until then C3 beat uses C2.mp4).  
 11. **E4 product path (locked 2026-07-29):** **Remotion** is long-term production. CapCut is gold-breakdown reference only — new trailer types: Anya gold → forensics → Remotion re-assemble. No CapCut XML product path.  
-12. **Do not:** spoken stamp pipeline; `[B]`; encyclopedia Remotion as blocker; invent facts when ledger fields are missing; overwrite founder gold MP4 without snapshot.
+12. **Challenge teach packs:** commission remaining catalog IDs after `hold_for_shield` specimen (`sot_challenges.md` §5.2).  
+13. **Length experiment:** produce `short` + optional `long` for feedback; lock long budgets after N nights.  
+14. **Do not:** spoken stamp **walls**; `[B]`; encyclopedia Remotion as blocker; invent facts when ledger fields are missing; overwrite founder gold MP4 without snapshot.
 
 Day 1 V6 **G1–G8 READY** — CapCut gold exists; further nights reuse the same commission table.  
 **Day-1 Remotion gold replay READY** as production bar (§11.5) — `out/gold_replay_day1.mp4`. CapCut = new-type gold only (E4).
@@ -813,3 +821,4 @@ Day 1 V6 **G1–G8 READY** — CapCut gold exists; further nights reuse the same
 | 2026-07-28 | **§11.4–11.5 Auto-gen process documented** — end-to-end nightly CLI (picker → VO lock → clip_kit → CapCut/Remotion); module map; package layout; immutable rules. **Gold Remotion replay** (`build_gold_replay_props` → `DailyGoldReplay`) as Day-1 north star: world-plate C1–C8 swaps, HUD grammar (alliances two-beat, Ivan 3.3 grey-out, end VO full-bleed, 9:16 lockup pad), snapshot-before-overwrite. Seat-map stack C→B→A canonical. |
 | 2026-07-29 | **E4 Remotion product lock** · opener beds → C1–C8 (`cinematic_pack.py`) · E5 legend promote (32 used) · D3 still queue + human READY CLI. Next backlog: item 9 daily auto path. |
 | 2026-07-29 | **SOT body sync** — CapCut-first pilot language retired; §10.1 / §11.1 / §11.4 module+CLI map match shipped modules; CapCut = gold-breakdown reference only. |
+| 2026-07-29 | **#8 Phase A/A2** — featured role intro VO; `length_mode` short/long experiment; challenge teach packs → `sot_challenges.md` §5 + `hold_for_shield` specimen; `NIGHTLY_CRAFT_GAP.md`. |

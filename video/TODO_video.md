@@ -25,7 +25,7 @@
 
 ## ▶ Resume spine (read this first)
 
-**You are here (2026-07-29):** Gold replay end-fill cut shipped (`out/gold_replay_day1.mp4`). **E4 locked — Remotion = product path**; CapCut = gold-breakdown reference for new trailer types. Opener beds → C1–C8 · legend E5 promoted · D3 still queue + human READY CLI landed. **Next = #8 Daily auto path** (lift gold-replay craft into night-over-night).
+**You are here (2026-07-29):** **#8 Daily auto path — Phase B done** (shared `nightly_craft` library + tests; gold wired; day props length-mode stub). Gold end-fill cut shipped. E4 Remotion product path. **Next = Phase C** nightly props emit gold-grade layers.
 
 ### Done (do not re-open unless broken)
 
@@ -49,6 +49,8 @@
 | **E5 legend promote** | ✅ (2026-07-29) 32 used → `video/assets/legend_promoted/20260713-1/2/` · unused in `UNUSED.md` |
 | **D3 picture still path** | ✅ (2026-07-29) `generate_picture_stills` queue + optional xAI · `mark_picture_jobs` READY gate |
 | **E4 product path** | ✅ **Remotion** = production · CapCut = gold-breakdown reference only |
+| **#8 Phase A/A2** | ✅ Gap freeze `generative_agents/video/NIGHTLY_CRAFT_GAP.md` · role intro + length modes in daily SOT · `sot_challenges` §5.2 Hold-for-Shield specimen · `video/assets/challenges/hold_for_shield/` |
+| **#8 Phase B** | ✅ Shared `video/nightly_craft.py` · gold imports shared craft · day props `lengthMode` stub · `test_nightly_craft.py` |
 
 ### Parked on founder (creative — not eng)
 
@@ -60,7 +62,10 @@
 - [x] **Phone-watch gold replay** end-fill cut on disk — optional re-check 01:16–01:30; optional true night `C3.mp4` later  
 - [ ] Optional: taste-gate Qs in [`craft_notes.md`](daily/gold/20260713-1_day1_anya/craft_notes.md) when convenient  
 - [ ] Optional: sharpen C5/C7 · Hobbs-branded cafe · canonical renames on disk  
-- [x] **Roster seat-map legend (Soul15)** — deterministic plate regen 2026-07-27; `seat_map.json` + `cast_roster_framed.png`; Grok API still max-3 images
+- [x] **Roster seat-map legend (Soul15)** — deterministic plate regen 2026-07-27; `seat_map.json` + `cast_roster_framed.png`; Grok API still max-3 images  
+- [x] **Hold for the Shield teach pack specimen** — VO brief + visuals in `double-docs/sot/sot_challenges.md` §5.2  
+- [ ] **Commission remaining challenge teach packs** (`silent_pact`, `alliance_lock_in`, …) per COMMISSION § Challenge visual bank  
+- [ ] **Length A/B:** render short + long for N nights; lock long budgets after feedback  
 
 ### Next eng (order)
 
@@ -71,7 +76,7 @@
 5. ~~**Wire pack into opener beds**~~ ✅ (2026-07-29)  
 6. ~~**Promote used legend assets (E5)**~~ ✅ (2026-07-29)  
 7. ~~**Picture-kit still path (D3)**~~ ✅ (2026-07-29)  
-8. **Daily auto path** — lift gold-replay craft into night-over-night pipeline; taste gate before HUD/H_*  
+8. **Daily auto path** — Phase A/A2 ✅ · Phase B ✅ · **next Phase C:** nightly gold-grade props emit; taste gate before HUD/H_*  
 9. ~~**E4 decision**~~ ✅ Remotion product path · CapCut gold-breakdown reference
 
 ### Commands (gold replay — eng repo `generative_agents-ivan-dev` / `ivan/dev`)

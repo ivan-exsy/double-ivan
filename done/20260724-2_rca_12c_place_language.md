@@ -1,4 +1,4 @@
-﻿# RCA — §12C place language (Vince Vale / `20260724-2`)
+# RCA — §12C place language (Vince Vale / `20260724-2`)
 
 **Date:** 2026-07-28  
 **Sim:** `20260724-2`  
@@ -104,7 +104,7 @@ Stops player-facing “Hobbs while feet go to Park” lies.
 1. Post-validate: do **not** whitelist-cascade when travel text names the address sector (`_named_destination_protects_address`).  
 2. Treat `"walking to "` as travel (`_label_starts_with_travel`).  
 3. Detach inherit when travel names a place outside the parent (`TRAVEL DEST DETACH`).  
-4. Reject ACTION CONTRACT when sealed address ≠ named travel destination (forces fresh resolve).  
+4. Reject ACTION CONTRACT when sealed address != named travel destination (forces fresh resolve).  
 5. Tests: `tests/test_named_destination_travel.py`.
 
 **Do not** “fix” by warping the body to match lying text.
@@ -201,76 +201,87 @@ Soak shows **study deterministic guard** remapping coffee/review language toward
 
 ### Did P0 / P1 address the root cause? (verification)
 
-There are **two root causes**, not one symptom:
+There are **two planner roots**, plus one **display-contract breach**:
 
-| # | Root cause | What it means |
-|---|------------|----------------|
-| **RC1** | **Inconsistent action contract is allowed to seal** | Planner may store `(act_description, act_address, mode)` where the words claim place A (or an in-place verb at A) while the sealed address / travel target is B. Downstream layers then argue about which lie to show. |
-| **RC2** | **`activity_type` is treated as destination authority** | Whitelist / deterministic-guard cascade may **rewrite the address** to satisfy activity type (exercise→Park, study→classroom) **without requiring the act text to agree**. Named-travel was only the loudest subclass. |
+| # | Root | Meaning |
+|---|------|---------|
+| **RC1** | Inconsistent seal | Planner may store act text that claims place/activity A while `act_address` / travel state is B (or in-place verb while still travelling). |
+| **RC2** | `activity_type` cascade as destination authority | Hard whitelist / guard remap can rewrite address to satisfy activity type (exercise→Park, study→classroom) even when act text already claims another place. |
+| **RC3** | Display path ignores emit contract | Gateway prefers raw `action_progress.action_description` over emit-cleaned `description`/`intent`, so §5.4 honesty never reaches the player. |
 
-**Secondary amplifiers (not root):** emit copy scrubbing; API/FE preferring raw planner act over emit-cleaned copy; LLM tagging "walking" as exercise / stretch as `zone_patrol`.
+| Fix | Hits root? | Verified effect on `20260728-2` | SOT fit |
+|-----|------------|----------------------------------|---------|
+| **P1** named-dest protect + travel detach + contract reject | **Partial RC1/RC2** | Classic named "walking to Hobbs/Oak Hill" @ Park **gone**; `POST-VALIDATE keep named dest` fires | Aligned with spirit of `sot_action-location.md` §3.3 (text that names place should not be cascade-stolen), but **not yet written into SOT** — still a narrow special case (travel-like + names sector only). Soft A (non-travel stretch) correctly out of scope. |
+| **P0** emit rewrite while travelling | **RC3 layer only** | Unit tests prove rewrite; live score still showed raw "order…" | Matches `sot_action-location.md` §5.4 composition rule — but only if all §5.2 surfaces carry it. |
+| **API normalize preferring raw act** | **Causes RC3** | Soft B visible on step API | **Violates** `sot_action-location.md` §5.2 (nested `action_progress.action_description` is a required *sanitized* emit surface) and §5.4 / `sot_be-fe.md` §2.4 (`description`/`intent` = presence/intent copy). |
 
-| Fix | Hits root? | What it actually did | Verdict |
-|-----|------------|----------------------|---------|
-| **P1** named-dest protect + travel detach + contract reject | **Partial RC1/RC2** | For the subclass *travel text that names a sector*, cascade may no longer steal the address. Proven on `20260728-2`: classic Hobbs@Park gone. | **Root-cause for that subclass only** — still a special-case exception to cascade, not a general "place claims in text own the address" rule. Soft A (stretch / main room → Park) is the same RC2 with a non-travel label, so it slipped through. |
-| **P0** emit rewrite while travelling | **No (symptom)** | Rewrites player-facing copy when travelling so status does not say order/Hobbs while planned dest differs. Does **not** stop the planner from sealing a premature in-place verb or a wrong address. | **Band-aid / presentation layer.** Necessary as defense-in-depth, insufficient alone. On `20260728-2` soft B still visible because API prefers raw `action_progress.action_description` over emit `description`. |
-| **API normalize preferring raw act** | **Amplifier** | Undoes P0 for anything that reads step/movement via gateway validation. | Must align with emit, but fixing only this without RC1 still leaves planner lies in scratch/logs. |
+**Conclusion:** P0+P1 fixed the original ship-blocker *subclass*. They did **not** close RC2 for non-travel place claims, and RC3 currently undoes P0 for gateway consumers.
 
-**Conclusion:** P0+P1 **did** fix the original ship-blocker *instance* (named walking-to-Hobbs remapped by exercise). They **did not** fully fix RC1/RC2. Soft A/B on the re-score are expected leftovers of the same roots, not unrelated new bugs.
+### SOT cross-check — accuracy & unintended consequences
 
-### Recommended fix — root-cause, general (P2)
+Normative refs: `sot_action-location.md`, `sot_be-fe.md` §2.4/§2.7, `sot_realism.md` (honest place language + crutches), `sot_sim.md` (whitelist retirement / hard-gate scarcity).
 
-Do **not** add one-off lists ("stretch", "main room", "Hobbs") as the strategy. Encode one invariant and enforce it at seal time; keep emit/API as mirrors.
+| Earlier P2 idea | Accurate vs SOT? | Expected effect | Unintended consequence risk |
+|-----------------|------------------|-----------------|------------------------------|
+| Broad new "place-claim owns destination" hard policy | **Directionally right**, but easy to over-build | Would stop stretch→Park / coffee→classroom cousins | Can fight **orphan-anchor redirect**, **§3.6 must-emit-an-address**, and **staff_only/privacy** if not explicitly subordinated to permanent world-law guards (`sot_action-location.md` §3.3). Also fights `sot_sim.md` P4 ("hard gates rare") if implemented as another growing gate list. |
+| Hard **arrival gate** (never seal in-place until feet arrive) | **Over-strong vs current SOT** | Would clear soft B at planner | New deterministic **crutch** (`sot_realism.md` crutches registry — currently empty). Can fight intentional `zone_patrol` / dwell stages and add patterned schedule rewrites. SOT already assigns honesty for travel to **emit §5.4**, not a new seal veto. |
+| Prefer emit `description`/`intent` on API | **Required by existing SOT** | Soft B disappears for FE/score if P0 emit ran | Low risk if scoped to player-facing fields only; keep raw act in scratch/forensics. |
+| Add stretch / "main room" keyword protects | **Band-aid** | Fixes one sim line | Exactly the patchwork that gets noisier with smarter models (`sot_action-location.md` §3.4 retire crutches; `sot_sim.md` retire hard whitelist intelligence). |
+| Expand / harden `activity_whitelist` cascades | **Anti-SOT** | More remap "fixes" | Contradicts `sot_sim.md` §5 retirement candidate and §3.5 "soft scoring must not be the long-term semantic SOT". |
 
-#### Invariant (the product rule)
+### Recommended fix — SOT-aligned, root-cause, low new noise
 
-> **At assign / contract seal, words and destination must agree.**  
-> If the act text claims a place (named sector, living area, or "at/in \<place\>"), `act_address` must be that place (or a travel target toward it with travel language).  
-> If the body is not yet there, the sealed act must be **travel language** to that place — never an in-place verb at a place the feet have not reached.  
-> `activity_type` may choose *among addresses that already satisfy the place claim*; it must not invent a conflicting destination.
+Do **not** add one-off verb/place lists. Prefer **narrowing existing drift heuristics** and **honoring contracts already shipped**.
 
-That single rule covers: Hobbs@Park, stretch@Park, order-while-travelling, coffee@OakHill-from-study-guard, and most future "status ≠ feet" cousins.
+#### P2-SOT-1 — Close RC3 first (contract compliance, not a new idea)
 
-#### P2a — Planner: place-claim owns destination (fixes RC2 generally)
+`sot_action-location.md` §5.2 already requires sanitization on:
+- movement `description` / `intent`
+- nested `partial_state.action_progress.action_description`
 
-When post-validate / deterministic guard would remap address:
+**Change:** gateway `normalize_action_contract` / step validation must not replace emit-cleaned player fields with raw planner act. Prefer top-level emit `description`/`intent` when present; keep nested progress consistent with §5.4 travel rewrite when `travel_to_zone`.
 
-1. Extract **place claims** from act text (named sectors *and* structural claims: living area / "main room" / "at the counter" with cafe context / "in bed", etc. — from spatial vocab, not a one-off keyword dump).
-2. If a place claim exists, **cascade/guard may only pick addresses under that claim**. If none are whitelist-legal, **fail closed to a travel resolve of the named place** or keep prior legal address — never jump to an unrelated arena (Park, classroom) that contradicts the claim.
-3. Keep today's named-travel protect as the special case of (2), not the whole policy.
+**Expected effect:** Soft B (order-while-travel) clears for players/score *if* P0 emit ran — without new planner gates.  
+**Does not regress:** pathfinding (`sot_be-fe.md`: description is display-only), staff Layer B, finalize_emit_target tile budget.
 
-This replaces "add another protect for home stretch" with "activity_type cannot veto place claims."
+#### P2-SOT-2 — Extend existing §3.3 exemption (RC2), do not invent a parallel protect system
 
-#### P2b — Planner: arrival gate for in-place verbs (fixes RC1 generally)
+Today §3.3: if act **names the resolved object**, whitelist/`bed_non_sleep` must **not cascade away**.  
+P1 added: if act is **travel naming the sector**, do not cascade away.  
+**Gap (soft A):** act claims home/"main room" (or other place) but is **not** travel-like → exercise whitelist still remaps to Park.
 
-Before sealing an in-place activity (order/eat/sip/stretch/review-at-desk/…):
+**Change:** generalize the *same exemption family*: when act text claims a **sector/arena/home place** that conflicts with the *candidate remap target*, drift heuristics (`activity_whitelist`, `bed_non_sleep`) must not jump to an unrelated sector. Remap only within the claimed place, or re-resolve under that claim, or keep prior legal address — **never** invent Park/classroom that contradicts the claim.
 
-1. If current tile is not in the resolved target zone → seal a **travel** sub-action to that address (or rewrite act to travel language + keep address), **not** the in-place verb.
-2. Only after arrival (or same-zone) may the in-place verb become the sealed `act_description`.
+**Hard subordinates (unchanged):** `staff_only`, `affordance_required`, privacy — still unconditional (`sot_action-location.md` §3.3).  
+**Fallback (`§3.6`):** still must emit some valid address; prefer claim-consistent resolve over cross-town cascade.
 
-Travel-feasibility duration extension without rewriting the verb is how soft B keeps happening; the gate removes that class.
+**Expected effect:** Soft A class (stretch→Park, similar exercise/home lies) clears without per-verb patches.  
+**Risk to watch:** over-broad token matching could block legitimate orphan-anchor redirects when description and anchor disagree (`sot_action-location.md` §7.2 — remediates in decomp, not by inventing cross-building cascades). Keep exemption tied to **conflict between claim and remap target**, not "never cascade."
 
-#### P2c — One player-facing description channel (fixes amplifier; supports P0)
+**SOT debt:** document P1 named-dest protect + this generalization into `sot_action-location.md` §3.3 (currently missing from SOT).
 
-- Scratch/planner may keep raw act for internals.
-- Movement SOT + API player fields (`description`, `intent`) must use the **emit-cleaned** travel-safe copy.
-- `normalize_action_contract` must **not** prefer `action_progress.action_description` over top-level emit `description`/`intent` for those fields.
+#### P2-SOT-3 — Planner hygiene only if P2-SOT-1 is insufficient (optional, narrow)
 
-Without P2c, P0 remains a unit-test theater for gateway consumers.
+If after P2-SOT-1, sealed scratch still shows in-place verbs during `travel_to_zone` and forensics care:
 
-#### Explicitly reject as strategy
+When **travel feasibility extends** duration because target is unreachable this block, rewrite sealed `act_description` to travel language toward `act_address` (align seal with §5.4), instead of keeping "ordering…".
 
-- Warping the body to match lying text.
-- Ever-growing verb/place allowlists as the primary fix (stretch here, coffee next).
-- Emit-only patches without seal-time invariant (P0 alone).
+**Do not** start with a global arrival-veto gate. That is a new crutch; if ever needed, register it in `sot_realism.md` crutches registry with a retirement path.
+
+#### Explicitly reject
+
+- Warping the body to match lying text (`sot_action-location.md` §5.4 must-not-ship).
+- Expanding hard `activity_whitelist` intelligence (`sot_sim.md` retirement direction).
+- Emit-only keyword lists ("add stretch") as the primary strategy.
+- Broad arrival gates that fight dwell / `zone_patrol` without evidence that §5.2–§5.4 compliance failed.
 
 #### Re-score gate
 
-Same Vince Survival Day 1 morning window: zero assigns where place claim in act ≠ address sector; zero in-place verbs while `movement_mode=travel_to_zone` / path clearly in transit; API `description` matches emit travel-safe copy.
+Vince Survival Day 1 morning: no assign where act place-claim sector ≠ address sector after drift; no player-facing in-place verb on step API while clearly `travel_to_zone` with long path; API `description` matches §5.4 travel-safe copy.
 
 ### Ship call (updated)
 
-- Classic §12C Hobbs@Park: **PASS** on `20260728-2` (P1 subclass win).
-- Full honesty bar (status = feet): **still yellow** — RC1/RC2 not fully closed.
-- Natural-movement ship: **HOLD** until P2a+P2b (and P2c so players see it).
+- Classic §12C Hobbs@Park: **PASS** on `20260728-2` (P1 subclass).
+- Full honesty bar: **yellow** until **P2-SOT-1** (RC3) + **P2-SOT-2** (RC2 generalization of §3.3).
+- Natural-movement ship: **HOLD**; prefer contract compliance + narrowing cascade noise over new patch layers.
 
