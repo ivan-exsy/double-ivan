@@ -25,6 +25,8 @@
 10. [CapCut / Remotion bins](#10-capcut--remotion-bins)  
    - [10.1 Picture kit commission (G1–G8)](#101-picture-kit-commission-g1g8)  
 11. [Eng pipeline & schema](#11-eng-pipeline--schema)  
+   - [11.4 Auto-gen daily trailer (end-to-end)](#114-auto-gen-daily-trailer-end-to-end)  
+   - [11.5 Gold Remotion replay (Day-1 north star)](#115-gold-remotion-replay-day-1-north-star)  
 12. [Validators](#12-validators)  
 13. [Guardrails](#13-guardrails)  
 14. [DEV backlog](#14-dev-backlog)  
@@ -122,7 +124,7 @@ Peak and Cost **may be different people**. Cold quiz must still yield **one clea
 7. Export Spark; write scar.json for Day N+1 (§4)
 ```
 
-**Default this pilot:** CapCut fits **picture to VO**. Do not generate against legacy `narration_v12` encyclopedia prompts.
+**Product path (E4):** **Remotion** ships nightly production. CapCut is the **gold-create** tool when a new trailer type needs a higher bar (Anya cut → forensics → Remotion re-assemble). Picture always fits **locked VO**. Do not generate against legacy `narration_v12` encyclopedia prompts.
 
 ### 3.4 Sacred VO beats (every night)
 
@@ -453,7 +455,7 @@ Reminder tax ≤ ~3.5s; protect ≥8s Pressure for bodies.
 **Worked example (ship):** Survival Day 1 · sim `20260713-1` · package `generative_agents/data/20260713-1/trailer_ready_day2/` · Anya sheet `CAPCUT_EDIT_SHEET.md` · bins `clip_kit/bins/`.  
 **Ops detail / automation notes also mirrored:** `../opening/TODOs-opening-trailer.md` § Automate CapCut picture gen.
 
-CapCut **fits picture to locked VO**. Commission stills / micro-clips into bins A–E — do not wait on Remotion.
+Picture always fits **locked VO**. Commission stills / micro-clips into bins A–E for CapCut gold cuts **and** Remotion staging — Remotion does not wait on CapCut XML.
 
 #### Commission table (normative beat → asset)
 
@@ -493,14 +495,16 @@ Auth: `XAI_API_KEY`. Stills-only beats (typical G1/G2/G4/G5/G7/G8) stop after st
 
 ```
 locked VO + picker/ledger
-  → emit CAPCUT_EDIT_SHEET + JSON job list (G1…G8)
+  → python -m video.picture_kit_jobs <package> --write
   → stage clip_kit/_refs/ (faces + interiors)
-  → for each job: prompt template → still (+ optional i2v)
-  → human eyeball / gate → mark READY on sheet + clip_kit.json
-  → zip: sheet + vo_locked + narration mp3 + bins/
+  → python -m video.generate_picture_stills <package>           # dry-run queue
+  → python -m video.generate_picture_stills <package> --generate  # optional xAI
+  → human eyeball → python -m video.mark_picture_jobs <package> --ready G1,G2
+  → zip / stage bins for CapCut gold cut OR Remotion props
 ```
 
-**Do not automate yet:** CapCut timeline XML; inventing facts when ledger fields are missing (fail instead); Remotion replacement for Anya’s cut.
+**Do not automate:** CapCut timeline XML as a product path; inventing facts when ledger fields are missing (fail instead).  
+**Do automate (landed):** still queue + human READY (§14 item 8). i2v for G3/G6 still open. Remotion re-assembly of a locked gold cut is the product path (§11.5 / E4) — not “optional later.”
 
 **Quality rejects:** marketing job/place on habitat · face drift · wrong interior · G3 winner crown / G5 celebration · identical gestures on multi-body clips · i2v without freezing the approved still.
 
@@ -514,9 +518,10 @@ locked VO + picker/ledger
 |-------|-----------------|
 | **0 Doctrine** | This SOT + V6 gold locked |
 | **1 Manual Clip Kit** | **Proved Day 1 V6** — G1–G8 picture kit + CapCut sheet (`trailer_ready_day2/`). Next nights: repeat §10.1 from picker + locked VO |
-| **1b Picture gen automation** | Codify §10.1 (`build_capcut_picture_kit` / Imagine still + optional i2v) — see §14 |
-| **2 Remotion** | After 3–5 approved kits: picker props → bins A–E → auto Spark |
-| **3 Doors + Edge** | Wire deep links; generate D3 per coverage SLA |
+| **1b Picture gen automation** | **Still path shipped** — `picture_kit_jobs` → `generate_picture_stills` → `mark_picture_jobs` READY. i2v for G3/G6 still open (§14 item 8) |
+| **1c Gold Remotion replay** | **Shipped for Day-1 gold** — CapCut CSVs → `build_gold_replay_props` → `DailyGoldReplay` (§11.5). Creative north star; not yet the generic night-N path |
+| **2 Remotion (generic night)** | **Active next** — lift §11.5 craft into `build_day_remotion_props` (§14 item 9 daily auto path) |
+| **3 Doors + Edge** | Wire deep links; generate Personal Edge per coverage SLA |
 
 **Do not** port `narration_v12` / concept→stamps→teach into Remotion.  
 **Do not** implement `[B]`.  
@@ -545,7 +550,194 @@ locked VO + picker/ledger
 | L13 scars | Scar chip + `scar.json` |
 | Encyclopedia Remotion polish | Do not block on stamp plates |
 
-Fold into main `sot-video.md` when Remotion + CapCut templates are proven.
+Fold into main `sot-video.md` when Remotion nightly (Phase 2) is proven. CapCut stays gold-breakdown reference only (E4) — not a second product template path.
+
+### 11.4 Auto-gen daily trailer (end-to-end)
+
+**Repos:** `generative_agents` (code + assets + Remotion).  
+**Doctrine / gold forensics:** this file + `double-ivan/video/daily/gold/`.  
+**Product job:** D1 Tonight’s Scar (§3) — picture fits **locked VO**, not the reverse.
+
+```
+sim (Supabase + transport)
+  → extract_day_log / fact ledger / day_reasoning     (facts only)
+  → tonight_scar picker (human or draft)             (§8.3 peak_id + cost_id)
+  → draft_tonight_scar_vo  OR  locked VO text        (§9 · VO_LOCKED.md)
+  → meaning-lock → VO_LOCKED.md section
+  → build_clip_kit  (bins A–E + sheet + scar draft)  (§10 · Phase 1)
+  → [optional] picture_kit stills + human READY             (§10.1)
+  → Remotion production cut  (± CapCut gold for new types) (§11.5 / E4)
+  → TTS @ ~1.2× · mix · end card
+  → validate_trailer / validate_clip_kit
+  → export D2 Spark · write scar.json · coverage board
+```
+
+#### Module map (`generative_agents/video/`)
+
+| Module | Role |
+|--------|------|
+| `tonight_scar_schema.py` · `tonight_scar_picker.py` | Picker JSON validate / load / save · Peak/Cost resolve |
+| `tonight_scar_script.py` | Bin-shaped `script.json` from picker + VO |
+| `draft_tonight_scar_vo.py` | LLM or template VO draft (`tonight_scar_v1` cache family) |
+| `day_scar.py` | `scar.json` build / prior-scar gate |
+| `build_clip_kit.py` | CapCut-ready package: bins A–E, VO hash, draft scar, manifest |
+| `validate_clip_kit.py` | Kit completeness before Anya / Remotion |
+| `picture_kit_jobs.py` · `prompt_families_picture_kit.md` | G1–G8 job list + prompt families |
+| `generate_picture_stills.py` · `mark_picture_jobs.py` · `xai_imagine.py` | Still queue / optional Imagine / human READY (D3) |
+| `promote_legend_assets.py` | CapCut-used legend → stable names (E5) |
+| `cinematic_pack.py` | C1–C8 resolve · opener beds (+ Phaser `signature_flyover`) |
+| `compose_trailer.py` · `showrunner.py` | Opener stakes montage uses pack beds |
+| `build_gold_replay_props.py` | **Day-1 gold:** CapCut CSVs → Remotion props + staged media |
+| `build_day_remotion_props.py` · `render_day_remotion.py` | Generic night Remotion path (Phase 2 — active next) |
+| `lock_day_script.py` | Lock gate: picker + scar + F1 history |
+| Remotion `DailyGoldReplay` | Composition for gold replay MP4 |
+| `audio/sfx/` · `audio/music_intrigue_loopable.mp3` | Stock SFX stand-ins + loopable bed |
+| `fly-over/` C1–C8 | Cinematic village pack (world-plate swaps + opener) |
+| `assets/legend_promoted/<sim>/<day>/` | Stable promoted legend winners (+ `UNUSED.md`) |
+| `assets/cohort/<slug>/` | Group photo, matrix, seat_map, portraits |
+
+#### Nightly CLI skeleton (new Survival day)
+
+Engine day index: **Survival Day 1 = engine `--day 2`**. Paths assume repo root = `generative_agents`.
+
+```bash
+# 0) Facts (if not already extracted for this sim/day)
+python -m video.extract_day_log <sim_code> --day <engine_day>
+
+# 1) Picker — human lock Peak/Cost ≥18 (§8); or load prior draft
+#    Write: data/<sim>/…/tonight_scar_picker.json
+
+# 2) VO draft (template-only until LLM quality proven)
+python -m video.draft_tonight_scar_vo <sim_code> --day <engine_day> \
+  --picker data/<sim>/…/tonight_scar_picker.json \
+  [--template-only]
+
+# 3) Meaning-lock — paste approved text into double-ivan/video/daily/VO_LOCKED.md
+#    Day 1 V6 is frozen; later nights add a new section. Do not silently rewrite.
+
+# 4) Clip kit for CapCut (Phase 1)
+python -m video.build_clip_kit <sim_code> --day <engine_day> \
+  --picker <path/to/tonight_scar_picker.json> \
+  --vo <path/to/vo_locked.txt>
+
+# 5) Optional picture jobs (G1–G8) then human READY
+#    python -m video.picture_kit_jobs <package> --write
+#    python -m video.generate_picture_stills <package>
+#    python -m video.mark_picture_jobs <package> --ready G1,G2,…
+
+# 6a) Remotion production — Day-1 gold replay §11.5; generic night = Phase 2
+# 6b) CapCut — only when creating a new gold standard (Anya); then forensics → Remotion
+
+# 7) Validate + lock
+python -m video.validate_clip_kit <package_dir>
+# lock_day_script / scar writer per ops checklist §9.4
+```
+
+#### Package layout (CapCut kit)
+
+```
+data/<sim_code>/trailer_ready_dayN/clip_kit/   # or package-dir override
+  vo_locked.txt · narration*.mp3
+  tonight_scar_picker.json · script.json · scar.json (draft→lock)
+  CAPCUT_EDIT_SHEET.md · clip_kit.json / manifest
+  picture_kit_jobs.json · picture_stills_queue/   # D3 still path
+  bins/
+    A_hook/  B_stake/  C_pressure/  D_peak/  E_cliff_door/
+    F_phaser/          # 2D literacy plant / door tease
+    video/             # master/proxy exports when present
+    capcut_proj/       # CapCut draft (gold only)
+    F_Anya-legend/     # raw legend dump (gold source; retain)
+# Stable promoted winners (E5) live outside the kit:
+#   generative_agents/video/assets/legend_promoted/<sim>/<day>/
+```
+
+**Gold package (Day 1 V6):**  
+`generative_agents/data/20260713-1/trailer_ready_day2/clip_kit/`  
+**Forensics (no large binaries):**  
+`double-ivan/video/daily/gold/20260713-1_day1_anya/` — see `GOLD.md` · `CANONICAL_PATHS.md` · `capcut/`.
+
+#### Immutable auto-gen rules
+
+1. **Fact-lock** — ledger / picker only; fail if Peak, Cost, challenge, or elim identity missing.  
+2. **VO-lock** — picture and Remotion timing fit locked text; never invent VO in props builders.  
+3. **Prior scar gate** — CapCut / kit for Day N blocked without Day N−1 `scar.json` (§4).  
+4. **No encyclopedia spine** — do not call `narration_v12` / stamp walls / concept-reset nightly.  
+5. **2D↔3D literacy** — every ship needs Phaser plant + Peak/Cost dive + Door Phaser tease (§3.6 / §12).  
+6. **Snapshot before overwrite** — never clobber a founder-approved MP4 without copying first (`out/gold_replay_day1_YYYYMMDD_*.mp4` or `scripts/snapshot_and_render_gold.ps1`).  
+7. **Runtime** — target 45–60s; soft warn >90s; hard max **120s**; Day-1 gold ~88s accepted.
+
+### 11.5 Gold Remotion replay (Day-1 north star)
+
+Rebuilds the **Anya CapCut Day-1 gold** timeline in Remotion so eng can iterate HUD/craft without reopening CapCut. This is the **proven production re-assembly path for the locked V6 cut** (E4) — not yet the generic “any night” generator (Phase 2 / §14 item 9). CapCut kits remain the gold-create input when a new type needs a human cut first.
+
+#### One-command rebuild
+
+```bash
+cd generative_agents   # ivan/dev or feature branch
+
+# Always snapshot prior best before overwrite
+# scripts/snapshot_and_render_gold.ps1   # or manual copy of out/gold_replay_day1.mp4
+
+python -m video.build_gold_replay_props
+# optional: --gold-dir <double-ivan gold package> --clip-kit <clip_kit path> --dry-run
+
+cd video/remotion
+npx remotion render DailyGoldReplay out/gold_replay_day1.mp4 \
+  --props=props/gold_replay_day1.json
+
+# Smoke stills (examples)
+npx remotion still DailyGoldReplay out/gold_replay_smoke.png \
+  --props=props/gold_replay_day1.json --frame=90
+```
+
+| Artifact | Path |
+|----------|------|
+| Props builder | `video/build_gold_replay_props.py` |
+| Unit tests | `video/test_build_gold_replay_props.py` |
+| Props JSON | `video/remotion/props/gold_replay_day1.json` |
+| Staged media | `video/remotion/public/gold_replay/` |
+| Composition | `DailyGoldReplay` (`video/remotion/src/DailyGoldReplay.tsx`) |
+| Output | `video/remotion/out/gold_replay_day1.mp4` |
+| CapCut machine extracts | `double-ivan/…/gold/20260713-1_day1_anya/capcut/*.csv` |
+| Snapshot helper | `generative_agents/scripts/snapshot_and_render_gold.ps1` |
+
+#### What the props builder does
+
+1. **Ingest** CapCut media / text / audio CSVs (+ summary duration).  
+2. **Stage** resolved files into `public/gold_replay/` (clip_kit + legend + SFX stand-ins).  
+3. **World-plate swaps** (`WORLD_PLATE_REPLACEMENTS`) — wrong geography → C1–C8 pack under `video/fly-over/`:  
+   - Alpine / open-roof plates → **C1** `c1.2.mp4` (day overhead, animated)  
+   - Night overhead beat → **C3** prefers **C2.mp4** (animated dusk) until a true `C3.mp4` exists; static `C3.png` is fallback only  
+   - Phaser `signature_flyover` **never** swapped (plant / door literacy)  
+4. **Phase-1 HUD grammar** (`apply_phase1_hud_grammar`) — founder craft locked against gold:  
+   - Poster hold + matrix · `DOUBLAND.AI` label · LIVE top + N ACTIVE bottom  
+   - Survival stamp (pre-cropped red) · progressive STEP bands · want HUDs  
+   - Alliances **two-beat**: (A) `panel_under_title` Conversations→Alliances + Talk; (B) consecutive step only — **Alliances→Votes** plate (not full triple cascade)  
+   - Fifteen→fourteen: grey-wash **Ivan seat 3.3** (soul15 seat_map; not CapCut seat 1.1)  
+   - End VO stretch: full-bleed `cover` heroes under CC (not empty letterbox)  
+   - End lockup: square CapCut card padded to **9:16 black** (`end_lockup_9x16.png`) + cover — no matte seams  
+5. **SFX / FX** — CapCut stock names → local `video/audio/sfx/` stand-ins; craft FX list (scan / shake / hit).  
+6. **Music** — loopable intrigue bed + CapCut volume envelope.  
+7. **End punch** — swoosh + lockup; VO finishes brand line then short empty pad; soft music fade under hold.
+
+#### Group-photo seat standard (visual integrity)
+
+Canonical stack for soul15 (and any regen): **top = C back · mid = B · bottom = A front**.  
+**Ivan = seat 3.3** (front center) · **Nick = 1.3** (back center).  
+SOT file: `video/assets/cohort/soul15_seed_20260224/seat_map.json`.  
+Builder: `video/assets/scripts-prompts/build_soul15_cast_plate.py` (`STACK_ORDER = ("c","b","a")`).  
+Never flip A to the top on regen — that caused Ivan-row drift across plates.
+
+#### Gold vs generic night
+
+| | Gold replay (§11.5) | Generic night (Phase 2) |
+|--|---------------------|-------------------------|
+| Input | Frozen CapCut CSVs + V6 VO | Picker + locked VO + clip_kit bins |
+| Picture | Replays Anya timeline + eng polish | Bins A–E + G1–G8 + §11.5 craft lift |
+| When to use | Day-1 bar, craft regression, founder phone-watch | Nightly Remotion ship (product path) |
+| Do not | Rewrite V6 VO; skip snapshot | CapCut XML as product; skip scar gate |
+
+Hub detail: [`gold/20260713-1_day1_anya/GOLD.md`](gold/20260713-1_day1_anya/GOLD.md).
 
 ---
 
@@ -593,10 +785,15 @@ Shared Part I checks (9:16, LUFS, visual-change rate, end card): `../sot-video.m
 6. `scar.json` writer on lock + CapCut gate.  
 7. Coverage board + D3 queue after Day-2 CapCut proven.  
 8. **Picture kit automation (§10.1):** emit GENERATE jobs from picker + locked VO → stage `_refs/` → Imagine still (+ i2v for G3/G6) → gate → `clip_kit.json` + Anya zip. Prompt templates per G1–G8 family.  
-   - **Started 2026-07-23:** `video/picture_kit_jobs.py` + `prompt_families_picture_kit.md`; Day-1 gold forensics under `double-ivan/video/daily/gold/20260713-1_day1_anya/`. Next: still generator + human READY; HUD families optional until taste lock.  
-9. **Do not:** spoken stamp pipeline; `[B]`; encyclopedia Remotion as blocker; invent facts when ledger fields are missing.
+   - **Started 2026-07-23:** `picture_kit_jobs.py` + prompt families.  
+   - **Still path 2026-07-29:** `generate_picture_stills` (queue / optional xAI) + `mark_picture_jobs` human READY. i2v for G3/G6 still open. HUD families optional until taste lock.  
+9. **Gold replay → generic night (daily auto path):** promote §11.5 HUD grammar (alliances two-beat, seat-map grey-out, end VO full-bleed, 9:16 lockup pad, C1–C8 swaps) into `build_day_remotion_props` once 3–5 kits approved. **← active next**  
+10. **C3.mp4** — true night overhead motion plate (until then C3 beat uses C2.mp4).  
+11. **E4 product path (locked 2026-07-29):** **Remotion** is long-term production. CapCut is gold-breakdown reference only — new trailer types: Anya gold → forensics → Remotion re-assemble. No CapCut XML product path.  
+12. **Do not:** spoken stamp pipeline; `[B]`; encyclopedia Remotion as blocker; invent facts when ledger fields are missing; overwrite founder gold MP4 without snapshot.
 
-Creative CapCut for Day 1 V6 **G1–G8 READY** — Anya can cut; further nights reuse the same commission table.
+Day 1 V6 **G1–G8 READY** — CapCut gold exists; further nights reuse the same commission table.  
+**Day-1 Remotion gold replay READY** as production bar (§11.5) — `out/gold_replay_day1.mp4`. CapCut = new-type gold only (E4).
 
 ---
 
@@ -613,3 +810,6 @@ Creative CapCut for Day 1 V6 **G1–G8 READY** — Anya can cut; further nights 
 | 2026-07-18 | **§10.1 Picture kit G1–G8** — CapCut commission table + fact/identity/location locks; two-step Grok Imagine (still → 1–2s i2v for G3/G6); Priority A required / B upgrades; Day 1 V6 kit proved (`trailer_ready_day2/`); automation stages + DEV backlog item 8. |
 | 2026-07-20 | **§3.6 / §12 2D↔3D literacy mandatory** — every D1 ship: Phaser plant + Peak/Cost dive (≥1) + Door Phaser tease; ≤3 cinematic arc punctuations; all-cinematic cut fails validators; matches CapCut practice (`trailer_ready_day2` F_phaser pack). |
 | 2026-07-23 | **Runtime relaxed** — D1 hard max **120s** (was 75); soft warn **>90s**; target still 45–60s. Anya CapCut Day-1 gold **~88s** accepted as creative north star (`daily/gold/20260713-1_day1_anya/`). Auto-gen may flex up to 120s. |
+| 2026-07-28 | **§11.4–11.5 Auto-gen process documented** — end-to-end nightly CLI (picker → VO lock → clip_kit → CapCut/Remotion); module map; package layout; immutable rules. **Gold Remotion replay** (`build_gold_replay_props` → `DailyGoldReplay`) as Day-1 north star: world-plate C1–C8 swaps, HUD grammar (alliances two-beat, Ivan 3.3 grey-out, end VO full-bleed, 9:16 lockup pad), snapshot-before-overwrite. Seat-map stack C→B→A canonical. |
+| 2026-07-29 | **E4 Remotion product lock** · opener beds → C1–C8 (`cinematic_pack.py`) · E5 legend promote (32 used) · D3 still queue + human READY CLI. Next backlog: item 9 daily auto path. |
+| 2026-07-29 | **SOT body sync** — CapCut-first pilot language retired; §10.1 / §11.1 / §11.4 module+CLI map match shipped modules; CapCut = gold-breakdown reference only. |

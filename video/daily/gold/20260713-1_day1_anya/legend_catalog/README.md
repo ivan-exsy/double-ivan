@@ -25,11 +25,12 @@ See full used/unused lists in [`../capcut_project_breakdown.md`](../capcut_proje
 | Screenshot | 1 | CapCut UI — **used** as long bg plate (craft artifact) |
 | Named still | 1 | `group_photo 2.PNG` — unused (`group_photo.png` from staged kit used instead) |
 
-## Next eng steps
+## Promote status (E5 — done 2026-07-29)
 
-1. Promote **used** 32 into stable names under `video/assets/moment_clips/20260713-1/2/` or `legend_promoted/`.  
-2. Keep unused 15 archived but out of “required commission” lists.  
-3. Do not delete legend folder until promoted copies exist.
+1. ✅ **Used 32** copied to `generative_agents/video/assets/legend_promoted/20260713-1/2/` with stable names (HUD roles where mapped).  
+2. ✅ **Unused 15** listed in that folder’s `UNUSED.md` — not commission-required; still live in source kit only.  
+3. ✅ Source `F_Anya-legend/` **retained** (do not delete).  
+4. Re-run: `python -m video.promote_legend_assets` from eng repo.
 
 ## files_raw.csv columns
 

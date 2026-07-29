@@ -17,10 +17,13 @@
 
 ## Remotion gold replay (eng Phase 1)
 
+**Normative process (auto-gen + gold path):** [`../../SOT-new-daily.md`](../../SOT-new-daily.md) **§11.4–§11.5**.
+
 Rebuild the CapCut timeline in code (not a substitute for the master MP4):
 
 ```
 cd generative_agents-ivan-dev
+# snapshot prior out/gold_replay_day1.mp4 first
 python -m video.build_gold_replay_props
 cd video/remotion
 npx remotion still DailyGoldReplay out/gold_replay_smoke.png --props=props/gold_replay_day1.json --frame=90
@@ -30,12 +33,14 @@ npx remotion render DailyGoldReplay out/gold_replay_day1.mp4 --props=props/gold_
 - Props builder: `video/build_gold_replay_props.py` (reads `capcut/*.csv`)
 - Composition: `DailyGoldReplay`
 - CapCut stock SFX use local stand-ins under `video/audio/sfx/` until licensed packs land
-- **World-plate swaps (2026-07-25):** mismatched Doubland geography → C1–C8 pack under `video/fly-over/`  
+- **World-plate swaps:** mismatched Doubland geography → C1–C8 pack under `video/fly-over/`  
   - Alpine alumni still `B604…PNG` (~30.4–32.9s) → **C1** `c1.2.mp4`  
   - Open-roof `Village.mp4` (~58.7–60.0s) → **C1**  
+  - Night overhead → **C3** prefers **C2.mp4** (animated) until true `C3.mp4` exists  
   - Phaser `signature_flyover` **kept** (plant / door literacy)  
   - Pack map + legacy flyover fallbacks live in `WORLD_PLATE_REPLACEMENTS` in the props builder  
   - Brief: `generative_agents/video/fly-over/COMMISSION_cinematic_pack.md`
+- Founder craft locks (alliances two-beat, Ivan 3.3 grey-out, end VO full-bleed, 9:16 lockup pad): see SOT §11.5
 - Compare against master `bins/video/0720(1).mp4`
 
 ## Canonical media (do not duplicate large binaries here)
@@ -48,7 +53,12 @@ npx remotion render DailyGoldReplay out/gold_replay_day1.mp4 --props=props/gold_
 | Staged kit we gave | `…/trailer_ready_day2/clip_kit/` |
 | Pre-Anya baseline | `…/trailer_ready_day2/clip_kit_v0/` (**immutable**) |
 | Legend extras | `…/clip_kit/bins/F_Anya-legend/` (**32/47 used** in CapCut) |
+| **Legend promoted (E5)** | `generative_agents/video/assets/legend_promoted/20260713-1/2/` · `manifest.json` + `UNUSED.md` |
 | **CapCut project** | `…/clip_kit/bins/capcut_proj/` · draft **L-talks Day 1** · `draft_info.json` |
+
+## Product path (E4 — locked 2026-07-29)
+
+**Remotion is the long-term production path.** CapCut stays as the **gold-breakdown reference**: when a new trailer type needs a higher bar, Anya cuts the gold standard first → we ingest / forensics (same process as this Day-1 package) → re-assemble for nightly production in Remotion. Do not treat CapCut XML import as a product path.
 
 ## Package facts
 
