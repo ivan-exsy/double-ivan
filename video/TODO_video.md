@@ -25,7 +25,7 @@
 
 ## ▶ Resume spine (read this first)
 
-**You are here (2026-07-29):** **#8 Daily auto path — Phase B done** (shared `nightly_craft` library + tests; gold wired; day props length-mode stub). Gold end-fill cut shipped. E4 Remotion product path. **Next = Phase C** nightly props emit gold-grade layers.
+**You are here (2026-07-29):** **#8 Daily auto path — Phase D done** (`run_nightly_survival` one-command + gates + snapshot). **Next = Phase E** prove on a second night; taste-gate HUDs.
 
 ### Done (do not re-open unless broken)
 
@@ -51,6 +51,8 @@
 | **E4 product path** | ✅ **Remotion** = production · CapCut = gold-breakdown reference only |
 | **#8 Phase A/A2** | ✅ Gap freeze `generative_agents/video/NIGHTLY_CRAFT_GAP.md` · role intro + length modes in daily SOT · `sot_challenges` §5.2 Hold-for-Shield specimen · `video/assets/challenges/hold_for_shield/` |
 | **#8 Phase B** | ✅ Shared `video/nightly_craft.py` · gold imports shared craft · day props `lengthMode` stub · `test_nightly_craft.py` |
+| **#8 Phase C** | ✅ `build_nightly_remotion_props` → `NightlySurvival` (gold renderer) · challenge teach + Cost grey + end lockup · H_* HUD still off |
+| **#8 Phase D** | ✅ `run_nightly_survival` · `validate_nightly_survival` · snapshot-before-overwrite · length/literacy gates · report JSON |
 
 ### Parked on founder (creative — not eng)
 
@@ -76,7 +78,7 @@
 5. ~~**Wire pack into opener beds**~~ ✅ (2026-07-29)  
 6. ~~**Promote used legend assets (E5)**~~ ✅ (2026-07-29)  
 7. ~~**Picture-kit still path (D3)**~~ ✅ (2026-07-29)  
-8. **Daily auto path** — Phase A/A2 ✅ · Phase B ✅ · **next Phase C:** nightly gold-grade props emit; taste gate before HUD/H_*  
+8. **Daily auto path** — Phase A–D ✅ · **next Phase E:** prove second night; taste gate before HUD/H_*  
 9. ~~**E4 decision**~~ ✅ Remotion product path · CapCut gold-breakdown reference
 
 ### Commands (gold replay — eng repo `generative_agents-ivan-dev` / `ivan/dev`)

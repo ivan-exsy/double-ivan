@@ -630,11 +630,19 @@ python -m video.build_clip_kit <sim_code> --day <engine_day> \
 #    python -m video.generate_picture_stills <package>
 #    python -m video.mark_picture_jobs <package> --ready G1,G2,…
 
-# 6a) Remotion production — Day-1 gold replay §11.5; generic night = Phase 2
-# 6b) CapCut — only when creating a new gold standard (Anya); then forensics → Remotion
+# 6) Remotion nightly (gold-grade, no CapCut CSVs) — one command after kit+VO exist
+python -m video.run_nightly_survival data/<sim>/trailer_ready_dayN \
+  --length-mode short          # or long (experiment)
+#    Gates: fact-lock · VO-lock · clip_kit · scar · literacy · length bands ·
+#    snapshot-before-overwrite → NightlySurvival render → report in package/output/
+#    Props-only: add --skip-render
+#    Picture READY hard-require: --require-picture-ready
+# Day-1 gold CapCut replay (regression bar) remains §11.5 / DailyGoldReplay.
+# CapCut hand-build only when creating a *new* gold standard; then forensics → Remotion.
 
-# 7) Validate + lock
+# 7) Validate kit alone (optional; also inside run_nightly_survival)
 python -m video.validate_clip_kit <package_dir>
+python -m video.validate_nightly_survival <package_dir> [--props <nightly props>]
 # lock_day_script / scar writer per ops checklist §9.4
 ```
 
@@ -822,3 +830,4 @@ Day 1 V6 **G1–G8 READY** — CapCut gold exists; further nights reuse the same
 | 2026-07-29 | **E4 Remotion product lock** · opener beds → C1–C8 (`cinematic_pack.py`) · E5 legend promote (32 used) · D3 still queue + human READY CLI. Next backlog: item 9 daily auto path. |
 | 2026-07-29 | **SOT body sync** — CapCut-first pilot language retired; §10.1 / §11.1 / §11.4 module+CLI map match shipped modules; CapCut = gold-breakdown reference only. |
 | 2026-07-29 | **#8 Phase A/A2** — featured role intro VO; `length_mode` short/long experiment; challenge teach packs → `sot_challenges.md` §5 + `hold_for_shield` specimen; `NIGHTLY_CRAFT_GAP.md`. |
+| 2026-07-29 | **#8 Phase D** — `run_nightly_survival` one-command (validate → props → literacy/length → snapshot → `NightlySurvival`); `validate_nightly_survival` gates. |
