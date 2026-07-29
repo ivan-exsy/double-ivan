@@ -25,7 +25,7 @@
 
 ## ▶ Resume spine (read this first)
 
-**You are here (2026-07-29):** **#8 Daily auto path — Phase D done** (`run_nightly_survival` one-command + gates + snapshot). **Next = Phase E** prove on a second night; taste-gate HUDs.
+**You are here (2026-07-29):** **#8 Daily auto path — E0 + energy pass done**; founder still reads nightly flatter than gold (rhythm/VO lock). Expert brief out: `video/daily/20260729_expert_brief_gold_vs_nightly_auto.md`. **Next = expert level-up response → eng Must list**; E1 second-night after craft closes.
 
 ### Done (do not re-open unless broken)
 
@@ -53,6 +53,8 @@
 | **#8 Phase B** | ✅ Shared `video/nightly_craft.py` · gold imports shared craft · day props `lengthMode` stub · `test_nightly_craft.py` |
 | **#8 Phase C** | ✅ `build_nightly_remotion_props` → `NightlySurvival` (gold renderer) · challenge teach + Cost grey + end lockup · H_* HUD still off |
 | **#8 Phase D** | ✅ `run_nightly_survival` · `validate_nightly_survival` · snapshot-before-overwrite · length/literacy gates · report JSON |
+| **#8 Phase E0** | ✅ Day-1 full nightly render (no CapCut) → `trailer_ready_day2/output/trailer_9x16.mp4` (~93s) |
+| **#8 Energy pass** | ✅ SFX≈23 + key-phrase CC + Anya WANT; still flat vs gold → expert brief `20260729_expert_brief_gold_vs_nightly_auto.md`; ref MP4 `trailer_9x16_20260729_184421_energy_pass_ref.mp4` |
 
 ### Parked on founder (creative — not eng)
 
@@ -66,7 +68,14 @@
 - [ ] Optional: sharpen C5/C7 · Hobbs-branded cafe · canonical renames on disk  
 - [x] **Roster seat-map legend (Soul15)** — deterministic plate regen 2026-07-27; `seat_map.json` + `cast_roster_framed.png`; Grok API still max-3 images  
 - [x] **Hold for the Shield teach pack specimen** — VO brief + visuals in `double-docs/sot/sot_challenges.md` §5.2  
-- [ ] **Commission remaining challenge teach packs** (`silent_pact`, `alliance_lock_in`, …) per COMMISSION § Challenge visual bank  
+- [x] **Hold reusable starter pack** — `video/assets/challenges/hold_for_shield/README.md` + cast-agnostic reuse notes in SOT §5.2 / COMMISSION  
+- [x] **Silent Pact teach pack** — SOT §5.3 `commissioned` (2026-07-29); progressive 3-band VO wired  
+- [x] **Alliance Lock-In teach pack** — SOT §5.4 `commissioned` (double vote ×2); progressive 3-band VO  
+- [x] **Roll for the Shield teach pack** — SOT §5.5 `commissioned` (title+icon steps, large type)  
+- [x] **Captain's Pick teach pack** — SOT §5.6 `commissioned` (true red/blue title; pressure status)  
+- [x] **Whisper Chain teach pack** — SOT §5.7 `commissioned` (3× vote status)  
+- [ ] **Call the Bluff teach pack** — SOT §5.8 + draft art (`call_the_bluff/`) — taste-gate next  
+- [ ] **Commission remaining challenge teach packs** (`leaders_burden`, …) per COMMISSION § Challenge visual bank  
 - [ ] **Length A/B:** render short + long for N nights; lock long budgets after feedback  
 
 ### Next eng (order)
@@ -78,7 +87,7 @@
 5. ~~**Wire pack into opener beds**~~ ✅ (2026-07-29)  
 6. ~~**Promote used legend assets (E5)**~~ ✅ (2026-07-29)  
 7. ~~**Picture-kit still path (D3)**~~ ✅ (2026-07-29)  
-8. **Daily auto path** — Phase A–D ✅ · **next Phase E:** prove second night; taste gate before HUD/H_*  
+8. **Daily auto path** — Phase A–D + E0 ✅ · **next E1:** second-night package prove; taste gate before HUD/H_*  
 9. ~~**E4 decision**~~ ✅ Remotion product path · CapCut gold-breakdown reference
 
 ### Commands (gold replay — eng repo `generative_agents-ivan-dev` / `ivan/dev`)

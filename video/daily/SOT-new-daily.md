@@ -630,14 +630,17 @@ python -m video.build_clip_kit <sim_code> --day <engine_day> \
 #    python -m video.generate_picture_stills <package>
 #    python -m video.mark_picture_jobs <package> --ready G1,G2,…
 
-# 6) Remotion nightly (gold-grade, no CapCut CSVs) — one command after kit+VO exist
+# 6) Remotion nightly (gold-grade, no CapCut CSVs) — ship path for every night
+#    VO-lock = narration audio + narration_timing.json (never re-TTS a locked take).
 python -m video.run_nightly_survival data/<sim>/trailer_ready_dayN \
-  --length-mode short          # or long (experiment)
-#    Gates: fact-lock · VO-lock · clip_kit · scar · literacy · length bands ·
+  --length-mode short          # default auto nights
+# Day-1 parity / ~88–90s bar: use --length-mode long
+#    Gates: fact-lock · VO-lock (audio+timing) · clip_kit · scar · literacy ·
+#    caption density · HUD anti-leak · length bands ·
 #    snapshot-before-overwrite → NightlySurvival render → report in package/output/
 #    Props-only: add --skip-render
 #    Picture READY hard-require: --require-picture-ready
-# Day-1 gold CapCut replay (regression bar) remains §11.5 / DailyGoldReplay.
+# Day-1 CapCut → DailyGoldReplay (§11.5) = forensics / phone-watch bar only.
 # CapCut hand-build only when creating a *new* gold standard; then forensics → Remotion.
 
 # 7) Validate kit alone (optional; also inside run_nightly_survival)
@@ -680,7 +683,9 @@ data/<sim_code>/trailer_ready_dayN/clip_kit/   # or package-dir override
 7. **Runtime** — default `length_mode=short`: target 45–60s; soft warn >90s; hard max **120s**; Day-1 gold ~88s accepted. Experimental `long`: strawman warn >150 / hard 180 until founder locks; never silently exceed short max on the short lane.  
 8. **Challenge teach pack** — VO + visuals from `sot_challenges.md` §5 when pack exists; missing → warn + soft fallback.
 
-### 11.5 Gold Remotion replay (Day-1 north star)
+### 11.5 Gold Remotion replay (forensics bar)
+
+**Product ship path for every Survival night (including Day-1 rebuilds) is §11.4 `run_nightly_survival` / `NightlySurvival`.** This section is the CapCut→Remotion forensic replay used as the craft phone-watch bar until nightly matches it.
 
 Rebuilds the **Anya CapCut Day-1 gold** timeline in Remotion so eng can iterate HUD/craft without reopening CapCut. This is the **proven production re-assembly path for the locked V6 cut** (E4) — not yet the generic “any night” generator (Phase 2 / §14 item 9). CapCut kits remain the gold-create input when a new type needs a human cut first.
 
