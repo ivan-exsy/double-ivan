@@ -55,6 +55,7 @@
 | **#8 Phase D** | ✅ `run_nightly_survival` · `validate_nightly_survival` · snapshot-before-overwrite · length/literacy gates · report JSON |
 | **#8 Phase E0** | ✅ Day-1 full nightly render (no CapCut) → `trailer_ready_day2/output/trailer_9x16.mp4` (~93s) |
 | **#8 Energy pass** | ✅ SFX≈23 + key-phrase CC + Anya WANT; still flat vs gold → expert brief `20260729_expert_brief_gold_vs_nightly_auto.md`; ref MP4 `trailer_9x16_20260729_184421_energy_pass_ref.mp4` |
+| **#8 Edit-script sync** | ✅ Gold props → `edit_script.json` (50 cuts); nightly prefers script; master `trailer_9x16_20260729_200304_edit_script_v1_full.mp4`; expert verify `20260729_expert_brief_edit_script_verify.md` |
 
 ### Parked on founder (creative — not eng)
 
