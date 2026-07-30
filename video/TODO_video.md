@@ -1,6 +1,6 @@
 # North star — Anya CapCut Day 1 → auto-gen uplift
 
-**Updated:** 2026-07-29 (E4 Remotion lock · opener beds · E5 legend promote · D3 still path)  
+**Updated:** 2026-07-30 (challenge packs restored · seat_map v4 · new-sim daily path)  
 **Authority:** Creative bar = Anya’s approved cut. Contracts stay in [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md). Older encyclopedia / Gate A–E notes below are **historical** unless a task below re-opens them.
 
 | | |
@@ -25,7 +25,24 @@
 
 ## ▶ Resume spine (read this first)
 
-**You are here (2026-07-29):** **#8 Daily auto path — E0 + energy pass done**; founder still reads nightly flatter than gold (rhythm/VO lock). Expert brief out: `video/daily/20260729_expert_brief_gold_vs_nightly_auto.md`. **Next = expert level-up response → eng Must list**; E1 second-night after craft closes.
+**You are here (2026-07-30):** Shared world + challenge teach bank are back on disk. **Next = close the new-sim daily path** so `20260724-2` (and any Soul15 fork) can ship a gold-quality Day-1 trailer with human check **only on the final MP4**.
+
+### ▶ Path — gold-quality daily trailers for **new sims** (active)
+
+Goal: Tonight’s Scar chain (SOT §11.4) produces a Day-1 cut that approaches Anya gold; later nights on the **same** sim reuse that sim’s picture kit.
+
+| # | Work | Owner | Status | Notes |
+|--:|------|-------|--------|-------|
+| **N1** | Tonight’s Scar package chain stays product path | eng | ✅ | `extract` → picker → VO draft → meaning-lock → `build_clip_kit` → `run_nightly_survival`. Old `day_overview` encyclopedia stays off. |
+| **N2** | Challenge teach packs on disk + tracked in git | eng | ✅ 2026-07-30 | Restored 14 packs to `video/assets/challenges/` from Cursor assets cache (were lost because `video/assets/*` was gitignored). `.gitignore` blanket removed. |
+| **N3** | **G1–G5 auto on first trailer run for a new sim**; reuse on later nights | eng | ☐ | Today: optional `picture_kit_jobs` + human READY. **Needed:** first `build_clip_kit` / nightly for a sim auto-queues stills (xAI), stages bins, marks READY when generation succeeds; later nights skip re-gen if habitats exist. Human eyeball moves to **final trailer only** (N6). |
+| **N4** | Soul15 `seat_map.json` consistent across photo / matrix / roster | eng | ✅ 2026-07-30 | Regenerated v4.0 from `cast_reference.md`: top→bottom = **C / B / A**; Ivan **3.3**; Nick **1.3**. Do not flip front/back rows. Optional: rebuild framed/matrix via `rebuild_framed_matrix_from_group.py` when that script is restored. |
+| **N5** | Missing place refs (interiors + Phaser crops) | founder | ☐ | List in `generative_agents/video/fly-over/COMMISSION_cinematic_pack.md` § Missing place refs. Blocks habitats only when Peak/Cost workplaces need those places. |
+| **N6** | SOT + CLI: full auto-gen; human check = final trailer only | eng | ☐ **after N3–N5** | Update `SOT-new-daily.md` §11.4 / §14: one command (or thin wrapper) runs package + picture + nightly; drop mid-pipeline READY as a hard stop; keep fact-lock + final phone-watch. |
+
+**Prove on:** sim `20260724-2` Day-1 (Soul15 fork — reuse cohort faces / group photo / seat_map).
+
+**Done when:** cold package for that sim → Remotion `trailer_9x16.mp4` without mid-pipeline human gates; founder only phones the final cut.
 
 ### Done (do not re-open unless broken)
 
@@ -67,23 +84,12 @@
 - [x] **Phone-watch gold replay** end-fill cut on disk — optional re-check 01:16–01:30; optional true night `C3.mp4` later  
 - [ ] Optional: taste-gate Qs in [`craft_notes.md`](daily/gold/20260713-1_day1_anya/craft_notes.md) when convenient  
 - [ ] Optional: sharpen C5/C7 · Hobbs-branded cafe · canonical renames on disk  
-- [x] **Roster seat-map legend (Soul15)** — deterministic plate regen 2026-07-27; `seat_map.json` + `cast_roster_framed.png`; Grok API still max-3 images  
-- [x] **Hold for the Shield teach pack specimen** — VO brief + visuals in `double-docs/sot/sot_challenges.md` §5.2  
-- [x] **Hold reusable starter pack** — `video/assets/challenges/hold_for_shield/README.md` + cast-agnostic reuse notes in SOT §5.2 / COMMISSION  
-- [x] **Silent Pact teach pack** — SOT §5.3 `commissioned` (2026-07-29); progressive 3-band VO wired  
-- [x] **Alliance Lock-In teach pack** — SOT §5.4 `commissioned` (double vote ×2); progressive 3-band VO  
-- [x] **Roll for the Shield teach pack** — SOT §5.5 `commissioned` (title+icon steps, large type)  
-- [x] **Captain's Pick teach pack** — SOT §5.6 `commissioned` (true red/blue title; pressure status)  
-- [x] **Whisper Chain teach pack** — SOT §5.7 `commissioned` (3× vote status)  
-- [x] **Call the Bluff teach pack** — SOT §5.8 `commissioned`  
-- [x] **Leader's Burden teach pack** — SOT §5.9 `commissioned`  
-- [x] **Bid for the Vest teach pack** — SOT §5.10 `commissioned`  
-- [x] **Group Betrayal teach pack** — SOT §5.11 `commissioned` (crowd = half vote)  
-- [x] **Trial Night teach pack** — SOT §5.12 `commissioned`  
-- [x] **Vote Heist teach pack** — SOT §5.13 `commissioned` (hard steal ×2 / 0)  
-- [x] **Claim the Slot teach pack** — SOT §5.14 `commissioned` (full / half)  
-- [x] **Shared Survival Pool teach pack** — SOT §5.15 `commissioned` (hold ×2 / break half + greed +2) — **catalog teach bank complete**  
+- [x] **Roster seat-map legend (Soul15)** — `seat_map.json` **v4.0 restored 2026-07-30** (C/B/A; Ivan 3.3 / Nick 1.3); group photo + matrix on disk; framed roster optional rebuild  
+- [x] **Hold for the Shield teach pack specimen** — on disk under `video/assets/challenges/hold_for_shield/` (restored 2026-07-30) + SOT §5.2  
+- [x] **Hold reusable starter pack** — README + cast-agnostic reuse notes in SOT §5.2 / COMMISSION  
+- [x] **Silent Pact → Shared Survival Pool teach packs** — §5.3–§5.15 commissioned; **PNG packs restored 2026-07-30** to `video/assets/challenges/<id>/` (title / steps_board / immunity_status)  
 - [ ] **Length A/B:** render short + long for N nights; lock long budgets after feedback  
+- [ ] **N5 place refs** — founder re-gen missing interiors/Phaser crops (COMMISSION § Missing place refs)  
 
 ### Next eng (order)
 
@@ -94,8 +100,11 @@
 5. ~~**Wire pack into opener beds**~~ ✅ (2026-07-29)  
 6. ~~**Promote used legend assets (E5)**~~ ✅ (2026-07-29)  
 7. ~~**Picture-kit still path (D3)**~~ ✅ (2026-07-29)  
-8. **Daily auto path** — Phase A–D + E0 ✅ · **next E1:** second-night package prove; taste gate before HUD/H_*  
-9. ~~**E4 decision**~~ ✅ Remotion product path · CapCut gold-breakdown reference
+8. ~~**Daily auto path Phase A–E0 / edit-script**~~ ✅ · gold path proved on `20260713-1`  
+9. ~~**E4 decision**~~ ✅ Remotion product path · CapCut gold-breakdown reference  
+10. **N3 — Auto G1–G5 on first new-sim trailer run** (reuse later nights) ← **active eng**  
+11. **N6 — SOT/CLI full auto; human = final trailer only** (after N3 + founder N5)  
+12. **Prove** Day-1 nightly on `20260724-2` (Soul15 fork)
 
 ### Commands (gold replay — eng repo `generative_agents-ivan-dev` / `ivan/dev`)
 
