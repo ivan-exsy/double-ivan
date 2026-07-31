@@ -1,6 +1,6 @@
 # North star — Anya CapCut Day 1 → auto-gen uplift
 
-**Updated:** 2026-07-30 (challenge packs restored · seat_map v4 · new-sim daily path)  
+**Updated:** 2026-07-30 (N6 `run_tonight_scar` · N3 auto picture · challenge packs · seat_map v4)  
 **Authority:** Creative bar = Anya’s approved cut. Contracts stay in [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md). Older encyclopedia / Gate A–E notes below are **historical** unless a task below re-opens them.
 
 | | |
@@ -25,7 +25,7 @@
 
 ## ▶ Resume spine (read this first)
 
-**You are here (2026-07-30):** Shared world + challenge teach bank are back on disk. **Next = close the new-sim daily path** so `20260724-2` (and any Soul15 fork) can ship a gold-quality Day-1 trailer with human check **only on the final MP4**.
+**You are here (2026-07-30):** N1–N6 ✅ · N5 ✅. **Prove MP4 ready for phone-watch:** `data/20260724-2/trailer_ready_day2/output/trailer_9x16.mp4` (~107s measured; long mode). VO locked with roles + tiebreak; pictures auto-READY.
 
 ### ▶ Path — gold-quality daily trailers for **new sims** (active)
 
@@ -35,10 +35,28 @@ Goal: Tonight’s Scar chain (SOT §11.4) produces a Day-1 cut that approaches A
 |--:|------|-------|--------|-------|
 | **N1** | Tonight’s Scar package chain stays product path | eng | ✅ | `extract` → picker → VO draft → meaning-lock → `build_clip_kit` → `run_nightly_survival`. Old `day_overview` encyclopedia stays off. |
 | **N2** | Challenge teach packs on disk + tracked in git | eng | ✅ 2026-07-30 | Restored 14 packs to `video/assets/challenges/` from Cursor assets cache (were lost because `video/assets/*` was gitignored). `.gitignore` blanket removed. |
-| **N3** | **G1–G5 auto on first trailer run for a new sim**; reuse on later nights | eng | ☐ | Today: optional `picture_kit_jobs` + human READY. **Needed:** first `build_clip_kit` / nightly for a sim auto-queues stills (xAI), stages bins, marks READY when generation succeeds; later nights skip re-gen if habitats exist. Human eyeball moves to **final trailer only** (N6). |
+| **N3** | **Auto picture kit (G1–G5 + G8 + G3 i2v)**; reuse across nights | eng | ✅ 2026-07-30 | Locked + shipped: `video/auto_picture_kit.py` · xAI i2v in `xai_imagine.py` · CLI `--auto-picture` on `build_clip_kit` / `run_nightly_survival`. |
+
+### N3 lock (2026-07-30) — auto picture for new sims
+
+**Outcome:** First trailer run for a sim/night auto-builds Priority pictures; later nights reuse sim cache. Human checks **final MP4 only** (N6).
+
+| Decision | Lock |
+|----------|------|
+| Scope | **G1–G5 stills + G8 namecards** auto + READY; **G3 still → i2v clip** in same pass |
+| Out of scope | G6/G7, H_*, teach-pack chrome (already on disk) |
+| Hook | **Both** `build_clip_kit` + `run_nightly_survival` (nightly = safety net) |
+| Cache | `data/<sim>/picture_kit_cache/` — **habitats + namecards** (persona keys); G4/G5 per-night; G3 still/clip by challenge id when present |
+| Fail policy | Hard fail G1/G2/G4/G5/G8 if gen fails; **G3 i2v soft** if challenge teach pack exists (warn + teach/stock motion bridge) |
+| READY | Auto-mark READY on successful still (and G3_clip after i2v) — no mid-pipeline human gate |
+| Nightly default | `--auto-picture` **on**; `--require-picture-ready` **on** for G1–G5 + G8 (+ G3 still); G3_clip soft |
+| G3 motion | xAI i2v from approved G3 still → `challenge_<type>.mp4` (~2s, 9:16) |
+| Force | `--force-picture` regenerates even when cache/bin exists |
+
+**Prove:** `20260724-2` Day-1 after N3 lands.
 | **N4** | Soul15 `seat_map.json` consistent across photo / matrix / roster | eng | ✅ 2026-07-30 | Regenerated v4.0 from `cast_reference.md`: top→bottom = **C / B / A**; Ivan **3.3**; Nick **1.3**. Do not flip front/back rows. Optional: rebuild framed/matrix via `rebuild_framed_matrix_from_group.py` when that script is restored. |
-| **N5** | Missing place refs (interiors + Phaser crops) | founder | ☐ | List in `generative_agents/video/fly-over/COMMISSION_cinematic_pack.md` § Missing place refs. Blocks habitats only when Peak/Cost workplaces need those places. |
-| **N6** | SOT + CLI: full auto-gen; human check = final trailer only | eng | ☐ **after N3–N5** | Update `SOT-new-daily.md` §11.4 / §14: one command (or thin wrapper) runs package + picture + nightly; drop mid-pipeline READY as a hard stop; keep fact-lock + final phone-watch. |
+| **N5** | Missing place refs (interiors + Phaser crops) | eng+founder | ✅ 2026-07-30 | Phaser ✅. Interiors ✅ — `generate_missing_interiors --generate` wrote 19 plates; inventory TODO=0. Founder: visual spot-check list in chat. |
+| **N6** | SOT + CLI: full auto-gen; human check = final trailer only | eng | ✅ 2026-07-30 | `video/run_tonight_scar.py` one-command (ledger+picker+locked VO → clip_kit auto-picture → nightly). SOT §11.4/§14 updated; mid-pipeline READY not a human hard stop. Inputs still: Peak/Cost, VO lock, audio+timing, fact ledger. |
 
 **Prove on:** sim `20260724-2` Day-1 (Soul15 fork — reuse cohort faces / group photo / seat_map).
 
@@ -82,14 +100,14 @@ Goal: Tonight’s Scar chain (SOT §11.4) produces a Day-1 cut that approaches A
   - Portrait: `C4`–`C8` stills (+ videos where present)  
   - Keep `signature_flyover.mp4` for Phaser plant/door  
 - [x] **Phone-watch gold replay** end-fill cut on disk — optional re-check 01:16–01:30; optional true night `C3.mp4` later  
-- [ ] Optional: taste-gate Qs in [`craft_notes.md`](daily/gold/20260713-1_day1_anya/craft_notes.md) when convenient  
+- [x] Optional: taste-gate Qs in [`craft_notes.md`](daily/gold/20260713-1_day1_anya/craft_notes.md) when convenient  
 - [ ] Optional: sharpen C5/C7 · Hobbs-branded cafe · canonical renames on disk  
 - [x] **Roster seat-map legend (Soul15)** — `seat_map.json` **v4.0 restored 2026-07-30** (C/B/A; Ivan 3.3 / Nick 1.3); group photo + matrix on disk; framed roster optional rebuild  
 - [x] **Hold for the Shield teach pack specimen** — on disk under `video/assets/challenges/hold_for_shield/` (restored 2026-07-30) + SOT §5.2  
 - [x] **Hold reusable starter pack** — README + cast-agnostic reuse notes in SOT §5.2 / COMMISSION  
 - [x] **Silent Pact → Shared Survival Pool teach packs** — §5.3–§5.15 commissioned; **PNG packs restored 2026-07-30** to `video/assets/challenges/<id>/` (title / steps_board / immunity_status)  
 - [ ] **Length A/B:** render short + long for N nights; lock long budgets after feedback  
-- [ ] **N5 place refs** — founder re-gen missing interiors/Phaser crops (COMMISSION § Missing place refs)  
+- [x] **N5 interiors generate** — Phaser ✅; 19 plates generated 2026-07-30 (`generate_missing_interiors --generate`); spot-check remaining  
 
 ### Next eng (order)
 
@@ -102,9 +120,21 @@ Goal: Tonight’s Scar chain (SOT §11.4) produces a Day-1 cut that approaches A
 7. ~~**Picture-kit still path (D3)**~~ ✅ (2026-07-29)  
 8. ~~**Daily auto path Phase A–E0 / edit-script**~~ ✅ · gold path proved on `20260713-1`  
 9. ~~**E4 decision**~~ ✅ Remotion product path · CapCut gold-breakdown reference  
-10. **N3 — Auto G1–G5 on first new-sim trailer run** (reuse later nights) ← **active eng**  
-11. **N6 — SOT/CLI full auto; human = final trailer only** (after N3 + founder N5)  
-12. **Prove** Day-1 nightly on `20260724-2` (Soul15 fork)
+10. ~~**N3 — Auto G1–G5 + G8 + G3 i2v**~~ ✅ (2026-07-30) — `auto_picture_kit` + sim `picture_kit_cache`
+11. ~~**N6 — SOT/CLI full auto; human = final trailer only**~~ ✅ (2026-07-30) — `run_tonight_scar`
+12. **N5 interiors** — run `python -m video.generate_missing_interiors --generate` + spot-check (Phaser ready)
+13. **Prove** Day-1 nightly on `20260724-2` (Soul15 fork)
+
+### Commands (Tonight’s Scar ship — eng repo `generative_agents-ivan-dev` / `ivan/dev`)
+
+```bash
+# Draft VO only (optional)
+python -m video.run_tonight_scar <sim> --day 2 --peak "…" --cost "…" --draft-vo-only --template-only
+
+# Ship (after vo_locked.txt + narration audio + timing + fact_ledger)
+python -m video.run_tonight_scar <sim> --day 2 --peak "…" --cost "…" \
+  --vo data/<sim>/trailer_ready_day2/vo_locked.txt --length-mode long
+```
 
 ### Commands (gold replay — eng repo `generative_agents-ivan-dev` / `ivan/dev`)
 

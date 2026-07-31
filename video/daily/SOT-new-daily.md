@@ -496,18 +496,17 @@ Auth: `XAI_API_KEY`. Stills-only beats (typical G1/G2/G4/G5/G7/G8) stop after st
 
 #### Automation stages (eng)
 
+**Product path (N3 + N6):** picture runs inside `run_tonight_scar` / `build_clip_kit --auto-picture` — stills + G3 i2v + auto READY for G1–G5 + G8; sim cache reuse. No mid-pipeline human READY stop.
+
 ```
 locked VO + picker/ledger
-  → python -m video.picture_kit_jobs <package> --write
-  → stage clip_kit/_refs/ (faces + interiors)
-  → python -m video.generate_picture_stills <package>           # dry-run queue
-  → python -m video.generate_picture_stills <package> --generate  # optional xAI
-  → human eyeball → python -m video.mark_picture_jobs <package> --ready G1,G2
-  → zip / stage bins for CapCut gold cut OR Remotion props
+  → (debug only) python -m video.picture_kit_jobs <package> --write
+  → auto_picture_kit: refs → cache hydrate → stills → READY → G3 i2v
+  → clip_kit / NightlySurvival props
 ```
 
-**Do not automate:** CapCut timeline XML as a product path; inventing facts when ledger fields are missing (fail instead).  
-**Do automate (landed):** still queue + human READY (§14 item 8). i2v for G3/G6 still open. Remotion re-assembly of a locked gold cut is the product path (§11.5 / E4) — not “optional later.”
+**Do not automate:** CapCut timeline XML as a product path; inventing facts when ledger fields are missing (fail instead); silently overwriting meaning-locked VO.  
+**Do automate (landed):** N3 auto picture + N6 one-command wrapper. Manual `mark_picture_jobs` remains for debug / taste overrides only.
 
 **Quality rejects:** marketing job/place on habitat · face drift · wrong interior · G3 winner crown / G5 celebration · identical gestures on multi-body clips · i2v without freezing the approved still.
 
@@ -520,10 +519,11 @@ locked VO + picker/ledger
 | Phase | Status / action |
 |-------|-----------------|
 | **0 Doctrine** | This SOT + V6 gold locked |
-| **1 Manual Clip Kit** | **Proved Day 1 V6** — G1–G8 picture kit + CapCut sheet (`trailer_ready_day2/`). Next nights: repeat §10.1 from picker + locked VO |
-| **1b Picture gen automation** | **Still path shipped** — `picture_kit_jobs` → `generate_picture_stills` → `mark_picture_jobs` READY. i2v for G3/G6 still open (§14 item 8) |
-| **1c Gold Remotion replay** | **Shipped for Day-1 gold** — CapCut CSVs → `build_gold_replay_props` → `DailyGoldReplay` (§11.5). Creative north star; not yet the generic night-N path |
-| **2 Remotion (generic night)** | **Active next** — lift §11.5 craft into `build_day_remotion_props` (§14 item 9 daily auto path) |
+| **1 Manual Clip Kit** | **Proved Day 1 V6** — G1–G8 picture kit + CapCut sheet (`trailer_ready_day2/`) |
+| **1b Picture gen automation** | **N3 shipped** — `auto_picture_kit` auto G1–G5 + G8 + G3 i2v + sim cache (§14 item 8) |
+| **1c Gold Remotion replay** | **Shipped for Day-1 gold** — CapCut CSVs → `build_gold_replay_props` → `DailyGoldReplay` (§11.5). Phone-watch bar |
+| **1d One-command nightly** | **N6 shipped** — `run_tonight_scar` (§11.4); human check = final MP4 |
+| **2 Remotion (generic night)** | **Prove on new sims** — cold Day-1 on `20260724-2` after place refs (N5) |
 | **3 Doors + Edge** | Wire deep links; generate Personal Edge per coverage SLA |
 
 **Do not** port `narration_v12` / concept→stamps→teach into Remotion.  
@@ -561,17 +561,18 @@ Fold into main `sot-video.md` when Remotion nightly (Phase 2) is proven. CapCut 
 **Doctrine / gold forensics:** this file + `double-ivan/video/daily/gold/`.  
 **Product job:** D1 Tonight’s Scar (§3) — picture fits **locked VO**, not the reverse.
 
+**N6 (2026-07-30):** One command runs package → auto picture → nightly. Mid-pipeline human READY is **not** a hard stop — N3 auto-marks G1–G5 + G8. Human check after ship = **final MP4 phone-watch** only. Still required as *inputs* (not mid-pipeline gates): Peak/Cost, meaning-locked VO text, locked narration audio + timing, fact ledger.
+
 ```
 sim (Supabase + transport)
-  → extract_day_log / fact ledger / day_reasoning     (facts only)
-  → tonight_scar picker (human or draft)             (§8.3 peak_id + cost_id)
-  → draft_tonight_scar_vo  OR  locked VO text        (§9 · VO_LOCKED.md)
-  → meaning-lock → VO_LOCKED.md section
-  → build_clip_kit  (bins A–E + sheet + scar draft)  (§10 · Phase 1)
-  → [optional] picture_kit stills + human READY             (§10.1)
-  → Remotion production cut  (± CapCut gold for new types) (§11.5 / E4)
-  → TTS @ ~1.2× · mix · end card
-  → validate_trailer / validate_clip_kit
+  → fact ledger in package (or overview sibling)     (facts only)
+  → tonight_scar picker (Peak + Cost)                (§8.3)
+  → draft VO (optional) → meaning-lock → vo_locked   (§9 · VO_LOCKED.md)
+  → locked narration audio + narration_timing.json   (never re-TTS a locked take)
+  → python -m video.run_tonight_scar …               (N6 wrapper)
+       ├─ build_clip_kit (--auto-picture)            (§10 · N3)
+       └─ run_nightly_survival (NightlySurvival)     (§11.4 / E4)
+  → human phone-watch final MP4
   → export D2 Spark · write scar.json · coverage board
 ```
 
@@ -579,23 +580,25 @@ sim (Supabase + transport)
 
 | Module | Role |
 |--------|------|
+| `run_tonight_scar.py` | **N6 one-command:** ledger + picker + locked VO → clip_kit + nightly |
 | `tonight_scar_schema.py` · `tonight_scar_picker.py` | Picker JSON validate / load / save · Peak/Cost resolve |
 | `tonight_scar_script.py` | Bin-shaped `script.json` from picker + VO |
 | `draft_tonight_scar_vo.py` | LLM or template VO draft (`tonight_scar_v1` cache family) |
 | `day_scar.py` | `scar.json` build / prior-scar gate |
-| `build_clip_kit.py` | CapCut-ready package: bins A–E, VO hash, draft scar, manifest |
-| `validate_clip_kit.py` | Kit completeness before Anya / Remotion |
-| `picture_kit_jobs.py` · `prompt_families_picture_kit.md` | G1–G8 job list + prompt families |
-| `generate_picture_stills.py` · `mark_picture_jobs.py` · `xai_imagine.py` | Still queue / optional Imagine / human READY (D3) |
+| `build_clip_kit.py` | CapCut-ready package: bins A–E, VO hash, draft scar, manifest · `--auto-picture` |
+| `validate_clip_kit.py` | Kit completeness before Remotion |
+| `auto_picture_kit.py` · `picture_kit_jobs.py` | N3: auto G1–G5 + G8 stills + G3 i2v + sim cache |
+| `generate_picture_stills.py` · `mark_picture_jobs.py` · `xai_imagine.py` | Still / i2v backends (manual READY only for debug) |
+| `run_nightly_survival.py` · `validate_nightly_survival.py` | Validate → props → snapshot → `NightlySurvival` |
 | `NIGHTLY_CRAFT_GAP.md` | Phase A gap freeze: gold vs day props + nightly checklist |
 | `assets/challenges/<challenge_id>/` | Challenge teach visual bank (see `sot_challenges.md` §5) |
 | `promote_legend_assets.py` | CapCut-used legend → stable names (E5) |
 | `cinematic_pack.py` | C1–C8 resolve · opener beds (+ Phaser `signature_flyover`) |
 | `compose_trailer.py` · `showrunner.py` | Opener stakes montage uses pack beds |
 | `build_gold_replay_props.py` | **Day-1 gold:** CapCut CSVs → Remotion props + staged media |
-| `build_day_remotion_props.py` · `render_day_remotion.py` | Generic night Remotion path (Phase 2 — active next) |
+| `build_day_remotion_props.py` · `render_day_remotion.py` | Generic night Remotion path (legacy / forensics) |
 | `lock_day_script.py` | Lock gate: picker + scar + F1 history |
-| Remotion `DailyGoldReplay` | Composition for gold replay MP4 |
+| Remotion `NightlySurvival` / `DailyGoldReplay` | Ship composition / gold phone-watch bar |
 | `audio/sfx/` · `audio/music_intrigue_loopable.mp3` | Stock SFX stand-ins + loopable bed |
 | `fly-over/` C1–C8 | Cinematic village pack (world-plate swaps + opener) |
 | `assets/legend_promoted/<sim>/<day>/` | Stable promoted legend winners (+ `UNUSED.md`) |
@@ -606,47 +609,30 @@ sim (Supabase + transport)
 Engine day index: **Survival Day 1 = engine `--day 2`**. Paths assume repo root = `generative_agents`.
 
 ```bash
-# 0) Facts (if not already extracted for this sim/day)
-python -m video.extract_day_log <sim_code> --day <engine_day>
+# 0) Facts — place fact_ledger.json under data/<sim>/trailer_ready_dayN/
+#    (or pass --fact-ledger pointing at an overview_dayN* sibling)
 
-# 1) Picker — human lock Peak/Cost ≥18 (§8); or load prior draft
-#    Write: data/<sim>/…/tonight_scar_picker.json
+# 1) Optional: draft VO only (never overwrites vo_locked.txt)
+python -m video.run_tonight_scar <sim_code> --day <engine_day> \
+  --peak "<Peak>" --cost "<Cost>" --draft-vo-only [--template-only]
 
-# 2) VO draft (template-only until LLM quality proven)
-python -m video.draft_tonight_scar_vo <sim_code> --day <engine_day> \
-  --picker data/<sim>/…/tonight_scar_picker.json \
-  [--template-only]
+# 2) Meaning-lock — approve text into package vo_locked.txt
+#    (+ narration audio + narration_timing.json; never re-TTS a locked take).
+#    Mirror into double-ivan/video/daily/VO_LOCKED.md when freezing a gold night.
 
-# 3) Meaning-lock — paste approved text into double-ivan/video/daily/VO_LOCKED.md
-#    Day 1 V6 is frozen; later nights add a new section. Do not silently rewrite.
+# 3) One command ship (N6) — auto picture + nightly Remotion
+python -m video.run_tonight_scar <sim_code> --day <engine_day> \
+  --peak "<Peak>" --cost "<Cost>" \
+  --vo data/<sim>/trailer_ready_dayN/vo_locked.txt \
+  --length-mode short          # Day-1 parity bar: --length-mode long
+#    Props-only dry run: add --skip-render
+#    No xAI calls (hydrate/cache only): --no-picture-generate
+#    Day-1 CapCut → DailyGoldReplay (§11.5) = forensics / phone-watch bar only.
 
-# 4) Clip kit for CapCut (Phase 1)
-python -m video.build_clip_kit <sim_code> --day <engine_day> \
-  --picker <path/to/tonight_scar_picker.json> \
-  --vo <path/to/vo_locked.txt>
-
-# 5) Optional picture jobs (G1–G8) then human READY
-#    python -m video.picture_kit_jobs <package> --write
-#    python -m video.generate_picture_stills <package>
-#    python -m video.mark_picture_jobs <package> --ready G1,G2,…
-
-# 6) Remotion nightly (gold-grade, no CapCut CSVs) — ship path for every night
-#    VO-lock = narration audio + narration_timing.json (never re-TTS a locked take).
-python -m video.run_nightly_survival data/<sim>/trailer_ready_dayN \
-  --length-mode short          # default auto nights
-# Day-1 parity / ~88–90s bar: use --length-mode long
-#    Gates: fact-lock · VO-lock (audio+timing) · clip_kit · scar · literacy ·
-#    caption density · HUD anti-leak · length bands ·
-#    snapshot-before-overwrite → NightlySurvival render → report in package/output/
-#    Props-only: add --skip-render
-#    Picture READY hard-require: --require-picture-ready
-# Day-1 CapCut → DailyGoldReplay (§11.5) = forensics / phone-watch bar only.
-# CapCut hand-build only when creating a *new* gold standard; then forensics → Remotion.
-
-# 7) Validate kit alone (optional; also inside run_nightly_survival)
-python -m video.validate_clip_kit <package_dir>
-python -m video.validate_nightly_survival <package_dir> [--props <nightly props>]
-# lock_day_script / scar writer per ops checklist §9.4
+# --- Lower-level steps (debugging; usually unnecessary) ---
+# python -m video.build_clip_kit <sim> --day N --picker … --vo …
+# python -m video.run_nightly_survival data/<sim>/trailer_ready_dayN
+# python -m video.validate_nightly_survival <package_dir>
 ```
 
 #### Package layout (CapCut kit)
@@ -681,11 +667,12 @@ data/<sim_code>/trailer_ready_dayN/clip_kit/   # or package-dir override
 5. **2D↔3D literacy** — every ship needs Phaser plant + Peak/Cost dive + Door Phaser tease (§3.6 / §12).  
 6. **Snapshot before overwrite** — never clobber a founder-approved MP4 without copying first (`out/gold_replay_day1_YYYYMMDD_*.mp4` or `scripts/snapshot_and_render_gold.ps1`).  
 7. **Runtime** — default `length_mode=short`: target 45–60s; soft warn >90s; hard max **120s**; Day-1 gold ~88s accepted. Experimental `long`: strawman warn >150 / hard 180 until founder locks; never silently exceed short max on the short lane.  
-8. **Challenge teach pack** — VO + visuals from `sot_challenges.md` §5 when pack exists; missing → warn + soft fallback.
+8. **Challenge teach pack** — VO + visuals from `sot_challenges.md` §5 when pack exists; missing → warn + soft fallback.  
+9. **Picture READY** — N3 auto-marks Priority A (G1–G5 + G8); mid-pipeline human READY is **not** a ship gate. Human gate = final MP4 phone-watch (N6).
 
 ### 11.5 Gold Remotion replay (forensics bar)
 
-**Product ship path for every Survival night (including Day-1 rebuilds) is §11.4 `run_nightly_survival` / `NightlySurvival`.** This section is the CapCut→Remotion forensic replay used as the craft phone-watch bar until nightly matches it.
+**Product ship path for every Survival night (including Day-1 rebuilds) is §11.4 `run_tonight_scar` → `NightlySurvival`.** This section is the CapCut→Remotion forensic replay used as the craft phone-watch bar until nightly matches it.
 
 Rebuilds the **Anya CapCut Day-1 gold** timeline in Remotion so eng can iterate HUD/craft without reopening CapCut. This is the **proven production re-assembly path for the locked V6 cut** (E4) — not yet the generic “any night” generator (Phase 2 / §14 item 9). CapCut kits remain the gold-create input when a new type needs a human cut first.
 
@@ -803,10 +790,8 @@ Shared Part I checks (9:16, LUFS, visual-change rate, end card): `../sot-video.m
 5. Door props + deep-link table (wire when FE ready).  
 6. `scar.json` writer on lock + CapCut gate.  
 7. Coverage board + D3 queue after Day-2 CapCut proven.  
-8. **Picture kit automation (§10.1):** emit GENERATE jobs from picker + locked VO → stage `_refs/` → Imagine still (+ i2v for G3/G6) → gate → `clip_kit.json` + Anya zip. Prompt templates per G1–G8 family.  
-   - **Started 2026-07-23:** `picture_kit_jobs.py` + prompt families.  
-   - **Still path 2026-07-29:** `generate_picture_stills` (queue / optional xAI) + `mark_picture_jobs` human READY. i2v for G3/G6 still open. HUD families optional until taste lock.  
-9. **Gold replay → generic night (daily auto path):** promote §11.5 HUD grammar (alliances two-beat, seat-map grey-out, end VO full-bleed, 9:16 lockup pad, C1–C8 swaps) into `build_day_remotion_props` once 3–5 kits approved. Gap freeze: `generative_agents/video/NIGHTLY_CRAFT_GAP.md`. **← active next (Phase B+)**  
+8. **Picture kit automation (§10.1):** ✅ N3 — `auto_picture_kit` auto G1–G5 + G8 stills + G3 i2v + sim cache; CLI defaults on `build_clip_kit` / `run_nightly_survival`. Manual READY = debug only.  
+9. **Gold replay → generic night (daily auto path):** ✅ Phase A–E0 + N6 `run_tonight_scar`. **Next:** prove cold Day-1 on new sims (`20260724-2`); place refs N5. Gap freeze: `generative_agents/video/NIGHTLY_CRAFT_GAP.md`.  
 10. **C3.mp4** — true night overhead motion plate (until then C3 beat uses C2.mp4).  
 11. **E4 product path (locked 2026-07-29):** **Remotion** is long-term production. CapCut is gold-breakdown reference only — new trailer types: Anya gold → forensics → Remotion re-assemble. No CapCut XML product path.  
 12. **Challenge teach packs:** commission remaining catalog IDs after `hold_for_shield` specimen (`sot_challenges.md` §5.2).  
@@ -836,3 +821,4 @@ Day 1 V6 **G1–G8 READY** — CapCut gold exists; further nights reuse the same
 | 2026-07-29 | **SOT body sync** — CapCut-first pilot language retired; §10.1 / §11.1 / §11.4 module+CLI map match shipped modules; CapCut = gold-breakdown reference only. |
 | 2026-07-29 | **#8 Phase A/A2** — featured role intro VO; `length_mode` short/long experiment; challenge teach packs → `sot_challenges.md` §5 + `hold_for_shield` specimen; `NIGHTLY_CRAFT_GAP.md`. |
 | 2026-07-29 | **#8 Phase D** — `run_nightly_survival` one-command (validate → props → literacy/length → snapshot → `NightlySurvival`); `validate_nightly_survival` gates. |
+| 2026-07-30 | **N3 + N6** — auto picture kit (G1–G5/G8 + G3 i2v); `run_tonight_scar` one-command; mid-pipeline READY dropped as human hard stop; human check = final MP4. |
