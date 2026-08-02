@@ -1,5 +1,7 @@
 https://grok.com/c/35274991-8fc4-49a2-b9e7-b4565afe6f17?rid=da736c3e-d228-4a6b-bfef-59cc73dc40a4
 
+> **Vision Canon map:** [`index.md`](index.md) · long-horizon [`vision/north-star.md`](vision/north-star.md) · feature gate [`vision/alignment-rubric.md`](vision/alignment-rubric.md)
+
 ## **Why I want to build Double**  
 
 I want to build Double because I believe the greatest gift we can give humanity is a safe mirror that shows us who we could become.  
