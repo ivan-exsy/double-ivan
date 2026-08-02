@@ -45,11 +45,12 @@
 **BE tip to deploy:** `origin/railway` @ **`be158e24`** (Pass A — merged from `ivan/pass-a-place-social`)  
 **Posture:** Survival sprint; stop prior score sim `20260731-1` before restarting `double-api` if needed. Do **not** restart API while this score sim is live.
 
-**Score sim:** `20260801-1` *(create on deploy)*  
-**Baseline / fork from:** `soul15_seed_20260224` *(or same as 20260731-1)*  
+**Score sim:** `20260801-1`  
+**Baseline / fork from:** `soul15_seed_20260224`  
 **Target steps:** `≥2600` (clear Survival Day 1 **vote deadline 20:00** ≈ step **~2250** on 06:30 start)  
-**Start:** `TBD` · runner PID `TBD` · UUID `TBD`  
-**Env:** `HEADLESS_MOVEMENT_ENABLED=true` · `HEADLESS_STRICT_ABORT=true` · `INTENT_PERSIST_HARD_FAIL=true` · `PLACE_LANGUAGE_API_PREFER_EMIT=true`
+**Start:** `2026-08-02 06:30` · runner PID `2378819` · UUID `e09ffe02-64c3-42ff-9d92-fa742424ae96`  
+**Env:** `HEADLESS_MOVEMENT_ENABLED=true` · `HEADLESS_STRICT_ABORT=true` · `INTENT_PERSIST_HARD_FAIL=true` · `PLACE_LANGUAGE_API_PREFER_EMIT=true`  
+**Watch:** Survival armed by step ~30 (`is_survival=true`, Premiere). Vote-gather remains in-scope for §6.
 
 **Unit proof already green (local):**
 - `tests/test_travel_anchor_destination_authority.py::TestGuardTravelDefer`
@@ -69,22 +70,23 @@
 ### 0. Preflight
 
 - [x] Merge / push `ivan/pass-a-place-social` → `railway` @ **`be158e24`** *(local→origin done 2026-08-01)*
-- [ ] Prior score sim `20260731-1` stopped; runner gone
-- [ ] VPS `git pull` → tip **`be158e24`**; `systemctl restart double-api` *(only when no sim live)*
-- [ ] Fork + start `20260801-1`; Survival ON; UUID / PID recorded
+- [x] VPS `git pull` → tip **`be158e24`**; `systemctl restart double-api`
+- [~] Prior score sim `20260731-1` — runner **gone** after API restart (`backend_process_active=false`); DB status still showed `running` / `is_generating` (stale) @ launch
+- [x] Fork + start `20260801-1`; UUID / PID recorded
+- [x] Survival season armed (`is_survival=true`) — confirmed by step ~30 · label **Premiere** · engine_day 1
 
-**Recorded:** UUID `________` · PID `________` · tip `be158e24` · fork `________` · `curr_time` start `06:30` · 15 personas
+**Recorded:** UUID `e09ffe02-64c3-42ff-9d92-fa742424ae96` · PID `2378819` · tip `be158e24` · fork `2026-08-02T00:15:58Z` · `curr_time` start `2026-08-02 06:30` · 15 personas · sprint + diagnostic · maze `605c06ea-…`
 
 ---
 
 ### 1. Early smoke (~steps 50–100)
 
-- [ ] Tip correct; API active; runner alive
-- [ ] No `HEADLESS_STRICT_ABORT` / traceback flood
-- [ ] Soft: soak shows `GUARD PLACE-CLAIM-DEFER` and/or `GUARD TRAVEL-DEFER`
-- [ ] Soft: no early stretch-bathroom → Park
+- [x] Tip correct; API active; runner alive — tip `be158e24`; PID `2378819` continuous; step **30** @ `07:01` · `is_generating=true` · `last_generated_at` fresh *(checkpoint ~30; target band was 50–100)*
+- [ ] No `HEADLESS_STRICT_ABORT` / traceback flood *(not re-grepped this checkpoint)*
+- [ ] Soft: soak shows `GUARD PLACE-CLAIM-DEFER` and/or `GUARD TRAVEL-DEFER` *(soak not scanned)*
+- [ ] Soft: no early stretch-bathroom → Park *(too early / no analyzer yet)*
 
-**Result:** _
+**Result:** PASS soft on health — runner + Survival OK at step 30. Soft GUARD/Park checks still open until soak/analyzer.
 
 ---
 
