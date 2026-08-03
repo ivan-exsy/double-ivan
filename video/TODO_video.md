@@ -1,6 +1,6 @@
 # North star — Anya CapCut Day 1 → auto-gen uplift
 
-**Updated:** 2026-07-30 (N6 `run_tonight_scar` · N3 auto picture · challenge packs · seat_map v4)  
+**Updated:** 2026-08-03 (GrokFilm deferred note) · prior 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
 **Authority:** Creative bar = Anya’s approved cut. Contracts stay in [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md). Older encyclopedia / Gate A–E notes below are **historical** unless a task below re-opens them.
 
 | | |
@@ -108,6 +108,10 @@ Goal: Tonight’s Scar chain (SOT §11.4) produces a Day-1 cut that approaches A
 - [x] **Silent Pact → Shared Survival Pool teach packs** — §5.3–§5.15 commissioned; **PNG packs restored 2026-07-30** to `video/assets/challenges/<id>/` (title / steps_board / immunity_status)  
 - [ ] **Length A/B:** render short + long for N nights; lock long budgets after feedback  
 - [x] **N5 interiors generate** — Phaser ✅; 19 plates generated 2026-07-30 (`generate_missing_interiors --generate`); spot-check remaining  
+
+### Later — after video lands in double-video
+
+- [ ] **GrokFilm (prompt craft only)** — Harvest ~10–20 lighting/camera tokens from [grokfilm.app/#index](https://grokfilm.app/#index) into owned prompt families (namecard / habitat / cost / i2v). No runtime dependency; no Remotion / Post-Production integration; skip genre packs. Migrate this bullet into `double-video` when eng `video/` moves.
 
 ### Next eng (order)
 
