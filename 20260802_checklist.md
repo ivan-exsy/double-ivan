@@ -22,9 +22,9 @@
 **BE tip:** `origin/railway` @ **`1c830aec`**  
 **Score sim:** `20260802-1`  
 **Baseline / fork:** `soul15_seed_20260224`  
-**Target steps:** `≥2600` (clear Day-1 vote **20:00** ≈ step ~2250 on 06:30 start)  
+**Target steps:** `≥2600` planned; **founder stop @ ~1677** after Day-1 vote + Day-2 morning (enough for piano residual + vote gather)  
 **Env:** `HEADLESS_MOVEMENT_ENABLED=true` · `HEADLESS_STRICT_ABORT=true` · `INTENT_PERSIST_HARD_FAIL=true` · `PLACE_LANGUAGE_API_PREFER_EMIT=true`  
-**Posture:** Survival sprint + diagnostic. Do **not** restart `double-api` while this sim is live.
+**Posture:** Survival sprint + diagnostic.
 
 **Launch (VPS):** see chat / §0 below.
 
@@ -59,36 +59,40 @@ curl -k https://localhost:8001/api/simulations/20260802-1/status/current | pytho
 
 **Recorded:** UUID `62bbdf0e-568e-49b7-86e3-d1d144fbfcf6` · PID `2471155` · tip `1c830aec` · fork `2026-08-03T03:51:18Z` · `curr_time` start `2026-08-02 06:30` · 15 personas · sprint + diagnostic · maze `9e390f7b-…` · max_steps 2600
 
-**Early smoke @ step 42 (`2026-08-03T04:13Z` wall):** `status=running` · PID `2471155` continuous · `is_generating=true` · `last_generated_at` fresh · Survival **Premiere** · `curr_time` `07:13` — **PASS soft; let run.**
+**Early smoke @ step 42 (`2026-08-03T04:13Z` wall):** `status=running` · PID `2471155` continuous · Survival **Premiere** · `curr_time` `07:13` — **PASS soft; let run.**
 
-**Mid-run @ ~step 698 (`2026-08-03T14:08Z` wall / sim ~18:08):** still generating · bath→Park **0** · addr≠@ **0** · piano V2/non-play **0** · Class P soft **7** (was 4) · play-piano **17** Olivia (**1**/17 sealed `:piano`, rest Hobbs cafe) · CD **171** instrument · cafe lively · vote ~step 810 still ahead.
+**Mid-run @ ~step 698 (`2026-08-03T14:08Z` wall / sim ~18:08):** bath→Park **0** · addr≠@ **0** · piano V2 **0** · Class P soft **7** · play-piano **17** (1/17 `:piano`) · CD **171** · vote still ahead.
+
+**Final score @ ~step 1677 (`2026-08-04T01:19Z` wall / sim Day-2 ~10:26):** founder stop — past Day-1 20:00 · AL V2 piano **0** · sprite non-play `:piano` **2** · play-piano **44** (**2**/44 `:piano`) · bath→Park **0** · addr≠@ **0** · TELEPORT **0** · Class P soft **34** · CD **307** gap0 **0** · **Hobbs@20:00 peak 8/15** · Gap-2 **1** · APT-N **287**.
+
+**Founder judgment (2026-08-03 evening):** Class P soft, play-seal rarity, grass-stretch@Park, APT-N, Gap-2, soak greps = **non-blocking / soft** for this tip. **Vote gather 8/15 is the serious remaining issue** (Survival format, not this tip’s piano owner).
 
 ---
 
 ### 1. Early smoke (~steps 50–100)
 
-- [x] Tip still `1c830aec`; runner alive — PID continuous through step **42+** (Supabase AL through **~50**)
-- [ ] No `HEADLESS_STRICT_ABORT` / traceback flood *(VPS soak not grepped)*
-- [ ] Soft: soak shows `PLACE-CLAIM-DEFER` and/or `TRAVEL-DEFER` *(VPS soak not grepped)*
-- [x] Soft: no early stretch-bathroom → Park — sprite **0** through step 45
+- [x] Tip still `1c830aec`; runner healthy through **1677**
+- [ ] No `HEADLESS_STRICT_ABORT` / traceback flood *(VPS soak not grepped — optional)*
+- [ ] Soft: soak shows `PLACE-CLAIM-DEFER` / `TRAVEL-DEFER` *(optional)*
+- [x] Soft: no bathroom→Park place-claim — **0** through 1677
 
-**Result:** PASS soft @ ~50 — health + Survival + no early bath/stretch→Park. Soak GUARD greps still need VPS.
+**Result:** **PASS.** Optional soak health greps left open; not required for tip call.
 
 ---
 
 ### 2. Held regressions — **must stay green**
 
-*Early read @ steps 0–50 (not final — re-confirm ≥vote hour):*
+*Final @ steps 0–1676 (past Day-1 20:00):*
 
-| Bar | Pass A | This tip @ ~50 | Pass? |
-|-----|--------|----------------|-------|
-| Place-claim bath→Park | **0** | **0** | early OK |
-| Dorm-@ / addr≠@ | **0** | addr≠@ **0** | early OK |
-| TELEPORT | clean | none (realism: 1 CD only @45) | early OK |
-| Class P named-travel→Park | soft **9** | **4** early rows (Olivia hobbs→Park) | soft watch (same shape; too early for call) |
+| Bar | Pass A | This tip @ ~1677 | Pass? |
+|-----|--------|------------------|-------|
+| Place-claim bath→Park | **0** | **0** | **PASS** |
+| Dorm-@ / addr≠@ | **0** | addr≠@ **0** | **PASS** |
+| TELEPORT | clean | **0** | **PASS** |
+| Class P named-travel→Park | soft **9** | soft **34** | soft — founder non-blocking |
 | Prefer-emit morning | not re-run | _ | soft *(carry)* |
 
-**Result:** Early hold OK — place-claim / addr≠@ / teleport clean through ~50. Class P soft present (4); not a mass reopen. **Re-score at ≥20:00.**
+**Result:** **PASS** on hard held bars. Class P soft elevated but accepted as non-blocking for this tip.
 
 ---
 
@@ -96,86 +100,62 @@ curl -k https://localhost:8001/api/simulations/20260802-1/status/current | pytho
 
 Baseline = Pass A @ ~1928 (`20260801-1`):
 
-| ID | Pass A | This tip @ ~50 | Pass? |
-|----|--------|----------------|-------|
-| **PIANO V2** | **60** | **0** | too early — cafe lunch/challenge not hit |
-| **PIANO emit** (non-play persona-steps) | **96** | **0** sprite leaf-piano | too early |
-| Play-piano still seals `:piano` | n/a | **0** play matches | no signal yet |
-| Gate-fired evidence | fallthrough **0** (starved) | _ | needs VPS soak after Hobbs traffic |
-| P8→piano (mismatched act) | **17** intros | _ | needs soak |
-| Sticky-piano | **4** | _ | needs soak |
-| Mic over-rejection (soft) | n/a | _ | later |
+| ID | Pass A | This tip @ ~1677 | Pass? |
+|----|--------|------------------|-------|
+| **PIANO V2** (AL) | **60** | **0** | **PASS** |
+| **PIANO emit** (sprite leaf `:piano`, act no piano) | **96** | **2** | **PASS** |
+| Play-piano still seals `:piano` | n/a | **2**/44 | soft — founder non-blocking |
+| Gate-fired soak evidence | starved on Pass A | not grepped | optional (residual ≈0 accepted) |
+| P8 / sticky intro attribution | n/a | skipped | residual too small to require |
+| Mic over-rejection | n/a | not spotted | soft / later |
 
 **Checks:**
-- [ ] Analyzers: AL V2 + sprite non-play emit (persona-steps) — **partial early: V2=0 / emit=0 @~50 only**
-- [ ] Soak census (§6) with gates live — do **not** use Pass A bucket table as L1 evidence
-- [ ] If residual remains: attribute intros (P8 / GUARD / sticky / LLM); streak↔P8 only if needed
-- [ ] Spot: matching "play piano" / mic perform still land on object
+- [x] Analyzers: AL V2 **0** + sprite emit **2** @ ~1677
+- [ ] Soak census — optional now that residual ≈0; do **not** size L1 from Pass A pre-flag table
+- [x] Spot: play-piano common; object seal rare — accepted soft for this tip
 
-**Soft early noise:** APT-N V4 **61** (Olivia morning Apartment-1 text) — record; not ship-blocker. Gap-1/2 **0** so far.
+**Soft noise (non-blocking):** APT-N **287** · Gap-2 **1** · grass-stretch@Park **40** (real park stretch ≠ bath claim).
 
-**Result:** **Too early for piano ship call.** Clean so far (no non-play piano). Need Hobbs lunch / challenge / vote window + soak gate evidence.
+**Result:** **This tip GREEN on residual** (0/2 vs 60/96). Affordance loader plumb did the job.
 
 ---
 
 ### 4. Social — instrument hold only (S1 not this tip)
 
-| ID | Pass A | This tip | Notes |
-|----|--------|----------|-------|
-| Chat CD honest | **461** · gap0 **0** | _ | record; do not ship S1 here |
-| effective_cd=3 | **17** | _ | carry: mechanism still open (§9.3 prior) |
-| Cafe still lively | yes | _ | must not mute |
+| ID | Pass A | This tip @ ~1677 | Notes |
+|----|--------|------------------|-------|
+| Chat CD honest | **461** · gap0 **0** | **307** · gap0 **0** | still talk-loop ugly; **S1 later** |
+| effective_cd=3 | **17** | **10** | mechanism still open |
+| Cafe still lively | yes | yes | held |
 
-**Carry from Pass A §9.3 (unverified):**
-- [ ] ≥5 eff_cd=3 rows inspected (pair, gap, arena, n_exchanges)
-- [ ] One-line S1 problem statement from **this** tip’s honest count (or keep **461** if unchanged)
+**Carry:**
+- [ ] ≥5 eff_cd=3 rows inspected *(optional before S1)*
+- [x] S1 problem statement: honest CD **307** @1677 with gap0 **0** — size S1 off this (or Pass A **461**); not this tip
 
-**Result:** _
+**Result:** Instrument only. **S1 not shipped here.**
 
 ---
 
 ### 5. Display honesty + Talk Path A
 
-- [ ] Soft morning probe: `api_fail_candidates=[]` *(carry: open)*
-- [ ] Talk Path A — **HOLD** (out of scope)
+- [ ] Soft morning probe: `api_fail_candidates=[]` *(carry)*
+- [ ] Talk Path A — **HOLD**
 
-**Result:** _
+**Result:** Open / HOLD — out of tip scope.
 
 ---
 
 ### 6. Analyzers + census (after ≥ vote hour 20:00)
 
-```bash
-# local / after export
-python tests/analyze_action-location.py 20260802-1 --source supabase
-python tests/analyze_sim_realism.py 20260802-1 --source supabase
-python tests/analyze_sim_survival.py 20260802-1 --source supabase
-```
+- [x] AL / realism exported @ ~1677
+- [x] Vote gather @ Day-1 20:00 (~step 810 on 06:30 / 60s-step) — peak Hobbs **8/15**
+- [x] Soft Gap-2 / APT-N recorded
+- [x] Piano census filled
+- [ ] VPS soak greps *(optional / deferred)*
 
-```bash
-# VPS soak census
-SIM=20260802-1
-LOG=/var/log/soak/${SIM}.log
-G="grep -a"
-for pat in \
-  "POST-VALIDATE affordance fallthrough" \
-  "LOCATION STICKY SKIP" \
-  "ACTION CONTRACT REJECTED" \
-  "affordance_required" \
-  "PHASE 8 REDISTRIBUTE" \
-  "PHASE 8 STAFF EVICT" \
-  "LOCATION STICKY:.*:piano" \
-  ":piano"
- do echo -n "$pat: "; $G -cE "$pat" "$LOG" || echo 0; done
-echo "P8→piano: $($G -cE 'PHASE 8 (REDISTRIBUTE|STAFF EVICT):.*→.*:piano' "$LOG")"
-```
+**Serious finding:** **Vote gather failed** — only **8/15** at Hobbs near 20:00 (not full cast). This is a **Survival appointment / gather** issue, **not** owned by the piano loader tip. Carry as **serious** product gap.
 
-- [ ] AL / realism / survival exported
-- [ ] Vote gather @ hour 20 — expect ~15/15 Hobbs *(carry: unproven on Pass A)*
-- [ ] Soft: Gap-2 / APT-N / OSC recorded only *(carry: 10 / 68 / low)*
-- [ ] Piano census filled (persona-steps + intro attribution if residual)
-
-**Result:** _
+**Result:** Score complete enough to stop. Vote gather = open serious carry.
 
 ---
 
@@ -183,16 +163,17 @@ echo "P8→piano: $($G -cE 'PHASE 8 (REDISTRIBUTE|STAFF EVICT):.*→.*:piano' "$
 
 | Question | Answer | Next |
 |----------|--------|------|
-| Piano clear enough with gates live? | _ | If YES → L1 optional; if NO → census owner then dedicated tip |
-| Post-flag census says GUARD primary? | _ | Only then size **L1** |
-| Honest CD still talk-loop ugly? | _ | **S1** later tip (baseline ≥ Pass A **461**) |
-| Held bars (place-claim / dorm / teleport / Class P)? | _ | Must hold |
+| Piano clear enough with gates live? | **YES** (residual) | Tip ship; soak optional |
+| Post-flag census says GUARD primary? | n/a (residual tiny) | **Do not** auto-size L1 |
+| Honest CD still talk-loop ugly? | **yes** (**307**) | **S1** later |
+| Held bars? | **PASS** (+ Class P soft accepted) | — |
+| Vote gather 15/15? | **NO (8/15)** | **Serious** — separate Survival/gather work |
 
-- [ ] Do **not** green-light L1 from Pass A pre-flag census
-- [ ] Do **not** mix S1 on this tip
-- [ ] Do **not** special-case Phase 8 unless post-flag census proves need
+- [x] Do **not** green-light L1 from Pass A pre-flag census
+- [x] Do **not** mix S1 on this tip
+- [x] Do **not** special-case Phase 8 unless post-flag census proves need
 
-**Result:** _
+**Result:** **Tip ship YES.** Public MVP still blocked by gather (serious) + social CD (known).
 
 ---
 
@@ -204,11 +185,12 @@ curl -k -X POST https://localhost:8001/api/simulations/20260802-1/stop \
   -d '{"action":"stop","parameters":{"force":false}}' | python3 -m json.tool
 ```
 
-- [ ] Sim stopped; process gone; final_step recorded
-- [ ] No normative SOT until Place+Social green
-- [ ] One-line tip + verdict
+- [x] Founder stop decision @ ~1677 (no need to grind to 2600 for piano call)
+- [ ] Confirm process gone + final_step after stop command *(operator)*
+- [x] No normative SOT until broader Place+Social / gather green
+- [x] One-line tip + verdict: **`1c830aec` piano residual PASS; tip GREEN; MVP not yet (vote 8/15 + CD)**
 
-**Result:** _
+**Result:** Stop in progress / operator-owned. Paper closed on tip call.
 
 ---
 
@@ -216,17 +198,32 @@ curl -k -X POST https://localhost:8001/api/simulations/20260802-1/stop \
 
 | Gate | Result | Notes |
 |------|--------|-------|
-| **0 preflight** | PASS | tip `1c830aec` + flag assert done |
-| **1 early smoke** | PASS soft @~50 | bath/stretch→Park 0; soak greps open |
-| **2 held regressions** | early OK @~50 | re-score ≥20:00 |
-| **3 piano (flags live)** | too early | V2/emit 0 @~50; not ship |
-| **4 social instrument** | _ | S1 not ship |
-| **5 display / Talk A** | _ / HOLD | |
-| **6 analyzers + census** | _ | vote carry |
-| **7 decision gate** | _ | L1 / S1 |
-| **8 stop** | _ | |
-| **This tip ship?** | _ | |
-| **Public MVP?** | NO until Place+Social clear | |
+| **0 preflight** | PASS | tip `1c830aec` + flags live |
+| **1 early smoke** | PASS | healthy through 1677 |
+| **2 held regressions** | PASS | bath/addr/teleport; Class P soft accepted |
+| **3 piano (flags live)** | **PASS — tip GREEN** | V2 **0** / emit **2** vs 60/96 |
+| **4 social instrument** | recorded | CD **307** · gap0 **0** · S1 later |
+| **5 display / Talk A** | open / HOLD | |
+| **6 analyzers + census** | done enough | **vote 8/15 serious** |
+| **7 decision gate** | tip YES / MVP NO | |
+| **8 stop** | founder stop @ ~1677 | confirm process gone |
+| **This tip ship?** | **YES** | affordance loader plumb |
+| **Public MVP?** | **NO** | see below |
+
+---
+
+### MVP ready?
+
+**No — not full public MVP yet.**
+
+| Layer | Ready? | Why |
+|-------|--------|-----|
+| **This tip (piano / place residual)** | **Yes** | Wrong-piano collapsed; held place bars green |
+| **Place MVP broadly** | **Mostly** | Piano was the last hard place residual; Class P / play-seal accepted soft |
+| **Survival gather (vote)** | **No** | Day-1 20:00 Hobbs peak **8/15** — founder marks **serious** |
+| **Social MVP** | **No** | Honest CD still high (**307**); S1 still ahead |
+
+**Call:** Ship / keep **`1c830aec`**. Treat **vote gather** as the next serious product gap (separate from piano). Keep **S1** as the social follow-up. Optional: soak greps later for forensics only.
 
 ---
 
@@ -234,9 +231,10 @@ curl -k -X POST https://localhost:8001/api/simulations/20260802-1/stop \
 
 | If… | Then… |
 |-----|--------|
-| Piano clean | MVP place closer; optional L1 strategic only |
-| Residual + census → GUARD | Plan **L1** separate tip |
-| Residual + census → Phase 8 / other | Dedicated fix; not piano-only band-aid |
-| CD still ugly | **S1** off honest count |
-| Generator regen risk | Separate ticket |
+| Tip green (done) | Keep railway tip; no piano band-aid |
+| Vote gather serious | Dedicated Survival/gather investigation (not L1/S1) |
+| CD still ugly | **S1** later off **307** (or Pass A **461**) |
+| Play-seal / Class P itch later | Optional polish tickets only |
+| Soak curiosity | Optional VPS greps — not blocking |
 | Talk Path A | Still HOLD / separate |
+| Generator regen risk | Separate ticket |

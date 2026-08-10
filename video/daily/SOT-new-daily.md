@@ -638,19 +638,26 @@ python -m video.run_tonight_scar <sim_code> --day <engine_day> \
 #### Package layout (CapCut kit)
 
 ```
-data/<sim_code>/trailer_ready_dayN/clip_kit/   # or package-dir override
-  vo_locked.txt · narration*.mp3
-  tonight_scar_picker.json · script.json · scar.json (draft→lock)
-  CAPCUT_EDIT_SHEET.md · clip_kit.json / manifest
-  picture_kit_jobs.json · picture_stills_queue/   # D3 still path
-  bins/
-    A_hook/  B_stake/  C_pressure/  D_peak/  E_cliff_door/
-    F_phaser/          # 2D literacy plant / door tease
-    video/             # master/proxy exports when present
-    capcut_proj/       # CapCut draft (gold only)
-    F_Anya-legend/     # raw legend dump (gold source; retain)
+data/<sim_code>/
+  picture_kit_cache/          # sim shelf (N3 habitats/namecards + polish promoted/)
+  trailer_ready_dayN/
+    edit_script.json          # optional founder polish SOT (Post-Production)
+    clip_kit/
+      vo_locked.txt · narration*.mp3
+      tonight_scar_picker.json · script.json · scar.json (draft→lock)
+      CAPCUT_EDIT_SHEET.md · clip_kit.json / manifest
+      picture_kit_jobs.json · picture_stills_queue/   # D3 still path
+      imported/               # day shelf — founder polish one-offs
+      bins/
+        A_hook/  B_stake/  C_pressure/  D_peak/  E_cliff_door/
+        F_phaser/          # 2D literacy plant / door tease
+        video/             # master/proxy exports when present
+        capcut_proj/       # CapCut draft (gold only)
+        F_Anya-legend/     # raw legend dump (gold source; retain)
 # Stable promoted winners (E5) live outside the kit:
 #   generative_agents/video/assets/legend_promoted/<sim>/<day>/
+# Cohort cast plates (group photo / matrix / portraits):
+#   generative_agents/video/assets/cohort/<slug>/
 ```
 
 **Gold package (Day 1 V6):**  
@@ -658,6 +665,20 @@ data/<sim_code>/trailer_ready_dayN/clip_kit/   # or package-dir override
 **Forensics (no large binaries):**  
 `double-ivan/video/daily/gold/20260713-1_day1_anya/` — see `GOLD.md` · `CANONICAL_PATHS.md` · `capcut/`.
 
+#### Media resolve (Live = Rebuild)
+
+Post-Production Live preview and eng Rebuild share one ladder so phone MP4 matches Live:
+
+1. Package `src` (`clip_kit/imported/…`, bins)  
+2. Logical aliases in `edit_script` cuts:
+   - `sim_cache/picture/<rel>` → `data/<sim>/picture_kit_cache/<rel>` (sim-reusable polish + N3 cache)
+   - `sim_cache/cohort/<rel>` → `video/assets/cohort/<slug>/<rel>` (cast plates; optional leading slug)
+3. Challenge teach pack / role→bin maps  
+4. Safety net: `remotion/public/nightly_survival` + `gold_replay` basenames (encode scratch — not SOT)
+
+**Save (Post-Production):** promotes Live-only soft-miss files into **sim** (`sim_cache/picture/promoted/`) or **day** (`clip_kit/imported/`) shelves, rewrites `cut.src`, and **drops unreferenced** polish-owned files from those shelves (sim `promoted/` only when unused by sibling night packages too). Rebuild preflight **warns** (does not block) when picture cuts remain unresolved. VO/SFX paths unchanged (day package + eng stock).
+
+**Do not** treat `nightly_survival/` leftovers as the long-term asset home — Save sync or resolve via shelves above.
 #### Immutable auto-gen rules
 
 1. **Fact-lock** — ledger / picker only; fail if Peak, Cost, challenge, or elim identity missing.  
@@ -807,6 +828,7 @@ Day 1 V6 **G1–G8 READY** — CapCut gold exists; further nights reuse the same
 
 | Date | Change |
 |------|--------|
+| 2026-08-07 | **§11.4 media resolve** — Live = Rebuild ladder; `edit_script` + `sim_cache/picture|cohort` aliases; Save promotes + GCs polish shelves; `nightly_survival` safety net only. |
 | 2026-07-16 | Tonight’s Scar asset split — temp daily SOT created (COS `2026-07-16-003`). |
 | 2026-07-17 | V6 Day-1 gold + two-featured cast (COS `2026-07-17-001`). |
 | 2026-07-17 | Day 2+ Scar Chain + coverage SLA A–E (COS `2026-07-17-002`). |
