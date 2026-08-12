@@ -17,48 +17,68 @@
 
 | Step | Goal | Status |
 |------|------|--------|
-| **[A]** | Polish in Post-Production → phone-acceptable Live | **P0 applied** (~22:02) on `edit_script.json` — confirm Live, then [B] |
-| **[B]** | Rebuild → MP4 matches Live | **NEXT** (prior bake 21:03 was pre-P0) |
-| **[C]** | Eng learn (E0 diff → E1 promote priors) | After [B] |
+| **[A]** | Polish in Post-Production → phone-acceptable Live | **✅ Accepted** (P0 + P1 peak/challenge phone OK) |
+| **[B]** | Rebuild → MP4 matches Live | **✅ DONE** (incl. P1 assets bake ~00:03) |
+| **[C]** | Eng learn (E0 diff → E1 promote priors) | **NEXT** (after Phaser FE or defer Phaser) |
 | **[D]** | Cold auto (no polish) vs [A] bar | After [C] |
 | **[E]** | Staged migrate eng `video/` → `double-video` | After [B]+[C] · prd §22.1 · **do not pull early** |
 
-### [A] P0 — Live (in `double-video`)
+### Next (pick order)
 
-Field actions + rollback snapshot: [detail brief § P0](../20260811_capcut-vs-post-prod.md#p0--live-tonight-3045-min-survives-rebuild).
+| Priority | Work | Notes |
+|----------|------|-------|
+| **1** | **Phaser elim** (P1 #3) | FE screenshot this sim → replace flyover plug · *or defer* |
+| **2** | **[C] eng learn** E0 → E1 | Rough↔polish diff; you pick 5–10 promote rows |
+| **3** | Optional polish assets | Hero namecards · readable tie / VOTING TARGET |
+| — | Challenge split / [E] migrate | Skip — beds fixed · migrate still deferred |
 
-| # | Item | Status |
-|---|------|--------|
-| 1 | Phaser elim — plug to label-free `signature_flyover` (+ debt marker) | ✅ |
-| 2 | Unfreeze challenge bed (`speed: 0.12`) | ✅ |
-| 3 | Fill black holes + door opacity/timing | ✅ |
-| 4 | Peak speed + habitat Ken Burns; `want_cost` earlier | ✅ |
-| 5 | ALLIANCES overscan dialed down | ✅ |
-| 6 | Music duck under teach (6 segments) | ✅ |
-| — | SFX joins on primary cuts | ✅ |
-| — | Confirm Live → **[B]** Rebuild → phone-watch | ☐ |
+**Closed:** P0 · peak card-11 · challenge v2 group grammar · [B] proof. **Open debt:** correct-cast Phaser (FE).
 
-**Done earlier (do not reopen):** photo→matrix wipe · opener roster/badges.
+### P1 — assets + Grok Imagine 2.0 leverage (2026-08-11)
 
-**Do not:** caption rewrite as primary · commission Vincent objective HUD · force-materialize · start [C]/[E] · treat run-report green as dynamism. Full list in brief.
+**Order (locked):** peak evidence → challenge teach bed → Phaser elim.  
+**Maker default:** founder/agent on **grok.com/imagine** (2.0 / Video 1.5+), then stage into `clip_kit/imported/` + wire cuts. Eng auto-kit stays on older i2v defaults (`duration=2`, `720p`) — **do not use that path for these three** until eng bumps duration/resolution.
 
-### [A] backlog after [B] proof
+| # | Asset | Window | Target deliverable | How to leverage 2.0 |
+|---|-------|--------|--------------------|---------------------|
+| **1** | Peak evidence | ~50–55s | **≥6s** 9:16 clip (fills 5.5s without freeze) | **Multi-ref still** (Alexis face + habitat/namecard + card prop) → **i2v 720p**, duration **6–8s**, subtle hold/reveal of **readable winning card**. Mute only — strip/ignore native audio. Light life OK; **double identity consistent**. |
+| **2** | Challenge teach bed | ~33–50s (~17s) | **≥12s** motion (API max often **15s**; loop or `speed≈0.85` for remainder) | Still: card table / hands / Hold-for-Shield (Anya grammar, **Alexis cast**). **i2v 12–15s** @ **720p**; multi-ref lock table + Alexis. Prefer longer single take over 2s loop. |
+| **3** | Phaser elim | ~70.7–74.1 | Correct-cast still (or short clip) | **Leave flyover plug** until **FE Phaser screenshot**. No Imagine interim. |
 
-- Peak trim until P1 card evidence · end leave empty-black check on phone  
-- FX polish only after eng honours `enabled: false` + stops silent recipe extras ([brief § FX](../20260811_capcut-vs-post-prod.md#fx-note-corrected))
+**Use hard:** multi-ref identity (face/prop/place) · **longer duration** (kill 2s freeze root cause) · **720p** (do **not** max 1080p) · 9:16 aspect.  
+**Skip for trailer beds:** voice clone / dialogue audio · 1080p.  
+**API note:** eng `xai_imagine.generate_i2v` allows duration 1–15; kit callers still pass **2s** — P1 one-offs use **6–15s / 720p** (UI or API).
 
-### P1 — assets (after / parallel to P0 bake)
+**Founder locks (2026-08-11):** style refs OK + life improvisation with consistent doubles · Phaser = FE only · peak card = **sim rank 11** (see below) · deliverables @ **720p**.
+
+### P1 — status
 
 | # | Asset | Status |
 |---|-------|--------|
-| 1 | Correct-cast Phaser elim for this sim (or FE capture — see Phaser) | ☐ — plug shipped; debt marker on |
-| 2 | Challenge teach bed **≥6s** motion (2s sources freeze in long windows) | ☐ |
-| 3 | Peak evidence (Alexis + readable card) **≥3s** | ☐ |
-| — | Later: hero namecards · readable tie / VOTING TARGET card | ☐ |
+| 1 | Peak evidence (Alexis + readable **rank 11** card) **≥6s** @ 720p | ✅ staged `alexis_peak_card11.mp4` (7.0s) · wired `peak_portrait` speed 1.0 |
+| 2 | Challenge teach bed **≥12s** @ 720p | ✅ **v2** group secret cards · wired · **Rebuild ✅** (~00:03) |
+| 3 | Correct-cast Phaser elim | ☐ **deferred to FE** (flyover plug live) |
+| — | Later: hero namecards · readable tie / VOTING TARGET | ☐ |
+
+**P1 gen note (2026-08-12):** peak `alexis_peak_card11` + challenge **v2** `challenge_hold_shield_bed_v2` (group, each own secret card; v1 solo-shuffle rejected). Staged under `clip_kit/imported/` + `_p1_gen/`. **Rebuild green** → phone-watch ~33–50s (challenge) + ~50–55s (peak **11**). Phaser still FE debt.
 
 ### Phaser elim — decision
 
-Tonight: **plug** (label-free) or **Imagine** (this-sim doubles). Durable: **FE Phaser snapshot at elim → kit** (pipeline after [B]). Detail: [brief § Phaser](../20260811_capcut-vs-post-prod.md#phaser-elim-beat--decision).
+**Plug shipped** (label-free flyover + marker `debt_phaser_elim_cast`). **Wait for FE Phaser snapshot** — do not Imagine. Detail: [brief § Phaser](../20260811_capcut-vs-post-prod.md#phaser-elim-beat--decision).
+
+### Peak card rank — resolved (Supabase)
+
+Sim **`20260724-2`** · `hold_for_shield` · day 1 · winner **Alexis Reed**.
+
+| Source | Value | Use? |
+|--------|-------|------|
+| `survival_season_state.challenge_results` → `public_board.holders["Alexis Reed"]` | **11** | **Yes — resolution truth** (highest among holders) |
+| Same row → `decisions[Alexis].card` | 7 | No — private 7-player deal before re-deal; inconsistent |
+| Suit / 52-card deck | **none** | Challenge uses integer ranks **1…N** only |
+
+**Mute visual:** show a challenge card labelled **11** (readable at phone), not a poker suit. Optional shield / IMMUNITY badge. Do not invent Ace–King. VO already says “highest card” — no VO change.
+
+**Eng note:** trailer `fact_ledger` only copies winners; card ranks stay in Supabase until ledger gains a field.
 
 ### P2 — eng (only after founder accepts P0 bake)
 
