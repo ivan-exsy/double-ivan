@@ -19,7 +19,7 @@
 |------|------|--------|
 | **[A]** | Polish in Post-Production → phone-acceptable Live | **✅ Accepted** (P0 + P1 peak/challenge phone OK) |
 | **[B]** | Rebuild → MP4 matches Live | **✅ DONE** (incl. P1 assets bake ~00:03) |
-| **[C]** | Eng learn (E0 diff → E1 promote priors) | **NEXT** (after Phaser FE or defer Phaser) |
+| **[C]** | Eng learn (E0 diff → E1 promote priors) | **E0 ✅** · E1 list **pre-approved** · agent may finish cold bake unattended |
 | **[D]** | Cold auto (no polish) vs [A] bar | After [C] |
 | **[E]** | Staged migrate eng `video/` → `double-video` | After [B]+[C] · prd §22.1 · **do not pull early** |
 
@@ -27,12 +27,84 @@
 
 | Priority | Work | Notes |
 |----------|------|-------|
-| **1** | **Phaser elim** (P1 #3) | FE screenshot this sim → replace flyover plug · *or defer* |
-| **2** | **[C] eng learn** E0 → E1 | Rough↔polish diff; you pick 5–10 promote rows |
-| **3** | Optional polish assets | Hero namecards · readable tie / VOTING TARGET |
-| — | Challenge split / [E] migrate | Skip — beds fixed · migrate still deferred |
+| **1** | **[C] eng learn** E0 → E1 → cold | **E0 done** · promote list locked below · agent autonomous through cold MP4 |
+| **2** | Phaser elim (P1 #3) | Deferred — FE when ready (not agent tonight) |
+| **3** | Optional polish assets | Hero namecards · readable tie — taste later |
+| — | [E] migrate | Still deferred |
 
-**Closed:** P0 · peak card-11 · challenge v2 group grammar · [B] proof. **Open debt:** correct-cast Phaser (FE).
+**Founder tomorrow:** phone-watch cold trailer; answer only taste / ambiguity flags the agent left. Do not block E1 on another pick round.
+
+### E1 promote list (pre-approved 2026-08-12 — agent may proceed)
+
+Constants / look / stock bus only — **never** promote `clip_kit/imported` src:
+
+1. `photo_to_matrix_scan` — opener scan ~6s  
+2. `cast_photo` — `wipeDelaySec` 0.1 (+ short photo hold)  
+3. `badge_doubland` — ~1.5s hold  
+4. `badge_live_simulation` — tighter LIVE  
+5. `badge_n_active` — tighter N ACTIVE  
+6. `want_cost` — earlier/longer stake window  
+7. `signature_flyover_door` — longer + opacity ~0.85  
+8. `intrigue_loop` — music duck (teach ~0.08)  
+
+**Optional if clean:** `end_lockup` **hold length only** (not imported lockup media).  
+
+**Do not promote:** `hook_census*`, `peak_portrait`/`challenge_*` speeds, alliances scale, SoftWhoosh batch (defer), imports, captions, VO, ledger, Phaser plug.
+
+**Agent autonomy:** complete E1 + cold nightly **without** polish file + tests + update this TODO status. Leave a short “taste / verify tomorrow” note only where contracts don’t decide. Stop for founder only on hard blockers (missing data, VO-lock conflict, render fail).
+
+### [C] handoff — Grok build agent (eng)
+
+**Project / cwd:** `D:\Coding\generative_agents-ivan-dev` · branch `ivan/*` (e.g. `ivan/dev` or `ivan/polish-learn-e0`)  
+**Not** `D:\Coding\double-video` (Post-Production only produces artifacts; learning sink is eng recipe/grammar).  
+**Contract:** `D:\Coding\double-video\prd.md` §22.2 · SOT checklist: `D:\Coding\double-ivan\video\TODO_video.md`
+
+**Package:** `D:\Coding\generative_agents-ivan-dev\data\20260724-2\trailer_ready_day2`  
+**Polish SOT:** `D:\Coding\generative_agents-ivan-dev\data\20260724-2\trailer_ready_day2\edit_script.json` (current)  
+**Rough candidates (pre tonight’s big polish):**  
+- Prefer: `D:\Coding\generative_agents-ivan-dev\data\20260724-2\trailer_ready_day2\edit_script.snapshots\edit_script_20260807_223807Z.json`  
+- Pre-wipe alt: `D:\Coding\generative_agents-ivan-dev\data\20260724-2\trailer_ready_day2\edit_script.snapshots\edit_script_20260811_214451Z_pre_matrix_wipe.json`  
+- Mid (after wipe, before P0 dynamism): `D:\Coding\generative_agents-ivan-dev\data\20260724-2\trailer_ready_day2\edit_script.pre_p0_dynamism_20260811_220017.json`  
+
+If unclear, rebuild rough from cold props *without* applying polish (document choice). Props path if needed: `D:\Coding\generative_agents-ivan-dev\video\remotion\props\nightly_20260724-2_day2_long.json` (note: may already be post-apply — prefer edit_script snapshots).  
+**Markers / pain:** freezes from short clips; challenge/peak holds; music duck; poster wipe (keep); Phaser plug (package-only).
+
+**Agent phases (stop for founder between E0 and E1):**
+1. **E0** — Implement thin `D:\Coding\generative_agents-ivan-dev\video\polish_learn.py` (or `diff_edit_script.py`) + CLI; emit **diff report only** (no recipe writes). Tag rows `promote_candidate` | `package_only` | `do_not_touch`. Tests for diff. **Do not promote yet.**
+2. **Pause** — Founder picks **5–10** promote rows (~15 min).
+3. **E1** — Promote **3–7** allowlisted constants (holds/poster/stock SFX/look priors — **not** imports, captions, ledger facts, VO). Cold nightly **without** polish → phone-watch bar: ≥3 patterns visible cold; no VO-lock regression.
+
+**Never promote:** `D:\Coding\generative_agents-ivan-dev\data\20260724-2\trailer_ready_day2\clip_kit\imported\*` as cold defaults · caption text · Peak/Cost/challenge winners · full timeline clone · Imagine one-offs.
+
+**Copy-paste task for agent:**
+
+```
+[C] Eng polish→learn — E0 only first (prd §22.2)
+
+Repo / cwd: D:\Coding\generative_agents-ivan-dev
+Do NOT change D:\Coding\double-video product UI.
+Contract: D:\Coding\double-video\prd.md §22.2
+SOT: D:\Coding\double-ivan\video\TODO_video.md ([C] handoff)
+
+Package: D:\Coding\generative_agents-ivan-dev\data\20260724-2\trailer_ready_day2
+Polish: D:\Coding\generative_agents-ivan-dev\data\20260724-2\trailer_ready_day2\edit_script.json
+Rough prefer: D:\Coding\generative_agents-ivan-dev\data\20260724-2\trailer_ready_day2\edit_script.snapshots\edit_script_20260807_223807Z.json
+  alt pre-wipe: ...\edit_script.snapshots\edit_script_20260811_214451Z_pre_matrix_wipe.json
+  mid fallback: ...\edit_script.pre_p0_dynamism_20260811_220017.json
+
+Build thin video/polish_learn.py (or diff_edit_script.py) + CLI + tests:
+- Diff rough vs polish: per-role Δdur/Δstart, opacity/fade/speed, sfx add/remove,
+  poster hold, fx deltas
+- Tag each row: promote_candidate | package_only | do_not_touch
+- WRITE REPORT ONLY — no recipe/grammar/SFX default changes yet
+
+Never promote: imported media, caption text, ledger/Peak/Cost facts, VO, full timeline clone.
+Allowlist intent later (E1): holds, poster, stock SFX, look priors.
+
+Deliverable: markdown/JSON diff report + how to re-run CLI.
+STOP and hand founder top promote_candidate rows for 15-min pick.
+Do NOT run E1 promote or cold rebuild until founder approves the list.
+```
 
 ### P1 — assets + Grok Imagine 2.0 leverage (2026-08-11)
 
