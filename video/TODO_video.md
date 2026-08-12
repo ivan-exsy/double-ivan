@@ -1,6 +1,6 @@
 # North star — Anya CapCut Day 1 → auto-gen uplift
 
-**Updated:** 2026-08-11 (this file = **SOT video TODO**) · prior 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
+**Updated:** 2026-08-12 (E1 cold bake) · prior 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
 **Authority:** Creative bar = Anya’s approved cut. Contracts: [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md).  
 **Detail brief (P0 field list + evidence):** [`../20260811_capcut-vs-post-prod.md`](../20260811_capcut-vs-post-prod.md) — not a second checklist; execute from **here**, open brief for cut IDs / freezedetect / do-nots.
 
@@ -19,20 +19,20 @@
 |------|------|--------|
 | **[A]** | Polish in Post-Production → phone-acceptable Live | **✅ Accepted** (P0 + P1 peak/challenge phone OK) |
 | **[B]** | Rebuild → MP4 matches Live | **✅ DONE** (incl. P1 assets bake ~00:03) |
-| **[C]** | Eng learn (E0 diff → E1 promote priors) | **E0 ✅** · E1 list **pre-approved** · agent may finish cold bake unattended |
-| **[D]** | Cold auto (no polish) vs [A] bar | After [C] |
+| **[C]** | Eng learn (E0 diff → E1 promote priors) | **E0 ✅ · E1 ✅ cold bake** — founder phone-watch tomorrow |
+| **[D]** | Cold auto (no polish) vs [A] bar | **Ready** — cold MP4 is the E1 artifact; taste vs [A] next |
 | **[E]** | Staged migrate eng `video/` → `double-video` | After [B]+[C] · prd §22.1 · **do not pull early** |
 
 ### Next (pick order)
 
 | Priority | Work | Notes |
 |----------|------|-------|
-| **1** | **[C] eng learn** E0 → E1 → cold | **E0 done** · promote list locked below · agent autonomous through cold MP4 |
+| **1** | **[D] taste** cold E1 MP4 vs [A] | Phone-watch · see `E1_COLD_VERIFY.md` taste flags only |
 | **2** | Phaser elim (P1 #3) | Deferred — FE when ready (not agent tonight) |
 | **3** | Optional polish assets | Hero namecards · readable tie — taste later |
 | — | [E] migrate | Still deferred |
 
-**Founder tomorrow:** phone-watch cold trailer; answer only taste / ambiguity flags the agent left. Do not block E1 on another pick round.
+**Founder tomorrow:** phone-watch **cold** `trailer_9x16_e1_cold.mp4` (no polish). Answer only taste / ambiguity flags in verify note. E1 eng promote is done.
 
 ### E1 promote list (pre-approved 2026-08-12 — agent may proceed)
 
@@ -51,7 +51,16 @@ Constants / look / stock bus only — **never** promote `clip_kit/imported` src:
 
 **Do not promote:** `hook_census*`, `peak_portrait`/`challenge_*` speeds, alliances scale, SoftWhoosh batch (defer), imports, captions, VO, ledger, Phaser plug.
 
-**Agent autonomy:** complete E1 + cold nightly **without** polish file + tests + update this TODO status. Leave a short “taste / verify tomorrow” note only where contracts don’t decide. Stop for founder only on hard blockers (missing data, VO-lock conflict, render fail).
+**E1 status (2026-08-12 — eng complete, founder taste pending):**
+
+- Promoted 8 + optional end_lockup hold into `nightly_craft` / scar / props (no imports).
+- Cold path: `--ignore-edit-script` on same package.
+- **Cold MP4:** `generative_agents-ivan-dev/data/20260724-2/trailer_ready_day2/output/trailer_9x16_e1_cold.mp4`  
+  (also `trailer_9x16.mp4` master from that bake)
+- **Verify note:** `…/output/E1_COLD_VERIFY.md` (pattern table + taste flags)
+- Props: `video/remotion/props/nightly_20260724-2_day2_long.json` (cold)
+- VO-lock / Peak·Cost·challenge: no regressions in gates
+- Soft: want_cost hold **3.5s** (not polish 3.6) for hero-layer gate
 
 ### [C] handoff — Grok build agent (eng)
 
