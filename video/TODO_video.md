@@ -1,31 +1,117 @@
 # North star — Anya CapCut Day 1 → auto-gen uplift
 
-**Updated:** 2026-08-03 (GrokFilm deferred note) · prior 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
-**Authority:** Creative bar = Anya’s approved cut. Contracts stay in [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md). Older encyclopedia / Gate A–E notes below are **historical** unless a task below re-opens them.
+**Updated:** 2026-08-11 (this file = **SOT video TODO**) · prior 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
+**Authority:** Creative bar = Anya’s approved cut. Contracts: [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md).  
+**Detail brief (P0 field list + evidence):** [`../20260811_capcut-vs-post-prod.md`](../20260811_capcut-vs-post-prod.md) — not a second checklist; execute from **here**, open brief for cut IDs / freezedetect / do-nots.
 
-| | |
-|--|--|
-| **Gold film (master)** | `generative_agents/…/clip_kit/bins/video/0720(1).mp4` (~88.2s, 9:16, 2160×3840) |
-| **Proxy / short export** | same folder `0720.mp4` (~73s) |
-| **Gold forensics package** | [`daily/gold/20260713-1_day1_anya/`](daily/gold/20260713-1_day1_anya/GOLD.md) |
-| **Staged kit we gave her** | `…/trailer_ready_day2/clip_kit/` (bins A–E + F_phaser + VO + sheet) |
-| **Her extra assets** | `…/clip_kit/bins/F_Anya-legend/` (47 files — 32 used in CapCut) |
-| **CapCut project** | `…/clip_kit/bins/capcut_proj/` · draft **L-talks Day 1** · **ingested** |
-| **Pre-Anya baseline** | `…/clip_kit_v0/` (**immutable**) |
-| **Locked VO (do not rewrite)** | `clip_kit/vo_locked.txt` ≡ V6 · package `scar.json` / `script.json` already written |
-| **Runtime (founder lock)** | Gold **~88s** accepted · auto target 45–60s · **warn >90s** · **hard max 120s** |
-| **Remotion gold replay** | `generative_agents` · composition `DailyGoldReplay` · props via `python -m video.build_gold_replay_props` |
-| **Cinematic flyover pack** | **C1–C8 COMPLETE** · **wired into gold replay** (alpine still + `Village.mp4` → C1) · `COMMISSION_cinematic_pack.md` |
-
-**Product goal:** raise auto-gen pipeline standards until a cold kit + Remotion path can approach **Anya’s look and clarity**, night after night.
-
-**Explicitly out of scope until later:** CapCut XML reverse-import as product path; encyclopedia `narration_v12` Remotion polish; `[B] day_normal`; inventing facts when ledger fields are missing.
+**Architecture (one line):** Package + Remotion bake live in **eng** (`generative_agents-ivan-dev`). Post-Production in **`double-video`** polishes `edit_script.json` on that package. Cold quality uplift = eng learn **[C]**, not Save→train. Bulk gen migrate = **[E]** only after [B]+[C].
 
 ---
 
-## ▶ Resume spine (read this first)
+## ▶ Now (2026-08-11) — read this first
 
-**You are here (2026-07-30):** N1–N6 ✅ · N5 ✅. **Prove MP4 ready for phone-watch:** `data/20260724-2/trailer_ready_day2/output/trailer_9x16.mp4` (~107s measured; long mode). VO locked with roles + tiebreak; pictures auto-READY.
+**Active package:** `generative_agents-ivan-dev` · `data/20260724-2/trailer_ready_day2`  
+**Tools:** Post-Production (`double-video`) for Live · eng (`ivan/dev`) for Rebuild / recipe / gates
+
+### Path A→E (locked)
+
+| Step | Goal | Status |
+|------|------|--------|
+| **[A]** | Polish in Post-Production → phone-acceptable Live | **P0 applied** (~22:02) on `edit_script.json` — confirm Live, then [B] |
+| **[B]** | Rebuild → MP4 matches Live | **NEXT** (prior bake 21:03 was pre-P0) |
+| **[C]** | Eng learn (E0 diff → E1 promote priors) | After [B] |
+| **[D]** | Cold auto (no polish) vs [A] bar | After [C] |
+| **[E]** | Staged migrate eng `video/` → `double-video` | After [B]+[C] · prd §22.1 · **do not pull early** |
+
+### [A] P0 — Live (in `double-video`)
+
+Field actions + rollback snapshot: [detail brief § P0](../20260811_capcut-vs-post-prod.md#p0--live-tonight-3045-min-survives-rebuild).
+
+| # | Item | Status |
+|---|------|--------|
+| 1 | Phaser elim — plug to label-free `signature_flyover` (+ debt marker) | ✅ |
+| 2 | Unfreeze challenge bed (`speed: 0.12`) | ✅ |
+| 3 | Fill black holes + door opacity/timing | ✅ |
+| 4 | Peak speed + habitat Ken Burns; `want_cost` earlier | ✅ |
+| 5 | ALLIANCES overscan dialed down | ✅ |
+| 6 | Music duck under teach (6 segments) | ✅ |
+| — | SFX joins on primary cuts | ✅ |
+| — | Confirm Live → **[B]** Rebuild → phone-watch | ☐ |
+
+**Done earlier (do not reopen):** photo→matrix wipe · opener roster/badges.
+
+**Do not:** caption rewrite as primary · commission Vincent objective HUD · force-materialize · start [C]/[E] · treat run-report green as dynamism. Full list in brief.
+
+### [A] backlog after [B] proof
+
+- Peak trim until P1 card evidence · end leave empty-black check on phone  
+- FX polish only after eng honours `enabled: false` + stops silent recipe extras ([brief § FX](../20260811_capcut-vs-post-prod.md#fx-note-corrected))
+
+### P1 — assets (after / parallel to P0 bake)
+
+| # | Asset | Status |
+|---|-------|--------|
+| 1 | Correct-cast Phaser elim for this sim (or FE capture — see Phaser) | ☐ — plug shipped; debt marker on |
+| 2 | Challenge teach bed **≥6s** motion (2s sources freeze in long windows) | ☐ |
+| 3 | Peak evidence (Alexis + readable card) **≥3s** | ☐ |
+| — | Later: hero namecards · readable tie / VOTING TARGET card | ☐ |
+
+### Phaser elim — decision
+
+Tonight: **plug** (label-free) or **Imagine** (this-sim doubles). Durable: **FE Phaser snapshot at elim → kit** (pipeline after [B]). Detail: [brief § Phaser](../20260811_capcut-vs-post-prod.md#phaser-elim-beat--decision).
+
+### P2 — eng (only after founder accepts P0 bake)
+
+Freeze/coverage/FX gates · kit sim-code guard · optional `*.base.json`. Detail: [brief § P2](../20260811_capcut-vs-post-prod.md#p2--eng-only-after-founder-accepts-a-p0-bake).
+
+### [C] → [D] → [E]
+
+| When | Work |
+|------|------|
+| After [B] | E0 polish↔rough diff → founder picks 5–10 promote rows → E1 constants |
+| After [C] | Cold nightly without polish; phone-watch vs [A] |
+| After [B]+[C] | [E] staged slices (inventory OK anytime; **no bulk move**). Polish UX stays in `double-video` now — that is not [E]. |
+
+**Later (after E):** longer daily · 2D↔3D · Grok Imagine 2.0 · cold reproduce [A] inside monorepo.
+
+### Agent map
+
+| Work | Who |
+|------|-----|
+| P0 Live taste / Save | Human (+ agent in `double-video` if handed) |
+| Rebuild babysit | Agent (eng) |
+| E0 / E1 | Agent (eng) after founder approve |
+| Migration inventory | Agent read-only; no code move |
+| Imagine / FE Phaser capture | Founder / product after P0 |
+
+### Evidence (do not re-debate)
+
+| Doc | Role |
+|-----|------|
+| [`../20260811_capcut-vs-post-prod.md`](../20260811_capcut-vs-post-prod.md) | Merged verdict + P0 field actions |
+| [`daily/gold/…/20260811_dynamism_gap_20260724-2.md`](daily/gold/20260713-1_day1_anya/20260811_dynamism_gap_20260724-2.md) | First watch pass |
+| [`daily/gold/…/20260811_opus_second_opinion_p0_bake.md`](daily/gold/20260713-1_day1_anya/20260811_opus_second_opinion_p0_bake.md) | Freeze % + bake review |
+| Frames | `teardown/opus_20260811/` · `teardown/watch_pass_20260811_*` |
+
+### Paths / locks
+
+| | |
+|--|--|
+| **Craft bar (Anya)** | `…/20260713-1/…/0720(1).mp4` (~88.2s) |
+| **Our package** | `…/20260724-2/trailer_ready_day2/` |
+| **Gold forensics** | [`daily/gold/20260713-1_day1_anya/`](daily/gold/20260713-1_day1_anya/GOLD.md) |
+| **VO** | Locked — do not rewrite |
+| **Runtime** | Gold ~88s · auto warn >90s · hard max 120s |
+| **Cinematic pack** | C1–C8 ✅ wired into gold replay |
+
+**Product goal:** cold kit + Remotion approaches Anya night after night.  
+**Out of scope until later:** CapCut XML import as product · encyclopedia Remotion polish · inventing ledger facts.
+
+---
+
+## ▶ Historical — N1–N6 ship path (2026-07-30)
+
+**Snapshot (2026-07-30):** N1–N6 ✅ · N5 ✅. Then-current prove MP4: `data/20260724-2/trailer_ready_day2/output/trailer_9x16.mp4` (long mode). VO locked; pictures auto-READY. **Current work is the ▶ Now section above** — do not treat this block as the active checklist.
 
 ### ▶ Path — gold-quality daily trailers for **new sims** (active)
 
