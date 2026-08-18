@@ -1,6 +1,6 @@
 # North star — Anya CapCut Day 1 → auto-gen uplift
 
-**Updated:** 2026-08-12 (E1 cold bake) · prior 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
+**Updated:** 2026-08-18 ([D] accepted · Wave 1 next) · prior 2026-08-12 (E1 cold bake) · 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
 **Authority:** Creative bar = Anya’s approved cut. Contracts: [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md).  
 **Detail brief (P0 field list + evidence):** [`../20260811_capcut-vs-post-prod.md`](../20260811_capcut-vs-post-prod.md) — not a second checklist; execute from **here**, open brief for cut IDs / freezedetect / do-nots.
 
@@ -8,10 +8,15 @@
 
 ---
 
-## ▶ Now (2026-08-11) — read this first
+## ▶ Now (2026-08-18) — read this first
 
 **Active package:** `generative_agents-ivan-dev` · `data/20260724-2/trailer_ready_day2`  
 **Tools:** Post-Production (`double-video`) for Live · eng (`ivan/dev`) for Rebuild / recipe / gates
+
+**Quality bar (do not overwrite):** polish snapshot  
+`…/output/trailer_9x16_20260812_003937_e1_cold.mp4`  
+(the `e1_cold` tag on that filename is wrong — it is the **polish** bake).  
+Cold master `trailer_9x16.mp4` = `trailer_9x16_e1_cold.mp4` is **not** the bar.
 
 ### Path A→E (locked)
 
@@ -19,20 +24,49 @@
 |------|------|--------|
 | **[A]** | Polish in Post-Production → phone-acceptable Live | **✅ Accepted** (P0 + P1 peak/challenge phone OK) |
 | **[B]** | Rebuild → MP4 matches Live | **✅ DONE** (incl. P1 assets bake ~00:03) |
-| **[C]** | Eng learn (E0 diff → E1 promote priors) | **E0 ✅ · E1 ✅ cold bake** — founder phone-watch tomorrow |
-| **[D]** | Cold auto (no polish) vs [A] bar | **Ready** — cold MP4 is the E1 artifact; taste vs [A] next |
-| **[E]** | Staged migrate eng `video/` → `double-video` | After [B]+[C] · prd §22.1 · **do not pull early** |
+| **[C]** | Eng learn (E0 diff → E1 promote priors) | **✅ E0 + E1** (8 priors in `nightly_craft`; cold bake 2026-08-12) |
+| **[D]** | Cold auto (no polish) vs [A] bar | **✅ Accepted 2026-08-18** on the **eight taught looks only** |
+| **[E]** | Staged migrate eng `video/` → `double-video` | After Wave 2 phone-watch · prd §22.1 · **do not pull early** |
+
+### [D] taste (closed)
+
+Watch note: `…/output/E1_COLD_VERIFY.md`.
+
+| # | Flag | Verdict |
+|---|------|---------|
+| 1 | Vincent goal sign 3.5 vs 3.6 | **Good enough** |
+| 2 | DOUBLAND.AI vs village flyover | **Good enough** (slight polish preference; no fail) |
+| 3 | End door speed | Motion **OK**; leftover **chat shadow** is a Wave 1 bug |
+| 4 | Music duck under challenge VO | **Good enough** |
+| 5 | Opening 2.5s poster | Not in E1. Audio hole (loading SFX too short) → Wave 1 |
+| 6 | Phaser elim plug | Not in E1. 0.7s still **flash** → Wave 1 (FE snapshot still Wave 3) |
+
+**Do not copy** `clip_kit/imported/*` into cold defaults (challenge v2 bed, Alexis card-11 proof). Those stay polish-only until Wave 2 auto-kit can make equivalents.
 
 ### Next (pick order)
 
 | Priority | Work | Notes |
 |----------|------|-------|
-| **1** | **[D] taste** cold E1 MP4 vs [A] | Phone-watch · see `E1_COLD_VERIFY.md` taste flags only |
-| **2** | Phaser elim (P1 #3) | Deferred — FE when ready (not agent tonight) |
-| **3** | Optional polish assets | Hero namecards · readable tie — taste later |
+| **1** | **Wave 1 — recipe hygiene** | No new art. Eng `nightly_scar_recipe` / craft / SFX. Then cold bake `--ignore-edit-script`. See list below. |
+| **2** | **Wave 2 — auto pictures** | Longer kit videos: people under steps, winning-card proof, habitat ≥ slot. Not imports. |
+| **3** | Phaser elim (P1 #3) | Deferred — FE when ready |
+| **4** | Optional opening group photo | Wave 4 if still itching after Wave 2 |
 | — | [E] migrate | Still deferred |
 
-**Founder tomorrow:** phone-watch **cold** `trailer_9x16_e1_cold.mp4` (no polish). Answer only taste / ambiguity flags in verify note. E1 eng promote is done.
+### Wave 1 — recipe hygiene (next eng)
+
+Assembly only — same kit files. Cold must not look *broken*.
+
+1. End chat bed (`Talk.mp4`) **before** last door (no shadow through walking Phaser).
+2. Alexis / Vincent intro: **one** picture at a time (namecard → still → video). No three-layer fight ~00:19.
+3. Short video in a long slot: slow or cut to still — **no freeze**.
+4. Challenge step cards reveal **one after another on the narrator** (not one dump over the whole speech).
+5. Vote-out: ~3s label-free flyover, then walk-away. Kill the 0.7s `ivan_leave_phaser.jpg` flash.
+6. Opening **loading sound** lasts and blends into music (not a 0.3s blip then silence).
+
+**Wave 1 will not** put a 17s “Doubles at the game” bed or a readable winning card into cold. That is Wave 2.
+
+**Prove:** `run_nightly_survival … --ignore-edit-script --length-mode long` on this package; phone-watch vs the polish snapshot above.
 
 ### E1 promote list (pre-approved 2026-08-12 — agent may proceed)
 
@@ -51,7 +85,7 @@ Constants / look / stock bus only — **never** promote `clip_kit/imported` src:
 
 **Do not promote:** `hook_census*`, `peak_portrait`/`challenge_*` speeds, alliances scale, SoftWhoosh batch (defer), imports, captions, VO, ledger, Phaser plug.
 
-**E1 status (2026-08-12 — eng complete, founder taste pending):**
+**E1 status (2026-08-18 — [D] accepted on the 8 looks):**
 
 - Promoted 8 + optional end_lockup hold into `nightly_craft` / scar / props (no imports).
 - Cold path: `--ignore-edit-script` on same package.
@@ -170,7 +204,8 @@ Freeze/coverage/FX gates · kit sim-code guard · optional `*.base.json`. Detail
 | When | Work |
 |------|------|
 | After [B] | E0 polish↔rough diff → founder picks 5–10 promote rows → E1 constants |
-| After [C] | Cold nightly without polish; phone-watch vs [A] |
+| After [C] | Cold nightly without polish; phone-watch vs [A] — **done 2026-08-18** |
+| After [D] | Wave 1 recipe hygiene → Wave 2 auto pictures → FE Phaser. Do not copy imports. |
 | After [B]+[C] | [E] staged slices (inventory OK anytime; **no bulk move**). Polish UX stays in `double-video` now — that is not [E]. |
 
 **Later (after E):** longer daily · 2D↔3D · Grok Imagine 2.0 · cold reproduce [A] inside monorepo.
