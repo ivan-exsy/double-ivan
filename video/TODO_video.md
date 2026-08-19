@@ -1,6 +1,6 @@
 # North star — Anya CapCut Day 1 → auto-gen uplift
 
-**Updated:** 2026-08-19 (Wave 1.8b card-backs bake) · prior 2026-08-18 (Wave 1.8 table recast) · 2026-08-18 (Wave 1.7) · 2026-08-18 (Wave 1.6+2) · 2026-08-12 (E1 cold bake) · 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
+**Updated:** 2026-08-19 (Wave 1.9 Phaser elim accepted) · prior 2026-08-19 (Phaser capture bake) · 2026-08-19 (Wave 1.8b accepted) · 2026-08-19 (card-backs bake) · 2026-08-18 (Wave 1.8 table recast) · 2026-08-18 (Wave 1.7) · 2026-08-18 (Wave 1.6+2) · 2026-08-12 (E1 cold bake) · 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
 **Authority:** Creative bar = Anya’s approved cut. Contracts: [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md).  
 **Detail brief (P0 field list + evidence):** [`../20260811_capcut-vs-post-prod.md`](../20260811_capcut-vs-post-prod.md) — not a second checklist; execute from **here**, open brief for cut IDs / freezedetect / do-nots.
 
@@ -17,10 +17,10 @@
 `…/output/trailer_9x16_20260812_003937_e1_cold.mp4`  
 (the `e1_cold` tag on that filename is wrong — it is the **polish** bake).
 
-**Cold master (watch this):** `…/output/trailer_9x16.mp4` — Wave 1.8b (~98s, 2026-08-19).  
-Prior cold: Wave 1.8 face-up archived `*_wave19.mp4`; Wave 1.7 `*_wave18b.mp4` (and `*_wave18.mp4`); Wave 1.6+2 `*_wave17.mp4`; Wave 1.5 `*_20260818_202751_wave16.mp4`.
+**Cold master (watch this):** `…/output/trailer_9x16.mp4` — Wave 1.9 (~98s, 2026-08-19).  
+Prior cold: Wave 1.8b archived `*_wave20.mp4`; Wave 1.8 face-up `*_wave19.mp4`; Wave 1.7 `*_wave18b.mp4` (and `*_wave18.mp4`); Wave 1.6+2 `*_wave17.mp4`; Wave 1.5 `*_20260818_202751_wave16.mp4`.
 
-**Phone-watch next** — **1b only** (00:40.7–00:52.3): same five people; **card backs** (no readable 7/11); then Peak **11** at 00:52.3. B / 1a / 5 / 6 already passed.
+**Phone-watch** — Wave 1.9 Phaser elim **accepted 2026-08-19** (good enough). 1.8b 1b already passed. Day-1 cold for this package is closed.
 
 ### Path A→E (locked)
 
@@ -43,7 +43,7 @@ Watch note: `…/output/E1_COLD_VERIFY.md`.
 | 3 | End door speed | Motion **OK**; leftover **chat shadow** is a Wave 1 bug |
 | 4 | Music duck under challenge VO | **Good enough** |
 | 5 | Opening 2.5s poster | Not in E1. Audio hole (loading SFX too short) → Wave 1 |
-| 6 | Phaser elim plug | Not in E1. 0.7s still **flash** → Wave 1 (FE snapshot still Wave 3) |
+| 6 | Phaser elim plug | **Good enough** (Wave 1.9: this-sim FE capture) |
 
 **Do not copy** `clip_kit/imported/*` into cold defaults (challenge v2 bed, Alexis card-11 proof). Those stay polish-only until Wave 2 auto-kit can make equivalents.
 
@@ -51,11 +51,16 @@ Watch note: `…/output/E1_COLD_VERIFY.md`.
 
 | Priority | Work | Notes |
 |----------|------|-------|
-| **1** | **Phone-watch Wave 1.8b 1b** | Table = backs only; Peak 11 is the only readable rank. |
-| **2** | Phaser elim (P1 #3) | Deferred — FE when ready |
-| — | [E] migrate | Still deferred |
+| **1** | Next night / new sim on this cold path | G3 backs; Peak owns the numeral; `--capture-phaser-elim` when FE+API are up |
+| — | Later P1 | Hero namecards · readable tie / VOTING TARGET |
+| — | P2 eng | Freeze/coverage/FX gates · kit sim-code guard (after P0 — already accepted) |
+| — | [E] migrate | Inventory OK anytime · **no bulk move** |
 
-### Wave 1.8b — **baked 2026-08-19** (waiting phone-watch on 1b)
+### Wave 1.9 — **accepted 2026-08-19** (phone-watch Phaser elim)
+
+Option C: Playwright `?recording=true` still of Vincent at step **2309** (last in-world vote beat) → kit `F_phaser/vincent_leave_phaser.png` (not imported). Recipe prefers that still over the flyover plug. CLI: `python -m video.capture_phaser_elim <pkg> --force`. Nightly later: `--capture-phaser-elim` when FE+API are up.
+
+### Wave 1.8b — **accepted 2026-08-19** (phone-watch 1b)
 
 Option B (COS `2026-08-19-001`): same five Doubles; **card backs** (no phone-readable ranks). Peak clip still owns **11**. Kit dest `challenge_hold_for_shield.mp4` (not imported). `--challenge-table` only. Grammar: teach does not publish the winning fact; Peak does.
 
@@ -189,14 +194,14 @@ Do NOT run E1 promote or cold rebuild until founder approves the list.
 |---|-------|--------|
 | 1 | Peak evidence (Alexis + readable **rank 11** card) **≥6s** @ 720p | ✅ staged `alexis_peak_card11.mp4` (7.0s) · wired `peak_portrait` speed 1.0 |
 | 2 | Challenge teach bed **≥12s** @ 720p | ✅ **v2** group secret cards · wired · **Rebuild ✅** (~00:03) |
-| 3 | Correct-cast Phaser elim | ☐ **deferred to FE** (flyover plug live) |
+| 3 | Correct-cast Phaser elim | ✅ captured `vincent_leave_phaser.png` (step 2309) · Wave 1.9 **accepted** |
 | — | Later: hero namecards · readable tie / VOTING TARGET | ☐ |
 
-**P1 gen note (2026-08-12):** peak `alexis_peak_card11` + challenge **v2** `challenge_hold_shield_bed_v2` (group, each own secret card; v1 solo-shuffle rejected). Staged under `clip_kit/imported/` + `_p1_gen/`. **Rebuild green** → phone-watch ~33–50s (challenge) + ~50–55s (peak **11**). Phaser still FE debt.
+**P1 gen note (2026-08-12):** peak `alexis_peak_card11` + challenge **v2** `challenge_hold_shield_bed_v2` (group, each own secret card; v1 solo-shuffle rejected). Staged under `clip_kit/imported/` + `_p1_gen/`. **Rebuild green** → phone-watch ~33–50s (challenge) + ~50–55s (peak **11**). Phaser elim = FE capture (Wave 1.9).
 
 ### Phaser elim — decision
 
-**Plug shipped** (label-free flyover + marker `debt_phaser_elim_cast`). **Wait for FE Phaser snapshot** — do not Imagine. Detail: [brief § Phaser](../20260811_capcut-vs-post-prod.md#phaser-elim-beat--decision).
+**Plug shipped** then **Option C captured 2026-08-19**: kit `vincent_leave_phaser.png` from local FE recording mode. Flyover remains the fallback if capture is missing. Do not Imagine.
 
 ### Peak card rank — resolved (Supabase)
 
@@ -222,7 +227,7 @@ Freeze/coverage/FX gates · kit sim-code guard · optional `*.base.json`. Detail
 |------|------|
 | After [B] | E0 polish↔rough diff → founder picks 5–10 promote rows → E1 constants |
 | After [C] | Cold nightly without polish; phone-watch vs [A] — **done 2026-08-18** |
-| After [D] | Wave 1 recipe hygiene → Wave 2 auto pictures → FE Phaser. Do not copy imports. |
+| After [D] | Wave 1 recipe hygiene → Wave 2 auto pictures → FE Phaser. **Done 2026-08-19.** Do not copy imports. |
 | After [B]+[C] | [E] staged slices (inventory OK anytime; **no bulk move**). Polish UX stays in `double-video` now — that is not [E]. |
 
 **Later (after E):** longer daily · 2D↔3D · Grok Imagine 2.0 · cold reproduce [A] inside monorepo.

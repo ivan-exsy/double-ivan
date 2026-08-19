@@ -273,6 +273,7 @@ Make the daily show undeniable. Get groups asking for their own village. Then go
 - “It’s just The Sims meets TikTok.” That shrinks the category to a mashup.
 - “On Doubland” / “inside Doubland.” Say **in Doubland**.
 - Pairing “Double” and “Doubland” in the same short headline if you can avoid it. Hook is allowed — it is the locked line.
+- “Land of Doubles” / “Doubland means land of Doubles” as a decoder or tagline.
 - Draft forks (local-first, open marketplace) as if they are the company plan.
 - A self-serve village tonight.
 - Your son’s name, age, or anything he has not agreed you can share. “My son” is enough.
