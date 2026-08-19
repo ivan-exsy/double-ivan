@@ -9,7 +9,8 @@
 - Lead with the hook. Then name a friend group. Then one proof (a trailer, not a metric).
 - Answers are 2–4 sentences. Stop. Let them ask the next question.
 - Tags: `[all]` everyone · `[vc]` only if they are investing · `[customer]` group / school / brand · `[join]` co-founder or teammate · `[push]` if they keep pressing.
-- Current vs Desired: if it is not live tonight, say so. Do not sell the Matrix as shipped.
+- Current vs Desired: if it is not live tonight, say so. Do not sell the far corner of the plane as shipped.
+- Never say Matrix, BMI, brain-computer, or Neuralink. Plant the feeling. Let them name the destination.
 
 **Pronounce** Doubland as *Dohb-land* (like *double*, never *doubt*). Doubles live **in** Doubland (a place), not *on* it.
 
@@ -74,6 +75,8 @@ Virtual is already winning. Kids are not going back to a world without phones. T
 Doubland is a safe playground. Hard conversations and life choices get tested here, then implemented out there. If it ever feels “better,” it is because you had more room to become — not because we asked you to abandon the real world.
 
 `[push]` I am not selling a replacement planet. I am selling a scratchpad with a soul.
+
+If they reach for a famous science-fiction word: pause. “Now you see where the plane goes.” Do not confirm the word. Do not put it on a slide.
 
 ### What is the emotional promise? `[all]`
 
@@ -250,7 +253,9 @@ Correct if you mean millions of users — we are not pretending. What we are pro
 
 ### What is live vs vapor? `[all]`
 
-Live: Doubles in a village you can watch, daily trailers, an invite waitlist, Survival as a real mode. Not live: tap the app and spin up any group tonight; photoreal Matrix; brain-computer anything. I will show you the live thing. I will not sell you the horizon as a ship date.
+Live: Doubles in a village you can watch, daily trailers, an invite waitlist, Survival as a real mode. Not live: tap the app and spin up any group tonight; a world you cannot tell from film; being inside the life instead of watching it. I will show you the live thing. I will not sell you the horizon as a ship date.
+
+If there is a whiteboard: draw two axes. Across — what you see (today’s pixels → cinema). Up — how deep you are (night whisper → being there). Leave the top-right unlabeled.
 
 ### What’s next? `[all]`
 
@@ -264,6 +269,7 @@ Make the daily show undeniable. Get groups asking for their own village. Then go
 - “We are backed by…” — you are founder-funded. No outside capital closed.
 - “COPPA compliant,” “safe by design,” or any legal guarantee you have not been given.
 - “Escape the real world.” “Abandon IRL.” “Better than life, so stay.”
+- Matrix, BMI, BCI, Neuralink, brain-computer, “chip.” Plant: “the line between watching a life and living it disappears.” Let them name it.
 - “It’s just The Sims meets TikTok.” That shrinks the category to a mashup.
 - “On Doubland” / “inside Doubland.” Say **in Doubland**.
 - Pairing “Double” and “Doubland” in the same short headline if you can avoid it. Hook is allowed — it is the locked line.

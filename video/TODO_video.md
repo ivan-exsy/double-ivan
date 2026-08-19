@@ -1,6 +1,6 @@
 # North star — Anya CapCut Day 1 → auto-gen uplift
 
-**Updated:** 2026-08-18 (Wave 1.6 + Wave 2 baked · phone-watch next) · prior 2026-08-18 (Wave 1.5 accepted) · 2026-08-12 (E1 cold bake) · 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
+**Updated:** 2026-08-18 (Wave 1.7 watch-fix bake · phone-watch) · prior 2026-08-18 (Wave 1.6+2) · 2026-08-12 (E1 cold bake) · 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
 **Authority:** Creative bar = Anya’s approved cut. Contracts: [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md).  
 **Detail brief (P0 field list + evidence):** [`../20260811_capcut-vs-post-prod.md`](../20260811_capcut-vs-post-prod.md) — not a second checklist; execute from **here**, open brief for cut IDs / freezedetect / do-nots.
 
@@ -17,10 +17,10 @@
 `…/output/trailer_9x16_20260812_003937_e1_cold.mp4`  
 (the `e1_cold` tag on that filename is wrong — it is the **polish** bake).
 
-**Cold master (watch this):** `…/output/trailer_9x16.mp4` — Wave 1.6 + Wave 2 bake (~98s, ~76MB, Aug 18 ~8:34 PM).  
-Wave 1.5 cold archived as `trailer_9x16_20260818_202751_wave16.mp4`.
+**Cold master (watch this):** `…/output/trailer_9x16.mp4` — Wave 1.7 (~98s, ~9:19 PM).  
+Prior cold: Wave 1.6+2 archived `*_wave17.mp4`; Wave 1.5 archived `*_20260818_202751_wave16.mp4`.
 
-**Phone-watch next** — Wave 1.6 alliances + Wave 2 pictures (cafe 15s, Alexis card-11). Not a fail until you say so.
+**Phone-watch next** — poster group photo; cafe then table-cards; no village blink at 00:57; votes zoom from 2×.
 
 ### Path A→E (locked)
 
@@ -51,16 +51,19 @@ Watch note: `…/output/E1_COLD_VERIFY.md`.
 
 | Priority | Work | Notes |
 |----------|------|-------|
-| **1** | **Phone-watch Wave 1.6 + Wave 2** | Cold master `trailer_9x16.mp4`. Checklist in `E1_COLD_VERIFY.md`. |
+| **1** | **Phone-watch Wave 1.7** | Poster photo, cafe→table split, no village at 00:57, votes 2×. |
 | **2** | Phaser elim (P1 #3) | Deferred — FE when ready |
-| **3** | Optional opening group photo | Wave 4 if still itching |
 | — | [E] migrate | Still deferred |
 
-### Wave 1.6 + Wave 2 — **baked 2026-08-18** (waiting phone-watch)
+### Wave 1.7 — **baked 2026-08-18** (waiting phone-watch)
 
-**Recipe (1.6):** Talk-only (never Village); Talk **1.4×** + zoom 1.22→1.72; votes = drawn **ALLIANCES / TURN INTO VOTES** (no PNG); black matte under 00:58–01:04.
+Watch-fix after 1.6+2: poster shows group photo under L-TALKS (not chrome-only); cafe **then** 12s table-cards; C1 village plate starts at cliff (not under peak/Talk); votes card zoom **2.0→1.0**.
 
-**Pictures (2):** kit i2v, **not** `clip_kit/imported`. Cafe `hobbs_gather.mp4` **15s** loop; win still 8s; peak uses kit-owned `alexis_peak_card11.mp4` **8s @ 1×** (readable rank 11).
+### Wave 1.6 + Wave 2 — **phone-watch 2026-08-18**
+
+**Pass:** loading, intros, title/steps, card 11 at 1×, flyover/walk/grey/cliff/door/end.
+
+**Fix in 1.7:** poster photo; split cafe vs game; village blink ~00:57; votes from 2×.
 
 ### Wave 1 + 1.5 — **accepted 2026-08-18** (phone-watch)
 

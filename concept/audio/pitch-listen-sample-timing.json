@@ -1,0 +1,84 @@
+{
+  "narration_path": "D:\\Coding\\double-ivan\\concept\\audio\\pitch-listen-sample.mp3",
+  "total_sec": 67.02,
+  "segments": [
+    {
+      "index": 0,
+      "content": "People say they want real life.",
+      "start_sec": 0.0,
+      "end_sec": 2.32
+    },
+    {
+      "index": 1,
+      "content": "They say it while their thumbs are already somewhere else.",
+      "start_sec": 3.12,
+      "end_sec": 6.56
+    },
+    {
+      "index": 2,
+      "content": "The hours have moved. Friendship happens in a chat. Courage happens later. Or never.",
+      "start_sec": 7.26,
+      "end_sec": 14.78
+    },
+    {
+      "index": 3,
+      "content": "Virtual is already winning.",
+      "start_sec": 15.78,
+      "end_sec": 17.78
+    },
+    {
+      "index": 4,
+      "content": "That used to scare me.",
+      "start_sec": 18.88,
+      "end_sec": 20.08
+    },
+    {
+      "index": 5,
+      "content": "Then I saw the opening.",
+      "start_sec": 20.68,
+      "end_sec": 22.36
+    },
+    {
+      "index": 6,
+      "content": "If the hours are already there — we still get to decide what those hours are for.",
+      "start_sec": 23.06,
+      "end_sec": 29.38
+    },
+    {
+      "index": 7,
+      "content": "I started this as a tool for my son.",
+      "start_sec": 30.58,
+      "end_sec": 33.46
+    },
+    {
+      "index": 8,
+      "content": "A place he can take a hard moment… and live a version of it… before he has to live it for real.",
+      "start_sec": 34.16,
+      "end_sec": 40.48
+    },
+    {
+      "index": 9,
+      "content": "Not a lecture. A playground.",
+      "start_sec": 41.28,
+      "end_sec": 43.92
+    },
+    {
+      "index": 10,
+      "content": "Doubland is where What if gets answered — by your Double, living the version of your life you didn’t.",
+      "start_sec": 45.12,
+      "end_sec": 53.28
+    },
+    {
+      "index": 11,
+      "content": "You and your friends put personality twins in a private village. They live. You watch. Every day you get a one-minute story of what happened.",
+      "start_sec": 53.98,
+      "end_sec": 64.14
+    },
+    {
+      "index": 12,
+      "content": "Want to see what your Double would do?",
+      "start_sec": 64.94,
+      "end_sec": 67.02
+    }
+  ]
+}
