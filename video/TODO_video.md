@@ -1,6 +1,6 @@
 # North star — Anya CapCut Day 1 → auto-gen uplift
 
-**Updated:** 2026-08-18 (Wave 1 phone-watch · Wave 1.5 next) · prior 2026-08-18 (Wave 1 bake) · 2026-08-12 (E1 cold bake) · 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
+**Updated:** 2026-08-18 (Wave 1.6 + Wave 2 baked · phone-watch next) · prior 2026-08-18 (Wave 1.5 accepted) · 2026-08-12 (E1 cold bake) · 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
 **Authority:** Creative bar = Anya’s approved cut. Contracts: [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md).  
 **Detail brief (P0 field list + evidence):** [`../20260811_capcut-vs-post-prod.md`](../20260811_capcut-vs-post-prod.md) — not a second checklist; execute from **here**, open brief for cut IDs / freezedetect / do-nots.
 
@@ -15,8 +15,12 @@
 
 **Quality bar (do not overwrite):** polish snapshot  
 `…/output/trailer_9x16_20260812_003937_e1_cold.mp4`  
-(the `e1_cold` tag on that filename is wrong — it is the **polish** bake).  
-Cold master `trailer_9x16.mp4` = `trailer_9x16_e1_cold.mp4` is **not** the bar.
+(the `e1_cold` tag on that filename is wrong — it is the **polish** bake).
+
+**Cold master (watch this):** `…/output/trailer_9x16.mp4` — Wave 1.6 + Wave 2 bake (~98s, ~76MB, Aug 18 ~8:34 PM).  
+Wave 1.5 cold archived as `trailer_9x16_20260818_202751_wave16.mp4`.
+
+**Phone-watch next** — Wave 1.6 alliances + Wave 2 pictures (cafe 15s, Alexis card-11). Not a fail until you say so.
 
 ### Path A→E (locked)
 
@@ -26,7 +30,7 @@ Cold master `trailer_9x16.mp4` = `trailer_9x16_e1_cold.mp4` is **not** the bar.
 | **[B]** | Rebuild → MP4 matches Live | **✅ DONE** (incl. P1 assets bake ~00:03) |
 | **[C]** | Eng learn (E0 diff → E1 promote priors) | **✅ E0 + E1** (8 priors in `nightly_craft`; cold bake 2026-08-12) |
 | **[D]** | Cold auto (no polish) vs [A] bar | **✅ Accepted 2026-08-18** on the **eight taught looks only** |
-| **[E]** | Staged migrate eng `video/` → `double-video` | After Wave 2 phone-watch · prd §22.1 · **do not pull early** |
+| **[E]** | Staged migrate eng `video/` → `double-video` | After this Wave 1.6+2 phone-watch · prd §22.1 · **do not pull early** |
 
 ### [D] taste (closed)
 
@@ -47,28 +51,24 @@ Watch note: `…/output/E1_COLD_VERIFY.md`.
 
 | Priority | Work | Notes |
 |----------|------|-------|
-| **1** | **Wave 1.5 — leftover assembly** | **Baked.** Phone-watch new cold `trailer_9x16.mp4` vs polish `*_003937_e1_cold.mp4`. |
-| **2** | **Wave 2 — auto pictures** | Longer cafe video, winning-card proof, habitat ≥ slot. Not imports. |
-| **3** | Phaser elim (P1 #3) | Deferred — FE when ready |
-| **4** | Optional opening group photo | Wave 4 if still itching after Wave 2 |
+| **1** | **Phone-watch Wave 1.6 + Wave 2** | Cold master `trailer_9x16.mp4`. Checklist in `E1_COLD_VERIFY.md`. |
+| **2** | Phaser elim (P1 #3) | Deferred — FE when ready |
+| **3** | Optional opening group photo | Wave 4 if still itching |
 | — | [E] migrate | Still deferred |
 
-### Wave 1 — recipe hygiene (**phone-watch 2026-08-18**)
+### Wave 1.6 + Wave 2 — **baked 2026-08-18** (waiting phone-watch)
 
-**Pass:** sequential Alexis/Vincent; step cards on VO; no jpg flash; no chat through last door; loading covers poster (turn **down** next).
+**Recipe (1.6):** Talk-only (never Village); Talk **1.4×** + zoom 1.22→1.72; votes = drawn **ALLIANCES / TURN INTO VOTES** (no PNG); black matte under 00:58–01:04.
 
-**Fail / leftover (Wave 1.5, same kit):**
-- Challenge: `challenge_bodies` overlay at ~00:38 is the wrong still (Vincent + two Alexis). Drop it. Cafe should run 00:35–00:52 without that cut-in. Slow-mo looked like a still — prefer 1x loop, not 0.12× freeze.
-- 00:54–00:57 Alexis win clip freezes (speed-to-fit never applied to peak win).
-- 00:58–01:03 two VO lines on one slide. Split: Talk.mp4 zoom-in on “conversations turn into alliances”; votes plate zoom-out on “alliances turn into votes”. (Votes plate missed this bake.)
-- 01:12–01:16 empty (only captions).
-- Walk should hit “is gone” ~01:16, **then** grey group photo (flyover can fill the hole before, not after).
-- 01:21–01:28 three cliff lines currently one Phaser clip — one picture per line.
-- End card: cut after the swoosh (~1.4s), not a 5s hold.
+**Pictures (2):** kit i2v, **not** `clip_kit/imported`. Cafe `hobbs_gather.mp4` **15s** loop; win still 8s; peak uses kit-owned `alexis_peak_card11.mp4` **8s @ 1×** (readable rank 11).
 
-**Wave 2 still:** real 17s cafe bed, readable winning card.
+### Wave 1 + 1.5 — **accepted 2026-08-18** (phone-watch)
 
-**Prove next:** Wave 1.5 recipe + `--ignore-edit-script` re-bake; phone-watch vs polish `*_003937_e1_cold.mp4`.
+**Pass:** quieter loading; sequential intros; no bad challenge still; steps on VO; win no longer freezes; alliances split; hole filled; walk then grey; cliff one-line-one-picture; door clean; end cuts after swoosh.
+
+**Leftover (not a fail):**
+- Cafe + Alexis win: short kit clips (loop / slow-mo). **Wave 2** = generate longer videos. Do not fail cold for this.
+- Alliances: bump Talk speed + zoom. Second line = **text-only** card like the polish bar (not the votes PNG). Village peeking under 00:58–01:03 = `panel_under_title` / underlay leak. That’s **Wave 1.6** if we want one more recipe bake before Wave 2.
 
 ### E1 promote list (pre-approved 2026-08-12 — agent may proceed)
 

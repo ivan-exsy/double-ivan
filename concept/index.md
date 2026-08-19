@@ -33,6 +33,7 @@
 |------|--------|------|
 | [`mission.md`](mission.md) | Canon | Founder why / product soul — still read on any product task |
 | [`vc_msg.md`](vc_msg.md) | Canon (draft polish OK) | Primary consumer seed / investor narrative |
+| [`Q&A.md`](Q&A.md) | Near-term (spoken draft) | Founder-memorised pitch Q&A — VCs, customers, co-founders, strangers. Internal; not ready-to-send |
 | [`moneyball/moneyball_pitch.md`](moneyball/moneyball_pitch.md) | Near-term | Alternate sports / competition GTM — secondary unless brief says so |
 | [`brand.md`](brand.md) | Near-term | Brand notes in concept repo |
 
