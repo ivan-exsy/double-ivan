@@ -1,6 +1,6 @@
 # North star — Anya CapCut Day 1 → auto-gen uplift
 
-**Updated:** 2026-08-18 (Wave 1 baked · phone-watch) · prior 2026-08-18 ([D] accepted) · 2026-08-12 (E1 cold bake) · 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
+**Updated:** 2026-08-18 (Wave 1 phone-watch · Wave 1.5 next) · prior 2026-08-18 (Wave 1 bake) · 2026-08-12 (E1 cold bake) · 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
 **Authority:** Creative bar = Anya’s approved cut. Contracts: [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md).  
 **Detail brief (P0 field list + evidence):** [`../20260811_capcut-vs-post-prod.md`](../20260811_capcut-vs-post-prod.md) — not a second checklist; execute from **here**, open brief for cut IDs / freezedetect / do-nots.
 
@@ -47,26 +47,28 @@ Watch note: `…/output/E1_COLD_VERIFY.md`.
 
 | Priority | Work | Notes |
 |----------|------|-------|
-| **1** | **Wave 1 — recipe hygiene** | **Baked.** Phone-watch new cold `trailer_9x16.mp4` vs polish `*_003937_e1_cold.mp4`. Cafe under steps is slowed (Option A), not a new 17s plate. |
-| **2** | **Wave 2 — auto pictures** | Longer kit videos: people under steps, winning-card proof, habitat ≥ slot. Not imports. |
+| **1** | **Wave 1.5 — leftover assembly** | **Baked.** Phone-watch new cold `trailer_9x16.mp4` vs polish `*_003937_e1_cold.mp4`. |
+| **2** | **Wave 2 — auto pictures** | Longer cafe video, winning-card proof, habitat ≥ slot. Not imports. |
 | **3** | Phaser elim (P1 #3) | Deferred — FE when ready |
 | **4** | Optional opening group photo | Wave 4 if still itching after Wave 2 |
 | — | [E] migrate | Still deferred |
 
-### Wave 1 — recipe hygiene (eng done · phone-watch)
+### Wave 1 — recipe hygiene (**phone-watch 2026-08-18**)
 
-Assembly only — same kit files. Cold must not look *broken*. Founder picks: **A** slow/loop cafe under full teach; **YES** full `--ignore-edit-script` re-bake.
+**Pass:** sequential Alexis/Vincent; step cards on VO; no jpg flash; no chat through last door; loading covers poster (turn **down** next).
 
-1. End chat bed (`Talk.mp4`) **before** last door (no shadow through walking Phaser). **Code**
-2. Alexis / Vincent intro: **one** picture at a time (namecard → still → video). No three-layer fight ~00:19. **Code**
-3. Short video in a long slot: slow to fill — **no freeze**. **Code** (Option A)
-4. Challenge step cards reveal **one after another on the narrator** (not one dump over the whole speech). **Code**
-5. Vote-out: ~3.4s label-free flyover, then walk-away. Kill the 0.7s `ivan_leave_phaser.jpg` flash. **Code**
-6. Opening **loading sound** loops across poster and blends into music. **Code**
+**Fail / leftover (Wave 1.5, same kit):**
+- Challenge: `challenge_bodies` overlay at ~00:38 is the wrong still (Vincent + two Alexis). Drop it. Cafe should run 00:35–00:52 without that cut-in. Slow-mo looked like a still — prefer 1x loop, not 0.12× freeze.
+- 00:54–00:57 Alexis win clip freezes (speed-to-fit never applied to peak win).
+- 00:58–01:03 two VO lines on one slide. Split: Talk.mp4 zoom-in on “conversations turn into alliances”; votes plate zoom-out on “alliances turn into votes”. (Votes plate missed this bake.)
+- 01:12–01:16 empty (only captions).
+- Walk should hit “is gone” ~01:16, **then** grey group photo (flyover can fill the hole before, not after).
+- 01:21–01:28 three cliff lines currently one Phaser clip — one picture per line.
+- End card: cut after the swoosh (~1.4s), not a 5s hold.
 
-**Wave 1 will not** put a 17s “Doubles at the game” bed or a readable winning card into cold. That is Wave 2.
+**Wave 2 still:** real 17s cafe bed, readable winning card.
 
-**Prove:** phone-watch new cold `output/trailer_9x16.mp4` vs polish snapshot above. Pre-Wave-1 cold archived as `trailer_9x16_*_wave1_hygiene.mp4` / `*_184104_long.mp4`.
+**Prove next:** Wave 1.5 recipe + `--ignore-edit-script` re-bake; phone-watch vs polish `*_003937_e1_cold.mp4`.
 
 ### E1 promote list (pre-approved 2026-08-12 — agent may proceed)
 
