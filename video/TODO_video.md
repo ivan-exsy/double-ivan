@@ -1,6 +1,6 @@
 # North star — Anya CapCut Day 1 → auto-gen uplift
 
-**Updated:** 2026-08-18 (Wave 1.7 watch-fix bake · phone-watch) · prior 2026-08-18 (Wave 1.6+2) · 2026-08-12 (E1 cold bake) · 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
+**Updated:** 2026-08-19 (Wave 1.8b card-backs bake) · prior 2026-08-18 (Wave 1.8 table recast) · 2026-08-18 (Wave 1.7) · 2026-08-18 (Wave 1.6+2) · 2026-08-12 (E1 cold bake) · 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
 **Authority:** Creative bar = Anya’s approved cut. Contracts: [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md).  
 **Detail brief (P0 field list + evidence):** [`../20260811_capcut-vs-post-prod.md`](../20260811_capcut-vs-post-prod.md) — not a second checklist; execute from **here**, open brief for cut IDs / freezedetect / do-nots.
 
@@ -8,7 +8,7 @@
 
 ---
 
-## ▶ Now (2026-08-18) — read this first
+## ▶ Now (2026-08-19) — read this first
 
 **Active package:** `generative_agents-ivan-dev` · `data/20260724-2/trailer_ready_day2`  
 **Tools:** Post-Production (`double-video`) for Live · eng (`ivan/dev`) for Rebuild / recipe / gates
@@ -17,10 +17,10 @@
 `…/output/trailer_9x16_20260812_003937_e1_cold.mp4`  
 (the `e1_cold` tag on that filename is wrong — it is the **polish** bake).
 
-**Cold master (watch this):** `…/output/trailer_9x16.mp4` — Wave 1.7 (~98s, ~9:19 PM).  
-Prior cold: Wave 1.6+2 archived `*_wave17.mp4`; Wave 1.5 archived `*_20260818_202751_wave16.mp4`.
+**Cold master (watch this):** `…/output/trailer_9x16.mp4` — Wave 1.8b (~98s, 2026-08-19).  
+Prior cold: Wave 1.8 face-up archived `*_wave19.mp4`; Wave 1.7 `*_wave18b.mp4` (and `*_wave18.mp4`); Wave 1.6+2 `*_wave17.mp4`; Wave 1.5 `*_20260818_202751_wave16.mp4`.
 
-**Phone-watch next** — poster group photo; cafe then table-cards; no village blink at 00:57; votes zoom from 2×.
+**Phone-watch next** — **1b only** (00:40.7–00:52.3): same five people; **card backs** (no readable 7/11); then Peak **11** at 00:52.3. B / 1a / 5 / 6 already passed.
 
 ### Path A→E (locked)
 
@@ -51,13 +51,25 @@ Watch note: `…/output/E1_COLD_VERIFY.md`.
 
 | Priority | Work | Notes |
 |----------|------|-------|
-| **1** | **Phone-watch Wave 1.7** | Poster photo, cafe→table split, no village at 00:57, votes 2×. |
+| **1** | **Phone-watch Wave 1.8b 1b** | Table = backs only; Peak 11 is the only readable rank. |
 | **2** | Phaser elim (P1 #3) | Deferred — FE when ready |
 | — | [E] migrate | Still deferred |
 
-### Wave 1.7 — **baked 2026-08-18** (waiting phone-watch)
+### Wave 1.8b — **baked 2026-08-19** (waiting phone-watch on 1b)
 
-Watch-fix after 1.6+2: poster shows group photo under L-TALKS (not chrome-only); cafe **then** 12s table-cards; C1 village plate starts at cliff (not under peak/Talk); votes card zoom **2.0→1.0**.
+Option B (COS `2026-08-19-001`): same five Doubles; **card backs** (no phone-readable ranks). Peak clip still owns **11**. Kit dest `challenge_hold_for_shield.mp4` (not imported). `--challenge-table` only. Grammar: teach does not publish the winning fact; Peak does.
+
+### Wave 1.8 — **phone-watch 2026-08-18 / 19**
+
+**Pass:** five unique Doubles at the table.
+
+**Fail (fixed in 1.8b):** Alexis held a readable **7** at the table, then Peak **11**. Face-up ranks during secret-card teach. Archived `*_wave19.mp4`.
+
+### Wave 1.7 — **phone-watch 2026-08-18**
+
+**Pass:** poster group photo; cafe 00:35.4–00:40.7; no village blink at 00:57; votes zoom from 2×.
+
+**Fail (fixed in 1.8):** table 00:40.7–00:52.3 was Vincent + two Alexis, no cards.
 
 ### Wave 1.6 + Wave 2 — **phone-watch 2026-08-18**
 

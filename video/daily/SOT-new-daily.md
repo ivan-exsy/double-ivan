@@ -466,7 +466,7 @@ Picture always fits **locked VO**. Commission stills / micro-clips into bins A�
 |----|----------|-----------|------------|------------------|---------------------|
 | **G1** | A | Peak want | `B_stake/{peak}_habitat.png` | Still (or 1–2s loop) | Sim **workplace** + face + §2.1 place plate (not marketing cards) |
 | **G2** | A | Cost want | `B_stake/{cost}_habitat.png` | Still (or 1–2s loop) | Same |
-| **G3** | A | Challenge teach | `C_pressure/challenge_*.mp4` | **Still → 1–2s clip** | Gather arena; hold/fold from ledger; unique per-Double micro-moves; **no winner crown** |
+| **G3** | A | Challenge teach | `C_pressure/challenge_*.mp4` | **Still → clip** | Gather arena; unique faces; tokens **visible as objects**; **ranks not phone-readable** (backs / inward). Winning numeral lives on **G4 Peak**, not G3. **No winner crown**. |
 | **G4** | A | Peak / turn | `D_peak/{peak}_*.png` | Still (or 1–2s hold) | Peak hero + winning fact; soft BG OK; same set continuity as G3 when same arena |
 | **G5** | A | Cost / leave | `E_cliff_door/{cost}_leave.png` | Still (or 1–2s) | Dignity exit; cooler/evening light if vote is evening; **no celebration pile-on** |
 | **G6** | B | “every Double casts a ballot” | `E_cliff_door/ballots.mp4` | **Still → 1–2s clip** | Hands + blank ballots @ evening gather; faces soft/partial; **no alliance labels / named tallies** |
@@ -828,6 +828,7 @@ Day 1 V6 **G1–G8 READY** — CapCut gold exists; further nights reuse the same
 
 | Date | Change |
 |------|--------|
+| 2026-08-19 | **§10.1 G3** — teach tokens visible as objects; ranks not phone-readable; winning numeral on G4 Peak (COS `2026-08-19-001` Option B). |
 | 2026-08-07 | **§11.4 media resolve** — Live = Rebuild ladder; `edit_script` + `sim_cache/picture|cohort` aliases; Save promotes + GCs polish shelves; `nightly_survival` safety net only. |
 | 2026-07-16 | Tonight’s Scar asset split — temp daily SOT created (COS `2026-07-16-003`). |
 | 2026-07-17 | V6 Day-1 gold + two-featured cast (COS `2026-07-17-001`). |
