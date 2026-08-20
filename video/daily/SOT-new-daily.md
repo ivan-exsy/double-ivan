@@ -386,14 +386,14 @@ Human override until picker quality is proven.
 | # | Beat | Day 1 | Later nights |
 |---|------|-------|--------------|
 | 0 | Hook | Mute face/move — no VO | Same |
-| 1 | Stake | Concept + Survival | Picture scar chip; spoken clause optional (A/B) or skip |
-| 2 | Follow | Peak + Cost names | Optional if chip named them |
-| 3 | Wants | One line each | Protagonist required; Peak if causal |
-| 4 | Pressure | Challenge name + fork + tonight consequence | Shorter if known |
+| 1 | Stake | Concept + Survival | Doubles concept + `{N} still in Survival mode. Someone is voted out every night.` (N = `15 −` prior boots; same math as G7) |
+| 2 | Follow | Peak + Cost names | Skip “following two of them”; Peak then Cost |
+| 3 | Wants | One line each | First feature: job+place. Returnee: `{Name} is back.` |
+| 4 | Pressure | Challenge name + fork + tonight consequence | `Tonight's game is {name}.` + steps_board order |
 | 5 | Peak | Winner / power — tonight-only | Same |
-| 6 | Mid | Optional generic social→votes (no invented blocs) | Only if ledger supports |
+| 6 | Mid | Optional generic social→votes (no invented blocs) | Skip unless ledger supports |
 | 7 | Cost | Votes / leave + Peak ballot if true | Same |
-| 8 | Census | Optional N→N−1 | Elim nights |
+| 8 | Census | Fifteen become fourteen | `{N} become {N−1}` |
 | 9 | Cliff | Power spent + open tomorrow | Specific debt, not season essay |
 | 10 | Door | Catalog or “Watch tonight…” | Same until deep links |
 
@@ -402,20 +402,20 @@ Human override until picker quality is proven.
 ### 9.3 Slot template (Day N)
 
 ```
-[Day 1 only] These are Doubles — AI versions of real people, making choices no one wrote for them.
-[Day 1 only] [N] of them entered Survival mode: someone is voted out every night until one remains.
-[Later] [Picture scar chip — CapCut default]
-[Later] [Optional spoken scar ≤1 clause — A/B]
+[Every night] These are Doubles — AI versions of real people, making choices no one wrote for them.
+[Day 1] Fifteen of them entered Survival mode: someone is voted out every night until one remains.
+[Later] {N} still in Survival mode. Someone is voted out every night.
 
-Today we’re following [Peak] and [Cost].   ← drop if chip already named both
-[Peak] [tonight-want / behavior].
-[Cost] [tonight-want / behavior].
+[Day 1] Today we are following two of them.
+[Day 1 / first feature] [Peak] job+place. [Cost] job+place.
+[Later returnee] [Name] is back.
 
-[Challenge: name + fork + tonight consequence]
+Tonight's game is [challenge]. [teach in steps_board top→bottom order]
 [Peak turn]
-[Optional mid: generic social → votes]
+[Day 1 only] As the day continues, conversations turn into votes.
 [Cost: votes / leave — Peak ballot if true]
-[Optional census]
+[Day 1] Just like that, fifteen become fourteen.
+[Later] {N} become {N−1}.
 [Cliff: specific unfinished debt]
 [Door]
 ```
@@ -470,10 +470,11 @@ Picture always fits **locked VO**. Commission stills / micro-clips into bins A�
 | **G4** | A | Peak / turn | `D_peak/{peak}_*.png` | Still (or 1–2s hold) | Peak hero + winning fact; soft BG OK; same set continuity as G3 when same arena |
 | **G5** | A | Cost / leave | `E_cliff_door/{cost}_leave.png` | Still (or 1–2s) | Dignity exit; cooler/evening light if vote is evening; **no celebration pile-on** |
 | **G6** | B | “every Double casts a ballot” | `E_cliff_door/ballots.mp4` | **Still → 1–2s clip** | Hands + blank ballots @ evening gather; faces soft/partial; **no alliance labels / named tallies** |
-| **G7** | B | Census N→N−1 | `E_cliff_door/census_* .png` | Still | Prefer **group matrix with elim face dimmed** (+ optional quiet `N → N−1`); else card-flip graphic |
+| **G7** | B | Census N→N−1 | `E_cliff_door/census_matrix_pre.png` + `census_matrix_post.png` | Remotion still | **ACTIVE DOUBLES** identity-card grid (`CensusMatrix`). Seat order = group photo C→B→A (do not flip A to the top). Prior boots show `DISCONNECTED` from the first frame; tonight’s Cost is the only tile that changes. Quiet `N → N−1` on the post frame. Auto-gen renders stills on bake from sibling-night ledgers (`15 − n_priors`). Gone portrait = stock silhouette. **Never grey-wash. Never `imported/`.** |
 | **G8** | B | “Today we’re following…” | `B_stake/{peak\|cost}_namecard.png` | Still | Face-led name plate; **names only** — no job/place stamps baked into art (chips stay CapCut-optional) |
 
 **Day 1 V6 defaults that shipped:** G6 hands→bowl @ Hobbs evening · G7 dim one face on `group_photo` + quiet `15 → 14` · G8 Irene / Ivan name plates.  
+**Later nights (locked 2026-08-20):** G7 = identity-card grid (see row above). Day-1 gold-replay grey-wash of Ivan 3.3 (§11.5) stays forensics-only.  
 **Ship bar:** Priority **A (G1–G5)** required for a good first cut. **B (G6–G8)** upgrades the mid/census/follow beats — ship when ready; stock Village/Talk/Family remain interim bridges only.
 
 #### Hard locks (fail the job if missing)
@@ -561,20 +562,22 @@ Fold into main `sot-video.md` when Remotion nightly (Phase 2) is proven. CapCut 
 **Doctrine / gold forensics:** this file + `double-ivan/video/daily/gold/`.  
 **Product job:** D1 Tonight’s Scar (§3) — picture fits **locked VO**, not the reverse.
 
-**N6 (2026-07-30):** One command runs package → auto picture → nightly. Mid-pipeline human READY is **not** a hard stop — N3 auto-marks G1–G5 + G8. Human check after ship = **final MP4 phone-watch** only. Still required as *inputs* (not mid-pipeline gates): Peak/Cost, meaning-locked VO text, locked narration audio + timing, fact ledger.
+**N6 (2026-07-30):** One command runs package → auto picture → nightly. Mid-pipeline human READY is **not** a hard stop — N3 auto-marks G1–G5 + G8. Human check after ship = **final MP4 phone-watch** only. Still required as *inputs*: Peak/Cost + fact ledger. **VO (2026-08-20):** if `vo_locked.txt` is missing, auto-gen from the ledger (Doubles + tonight’s N + challenge teach + Cost + Door) and fail closed on a wrong remaining-count. Never overwrite an existing lock. TTS only when narration audio is also missing.
 
 ```
 sim (Supabase + transport)
   → fact ledger in package (or overview sibling)     (facts only)
   → tonight_scar picker (Peak + Cost)                (§8.3)
-  → draft VO (optional) → meaning-lock → vo_locked   (§9 · VO_LOCKED.md)
-  → locked narration audio + narration_timing.json   (never re-TTS a locked take)
+  → vo_locked: keep if present; else auto-lock from ledger (§9)
+  → narration audio + timing: keep if present; else TTS the lock
   → python -m video.run_tonight_scar …               (N6 wrapper)
        ├─ build_clip_kit (--auto-picture)            (§10 · N3)
        └─ run_nightly_survival (NightlySurvival)     (§11.4 / E4)
   → human phone-watch final MP4
   → export D2 Spark · write scar.json · coverage board
 ```
+
+**G7 auto-gen (locked 2026-08-20):** `seed_nightly_kit_from_priors` renders Remotion `CensusMatrix` stills into `clip_kit/bins/E_cliff_door/census_matrix_{pre,post}.png`. Prior boots = every earlier `trailer_ready_day*` ledger (not yesterday only). Count = `15 − n_priors`. Do not copy a previous night’s mock stills. Recipe prefers those files over `group_photo_{cost}_out.png`. Hook 15→14→1 HUD (`census_15_to_1.mp4`) is a different beat.
 
 #### Module map (`generative_agents/video/`)
 
@@ -583,11 +586,12 @@ sim (Supabase + transport)
 | `run_tonight_scar.py` | **N6 one-command:** ledger + picker + locked VO → clip_kit + nightly |
 | `tonight_scar_schema.py` · `tonight_scar_picker.py` | Picker JSON validate / load / save · Peak/Cost resolve |
 | `tonight_scar_script.py` | Bin-shaped `script.json` from picker + VO |
-| `draft_tonight_scar_vo.py` | LLM or template VO draft (`tonight_scar_v1` cache family) |
+| `draft_tonight_scar_vo.py` | Consecutive-night VO skeleton from ledger (`tonight_scar_v5`); census gate |
 | `day_scar.py` | `scar.json` build / prior-scar gate |
 | `build_clip_kit.py` | CapCut-ready package: bins A–E, VO hash, draft scar, manifest · `--auto-picture` |
 | `validate_clip_kit.py` | Kit completeness before Remotion |
 | `auto_picture_kit.py` · `picture_kit_jobs.py` | N3: auto G1–G5 + G8 stills + G3 i2v + sim cache |
+| `census_vacant_matrix.py` · Remotion `CensusMatrix` | G7 identity-card stills (pre/post) — bake, not mock |
 | `generate_picture_stills.py` · `mark_picture_jobs.py` · `xai_imagine.py` | Still / i2v backends (manual READY only for debug) |
 | `run_nightly_survival.py` · `validate_nightly_survival.py` | Validate → props → snapshot → `NightlySurvival` |
 | `NIGHTLY_CRAFT_GAP.md` | Phase A gap freeze: gold vs day props + nightly checklist |
@@ -612,19 +616,17 @@ Engine day index: **Survival Day 1 = engine `--day 2`**. Paths assume repo root 
 # 0) Facts — place fact_ledger.json under data/<sim>/trailer_ready_dayN/
 #    (or pass --fact-ledger pointing at an overview_dayN* sibling)
 
-# 1) Optional: draft VO only (never overwrites vo_locked.txt)
+# 1) Optional: preview VO draft only (never overwrites vo_locked.txt)
 python -m video.run_tonight_scar <sim_code> --day <engine_day> \
   --peak "<Peak>" --cost "<Cost>" --draft-vo-only [--template-only]
 
-# 2) Meaning-lock — approve text into package vo_locked.txt
-#    (+ narration audio + narration_timing.json; never re-TTS a locked take).
-#    Mirror into double-ivan/video/daily/VO_LOCKED.md when freezing a gold night.
-
-# 3) One command ship (N6) — auto picture + nightly Remotion
+# 2) One command ship (N6) — auto-locks VO if missing, TTS if audio missing,
+#    auto picture + nightly Remotion. Existing vo_locked.txt is kept.
 python -m video.run_tonight_scar <sim_code> --day <engine_day> \
   --peak "<Peak>" --cost "<Cost>" \
-  --vo data/<sim>/trailer_ready_dayN/vo_locked.txt \
   --length-mode short          # Day-1 parity bar: --length-mode long
+#    Pass --vo only to copy an external lock in.
+#    --no-auto-vo restores the old hard-stop if vo_locked is missing.
 #    Props-only dry run: add --skip-render
 #    No xAI calls (hydrate/cache only): --no-picture-generate
 #    Day-1 CapCut → DailyGoldReplay (§11.5) = forensics / phone-watch bar only.
@@ -828,6 +830,8 @@ Day 1 V6 **G1–G8 READY** — CapCut gold exists; further nights reuse the same
 
 | Date | Change |
 |------|--------|
+| 2026-08-20 | **§9 / §11.4 consecutive-night VO** — Doubles + `{N} still in` are machine-spoken every later night (N = `15 −` prior boots, same as G7). Auto-lock `vo_locked.txt` when missing; never overwrite an existing lock; fail closed on a wrong remaining-count. |
+| 2026-08-20 | **§10.1 / §11.4 G7** — identity-card grid (`CensusMatrix`); auto-gen stills on bake from sibling-night priors; quiet `N → N−1`; never grey-wash / never `imported/`. Day-1 gold-replay Ivan 3.3 grey (§11.5) unchanged. |
 | 2026-08-19 | **§10.1 G3** — teach tokens visible as objects; ranks not phone-readable; winning numeral on G4 Peak (COS `2026-08-19-001` Option B). |
 | 2026-08-07 | **§11.4 media resolve** — Live = Rebuild ladder; `edit_script` + `sim_cache/picture|cohort` aliases; Save promotes + GCs polish shelves; `nightly_survival` safety net only. |
 | 2026-07-16 | Tonight’s Scar asset split — temp daily SOT created (COS `2026-07-16-003`). |
