@@ -1,6 +1,6 @@
 # North star — Anya CapCut Day 1 → auto-gen uplift
 
-**Updated:** 2026-08-19 (Wave 1.9 Phaser elim accepted) · prior 2026-08-19 (Phaser capture bake) · 2026-08-19 (Wave 1.8b accepted) · 2026-08-19 (card-backs bake) · 2026-08-18 (Wave 1.8 table recast) · 2026-08-18 (Wave 1.7) · 2026-08-18 (Wave 1.6+2) · 2026-08-12 (E1 cold bake) · 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
+**Updated:** 2026-08-19 (Day 2 wave21 census/grey/flyover) · prior 2026-08-19 (Wave 1.10 census HUD) · 2026-08-19 (Wave 1.9 Phaser elim accepted) · 2026-08-19 (Phaser capture bake) · 2026-08-19 (Wave 1.8b accepted) · 2026-08-19 (card-backs bake) · 2026-08-18 (Wave 1.8 table recast) · 2026-08-18 (Wave 1.7) · 2026-08-18 (Wave 1.6+2) · 2026-08-12 (E1 cold bake) · 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
 **Authority:** Creative bar = Anya’s approved cut. Contracts: [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md).  
 **Detail brief (P0 field list + evidence):** [`../20260811_capcut-vs-post-prod.md`](../20260811_capcut-vs-post-prod.md) — not a second checklist; execute from **here**, open brief for cut IDs / freezedetect / do-nots.
 
@@ -10,17 +10,19 @@
 
 ## ▶ Now (2026-08-19) — read this first
 
-**Active package:** `generative_agents-ivan-dev` · `data/20260724-2/trailer_ready_day2`  
+**Active package (Survival Day 1, closed):** `generative_agents-ivan-dev` · `data/20260724-2/trailer_ready_day2`  
+**Active package (Survival Day 2, in phone-watch):** `data/20260724-2/trailer_ready_day3`  
 **Tools:** Post-Production (`double-video`) for Live · eng (`ivan/dev`) for Rebuild / recipe / gates
 
-**Quality bar (do not overwrite):** polish snapshot  
-`…/output/trailer_9x16_20260812_003937_e1_cold.mp4`  
+Paste Day 2 package into Post-Production (re-open after rematerialize). **Materialize polish from props** if the board still shows the previous bake.
+
+**Quality bar (do not overwrite Day 1):** polish snapshot  
+`…/trailer_ready_day2/output/trailer_9x16_20260812_003937_e1_cold.mp4`  
 (the `e1_cold` tag on that filename is wrong — it is the **polish** bake).
 
-**Cold master (watch this):** `…/output/trailer_9x16.mp4` — Wave 1.9 (~98s, 2026-08-19).  
-Prior cold: Wave 1.8b archived `*_wave20.mp4`; Wave 1.8 face-up `*_wave19.mp4`; Wave 1.7 `*_wave18b.mp4` (and `*_wave18.mp4`); Wave 1.6+2 `*_wave17.mp4`; Wave 1.5 `*_20260818_202751_wave16.mp4`.
+**Day 2 cold master (watch this):** `…/trailer_ready_day3/output/trailer_9x16.mp4` — wave21 (~97s, 2026-08-19). Snapshot `*_20260819_192402_wave21.mp4`.
 
-**Phone-watch** — Wave 1.9 Phaser elim **accepted 2026-08-19** (good enough). 1.8b 1b already passed. Day-1 cold for this package is closed.
+**Phone-watch (Day 2)** — wall **00:12–00:16** = 15→14→1 HUD (no wooden bowl); **01:21** = group photo with Vincent already grey and Alex newly grey; **01:23–01:28** = village flyover still moving (not a freeze). Day 1 Wave 1.10 census HUD already accepted.
 
 ### Path A→E (locked)
 
@@ -51,10 +53,14 @@ Watch note: `…/output/E1_COLD_VERIFY.md`.
 
 | Priority | Work | Notes |
 |----------|------|-------|
-| **1** | Next night / new sim on this cold path | G3 backs; Peak owns the numeral; `--capture-phaser-elim` when FE+API are up |
+| **1** | Phone-watch Wave 1.10 census HUD ~00:12–00:16 | Then next night / new sim on this cold path |
 | — | Later P1 | Hero namecards · readable tie / VOTING TARGET |
 | — | P2 eng | Freeze/coverage/FX gates · kit sim-code guard (after P0 — already accepted) |
 | — | [E] migrate | Inventory OK anytime · **no bulk move** |
+
+### Wave 1.10 — **baked 2026-08-19** (hook census HUD)
+
+“Until one remains” uses the Anya **15 → 14 → 1** countdown clip. Stock: `video/assets/nightly/census_15_to_1.mp4` (tracked). Nightly bake copies it into that package’s `E_cliff_door` — including Episode 1 of a new sim. Later nights copy from the prior kit. Not G6 ballots-in-bowl. Not `imported/`.
 
 ### Wave 1.9 — **accepted 2026-08-19** (phone-watch Phaser elim)
 
