@@ -1,6 +1,6 @@
 # North star — Anya CapCut Day 1 → auto-gen uplift
 
-**Updated:** 2026-08-21 (Loop-A/B/C + longer daily pointers · Day 3 wave29 **accepted** · G6 seed + habitat clip-only in auto-gen) · prior 2026-08-20 (Day 3 VO+picture lock · wave25 phone-watch) · 2026-08-20 (consecutive-night VO auto-gen · Day 2 wave22 **accepted** · G7 identity-card auto-gen) · 2026-08-19 (Day 2 wave21 census/grey/flyover) · 2026-08-19 (Wave 1.10 census HUD) · 2026-08-19 (Wave 1.9 Phaser elim accepted) · 2026-08-19 (Phaser capture bake) · 2026-08-19 (Wave 1.8b accepted) · 2026-08-19 (card-backs bake) · 2026-08-18 (Wave 1.8 table recast) · 2026-08-18 (Wave 1.7) · 2026-08-18 (Wave 1.6+2) · 2026-08-12 (E1 cold bake) · 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
+**Updated:** 2026-08-21 (Day 3 **cold re-prove accepted** · Loop-A/B/C + longer daily pointers · wave29 lock · G6 seed + habitat clip-only) · prior 2026-08-20 (Day 3 VO+picture lock · wave25 phone-watch) · 2026-08-20 (consecutive-night VO auto-gen · Day 2 wave22 **accepted** · G7 identity-card auto-gen) · 2026-08-19 (Day 2 wave21 census/grey/flyover) · 2026-08-19 (Wave 1.10 census HUD) · 2026-08-19 (Wave 1.9 Phaser elim accepted) · 2026-08-19 (Phaser capture bake) · 2026-08-19 (Wave 1.8b accepted) · 2026-08-19 (card-backs bake) · 2026-08-18 (Wave 1.8 table recast) · 2026-08-18 (Wave 1.7) · 2026-08-18 (Wave 1.6+2) · 2026-08-12 (E1 cold bake) · 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
 **Authority:** Creative bar = Anya’s approved cut. Contracts: [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md).  
 **Detail brief (P0 field list + evidence):** [`../20260811_capcut-vs-post-prod.md`](../20260811_capcut-vs-post-prod.md) — not a second checklist; execute from **here**, open brief for cut IDs / freezedetect / do-nots.
 
@@ -12,7 +12,8 @@
 
 **Active package (Survival Day 1, closed — do not overwrite):** `generative_agents-ivan-dev` · `data/20260724-2/trailer_ready_day2`  
 **Active package (Survival Day 2, accepted):** `data/20260724-2/trailer_ready_day3`  
-**Active package (Survival Day 3, accepted — moved 2026-08-21):** `data/20260724-2/accepted_day3_wave29/trailer_ready_day4`  
+**Active package (Survival Day 3, wave29 lock):** `data/20260724-2/accepted_day3_wave29/trailer_ready_day4`  
+**Active package (Survival Day 3, cold re-prove — accepted 2026-08-21):** `data/20260724-2/trailer_ready_day4`  
 **Tools:** Post-Production (`double-video`) for Live · eng (`ivan/dev`) for Rebuild / recipe / gates
 
 **Quality bar (do not overwrite Day 1):** polish snapshot  
@@ -21,11 +22,12 @@
 
 **Day 2 cold master (locked 2026-08-20, founder “Perfect!”):** `…/trailer_ready_day3/output/trailer_9x16.mp4` — wave22 (~97s). Previous master archived as `*_20260820_161636_wave22.mp4`. Do not overwrite this file without a snapshot.
 
-**Day 3 cold master (locked 2026-08-21):** `…/accepted_day3_wave29/trailer_ready_day4/output/trailer_9x16.mp4` — wave29. Archive `*_20260821_111828_wave29.mp4`. Do not overwrite Day 1, Day 2, or this folder. Top-level `trailer_ready_day4` is reserved for a cold re-prove (priors = day2+day3 only).
+**Day 3 wave29 lock:** `…/accepted_day3_wave29/trailer_ready_day4/output/trailer_9x16.mp4` — archive `*_20260821_111828_wave29.mp4`. Do not overwrite this folder.  
+**Day 3 cold re-prove (accepted 2026-08-21):** `…/trailer_ready_day4/output/trailer_9x16.mp4` — `*_20260821_125030_cold_reprove.mp4`. Priors = day2+day3 only. Do not overwrite Day 1, Day 2, wave29 lock, or this file without a snapshot.
 
 **Phone-watch (Day 2, accepted)** — wall **00:12–00:16** = 15→14→1 HUD (no wooden bowl); **~01:18–01:21** = ACTIVE DOUBLES card grid (Vincent already `DISCONNECTED`, then Alex; not grey-wash); **01:21–01:27** = C1 leftover flyover still moving. Day 1 Wave 1.10 census HUD already accepted.
 
-**Auto-gen (every later night / new sim):** `python -m video.run_tonight_scar <sim> --day N … --ignore-edit-script`. Bake seeds G6 `ballots.mp4` + G7 census + split tally; recipe uses habitat **mp4 only** after the namecard; no C1 under the vote. Do not overwrite the three locked packages above.
+**Auto-gen (every later night / new sim):** `python -m video.run_tonight_scar <sim> --day N … --ignore-edit-script`. Bake seeds G6 `ballots.mp4` + G7 census + split tally; recipe uses habitat **mp4 only** after the namecard; no C1 under the vote. Day 3 cold re-prove **accepted**. Do not overwrite the locked packages above. Next short prove = new sim Episode 1 (this sim has no Survival Day 4).
 
 ### Path A→E (locked)
 
@@ -58,11 +60,15 @@ Watch note: `…/output/E1_COLD_VERIFY.md`.
 
 | Priority | Work | Notes |
 |----------|------|-------|
-| **1** | Cold re-prove Survival Day 3 (or new sim Episode 1) | Same cold CLI into a **new** top-level `trailer_ready_day4` (or another sim). Do **not** overwrite `accepted_day3_wave29/trailer_ready_day4`, Day 1, or Day 2. Engine `--day` is package index (`trailer_ready_day5` = Survival Day 4 when sim data exists). |
-| **2** | Longer daily SKU (keep short) | What to ship: [`../20260820_longer_daily.md`](../20260820_longer_daily.md) **Part I**. How to work it: [`../20260821_video_loop.md`](../20260821_video_loop.md) (**Loop-A/B/C**, not Path [A]→[E]). Short stays default. Do not bake / clobber `vo_locked.txt` until founder **go**. Do not replace short. |
+| **1** | Longer daily SKU (keep short) | What to ship: [`../20260820_longer_daily.md`](../20260820_longer_daily.md) **Part I**. How to work it: [`../20260821_video_loop.md`](../20260821_video_loop.md) (**Loop-A/B/C**, not Path [A]→[E]). Short stays default. Do not bake / clobber `vo_locked.txt` until founder **go**. Do not replace short. |
+| **2** | Next short auto-gen (new sim Episode 1) | Same cold CLI when a new sim has a full Survival Day 1. This sim has no Day 4. Do **not** overwrite Day 1–3 locks or the Day 3 cold re-prove. |
 | — | Later P1 | Hero namecards · readable tie / VOTING TARGET |
 | — | P2 eng | Freeze/coverage/FX gates · kit sim-code guard (after P0 — already accepted) |
 | — | [E] migrate | Inventory OK anytime · **no bulk move** |
+
+### Wave 1.15 — **accepted 2026-08-21** (Day 3 cold re-prove)
+
+Founder phone-watch on a **from-scratch** `trailer_ready_day4` (priors = day2+day3 only; wave29 moved to `accepted_day3_wave29/`). Auto-lock VO, seed G6/G7/split, Phaser elim from local FE, `--ignore-edit-script`. Master `…/trailer_ready_day4/output/trailer_9x16.mp4` · archive `*_20260821_125030_cold_reprove.mp4`. Short later-night auto-gen on this sim is **proven**. Next short prove = another sim’s Episode 1.
 
 ### Wave 1.14 — **accepted 2026-08-21** (G6 evening vote + habitat clip-only)
 
