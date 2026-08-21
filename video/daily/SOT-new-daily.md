@@ -160,7 +160,7 @@ Peak and Cost **may be different people**. Cold quiz must still yield **one clea
 
 ### 3.6 Visual rules
 
-- **Featured role intro (VO):** first time a Double is featured (or Survival Day 1), spoken VO includes **one** kid-plain **job + place** clause (e.g. “Irene Dove is a barista at Hobbs Cafe”). Sit that line on **habitat** still/clip (G1/G2 / §2.1 plates). Day-projection **want** may follow in the same stamp window. Returnees → short recall (no full role re-read). Not a multi-sentence bio wall.  
+- **Featured role intro (VO):** every night, spoken VO includes **one** kid-plain **job + place** clause per featured Peak and Cost (e.g. “Irene Dove is a barista at Hobbs Cafe”), then **≤1 why-tonight** clause (Peak = tonight-want / motive, not the result; Cost = leftover heat or “the room is looking at them”). Sit both clauses on the **habitat clip** (G1/G2 `.mp4`) after the namecard — do not cut still → clip (that freeze is a reject). If no clip exists, the still may fill the same window. Sit why-tonight on a short want HUD over that habitat. Never `{Name} is back.` Not a multi-sentence bio wall. Skip why-tonight if there is no ledger fact.  
 - Job/place **cards / lower-thirds** remain optional picture support — do not replace the spoken role clause on first feature.  
 - Prefer real **village place plates** (§2.1) under Stake / habitat beats when the featured workplace exists on disk.  
 - **Challenge teach:** resolve `today.challenge.id` → trailer teach pack in `double-docs/sot/sot_challenges.md` §5 (VO brief + visual library). Specimen: `hold_for_shield`.  
@@ -388,7 +388,7 @@ Human override until picker quality is proven.
 | 0 | Hook | Mute face/move — no VO | Same |
 | 1 | Stake | Concept + Survival | Doubles concept + `{N} still in Survival mode. Someone is voted out every night.` (N = `15 −` prior boots; same math as G7) |
 | 2 | Follow | Peak + Cost names | Skip “following two of them”; Peak then Cost |
-| 3 | Wants | One line each | First feature: job+place. Returnee: `{Name} is back.` |
+| 3 | Wants | One line each | Job+place every night (returnee included), then ≤1 why-tonight each. Peak = tonight-want / motive, not the result. Cost = leftover heat or “the room is looking at them.” Never `{Name} is back.` Skip the why-tonight clause if there is no ledger fact. |
 | 4 | Pressure | Challenge name + fork + tonight consequence | `Tonight's game is {name}.` + steps_board order |
 | 5 | Peak | Winner / power — tonight-only | Same |
 | 6 | Mid | Optional generic social→votes (no invented blocs) | Skip unless ledger supports |
@@ -407,8 +407,8 @@ Human override until picker quality is proven.
 [Later] {N} still in Survival mode. Someone is voted out every night.
 
 [Day 1] Today we are following two of them.
-[Day 1 / first feature] [Peak] job+place. [Cost] job+place.
-[Later returnee] [Name] is back.
+[Every night] [Peak] job+place. [Peak] why-tonight (motive, not the result).
+[Every night] [Cost] job+place. [Cost] why-tonight (leftover / the room is looking at them). Never `{Name} is back.`
 
 Tonight's game is [challenge]. [teach in steps_board top→bottom order]
 [Peak turn]
@@ -469,13 +469,13 @@ Picture always fits **locked VO**. Commission stills / micro-clips into bins A�
 | **G3** | A | Challenge teach | `C_pressure/challenge_*.mp4` | **Still → clip** | Gather arena; unique faces; tokens **visible as objects**; **ranks not phone-readable** (backs / inward). Winning numeral lives on **G4 Peak**, not G3. **No winner crown**. |
 | **G4** | A | Peak / turn | `D_peak/{peak}_*.png` | Still (or 1–2s hold) | Peak hero + winning fact; soft BG OK; same set continuity as G3 when same arena |
 | **G5** | A | Cost / leave | `E_cliff_door/{cost}_leave.png` | Still (or 1–2s) | Dignity exit; cooler/evening light if vote is evening; **no celebration pile-on** |
-| **G6** | B | “every Double casts a ballot” | `E_cliff_door/ballots.mp4` | **Still → 1–2s clip** | Hands + blank ballots @ evening gather; faces soft/partial; **no alliance labels / named tallies** |
+| **G6** | B | “every Double casts a ballot” / “then the vote” | `E_cliff_door/ballots.mp4` | **Clip (loop)** | Hands + blank ballots @ evening gather; faces soft/partial; **no alliance labels / named tallies on the plate**. Later nights **copy** Day-1 G6 (seed from prior kit / `video/assets/nightly/ballots.mp4`). Never Cost habitat as the vote bed. Split nights overlay `vote_split_board.png` / drawn `vote_tally` (count + `NAME {First}`) — tally lives on the overlay, not the G6 plate. Do not insert C1 `world_plate` under this beat. |
 | **G7** | B | Census N→N−1 | `E_cliff_door/census_matrix_pre.png` + `census_matrix_post.png` | Remotion still | **ACTIVE DOUBLES** identity-card grid (`CensusMatrix`). Seat order = group photo C→B→A (do not flip A to the top). Prior boots show `DISCONNECTED` from the first frame; tonight’s Cost is the only tile that changes. Quiet `N → N−1` on the post frame. Auto-gen renders stills on bake from sibling-night ledgers (`15 − n_priors`). Gone portrait = stock silhouette. **Never grey-wash. Never `imported/`.** |
 | **G8** | B | “Today we’re following…” | `B_stake/{peak\|cost}_namecard.png` | Still | Face-led name plate; **names only** — no job/place stamps baked into art (chips stay CapCut-optional) |
 
 **Day 1 V6 defaults that shipped:** G6 hands→bowl @ Hobbs evening · G7 dim one face on `group_photo` + quiet `15 → 14` · G8 Irene / Ivan name plates.  
-**Later nights (locked 2026-08-20):** G7 = identity-card grid (see row above). Day-1 gold-replay grey-wash of Ivan 3.3 (§11.5) stays forensics-only.  
-**Ship bar:** Priority **A (G1–G5)** required for a good first cut. **B (G6–G8)** upgrades the mid/census/follow beats — ship when ready; stock Village/Talk/Family remain interim bridges only.
+**Later nights (locked 2026-08-21):** G6 = seeded ballots clip + split tally overlay. G7 = identity-card grid (see row above). Habitat intro = namecard + mp4. Day-1 gold-replay grey-wash of Ivan 3.3 (§11.5) stays forensics-only.  
+**Ship bar:** Priority **A (G1–G5)** required for a good first cut. **G6 and G7 auto-seed on bake** (prior kit or `video/assets/nightly/`). G8 from N3. Stock Village/Talk remain interim only when a named beat has no kit file.
 
 #### Hard locks (fail the job if missing)
 
@@ -562,7 +562,7 @@ Fold into main `sot-video.md` when Remotion nightly (Phase 2) is proven. CapCut 
 **Doctrine / gold forensics:** this file + `double-ivan/video/daily/gold/`.  
 **Product job:** D1 Tonight’s Scar (§3) — picture fits **locked VO**, not the reverse.
 
-**N6 (2026-07-30):** One command runs package → auto picture → nightly. Mid-pipeline human READY is **not** a hard stop — N3 auto-marks G1–G5 + G8. Human check after ship = **final MP4 phone-watch** only. Still required as *inputs*: Peak/Cost + fact ledger. **VO (2026-08-20):** if `vo_locked.txt` is missing, auto-gen from the ledger (Doubles + tonight’s N + challenge teach + Cost + Door) and fail closed on a wrong remaining-count. Never overwrite an existing lock. TTS only when narration audio is also missing.
+**N6 (2026-07-30):** One command runs package → auto picture → nightly. Mid-pipeline human READY is **not** a hard stop — N3 auto-marks G1–G5 + G8. Human check after ship = **final MP4 phone-watch** only. Still required as *inputs*: Peak/Cost + fact ledger. **VO (2026-08-20):** if `vo_locked.txt` is missing, auto-gen from the ledger (Doubles + tonight’s N + Peak/Cost job+place + challenge teach + Cost + Door) and fail closed on a wrong remaining-count. Never overwrite an existing lock unless `--replace-vo-lock` (re-TTS that package). TTS when audio is missing, or when the lock was just replaced.
 
 ```
 sim (Supabase + transport)
@@ -579,6 +579,10 @@ sim (Supabase + transport)
 
 **G7 auto-gen (locked 2026-08-20):** `seed_nightly_kit_from_priors` renders Remotion `CensusMatrix` stills into `clip_kit/bins/E_cliff_door/census_matrix_{pre,post}.png`. Prior boots = every earlier `trailer_ready_day*` ledger (not yesterday only). Count = `15 − n_priors`. Do not copy a previous night’s mock stills. Recipe prefers those files over `group_photo_{cost}_out.png`. Hook 15→14→1 HUD (`census_15_to_1.mp4`) is a different beat.
 
+**G6 auto-gen (locked 2026-08-21):** the same seed copies `ballots.mp4` into `E_cliff_door` from a prior kit, else stock `video/assets/nightly/ballots.mp4` (new sim Episode 1). Recipe plays that clip from “That’s the challenge. Then the vote.” through the split. Never Cost habitat. Split/messy nights also write `vote_split_board.png` (`vote_tally`). Do not insert C1 `world_plate` under the vote.
+
+**Habitat intro (locked 2026-08-21):** `habitat_lock.py` maps ledger job+place → Ville interior for G1/G2. Recipe is namecard then habitat **`.mp4`** for the whole featured window (no still→clip freeze). Kit stems are full-name slugs.
+
 #### Module map (`generative_agents/video/`)
 
 | Module | Role |
@@ -586,7 +590,8 @@ sim (Supabase + transport)
 | `run_tonight_scar.py` | **N6 one-command:** ledger + picker + locked VO → clip_kit + nightly |
 | `tonight_scar_schema.py` · `tonight_scar_picker.py` | Picker JSON validate / load / save · Peak/Cost resolve |
 | `tonight_scar_script.py` | Bin-shaped `script.json` from picker + VO |
-| `draft_tonight_scar_vo.py` | Consecutive-night VO skeleton from ledger (`tonight_scar_v5`); census gate |
+| `draft_tonight_scar_vo.py` | Consecutive-night VO skeleton from ledger (`tonight_scar_v6`); census gate |
+| `habitat_lock.py` | Job+place → Ville interior + kit slug (G1/G2) |
 | `day_scar.py` | `scar.json` build / prior-scar gate |
 | `build_clip_kit.py` | CapCut-ready package: bins A–E, VO hash, draft scar, manifest · `--auto-picture` |
 | `validate_clip_kit.py` | Kit completeness before Remotion |
@@ -621,7 +626,8 @@ python -m video.run_tonight_scar <sim_code> --day <engine_day> \
   --peak "<Peak>" --cost "<Cost>" --draft-vo-only [--template-only]
 
 # 2) One command ship (N6) — auto-locks VO if missing, TTS if audio missing,
-#    auto picture + nightly Remotion. Existing vo_locked.txt is kept.
+#    auto picture + nightly Remotion. Existing vo_locked.txt is kept
+#    unless --replace-vo-lock (rewrite lock + re-TTS for that package).
 python -m video.run_tonight_scar <sim_code> --day <engine_day> \
   --peak "<Peak>" --cost "<Cost>" \
   --length-mode short          # Day-1 parity bar: --length-mode long
@@ -830,7 +836,9 @@ Day 1 V6 **G1–G8 READY** — CapCut gold exists; further nights reuse the same
 
 | Date | Change |
 |------|--------|
-| 2026-08-20 | **§9 / §11.4 consecutive-night VO** — Doubles + `{N} still in` are machine-spoken every later night (N = `15 −` prior boots, same as G7). Auto-lock `vo_locked.txt` when missing; never overwrite an existing lock; fail closed on a wrong remaining-count. |
+| 2026-08-21 | **§3.6 / §10.1 G6** — habitat intro is namecard + clip only (no still freeze). Evening vote = seeded G6 ballots (never Cost habitat); split nights overlay `vote_tally`; drop hidden C1 world_plate under the vote. |
+| 2026-08-20 | **§9 picture+VO lock** — later nights speak Peak then Cost job+place (never `{Name} is back.`). Scar windows = first contiguous beat (teach = pressure). `--replace-vo-lock` rewrites a lock + re-TTS for that package only. |
+| 2026-08-20 | **§9 / §11.4 consecutive-night VO** — Doubles + `{N} still in` are machine-spoken every later night (N = `15 −` prior boots, same as G7). Auto-lock `vo_locked.txt` when missing; never overwrite an existing lock unless `--replace-vo-lock`; fail closed on a wrong remaining-count. |
 | 2026-08-20 | **§10.1 / §11.4 G7** — identity-card grid (`CensusMatrix`); auto-gen stills on bake from sibling-night priors; quiet `N → N−1`; never grey-wash / never `imported/`. Day-1 gold-replay Ivan 3.3 grey (§11.5) unchanged. |
 | 2026-08-19 | **§10.1 G3** — teach tokens visible as objects; ranks not phone-readable; winning numeral on G4 Peak (COS `2026-08-19-001` Option B). |
 | 2026-08-07 | **§11.4 media resolve** — Live = Rebuild ladder; `edit_script` + `sim_cache/picture|cohort` aliases; Save promotes + GCs polish shelves; `nightly_survival` safety net only. |

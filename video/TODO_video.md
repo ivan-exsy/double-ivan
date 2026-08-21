@@ -1,6 +1,6 @@
 # North star — Anya CapCut Day 1 → auto-gen uplift
 
-**Updated:** 2026-08-20 (consecutive-night VO auto-gen · Day 2 wave22 **accepted** · G7 identity-card auto-gen · Day 3 consecutive-night prove) · prior 2026-08-20 (Day 2 wave22 G7 identity-card census) · 2026-08-19 (Day 2 wave21 census/grey/flyover) · 2026-08-19 (Wave 1.10 census HUD) · 2026-08-19 (Wave 1.9 Phaser elim accepted) · 2026-08-19 (Phaser capture bake) · 2026-08-19 (Wave 1.8b accepted) · 2026-08-19 (card-backs bake) · 2026-08-18 (Wave 1.8 table recast) · 2026-08-18 (Wave 1.7) · 2026-08-18 (Wave 1.6+2) · 2026-08-12 (E1 cold bake) · 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
+**Updated:** 2026-08-21 (Day 3 wave29 **accepted** · G6 seed + habitat clip-only in auto-gen) · prior 2026-08-20 (Day 3 VO+picture lock · wave25 phone-watch) · 2026-08-20 (consecutive-night VO auto-gen · Day 2 wave22 **accepted** · G7 identity-card auto-gen) · 2026-08-19 (Day 2 wave21 census/grey/flyover) · 2026-08-19 (Wave 1.10 census HUD) · 2026-08-19 (Wave 1.9 Phaser elim accepted) · 2026-08-19 (Phaser capture bake) · 2026-08-19 (Wave 1.8b accepted) · 2026-08-19 (card-backs bake) · 2026-08-18 (Wave 1.8 table recast) · 2026-08-18 (Wave 1.7) · 2026-08-18 (Wave 1.6+2) · 2026-08-12 (E1 cold bake) · 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
 **Authority:** Creative bar = Anya’s approved cut. Contracts: [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md).  
 **Detail brief (P0 field list + evidence):** [`../20260811_capcut-vs-post-prod.md`](../20260811_capcut-vs-post-prod.md) — not a second checklist; execute from **here**, open brief for cut IDs / freezedetect / do-nots.
 
@@ -8,11 +8,11 @@
 
 ---
 
-## ▶ Now (2026-08-20) — read this first
+## ▶ Now (2026-08-21) — read this first
 
 **Active package (Survival Day 1, closed — do not overwrite):** `generative_agents-ivan-dev` · `data/20260724-2/trailer_ready_day2`  
 **Active package (Survival Day 2, accepted):** `data/20260724-2/trailer_ready_day3`  
-**Active package (Survival Day 3, consecutive-night prove):** `data/20260724-2/trailer_ready_day4`  
+**Active package (Survival Day 3, accepted):** `data/20260724-2/trailer_ready_day4`  
 **Tools:** Post-Production (`double-video`) for Live · eng (`ivan/dev`) for Rebuild / recipe / gates
 
 **Quality bar (do not overwrite Day 1):** polish snapshot  
@@ -21,9 +21,11 @@
 
 **Day 2 cold master (locked 2026-08-20, founder “Perfect!”):** `…/trailer_ready_day3/output/trailer_9x16.mp4` — wave22 (~97s). Previous master archived as `*_20260820_161636_wave22.mp4`. Do not overwrite this file without a snapshot.
 
-**Day 3 cold master (phone-watch):** `…/trailer_ready_day4/output/trailer_9x16.mp4` — wave23 (~58s, 2026-08-20). Census auto-rendered 13→12 (Vincent + Alex Butcher already `DISCONNECTED`, then Shepard). Phaser elim skipped (FE down). Do not overwrite Day 1 or Day 2.
+**Day 3 cold master (locked 2026-08-21):** `…/trailer_ready_day4/output/trailer_9x16.mp4` — wave29. Archive `*_20260821_111828_wave29.mp4`. Do not overwrite Day 1, Day 2, or this file without a snapshot.
 
 **Phone-watch (Day 2, accepted)** — wall **00:12–00:16** = 15→14→1 HUD (no wooden bowl); **~01:18–01:21** = ACTIVE DOUBLES card grid (Vincent already `DISCONNECTED`, then Alex; not grey-wash); **01:21–01:27** = C1 leftover flyover still moving. Day 1 Wave 1.10 census HUD already accepted.
+
+**Auto-gen (every later night / new sim):** `python -m video.run_tonight_scar <sim> --day N … --ignore-edit-script`. Bake seeds G6 `ballots.mp4` + G7 census + split tally; recipe uses habitat **mp4 only** after the namecard; no C1 under the vote. Do not overwrite the three locked packages above.
 
 ### Path A→E (locked)
 
@@ -54,14 +56,23 @@ Watch note: `…/output/E1_COLD_VERIFY.md`.
 
 | Priority | Work | Notes |
 |----------|------|-------|
-| **1** | Phone-watch Day 3 consecutive-night cold bake | Engine `--day 4` · `trailer_ready_day4/output/trailer_9x16.mp4` (~58s, wave23). Peak Irene · Cost Alex Shepard · Alliance Lock-In · census **13 → 12**. Do not overwrite Day 1 or Day 2 masters. |
+| **1** | Next Survival night (or new sim Episode 1) | Same cold CLI. Do **not** overwrite Day 1–3 packages on `20260724-2`. Engine `--day` is package index (`trailer_ready_day5` = Survival Day 4). |
+| **2** | Longer daily SKU (keep short) | Expert inquiry: [`../20260820_longer_daily.md`](../20260820_longer_daily.md). Dual-format MVP test. More 2D↔3D. Do not implement until the packet is accepted. Do not replace short. |
 | — | Later P1 | Hero namecards · readable tie / VOTING TARGET |
 | — | P2 eng | Freeze/coverage/FX gates · kit sim-code guard (after P0 — already accepted) |
 | — | [E] migrate | Inventory OK anytime · **no bulk move** |
 
+### Wave 1.14 — **accepted 2026-08-21** (G6 evening vote + habitat clip-only)
+
+Day 3 phone-watch locked wave29. Auto-gen now: seed G6 `ballots.mp4` (stock or prior kit); split nights overlay `vote_tally`; habitat intro is namecard + mp4 (no still freeze); no hidden C1 under the vote. Applies to the next night of this sim and to Episode 1 of a new sim.
+
+### Wave 1.13 — **baked 2026-08-20** (later-night VO + pictures)
+
+Wave 24 phone-watch failed: “is back,” Irene plates on Alex’s VO, no challenge clip, Alex at ~00:41. Fix: later nights always speak Peak then Cost job+place; scar windows = first contiguous beat; intro plates stay in stake; Alliance Lock-In teach = pressure; Day-1 HUD only when VO says it. Day 3 re-lock + re-TTS via `--replace-vo-lock`. Bake `--snapshot-tag wave25 --ignore-edit-script`. Do not overwrite Day 1 or Day 2.
+
 ### Wave 1.12 — **locked 2026-08-20** (consecutive-night VO auto-gen)
 
-Spoken later-night kit matches Day 1 / Day 2 locked scripts: Doubles opener, `{N} still in Survival mode`, Peak then Cost (returnee = `{Name} is back.`), `Tonight's game is {challenge}` in steps_board order, `{N} become {N−1}`, catalog Door. N = `15 −` prior boots (same as G7 pictures). Auto-lock `vo_locked.txt` when missing; **never overwrite** an existing lock (Day 1–3 packages stay). LLM drafts that say “fourteen remain” are rejected; ship uses the ledger skeleton. Do not re-TTS Day 3 unless the founder asks.
+Spoken later-night kit: Doubles opener, `{N} still in Survival mode`, Peak then Cost **job+place every night**, `Tonight's game is {challenge}` in steps_board order, `{N} become {N−1}`, catalog Door. N = `15 −` prior boots (same as G7 pictures). Auto-lock `vo_locked.txt` when missing; **never overwrite** an existing lock unless `--replace-vo-lock`. LLM drafts that say “fourteen remain” are rejected.
 
 ### Wave 1.11 — **accepted 2026-08-20** (G7 identity-card census + auto-gen)
 
