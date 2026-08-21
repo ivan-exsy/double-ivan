@@ -1,10 +1,152 @@
-# Inquiry — Longer daily trailers (keep short + long)
+# Longer daily trailers — production recommendation
 
-**Date:** 2026-08-20  
-**Status:** Founder inquiry for the expert council. Formalize vision, requirements, and implementation notes. **Do not implement** until this round is accepted.  
-**Audience:** `realitytv` · `screenwriter` · `videoproducer` · `engagement` · `ux` (2D↔3D / watch craft)  
-**Specimen season:** simulation `20260724-2` (Soul-15 Survival). Survival Day N = engine `--day` N+1.  
-**Locked decision:** we will **keep both** a short daily and a longer daily for MVP audience tests. One format may win. Both may stay. Do not silently replace short.
+**Dates:** Inquiry 2026-08-20 · Production lock 2026-08-21  
+**Status:** **Production recommendation for MVP.** Council packet COS `2026-08-20-003` stands except where this file overrides (featured day-in-life; Silent Pact pairs; fact-lock vs chat). **Do not bake / TTS / clobber `vo_locked.txt` until founder says go** on the first long lock.  
+**Audience:** Video production + video eng (`NightlySurvival` / Post-Production). Backend RCA is a **parallel** track: [`20260821_RCA_realism.md`](20260821_RCA_realism.md).  
+**Specimen:** sim `20260724-2`. Survival Day N = engine `--day` N+1.  
+**Keep both SKUs.** Short stays default. Long is a sibling cut. Do not silently replace short.
+
+---
+
+## Part I — What we ship (2026-08-21)
+
+### I.1 Product split (founder lock)
+
+| Surface | Job | Who is featured |
+|---------|-----|-----------------|
+| **Daily group trailer** (this file) | A **peek into the village**. Highlight the **day-in-life of tonight’s featured Doubles**. Bond the audience with *those* people so they wait for tomorrow’s group drop. | Peak + Cost (+ ≤1 causal satellite). Not the viewer’s pick. |
+| **Paid day-in-life report** (not this SKU) | Follow **the Double the user chose**. Appointment with one life. | User’s follow. **Do not wait for this** to ship group trailers. Prefer engine #2–#3 green before mailing a chosen-Double report (see RCA). |
+
+Truman-level “any Double you pick” is the **paid report**, not the nightly group cut. The group cut still has to feel like **people living a day**, not a scoreboard.
+
+### I.2 What “enhance the daily” means (MVP)
+
+Do **not** wait on BE RCA to ship. Do **not** quote rotten chats as facts. Do **use** the village texture that *does* survive a contradiction pass.
+
+**Tonight’s Scar (short) — do not worsen**
+
+- Same sacred later-night kit. Same Peak/Cost. Same census math. Runtime 45–60 / warn 90 / hard **120**.
+- Add **one lived beat per featured Double** when the ledger already has it: job+place (already required later nights) + **≤1 tell that is ledger-true** (e.g. Irene at Hobbs / croissant with Max *only if* we treat it as atmosphere, not as a vote claim).
+- If there is no safe tell, keep today’s tight VO. Empty weather is legal.
+
+**Closer tonight (long) — sibling cut, not a third show**
+
+Council lock (COS `2026-08-20-003`) still holds:
+
+| Decision | Lock |
+|----------|------|
+| Shape | Same night, same Peak/Cost/Door/challenge/census. Higher **social resolution** of the same scar. Not `[B]`, not encyclopedia, not stretched short VO. |
+| Label | **Closer tonight.** Never “full recap.” Short autoplays first. Long = in-thread reply (+10–20 min), pin Scar. |
+| Runtime | **90–120 / warn 135 / hard 150.** 180s rejected. |
+| Spoken featured | **Max 3.** Peak + Cost + ≤1 **causal** satellite. |
+| VO files | Short `vo_locked.txt` · long **`vo_locked_long.txt`**. Never clobber short. |
+| `length_mode=long` | Means this SKU, not a longer clock on short VO. |
+| 2D↔3D | Short ≤3 cinematic punctuations. Long ≤5, **required extra dive on weather**. Phaser = window. All-cinematic fails. |
+
+**Override vs 2026-08-20 council (from live season_state):**
+
+- Day 2 Silent Pact pairs **are fact** in `public_board.mutual_protect`: Mike–Irene, Owen–Nick, **Max–Olivia**. Digest was blind; season state is not. Do **not** stamp Max as a third bio. You **may** name **Irene’s partner (Mike)** as the causal satellite on long (Protect pair), or skip spoken satellite and put the pair only in teach. Do not invent Max as leftover-heat.
+- Day 3 **Olivia** stays the causal satellite (mutual lock). Stamp her as a person (job+place once). Shepard stays Cost.
+- **Do not** say Cost “played and lost” if `choice_reason_plain` is `absent` (Vincent D1, Butcher D2). Long weather = leftover heat / unreadability / lock, not a fake card they never held.
+
+### I.3 Day-in-life grammar (featured only)
+
+Every featured Double on **long** gets this stack, in this order, without a second cold opener:
+
+1. **Body in a place** (habitat / job plate — already G1/G2).
+2. **One doing** — work or ritual that is *this person* (Alexis: library desk; Irene: Hobbs counter / croissant; Vincent: classroom only if he was actually there; Butcher: supply floor — not “I held a 5”).
+3. **One relationship weather** — leftover, lock, unreadability. Ledger or `public_board` only.
+4. **Tonight’s turn** — challenge result for people who **played**; skip mechanic-as-their-story if `absent`.
+5. **Door** — unfinished thread on a **named featured** Double, not “someone else leaves.”
+
+Short gets 1 + 4 + 5, and 2–3 only if they fit the word budget without stretching.
+
+**Refuse:** confession booth, voter roll call, 15-person directory, quoting chat that fails the contradiction pass (I.4).
+
+### I.4 Fact-lock while the engine is messy
+
+Authoritative, in this order:
+
+1. `fact_ledger.json` + picker  
+2. `challenge_results.public_board` / `winners` / `choice_reason_plain`  
+3. `eliminated[]` (`vote_count`, `vote_tally`, `final_statement`)  
+4. Peak/Cost `extract_day_log` chats **only after** a contradiction pass vs 1–3
+
+**Contradiction pass (production + validator):** drop or rewrite a line if it claims a card/lock/tally/boot that 1–3 deny. Keep the *texture* (sandwich, croissant, book-as-prop) when it does not assert a false board fact.
+
+Do **not** VO from `extract_day_log` reflections (day-bleed + `this is blank`).
+
+BE will make chats and absences honest later ([`20260821_RCA_realism.md`](20260821_RCA_realism.md)). When that lands, long can quote more talk. Until then, **board-true + texture**.
+
+### I.5 Picture / 2D↔3D (MVP, no new kit religion)
+
+- Keep G1–G8 + G6 ballots + G7 identity-card census. Never `imported/`. Never grey-wash.
+- Long extra dive = **weather**: Phaser follow-cam on the featured pair at Hobbs (or Peak’s job) → cinematic habitat. If `capture_phaser_weather` does not exist yet: **hold Phaser** under that VO — do not Imagine.
+- Habitat = **this Double’s job**, full-name slug (`alex_butcher` ≠ `alex_shepard`).
+- Cost leave: Phaser still, then dive. Do not imply they were at the 11:00 table if they were absent.
+
+### I.6 Editorial beat sheet (long) — unchanged names, richer fill
+
+Use the 12-beat sheet in COS `2026-08-20-003` §3. Fill **featured_pair** and **weather** from I.3, not from ranker digest.
+
+Specimen fills (this sim, paper — not a lock until founder go):
+
+| Night | Short already does | Long adds (fact-locked) |
+|-------|--------------------|-------------------------|
+| D1 Alexis / Vincent | Shield + tie + Vincent gone | Alexis *at the library* before Hobbs; Vincent *classroom* if we do not claim he held a card; tie partner Butcher **one clause** (causal satellite) — he walked the 3–3, he did **not** play Hold. Door: who does the room trust. |
+| D2 Irene / Butcher | Leftover heat + 5.5 (not 6) + Protect → stronger vote | Irene *Hobbs ritual* (croissant / counter) without fake tallies; **Mike** as Protect partner (public_board); Butcher unreadability + leftover, **not** “he exposed/held.” Olivia/Max pair = optional mute picture, not a third bio. |
+| D3 Irene / Shepard | Lock-In ≠ Shield vest; Irene–Olivia mutual; Shepard 4 | **Olivia** job+place once; Irene–Olivia as a *relationship* (counter + lock), not “Diana shielded”; Shepard one-way to Irene is speakable (public_board one_ways). |
+
+Day 4 exists in the sim (Max Shield via sole expose). **No** `trailer_ready_day5` yet. Do not invent a Day-4 Scar until cold path: `run_tonight_scar` → seed kit → bake. Do not overwrite Day 1–3 masters.
+
+### I.7 Implementation sequence (production + video eng)
+
+**Now (no BE wait)**
+
+1. Founder **accepts** this Part I (and still accepts or edits COS `2026-08-20-003` runtime/labels).  
+2. Video eng (after **go**): Peak/Cost `extract_day_log` into the package; contradiction pass; picker may set **one** causal `satellite_ids`; `vo_locked_long.txt` writer; `length_mode=long` = this SKU; validator branch cinematic cap 3 vs 5; G6 ballots already seeded.  
+3. Production: paper Day **2** long first (best leftover). Phone-watch. Loop-A / Loop-B as in `20260821_video_loop.md`. Short lane stays Loop-C on Days 1–3.  
+4. Telegram: Scar first; Closer reply later; pin Scar.
+
+**When BE RCA lands** (do not block MVP)
+
+- Re-run contradiction pass — more chat lines will survive.  
+- Cost who actually played can own the challenge beat.  
+- `alliances.confirmed` / Lock-In mutual can be spoken as durable weather.  
+- Paid chosen-Double report can start as a **separate** pipeline (same extract, different protagonist).
+
+**Must not**
+
+- Stretch short VO with freezes to fake long.  
+- Overwrite `20260724-2` Day 1–2 short masters.  
+- Promote `clip_kit/imported/`.  
+- Treat `length_mode=long` on `run_nightly_survival` (composition clock) as the editorial SKU.
+
+### I.8 Success (group trailer, not paid report)
+
+After **short**: still Peak, Cost, challenge meaning, N→N−1, Door.  
+After **long**: can name the featured Doubles as people (job + one tell), feel **one** relationship, want **tomorrow’s group trailer** for a named thread, know the village is live at doubland.ai.
+
+Do **not** score long on “viewer bonded with their follow.” That is the paid SKU.
+
+### I.9 Pointers
+
+| Doc | Role |
+|-----|------|
+| COS `tasks/2026-08-20-003/final.md` | Full council lock, Day 2 paper VO, eng notes |
+| COS `tasks/2026-08-20-003/iterations/round-2-bonding.md` | Live extract conclusions |
+| [`20260821_RCA_realism.md`](20260821_RCA_realism.md) | BE defects #2–#5 |
+| [`20260821_video_loop.md`](20260821_video_loop.md) | Loop-A / Loop-B / Loop-C |
+| Part II below | Original inquiry, specimens, locked short VO, specialist questions (answered) |
+
+---
+
+# Part II — Original inquiry (2026-08-20)
+
+**Status:** Answered by COS `2026-08-20-003`. Kept for specimen VO, packages, and specialist question list. Part I overrides digest-blind satellite calls and the Truman-vs-featured mix.
+
+**Original audience:** `realitytv` · `screenwriter` · `videoproducer` · `engagement` · `ux`  
+**Original ask:** Formalize vision, requirements, and implementation notes for a second daily SKU.
 
 ---
 

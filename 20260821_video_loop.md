@@ -208,7 +208,7 @@ Same `snapshot-tag` / same MP4:
 
 1. Loop-A pass recorded.
 2. Loop-B pass recorded (**quiz sheet + no HF**).
-3. Master snapshotted; **do not overwrite** accepted Day 1 / Day 2 / Day 3 packages on `20260724-2`.
+3. Master snapshotted; **do not overwrite** `trailer_ready_day2`, `trailer_ready_day3`, or `accepted_day3_wave29/trailer_ready_day4` on `20260724-2`.
 4. If a new look was confirmed from `untaught`, Path **[C]/E1** learn is a **separate** ticket (allowlist priors only — never imports, VO, ledger).
 
 ---
