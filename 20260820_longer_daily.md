@@ -1,10 +1,10 @@
 # Longer daily trailers — production recommendation
 
-**Dates:** Inquiry 2026-08-20 · Production lock 2026-08-21  
-**Status:** **Production recommendation for MVP.** Council packet COS `2026-08-20-003` stands except where this file overrides (featured day-in-life; Silent Pact pairs; fact-lock vs chat). **Do not bake / TTS / clobber `vo_locked.txt` until founder says go** on the first long lock.  
+**Dates:** Inquiry 2026-08-20 · Production lock 2026-08-21 · Default ship 2026-08-21  
+**Status:** **Production lock.** Closer tonight is the default daily. Short Scar is `--sku scar`. Council packet COS `2026-08-20-003` stands except where this file overrides (featured day-in-life; Silent Pact pairs; fact-lock vs chat). Do not clobber `vo_locked.txt` / `trailer_9x16.mp4` when baking closer.  
 **Audience:** Video production + video eng (`NightlySurvival` / Post-Production). Backend RCA is a **parallel** track: [`20260821_RCA_realism.md`](20260821_RCA_realism.md).  
 **Specimen:** sim `20260724-2`. Survival Day N = engine `--day` N+1.  
-**Keep both SKUs.** Short stays default. Long is a sibling cut. Do not silently replace short.
+**Keep both SKUs.** Closer tonight is the **default** daily. Short Scar is `--sku scar`. Do not silently replace short masters.
 
 ---
 
@@ -36,11 +36,11 @@ Council lock (COS `2026-08-20-003`) still holds:
 | Decision | Lock |
 |----------|------|
 | Shape | Same night, same Peak/Cost/Door/challenge/census. Higher **social resolution** of the same scar. Not `[B]`, not encyclopedia, not stretched short VO. |
-| Label | **Closer tonight.** Never “full recap.” Short autoplays first. Long = in-thread reply (+10–20 min), pin Scar. |
-| Runtime | **90–120 / warn 135 / hard 150.** 180s rejected. |
+| Label | **Closer tonight.** Never “full recap.” Default ship is closer. Short Scar = `--sku scar`. |
+| Runtime | **90–140 / warn 165 / hard 180.** 180 is a ceiling, not a fill-to. **Attachment is the bar** — do not cut a true who-they-are beat to hit 150. Encyclopedia still fails at any length. |
 | Spoken featured | **Max 3.** Peak + Cost + ≤1 **causal** satellite. |
 | VO files | Short `vo_locked.txt` · long **`vo_locked_long.txt`**. Never clobber short. |
-| `length_mode=long` | Means this SKU, not a longer clock on short VO. |
+| `--length-mode` | Remotion clock only. Not the SKU. Default `long`. |
 | 2D↔3D | Short ≤3 cinematic punctuations. Long ≤5, **required extra dive on weather**. Phaser = window. All-cinematic fails. |
 
 **Override vs 2026-08-20 council (from live season_state):**
@@ -57,11 +57,14 @@ Every featured Double on **long** gets this stack, in this order, without a seco
 2. **One doing** — work or ritual that is *this person* (Alexis: library desk; Irene: Hobbs counter / croissant; Vincent: classroom only if he was actually there; Butcher: supply floor — not “I held a 5”).
 3. **One relationship weather** — leftover, lock, unreadability. Ledger or `public_board` only.
 4. **Tonight’s turn** — challenge result for people who **played**; skip mechanic-as-their-story if `absent`.
-5. **Door** — unfinished thread on a **named featured** Double, not “someone else leaves.”
+5. **Inner life (spoken English)** — Peak’s stated why they named Cost, and Cost last words when the board has them. Day 2 ships **both**. Skip a beat if nothing is I.4-safe. Picture may carry feeling; VO does not mind-read. Do not double-speak a tell already used in (3).
+6. **Door** — unfinished thread on a **named featured** Double, not “someone else leaves.”
 
-Short gets 1 + 4 + 5, and 2–3 only if they fit the word budget without stretching.
+Short gets 1 + 4 + 6, and 2–3 / 5 only if they fit without stretching.
 
-**Refuse:** confession booth, voter roll call, 15-person directory, quoting chat that fails the contradiction pass (I.4).
+**Spoken English (all VO, short and long):** sound like a person telling a friend what happened. Contractions. What they did, then what it cost. Ban recap-narrator thesis lines (`a read she can trust`, `wants a lock X can trust`, `She names him because…`). Ban engine-essay words (`unpredictable variable`, `second-order`). Ban **challenge-slug slogans** that would repeat every Silent Pact / Lock-In night (`won't pick a side until she knows who she's dealing with`, `plays for cover`, `tracks the room`). Peak why-tonight is this person's tonight board mouth (`choice_reason_plain` + partner), or skip. Cost last words are the board `final_statement` cut for speech — skip engine-clone essays; do not invent a slogan.
+
+**Refuse:** confession booth, voter roll call, 15-person directory, quoting chat that fails the contradiction pass (I.4), narrator mind-read (`felt / realized / in my heart`).
 
 ### I.4 Fact-lock while the engine is messy
 
@@ -72,6 +75,8 @@ Authoritative, in this order:
 3. `eliminated[]` (`vote_count`, `vote_tally`, `final_statement`)  
 4. Peak/Cost `extract_day_log` chats **only after** a contradiction pass vs 1–3
 
+**Speak rules:** `vote_tally` = name-count + featured Peak’s ballot (no hunter list). Peak `vote_reasons` only, in spoken English (never a cleaned house motive, never “She names him because…”). `choice_reason_plain` = present Peak only. `final_statement` = Cost last words, dignity, conversational cut — not “he felt.” Chats = texture after contradiction, not a deal log.
+
 **Contradiction pass (production + validator):** drop or rewrite a line if it claims a card/lock/tally/boot that 1–3 deny. Keep the *texture* (sandwich, croissant, book-as-prop) when it does not assert a false board fact.
 
 Do **not** VO from `extract_day_log` reflections (day-bleed + `this is blank`).
@@ -81,7 +86,7 @@ BE will make chats and absences honest later ([`20260821_RCA_realism.md`](202608
 ### I.5 Picture / 2D↔3D (MVP, no new kit religion)
 
 - Keep G1–G8 + G6 ballots + G7 identity-card census. Never `imported/`. Never grey-wash.
-- Long extra dive = **weather**: Phaser follow-cam on the featured pair at Hobbs (or Peak’s job) → cinematic habitat. If `capture_phaser_weather` does not exist yet: **hold Phaser** under that VO — do not Imagine.
+- Long extra dive = **weather**: Peak **doing** (hands at this job), then Phaser of unread Cost **at his job** if capture exists. If `capture_phaser_weather` does not exist yet: **hold Phaser** under that VO — do not Imagine. Peak-at-elim = mute 1–2s reuse of those hands, then dignified leave. G6 stays ballots, never habitat.
 - Habitat = **this Double’s job**, full-name slug (`alex_butcher` ≠ `alex_shepard`).
 - Cost leave: Phaser still, then dive. Do not imply they were at the 11:00 table if they were absent.
 
@@ -94,7 +99,7 @@ Specimen fills (this sim, paper — not a lock until founder go):
 | Night | Short already does | Long adds (fact-locked) |
 |-------|--------------------|-------------------------|
 | D1 Alexis / Vincent | Shield + tie + Vincent gone | Alexis *at the library* before Hobbs; Vincent *classroom* if we do not claim he held a card; tie partner Butcher **one clause** (causal satellite) — he walked the 3–3, he did **not** play Hold. Door: who does the room trust. |
-| D2 Irene / Butcher | Leftover heat + 5.5 (not 6) + Protect → stronger vote | Irene *Hobbs ritual* (croissant / counter) without fake tallies; **Mike** as Protect partner (public_board); Butcher unreadability + leftover, **not** “he exposed/held.” Olivia/Max pair = optional mute picture, not a third bio. |
+| D2 Irene / Butcher | Leftover heat + 5.5 (not 6) + Protect → stronger vote | Irene *Hobbs ritual*; **Mike** as Protect partner; *Irene isn't willing to risk Mike this early.* Butcher unreadability, **not** “he exposed/held.” Inner beats: *Irene still can't tell where Alex stands. That's who Irene names.* + Alex on the way out (board `final_statement`, keep “prototype life”). *Alex never sat Silent Pact.* Never “a read she can trust.” |
 | D3 Irene / Shepard | Lock-In ≠ Shield vest; Irene–Olivia mutual; Shepard 4 | **Olivia** job+place once; Irene–Olivia as a *relationship* (counter + lock), not “Diana shielded”; Shepard one-way to Irene is speakable (public_board one_ways). |
 
 Day 4 exists in the sim (Max Shield via sole expose). **No** `trailer_ready_day5` yet. Do not invent a Day-4 Scar until cold path: `run_tonight_scar` → seed kit → bake. Do not overwrite Day 1–3 masters.
@@ -121,13 +126,15 @@ Day 4 exists in the sim (Max Shield via sole expose). **No** `trailer_ready_day5
 - Overwrite `20260724-2` Day 1–2 short masters.  
 - Promote `clip_kit/imported/`.  
 - Treat `length_mode=long` on `run_nightly_survival` (composition clock) as the editorial SKU.
+- Treat hard 180 as a fill-to / encyclopedia budget.
+- Ship recap-narrator thesis lines (`a read she can trust`).
 
 ### I.8 Success (group trailer, not paid report)
 
 After **short**: still Peak, Cost, challenge meaning, N→N−1, Door.  
-After **long**: can name the featured Doubles as people (job + one tell), feel **one** relationship, want **tomorrow’s group trailer** for a named thread, know the village is live at doubland.ai.
+After **long**: can name the featured Doubles as people (job + one tell), feel **one** relationship, say **one why the room moved** as a *move* (not a voter roll), hear Cost as a person (last words when they exist), want **tomorrow’s group trailer** for a named thread, know the village is live at doubland.ai. A viewer who knows that Double in real life should think “that’s them.” A stranger should think this is a distinct person, not a generic extra.
 
-Do **not** score long on “viewer bonded with their follow.” That is the paid SKU.
+Do **not** score long on “viewer bonded with their follow.” That is the paid SKU. Fail if takeaway is “this was Peak’s private episode” or “I know the whole vote.”
 
 ### I.9 Pointers
 

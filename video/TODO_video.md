@@ -1,6 +1,6 @@
 # North star — Anya CapCut Day 1 → auto-gen uplift
 
-**Updated:** 2026-08-21 (Day 3 **cold re-prove accepted** · Loop-A/B/C + longer daily pointers · wave29 lock · G6 seed + habitat clip-only) · prior 2026-08-20 (Day 3 VO+picture lock · wave25 phone-watch) · 2026-08-20 (consecutive-night VO auto-gen · Day 2 wave22 **accepted** · G7 identity-card auto-gen) · 2026-08-19 (Day 2 wave21 census/grey/flyover) · 2026-08-19 (Wave 1.10 census HUD) · 2026-08-19 (Wave 1.9 Phaser elim accepted) · 2026-08-19 (Phaser capture bake) · 2026-08-19 (Wave 1.8b accepted) · 2026-08-19 (card-backs bake) · 2026-08-18 (Wave 1.8 table recast) · 2026-08-18 (Wave 1.7) · 2026-08-18 (Wave 1.6+2) · 2026-08-12 (E1 cold bake) · 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
+**Updated:** 2026-08-21 (Closer tonight **default daily** · Day 2 long lock · leftover fold) · prior 2026-08-21 (Day 3 **cold re-prove accepted** · Loop-A/B/C + longer daily pointers · wave29 lock · G6 seed + habitat clip-only) · prior 2026-08-20 (Day 3 VO+picture lock · wave25 phone-watch) · 2026-08-20 (consecutive-night VO auto-gen · Day 2 wave22 **accepted** · G7 identity-card auto-gen) · 2026-08-19 (Day 2 wave21 census/grey/flyover) · 2026-08-19 (Wave 1.10 census HUD) · 2026-08-19 (Wave 1.9 Phaser elim accepted) · 2026-08-19 (Phaser capture bake) · 2026-08-19 (Wave 1.8b accepted) · 2026-08-19 (card-backs bake) · 2026-08-18 (Wave 1.8 table recast) · 2026-08-18 (Wave 1.7) · 2026-08-18 (Wave 1.6+2) · 2026-08-12 (E1 cold bake) · 2026-08-11 · 2026-08-03 (GrokFilm deferred) · 2026-07-30 (N6 · N3 · challenge packs · seat_map v4)  
 **Authority:** Creative bar = Anya’s approved cut. Contracts: [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md).  
 **Detail brief (P0 field list + evidence):** [`../20260811_capcut-vs-post-prod.md`](../20260811_capcut-vs-post-prod.md) — not a second checklist; execute from **here**, open brief for cut IDs / freezedetect / do-nots.
 
@@ -25,9 +25,11 @@
 **Day 3 wave29 lock:** `…/accepted_day3_wave29/trailer_ready_day4/output/trailer_9x16.mp4` — archive `*_20260821_111828_wave29.mp4`. Do not overwrite this folder.  
 **Day 3 cold re-prove (accepted 2026-08-21):** `…/trailer_ready_day4/output/trailer_9x16.mp4` — `*_20260821_125030_cold_reprove.mp4`. Priors = day2+day3 only. Do not overwrite Day 1, Day 2, wave29 lock, or this file without a snapshot.
 
+**Day 2 closer (locked 2026-08-21, founder “awesome”):** `…/trailer_ready_day3/output/trailer_9x16_closer.mp4` + `vo_locked_long_accepted.txt`. Short master `trailer_9x16.mp4` stays. Leftover is Cost why-tonight (“hard to pin down — last night he walked a tie”) + cliff; last words on the leave walk.
+
 **Phone-watch (Day 2, accepted)** — wall **00:12–00:16** = 15→14→1 HUD (no wooden bowl); **~01:18–01:21** = ACTIVE DOUBLES card grid (Vincent already `DISCONNECTED`, then Alex; not grey-wash); **01:21–01:27** = C1 leftover flyover still moving. Day 1 Wave 1.10 census HUD already accepted.
 
-**Auto-gen (every later night / new sim):** `python -m video.run_tonight_scar <sim> --day N … --ignore-edit-script`. Bake seeds G6 `ballots.mp4` + G7 census + split tally; recipe uses habitat **mp4 only** after the namecard; no C1 under the vote. Day 3 cold re-prove **accepted**. Do not overwrite the locked packages above. Next short prove = new sim Episode 1 (this sim has no Survival Day 4).
+**Auto-gen (every later night / new sim):** `python -m video.run_tonight_scar <sim> --day N … --ignore-edit-script`. **Default = Closer tonight** (`vo_locked_long.txt` → `trailer_9x16_closer.mp4`). Short Scar = `--sku scar`. Leftover heat sits on Cost why-tonight + cliff; last words on the leave walk. Bake seeds G6 `ballots.mp4` + G7 census + split tally; recipe uses habitat **mp4 only** after the namecard; no C1 under the vote. Do not overwrite the locked packages above. Next short prove = `--sku scar` on a new sim Episode 1.
 
 ### Path A→E (locked)
 
@@ -60,11 +62,15 @@ Watch note: `…/output/E1_COLD_VERIFY.md`.
 
 | Priority | Work | Notes |
 |----------|------|-------|
-| **1** | Longer daily SKU (keep short) | What to ship: [`../20260820_longer_daily.md`](../20260820_longer_daily.md) **Part I**. How to work it: [`../20260821_video_loop.md`](../20260821_video_loop.md) (**Loop-A/B/C**, not Path [A]→[E]). Short stays default. Do not bake / clobber `vo_locked.txt` until founder **go**. Do not replace short. |
-| **2** | Next short auto-gen (new sim Episode 1) | Same cold CLI when a new sim has a full Survival Day 1. This sim has no Day 4. Do **not** overwrite Day 1–3 locks or the Day 3 cold re-prove. |
+| **1** | Next closer auto-gen | Default CLI is long. Day 2 lock: `trailer_ready_day3/output/trailer_9x16_closer.mp4`. Do not clobber short `trailer_9x16.mp4` / `vo_locked.txt`. Short = `--sku scar`. |
+| **2** | Next short auto-gen (new sim Episode 1) | `--sku scar`. Same cold CLI. This sim has no Day 4. Do **not** overwrite Day 1–3 locks or the Day 3 cold re-prove. |
 | — | Later P1 | Hero namecards · readable tie / VOTING TARGET |
 | — | P2 eng | Freeze/coverage/FX gates · kit sim-code guard (after P0 — already accepted) |
 | — | [E] migrate | Inventory OK anytime · **no bulk move** |
+
+### Wave 1.16 — **accepted 2026-08-21** (Closer tonight default daily)
+
+Founder phone-watch on Day 2 closer fold: leftover on Cost why-tonight, last words on the leave walk, no mid-body last-night vote recap. Master `…/trailer_ready_day3/output/trailer_9x16_closer.mp4` · `vo_locked_long_accepted.txt`. Short `trailer_9x16.mp4` untouched. Default CLI is `--sku closer`. Short = `--sku scar`.
 
 ### Wave 1.15 — **accepted 2026-08-21** (Day 3 cold re-prove)
 

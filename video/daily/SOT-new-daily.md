@@ -36,7 +36,7 @@
 
 ## 1. Intent
 
-Default daily is **not** a full-day encyclopedia.
+Default daily is **Closer tonight** (long social resolution of the same night). It is **not** a full-day encyclopedia. Short Scar is `--sku scar`.
 
 | Paused (do not build as default) | Ship instead |
 |----------------------------------|--------------|
@@ -52,7 +52,7 @@ Legacy alias: `day_survival` / `[C]` → `tonight_scar` during migration.
 
 | ID | Name | Runtime | Job | L-Talks pilot |
 |----|------|--------:|-----|---------------|
-| **D1** | Tonight’s Scar | **`short` (default):** 45–60s target; soft warn >90s; **hard max 120s**. **`long` (experiment):** deeper featured character/drama; strawman warn >150s / hard **180s** until founder locks — explicit `length_mode=long` only | Daily episode: return tomorrow + one Door | **Primary** · Day-1 gold (Anya CapCut) **~88s** accepted |
+| **D1** | Tonight’s Scar / Closer tonight | **`closer` (default):** 90–140s target; warn >165s; hard **180s**. **`scar` (`--sku scar`):** 45–60s target; warn >90s; hard **120s**. `--length-mode` is only the Remotion clock | Daily episode: return tomorrow + one Door | **Primary** · Day-1 gold (Anya CapCut) **~88s** accepted · Day-2 closer lock `trailer_9x16_closer.mp4` |
 | **D2** | Share Spark | **12–20s** | Mute-safe Peak crop | Sibling of D1 |
 | **D3** | Personal Edge | **8–15s** | Hard-side “MY Double…” | After D1 CapCut proven (§7) |
 | **[A]** | Opener | ~60s | Product literacy + create | Unchanged |
@@ -153,14 +153,14 @@ Peak and Cost **may be different people**. Cold quiz must still yield **one clea
 | Mid-body product UI | Never |
 | Dual CTA (watch + create) / create sermon | One Door; soft mirror usually omit |
 | Full-day chronological completeness | Moment pick; if score &lt;18 → shorter clip, not encyclopedia |
-| “Previously on” recap | Scar chip (§4) |
+| “Previously on” recap / mid-body last-night vote lecture | Cost why-tonight (≤1 leftover) + cliff appointment (§9.2) |
 | Hollow third name (no causal beat) | Picture-only or omit |
 | RNG / “dice decided” as thesis | Personality-led choice under pressure |
 | All-cinematic daily (no Phaser) | Required 2D↔3D literacy (§3.6) — plant + Peak/Cost dive + Door tease |
 
 ### 3.6 Visual rules
 
-- **Featured role intro (VO):** every night, spoken VO includes **one** kid-plain **job + place** clause per featured Peak and Cost (e.g. “Irene Dove is a barista at Hobbs Cafe”), then **≤1 why-tonight** clause (Peak = tonight-want / motive, not the result; Cost = leftover heat or “the room is looking at them”). Sit both clauses on the **habitat clip** (G1/G2 `.mp4`) after the namecard — do not cut still → clip (that freeze is a reject). If no clip exists, the still may fill the same window. Sit why-tonight on a short want HUD over that habitat. Never `{Name} is back.` Not a multi-sentence bio wall. Skip why-tonight if there is no ledger fact.  
+- **Featured role intro (VO):** every night, spoken VO includes **one** kid-plain **job + place** clause per featured Peak and Cost (e.g. “Irene Dove is a barista at Hobbs Cafe”), then **≤1 why-tonight** clause (Peak = tonight-want / motive, not the result; Cost = leftover heat or “people still can't tell where they stand”). Why-tonight must sound like **spoken English people actually use** (contractions; what they did). Never “a read she can trust” / “wants a lock X can trust” / “She names him because…”. Never a challenge-slug slogan that would repeat every Silent Pact / Lock-In night — motive comes from this Peak's tonight `choice_reason_plain` (and partner / lock), or skip. Sit both clauses on the **habitat clip** (G1/G2 `.mp4`) after the namecard — do not cut still → clip (that freeze is a reject). If no clip exists, the still may fill the same window. Sit why-tonight on a short want HUD over that habitat. Never `{Name} is back.` Not a multi-sentence bio wall. Skip why-tonight if there is no ledger fact.  
 - Job/place **cards / lower-thirds** remain optional picture support — do not replace the spoken role clause on first feature.  
 - Prefer real **village place plates** (§2.1) under Stake / habitat beats when the featured workplace exists on disk.  
 - **Challenge teach:** resolve `today.challenge.id` → trailer teach pack in `double-docs/sot/sot_challenges.md` §5 (VO brief + visual library). Specimen: `hold_for_shield`.  
@@ -391,8 +391,8 @@ Human override until picker quality is proven.
 | 3 | Wants | One line each | Job+place every night (returnee included), then ≤1 why-tonight each. Peak = tonight-want / motive, not the result. Cost = leftover heat or “the room is looking at them.” Never `{Name} is back.` Skip the why-tonight clause if there is no ledger fact. |
 | 4 | Pressure | Challenge name + fork + tonight consequence | `Tonight's game is {name}.` + steps_board order |
 | 5 | Peak | Winner / power — tonight-only | Same |
-| 6 | Mid | Optional generic social→votes (no invented blocs) | Skip unless ledger supports |
-| 7 | Cost | Votes / leave + Peak ballot if true | Same |
+| 6 | Mid | Optional generic social→votes (no invented blocs) | Skip leftover lecture. Last-night vote heat is Cost why-tonight, not a mid-body recap |
+| 7 | Cost | Votes / leave + Peak ballot if true | Same. Last words sit on the leave walk (loop 1×), not a freeze |
 | 8 | Census | Fifteen become fourteen | `{N} become {N−1}` |
 | 9 | Cliff | Power spent + open tomorrow | Specific debt, not season essay |
 | 10 | Door | Catalog or “Watch tonight…” | Same until deep links |
@@ -562,13 +562,13 @@ Fold into main `sot-video.md` when Remotion nightly (Phase 2) is proven. CapCut 
 **Doctrine / gold forensics:** this file + `double-ivan/video/daily/gold/`.  
 **Product job:** D1 Tonight’s Scar (§3) — picture fits **locked VO**, not the reverse.
 
-**N6 (2026-07-30):** One command runs package → auto picture → nightly. Mid-pipeline human READY is **not** a hard stop — N3 auto-marks G1–G5 + G8. Human check after ship = **final MP4 phone-watch** only. Still required as *inputs*: Peak/Cost + fact ledger. **VO (2026-08-20):** if `vo_locked.txt` is missing, auto-gen from the ledger (Doubles + tonight’s N + Peak/Cost job+place + challenge teach + Cost + Door) and fail closed on a wrong remaining-count. Never overwrite an existing lock unless `--replace-vo-lock` (re-TTS that package). TTS when audio is missing, or when the lock was just replaced.
+**N6 (2026-07-30):** One command runs package → auto picture → nightly. Mid-pipeline human READY is **not** a hard stop — N3 auto-marks G1–G5 + G8. Human check after ship = **final MP4 phone-watch** only. Still required as *inputs*: Peak/Cost + fact ledger. **VO (2026-08-21):** default SKU is Closer tonight. If `vo_locked_long.txt` is missing, auto-gen from the closer writer (leftover = Cost why-tonight + cliff; never a mid-body last-night vote recap). Never write `vo_locked.txt` from that path. Short Scar (`--sku scar`): if `vo_locked.txt` is missing, auto-gen from the short writer. Never overwrite an existing lock unless `--replace-vo-lock` (re-TTS that package). TTS when audio is missing, or when the lock was just replaced.
 
 ```
 sim (Supabase + transport)
   → fact ledger in package (or overview sibling)     (facts only)
   → tonight_scar picker (Peak + Cost)                (§8.3)
-  → vo_locked: keep if present; else auto-lock from ledger (§9)
+  → vo lock: closer keeps/auto-locks vo_locked_long.txt; short uses vo_locked.txt (§9)
   → narration audio + timing: keep if present; else TTS the lock
   → python -m video.run_tonight_scar …               (N6 wrapper)
        ├─ build_clip_kit (--auto-picture)            (§10 · N3)
@@ -625,12 +625,14 @@ Engine day index: **Survival Day 1 = engine `--day 2`**. Paths assume repo root 
 python -m video.run_tonight_scar <sim_code> --day <engine_day> \
   --peak "<Peak>" --cost "<Cost>" --draft-vo-only [--template-only]
 
-# 2) One command ship (N6) — auto-locks VO if missing, TTS if audio missing,
-#    auto picture + nightly Remotion. Existing vo_locked.txt is kept
-#    unless --replace-vo-lock (rewrite lock + re-TTS for that package).
+# 2) One command ship (N6) — auto-locks the active SKU VO if missing,
+#    TTS if audio missing, auto picture + nightly Remotion.
+#    Existing vo_locked_long.txt / vo_locked.txt is kept unless --replace-vo-lock.
 python -m video.run_tonight_scar <sim_code> --day <engine_day> \
-  --peak "<Peak>" --cost "<Cost>" \
-  --length-mode short          # Day-1 parity bar: --length-mode long
+  --peak "<Peak>" --cost "<Cost>"
+#    Default: Closer tonight (vo_locked_long.txt → trailer_9x16_closer.mp4).
+#    Short Scar: add --sku scar (vo_locked.txt → trailer_9x16.mp4).
+#    --length-mode is the Remotion clock only (default long).
 #    Pass --vo only to copy an external lock in.
 #    --no-auto-vo restores the old hard-stop if vo_locked is missing.
 #    Props-only dry run: add --skip-render
@@ -836,7 +838,7 @@ Day 1 V6 **G1–G8 READY** — CapCut gold exists; further nights reuse the same
 
 | Date | Change |
 |------|--------|
-| 2026-08-21 | **§3.6 / §10.1 G6** — habitat intro is namecard + clip only (no still freeze). Evening vote = seeded G6 ballots (never Cost habitat); split nights overlay `vote_tally`; drop hidden C1 world_plate under the vote. |
+| 2026-08-21 | **§2 / §9 / §11.4 Closer default** — daily ship is Closer tonight (`--sku closer`); short is `--sku scar`. Leftover heat is Cost why-tonight + cliff, not a mid-body last-night vote recap. Last words on the leave walk. |
 | 2026-08-20 | **§9 picture+VO lock** — later nights speak Peak then Cost job+place (never `{Name} is back.`). Scar windows = first contiguous beat (teach = pressure). `--replace-vo-lock` rewrites a lock + re-TTS for that package only. |
 | 2026-08-20 | **§9 / §11.4 consecutive-night VO** — Doubles + `{N} still in` are machine-spoken every later night (N = `15 −` prior boots, same as G7). Auto-lock `vo_locked.txt` when missing; never overwrite an existing lock unless `--replace-vo-lock`; fail closed on a wrong remaining-count. |
 | 2026-08-20 | **§10.1 / §11.4 G7** — identity-card grid (`CensusMatrix`); auto-gen stills on bake from sibling-night priors; quiet `N → N−1`; never grey-wash / never `imported/`. Day-1 gold-replay Ivan 3.3 grey (§11.5) unchanged. |
