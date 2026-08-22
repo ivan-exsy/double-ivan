@@ -4,7 +4,7 @@
 **Authority:** Creative bar = Anya’s approved cut. Contracts: [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md).  
 **Detail brief (P0 field list + evidence):** [`../20260811_capcut-vs-post-prod.md`](../20260811_capcut-vs-post-prod.md) — not a second checklist; execute from **here**, open brief for cut IDs / freezedetect / do-nots.
 
-**Architecture (one line):** Package + Remotion bake live in **eng** (`generative_agents-ivan-dev`). Post-Production in **`double-video`** polishes `edit_script.json` on that package. Cold quality uplift = eng learn **[C]**, not Save→train. Bulk gen migrate = **[E]** only after [B]+[C].
+**Architecture (one line):** Nightly gen **code** lives in **`double-video/video/`**. Packages stay in **eng** `data/`. Post-Production polishes `edit_script.json` on that package. Rebuild UI still cwd=`ENG_ROOT` until cutover. Cold quality uplift = eng learn **[C]**, not Save→train.
 
 ---
 
@@ -14,7 +14,8 @@
 **Active package (Survival Day 2, accepted):** `data/20260724-2/trailer_ready_day3`  
 **Active package (Survival Day 3, wave29 lock):** `data/20260724-2/accepted_day3_wave29/trailer_ready_day4`  
 **Active package (Survival Day 3, cold re-prove — accepted 2026-08-21):** `data/20260724-2/trailer_ready_day4`  
-**Tools:** Post-Production (`double-video`) for Live · eng (`ivan/dev`) for Rebuild / recipe / gates
+**Tools:** Post-Production (`double-video`) for Live · nightly bake cwd=`double-video` · Rebuild UI still eng (`ENG_ROOT`) until cutover  
+**Path [E] prove (2026-08-22, not a locked night):** `data/20260724-2/trailer_ready_e_migrate_prove/output/trailer_9x16_closer.mp4` (~105s). Do not overwrite the locked packages below.
 
 **Quality bar (do not overwrite Day 1):** polish snapshot  
 `…/trailer_ready_day2/output/trailer_9x16_20260812_003937_e1_cold.mp4`  
@@ -39,7 +40,7 @@
 | **[B]** | Rebuild → MP4 matches Live | **✅ DONE** (incl. P1 assets bake ~00:03) |
 | **[C]** | Eng learn (E0 diff → E1 promote priors) | **✅ E0 + E1** (8 priors in `nightly_craft`; cold bake 2026-08-12) |
 | **[D]** | Cold auto (no polish) vs [A] bar | **✅ Accepted 2026-08-18** on the **eight taught looks only** |
-| **[E]** | Staged migrate eng `video/` → `double-video` | After this Wave 1.6+2 phone-watch · prd §22.1 · **do not pull early** |
+| **[E]** | Staged migrate eng `video/` → `double-video` | **✅ Code + prove bake 2026-08-22** · `trailer_ready_e_migrate_prove/output/trailer_9x16_closer.mp4` · Rebuild UI still `ENG_ROOT` |
 
 **Name collision:** Path **[A]→[E]** above is the closed polish→cold program. The **agentic cold loop** is **Loop-A / Loop-B / Loop-C** (project → phone taste → done; fail goes to eng, not Live polish). See [`../20260821_video_loop.md`](../20260821_video_loop.md). Do not say “send it back to A” without saying **Loop-A** or **Path [A]**.
 
