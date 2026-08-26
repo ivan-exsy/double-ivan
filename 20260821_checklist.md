@@ -36,7 +36,8 @@
 **Failed prior score:** `20260821-1` — stopped @ **125** after TELEPORT **84** (42 paired blinks); old 25-tile nearest-anchor bar  
 **Score sim 1:** `20260822-1` — persist green @ 400; runner killed by apt; late 0/15  
 **Score sim 2:** `20260822-2` — **stopped @ 46** (force). Walk loop **FAIL** from step 5. RCA: `20260822_RCA_far-landings.md`  
-**Score sim 3 (live):** `20260823-2` — 4000 sprint · tip **`53ace4c5`** · `HEADLESS_TAB_REUSE=false` · diagnostic **off**  
+**Score sim 3:** `20260823-2` — stopped @ **3690**/4000 to deploy stay-pin · tip **`53ace4c5`** · do **not** resume  
+**Score sim 4 (live):** `20260825-1` — 4000 sprint · tip **`4ab4f5be`** (`ivan/gather-stay` on `railway`) · `HEADLESS_TAB_REUSE=false` · diagnostic **off**  
 **Baseline / fork:** `soul15_seed_20260224` · `copy_memories=true` · `copy_coords=false`  
 **Target steps:** `4000` sprint · **`diagnostic_mode=false`**  
 **Env:** `HEADLESS_MOVEMENT_ENABLED=true` · `HEADLESS_TAB_REUSE=false` · `HEADLESS_STRICT_ABORT` default **false** · `INTENT_PERSIST_HARD_FAIL=true` · `MAX_TILES_PER_STEP=6`  
