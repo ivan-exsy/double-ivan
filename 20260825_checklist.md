@@ -335,7 +335,7 @@ Day-2 (engine day 3) — scored @ 4000 from NDJSON + tiles:
 
 **Read:** Vote miss is still dinner-leave with 11 staying — tolerate. Day-2 challenge is the same early-sit + wait + daily plan, **worse room** (6 vs 11). Fake parts unchanged: heading-to-Hobbs lie, challenge verbs at college / pub. Stay-pin did not change the class.
 
-**Posture (next ship, not this runner):** appointment with a cost, not a curfew. Challenge fires at the **declared time** (11:00), not when the room first hits 12. 80% at that clock is the TV target. Present-only stays. Missing is allowed. Short pin covers the last ~30 min so the room does not empty *before* 11:00. Not “nobody is ever absent.”
+**Posture (next ship, not this runner):** appointment with a cost, not a curfew. Challenge fires at **11:00**, vote at **20:00**, not when the room first hits 12. 80% at that clock is the TV target. Present-only stays. Missing is allowed. Short pin covers the last ~30 min so the room does not empty *before* the clock. Not “nobody is ever absent.”
 
 **Tolerate (do not chase):**
 - Job / home skip when dest **and** text match the job (Shepard library; Alexis library walk)
@@ -348,13 +348,13 @@ Day-2 (engine day 3) — scored @ 4000 from NDJSON + tiles:
 - 1–2 hour sit-still through breakfast or dinner
 
 - [x] **No new blocks** on `20260825-1` — runner finished 4000 as-is
-- [ ] **Short call window** — walk-in + pin only the last ~30 min (challenge **10:30→11:00**). Sit / stand / talk / piano still allowed. Walk to class or pub is not. Not a longer morning hold.
-- [ ] **Vote lock at 19:00, not 18:00** — 18:00–19:00 is dinner. Confirmed: 18:00 pin filled the room by 18:30; leavers stood up ~19:02–19:18.
-- [ ] **Challenge at declared time** — fire at **11:00**, not when 12 are seated. Founder 2026-08-27: do not pull the appointment forward. Occupancy is scored at that clock. (Vote may still spatial-gate from 19:00.)
+- [ ] **Short call window** — walk-in + pin only the last ~30 min (challenge **10:30→11:00**, vote **19:30→20:00**). Sit / stand / talk / piano still allowed. Walk to class or pub is not. Not a longer morning or dinner hold.
+- [ ] **Vote lock 19:30–20:00** — 18:00–19:30 is dinner. Same 30-min call as challenge. Confirmed on 25-1: 18:00 pin filled the room by 18:30; leavers stood up ~19:02–19:18.
+- [ ] **Challenge and vote at declared time** — fire at **11:00** and **20:00**, not when 12 are seated. Founder 2026-08-27: do not pull either appointment forward. Occupancy is scored at those clocks.
 - [ ] **Honest text** — if dest is not cafe, do not write “heading to Hobbs.” Librarian at library reads as librarian.
 - [ ] **No ritual off-site** — leaving is fine. Challenge / vote verbs only on Hobbs tiles. Day-2 still had “listening to challenge instructions” at college and pub.
 - [ ] **Keep cost, allow skip** — present-only scoring; skip = you do not play that round; no invented cards. Held on this run.
-- [ ] Re-score on the **next** sim: room holds through the 30-min call until declared 11:00; 80% is the target, not a freeze. Not a patch on `20260825-1`.
+- [ ] Re-score on the **next** sim: room holds through the 30-min call until declared **11:00** and **20:00**; 80% is the target, not a freeze. Not a patch on `20260825-1`.
 
 **Challenge 11:00 · 9/15 FAIL `deadline`**
 
@@ -371,7 +371,7 @@ Day-2 (engine day 3) — scored @ 4000 from NDJSON + tiles:
 
 **Read:** Vote miss is life (waited, dinner done, 12th not there yet, left; 12 stayed). Challenge miss is early sit + long wait until 11:00, then daily plan won. Fake parts are the **heading-to-Hobbs lie** and **hold/fold / vote verbs off-site**.
 
-**Posture (next ship, not this runner):** appointment with a cost, not a curfew. Challenge fires at the **declared time** (11:00), not when the room first hits 12. 80% at that clock is the TV target. Present-only stays. Missing is allowed. Short pin covers the last ~30 min so the room does not empty *before* 11:00. Not “nobody is ever absent.”
+**Posture (next ship, not this runner):** appointment with a cost, not a curfew. Challenge fires at **11:00**, vote at **20:00**, not when the room first hits 12. 80% at that clock is the TV target. Present-only stays. Missing is allowed. Short pin covers the last ~30 min so the room does not empty *before* the clock. Not “nobody is ever absent.”
 
 **Tolerate (do not chase):**
 - Job / home skip when dest **and** text match the job (Shepard library)
@@ -384,10 +384,10 @@ Day-2 (engine day 3) — scored @ 4000 from NDJSON + tiles:
 - 1–2 hour sit-still through breakfast or dinner
 
 - [x] **No new blocks** — no dest-rewrite for H3 never-sits; no fail-closed if sit < 80%; no longer pins; no sleep-wake hunts. Leave `20260825-1` as-is. Founder 2026-08-27: these stay **out** (band-aid / curfew).
-- [ ] **Short call window** — walk-in + pin only the last ~30 min (challenge **10:30→11:00**). Sit / stand / talk / piano still allowed. Walk to class or pub is not. Not a longer morning hold.
-- [ ] **Vote lock at 19:00, not 18:00** — 18:00–19:00 is dinner. 18:00 pin is what made them stand up at 19:18.
-- [ ] **Challenge at declared time** — fire at **11:00**, not when 12 are seated. Founder 2026-08-27: do not pull the appointment forward. Occupancy is scored at that clock. (Vote may still spatial-gate from 19:00.)
+- [ ] **Short call window** — walk-in + pin only the last ~30 min (challenge **10:30→11:00**, vote **19:30→20:00**). Sit / stand / talk / piano still allowed. Walk to class or pub is not. Not a longer morning or dinner hold.
+- [ ] **Vote lock 19:30–20:00** — 18:00–19:30 is dinner. Same 30-min call as challenge. 18:00 pin is what made them stand up at 19:18.
+- [ ] **Challenge and vote at declared time** — fire at **11:00** and **20:00**, not when 12 are seated. Founder 2026-08-27: do not pull either appointment forward. Occupancy is scored at those clocks.
 - [ ] **Honest text** — if dest is not cafe, do not write “heading to Hobbs.” Librarian at library reads as librarian.
 - [ ] **No ritual off-site** — leaving is fine. Challenge / vote verbs only on Hobbs tiles.
 - [ ] **Keep cost, allow skip** — present-only scoring; skip = you do not play that round; no invented cards.
-- [ ] Re-score on the **next** sim: room holds through the 30-min call until declared 11:00; 80% is the target, not a freeze. Not a mid-run patch on `20260825-1`.
+- [ ] Re-score on the **next** sim: room holds through the 30-min call until declared **11:00** and **20:00**; 80% is the target, not a freeze. Not a mid-run patch on `20260825-1`.
