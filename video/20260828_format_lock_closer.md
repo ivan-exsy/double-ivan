@@ -13,16 +13,19 @@
 
 Hybrid job, every night: **teach the show and a person.** Not a tutorial-only recap. Not a quiet movie with almost no voice.
 
-- **Show framework:** these are Doubles (night one); someone is voted out every night; tonight’s game in one breath; a vote happened; someone left; a Door to the live village.
+- **Show framework:** a short Doubles line **every night** (first-time viewers will land on a random episode); someone is voted out every night; tonight’s game in one breath; a vote happened; someone left; one-breath census; a Door to the live village.
 - **Personal touch:** two people at work, hands if we have it, one real choice, a dignified leave, a last line about someone still in tomorrow.
 - **Voice on pictures:** every picture in the body of the tape has spoken words under it. Do not ship a montage with no voice. The only planned silence is the **first few seconds** (a face moving, no talking) so a clip autoplaying in Telegram still makes sense. That silent open is also what people forward. After that, voice stays on.
 
-Night one vs later nights:
+Night one vs later nights (stake only):
 
-- **Episode 1 / first Survival night:** keep the show-teach. Doubles + Survival primer. Short challenge how-to. One “talk becomes votes” line. Then people.
-- **Later nights:** do not replay the AI essay. Do not replay the alliances sermon. Shorter game line if this challenge type was already taught. Jobs + one choice carry “this is simulated life.”
+- **Every night, keep:** `These are Doubles — AI versions of real people.` Do **not** add `making choices no one wrote for them.`
+- **Episode 1 / first Survival night, then:** Survival primer (`{N} entered. Someone is voted out every night until one remains.`). Short challenge how-to. One “talk becomes votes” line. Then people.
+- **Later nights, then:** `{N} still in. Someone is voted out every night.` Then jobs. Do **not** replay the alliances sermon. Shorter game line if this challenge type was already taught.
 
-Beat order for speech (swap locked): body in a place → hands at the job if we have it → personality that showed up today if we have it → tonight’s game → one choice → leave → last line → Door. Empty beats skip. Do not invent. Do not pad.
+Beat order for speech (swap locked): Doubles line → Survival stake → body in a place → hands at the job if we have it → personality that showed up today if we have it → tonight’s game → one choice → leave → one-breath census (`{N} become {N−1}`) under the identity-card grid (G7) → last line → Door. Empty beats skip. Do not invent. Do not pad. Do not drop G7. Census is show-framework, not the feeling.
+
+Prove the new writer on a **copy** of a later night (Episode 2+ with a finished vote). Do not overwrite the Episode 1 Ivan/Alex master.
 
 Do **not** say in voice: “this was unscripted,” “no one wrote this,” “making choices no one wrote for them.” The choice has to earn that thought.
 
