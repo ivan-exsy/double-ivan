@@ -1,16 +1,50 @@
 # Format lock [A] — daily closer
 
 **Date:** 2026-08-28  
-**Status:** Brief for council. Not a locked format until you return a rec. Do not treat this file as shipped SOT.  
-**For:** Screenwriter, Reality TV, Engagement, Video Producer.  
-**Reply to:** COS inquiry 2026-08-28 (format lock [A], not episode recut [B]).  
+**Status:** Implementation lock after council + founder hybrid (2026-08-28 afternoon). Sections below this lock were the council brief; where they say “open this pass,” **this lock wins**. Engineering contract stays `video/daily/SOT-new-daily.md` §9 — extend it, do not replace it.  
+**For:** video / sim team implementing the nightly closer.  
 **Language:** plain.
 
 **Lock the daily closer format. Episode 1 is an example night, not the episode we are locking.**
 
 ---
 
-## 1. What this brief is
+## 0. Implementation lock (read this first)
+
+Hybrid job, every night: **teach the show and a person.** Not a tutorial-only recap. Not a quiet movie with almost no voice.
+
+- **Show framework:** these are Doubles (night one); someone is voted out every night; tonight’s game in one breath; a vote happened; someone left; a Door to the live village.
+- **Personal touch:** two people at work, hands if we have it, one real choice, a dignified leave, a last line about someone still in tomorrow.
+- **Voice on pictures:** every picture in the body of the tape has spoken words under it. Do not ship a montage with no voice. The only planned silence is the **first few seconds** (a face moving, no talking) so a clip autoplaying in Telegram still makes sense. That silent open is also what people forward. After that, voice stays on.
+
+Night one vs later nights:
+
+- **Episode 1 / first Survival night:** keep the show-teach. Doubles + Survival primer. Short challenge how-to. One “talk becomes votes” line. Then people.
+- **Later nights:** do not replay the AI essay. Do not replay the alliances sermon. Shorter game line if this challenge type was already taught. Jobs + one choice carry “this is simulated life.”
+
+Beat order for speech (swap locked): body in a place → hands at the job if we have it → personality that showed up today if we have it → tonight’s game → one choice → leave → last line → Door. Empty beats skip. Do not invent. Do not pad.
+
+Do **not** say in voice: “this was unscripted,” “no one wrote this,” “making choices no one wrote for them.” The choice has to earn that thought.
+
+Last line (after the leave):
+
+- Name someone **still in** tomorrow. Default: tonight’s winner, walking in without tonight-only power (the Shield does not go with them).
+- If the person who left left a true leftover that **points at someone living** (they named a person still there; last words name someone still there), use that leftover in the past tense, and the name you come back for is the living one.
+- Never: “someone else leaves,” “new alliances will form,” “we’ll miss them,” come-back-for-the-person-who-already-left.
+
+What they send: the closer itself. A separate short share clip is not built and is not a ship gate. The sendable moment is tonight’s real choice (or a naming look, or a dignified walk). Not the vote count as a joke. Not the census. Not the Door line.
+
+Pictures: same eight jobs we already have. New story is a longer hold or a tighter crop inside those clips, not a new room. Do not redesign 2D-to-cinematic this pass.
+
+Length: follows the night. Not longer on purpose. A quiet night can match or undershoot the old ~90s tape. A loud night (last words, a real tie between people, hands at work) can run longer. Fail = pad, village recap, or no real choice. Do not treat under 90 seconds as a fail.
+
+Pass: a stranger can name the two people; they got the show (vote-out, tonight’s game, someone left); they felt one choice; they would send it; they want tomorrow for a named living person.
+
+Do not: recut Ivan/Alex as the deliverable; write a new 60-second travel tape; add “please share.”
+
+---
+
+## 1. What this brief was (council packet — superseded by §0 where they conflict)
 
 Lock a **repeating nightly closer**: same shape every Survival night, filled from that night’s picker + ledger + picture kit. A new night must run **without a new strategy memo**.
 
