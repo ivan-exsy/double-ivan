@@ -38,7 +38,7 @@ Village MVP gate is gather + town talk (`20260901_launch.md`). Nothing below is 
 
 | P | Work | How |
 |---|------|-----|
-| **1** | Later-night **closer** (Episode 2+) | Census, leftover heat, `{N} still in`. Same CLI, new package (`--day 3+`). Do not overwrite the Episode 1 benchmark. Needs a **finished** Survival-day vote (Peak + Cost), not challenge-only. |
+| **1** | Later-night **closer** (Episode 2+) | Census stills / leftover heat / `{N} still in`. **Spine is Episode 1:** alliances→votes + ballot + stamp-on-photo then HUD — already auto-gen. Same CLI, new package (`--day 3+`). Do not overwrite the Episode 1 benchmark. Needs a **finished** Survival-day vote (Peak + Cost), not challenge-only. |
 | **2** | Viral-grammar pass (`20260827_viral_video.md`) | Locked closer is ~90s cinematic-heavy; paper wants ~60s + tighter 2D legend. Dedicated branch; fold plant / cost-dive / door timestamps into recipe — do not throw away the locked bar. |
 | **3** | Extra **P1** pictures | Namecards + readable tie / VOTING TARGET. Peak/challenge/Phaser already accepted on the benchmark. grok.com/imagine 2.0 (6–15s, 720p, 9:16) → kit. Do not Imagine Phaser elim. |
 | **4** | Eng **P2** gates | Freeze/coverage/FX validators · kit sim-code guard · optional `*.base.json`. Spec: `20260811_capcut-vs-post-prod.md` §P2. |

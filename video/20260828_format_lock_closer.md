@@ -16,9 +16,25 @@ Lock a **repeating nightly closer**: same shape every Survival night, filled fro
 
 Episode 1 (Ivan Pitts / Alex Butcher, sim `20260823-2`) is the **specimen** of version 1 — what the current framework looks like when filled. It is not the cut to rewrite. Do not return a new Ivan/Alex voiceover.
 
-**Pass:** a stranger can run any Survival night through this framework and get a closer with drama, character, an unexpected turn, and an inner dilemma **when the board has one** — without a new brief.
+**Pass:** a stranger can run any Survival night through this framework and get a closer with drama, character, an unexpected turn, and an inner dilemma **when the board has one** — without a new brief. A first-time viewer gets excited and wants to **send it**. They want tomorrow's tape.
 
-**Fail:** the output only works for Ivan / Alex. Fail: 60–90s treated as a hard cap. Fail: encyclopedia. Fail: invented inner life.
+**Fail:** the output only works for Ivan / Alex. Fail: 60–90s treated as a hard cap. Fail: encyclopedia. Fail: invented inner life. Fail: people respect it but do not share. Fail: they only learned the tally. Fail: they feel done.
+
+### Viewer job (founder, 2026-08-28)
+
+The big job of these trailers is to **start a share loop**: watch, get excited, feel the urge to send it, new people watch, they want the next episode.
+
+This pass the **closer itself** is the thing they send. A separate short share clip (Spark) is out until it is built. Do not wait for it. Do not add a second "please share" ask.
+
+Aftertaste we want in their head. **Do not write these as voiceover.** Show them.
+
+- Can you imagine — this was completely unscripted!
+- Who would think there is so much drama in simulated life!
+- It's just like real life!
+
+"Unscripted" is a specific choice nobody wrote, not the narrator saying unscripted. "Simulated life" is Doubles doing human things, not a lecture on the sim. "Just like real life" is one true fork, not a village tour.
+
+They should **crave the next episode**. That is the named unfinished thread (cliff), not a generic "someone else leaves."
 
 ---
 
@@ -243,7 +259,7 @@ A later night (pairs, leftover heat, last words) is a **better fill test** of be
 | This file | **In** — format lock [A] brief. |
 | [`20260820_longer_daily.md`](../20260820_longer_daily.md) | **In as grammar source** — doing / weather / inner / named Door. Runtime cap in that file is **overridden** (length follows story). |
 | [`20260827_viral_video.md`](20260827_viral_video.md) §§1–13 | **Out** — travel / 2D mapping. |
-| Founder addendum on that file | **Superseded as council brief** by this file. Intent (expand closer for “that’s them”) **kept**. |
+| Founder addendum on that file | **Superseded as council brief** by this file. Intent (expand closer for “that’s them,” share-loop, unscripted / sim-drama / real-life aftertaste) **kept**. |
 | [`daily/daily-2D-3D-blend.md`](daily/daily-2D-3D-blend.md) | **Out** this pass. Plant / dive / Door slots already exist; do not redesign. |
 | Share clip / timestamps | **Out.** Not built. |
 | Anya CapCut Day 1 | Craft north star for picture, not the VO template to clone. |
@@ -256,11 +272,11 @@ Return a **format**, not an episode.
 
 | Seat | Ask |
 |------|-----|
-| **Screenwriter** | Confirm or rewrite §3.2 beat order. For skip-if-empty beats (doing, weather, vote-why, last words), write the fill rule in one sentence each so a later night does not need you. Draft **example lines as templates** (`{Peak}`, `{Cost}`, `{N}`), not Ivan/Alex copy. |
-| **Reality TV** | Which event types earn doing / weather / turn / dilemma (talk, look, walk-out, table). Dignity on the boot. How a thin night still ships. |
-| **Engagement** | Cliff pick order (§3.3). Itch = tomorrow’s group tape for a **named** featured thread. Catalog Door stays until deep link exists. |
-| **Video Producer** | Sit new story beats on **existing kit roles**. List extra shot *types* only if G1–G8 cannot hold them. No 2D grammar pass. Runtime follows story; fail pad. |
+| **Screenwriter** | Confirm or rewrite §3.2 beat order. Skip-if-empty fill rules in one sentence each. Templates (`{Peak}`, `{Cost}`, `{N}`), not Ivan/Alex copy. Write so the three aftertastes happen **without saying them**. One sendable turn per night (the a-ha). Cliff line that makes tomorrow feel unfinished. |
+| **Reality TV** | Drama of unscripted simulated life is the product. Which event types (talk, look, walk-out, table) make someone say they have to send this. Dignity on the boot so a share is not cruelty. How a thin night still has **one sendable turn** — or it is not a closer night. |
+| **Engagement** | Share-loop owner this pass. The closer is what people send (Spark is out). Cliff pick order (§3.3) so they crave the next episode for a **named** featured thread. What makes a night get forwarded vs watched-and-closed. Catalog Door stays. No second CTA. |
+| **Video Producer** | Sit new story beats on **existing kit roles**. Picture that makes a thumb hit share: one peak that can travel even if they only catch ~12 seconds. Extra shot *types* only if G1–G8 cannot hold them. No 2D grammar pass. Runtime follows story; fail pad; fail a pretty recap with no send moment. |
 
-**Do not send:** a new Ivan/Alex voiceover; a 60s travel tape; a 15-person recap; mapping as the job; pad.
+**Do not send:** a new Ivan/Alex voiceover; a 60s travel tape; a 15-person recap; mapping as the job; pad; “this is unscripted” as a slogan.
 
-**Viewer pass (any night):** can name Peak and Cost as people; felt one relationship or one fork **if the board had one**; can say why the room moved as a move, not only a tally; someone who knows that person thinks “that’s them.”
+**Viewer pass (any night):** can name Peak and Cost as people; felt one relationship or one fork **if the board had one**; can say why the room moved as a move, not only a tally; someone who knows that person thinks “that’s them.” They got excited and would send it. They want tomorrow.

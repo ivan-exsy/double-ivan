@@ -391,7 +391,7 @@ Human override until picker quality is proven.
 | 3 | Wants | One line each | Job+place every night (returnee included), then ≤1 why-tonight each. Why-tonight = personality revealed today (not the card rank / Hold / Expose / Protect). Innate `roles.trait` if the reason is only the board. Cost leftover is last fallback. Want HUD stamps that line. Never `{Name} is back.` Skip why-tonight only if no reason and no innate. |
 | 4 | Pressure | Challenge name + fork + tonight consequence | `Tonight's game is {name}.` + steps_board order |
 | 5 | Peak | Winner / power — tonight-only | Same |
-| 6 | Mid | Optional generic social→votes (no invented blocs) | Skip leftover lecture. Last-night vote heat is Cost why-tonight, not a mid-body recap |
+| 6 | Mid | Alliances→votes teach + ballot line | Same as Day 1. Skip leftover lecture. Last-night vote heat is Cost why-tonight, not a mid-body recap |
 | 7 | Cost | Votes / leave + Peak ballot if true | Same. Last words sit on the leave walk (loop 1×), not a freeze |
 | 8 | Census | Fifteen become fourteen | `{N} become {N−1}` |
 | 9 | Cliff | Power spent + open tomorrow | Specific debt, not season essay |
@@ -412,7 +412,8 @@ Human override until picker quality is proven.
 
 Tonight's game is [challenge]. [teach in steps_board top→bottom order]
 [Peak turn]
-[Day 1 only] As the day continues, conversations turn into votes.
+[Every night] As the day continues, conversations turn into alliances. Alliances turn into votes.
+[Every night] At the end of the day, every Double casts a ballot.
 [Cost: Tonight {N} people name {Cost}. Never "the vote splits." Then leave — Peak ballot if true]
 [Day 1] Just like that, fifteen become fourteen.
 [Later] {N} become {N−1}.
@@ -838,7 +839,7 @@ Day 1 V6 **G1–G8 READY** — CapCut gold exists; further nights reuse the same
 
 | Date | Change |
 |------|--------|
-| 2026-08-27 | **§3.6 intro + want HUD** — personality line is the default auto-gen for every sim/cast/episode (reason who-clause, else innate `roles.trait`). Never Expose/Protect/rank as intro. Want HUD stamps that line, not TONIGHT. |
+| 2026-08-28 | **§9.2–9.3 Episode 1 spine every night** — alliances→votes teach + ballot line after the Peak win, any episode. Survival stamp sits on the group photo; census HUD starts after the stamp (not a fixed 3.5s tail on a short later-night line). |
 | 2026-08-27 | **§3.6 / §9 intro + tally** — featured why-tonight is personality revealed today for Peak **and** Cost (never “holds an 8”). Split/messy tally is `Tonight {N} people name {Cost}.` — drop the empty “the vote splits” throat-clear. |
 | 2026-08-21 | **§2 / §9 / §11.4 Closer default** — daily ship is Closer tonight (`--sku closer`); short is `--sku scar`. Leftover heat is Cost why-tonight + cliff, not a mid-body last-night vote recap. Last words on the leave walk. |
 | 2026-08-20 | **§9 picture+VO lock** — later nights speak Peak then Cost job+place (never `{Name} is back.`). Scar windows = first contiguous beat (teach = pressure). `--replace-vo-lock` rewrites a lock + re-TTS for that package only. |
