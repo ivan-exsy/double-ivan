@@ -19,7 +19,7 @@ Hybrid job, every night: **teach the show and a person.** Not a tutorial-only re
 
 Night one vs later nights (stake only):
 
-- **Every night, keep:** `These are Doubles — AI versions of real people.` Do **not** add `making choices no one wrote for them.`
+- **Every night, keep:** `These are Doubles — AI versions of real people, making choices no one wrote for them.` Founder lock: that last clause is the product differentiator (unscripted; no one knows how it ends). Say it once in the Doubles line. Do not say it again later.
 - **Episode 1 / first Survival night, then:** Survival primer (`{N} entered. Someone is voted out every night until one remains.`). Short challenge how-to. One “talk becomes votes” line. Then people.
 - **Later nights, then:** `{N} still in. Someone is voted out every night.` Then jobs. Do **not** replay the alliances sermon. Shorter game line if this challenge type was already taught.
 
@@ -27,7 +27,7 @@ Beat order for speech (swap locked): Doubles line → Survival stake → body in
 
 Prove the new writer on a **copy** of a later night (Episode 2+ with a finished vote). Do not overwrite the Episode 1 Ivan/Alex master.
 
-Do **not** say in voice: “this was unscripted,” “no one wrote this,” “making choices no one wrote for them.” The choice has to earn that thought.
+Do **not** say later in the tape: “this was unscripted,” “no one knows how it ends,” or a second “no one wrote this.” The Doubles line already named it. The choice in the night has to prove it.
 
 Last line (after the leave):
 
