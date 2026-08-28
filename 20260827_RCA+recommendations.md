@@ -178,7 +178,7 @@ One line of the deployed env decides which. Do not guess.
 
 ### Chunks
 
-**1 — Delete the gather lock.** Remove the single call site `plan.py:6132` and the lock helpers (`_maybe_apply_gather_lock` 699, `_apply_gather_lock_action` 685, `_gather_lock_travel_duration_min`, `_dest_names_gathering` 673, `_gather_lock_destination`, `_already_at_gathering`).
+**1 — Delete the gather lock.** DONE (`52aa9e74`). Remove the single call site `plan.py:6132` and the lock helpers (`_maybe_apply_gather_lock` 699, `_apply_gather_lock_action` 685, `_gather_lock_travel_duration_min`, `_dest_names_gathering` 673, `_gather_lock_destination`, `_already_at_gathering`).
 
 - **Keep `_in_survival_gather_prewindow` (449).** It is *not* lock-only — `_maybe_apply_social_seek` (505) and `social_will.py:55` use it to pause seek in the appointment window. Deleting it silently un-pauses seek.
 - **The stay-pin dies with it** (the on-cafe branch, 732–737) — and that is fine. It rewrites `act_address` and never `target_zone`, the same defect. It is why the pin “walked people in but did not keep them.” Not a loss.
@@ -186,8 +186,14 @@ One line of the deployed env decides which. Do not guess.
 - *Freeze confirmed at source:* the early-return at 739–745 needs `curr_tile is None`, which never holds in a live run — so off-cafe personas get `act_start_time`/`act_duration` re-stamped **every step**, `act_check_finished` never fires, `_determine_action` never runs, `target_zone` never updates. On-cafe personas have an escape at 733. Exactly the measured plateau.
 - **Test:** an off-cafe persona in the window keeps their own `target_zone` and their action expires on schedule.
 
-**2 — Restore the invitation.** `run_gpt_prompt.py:463` `lead_hours` → **1.0**; delete the `# keep in sync with plan._SURVIVAL_GATHER_LEAD_HOURS` comment that caused the coupling. Confirm whether challenge and vote share one constant — the Pass 1 commit moved vote **2.0 → 0.5** as well, so the vote may need its own value. After chunk 1, `_SURVIVAL_GATHER_LEAD_HOURS` only feeds the **seek pause**; that is the decoupling.
-**Test:** rendered calendar block says be at Hobbs from 10:00, with the seek-pause window unchanged.
+**2 — Restore the invitation.** DONE (`75e4adcd`). Three corrections to what this section assumed:
+
+- **The vote lead was 1.0 → 0.5, not 2.0 → 0.5.** The 2.0 was the *lock* lead in `plan.py`, a different mechanism. Pre-Pass-1 the prompt gave challenge **and** vote a flat one-hour invitation, so restoring both to 1.0 *is* the 23-2 / 25-1 configuration that scored the passing votes. No separate vote value is needed, and no dinner-window tradeoff to adjudicate.
+- **There were two prompt sites, not one.** Pass 1 also cut the **daily-plan** fixed-events cue (`run_gpt_prompt.py:647/654`, “plan to arrive about 30 minutes earlier”) from an hour. That is the site that writes the *late cafe block* — the headline symptom — so fixing only the hourly block would have left the main cause in place.
+- **A third copy of the window lived in prose.** The rule sentence hardcoded “the last 30 minutes” next to a variable-driven clock range, so the two could disagree silently. Both sites and the sentence now read one shared pair (`_SURVIVAL_ARRIVE_LEAD_HOURS` / `_LABEL`), and a wiring test re-reads the real source so the copy inside `test_hourly_schedule_calendar.py` cannot drift again.
+
+After chunk 1, `_SURVIVAL_GATHER_LEAD_HOURS` only feeds the **seek pause**; its docstring now says so. That is the decoupling.
+**Verified:** the block rendered from real source reads “be at Hobbs Cafe for an hour BEFORE each event”, challenge `10:00 am – 11:00 am`, vote `7:00 pm – 8:00 pm`; seek-pause window unchanged at 0.5. Full suite failure set **identical to baseline** (76, all pre-existing) measured same-tree via stash — a fresh `git worktree` is *not* a valid baseline here, several trailer/deployment tests depend on untracked local data.
 
 **3 — Identity seed.** Do **not** hoist `revise_identity` above the skip gates: it costs ~4 LLM calls per persona (~60 per rollover at 15 personas), which is probably why those gates exist, and the generic prompt will not reliably produce “day 2, fourteen left.” Instead write a small **deterministic** survival refresh — day number, players remaining, job — called on day rollover **outside** the three early returns. Leave `revise_identity` for non-survival.
 **Test:** after a rollover with a cached plan, `currently` names the correct day and headcount and no longer says “premiere.”
