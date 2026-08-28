@@ -1,0 +1,97 @@
+[
+  {
+    "name": "Alexis Reed",
+    "step": 277,
+    "clock": "10:32",
+    "pos": [
+      77,
+      28
+    ],
+    "act": "walking to Oak Hill College",
+    "loc": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "intent": "walking to Oak Hill College",
+    "dest": {
+      "max_x": 122,
+      "max_y": 24,
+      "min_x": 119,
+      "min_y": 22
+    },
+    "chatting_with": "Diana Ogden"
+  },
+  {
+    "name": "Andrew Abrams",
+    "step": 286,
+    "clock": "10:41",
+    "pos": [
+      79,
+      30
+    ],
+    "act": "waiting at Hobbs Cafe for the survival appointment",
+    "loc": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "intent": "waiting at Hobbs Cafe for the survival appointment",
+    "dest": {
+      "max_x": 115,
+      "max_y": 25,
+      "min_x": 112,
+      "min_y": 21
+    },
+    "chatting_with": "Irene Dove"
+  },
+  {
+    "name": "Diana Ogden",
+    "step": 277,
+    "clock": "10:32",
+    "pos": [
+      79,
+      30
+    ],
+    "act": "waiting at Hobbs Cafe for the survival appointment",
+    "loc": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "intent": "waiting at Hobbs Cafe for the survival appointment",
+    "dest": {
+      "max_x": 122,
+      "max_y": 24,
+      "min_x": 119,
+      "min_y": 22
+    },
+    "chatting_with": "Vincent Slater"
+  },
+  {
+    "name": "Olivia King",
+    "step": 291,
+    "clock": "10:46",
+    "pos": [
+      76,
+      27
+    ],
+    "act": "waiting at Hobbs Cafe for the survival appointment",
+    "loc": "the Ville:Hobbs Cafe:cafe",
+    "intent": "waiting at Hobbs Cafe for the survival appointment",
+    "dest": {
+      "max_x": 61,
+      "max_y": 23,
+      "min_x": 55,
+      "min_y": 23
+    },
+    "chatting_with": null
+  },
+  {
+    "name": "Vincent Slater",
+    "step": 275,
+    "clock": "10:30",
+    "pos": [
+      77,
+      27
+    ],
+    "act": "waiting at Hobbs Cafe for the survival appointment",
+    "loc": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "intent": "waiting at Hobbs Cafe for the survival appointment",
+    "dest": {
+      "max_x": 122,
+      "max_y": 24,
+      "min_x": 119,
+      "min_y": 22
+    },
+    "chatting_with": null
+  }
+]

@@ -1,0 +1,260 @@
+{
+  "keys": [
+    "action_family",
+    "actual_path",
+    "address_label",
+    "chat",
+    "chat_metadata",
+    "chatting_with",
+    "curr_time",
+    "day_number",
+    "description",
+    "estimated_duration",
+    "facing",
+    "intent",
+    "movement",
+    "partial_state",
+    "path",
+    "planned_pos",
+    "pronunciatio",
+    "proximity_detail",
+    "proximity_threshold",
+    "realism_trace",
+    "speed_multiplier",
+    "start_pos",
+    "stationary_intent",
+    "target_zone"
+  ],
+  "sample": {
+    "chat": null,
+    "path": [
+      [
+        22,
+        65
+      ]
+    ],
+    "facing": "left",
+    "intent": "walking to House 1",
+    "movement": [
+      22,
+      65
+    ],
+    "curr_time": "August 28, 2026, 05:55:00",
+    "start_pos": [
+      22,
+      65
+    ],
+    "day_number": 2,
+    "actual_path": [
+      [
+        22,
+        65
+      ]
+    ],
+    "description": "walking to House 1 @ the Ville:House 1:main room:bed",
+    "planned_pos": [
+      20,
+      65
+    ],
+    "target_zone": {
+      "max_x": 21,
+      "max_y": 65,
+      "min_x": 20,
+      "min_y": 65
+    },
+    "pronunciatio": "\ud83d\ude34\ud83d\udca4",
+    "action_family": "",
+    "address_label": "the Ville:House 1:main room:bed",
+    "chat_metadata": null,
+    "chatting_with": null,
+    "partial_state": {
+      "remaining_path": [],
+      "action_progress": {
+        "action_id": "olivia_king_2026-08-28_sub_00_6aa55aef4364",
+        "current_step": 0,
+        "duration_min": 5,
+        "action_family": "",
+        "steps_elapsed": 0,
+        "current_action": "the Ville:House 1:main room:bed",
+        "action_duration": 5,
+        "steps_remaining": 5,
+        "action_completed": false,
+        "resolved_address": "the Ville:House 1:main room:bed",
+        "subactivity_mode": "in_place",
+        "action_start_step": 0,
+        "action_start_time": "2026-08-28T05:55:00",
+        "resolution_source": "planner_contract_v1",
+        "action_description": "walking to House 1",
+        "actual_tile_address": "the Ville:House 1:main room:bed",
+        "progress_percentage": 0.0,
+        "estimated_completion_step": 5
+      },
+      "last_actual_pos": null,
+      "pre_interrupt_pos": null
+    },
+    "realism_trace": {
+      "p2": {
+        "mode": "routine_light",
+        "decision_tags": [
+          "routine_light",
+          "persist_override",
+          "contextual_contract_downgrade",
+          "contextual_contract_downgrade_valueerror",
+          "action_switch"
+        ],
+        "novelty_score": 0.1,
+        "action_switch_count": 1,
+        "context_repeat_count": 0,
+        "consecutive_extensions": 0,
+        "forced_decompose_count": 0,
+        "reaction_llm_call_count": 0,
+        "social_reeval_repeat_count": 0
+      },
+      "rest_lock": {
+        "drift": null,
+        "reason": "movement_mode_present:travel_to_zone",
+        "applied": false,
+        "zone_gap": null
+      },
+      "start_pos": [
+        22,
+        65
+      ],
+      "intent_hold": {
+        "delta": null,
+        "reason": "not_eligible",
+        "applied": false,
+        "cooldown_steps": 0,
+        "hold_threshold": null,
+        "cooldown_active": null,
+        "last_planned_pos": null,
+        "last_replan_step": null,
+        "cooldown_hold_threshold": null
+      },
+      "planned_pos": [
+        20,
+        65
+      ],
+      "subactivity": {
+        "mode": "in_place",
+        "index": 0,
+        "nudge_stage": 0,
+        "started_step": 0,
+        "expected_steps": 5,
+        "progress_score": 0.0
+      },
+      "target_zone": {
+        "max_x": 21,
+        "max_y": 65,
+        "min_x": 20,
+        "min_y": 65
+      },
+      "emit_honesty": {
+        "cause": "premature_inplace",
+        "raw_act": "sleeping",
+        "rewrote": true,
+        "emitted_act": "walking to House 1"
+      },
+      "zone_no_path": {
+        "last_step": null,
+        "repeat_count": 0,
+        "fallback_step": null,
+        "fallback_target": null
+      },
+      "movement_mode": "travel_to_zone",
+      "travel_intent": false,
+      "final_movement": [
+        20,
+        65
+      ],
+      "act_description": "sleeping",
+      "emit_validation": {
+        "after": [
+          20,
+          65
+        ],
+        "before": [
+          20,
+          65
+        ],
+        "reason": "as_is",
+        "applied": false
+      },
+      "zone_resolution": "exact_address",
+      "target_selection": {
+        "strategy": "heuristic_sample_plus_shortest_path",
+        "selected_tile": [
+          21,
+          65
+        ],
+        "recent_targets": [],
+        "specificity_level": "object",
+        "candidate_pool_size": 2,
+        "evaluated_candidates": [
+          {
+            "tile": [
+              21,
+              65
+            ],
+            "distance": 1,
+            "has_path": true,
+            "authority": "the Ville:House 1:main room:bed",
+            "path_length": 2,
+            "repeat_penalty": 0.0,
+            "preference_score": 19.0,
+            "occupancy_penalty": 0.0
+          },
+          {
+            "tile": [
+              20,
+              65
+            ],
+            "distance": 2,
+            "has_path": true,
+            "authority": "the Ville:House 1:main room:bed",
+            "path_length": 3,
+            "repeat_penalty": 0.0,
+            "preference_score": 18.0,
+            "occupancy_penalty": 0.0
+          }
+        ],
+        "selected_path_length": 2,
+        "repeat_penalty_applied": false,
+        "sampled_candidate_count": 2,
+        "authoritative_target_tile": null,
+        "occupancy_penalty_applied": false,
+        "pin_one_target_per_action": false,
+        "specificity_filter_applied": false,
+        "authoritative_target_reused": false,
+        "in_zone_variation_filter_applied": false
+      },
+      "stationary_intent": false,
+      "zone_distance_start": 1,
+      "movement_mode_source": "keyword_in_place:outside_zone_safety_net",
+      "no_op_movement_bypass": null,
+      "reachability_override": {
+        "reason": "reachable",
+        "applied": false,
+        "had_target_zone": true,
+        "original_target": null,
+        "resolved_target": null,
+        "authoritative_target_promoted": false
+      },
+      "zone_distance_planned": 0,
+      "force_replan_next_step": false,
+      "zone_resolution_detail": "the Ville:House 1:main room:bed",
+      "stationary_conflict_guard": {
+        "reason": "movement_mode_gate",
+        "applied": false,
+        "planned_delta": null,
+        "zone_anchor_distance": null
+      },
+      "zone_resolution_stationary_blocked": false
+    },
+    "proximity_detail": "3-1",
+    "speed_multiplier": 0.0,
+    "stationary_intent": false,
+    "estimated_duration": 5,
+    "proximity_threshold": 2
+  }
+}

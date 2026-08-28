@@ -1,0 +1,2086 @@
+[
+  {
+    "name": "Alex Butcher",
+    "morning_0555_1100": {
+      "first_on": null,
+      "last_on": null,
+      "on_count": 0,
+      "leaves": []
+    },
+    "lock_1030_1100": {
+      "first_on": null,
+      "last_on": null,
+      "on_count": 0,
+      "leaves": []
+    },
+    "prelock_0800_1029": {
+      "first_on": null,
+      "last_on": null,
+      "on_count": 0,
+      "leaves": []
+    },
+    "at_1000": {
+      "name": "Alex Butcher",
+      "on": false,
+      "pos": [
+        68,
+        44
+      ],
+      "act": "assisting customers at the counter",
+      "loc": "the Ville:Harvey Oak Supply Store:supply store:behind the supply store counter",
+      "intent": "assisting customers at the counter",
+      "dest": {
+        "max_x": 69,
+        "max_y": 44,
+        "min_x": 67,
+        "min_y": 44
+      },
+      "start_pos": [
+        68,
+        44
+      ],
+      "end_pos": [
+        68,
+        44
+      ],
+      "chatting_with": null,
+      "description": "assisting customers at the counter @ the Ville:Harvey Oak Supply Store:supply store:behind the supply store counter"
+    },
+    "at_1030": {
+      "name": "Alex Butcher",
+      "on": false,
+      "pos": [
+        68,
+        46
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:Harvey Oak Supply Store:supply store:supply store counter",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 69,
+        "max_y": 46,
+        "min_x": 67,
+        "min_y": 46
+      },
+      "start_pos": [
+        68,
+        46
+      ],
+      "end_pos": [
+        68,
+        46
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:Harvey Oak Supply Store:supply store:supply store counter"
+    },
+    "at_1100": {
+      "name": "Alex Butcher",
+      "on": false,
+      "pos": [
+        68,
+        44
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:Harvey Oak Supply Store:supply store",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 69,
+        "max_y": 44,
+        "min_x": 67,
+        "min_y": 44
+      },
+      "start_pos": [
+        68,
+        44
+      ],
+      "end_pos": [
+        68,
+        44
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:Harvey Oak Supply Store:supply store"
+    },
+    "class_full_morning": "H3",
+    "class_lock_window": "H3"
+  },
+  {
+    "name": "Alex Shepard",
+    "morning_0555_1100": {
+      "first_on": 254,
+      "last_on": 305,
+      "on_count": 16,
+      "leaves": [
+        {
+          "step": 265,
+          "clock": "10:20",
+          "pos": [
+            77,
+            27
+          ],
+          "act": "walking to Oak Hill College",
+          "loc": "the Ville:Hobbs Cafe",
+          "intent": "walking to Oak Hill College",
+          "dest": {
+            "max_x": 122,
+            "max_y": 24,
+            "min_x": 119,
+            "min_y": 22
+          },
+          "chatting_with": null
+        }
+      ]
+    },
+    "lock_1030_1100": {
+      "first_on": 301,
+      "last_on": 305,
+      "on_count": 5,
+      "leaves": []
+    },
+    "prelock_0800_1029": {
+      "first_on": 254,
+      "last_on": 264,
+      "on_count": 11,
+      "leaves": [
+        {
+          "step": 265,
+          "clock": "10:20",
+          "pos": [
+            77,
+            27
+          ],
+          "act": "walking to Oak Hill College",
+          "loc": "the Ville:Hobbs Cafe",
+          "intent": "walking to Oak Hill College",
+          "dest": {
+            "max_x": 122,
+            "max_y": 24,
+            "min_x": 119,
+            "min_y": 22
+          },
+          "chatting_with": null
+        }
+      ]
+    },
+    "at_1000": {
+      "name": "Alex Shepard",
+      "on": false,
+      "pos": [
+        119,
+        28
+      ],
+      "act": "walking to Hobbs Cafe",
+      "loc": "the Ville:Oak Hill College:classroom",
+      "intent": "walking to Hobbs Cafe",
+      "dest": {
+        "max_x": 82,
+        "max_y": 25,
+        "min_x": 72,
+        "min_y": 21
+      },
+      "start_pos": [
+        119,
+        22
+      ],
+      "end_pos": [
+        119,
+        28
+      ],
+      "chatting_with": null,
+      "description": "walking to Hobbs Cafe @ the Ville:Oak Hill College:classroom"
+    },
+    "at_1030": {
+      "name": "Alex Shepard",
+      "on": false,
+      "pos": [
+        119,
+        22
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:Oak Hill College:library",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 122,
+        "max_y": 24,
+        "min_x": 119,
+        "min_y": 22
+      },
+      "start_pos": [
+        119,
+        25
+      ],
+      "end_pos": [
+        119,
+        22
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:Oak Hill College:library"
+    },
+    "at_1100": {
+      "name": "Alex Shepard",
+      "on": true,
+      "pos": [
+        76,
+        23
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:Hobbs Cafe:cafe",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 82,
+        "max_y": 25,
+        "min_x": 72,
+        "min_y": 21
+      },
+      "start_pos": [
+        76,
+        23
+      ],
+      "end_pos": [
+        76,
+        23
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:Hobbs Cafe:cafe"
+    },
+    "class_full_morning": "ON_AT_FIRE",
+    "class_lock_window": "ON_AT_FIRE"
+  },
+  {
+    "name": "Alexis Reed",
+    "morning_0555_1100": {
+      "first_on": 254,
+      "last_on": 276,
+      "on_count": 23,
+      "leaves": [
+        {
+          "step": 277,
+          "clock": "10:32",
+          "pos": [
+            77,
+            28
+          ],
+          "act": "walking to Oak Hill College",
+          "loc": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+          "intent": "walking to Oak Hill College",
+          "dest": {
+            "max_x": 122,
+            "max_y": 24,
+            "min_x": 119,
+            "min_y": 22
+          },
+          "chatting_with": "Diana Ogden"
+        }
+      ]
+    },
+    "lock_1030_1100": {
+      "first_on": 275,
+      "last_on": 276,
+      "on_count": 2,
+      "leaves": [
+        {
+          "step": 277,
+          "clock": "10:32",
+          "pos": [
+            77,
+            28
+          ],
+          "act": "walking to Oak Hill College",
+          "loc": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+          "intent": "walking to Oak Hill College",
+          "dest": {
+            "max_x": 122,
+            "max_y": 24,
+            "min_x": 119,
+            "min_y": 22
+          },
+          "chatting_with": "Diana Ogden"
+        }
+      ]
+    },
+    "prelock_0800_1029": {
+      "first_on": 254,
+      "last_on": 274,
+      "on_count": 21,
+      "leaves": []
+    },
+    "at_1000": {
+      "name": "Alexis Reed",
+      "on": false,
+      "pos": [
+        119,
+        30
+      ],
+      "act": "walking to Hobbs Cafe from the library",
+      "loc": "the Ville:Oak Hill College:classroom",
+      "intent": "walking to Hobbs Cafe from the library",
+      "dest": {
+        "max_x": 82,
+        "max_y": 25,
+        "min_x": 72,
+        "min_y": 21
+      },
+      "start_pos": [
+        119,
+        24
+      ],
+      "end_pos": [
+        119,
+        30
+      ],
+      "chatting_with": null,
+      "description": "walking to Hobbs Cafe from the library @ the Ville:Oak Hill College:classroom"
+    },
+    "at_1030": {
+      "name": "Alexis Reed",
+      "on": true,
+      "pos": [
+        74,
+        25
+      ],
+      "act": "walking to Hobbs Cafe",
+      "loc": "the Ville:Hobbs Cafe:cafe",
+      "intent": "walking to Hobbs Cafe",
+      "dest": {
+        "max_x": 82,
+        "max_y": 25,
+        "min_x": 72,
+        "min_y": 21
+      },
+      "start_pos": [
+        74,
+        25
+      ],
+      "end_pos": [
+        74,
+        25
+      ],
+      "chatting_with": null,
+      "description": "walking to Hobbs Cafe @ the Ville:Hobbs Cafe:cafe"
+    },
+    "at_1100": {
+      "name": "Alexis Reed",
+      "on": false,
+      "pos": [
+        119,
+        23
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:Oak Hill College:library",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 122,
+        "max_y": 24,
+        "min_x": 119,
+        "min_y": 22
+      },
+      "start_pos": [
+        119,
+        23
+      ],
+      "end_pos": [
+        119,
+        23
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:Oak Hill College:library"
+    },
+    "class_full_morning": "H2",
+    "class_lock_window": "H2"
+  },
+  {
+    "name": "Andrew Abrams",
+    "morning_0555_1100": {
+      "first_on": 246,
+      "last_on": 285,
+      "on_count": 40,
+      "leaves": [
+        {
+          "step": 286,
+          "clock": "10:41",
+          "pos": [
+            79,
+            30
+          ],
+          "act": "waiting at Hobbs Cafe for the survival appointment",
+          "loc": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+          "intent": "waiting at Hobbs Cafe for the survival appointment",
+          "dest": {
+            "max_x": 115,
+            "max_y": 25,
+            "min_x": 112,
+            "min_y": 21
+          },
+          "chatting_with": "Irene Dove"
+        }
+      ]
+    },
+    "lock_1030_1100": {
+      "first_on": 275,
+      "last_on": 285,
+      "on_count": 11,
+      "leaves": [
+        {
+          "step": 286,
+          "clock": "10:41",
+          "pos": [
+            79,
+            30
+          ],
+          "act": "waiting at Hobbs Cafe for the survival appointment",
+          "loc": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+          "intent": "waiting at Hobbs Cafe for the survival appointment",
+          "dest": {
+            "max_x": 115,
+            "max_y": 25,
+            "min_x": 112,
+            "min_y": 21
+          },
+          "chatting_with": "Irene Dove"
+        }
+      ]
+    },
+    "prelock_0800_1029": {
+      "first_on": 246,
+      "last_on": 274,
+      "on_count": 29,
+      "leaves": []
+    },
+    "at_1000": {
+      "name": "Andrew Abrams",
+      "on": false,
+      "pos": [
+        74,
+        30
+      ],
+      "act": "leaving the co-living space and heading out (heading to Hobbs Cafe)",
+      "loc": "the Ville:Apartment 2",
+      "intent": "leaving the co-living space and heading out",
+      "dest": {
+        "max_x": 82,
+        "max_y": 25,
+        "min_x": 72,
+        "min_y": 21
+      },
+      "start_pos": [
+        69,
+        31
+      ],
+      "end_pos": [
+        74,
+        30
+      ],
+      "chatting_with": null,
+      "description": "leaving the co-living space and heading out (heading to Hobbs Cafe) @ the Ville:Apartment 2"
+    },
+    "at_1030": {
+      "name": "Andrew Abrams",
+      "on": true,
+      "pos": [
+        74,
+        23
+      ],
+      "act": "walking to Hobbs Cafe",
+      "loc": "the Ville:Hobbs Cafe:cafe",
+      "intent": "walking to Hobbs Cafe",
+      "dest": {
+        "max_x": 82,
+        "max_y": 25,
+        "min_x": 72,
+        "min_y": 21
+      },
+      "start_pos": [
+        74,
+        23
+      ],
+      "end_pos": [
+        74,
+        23
+      ],
+      "chatting_with": null,
+      "description": "walking to Hobbs Cafe @ the Ville:Hobbs Cafe:cafe"
+    },
+    "at_1100": {
+      "name": "Andrew Abrams",
+      "on": false,
+      "pos": [
+        113,
+        23
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:Oak Hill College:classroom",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 115,
+        "max_y": 25,
+        "min_x": 112,
+        "min_y": 21
+      },
+      "start_pos": [
+        113,
+        23
+      ],
+      "end_pos": [
+        113,
+        23
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:Oak Hill College:classroom"
+    },
+    "class_full_morning": "H2",
+    "class_lock_window": "H2"
+  },
+  {
+    "name": "Dean Sanford",
+    "morning_0555_1100": {
+      "first_on": 77,
+      "last_on": 305,
+      "on_count": 101,
+      "leaves": [
+        {
+          "step": 116,
+          "clock": "07:51",
+          "pos": [
+            75,
+            30
+          ],
+          "act": "sitting down at the common room table with breakfast (heading to artist's co-living space)",
+          "loc": "the Ville:Hobbs Cafe",
+          "intent": "sitting down at the common room table with breakfast",
+          "dest": {
+            "max_x": 39,
+            "max_y": 30,
+            "min_x": 36,
+            "min_y": 28
+          },
+          "chatting_with": null
+        },
+        {
+          "step": 176,
+          "clock": "08:51",
+          "pos": [
+            77,
+            30
+          ],
+          "act": "walking to Oak Hill College",
+          "loc": "the Ville",
+          "intent": "walking to Oak Hill College",
+          "dest": {
+            "max_x": 108,
+            "max_y": 23,
+            "min_x": 108,
+            "min_y": 23
+          },
+          "chatting_with": null
+        },
+        {
+          "step": 265,
+          "clock": "10:20",
+          "pos": [
+            77,
+            30
+          ],
+          "act": "walking to Oak Hill College",
+          "loc": "the Ville",
+          "intent": "walking to Oak Hill College",
+          "dest": {
+            "max_x": 111,
+            "max_y": 20,
+            "min_x": 108,
+            "min_y": 20
+          },
+          "chatting_with": null
+        }
+      ]
+    },
+    "lock_1030_1100": {
+      "first_on": 301,
+      "last_on": 305,
+      "on_count": 5,
+      "leaves": []
+    },
+    "prelock_0800_1029": {
+      "first_on": 159,
+      "last_on": 264,
+      "on_count": 57,
+      "leaves": [
+        {
+          "step": 176,
+          "clock": "08:51",
+          "pos": [
+            77,
+            30
+          ],
+          "act": "walking to Oak Hill College",
+          "loc": "the Ville",
+          "intent": "walking to Oak Hill College",
+          "dest": {
+            "max_x": 108,
+            "max_y": 23,
+            "min_x": 108,
+            "min_y": 23
+          },
+          "chatting_with": null
+        },
+        {
+          "step": 265,
+          "clock": "10:20",
+          "pos": [
+            77,
+            30
+          ],
+          "act": "walking to Oak Hill College",
+          "loc": "the Ville",
+          "intent": "walking to Oak Hill College",
+          "dest": {
+            "max_x": 111,
+            "max_y": 20,
+            "min_x": 108,
+            "min_y": 20
+          },
+          "chatting_with": null
+        }
+      ]
+    },
+    "at_1000": {
+      "name": "Dean Sanford",
+      "on": true,
+      "pos": [
+        76,
+        25
+      ],
+      "act": "walking to Hobbs Cafe from Oak Hill College",
+      "loc": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+      "intent": "walking to Hobbs Cafe from Oak Hill College",
+      "dest": {
+        "max_x": 82,
+        "max_y": 25,
+        "min_x": 72,
+        "min_y": 21
+      },
+      "start_pos": [
+        76,
+        25
+      ],
+      "end_pos": [
+        76,
+        25
+      ],
+      "chatting_with": null,
+      "description": "walking to Hobbs Cafe from Oak Hill College @ the Ville:Hobbs Cafe:cafe:cafe customer seating"
+    },
+    "at_1030": {
+      "name": "Dean Sanford",
+      "on": false,
+      "pos": [
+        108,
+        20
+      ],
+      "act": "walking to Oak Hill College",
+      "loc": "the Ville:Oak Hill College:classroom",
+      "intent": "walking to Oak Hill College",
+      "dest": {
+        "max_x": 111,
+        "max_y": 20,
+        "min_x": 108,
+        "min_y": 20
+      },
+      "start_pos": [
+        108,
+        21
+      ],
+      "end_pos": [
+        108,
+        20
+      ],
+      "chatting_with": "Vince Vale",
+      "description": "walking to Oak Hill College @ the Ville:Oak Hill College:classroom"
+    },
+    "at_1100": {
+      "name": "Dean Sanford",
+      "on": true,
+      "pos": [
+        74,
+        23
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 82,
+        "max_y": 25,
+        "min_x": 72,
+        "min_y": 21
+      },
+      "start_pos": [
+        74,
+        23
+      ],
+      "end_pos": [
+        74,
+        23
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:Hobbs Cafe:cafe:cafe customer seating"
+    },
+    "class_full_morning": "ON_AT_FIRE",
+    "class_lock_window": "ON_AT_FIRE"
+  },
+  {
+    "name": "Diana Ogden",
+    "morning_0555_1100": {
+      "first_on": 260,
+      "last_on": 276,
+      "on_count": 17,
+      "leaves": [
+        {
+          "step": 277,
+          "clock": "10:32",
+          "pos": [
+            79,
+            30
+          ],
+          "act": "waiting at Hobbs Cafe for the survival appointment",
+          "loc": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+          "intent": "waiting at Hobbs Cafe for the survival appointment",
+          "dest": {
+            "max_x": 122,
+            "max_y": 24,
+            "min_x": 119,
+            "min_y": 22
+          },
+          "chatting_with": "Vincent Slater"
+        }
+      ]
+    },
+    "lock_1030_1100": {
+      "first_on": 275,
+      "last_on": 276,
+      "on_count": 2,
+      "leaves": [
+        {
+          "step": 277,
+          "clock": "10:32",
+          "pos": [
+            79,
+            30
+          ],
+          "act": "waiting at Hobbs Cafe for the survival appointment",
+          "loc": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+          "intent": "waiting at Hobbs Cafe for the survival appointment",
+          "dest": {
+            "max_x": 122,
+            "max_y": 24,
+            "min_x": 119,
+            "min_y": 22
+          },
+          "chatting_with": "Vincent Slater"
+        }
+      ]
+    },
+    "prelock_0800_1029": {
+      "first_on": 260,
+      "last_on": 274,
+      "on_count": 15,
+      "leaves": []
+    },
+    "at_1000": {
+      "name": "Diana Ogden",
+      "on": false,
+      "pos": [
+        119,
+        22
+      ],
+      "act": "reviewing key concepts from notes",
+      "loc": "the Ville:Oak Hill College:library:library table",
+      "intent": "reviewing key concepts from notes",
+      "dest": {
+        "max_x": 122,
+        "max_y": 24,
+        "min_x": 119,
+        "min_y": 22
+      },
+      "start_pos": [
+        121,
+        21
+      ],
+      "end_pos": [
+        119,
+        22
+      ],
+      "chatting_with": null,
+      "description": "reviewing key concepts from notes @ the Ville:Oak Hill College:library:library table"
+    },
+    "at_1030": {
+      "name": "Diana Ogden",
+      "on": true,
+      "pos": [
+        76,
+        23
+      ],
+      "act": "settling in at the cafe",
+      "loc": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+      "intent": "settling in at the cafe",
+      "dest": {
+        "max_x": 82,
+        "max_y": 25,
+        "min_x": 72,
+        "min_y": 21
+      },
+      "start_pos": [
+        76,
+        23
+      ],
+      "end_pos": [
+        76,
+        23
+      ],
+      "chatting_with": null,
+      "description": "settling in at the cafe @ the Ville:Hobbs Cafe:cafe:cafe customer seating"
+    },
+    "at_1100": {
+      "name": "Diana Ogden",
+      "on": false,
+      "pos": [
+        106,
+        32
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:Oak Hill College:classroom",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 82,
+        "max_y": 25,
+        "min_x": 72,
+        "min_y": 21
+      },
+      "start_pos": [
+        110,
+        30
+      ],
+      "end_pos": [
+        106,
+        32
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:Oak Hill College:classroom"
+    },
+    "class_full_morning": "H2",
+    "class_lock_window": "H2"
+  },
+  {
+    "name": "Irene Dove",
+    "morning_0555_1100": {
+      "first_on": 203,
+      "last_on": 305,
+      "on_count": 103,
+      "leaves": []
+    },
+    "lock_1030_1100": {
+      "first_on": 275,
+      "last_on": 305,
+      "on_count": 31,
+      "leaves": []
+    },
+    "prelock_0800_1029": {
+      "first_on": 203,
+      "last_on": 274,
+      "on_count": 72,
+      "leaves": []
+    },
+    "at_1000": {
+      "name": "Irene Dove",
+      "on": true,
+      "pos": [
+        79,
+        19
+      ],
+      "act": "prepare coffee and set up the station",
+      "loc": "the Ville:Hobbs Cafe:cafe:behind the cafe counter",
+      "intent": "prepare coffee and set up the station",
+      "dest": {
+        "max_x": 81,
+        "max_y": 19,
+        "min_x": 78,
+        "min_y": 19
+      },
+      "start_pos": [
+        79,
+        19
+      ],
+      "end_pos": [
+        79,
+        19
+      ],
+      "chatting_with": null,
+      "description": "prepare coffee and set up the station @ the Ville:Hobbs Cafe:cafe:behind the cafe counter"
+    },
+    "at_1030": {
+      "name": "Irene Dove",
+      "on": true,
+      "pos": [
+        76,
+        25
+      ],
+      "act": "serve customers and take orders",
+      "loc": "the Ville:Hobbs Cafe:cafe",
+      "intent": "serve customers and take orders",
+      "dest": {
+        "max_x": 82,
+        "max_y": 25,
+        "min_x": 72,
+        "min_y": 21
+      },
+      "start_pos": [
+        75,
+        24
+      ],
+      "end_pos": [
+        76,
+        25
+      ],
+      "chatting_with": null,
+      "description": "serve customers and take orders @ the Ville:Hobbs Cafe:cafe"
+    },
+    "at_1100": {
+      "name": "Irene Dove",
+      "on": true,
+      "pos": [
+        79,
+        19
+      ],
+      "act": "clean the counter and restock supplies",
+      "loc": "the Ville:Hobbs Cafe:cafe:behind the cafe counter",
+      "intent": "clean the counter and restock supplies",
+      "dest": {
+        "max_x": 81,
+        "max_y": 19,
+        "min_x": 78,
+        "min_y": 19
+      },
+      "start_pos": [
+        79,
+        19
+      ],
+      "end_pos": [
+        79,
+        19
+      ],
+      "chatting_with": null,
+      "description": "clean the counter and restock supplies @ the Ville:Hobbs Cafe:cafe:behind the cafe counter"
+    },
+    "class_full_morning": "ON_AT_FIRE",
+    "class_lock_window": "ON_AT_FIRE"
+  },
+  {
+    "name": "Ivan Pitts",
+    "morning_0555_1100": {
+      "first_on": null,
+      "last_on": null,
+      "on_count": 0,
+      "leaves": []
+    },
+    "lock_1030_1100": {
+      "first_on": null,
+      "last_on": null,
+      "on_count": 0,
+      "leaves": []
+    },
+    "prelock_0800_1029": {
+      "first_on": null,
+      "last_on": null,
+      "on_count": 0,
+      "leaves": []
+    },
+    "at_1000": {
+      "name": "Ivan Pitts",
+      "on": false,
+      "pos": [
+        76,
+        46
+      ],
+      "act": "restocking pharmacy shelves with medications",
+      "loc": "the Ville:The Willows Market and Pharmacy:store:pharmacy store shelf",
+      "intent": "restocking pharmacy shelves with medications",
+      "dest": {
+        "max_x": 79,
+        "max_y": 49,
+        "min_x": 76,
+        "min_y": 45
+      },
+      "start_pos": [
+        76,
+        46
+      ],
+      "end_pos": [
+        76,
+        46
+      ],
+      "chatting_with": null,
+      "description": "restocking pharmacy shelves with medications @ the Ville:The Willows Market and Pharmacy:store:pharmacy store shelf"
+    },
+    "at_1030": {
+      "name": "Ivan Pitts",
+      "on": false,
+      "pos": [
+        75,
+        52
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:The Willows Market and Pharmacy:store:behind the pharmacy counter",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 75,
+        "max_y": 53,
+        "min_x": 75,
+        "min_y": 51
+      },
+      "start_pos": [
+        75,
+        52
+      ],
+      "end_pos": [
+        75,
+        52
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:The Willows Market and Pharmacy:store:behind the pharmacy counter"
+    },
+    "at_1100": {
+      "name": "Ivan Pitts",
+      "on": false,
+      "pos": [
+        75,
+        52
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:The Willows Market and Pharmacy:store:behind the pharmacy counter",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 75,
+        "max_y": 53,
+        "min_x": 75,
+        "min_y": 51
+      },
+      "start_pos": [
+        75,
+        52
+      ],
+      "end_pos": [
+        75,
+        52
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:The Willows Market and Pharmacy:store:behind the pharmacy counter"
+    },
+    "class_full_morning": "H3",
+    "class_lock_window": "H3"
+  },
+  {
+    "name": "Max Shoemaker",
+    "morning_0555_1100": {
+      "first_on": 130,
+      "last_on": 270,
+      "on_count": 56,
+      "leaves": [
+        {
+          "step": 146,
+          "clock": "08:21",
+          "pos": [
+            77,
+            29
+          ],
+          "act": "mixing dough on the counter (heading to Dorm for Oak Hill College)",
+          "loc": "the Ville:Hobbs Cafe:cafe",
+          "intent": "mixing dough on the counter",
+          "dest": {
+            "max_x": 123,
+            "max_y": 48,
+            "min_x": 123,
+            "min_y": 46
+          },
+          "chatting_with": null
+        },
+        {
+          "step": 207,
+          "clock": "09:22",
+          "pos": [
+            77,
+            29
+          ],
+          "act": "Measuring and combining dry ingredients (heading to Dorm for Oak Hill College)",
+          "loc": "the Ville:Hobbs Cafe:cafe",
+          "intent": "Measuring and combining dry ingredients",
+          "dest": {
+            "max_x": 123,
+            "max_y": 48,
+            "min_x": 123,
+            "min_y": 46
+          },
+          "chatting_with": null
+        },
+        {
+          "step": 271,
+          "clock": "10:26",
+          "pos": [
+            76,
+            30
+          ],
+          "act": "Shaping croissant triangles and pinching edges (heading to The Rose and Crown Pub)",
+          "loc": "the Ville:Hobbs Cafe:cafe",
+          "intent": "Shaping croissant triangles and pinching edges",
+          "dest": {
+            "max_x": 61,
+            "max_y": 23,
+            "min_x": 55,
+            "min_y": 23
+          },
+          "chatting_with": "Irene Dove"
+        }
+      ]
+    },
+    "lock_1030_1100": {
+      "first_on": null,
+      "last_on": null,
+      "on_count": 0,
+      "leaves": []
+    },
+    "prelock_0800_1029": {
+      "first_on": 130,
+      "last_on": 270,
+      "on_count": 56,
+      "leaves": [
+        {
+          "step": 146,
+          "clock": "08:21",
+          "pos": [
+            77,
+            29
+          ],
+          "act": "mixing dough on the counter (heading to Dorm for Oak Hill College)",
+          "loc": "the Ville:Hobbs Cafe:cafe",
+          "intent": "mixing dough on the counter",
+          "dest": {
+            "max_x": 123,
+            "max_y": 48,
+            "min_x": 123,
+            "min_y": 46
+          },
+          "chatting_with": null
+        },
+        {
+          "step": 207,
+          "clock": "09:22",
+          "pos": [
+            77,
+            29
+          ],
+          "act": "Measuring and combining dry ingredients (heading to Dorm for Oak Hill College)",
+          "loc": "the Ville:Hobbs Cafe:cafe",
+          "intent": "Measuring and combining dry ingredients",
+          "dest": {
+            "max_x": 123,
+            "max_y": 48,
+            "min_x": 123,
+            "min_y": 46
+          },
+          "chatting_with": null
+        },
+        {
+          "step": 271,
+          "clock": "10:26",
+          "pos": [
+            76,
+            30
+          ],
+          "act": "Shaping croissant triangles and pinching edges (heading to The Rose and Crown Pub)",
+          "loc": "the Ville:Hobbs Cafe:cafe",
+          "intent": "Shaping croissant triangles and pinching edges",
+          "dest": {
+            "max_x": 61,
+            "max_y": 23,
+            "min_x": 55,
+            "min_y": 23
+          },
+          "chatting_with": "Irene Dove"
+        }
+      ]
+    },
+    "at_1000": {
+      "name": "Max Shoemaker",
+      "on": false,
+      "pos": [
+        117,
+        46
+      ],
+      "act": "walking to Hobbs Cafe",
+      "loc": "the Ville:Dorm for Oak Hill College:common room",
+      "intent": "walking to Hobbs Cafe",
+      "dest": {
+        "max_x": 76,
+        "max_y": 19,
+        "min_x": 75,
+        "min_y": 19
+      },
+      "start_pos": [
+        123,
+        46
+      ],
+      "end_pos": [
+        117,
+        46
+      ],
+      "chatting_with": null,
+      "description": "walking to Hobbs Cafe @ the Ville:Dorm for Oak Hill College:common room"
+    },
+    "at_1030": {
+      "name": "Max Shoemaker",
+      "on": false,
+      "pos": [
+        57,
+        25
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 61,
+        "max_y": 23,
+        "min_x": 55,
+        "min_y": 23
+      },
+      "start_pos": [
+        58,
+        30
+      ],
+      "end_pos": [
+        57,
+        25
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville"
+    },
+    "at_1100": {
+      "name": "Max Shoemaker",
+      "on": false,
+      "pos": [
+        58,
+        23
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:The Rose and Crown Pub:pub",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 61,
+        "max_y": 23,
+        "min_x": 55,
+        "min_y": 23
+      },
+      "start_pos": [
+        58,
+        23
+      ],
+      "end_pos": [
+        58,
+        23
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:The Rose and Crown Pub:pub"
+    },
+    "class_full_morning": "H2",
+    "class_lock_window": "H3"
+  },
+  {
+    "name": "Mike Hooks",
+    "morning_0555_1100": {
+      "first_on": 94,
+      "last_on": 112,
+      "on_count": 19,
+      "leaves": [
+        {
+          "step": 113,
+          "clock": "07:48",
+          "pos": [
+            79,
+            30
+          ],
+          "act": "walking to The Willows Market (heading to The Willows Market and Pharmacy)",
+          "loc": "the Ville",
+          "intent": "walking to The Willows Market",
+          "dest": {
+            "max_x": 93,
+            "max_y": 52,
+            "min_x": 81,
+            "min_y": 49
+          },
+          "chatting_with": "Dean Sanford"
+        }
+      ]
+    },
+    "lock_1030_1100": {
+      "first_on": null,
+      "last_on": null,
+      "on_count": 0,
+      "leaves": []
+    },
+    "prelock_0800_1029": {
+      "first_on": null,
+      "last_on": null,
+      "on_count": 0,
+      "leaves": []
+    },
+    "at_1000": {
+      "name": "Mike Hooks",
+      "on": false,
+      "pos": [
+        81,
+        49
+      ],
+      "act": "restocking items near the register area",
+      "loc": "the Ville:The Willows Market and Pharmacy:store",
+      "intent": "restocking items near the register area",
+      "dest": {
+        "max_x": 93,
+        "max_y": 52,
+        "min_x": 81,
+        "min_y": 49
+      },
+      "start_pos": [
+        81,
+        49
+      ],
+      "end_pos": [
+        81,
+        49
+      ],
+      "chatting_with": "Owen Logan",
+      "description": "restocking items near the register area @ the Ville:The Willows Market and Pharmacy:store"
+    },
+    "at_1030": {
+      "name": "Mike Hooks",
+      "on": false,
+      "pos": [
+        81,
+        49
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:The Willows Market and Pharmacy:store",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 93,
+        "max_y": 52,
+        "min_x": 81,
+        "min_y": 49
+      },
+      "start_pos": [
+        81,
+        49
+      ],
+      "end_pos": [
+        81,
+        49
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:The Willows Market and Pharmacy:store"
+    },
+    "at_1100": {
+      "name": "Mike Hooks",
+      "on": false,
+      "pos": [
+        87,
+        50
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:The Willows Market and Pharmacy:store",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 93,
+        "max_y": 52,
+        "min_x": 81,
+        "min_y": 49
+      },
+      "start_pos": [
+        87,
+        50
+      ],
+      "end_pos": [
+        87,
+        50
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:The Willows Market and Pharmacy:store"
+    },
+    "class_full_morning": "H2",
+    "class_lock_window": "H3"
+  },
+  {
+    "name": "Nick Miller",
+    "morning_0555_1100": {
+      "first_on": 114,
+      "last_on": 124,
+      "on_count": 11,
+      "leaves": [
+        {
+          "step": 125,
+          "clock": "08:00",
+          "pos": [
+            76,
+            29
+          ],
+          "act": "Walking through Johnson Park on the way to college",
+          "loc": "the Ville",
+          "intent": "Walking through Johnson Park on the way to college",
+          "dest": {
+            "max_x": 34,
+            "max_y": 50,
+            "min_x": 21,
+            "min_y": 42
+          },
+          "chatting_with": null
+        }
+      ]
+    },
+    "lock_1030_1100": {
+      "first_on": null,
+      "last_on": null,
+      "on_count": 0,
+      "leaves": []
+    },
+    "prelock_0800_1029": {
+      "first_on": null,
+      "last_on": null,
+      "on_count": 0,
+      "leaves": []
+    },
+    "at_1000": {
+      "name": "Nick Miller",
+      "on": false,
+      "pos": [
+        108,
+        23
+      ],
+      "act": "stepping back to review and adjust the board",
+      "loc": "the Ville:Oak Hill College:classroom:classroom podium",
+      "intent": "stepping back to review and adjust the board",
+      "dest": {
+        "max_x": 108,
+        "max_y": 23,
+        "min_x": 108,
+        "min_y": 23
+      },
+      "start_pos": [
+        108,
+        23
+      ],
+      "end_pos": [
+        108,
+        23
+      ],
+      "chatting_with": null,
+      "description": "stepping back to review and adjust the board @ the Ville:Oak Hill College:classroom:classroom podium"
+    },
+    "at_1030": {
+      "name": "Nick Miller",
+      "on": false,
+      "pos": [
+        112,
+        21
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:Oak Hill College:classroom:classroom student seating",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 115,
+        "max_y": 25,
+        "min_x": 112,
+        "min_y": 21
+      },
+      "start_pos": [
+        112,
+        21
+      ],
+      "end_pos": [
+        112,
+        21
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:Oak Hill College:classroom:classroom student seating"
+    },
+    "at_1100": {
+      "name": "Nick Miller",
+      "on": false,
+      "pos": [
+        108,
+        23
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:Oak Hill College:classroom:classroom podium",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 108,
+        "max_y": 23,
+        "min_x": 108,
+        "min_y": 23
+      },
+      "start_pos": [
+        108,
+        23
+      ],
+      "end_pos": [
+        108,
+        23
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:Oak Hill College:classroom:classroom podium"
+    },
+    "class_full_morning": "H2",
+    "class_lock_window": "H3"
+  },
+  {
+    "name": "Olivia King",
+    "morning_0555_1100": {
+      "first_on": 223,
+      "last_on": 290,
+      "on_count": 48,
+      "leaves": [
+        {
+          "step": 261,
+          "clock": "10:16",
+          "pos": [
+            76,
+            29
+          ],
+          "act": "walking to The Rose and Crown Pub",
+          "loc": "the Ville:Hobbs Cafe:cafe",
+          "intent": "walking to The Rose and Crown Pub",
+          "dest": {
+            "max_x": 61,
+            "max_y": 23,
+            "min_x": 55,
+            "min_y": 23
+          },
+          "chatting_with": "Irene Dove"
+        },
+        {
+          "step": 291,
+          "clock": "10:46",
+          "pos": [
+            76,
+            27
+          ],
+          "act": "waiting at Hobbs Cafe for the survival appointment",
+          "loc": "the Ville:Hobbs Cafe:cafe",
+          "intent": "waiting at Hobbs Cafe for the survival appointment",
+          "dest": {
+            "max_x": 61,
+            "max_y": 23,
+            "min_x": 55,
+            "min_y": 23
+          },
+          "chatting_with": null
+        }
+      ]
+    },
+    "lock_1030_1100": {
+      "first_on": 281,
+      "last_on": 290,
+      "on_count": 10,
+      "leaves": [
+        {
+          "step": 291,
+          "clock": "10:46",
+          "pos": [
+            76,
+            27
+          ],
+          "act": "waiting at Hobbs Cafe for the survival appointment",
+          "loc": "the Ville:Hobbs Cafe:cafe",
+          "intent": "waiting at Hobbs Cafe for the survival appointment",
+          "dest": {
+            "max_x": 61,
+            "max_y": 23,
+            "min_x": 55,
+            "min_y": 23
+          },
+          "chatting_with": null
+        }
+      ]
+    },
+    "prelock_0800_1029": {
+      "first_on": 223,
+      "last_on": 260,
+      "on_count": 38,
+      "leaves": [
+        {
+          "step": 261,
+          "clock": "10:16",
+          "pos": [
+            76,
+            29
+          ],
+          "act": "walking to The Rose and Crown Pub",
+          "loc": "the Ville:Hobbs Cafe:cafe",
+          "intent": "walking to The Rose and Crown Pub",
+          "dest": {
+            "max_x": 61,
+            "max_y": 23,
+            "min_x": 55,
+            "min_y": 23
+          },
+          "chatting_with": "Irene Dove"
+        }
+      ]
+    },
+    "at_1000": {
+      "name": "Olivia King",
+      "on": true,
+      "pos": [
+        78,
+        21
+      ],
+      "act": "studying the shield hold rules",
+      "loc": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+      "intent": "studying the shield hold rules",
+      "dest": {
+        "max_x": 82,
+        "max_y": 25,
+        "min_x": 72,
+        "min_y": 21
+      },
+      "start_pos": [
+        78,
+        21
+      ],
+      "end_pos": [
+        78,
+        21
+      ],
+      "chatting_with": null,
+      "description": "studying the shield hold rules @ the Ville:Hobbs Cafe:cafe:cafe customer seating"
+    },
+    "at_1030": {
+      "name": "Olivia King",
+      "on": false,
+      "pos": [
+        55,
+        23
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:The Rose and Crown Pub:pub:bar customer seating",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 61,
+        "max_y": 23,
+        "min_x": 55,
+        "min_y": 23
+      },
+      "start_pos": [
+        55,
+        23
+      ],
+      "end_pos": [
+        55,
+        23
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:The Rose and Crown Pub:pub:bar customer seating"
+    },
+    "at_1100": {
+      "name": "Olivia King",
+      "on": false,
+      "pos": [
+        57,
+        23
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:The Rose and Crown Pub:pub:bar customer seating",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 61,
+        "max_y": 23,
+        "min_x": 55,
+        "min_y": 23
+      },
+      "start_pos": [
+        57,
+        23
+      ],
+      "end_pos": [
+        57,
+        23
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:The Rose and Crown Pub:pub:bar customer seating"
+    },
+    "class_full_morning": "H2",
+    "class_lock_window": "H2"
+  },
+  {
+    "name": "Owen Logan",
+    "morning_0555_1100": {
+      "first_on": null,
+      "last_on": null,
+      "on_count": 0,
+      "leaves": []
+    },
+    "lock_1030_1100": {
+      "first_on": null,
+      "last_on": null,
+      "on_count": 0,
+      "leaves": []
+    },
+    "prelock_0800_1029": {
+      "first_on": null,
+      "last_on": null,
+      "on_count": 0,
+      "leaves": []
+    },
+    "at_1000": {
+      "name": "Owen Logan",
+      "on": false,
+      "pos": [
+        82,
+        49
+      ],
+      "act": "unpacking canned goods from delivery boxes",
+      "loc": "the Ville:The Willows Market and Pharmacy:store:grocery store shelf",
+      "intent": "unpacking canned goods from delivery boxes",
+      "dest": {
+        "max_x": 93,
+        "max_y": 52,
+        "min_x": 81,
+        "min_y": 49
+      },
+      "start_pos": [
+        82,
+        49
+      ],
+      "end_pos": [
+        82,
+        49
+      ],
+      "chatting_with": "Mike Hooks",
+      "description": "unpacking canned goods from delivery boxes @ the Ville:The Willows Market and Pharmacy:store:grocery store shelf"
+    },
+    "at_1030": {
+      "name": "Owen Logan",
+      "on": false,
+      "pos": [
+        76,
+        49
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:The Willows Market and Pharmacy:store",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 79,
+        "max_y": 49,
+        "min_x": 76,
+        "min_y": 45
+      },
+      "start_pos": [
+        76,
+        49
+      ],
+      "end_pos": [
+        76,
+        49
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:The Willows Market and Pharmacy:store"
+    },
+    "at_1100": {
+      "name": "Owen Logan",
+      "on": false,
+      "pos": [
+        76,
+        47
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:The Willows Market and Pharmacy:store",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 79,
+        "max_y": 49,
+        "min_x": 76,
+        "min_y": 45
+      },
+      "start_pos": [
+        76,
+        47
+      ],
+      "end_pos": [
+        76,
+        47
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:The Willows Market and Pharmacy:store"
+    },
+    "class_full_morning": "H3",
+    "class_lock_window": "H3"
+  },
+  {
+    "name": "Vince Vale",
+    "morning_0555_1100": {
+      "first_on": 249,
+      "last_on": 259,
+      "on_count": 11,
+      "leaves": [
+        {
+          "step": 260,
+          "clock": "10:15",
+          "pos": [
+            79,
+            30
+          ],
+          "act": "Reading through the challenge rules (heading to Oak Hill College)",
+          "loc": "the Ville:Hobbs Cafe:cafe",
+          "intent": "Reading through the challenge rules",
+          "dest": {
+            "max_x": 111,
+            "max_y": 20,
+            "min_x": 108,
+            "min_y": 20
+          },
+          "chatting_with": "Dean Sanford"
+        }
+      ]
+    },
+    "lock_1030_1100": {
+      "first_on": null,
+      "last_on": null,
+      "on_count": 0,
+      "leaves": []
+    },
+    "prelock_0800_1029": {
+      "first_on": 249,
+      "last_on": 259,
+      "on_count": 11,
+      "leaves": [
+        {
+          "step": 260,
+          "clock": "10:15",
+          "pos": [
+            79,
+            30
+          ],
+          "act": "Reading through the challenge rules (heading to Oak Hill College)",
+          "loc": "the Ville:Hobbs Cafe:cafe",
+          "intent": "Reading through the challenge rules",
+          "dest": {
+            "max_x": 111,
+            "max_y": 20,
+            "min_x": 108,
+            "min_y": 20
+          },
+          "chatting_with": "Dean Sanford"
+        }
+      ]
+    },
+    "at_1000": {
+      "name": "Vince Vale",
+      "on": false,
+      "pos": [
+        90,
+        31
+      ],
+      "act": "Arriving at Hobbs Cafe and settling in",
+      "loc": "the Ville",
+      "intent": "Arriving at Hobbs Cafe and settling in",
+      "dest": {
+        "max_x": 82,
+        "max_y": 25,
+        "min_x": 72,
+        "min_y": 21
+      },
+      "start_pos": [
+        95,
+        32
+      ],
+      "end_pos": [
+        90,
+        31
+      ],
+      "chatting_with": null,
+      "description": "Arriving at Hobbs Cafe and settling in @ the Ville"
+    },
+    "at_1030": {
+      "name": "Vince Vale",
+      "on": false,
+      "pos": [
+        109,
+        20
+      ],
+      "act": "Reading through the challenge rules",
+      "loc": "the Ville:Oak Hill College:classroom:blackboard",
+      "intent": "Reading through the challenge rules",
+      "dest": {
+        "max_x": 111,
+        "max_y": 20,
+        "min_x": 108,
+        "min_y": 20
+      },
+      "start_pos": [
+        109,
+        20
+      ],
+      "end_pos": [
+        109,
+        20
+      ],
+      "chatting_with": "Dean Sanford",
+      "description": "Reading through the challenge rules @ the Ville:Oak Hill College:classroom:blackboard"
+    },
+    "at_1100": {
+      "name": "Vince Vale",
+      "on": false,
+      "pos": [
+        112,
+        23
+      ],
+      "act": "walking to Hobbs Cafe",
+      "loc": "the Ville",
+      "intent": "walking to Hobbs Cafe",
+      "dest": {
+        "max_x": 82,
+        "max_y": 25,
+        "min_x": 72,
+        "min_y": 21
+      },
+      "start_pos": [
+        109,
+        20
+      ],
+      "end_pos": [
+        112,
+        23
+      ],
+      "chatting_with": null,
+      "description": "walking to Hobbs Cafe @ the Ville"
+    },
+    "class_full_morning": "H2",
+    "class_lock_window": "H3"
+  },
+  {
+    "name": "Vincent Slater",
+    "morning_0555_1100": {
+      "first_on": 254,
+      "last_on": 274,
+      "on_count": 21,
+      "leaves": [
+        {
+          "step": 275,
+          "clock": "10:30",
+          "pos": [
+            77,
+            27
+          ],
+          "act": "waiting at Hobbs Cafe for the survival appointment",
+          "loc": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+          "intent": "waiting at Hobbs Cafe for the survival appointment",
+          "dest": {
+            "max_x": 122,
+            "max_y": 24,
+            "min_x": 119,
+            "min_y": 22
+          },
+          "chatting_with": null
+        }
+      ]
+    },
+    "lock_1030_1100": {
+      "first_on": null,
+      "last_on": null,
+      "on_count": 0,
+      "leaves": []
+    },
+    "prelock_0800_1029": {
+      "first_on": 254,
+      "last_on": 274,
+      "on_count": 21,
+      "leaves": []
+    },
+    "at_1000": {
+      "name": "Vincent Slater",
+      "on": false,
+      "pos": [
+        87,
+        21
+      ],
+      "act": "Gathering materials from library",
+      "loc": "the Ville:Apartment 4:main room:desk",
+      "intent": "Gathering materials from library",
+      "dest": {
+        "max_x": 87,
+        "max_y": 21,
+        "min_x": 87,
+        "min_y": 21
+      },
+      "start_pos": [
+        87,
+        21
+      ],
+      "end_pos": [
+        87,
+        21
+      ],
+      "chatting_with": null,
+      "description": "Gathering materials from library @ the Ville:Apartment 4:main room:desk"
+    },
+    "at_1030": {
+      "name": "Vincent Slater",
+      "on": false,
+      "pos": [
+        77,
+        27
+      ],
+      "act": "waiting at Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+      "intent": "waiting at Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 122,
+        "max_y": 24,
+        "min_x": 119,
+        "min_y": 22
+      },
+      "start_pos": [
+        79,
+        23
+      ],
+      "end_pos": [
+        77,
+        27
+      ],
+      "chatting_with": null,
+      "description": "waiting at Hobbs Cafe for the survival appointment @ the Ville:Hobbs Cafe:cafe:cafe customer seating"
+    },
+    "at_1100": {
+      "name": "Vincent Slater",
+      "on": false,
+      "pos": [
+        101,
+        32
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 82,
+        "max_y": 25,
+        "min_x": 72,
+        "min_y": 21
+      },
+      "start_pos": [
+        107,
+        32
+      ],
+      "end_pos": [
+        101,
+        32
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville"
+    },
+    "class_full_morning": "H2",
+    "class_lock_window": "H3"
+  }
+]

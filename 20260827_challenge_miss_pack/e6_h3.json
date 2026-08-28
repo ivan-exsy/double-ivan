@@ -1,0 +1,194 @@
+[
+  {
+    "name": "Alex Butcher",
+    "pos_1030": [
+      68,
+      46
+    ],
+    "manhattan_to_hobbs_anchor": 30,
+    "max_tiles_30min": 180,
+    "reachable_by_1100": true,
+    "at_1030": {
+      "name": "Alex Butcher",
+      "on": false,
+      "pos": [
+        68,
+        46
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:Harvey Oak Supply Store:supply store:supply store counter",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 69,
+        "max_y": 46,
+        "min_x": 67,
+        "min_y": 46
+      },
+      "start_pos": [
+        68,
+        46
+      ],
+      "end_pos": [
+        68,
+        46
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:Harvey Oak Supply Store:supply store:supply store counter"
+    },
+    "at_1100": {
+      "name": "Alex Butcher",
+      "on": false,
+      "pos": [
+        68,
+        44
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:Harvey Oak Supply Store:supply store",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 69,
+        "max_y": 44,
+        "min_x": 67,
+        "min_y": 44
+      },
+      "start_pos": [
+        68,
+        44
+      ],
+      "end_pos": [
+        68,
+        44
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:Harvey Oak Supply Store:supply store"
+    }
+  },
+  {
+    "name": "Ivan Pitts",
+    "pos_1030": [
+      75,
+      52
+    ],
+    "manhattan_to_hobbs_anchor": 29,
+    "max_tiles_30min": 180,
+    "reachable_by_1100": true,
+    "at_1030": {
+      "name": "Ivan Pitts",
+      "on": false,
+      "pos": [
+        75,
+        52
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:The Willows Market and Pharmacy:store:behind the pharmacy counter",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 75,
+        "max_y": 53,
+        "min_x": 75,
+        "min_y": 51
+      },
+      "start_pos": [
+        75,
+        52
+      ],
+      "end_pos": [
+        75,
+        52
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:The Willows Market and Pharmacy:store:behind the pharmacy counter"
+    },
+    "at_1100": {
+      "name": "Ivan Pitts",
+      "on": false,
+      "pos": [
+        75,
+        52
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:The Willows Market and Pharmacy:store:behind the pharmacy counter",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 75,
+        "max_y": 53,
+        "min_x": 75,
+        "min_y": 51
+      },
+      "start_pos": [
+        75,
+        52
+      ],
+      "end_pos": [
+        75,
+        52
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:The Willows Market and Pharmacy:store:behind the pharmacy counter"
+    }
+  },
+  {
+    "name": "Owen Logan",
+    "pos_1030": [
+      76,
+      49
+    ],
+    "manhattan_to_hobbs_anchor": 25,
+    "max_tiles_30min": 180,
+    "reachable_by_1100": true,
+    "at_1030": {
+      "name": "Owen Logan",
+      "on": false,
+      "pos": [
+        76,
+        49
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:The Willows Market and Pharmacy:store",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 79,
+        "max_y": 49,
+        "min_x": 76,
+        "min_y": 45
+      },
+      "start_pos": [
+        76,
+        49
+      ],
+      "end_pos": [
+        76,
+        49
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:The Willows Market and Pharmacy:store"
+    },
+    "at_1100": {
+      "name": "Owen Logan",
+      "on": false,
+      "pos": [
+        76,
+        47
+      ],
+      "act": "heading to Hobbs Cafe for the survival appointment",
+      "loc": "the Ville:The Willows Market and Pharmacy:store",
+      "intent": "heading to Hobbs Cafe for the survival appointment",
+      "dest": {
+        "max_x": 79,
+        "max_y": 49,
+        "min_x": 76,
+        "min_y": 45
+      },
+      "start_pos": [
+        76,
+        47
+      ],
+      "end_pos": [
+        76,
+        47
+      ],
+      "chatting_with": null,
+      "description": "heading to Hobbs Cafe for the survival appointment @ the Ville:The Willows Market and Pharmacy:store"
+    }
+  }
+]

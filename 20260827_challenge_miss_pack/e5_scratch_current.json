@@ -1,0 +1,2843 @@
+[
+  {
+    "name": "Diana Ogden",
+    "curr_tile": "(78,21)",
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "sipping coffee and scanning the cafe",
+    "chatting_with": "Irene Dove",
+    "daily_plan": null,
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "wake up and stretch in bed [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "get dressed and choose outfit [mode=in_place anchor=closet]",
+        15
+      ],
+      [
+        "organize desk and review schedule [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "do light stretching on floor [mode=in_place anchor=bed]",
+        15
+      ],
+      [
+        "preparing breakfast in the kitchen [mode=workstation_hop anchor=cooking area]",
+        15
+      ],
+      [
+        "eating breakfast at common room table [mode=in_place anchor=common room table]",
+        25
+      ],
+      [
+        "clearing breakfast dishes and wiping table [mode=in_place anchor=common room table]",
+        5
+      ],
+      [
+        "cleaning up dishes in kitchen [mode=workstation_hop anchor=kitchen sink]",
+        15
+      ],
+      [
+        "preparing a simple breakfast [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "eating breakfast while reviewing notes [mode=in_place anchor=cooking area]",
+        25
+      ],
+      [
+        "reviewing key concepts from notes [mode=in_place anchor=cooking area]",
+        20
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "settling in at the cafe [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "reviewing challenge notes [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "waiting for challenge to start [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "review the challenge rules and strategy [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "receive secret card and review options [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "decide to hold or fold based on card value [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "reveal card and await challenge outcome [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "discuss outcomes with other contestants [mode=social_touch anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "walking to Hobbs Cafe [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "ordering a sandwich at the counter [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "eating the sandwich [mode=in_place anchor=cafe customer seating]",
+        30
+      ],
+      [
+        "sipping coffee and scanning the cafe [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "watching a couple argue near the piano [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "checking phone and finishing coffee [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Settle at the piano and arrange sheet music [mode=in_place anchor=piano]",
+        5
+      ],
+      [
+        "Warm up with scales and arpeggios [mode=in_place anchor=piano]",
+        5
+      ],
+      [
+        "Play a full tune from memory [mode=in_place anchor=piano]",
+        15
+      ],
+      [
+        "Finish with a soft chord and reflect [mode=in_place anchor=piano]",
+        5
+      ],
+      [
+        "finishing up and checking schedule [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "heading to Harvey Oak Supply Store for her shift",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "working a shift at Harvey Oak Supply Store",
+        120
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        120
+      ],
+      [
+        "at Hobbs Cafe taking part in the evening vote",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "heading home to wind down for the night",
+        60
+      ],
+      [
+        "asleep at home",
+        60
+      ]
+    ],
+    "work_area": "the Ville:Harvey Oak Supply Store:supply store"
+  },
+  {
+    "name": "Alexis Reed",
+    "curr_tile": "(59,23)",
+    "act_address": "the Ville:The Rose and Crown Pub:pub:bar customer seating",
+    "act_description": "sipping water and people-watching",
+    "chatting_with": null,
+    "daily_plan": null,
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "Waking up and stretching in bed [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "Washing face and brushing teeth [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "Getting dressed [mode=in_place anchor=closet]",
+        10
+      ],
+      [
+        "Preparing breakfast [mode=in_place anchor=kitchen]",
+        10
+      ],
+      [
+        "Eating breakfast [mode=in_place anchor=kitchen]",
+        10
+      ],
+      [
+        "Checking phone and planning day [mode=in_place anchor=desk]",
+        10
+      ],
+      [
+        "walking to Oak Hill College library [mode=in_place anchor=library]",
+        15
+      ],
+      [
+        "setting up at library table [mode=workstation_hop anchor=library table]",
+        10
+      ],
+      [
+        "reviewing task list and requests [mode=in_place anchor=library table]",
+        20
+      ],
+      [
+        "organizing books on shelf [mode=zone_patrol anchor=bookshelf]",
+        15
+      ],
+      [
+        "walking to Oak Hill College library [mode=zone_patrol anchor=library]",
+        10
+      ],
+      [
+        "organizing books on the library shelves [mode=workstation_hop anchor=bookshelf]",
+        25
+      ],
+      [
+        "assisting students at the library front desk [mode=in_place anchor=library table]",
+        15
+      ],
+      [
+        "reviewing open task items on the computer [mode=in_place anchor=library table]",
+        10
+      ],
+      [
+        "walking to Hobbs Cafe from the library [mode=zone_patrol anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "ordering a coffee at the counter [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "walking to Hobbs Cafe from library [mode=zone_patrol anchor=library]",
+        6
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=library table]",
+        6
+      ],
+      [
+        "reviewing challenge notes at cafe table [mode=in_place anchor=cafe customer seating]",
+        28
+      ],
+      [
+        "reviewing the challenge instructions [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "deciding whether to hold or fold [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "revealing the held card [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "waiting for the challenge results [mode=in_place anchor=cafe customer seating]",
+        25
+      ],
+      [
+        "ordering lunch at the counter [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "ordering lunch at the bar [mode=in_place anchor=bar customer seating]",
+        5
+      ],
+      [
+        "eating lunch while reviewing notes [mode=in_place anchor=bar customer seating]",
+        25
+      ],
+      [
+        "sipping water and people-watching [mode=in_place anchor=bar customer seating]",
+        10
+      ],
+      [
+        "checking phone and relaxing [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "walking to Oak Hill College library [mode=in_place anchor=library table]",
+        10
+      ],
+      [
+        "walking to Oak Hill College library [mode=zone_patrol anchor=library table]",
+        10
+      ],
+      [
+        "organizing research notes on library table [mode=in_place anchor=library table]",
+        20
+      ],
+      [
+        "responding to faculty email requests [mode=in_place anchor=library table]",
+        40
+      ],
+      [
+        "reviewing and updating task lists [mode=in_place anchor=library table]",
+        40
+      ],
+      [
+        "preparing reference materials for upcoming projects [mode=in_place anchor=library table]",
+        60
+      ],
+      [
+        "taking a walk at Johnson Park",
+        60
+      ],
+      [
+        "walking through Johnson Park before heading to dinner",
+        60
+      ],
+      [
+        "having dinner at Harvey Oak Supply Store",
+        120
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "eating dinner at Harvey Oak Supply Store",
+        60
+      ],
+      [
+        "sleeping at home",
+        120
+      ]
+    ],
+    "work_area": "the Ville:Oak Hill College:library"
+  },
+  {
+    "name": "Alex Butcher",
+    "curr_tile": "(55,23)",
+    "act_address": "the Ville:The Rose and Crown Pub:pub:bar customer seating",
+    "act_description": "sipping water and checking phone",
+    "chatting_with": null,
+    "daily_plan": null,
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "waking up and stretching in bed [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "getting dressed at the closet [mode=in_place anchor=closet]",
+        15
+      ],
+      [
+        "checking phone and planning day at desk [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "washing up at the kitchen sink [mode=in_place anchor=kitchen sink]",
+        15
+      ],
+      [
+        "prepare breakfast [mode=in_place anchor=cooking area]",
+        15
+      ],
+      [
+        "eat breakfast [mode=in_place anchor=kitchen]",
+        25
+      ],
+      [
+        "check the day's schedule [mode=in_place anchor=kitchen]",
+        20
+      ],
+      [
+        "walking to Harvey Oak Supply Store [mode=zone_patrol anchor=supply store]",
+        15
+      ],
+      [
+        "stocking shelves with inventory [mode=workstation_hop anchor=supply store product shelf]",
+        25
+      ],
+      [
+        "assisting customers at the counter [mode=in_place anchor=supply store counter]",
+        20
+      ],
+      [
+        "walking to Harvey Oak Supply Store [mode=in_place anchor=supply store]",
+        10
+      ],
+      [
+        "setting up the register and checking morning inventory [mode=in_place anchor=behind the supply store counter]",
+        15
+      ],
+      [
+        "stocking shelves with new shipments [mode=zone_patrol anchor=supply store product shelf]",
+        20
+      ],
+      [
+        "assisting customers at the counter [mode=workstation_hop anchor=supply store counter]",
+        15
+      ],
+      [
+        "Restocking the product shelves [mode=zone_patrol anchor=supply store product shelf]",
+        20
+      ],
+      [
+        "Cleaning the supply store counter [mode=in_place anchor=supply store counter]",
+        15
+      ],
+      [
+        "Organizing inventory logs behind the counter [mode=workstation_hop anchor=behind the supply store counter]",
+        15
+      ],
+      [
+        "Wiping down the counter and preparing for next shift [mode=zone_patrol anchor=supply store counter]",
+        10
+      ],
+      [
+        "Reviewing the challenge instructions [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Deciding whether to hold or fold based on the secret card [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "Participating in the card reveal and comparing [mode=social_touch anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "Waiting for the challenge results to be announced [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "ordering lunch at the counter [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "eating the sandwich [mode=in_place anchor=bar customer seating]",
+        15
+      ],
+      [
+        "eating the salad [mode=in_place anchor=bar customer seating]",
+        12
+      ],
+      [
+        "sipping water and checking phone [mode=in_place anchor=bar customer seating]",
+        8
+      ],
+      [
+        "finishing up and wiping hands [mode=in_place anchor=bar customer seating]",
+        5
+      ],
+      [
+        "reviewing handwritten notes from class [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "sipping coffee and scanning the room [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "doing gentle stretches on the sofa [mode=in_place anchor=common room sofa]",
+        10
+      ],
+      [
+        "scrolling through notifications on phone [mode=in_place anchor=common room sofa]",
+        15
+      ],
+      [
+        "checking the time and gathering belongings [mode=in_place anchor=common room sofa]",
+        5
+      ],
+      [
+        "working the afternoon shift at Harvey Oak Supply Store",
+        120
+      ],
+      [
+        "at Harvey Oak Supply Store finishing the afternoon shift",
+        60
+      ],
+      [
+        "wrapping up shift at Harvey Oak Supply Store",
+        60
+      ],
+      [
+        "waking up and starting morning routine at home",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "at Hobbs Cafe taking part in the evening vote",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "at home winding down for the night",
+        60
+      ],
+      [
+        "going to sleep at home",
+        60
+      ]
+    ],
+    "work_area": "the Ville:Harvey Oak Supply Store:supply store"
+  },
+  {
+    "name": "Vincent Slater",
+    "curr_tile": "(74,25)",
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "gathering belongings and finishing drink",
+    "chatting_with": null,
+    "daily_plan": null,
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "getting out of bed and stretching [mode=in_place anchor=bed]",
+        5
+      ],
+      [
+        "brushing teeth and washing face [mode=in_place anchor=bathroom sink]",
+        10
+      ],
+      [
+        "taking a shower [mode=in_place anchor=shower]",
+        15
+      ],
+      [
+        "drying off and applying moisturizer [mode=in_place anchor=bathroom sink]",
+        10
+      ],
+      [
+        "getting dressed in casual clothes [mode=in_place anchor=closet]",
+        10
+      ],
+      [
+        "making the bed and tidying up [mode=zone_patrol anchor=bed]",
+        10
+      ],
+      [
+        "Setting up materials at library table [mode=in_place anchor=library table]",
+        10
+      ],
+      [
+        "reviewing curriculum outlines [mode=in_place anchor=library table]",
+        25
+      ],
+      [
+        "annotating lesson plans [mode=in_place anchor=library table]",
+        20
+      ],
+      [
+        "cross-referencing textbook sections [mode=in_place anchor=library table]",
+        15
+      ],
+      [
+        "Taking a short walk around the library [mode=zone_patrol anchor=library]",
+        10
+      ],
+      [
+        "Walking to Oak Hill College library [mode=zone_patrol anchor=library]",
+        10
+      ],
+      [
+        "Walking to Oak Hill College library [mode=zone_patrol anchor=library]",
+        6
+      ],
+      [
+        "Reviewing existing curriculum notes [mode=in_place anchor=library table]",
+        10
+      ],
+      [
+        "Writing new lesson plan outlines [mode=in_place anchor=library table]",
+        14
+      ],
+      [
+        "Gathering materials from library [mode=in_place anchor=library table]",
+        5
+      ],
+      [
+        "Walking to Hobbs Cafe [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "Ordering a coffee at Hobbs Cafe [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "packing up belongings at library table [mode=in_place anchor=library table]",
+        5
+      ],
+      [
+        "walking out of the library [mode=zone_patrol anchor=library]",
+        3
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe]",
+        10
+      ],
+      [
+        "arriving at Hobbs Cafe and finding a seat [mode=in_place anchor=cafe customer seating]",
+        12
+      ],
+      [
+        "Waiting for the challenge to begin [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Drawing a secret card for the Hold for the Shield challenge [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "Deciding whether to hold or fold [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "Revealing the decision and comparing cards [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Observing the results of the challenge [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Waiting for the challenge to conclude [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "ordering and picking up lunch [mode=zone_patrol anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "eating a sandwich and fries [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "sipping iced tea and reviewing notes [mode=in_place anchor=cafe customer seating]",
+        12
+      ],
+      [
+        "gathering belongings and finishing drink [mode=in_place anchor=cafe customer seating]",
+        8
+      ],
+      [
+        "sipping coffee and reviewing notes [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "walking to Oak Hill College library [mode=zone_patrol anchor=Oak Hill College]",
+        10
+      ],
+      [
+        "reviewing curriculum materials at the library table [mode=in_place anchor=library table]",
+        25
+      ],
+      [
+        "planning lesson outlines at the library table [mode=in_place anchor=library table]",
+        25
+      ],
+      [
+        "working on curriculum development at Oak Hill College",
+        60
+      ],
+      [
+        "returning to Oak Hill College for afternoon curriculum work",
+        60
+      ],
+      [
+        "taking a walk at Johnson Park",
+        60
+      ],
+      [
+        "walking through Johnson Park",
+        60
+      ],
+      [
+        "having dinner at Harvey Oak Supply Store",
+        60
+      ],
+      [
+        "eating dinner at Harvey Oak Supply Store",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "working on curriculum development at Oak Hill College",
+        60
+      ],
+      [
+        "asleep at Apartment 4",
+        120
+      ]
+    ],
+    "work_area": "the Ville:Oak Hill College:classroom"
+  },
+  {
+    "name": "Ivan Pitts",
+    "curr_tile": "(72,23)",
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "check phone for challenge updates",
+    "chatting_with": null,
+    "daily_plan": null,
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "waking up and lying in bed [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "stretching and doing light exercises [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "checking phone and reviewing schedule [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "getting dressed and preparing for the day [mode=in_place anchor=closet]",
+        20
+      ],
+      [
+        "walking to bathroom and undressing [mode=zone_patrol anchor=bathroom 1]",
+        2
+      ],
+      [
+        "showering [mode=in_place anchor=shower]",
+        20
+      ],
+      [
+        "drying off with towel [mode=in_place anchor=bathroom 1]",
+        5
+      ],
+      [
+        "grooming hair and face [mode=in_place anchor=bathroom sink]",
+        10
+      ],
+      [
+        "getting dressed [mode=in_place anchor=bathroom 1]",
+        20
+      ],
+      [
+        "checking appearance in mirror [mode=in_place anchor=bathroom sink]",
+        3
+      ],
+      [
+        "walking to The Willows Market and Pharmacy [mode=zone_patrol anchor=store]",
+        17
+      ],
+      [
+        "clocking in and preparing workstation [mode=in_place anchor=behind the pharmacy counter]",
+        12
+      ],
+      [
+        "unpacking boxes of medication [mode=workstation_hop anchor=pharmacy store shelf]",
+        15
+      ],
+      [
+        "arranging bottles on shelves by alphabetical order [mode=in_place anchor=pharmacy store shelf]",
+        15
+      ],
+      [
+        "checking inventory list against stock [mode=in_place anchor=pharmacy store counter]",
+        10
+      ],
+      [
+        "assisting customers with prescription pickups [mode=in_place anchor=behind the pharmacy counter]",
+        25
+      ],
+      [
+        "processing new prescription orders [mode=in_place anchor=behind the pharmacy counter]",
+        20
+      ],
+      [
+        "restocking pharmacy shelves with medications [mode=workstation_hop anchor=pharmacy store shelf]",
+        23
+      ],
+      [
+        "reviewing and verifying prescription orders [mode=in_place anchor=behind the pharmacy counter]",
+        12
+      ],
+      [
+        "counting and packaging medications [mode=in_place anchor=behind the pharmacy counter]",
+        15
+      ],
+      [
+        "labeling and organizing completed orders [mode=in_place anchor=behind the pharmacy counter]",
+        10
+      ],
+      [
+        "restocking pharmacy shelves with prepared orders [mode=workstation_hop anchor=pharmacy store shelf]",
+        6
+      ],
+      [
+        "Finding a seat at the cafe and settling in [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "Waiting for the challenge instructions [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Receiving the secret card and deciding to hold or fold [mode=in_place anchor=cafe customer seating]",
+        25
+      ],
+      [
+        "Observing the outcome of the challenge [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "order and pick up lunch [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "eat lunch [mode=in_place anchor=cafe customer seating]",
+        25
+      ],
+      [
+        "check phone for challenge updates [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "drink coffee and relax [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "relax and finish drink [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "walking to The Willows Market and Pharmacy [mode=zone_patrol anchor=store]",
+        6
+      ],
+      [
+        "walking to The Willows Market and Pharmacy [mode=in_place anchor=store]",
+        5
+      ],
+      [
+        "assisting customers at the pharmacy counter [mode=workstation_hop anchor=behind the pharmacy counter]",
+        25
+      ],
+      [
+        "restocking pharmacy shelves [mode=zone_patrol anchor=pharmacy store shelf]",
+        24
+      ],
+      [
+        "working the pharmacy counter at The Willows Market and Pharmacy",
+        60
+      ],
+      [
+        "working at The Willows Market and Pharmacy",
+        60
+      ],
+      [
+        "at The Willows Market and Pharmacy filling prescriptions",
+        60
+      ],
+      [
+        "working the pharmacy counter at The Willows Market and Pharmacy",
+        60
+      ],
+      [
+        "eating dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "at Hobbs Cafe taking part in the evening vote",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "sleeping at home",
+        60
+      ],
+      [
+        "at home sleeping",
+        60
+      ]
+    ],
+    "work_area": "the Ville:The Willows Market and Pharmacy:store"
+  },
+  {
+    "name": "Vince Vale",
+    "curr_tile": "(82,26)",
+    "act_address": "the Ville:Hobbs Cafe:cafe:piano",
+    "act_description": "playing piano",
+    "chatting_with": "Alex Shepard",
+    "daily_plan": null,
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "waking up and stretching in bed [mode=in_place anchor=bed]",
+        5
+      ],
+      [
+        "using the bathroom [mode=in_place anchor=bathroom]",
+        10
+      ],
+      [
+        "taking a shower [mode=in_place anchor=shower]",
+        15
+      ],
+      [
+        "drying off and getting dressed [mode=in_place anchor=closet]",
+        15
+      ],
+      [
+        "making the bed [mode=in_place anchor=bed]",
+        15
+      ],
+      [
+        "preparing breakfast at the cooking area [mode=in_place anchor=cooking area]",
+        15
+      ],
+      [
+        "eat breakfast at desk [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "review lecture notes while finishing breakfast [mode=in_place anchor=desk]",
+        10
+      ],
+      [
+        "walking to desk [mode=zone_patrol anchor=main room]",
+        1
+      ],
+      [
+        "Organizing lecture notes by topic [mode=in_place anchor=desk]",
+        10
+      ],
+      [
+        "Reading through key concepts [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "Taking a brief stretch break [mode=in_place anchor=desk]",
+        5
+      ],
+      [
+        "highlighting key points [mode=in_place anchor=desk]",
+        29
+      ],
+      [
+        "cleaning up the kitchen area [mode=in_place anchor=kitchen sink]",
+        15
+      ],
+      [
+        "finishing breakfast at the cooking area [mode=in_place anchor=cooking area]",
+        20
+      ],
+      [
+        "reviewing lecture notes on desk [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "organizing notes into topic sections [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "highlighting key points for lecture [mode=in_place anchor=desk]",
+        10
+      ],
+      [
+        "Arriving at Hobbs Cafe and settling in [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Reading through the challenge rules [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "Jotting down notes on card strategy [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "Reviewing potential outcomes [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "reviewing the challenge instructions [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "reviewing his secret card [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "deciding whether to hold or fold [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "waiting for the challenge results [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "waiting for the challenge results [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "eating a sandwich [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "sipping coffee and reviewing notes [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "observing other players in the cafe [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "playing piano [mode=workstation_hop anchor=piano]",
+        20
+      ],
+      [
+        "relaxing and people-watching [mode=in_place anchor=cafe customer seating]",
+        40
+      ],
+      [
+        "reading through challenge notes [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "making margin notes on key points [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "sipping coffee and reflecting [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "walking to Hobbs Cafe to meet with other players",
+        60
+      ],
+      [
+        "walking to Hobbs Cafe for the challenge",
+        60
+      ],
+      [
+        "at Oak Hill College preparing lecture materials",
+        60
+      ],
+      [
+        "walking to Hobbs Cafe for the vote",
+        60
+      ],
+      [
+        "waking up and starting morning routine at home",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe before the vote",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        120
+      ],
+      [
+        "eating dinner at The Rose and Crown Pub",
+        60
+      ],
+      [
+        "asleep at home",
+        60
+      ]
+    ],
+    "work_area": "the Ville:Oak Hill College:classroom"
+  },
+  {
+    "name": "Mike Hooks",
+    "curr_tile": "(74,23)",
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "eating grilled cheese sandwich",
+    "chatting_with": "Olivia King",
+    "daily_plan": null,
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "waking up and heading to bathroom [mode=zone_patrol anchor=bathroom]",
+        7
+      ],
+      [
+        "taking a shower [mode=in_place anchor=shower]",
+        15
+      ],
+      [
+        "grooming at sink [mode=in_place anchor=bathroom sink]",
+        13
+      ],
+      [
+        "drying and dressing [mode=in_place anchor=bathroom]",
+        10
+      ],
+      [
+        "applying deodorant and cologne [mode=in_place anchor=bathroom]",
+        2
+      ],
+      [
+        "checking phone and planning day [mode=in_place anchor=bathroom]",
+        13
+      ],
+      [
+        "preparing breakfast [mode=in_place anchor=cooking area]",
+        15
+      ],
+      [
+        "walking to kitchen [mode=zone_patrol anchor=kitchen]",
+        2
+      ],
+      [
+        "eating breakfast [mode=in_place anchor=kitchen]",
+        25
+      ],
+      [
+        "cleaning up dishes [mode=in_place anchor=kitchen sink]",
+        3
+      ],
+      [
+        "cleaning up dishes [mode=in_place anchor=kitchen sink]",
+        15
+      ],
+      [
+        "walking to The Willows Market [mode=zone_patrol anchor=park garden]",
+        10
+      ],
+      [
+        "walking to The Willows Market and Pharmacy [mode=in_place anchor=store]",
+        13
+      ],
+      [
+        "walking to The Willows Market and Pharmacy [mode=in_place anchor=store]",
+        6
+      ],
+      [
+        "unpacking canned goods [mode=workstation_hop anchor=grocery store shelf]",
+        15
+      ],
+      [
+        "stocking dairy section [mode=workstation_hop anchor=grocery store shelf]",
+        16
+      ],
+      [
+        "ringing up customer purchases at the register [mode=in_place anchor=grocery store counter]",
+        15
+      ],
+      [
+        "handling cash and card payments [mode=in_place anchor=grocery store counter]",
+        10
+      ],
+      [
+        "bagging groceries for customers [mode=in_place anchor=grocery store counter]",
+        8
+      ],
+      [
+        "assisting a customer with a price check on the shelf [mode=workstation_hop anchor=grocery store shelf]",
+        5
+      ],
+      [
+        "restocking items near the register area [mode=zone_patrol anchor=grocery store shelf]",
+        66
+      ],
+      [
+        "counting cash and reconciling the register [mode=in_place anchor=behind the grocery counter]",
+        10
+      ],
+      [
+        "restocking nearby shelves [mode=zone_patrol anchor=grocery store shelf]",
+        12
+      ],
+      [
+        "wiping down counter and organizing supplies [mode=zone_patrol anchor=behind the grocery counter]",
+        12
+      ],
+      [
+        "waiting for the challenge to start [mode=in_place anchor=cafe customer seating]",
+        12
+      ],
+      [
+        "listening to the challenge rules [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "drawing a card for the Hold for the Shield challenge [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "deciding whether to hold or fold [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "waiting for the challenge results [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "ordering a meal [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe]",
+        10
+      ],
+      [
+        "eating grilled cheese sandwich [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "relaxing and finishing meal [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "drinking a latte [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "scanning headlines and front-page stories [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "reading a deep-dive article on local politics [mode=in_place anchor=cafe customer seating]",
+        12
+      ],
+      [
+        "sipping coffee and checking the weather section [mode=in_place anchor=cafe customer seating]",
+        8
+      ],
+      [
+        "stretching legs [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "working the register at The Willows Market and Pharmacy",
+        240
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        120
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "at The Willows Market and Pharmacy closing the register and tidying shelves",
+        60
+      ],
+      [
+        "sleeping at home",
+        120
+      ]
+    ],
+    "work_area": "the Ville:The Willows Market and Pharmacy:store"
+  },
+  {
+    "name": "Olivia King",
+    "curr_tile": "(76,23)",
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "observing the cafe patrons and barista",
+    "chatting_with": "Mike Hooks",
+    "daily_plan": null,
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "waking up and stretching in bed [mode=in_place anchor=bed]",
+        5
+      ],
+      [
+        "taking a shower [mode=in_place anchor=shower]",
+        15
+      ],
+      [
+        "brushing teeth and washing face [mode=in_place anchor=bathroom sink]",
+        5
+      ],
+      [
+        "getting dressed from closet [mode=in_place anchor=closet]",
+        10
+      ],
+      [
+        "making the bed [mode=in_place anchor=bed]",
+        5
+      ],
+      [
+        "reviewing the day at desk [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "prepare a simple breakfast [mode=in_place anchor=cooking area]",
+        20
+      ],
+      [
+        "get breakfast from refrigerator [mode=in_place anchor=refrigerator]",
+        2
+      ],
+      [
+        "eat breakfast at desk [mode=in_place anchor=desk]",
+        28
+      ],
+      [
+        "Reviewing the day's schedule [mode=in_place anchor=desk]",
+        30
+      ],
+      [
+        "Studying challenge notes [mode=in_place anchor=desk]",
+        25
+      ],
+      [
+        "Jotting down key points [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "walking to Hobbs Cafe via Johnson Park [mode=zone_patrol anchor=park garden]",
+        30
+      ],
+      [
+        "ordering a coffee at the counter [mode=workstation_hop anchor=behind the cafe counter]",
+        10
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe]",
+        8
+      ],
+      [
+        "spreading challenge notes on the table [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "studying the shield hold rules [mode=in_place anchor=cafe customer seating]",
+        27
+      ],
+      [
+        "sipping a warm drink and staring out the window [mode=in_place anchor=bar customer seating]",
+        12
+      ],
+      [
+        "reviewing mental notes for the day's challenge [mode=in_place anchor=bar customer seating]",
+        10
+      ],
+      [
+        "taking slow breaths to center herself [mode=in_place anchor=bar customer seating]",
+        8
+      ],
+      [
+        "checking the time and planning next steps [mode=in_place anchor=bar customer seating]",
+        10
+      ],
+      [
+        "settling into a seat and reviewing the challenge rules [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "participating in the card draw and hold-or-fold decision [mode=in_place anchor=cafe customer seating]",
+        25
+      ],
+      [
+        "waiting for the shield reveal and results [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "discussing the outcome with nearby contestants [mode=social_touch anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "walking to a customer table with her lunch [mode=workstation_hop anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "eating her sandwich [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "sipping her iced tea and scanning the room [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "observing the cafe patrons and barista [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "clearing her tray and stretching [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "clearing dishes and wiping the table [mode=workstation_hop anchor=behind the cafe counter]",
+        10
+      ],
+      [
+        "warming up with scales and arpeggios [mode=in_place anchor=piano]",
+        8
+      ],
+      [
+        "playing a slow jazz standard from memory [mode=in_place anchor=piano]",
+        12
+      ],
+      [
+        "trying a new chord progression and improvising [mode=in_place anchor=piano]",
+        10
+      ],
+      [
+        "Reviewing challenge notes [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Highlighting key strategies [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Reflecting on today's outcome [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "walking to Hobbs Cafe for the challenge",
+        60
+      ],
+      [
+        "working a shift at Hobbs Cafe",
+        180
+      ],
+      [
+        "eating dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "at Hobbs Cafe participating in the evening vote",
+        60
+      ],
+      [
+        "at home winding down for the night",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "sleeping at home",
+        60
+      ]
+    ],
+    "work_area": "the Ville:Hobbs Cafe:cafe"
+  },
+  {
+    "name": "Max Shoemaker",
+    "curr_tile": "(79,25)",
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "sipping iced tea and scrolling phone",
+    "chatting_with": "Owen Logan",
+    "daily_plan": null,
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "Getting out of bed and stretching [mode=in_place anchor=bed]",
+        5
+      ],
+      [
+        "Taking a quick shower [mode=in_place anchor=shower]",
+        15
+      ],
+      [
+        "Getting dressed at the closet [mode=in_place anchor=closet]",
+        10
+      ],
+      [
+        "Making the bed and tidying up [mode=zone_patrol anchor=bed]",
+        10
+      ],
+      [
+        "Checking phone and reviewing day's notes at desk [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "eating a simple breakfast at the desk [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "walking to classroom [mode=zone_patrol anchor=classroom]",
+        5
+      ],
+      [
+        "reviewing notes at desk [mode=in_place anchor=classroom student seating]",
+        15
+      ],
+      [
+        "planning the day's schedule [mode=in_place anchor=classroom student seating]",
+        10
+      ],
+      [
+        "packing bag for the day [mode=in_place anchor=closet]",
+        15
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe]",
+        10
+      ],
+      [
+        "walking to the dorm kitchen [mode=in_place anchor=kitchen]",
+        2
+      ],
+      [
+        "gathering pastry ingredients from refrigerator [mode=workstation_hop anchor=refrigerator]",
+        5
+      ],
+      [
+        "mixing dough on the counter [mode=workstation_hop anchor=cooking area]",
+        15
+      ],
+      [
+        "cleaning up prep area at the sink [mode=in_place anchor=kitchen sink]",
+        8
+      ],
+      [
+        "organizing kitchen tools [mode=workstation_hop anchor=cooking area]",
+        20
+      ],
+      [
+        "Gathering and measuring ingredients for pastry dough [mode=workstation_hop anchor=cooking area]",
+        20
+      ],
+      [
+        "Measuring and combining dry ingredients [mode=in_place anchor=cooking area]",
+        10
+      ],
+      [
+        "Mixing wet and dry ingredients into a shaggy dough [mode=in_place anchor=cooking area]",
+        10
+      ],
+      [
+        "Kneading the dough until smooth and elastic [mode=in_place anchor=cooking area]",
+        15
+      ],
+      [
+        "Covering the dough to rest [mode=in_place anchor=cooking area]",
+        5
+      ],
+      [
+        "Letting dough rest and cleaning work surfaces [mode=in_place anchor=cooking area]",
+        20
+      ],
+      [
+        "Rolling out pastry dough into even sheets [mode=in_place anchor=cooking area]",
+        15
+      ],
+      [
+        "Shaping croissant triangles and pinching edges [mode=in_place anchor=cooking area]",
+        15
+      ],
+      [
+        "Arranging shaped pastries on baking trays [mode=in_place anchor=cooking area]",
+        10
+      ],
+      [
+        "listening to the challenge briefing [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "deciding to hold or fold the secret card [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "awaiting the challenge results [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "unwrapping the turkey sandwich [mode=in_place anchor=cafe customer seating]",
+        2
+      ],
+      [
+        "eating the turkey sandwich [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "sipping water [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "wiping hands and mouth with a napkin [mode=in_place anchor=cafe customer seating]",
+        3
+      ],
+      [
+        "sipping iced tea and scrolling phone [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "stretching legs near the counter [mode=zone_patrol anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Walking to the cooking area [mode=workstation_hop anchor=cooking area]",
+        2
+      ],
+      [
+        "Mixing pastry dough ingredients [mode=in_place anchor=cooking area]",
+        20
+      ],
+      [
+        "Kneading and resting the dough [mode=in_place anchor=cooking area]",
+        14
+      ],
+      [
+        "Mixing fillings and batters [mode=workstation_hop anchor=cooking area]",
+        36
+      ],
+      [
+        "Washing and organizing prep tools [mode=in_place anchor=kitchen sink]",
+        53
+      ],
+      [
+        "Restocking ingredients from refrigerator [mode=zone_patrol anchor=refrigerator]",
+        55
+      ],
+      [
+        "at Hobbs Cafe finishing pastry prep",
+        60
+      ],
+      [
+        "prepping dinner service at Hobbs Cafe",
+        60
+      ],
+      [
+        "eating dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "at Hobbs Cafe taking part in the evening vote",
+        60
+      ],
+      [
+        "at Hobbs Cafe reviewing notes before the vote",
+        60
+      ],
+      [
+        "heading home to wind down for the night",
+        60
+      ],
+      [
+        "sleeping at home",
+        60
+      ]
+    ],
+    "work_area": "the Ville:Hobbs Cafe:cafe"
+  },
+  {
+    "name": "Andrew Abrams",
+    "curr_tile": "(72,25)",
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "eating the salad",
+    "chatting_with": null,
+    "daily_plan": null,
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "wake up and walk to the common room [mode=zone_patrol anchor=common room]",
+        5
+      ],
+      [
+        "stretch and do light morning exercises [mode=in_place anchor=common room sofa]",
+        10
+      ],
+      [
+        "review game notes and plan the day [mode=in_place anchor=common room table]",
+        15
+      ],
+      [
+        "tidy up personal space in the common room [mode=in_place anchor=common room sofa]",
+        10
+      ],
+      [
+        "meditate and journal [mode=in_place anchor=common room sofa]",
+        10
+      ],
+      [
+        "sip water and mentally prepare for the day [mode=in_place anchor=common room sofa]",
+        10
+      ],
+      [
+        "eating his oatmeal [mode=in_place anchor=common room table]",
+        15
+      ],
+      [
+        "sipping coffee and looking over his notes [mode=in_place anchor=common room table]",
+        10
+      ],
+      [
+        "checking his phone for the day's schedule [mode=in_place anchor=common room table]",
+        5
+      ],
+      [
+        "reading the morning news on his phone [mode=in_place anchor=common room table]",
+        20
+      ],
+      [
+        "sipping coffee and planning his day [mode=in_place anchor=common room table]",
+        10
+      ],
+      [
+        "finishing the last bites of breakfast [mode=in_place anchor=common room sofa]",
+        10
+      ],
+      [
+        "reading a chapter of his book [mode=in_place anchor=common room sofa]",
+        15
+      ],
+      [
+        "clearing his breakfast dishes [mode=in_place anchor=common room table]",
+        5
+      ],
+      [
+        "Settling into the sofa with book and coffee [mode=in_place anchor=common room sofa]",
+        5
+      ],
+      [
+        "Reading a chapter while sipping coffee [mode=in_place anchor=common room sofa]",
+        20
+      ],
+      [
+        "Pausing to reflect on a passage [mode=in_place anchor=common room sofa]",
+        5
+      ],
+      [
+        "clearing breakfast dishes from the common room table [mode=in_place anchor=common room table]",
+        10
+      ],
+      [
+        "washing dishes at the kitchen sink [mode=in_place anchor=kitchen sink]",
+        20
+      ],
+      [
+        "relaxing on common room sofa [mode=in_place anchor=common room sofa]",
+        30
+      ],
+      [
+        "leaving the co-living space and heading out [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "arriving at Hobbs Cafe and finding a seat [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "reviewing challenge notes at cafe table [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "mentally rehearsing card strategy [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "reviewing the challenge instructions [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "deciding whether to hold or fold [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "revealing and comparing cards [mode=zone_patrol anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "waiting for the challenge results [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "ordering lunch at the counter [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "eating the sandwich [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "eating the salad [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "sipping water and resting [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "sipping coffee and scanning the cafe [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "Settling into a cozy corner with coffee and book [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "Reading a chapter while sipping coffee [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "Finishing the last sips and bookmarking page [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "checking phone and people-watching [mode=in_place anchor=cafe customer seating]",
+        30
+      ],
+      [
+        "walking to Oak Hill College library for research",
+        60
+      ],
+      [
+        "browsing the stacks at Oak Hill College library",
+        60
+      ],
+      [
+        "working at the Oak Hill College library",
+        60
+      ],
+      [
+        "having coffee and reading at Hobbs Cafe",
+        60
+      ],
+      [
+        "having dinner at artist's co-living space",
+        120
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "having dinner at The Rose and Crown Pub",
+        60
+      ],
+      [
+        "walking back to artist's co-living space for the night",
+        60
+      ],
+      [
+        "sleeping at artist's co-living space",
+        60
+      ]
+    ],
+    "work_area": "the Ville:Oak Hill College:library"
+  },
+  {
+    "name": "Owen Logan",
+    "curr_tile": "(76,25)",
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "Finishing the book chapter over the last bites",
+    "chatting_with": "Max Shoemaker",
+    "daily_plan": null,
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "wake up and stretch in bed [mode=in_place anchor=bed]",
+        5
+      ],
+      [
+        "take a quick shower [mode=in_place anchor=shower]",
+        15
+      ],
+      [
+        "brush teeth and wash face [mode=in_place anchor=bathroom sink]",
+        5
+      ],
+      [
+        "get dressed [mode=in_place anchor=closet]",
+        10
+      ],
+      [
+        "make the bed and tidy up [mode=in_place anchor=bed]",
+        5
+      ],
+      [
+        "check phone and review the day's schedule [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "prepare breakfast from the refrigerator [mode=workstation_hop anchor=refrigerator]",
+        10
+      ],
+      [
+        "eat breakfast at the table [mode=in_place anchor=main room]",
+        20
+      ],
+      [
+        "review the day's schedule at the desk [mode=workstation_hop anchor=desk]",
+        15
+      ],
+      [
+        "clean up breakfast dishes [mode=in_place anchor=refrigerator]",
+        10
+      ],
+      [
+        "stretch and prepare to head out [mode=in_place anchor=main room]",
+        5
+      ],
+      [
+        "preparing a quick breakfast from the refrigerator [mode=workstation_hop anchor=refrigerator]",
+        10
+      ],
+      [
+        "eating breakfast at the bar [mode=in_place anchor=bar customer seating]",
+        15
+      ],
+      [
+        "reviewing challenge notes [mode=in_place anchor=bar customer seating]",
+        15
+      ],
+      [
+        "reviewing the daily challenge rules and strategy [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "Walk to The Willows Market [mode=zone_patrol anchor=park garden]",
+        6
+      ],
+      [
+        "Unload boxes from delivery cart [mode=workstation_hop anchor=behind the grocery counter]",
+        12
+      ],
+      [
+        "Sort items onto grocery shelves [mode=workstation_hop anchor=grocery store shelf]",
+        12
+      ],
+      [
+        "walking to The Willows Market [mode=zone_patrol anchor=store]",
+        13
+      ],
+      [
+        "unpacking canned goods from delivery boxes [mode=in_place anchor=grocery store shelf]",
+        20
+      ],
+      [
+        "arranging dry items on shelves [mode=in_place anchor=grocery store shelf]",
+        17
+      ],
+      [
+        "Unpack and sort health and beauty products from delivery cart [mode=zone_patrol anchor=pharmacy store shelf]",
+        15
+      ],
+      [
+        "Stock shelves with sorted products, facing labels forward [mode=zone_patrol anchor=pharmacy store shelf]",
+        20
+      ],
+      [
+        "Tidy up and dispose of empty boxes [mode=zone_patrol anchor=pharmacy store shelf]",
+        5
+      ],
+      [
+        "ordering a coffee at the counter [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "finding a seat and reviewing challenge notes [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "waiting for the challenge to begin [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "participating in the daily challenge [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "Ordering a sandwich and drink at the counter [mode=in_place anchor=cafe customer seating]",
+        16
+      ],
+      [
+        "Eating the sandwich while reading [mode=in_place anchor=cafe customer seating]",
+        25
+      ],
+      [
+        "Finishing the book chapter over the last bites [mode=in_place anchor=cafe customer seating]",
+        22
+      ],
+      [
+        "Sipping coffee and savoring the pastry [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "Relaxing and people-watching while finishing dessert [mode=in_place anchor=cafe customer seating]",
+        16
+      ],
+      [
+        "Relaxing and people-watching from the table [mode=social_touch anchor=cafe customer seating]",
+        26
+      ],
+      [
+        "stocking shelves at The Willows Market and Pharmacy",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "stocking shelves at The Willows Market and Pharmacy",
+        120
+      ],
+      [
+        "having dinner at Hobbs Cafe before the evening vote",
+        60
+      ],
+      [
+        "having dinner at The Rose and Crown Pub",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "stocking shelves at The Willows Market and Pharmacy",
+        60
+      ],
+      [
+        "settling in at home for the night",
+        60
+      ],
+      [
+        "sleeping at home after a long day",
+        60
+      ]
+    ],
+    "work_area": "the Ville:The Willows Market and Pharmacy:store"
+  },
+  {
+    "name": "Nick Miller",
+    "curr_tile": "(52,69)",
+    "act_address": "the Ville:House 4:common room:common room table",
+    "act_description": "eating the sandwich",
+    "chatting_with": null,
+    "daily_plan": null,
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "waking up and stretching in bed [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "getting out of bed and making the bed [mode=in_place anchor=bed]",
+        5
+      ],
+      [
+        "selecting clothes from the closet [mode=workstation_hop anchor=closet]",
+        10
+      ],
+      [
+        "getting dressed [mode=in_place anchor=closet]",
+        15
+      ],
+      [
+        "checking phone and planning the day at the desk [mode=workstation_hop anchor=desk]",
+        20
+      ],
+      [
+        "walking to bathroom [mode=zone_patrol anchor=bathroom]",
+        1
+      ],
+      [
+        "taking a shower [mode=in_place anchor=shower]",
+        15
+      ],
+      [
+        "morning hygiene at sink [mode=in_place anchor=bathroom sink]",
+        10
+      ],
+      [
+        "drying off and getting dressed [mode=in_place anchor=bathroom]",
+        10
+      ],
+      [
+        "walking to kitchen [mode=zone_patrol anchor=kitchen]",
+        1
+      ],
+      [
+        "preparing and eating breakfast [mode=in_place anchor=kitchen]",
+        23
+      ],
+      [
+        "Walking through Johnson Park on the way to college [mode=zone_patrol anchor=park garden]",
+        20
+      ],
+      [
+        "walking to Oak Hill College classroom [mode=zone_patrol anchor=classroom student seating]",
+        10
+      ],
+      [
+        "organizing handouts on student desks [mode=workstation_hop anchor=classroom student seating]",
+        15
+      ],
+      [
+        "reviewing lecture notes at podium [mode=workstation_hop anchor=classroom student seating]",
+        15
+      ],
+      [
+        "review lesson plan and notes at podium [mode=in_place anchor=classroom podium]",
+        30
+      ],
+      [
+        "walking to Oak Hill College [mode=zone_patrol anchor=classroom]",
+        8
+      ],
+      [
+        "writing key concepts on the blackboard [mode=workstation_hop anchor=blackboard]",
+        20
+      ],
+      [
+        "stepping back to review and adjust the board [mode=in_place anchor=classroom podium]",
+        12
+      ],
+      [
+        "sort handouts by subject [mode=in_place anchor=classroom student seating]",
+        10
+      ],
+      [
+        "arrange worksheets on desks [mode=in_place anchor=classroom student seating]",
+        12
+      ],
+      [
+        "check for missing pages and stack neatly [mode=in_place anchor=classroom student seating]",
+        8
+      ],
+      [
+        "practice lesson delivery at podium [mode=in_place anchor=classroom podium]",
+        20
+      ],
+      [
+        "settling into the cafe seating area [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "receiving the secret card for the challenge [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "deciding whether to hold or fold [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "sipping coffee and watching the cafe entrance [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "pacing near the piano while waiting [mode=zone_patrol anchor=piano]",
+        10
+      ],
+      [
+        "checking phone for challenge updates [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "walking to House 4 common room [mode=zone_patrol anchor=common room]",
+        5
+      ],
+      [
+        "walking to House 4 common room [mode=zone_patrol anchor=common room table]",
+        5
+      ],
+      [
+        "sitting down and unwrapping the sandwich [mode=in_place anchor=common room table]",
+        2
+      ],
+      [
+        "eating the sandwich [mode=in_place anchor=common room table]",
+        30
+      ],
+      [
+        "cleaning up and relaxing after the meal [mode=in_place anchor=common room table]",
+        7
+      ],
+      [
+        "sipping coffee and scanning the room [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "watching people at the counter and by the window [mode=in_place anchor=cafe customer seating]",
+        12
+      ],
+      [
+        "finishing coffee and checking phone [mode=in_place anchor=cafe customer seating]",
+        9
+      ],
+      [
+        "playing a tune on the piano [mode=workstation_hop anchor=piano]",
+        40
+      ],
+      [
+        "teaching a class at Oak Hill College",
+        60
+      ],
+      [
+        "at Oak Hill College teaching a class",
+        60
+      ],
+      [
+        "at Oak Hill College reviewing student progress",
+        60
+      ],
+      [
+        "at Oak Hill College wrapping up lesson prep",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        120
+      ],
+      [
+        "at Hobbs Cafe taking part in the evening vote",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "sleeping at home",
+        60
+      ]
+    ],
+    "work_area": "the Ville:Oak Hill College:classroom"
+  },
+  {
+    "name": "Dean Sanford",
+    "curr_tile": "(80,21)",
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "clearing the table and preparing to leave",
+    "chatting_with": null,
+    "daily_plan": null,
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "waking up and checking phone [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "getting dressed from closet [mode=in_place anchor=closet]",
+        10
+      ],
+      [
+        "doing morning stretches [mode=in_place anchor=bed]",
+        15
+      ],
+      [
+        "playing guitar to wake up [mode=in_place anchor=guitar]",
+        15
+      ],
+      [
+        "making the bed [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "ordering breakfast and finding a seat [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe]",
+        15
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "ordering a full breakfast [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe customer seating]",
+        6
+      ],
+      [
+        "sitting down at the common room table with breakfast [mode=in_place anchor=common room table]",
+        2
+      ],
+      [
+        "eating scrambled eggs and toast [mode=in_place anchor=common room table]",
+        18
+      ],
+      [
+        "drinking coffee and reading the news [mode=in_place anchor=common room table]",
+        10
+      ],
+      [
+        "clearing the table and washing dishes [mode=in_place anchor=common room table]",
+        4
+      ],
+      [
+        "relaxing with coffee after breakfast [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "sipping coffee and scanning notes [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "reviewing lecture notes in detail [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "jotting down key reminders for the day [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "sipping coffee and scanning the room [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "observing interactions between contestants [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "checking the time and mentally preparing for the challenge [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "walking to Hobbs Cafe from Oak Hill College [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "finding a seat and settling in [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "reviewing the Hold for the Shield rules [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "watching other contestants arrive [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "listening to challenge instructions [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "drawing a secret card [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "deciding to hold or fold [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "waiting for other players to decide [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "revealing held cards and determining winner [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "reflecting on the challenge outcome [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "ordering lunch at the counter [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "eating lunch at a table [mode=in_place anchor=cafe customer seating]",
+        30
+      ],
+      [
+        "clearing the table and preparing to leave [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "relaxing with coffee [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "walking to Harvey Oak Supply Store [mode=zone_patrol anchor=supply store]",
+        10
+      ],
+      [
+        "checking inventory on supply store product shelves [mode=zone_patrol anchor=supply store product shelf]",
+        25
+      ],
+      [
+        "recording stock levels at the supply store counter [mode=workstation_hop anchor=supply store counter]",
+        25
+      ],
+      [
+        "working at Harvey Oak Supply Store",
+        60
+      ],
+      [
+        "working a shift at Harvey Oak Supply Store",
+        120
+      ],
+      [
+        "working an inventory shift at Harvey Oak Supply Store",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        120
+      ],
+      [
+        "at Hobbs Cafe taking part in the evening vote",
+        60
+      ],
+      [
+        "eating dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "at home winding down for the night",
+        60
+      ],
+      [
+        "sleeping at home",
+        60
+      ]
+    ],
+    "work_area": "the Ville:Harvey Oak Supply Store:supply store"
+  },
+  {
+    "name": "Irene Dove",
+    "curr_tile": "(79,23)",
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "sipping coffee and people-watching",
+    "chatting_with": "Diana Ogden",
+    "daily_plan": null,
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "Wake up and stretch in bed [mode=in_place anchor=bed]",
+        5
+      ],
+      [
+        "Take a shower in the bathroom [mode=in_place anchor=shower]",
+        15
+      ],
+      [
+        "Get dressed from the closet [mode=in_place anchor=closet]",
+        10
+      ],
+      [
+        "Check phone and plan the day at desk [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "Make the bed and tidy up [mode=in_place anchor=bed]",
+        15
+      ],
+      [
+        "Walk to the dorm kitchen to prepare breakfast [mode=zone_patrol anchor=kitchen]",
+        2
+      ],
+      [
+        "Prepare a simple breakfast [mode=workstation_hop anchor=cooking area]",
+        10
+      ],
+      [
+        "Eat breakfast at the dorm room desk [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "Review the day's challenge and plan at desk [mode=in_place anchor=desk]",
+        28
+      ],
+      [
+        "finishing breakfast at desk [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "making the bed [mode=in_place anchor=bed]",
+        15
+      ],
+      [
+        "organizing desk and closet [mode=in_place anchor=desk]",
+        25
+      ],
+      [
+        "packing apron and gathering belongings [mode=in_place anchor=Dorm Room 1]",
+        5
+      ],
+      [
+        "walking to Hobbs Cafe [mode=in_place anchor=cafe]",
+        10
+      ],
+      [
+        "unlocking the cafe and turning on equipment [mode=in_place anchor=behind the cafe counter]",
+        10
+      ],
+      [
+        "preparing espresso machine and restocking supplies [mode=zone_patrol anchor=behind the cafe counter]",
+        15
+      ],
+      [
+        "serving the first morning customers [mode=in_place anchor=behind the cafe counter]",
+        20
+      ],
+      [
+        "prepare coffee and set up the station [mode=workstation_hop anchor=behind the cafe counter]",
+        20
+      ],
+      [
+        "serve customers and take orders [mode=social_touch anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "clean the counter and restock supplies [mode=workstation_hop anchor=behind the cafe counter]",
+        20
+      ],
+      [
+        "moving to the challenge area and finding a seat [mode=workstation_hop anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "listening to the challenge rules and instructions [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "drawing a secret card and deciding to hold or fold [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "waiting for other contestants to play their turns [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "revealing the held card and learning the outcome [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "getting her lunch from the kitchen [mode=workstation_hop anchor=cooking area]",
+        5
+      ],
+      [
+        "eating her lunch [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "sipping her drink and checking her phone [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "sipping coffee and people-watching [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "clearing her dishes and tidying up [mode=workstation_hop anchor=behind the cafe counter]",
+        5
+      ],
+      [
+        "Preparing coffee station and restocking supplies [mode=workstation_hop anchor=behind the cafe counter]",
+        40
+      ],
+      [
+        "Taking orders and making drinks for customers [mode=workstation_hop anchor=behind the cafe counter]",
+        40
+      ],
+      [
+        "Cleaning the counter and washing dishes [mode=in_place anchor=kitchen sink]",
+        39
+      ],
+      [
+        "Wiping down tables and organizing customer seating [mode=zone_patrol anchor=cafe customer seating]",
+        61
+      ],
+      [
+        "having coffee at Hobbs Cafe and reviewing notes",
+        60
+      ],
+      [
+        "at Hobbs Cafe reviewing challenge notes",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        120
+      ],
+      [
+        "at Hobbs Cafe taking part in the evening vote",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "having a quiet evening at home and winding down for sleep",
+        60
+      ],
+      [
+        "asleep at home",
+        60
+      ]
+    ],
+    "work_area": "the Ville:Hobbs Cafe:cafe"
+  },
+  {
+    "name": "Alex Shepard",
+    "curr_tile": "(83,26)",
+    "act_address": "the Ville:Hobbs Cafe:cafe:piano",
+    "act_description": "playing a few songs on the cafe piano",
+    "chatting_with": "Vince Vale",
+    "daily_plan": null,
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "Waking up and stretching [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "Getting dressed [mode=workstation_hop anchor=closet]",
+        15
+      ],
+      [
+        "Organizing art supplies [mode=workstation_hop anchor=easel]",
+        15
+      ],
+      [
+        "Packing bag for the day [mode=workstation_hop anchor=shelf]",
+        20
+      ],
+      [
+        "preparing a simple breakfast [mode=in_place anchor=cooking area]",
+        10
+      ],
+      [
+        "eating breakfast at the common room table [mode=in_place anchor=common room table]",
+        20
+      ],
+      [
+        "reviewing challenge notes [mode=in_place anchor=common room table]",
+        20
+      ],
+      [
+        "clearing the table and washing dishes [mode=in_place anchor=common room table]",
+        10
+      ],
+      [
+        "walking to the college library [mode=zone_patrol anchor=library]",
+        18
+      ],
+      [
+        "walking to the library table [mode=workstation_hop anchor=library table]",
+        2
+      ],
+      [
+        "sorting morning records on the library table [mode=in_place anchor=library table]",
+        20
+      ],
+      [
+        "filing records into the library system [mode=in_place anchor=library table]",
+        20
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=common room table]",
+        10
+      ],
+      [
+        "ordering a coffee at the counter [mode=workstation_hop anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe]",
+        5
+      ],
+      [
+        "reviewing challenge notes at cafe table [mode=in_place anchor=cafe customer seating]",
+        25
+      ],
+      [
+        "chatting with fellow contestants [mode=social_touch anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "waiting for the challenge to start [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "receiving the secret card and analyzing the odds [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "deciding to hold or fold and submitting the decision [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "watching other contestants reveal their cards [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "ordering a sandwich at the bar [mode=in_place anchor=bar customer seating]",
+        5
+      ],
+      [
+        "eating the sandwich [mode=in_place anchor=bar customer seating]",
+        35
+      ],
+      [
+        "playing a few songs on the cafe piano [mode=workstation_hop anchor=piano]",
+        20
+      ],
+      [
+        "walking to Oak Hill College library [mode=zone_patrol anchor=library]",
+        11
+      ],
+      [
+        "walking to Oak Hill College library [mode=in_place anchor=library table]",
+        12
+      ],
+      [
+        "sorting through afternoon records at library table [mode=in_place anchor=library table]",
+        30
+      ],
+      [
+        "filing and organizing record logs [mode=in_place anchor=library table]",
+        24
+      ],
+      [
+        "shelving books at bookshelf [mode=workstation_hop anchor=bookshelf]",
+        43
+      ],
+      [
+        "at Oak Hill College library organizing archives",
+        60
+      ],
+      [
+        "organizing archival boxes at Oak Hill College library",
+        60
+      ],
+      [
+        "at Hobbs Cafe reviewing notes for the vote",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "waking up and getting ready at home",
+        60
+      ],
+      [
+        "at Hobbs Cafe taking part in the evening vote",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "at home winding down for bed",
+        60
+      ],
+      [
+        "sleeping at home",
+        60
+      ]
+    ],
+    "work_area": "the Ville:Oak Hill College:library"
+  }
+]

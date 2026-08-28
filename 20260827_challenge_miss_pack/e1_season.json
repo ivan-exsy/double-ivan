@@ -1,0 +1,164 @@
+[
+  {
+    "simulation_id": "a31712bf-8b45-46fa-8fd8-56ba7c3d6058",
+    "current_day": 1,
+    "total_days": 0,
+    "phase": "SOCIAL",
+    "status": "running",
+    "winner": null,
+    "ended_day": null,
+    "immunity_holder": "Dean Sanford",
+    "active_challenge_id": "hold_for_shield",
+    "remaining_players": [
+      "Alex Butcher",
+      "Alex Shepard",
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Dean Sanford",
+      "Diana Ogden",
+      "Irene Dove",
+      "Ivan Pitts",
+      "Max Shoemaker",
+      "Mike Hooks",
+      "Nick Miller",
+      "Olivia King",
+      "Owen Logan",
+      "Vince Vale",
+      "Vincent Slater"
+    ],
+    "eliminated": [],
+    "immunity_history": [
+      {
+        "day": 1,
+        "holders": [
+          "Dean Sanford"
+        ]
+      }
+    ],
+    "challenge_results": [
+      {
+        "day": 1,
+        "type": "hold_for_shield",
+        "winners": [
+          "Dean Sanford"
+        ],
+        "claimants": 15,
+        "decisions": [
+          {
+            "agent": "Alex Butcher",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "card": 1,
+            "agent": "Alex Shepard",
+            "action": "fold",
+            "reasoning": "I'm a systems thinker who watches for second-order effects, and holding a 1 is a losing proposition that reveals weakness. Folding keeps my card private and avoids handing the group information about my position on Day 1, which aligns with my default stance of gathering data before exposing my hand.",
+            "choice_reason_plain": "I'm a systems thinker who watches for second-order effects, and holding a 1 is a losing proposition that reveals weakness. Folding keeps my card private and avoids handing the group information about my position on Day 1, which aligns with my default stance of gathering data befo"
+          },
+          {
+            "agent": "Alexis Reed",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Andrew Abrams",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "card": 3,
+            "agent": "Dean Sanford",
+            "action": "hold",
+            "reasoning": "I'm a rank 3, the highest possible \u2014 that's the best leverage I'll see all season. Pragmatically, you don't fold the top card when only one shield exists; the incentive structure rewards holding your strongest position. My default is to stand when pressured, and this is the cleanest pressure test there is.",
+            "choice_reason_plain": "I'm a rank 3, the highest possible \u2014 that's the best leverage I'll see all season. Pragmatically, you don't fold the top card when only one shield exists; the incentive structure rewards holding your strongest position. My default is to stand when pressured, and this is the clean"
+          },
+          {
+            "agent": "Diana Ogden",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "card": 2,
+            "agent": "Irene Dove",
+            "action": "fold",
+            "reasoning": "I value clear commitments and early coordination, and with a low card rank of 2, holding would be a long shot that doesn't align with my practical, low-risk approach to planning\u2014I'd rather fold and keep my options open for building trust through transparency later.",
+            "choice_reason_plain": "I value clear commitments and early coordination, and with a low card rank of 2, holding would be a long shot that doesn't align with my practical, low-risk approach to planning\u2014I'd rather fold and keep my options open for building trust through transparency later."
+          },
+          {
+            "agent": "Ivan Pitts",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Max Shoemaker",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Mike Hooks",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Nick Miller",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Olivia King",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Owen Logan",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Vince Vale",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Vincent Slater",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          }
+        ],
+        "public_board": {
+          "winner": "Dean Sanford",
+          "holders": {
+            "Dean Sanford": 3
+          }
+        },
+        "challenge_name": "Hold for the Shield",
+        "win_path_one_liner": "Highest held card won the Shield"
+      }
+    ],
+    "alliance_log": [
+      {
+        "source": "chat",
+        "members": [
+          "Irene Dove",
+          "Max Shoemaker"
+        ],
+        "formed_day": 1
+      }
+    ],
+    "daily_narratives": [],
+    "updated_at": "2026-08-27T23:17:58.239649+00:00"
+  }
+]
