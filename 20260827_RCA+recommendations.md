@@ -294,6 +294,6 @@ Read stated destination from `act` / `intent`. Read the body from `pos` / `on`.
 
 ### D. Soft cells / limits of what was checked
 
-- `20260825-1`’s “vote hit 80% under a 2 h invitation” (§3) is derived from that run’s checklist plus the Pass 1 commit diff (vote lead **2.0 → 0.5**), not measured in these packs. It is the number that motivates recommendation 2.
+- ~~`20260825-1`’s “vote hit 80% under a 2 h invitation” (§3)~~ — **half wrong; corrected by chunk 2.** The **2.0 → 0.5** cut in the Pass 1 diff was the *lock* lead. The *invitation* went **1.0 → 0.5**, on both appointments, in the same commit. So 25-1’s passing vote ran on a **one-hour** invitation behind a two-hour lock, and recommendation 2 restores that one hour — not two. Still derived from the diff plus that run’s checklist, not measured in these packs.
 - **Recommendation 4 (identity seed).** Confirmed: the stale line reaches the daily-plan prompt, and the string never changes — same text for all 15 personas on day 2 of `20260827-1`, and the same text across days 1–3 of an unrelated older sim (`COS/tasks/2026-08-20-003/supabase_extract/`). **Not** confirmed: whether a refresh function exists and is failing, or no refresh path was ever written. Does not change the recommendation; does change the size of the fix.
 - The 11% walk rate behind the primary mechanism is still **two windows, not three** — see §8.

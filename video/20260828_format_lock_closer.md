@@ -41,6 +41,10 @@ Pictures: same eight jobs we already have. New story is a longer hold or a tight
 
 Length: follows the night. Not longer on purpose. A quiet night can match or undershoot the old ~90s tape. A loud night (last words, a real tie between people, hands at work) can run longer. Fail = pad, village recap, or no real choice. Do not treat under 90 seconds as a fail.
 
+**Required emotional hooks:** at least **2** of: one real choice (tonight’s reason, kid-plain, no rank), last words, inner vote why, living last line. The last line is always one of them. Hold-for-Shield Peak: `{Name} would rather …` then `She/He wins the Shield.` Quiet nights still need two hooks — do not ship choice-only or last-line-only.
+
+**Ship gate (new trailers / new sims):** missing `vo_locked_long.txt` auto-locks from `draft_closer_tonight_vo`. Bake fails if `check_closer_vo_facts` does not see Doubles, the living last line, ≥2 hooks, Day-1 vs later alliances, and Peak choice/win when the ledger has them. Do not `--replace-vo-lock` the Episode 1 Ivan/Alex master. Prove on other sims.
+
 Pass: a stranger can name the two people; they got the show (vote-out, tonight’s game, someone left); they felt one choice; they would send it; they want tomorrow for a named living person.
 
 Do not: recut Ivan/Alex as the deliverable; write a new 60-second travel tape; add “please share.”

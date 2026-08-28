@@ -390,7 +390,7 @@ Human override until picker quality is proven.
 | 2 | Follow | Peak + Cost names | Skip “following two of them”; Peak then Cost |
 | 3 | Wants | One line each | Job+place every night (returnee included), then ≤1 why-tonight each. Why-tonight = personality revealed today (not the card rank / Hold / Expose / Protect). Innate `roles.trait` if the reason is only the board. Cost leftover is last fallback. Want HUD stamps that line. Never `{Name} is back.` Skip why-tonight only if no reason and no innate. |
 | 4 | Pressure | Challenge name + fork + tonight consequence | `Tonight's game is {name}.` + steps_board order |
-| 5 | Peak | Winner / power — tonight-only | Same |
+| 5 | Peak | One real choice from tonight’s reason (kid-plain, no rank), then winner / power — tonight-only. Hold for the Shield win line is `{She/He} wins the Shield.` | Same |
 | 6 | Mid | Alliances→votes teach + ballot line | **Skip** the alliances sermon. Vote still lands on Cost tally. Last-night heat is Cost why-tonight, not a recap |
 | 7 | Cost | Votes / leave + Peak ballot if true | Same. Last words sit on the leave walk (loop 1×), not a freeze |
 | 8 | Census | Fifteen become fourteen | `{N} become {N−1}` under G7. Keep G7. One breath. |
@@ -411,7 +411,8 @@ Human override until picker quality is proven.
 [Every night] [Cost] job+place. [Cost] personality that showed up today (leftover only if no tonight trait). Never `{Name} is back.`
 
 Tonight's game is [challenge]. [Day 1: short how-to. Later: one breath; skip steps_board sermon]
-[Peak turn]
+[One choice from tonight's reason — Peak first. Kid-plain; no rank. Example: Olivia would rather show who is playing than hide and let chance decide.]
+[Peak turn. Hold for the Shield: She/He wins the Shield.]
 [Day 1 only] As the day continues, conversations turn into alliances. Alliances turn into votes.
 [Day 1 only] At the end of the day, every Double casts a ballot.
 [Cost: Tonight {N} people name {Cost}. Never "the vote splits." Then leave — Peak ballot if true]
@@ -839,6 +840,8 @@ Day 1 V6 **G1–G8 READY** — CapCut gold exists; further nights reuse the same
 
 | Date | Change |
 |------|--------|
+| 2026-08-28 | **§9 closer ship gate** — new sim bakes auto-lock `vo_locked_long.txt` from the closer writer. `check_closer_vo_facts` fails closed without Doubles, living last line, ≥2 hooks, Day-1 vs later alliances, and Peak choice/win when the ledger has them. |
+| 2026-08-28 | **§9 two emotional hooks** — every closer needs ≥2 of: one real choice (tonight’s reason, kid-plain, no rank), last words, inner vote why, living last line. Last line still required. Hold-for-Shield Peak turn is `{She/He} wins the Shield.` after the choice. |
 | 2026-08-28 | **§9 closer format lock [A]** — Doubles line every night (full sentence, once). Later nights **drop** the alliances sermon (supersedes the same-day “alliances every night” row). Census stays (G7 + one breath). Last line names someone still in (default Peak without tonight-only power). Never “another Double will leave” / “new alliances will form.” Voice on after mute hook. Length follows the night; under 90s is not a fail. |
 | 2026-08-28 | **§9.2–9.3 Episode 1 spine every night** — alliances→votes teach + ballot line after the Peak win, any episode. Survival stamp sits on the group photo; census HUD starts after the stamp (not a fixed 3.5s tail on a short later-night line). **Superseded for later-night mid-body by the format-lock [A] row above.** |
 | 2026-08-27 | **§3.6 / §9 intro + tally** — featured why-tonight is personality revealed today for Peak **and** Cost (never “holds an 8”). Split/messy tally is `Tonight {N} people name {Cost}.` — drop the empty “the vote splits” throat-clear. |
