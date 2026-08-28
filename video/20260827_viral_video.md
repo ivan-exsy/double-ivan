@@ -1,10 +1,119 @@
 # Daily trailers that can travel — considerations and suggestions
 
 **Date:** 2026-08-27  
-**Status:** Draft for founder review. Not locked. Not a replacement for `video/daily/daily-2D-3D-blend.md` until you approve folding it in.  
+**Status:** Council draft as written (sections 1–13) is **not** the next brief. Read the founder addendum first. The locked closer is a **starting cut to expand**, not a finished daily. Runtime follows the story — no 60–90s cap on this pass. Not a replacement for `video/daily/daily-2D-3D-blend.md`.  
 **For:** you, and the video team.  
 **Council:** Reality TV, Screenwriter, Engagement, Video Producer, synthesized by COS.  
 **Language:** plain. Craft words are named once, then used.
+
+---
+
+## Founder addendum (2026-08-27) — what I actually need
+
+**Read this first.** The council draft below answered a real job: how a short tape *travels*, and how rare 2D flashes teach the live Phaser village. Keep that draft for later. It is **not** this brief.
+
+**This brief:** take the locked closer as **version 1 — a starting point** — and help me design **version 2**. I want your help to expand it. I am not asking you to protect its length, to treat every line as sacred, or to replace it with a new 60-second travel tape.
+
+### The job
+
+Doubland Doubles are personality twins of real people. The daily trailer is how most people meet them.
+
+Version 1 already teaches Survival and names tonight’s Peak and Cost. It still plays like a **scoreboard**. After one watch you know who won a challenge and who left. You do not yet feel a day, a person, or a fork inside someone.
+
+I want version 2 of **this same closer** to carry more of the day’s story so a viewer can think one of these:
+
+- “Oh, it is just like real life.”
+- “My Double acts exactly as I would.”
+- “Wow — I have not noticed that about me earlier.”
+
+That means **drama, character, an unexpected turn, an internal dilemma** — still one night, still Peak + Cost, still fact-locked. Not a full-day encyclopedia. Not a 15-person recap. Not a new SKU.
+
+The 2D legend, share clip, and timestamp card in sections 2–13 can wait. Mapping is not the gap. **Attachment and recognition** are the gap.
+
+**Runtime:** version 1 is ~84–90 seconds. That is a starting length, **not a cap**. The old 60–90s travel band, and the closer 90–140s band, **do not bind this pass**. If the goals need 2–3 minutes (or longer), use that time. Length follows story. Do not pad. Do not add rules teach to fill a clock. Encyclopedia still fails at any length.
+
+### Starting point — the locked closer (expand this)
+
+Cold auto-gen closer, accepted 2026-08-27. Treat it as **version 1 of the daily**, not the finished show. Anya’s CapCut Day 1 stays the craft north star. You may keep, cut, or rewrite spoken lines if version 2 needs it. Keep what already works (Peak + Cost, Survival literacy on Episode 1, dignity on the boot). Do not start from a blank page. Do not reopen a 45–60s short Scar as the daily.
+
+| | |
+|--|--|
+| Night | Survival Episode 1 · engine day 2 · sim `20260823-2` |
+| Peak | **Ivan Pitts** (won Hold for the Shield) |
+| Cost | **Alex Butcher** (named by six; leaves) |
+| Runtime now | ~84–90s **starting length**. Version 2 may run as long as the story earns. |
+| Picture | Mostly cinematic. Group photo → habitat / namecards → challenge table → ballots → leave → census → brand Door. Phaser appears as plant / leave still / Door flyover. Mapping is already good enough to post; do not spend this pass redesigning it. |
+| How it is made | Nightly Remotion (`NightlySurvival`) from picker + `fact_ledger` + picture kit (G1–G8). Voiceover is locked text, then TTS. Humans do not recut each night. New type may still get a gold CapCut; Tuesday night must auto. |
+| Package | `double-video/data/20260823-2/trailer_ready_day2` · master `trailer_9x16_closer.mp4` (immutable copy `…_autogen_benchmark.mp4`) · VO `vo_locked_long_accepted.txt` |
+
+Do not overwrite that package on disk. Paper version 2 on a **copy** of this night, or on a later night that has more leftover heat. The locked Episode 1 closer is the specimen you expand — the floor, not the ceiling.
+
+### Version 1 voiceover (starting spine — you may grow or rewrite)
+
+This is the accepted Episode 1 closer, word for word:
+
+> These are Doubles — AI versions of real people, making choices no one wrote for them.  
+> Fifteen of them entered Survival mode: someone is voted out every night until one remains.  
+> Today we are following two of them.  
+> Ivan Pitts is a pharmacy technician at The Willows Market and Pharmacy.  
+> Ivan tests what he believes against the real world.  
+> Alex Butcher is a logistics coordinator at Harvey Oak Supply Store.  
+> Alex prototypes fast — he wants to see what the room actually does.  
+> At the daily challenge — Hold for the Shield — Choose HOLD or FOLD with your secret card. The highest held card wins immunity tonight.  
+> Ivan Pitts won Hold for the Shield.  
+> As the day continues, conversations turn into alliances. Alliances turn into votes.  
+> At the end of the day, every Double casts a ballot.  
+> Tonight Six people name Alex.  
+> Ivan's stronger ballot is one of them.  
+> Alex is gone.  
+> Just like that, fifteen become fourteen.  
+> Tomorrow, the Shield is gone. New alliances will form. New targets will emerge.  
+> And another Double will leave the game.  
+> The village is still running.  
+> Watch every conversation, challenge, and vote live at doubland.ai.
+
+**What version 1 already does:** Doubles literacy, Survival stake, two featured people (job + one trait line each), challenge teach, Peak win, vote tally, census, generic tomorrow, spoken Door.
+
+**The hole I need you to fill:** a lived beat from the day (work, a talk, a small ritual); a relationship; why Ivan named Alex; Alex as a person on the way out; a specific unfinished thread; anything that would make a friend say “that’s him.” The trait lines are slogans. The cliff is a season poster, not a scar. This is why version 1 is a starting point, not the cut I want to keep as-is.
+
+### Grammar you may fill (already locked for closer)
+
+Every featured Double on the long cut, in this order, without a second cold opener:
+
+1. Body in a place (job plate — already in the kit).
+2. **One doing** — work or ritual that is *this* person (Ivan at the pharmacy counter; Alex on the supply floor — not “I held a card”).
+3. **One relationship weather** — leftover heat, a lock, unreadability. Board-true only.
+4. Tonight’s turn — challenge result for people who **played**.
+5. **Inner life in spoken English** — Peak’s stated why they named Cost; Cost last words when the board has them. Skip if there is no safe fact. Picture may carry feeling. Voiceover does not mind-read (`felt / realized / in my heart`).
+6. Door — unfinished thread on a **named** featured Double, not “someone else leaves.”
+
+Spoken cast: Peak + Cost + at most one causal satellite. Sound like a person telling a friend what happened. No voter roll. No 15-person directory. No invented blocs.
+
+**Fact-lock:** ledger and public board first. Chats only after they survive a contradiction pass against the board. Until village talk is honest, keep **board-true + texture** (place, hands, walk-out). Do not quote a rotten chat as an inner dilemma — that would teach the wrong person.
+
+Episode 1 has almost no “yesterday.” A later night (pairs, leftover heat, last words) may show character better. You may paper Episode 2+ as the first expansion specimen. Do not pretend Day 1 had a grudge it did not have.
+
+### What I need from this council
+
+Write **version 2 of this closer** — an expansion of version 1, not a new travel SKU.
+
+| Seat | Ask |
+|------|-----|
+| **Screenwriter** | Start from the version 1 VO above (or from a later night you choose if leftover heat is richer). Deliver a version 2 beat sheet and draft spoken lines. Mark what you keep, cut, and add. New beats: doing, relationship, turn-as-a-person, inner why, last words, specific cliff. Keep literacy on Episode 1; do not spend new time teaching Phaser or the product. Length is open. |
+| **Reality TV** | Which day’s events earn a seat (talk, look, walk-out, table). Where the unexpected turn is. How to show a dilemma **with behavior**, not a confession booth. Dignity on the boot — cost, not roast. If more scenes need more minutes, take them. |
+| **Engagement** | After this cut, the itch should be *tomorrow’s group tape for a named thread*, not “go inspect the map.” Door copy may stay spoken. Timestamp lists and tap-to-2D are optional later. |
+| **Video Producer** | Picture plan against the **existing** kit first (habitat clips, challenge table, ballots, leave). List only the extra shots version 2 truly needs. Do not redesign 2D↔cinematic grammar in this pass. Runtime follows the story. Fail if you pad with more rules or freeze-frames. |
+
+**Pass after one watch**
+
+- Can name Ivan and Alex as people (not only as winner / boot).
+- Felt one relationship or one fork.
+- Can say *why the room moved* as a move, not as a tally.
+- A viewer who knows that person in real life should think “that’s them.” A stranger should think this is a distinct person, not a generic extra.
+
+**Fail if** takeaway is “this was the Peak’s private episode,” “I know the whole vote,” or “this is a movie with no village.” Fail if you treat 60–90s as a hard cap. Fail if you pad. Fail if you blend 2D on every cut as the content.
+
+**Do not** fold sections 2–13 into the daily contract until I ask. Their ~60s clock does **not** apply to version 2. **Do** use that mapping draft later if we still want it *after* the story cut works.
 
 ---
 

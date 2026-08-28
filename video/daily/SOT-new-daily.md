@@ -160,7 +160,7 @@ Peak and Cost **may be different people**. Cold quiz must still yield **one clea
 
 ### 3.6 Visual rules
 
-- **Featured role intro (VO):** every night, spoken VO includes **one** kid-plain **job + place** clause per featured Peak and Cost (e.g. “Irene Dove is a barista at Hobbs Cafe”), then **≤1 why-tonight** clause (Peak = tonight-want / motive, not the result; Cost = leftover heat or “people still can't tell where they stand”). Why-tonight must sound like **spoken English people actually use** (contractions; what they did). Never “a read she can trust” / “wants a lock X can trust” / “She names him because…”. Never a challenge-slug slogan that would repeat every Silent Pact / Lock-In night — motive comes from this Peak's tonight `choice_reason_plain` (and partner / lock), or skip. Sit both clauses on the **habitat clip** (G1/G2 `.mp4`) after the namecard — do not cut still → clip (that freeze is a reject). If no clip exists, the still may fill the same window. Sit why-tonight on a short want HUD over that habitat. Never `{Name} is back.` Not a multi-sentence bio wall. Skip why-tonight if there is no ledger fact.  
+- **Featured role intro (VO):** every night, spoken VO includes **one** kid-plain **job + place** clause per featured Peak and Cost, then **≤1 why-tonight** clause that is the **personality that showed up in today's events** — not a challenge result (never “holds an 8”, never Shield/HOLD as the news). Cold viewers do not know the mechanic yet. **Both** Peak and Cost get that personality clause when `choice_reason_plain` has a human reason. Cost leftover heat (“the room is looking at them”) is a **fallback** only when tonight's decision has no trait. Why-tonight must sound like **spoken English people actually use**. Never “a read she can trust” / “wants a lock X can trust” / “She names him because…”. Never a challenge-slug slogan that would repeat every Silent Pact / Lock-In night. Sit both clauses on the **habitat clip** (G1/G2 `.mp4`) after the namecard — do not cut still → clip (that freeze is a reject). If no clip exists, the still may fill the same window. Sit why-tonight on a short want HUD over that habitat. Never `{Name} is back.` Not a multi-sentence bio wall. Skip why-tonight if there is no ledger fact.  
 - Job/place **cards / lower-thirds** remain optional picture support — do not replace the spoken role clause on first feature.  
 - Prefer real **village place plates** (§2.1) under Stake / habitat beats when the featured workplace exists on disk.  
 - **Challenge teach:** resolve `today.challenge.id` → trailer teach pack in `double-docs/sot/sot_challenges.md` §5 (VO brief + visual library). Specimen: `hold_for_shield`.  
@@ -388,7 +388,7 @@ Human override until picker quality is proven.
 | 0 | Hook | Mute face/move — no VO | Same |
 | 1 | Stake | Concept + Survival | Doubles concept + `{N} still in Survival mode. Someone is voted out every night.` (N = `15 −` prior boots; same math as G7) |
 | 2 | Follow | Peak + Cost names | Skip “following two of them”; Peak then Cost |
-| 3 | Wants | One line each | Job+place every night (returnee included), then ≤1 why-tonight each. Peak = tonight-want / motive, not the result. Cost = leftover heat or “the room is looking at them.” Never `{Name} is back.` Skip the why-tonight clause if there is no ledger fact. |
+| 3 | Wants | One line each | Job+place every night (returnee included), then ≤1 why-tonight each. Why-tonight = personality revealed today (not the card rank / Hold result). Cost leftover is fallback only. Never `{Name} is back.` Skip the why-tonight clause if there is no ledger fact. |
 | 4 | Pressure | Challenge name + fork + tonight consequence | `Tonight's game is {name}.` + steps_board order |
 | 5 | Peak | Winner / power — tonight-only | Same |
 | 6 | Mid | Optional generic social→votes (no invented blocs) | Skip leftover lecture. Last-night vote heat is Cost why-tonight, not a mid-body recap |
@@ -407,13 +407,13 @@ Human override until picker quality is proven.
 [Later] {N} still in Survival mode. Someone is voted out every night.
 
 [Day 1] Today we are following two of them.
-[Every night] [Peak] job+place. [Peak] why-tonight (motive, not the result).
-[Every night] [Cost] job+place. [Cost] why-tonight (leftover / the room is looking at them). Never `{Name} is back.`
+[Every night] [Peak] job+place. [Peak] personality that showed up today (not the board result).
+[Every night] [Cost] job+place. [Cost] personality that showed up today (leftover only if no tonight trait). Never `{Name} is back.`
 
 Tonight's game is [challenge]. [teach in steps_board top→bottom order]
 [Peak turn]
 [Day 1 only] As the day continues, conversations turn into votes.
-[Cost: votes / leave — Peak ballot if true]
+[Cost: Tonight {N} people name {Cost}. Never "the vote splits." Then leave — Peak ballot if true]
 [Day 1] Just like that, fifteen become fourteen.
 [Later] {N} become {N−1}.
 [Cliff: specific unfinished debt]
@@ -838,6 +838,7 @@ Day 1 V6 **G1–G8 READY** — CapCut gold exists; further nights reuse the same
 
 | Date | Change |
 |------|--------|
+| 2026-08-27 | **§3.6 / §9 intro + tally** — featured why-tonight is personality revealed today for Peak **and** Cost (never “holds an 8”). Split/messy tally is `Tonight {N} people name {Cost}.` — drop the empty “the vote splits” throat-clear. |
 | 2026-08-21 | **§2 / §9 / §11.4 Closer default** — daily ship is Closer tonight (`--sku closer`); short is `--sku scar`. Leftover heat is Cost why-tonight + cliff, not a mid-body last-night vote recap. Last words on the leave walk. |
 | 2026-08-20 | **§9 picture+VO lock** — later nights speak Peak then Cost job+place (never `{Name} is back.`). Scar windows = first contiguous beat (teach = pressure). `--replace-vo-lock` rewrites a lock + re-TTS for that package only. |
 | 2026-08-20 | **§9 / §11.4 consecutive-night VO** — Doubles + `{N} still in` are machine-spoken every later night (N = `15 −` prior boots, same as G7). Auto-lock `vo_locked.txt` when missing; never overwrite an existing lock unless `--replace-vo-lock`; fail closed on a wrong remaining-count. |
