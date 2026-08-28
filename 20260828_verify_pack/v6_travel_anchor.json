@@ -1,0 +1,93 @@
+[
+  {
+    "name": "Diana Ogden",
+    "clock": "08:26-08:36",
+    "text": "walking to Hobbs Cafe [mode=zone_patrol anchor=common room]",
+    "anchor": "common room",
+    "mode": "zone_patrol"
+  },
+  {
+    "name": "Alex Butcher",
+    "clock": "19:10-19:15",
+    "text": "walking to Hobbs Cafe [mode=zone_patrol anchor=closet]",
+    "anchor": "closet",
+    "mode": "zone_patrol"
+  },
+  {
+    "name": "Vincent Slater",
+    "clock": "09:00-09:10",
+    "text": "walking to Hobbs Cafe from Johnson Park [mode=zone_patrol anchor=park garden]",
+    "anchor": "park garden",
+    "mode": "zone_patrol"
+  },
+  {
+    "name": "Vincent Slater",
+    "clock": "10:00-10:10",
+    "text": "walking to Hobbs Cafe from Johnson Park [mode=zone_patrol anchor=park garden]",
+    "anchor": "park garden",
+    "mode": "zone_patrol"
+  },
+  {
+    "name": "Vince Vale",
+    "clock": "07:40-07:50",
+    "text": "planning morning route to Hobbs Cafe [mode=in_place anchor=desk]",
+    "anchor": "desk",
+    "mode": "in_place"
+  },
+  {
+    "name": "Vince Vale",
+    "clock": "10:00-10:10",
+    "text": "walking from apartment to Hobbs Cafe while mentally reviewing the Silent Pact dilemma [mode=zone_patrol anchor=main room]",
+    "anchor": "main room",
+    "mode": "zone_patrol"
+  },
+  {
+    "name": "Olivia King",
+    "clock": "10:00-10:15",
+    "text": "walking to Hobbs Cafe via Johnson Park [mode=zone_patrol anchor=park garden]",
+    "anchor": "park garden",
+    "mode": "zone_patrol"
+  },
+  {
+    "name": "Max Shoemaker",
+    "clock": "09:00-09:10",
+    "text": "walking to Hobbs Cafe [mode=zone_patrol anchor=dorm garden]",
+    "anchor": "dorm garden",
+    "mode": "zone_patrol"
+  },
+  {
+    "name": "Nick Miller",
+    "clock": "08:10-08:15",
+    "text": "walking to Hobbs Cafe [mode=zone_patrol anchor=common room]",
+    "anchor": "common room",
+    "mode": "zone_patrol"
+  },
+  {
+    "name": "Nick Miller",
+    "clock": "08:40-08:45",
+    "text": "walking to Hobbs Cafe [mode=zone_patrol anchor=house garden]",
+    "anchor": "house garden",
+    "mode": "zone_patrol"
+  },
+  {
+    "name": "Nick Miller",
+    "clock": "08:45-08:55",
+    "text": "walking to Hobbs Cafe [mode=zone_patrol anchor=house garden]",
+    "anchor": "house garden",
+    "mode": "zone_patrol"
+  },
+  {
+    "name": "Dean Sanford",
+    "clock": "10:00-10:15",
+    "text": "walking to Hobbs Cafe [mode=zone_patrol anchor=common room]",
+    "anchor": "common room",
+    "mode": "zone_patrol"
+  },
+  {
+    "name": "Alex Shepard",
+    "clock": "10:05-10:15",
+    "text": "walking through Johnson Park towards Hobbs Cafe [mode=zone_patrol anchor=park garden]",
+    "anchor": "park garden",
+    "mode": "zone_patrol"
+  }
+]

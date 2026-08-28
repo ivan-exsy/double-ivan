@@ -1,0 +1,3897 @@
+[
+  {
+    "persona_id": "021d4622-9b7e-4b73-9f94-322c4e5121da",
+    "name": "Diana Ogden",
+    "curr_tile": "(78,25)",
+    "curr_time": "2026-08-29T11:54:00+00:00",
+    "daily_plan": null,
+    "daily_plan_req": "Today, Diana Ogden is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Diana Ogden is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Harvey Oak Supply Store (supply store) as sales associate; execute assigned tasks, assist visitors, and complete shift responsibilities.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "waking up and lying in bed [mode=in_place anchor=bed]",
+        5
+      ],
+      [
+        "stretching and light exercises [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "getting dressed from closet [mode=in_place anchor=closet]",
+        10
+      ],
+      [
+        "organizing desk and planning day [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "packing bag for the day [mode=in_place anchor=desk]",
+        10
+      ],
+      [
+        "final check and preparing to leave [mode=in_place anchor=shelf]",
+        10
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=Hobbs Cafe]",
+        6
+      ],
+      [
+        "ordering breakfast [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe]",
+        10
+      ],
+      [
+        "ordering breakfast at the counter [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=common room]",
+        10
+      ],
+      [
+        "eating breakfast at cafe [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "sipping coffee and reviewing notes [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "Reviewing Silent Pact challenge rules and scoring [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "Analyzing potential partner strategies [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "Sketching decision matrix for protect vs expose [mode=in_place anchor=cafe customer seating]",
+        14
+      ],
+      [
+        "walking to The Willows Market [mode=zone_patrol anchor=store]",
+        10
+      ],
+      [
+        "browsing grocery shelves [mode=zone_patrol anchor=grocery store shelf]",
+        25
+      ],
+      [
+        "browsing pharmacy shelves [mode=zone_patrol anchor=pharmacy store shelf]",
+        25
+      ],
+      [
+        "Reading the challenge instructions [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Weighing the protect vs expose dilemma [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "Submitting the decision for Silent Pact [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Waiting for the challenge results [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe]",
+        5
+      ],
+      [
+        "ordering lunch at the counter [mode=in_place anchor=cafe]",
+        5
+      ],
+      [
+        "ordering and receiving lunch [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "unpacking lunch from bag [mode=in_place anchor=common room table]",
+        5
+      ],
+      [
+        "eating lunch while reading [mode=in_place anchor=common room sofa]",
+        45
+      ],
+      [
+        "clearing the table [mode=in_place anchor=common room table]",
+        10
+      ],
+      [
+        "reading a book while finishing meal [mode=in_place anchor=cafe customer seating]",
+        30
+      ],
+      [
+        "sipping water and checking phone [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "having coffee at Hobbs Cafe",
+        60
+      ],
+      [
+        "working a shift at Harvey Oak Supply Store",
+        60
+      ],
+      [
+        "at The Willows Market and Pharmacy browsing supplies",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "eating dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "waking up and doing morning routine at home",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "browsing shelves at The Willows Market and Pharmacy",
+        60
+      ],
+      [
+        "sleeping at home",
+        60
+      ]
+    ],
+    "f_daily_schedule_hourly_org": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "waking up and doing morning routine at home",
+        60
+      ],
+      [
+        "having breakfast at Hobbs Cafe",
+        120
+      ],
+      [
+        "browsing shelves at The Willows Market and Pharmacy",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the daily challenge",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe",
+        120
+      ],
+      [
+        "having coffee at Hobbs Cafe",
+        60
+      ],
+      [
+        "working a shift at Harvey Oak Supply Store",
+        60
+      ],
+      [
+        "at The Willows Market and Pharmacy browsing supplies",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "eating dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "waking up and doing morning routine at home",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "browsing shelves at The Willows Market and Pharmacy",
+        60
+      ],
+      [
+        "sleeping at home",
+        60
+      ]
+    ],
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "walking to Hobbs Cafe",
+    "chatting_with": null,
+    "living_area": "the Ville:Dorm for Oak Hill College:Dorm Room 3",
+    "work_area": "the Ville:Harvey Oak Supply Store:supply store",
+    "currently": "On premiere day in Doubland with the full cohort of fifteen, taking in the shared experiment they stepped into together; Working as sales associate at Harvey Oak Supply Store (supply store); execute assigned tasks, assist visitors, and complete shift responsibilities.",
+    "lifestyle": "Today, Diana Ogden is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Diana Ogden is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Harvey Oak Supply Store (supply store) as sales associate; execute assigned tasks, assist visitors, and complete shift responsibilities.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "last_planned_date": "2026-08-29",
+    "resolved_name": "Diana Ogden"
+  },
+  {
+    "persona_id": "0c7ff9b1-44bc-4afe-a189-52d88d2abd09",
+    "name": "Alexis Reed",
+    "curr_tile": "(55,23)",
+    "curr_time": "2026-08-29T11:54:00+00:00",
+    "daily_plan": null,
+    "daily_plan_req": "Today, Alexis Reed is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Alexis Reed is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Oak Hill College (library) as research assistant; handle requests, update task lists, and follow up on open items.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "waking up and stretching in bed [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "getting dressed and organizing clothes [mode=in_place anchor=closet]",
+        15
+      ],
+      [
+        "reviewing notes and planning the day at desk [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "light stretching and morning meditation [mode=in_place anchor=bed]",
+        15
+      ],
+      [
+        "preparing a simple breakfast in the kitchen [mode=in_place anchor=kitchen]",
+        10
+      ],
+      [
+        "eating breakfast at the desk while reviewing notes [mode=in_place anchor=desk]",
+        25
+      ],
+      [
+        "organizing the day's notes and to-do list [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "getting dressed and tidying up the room [mode=zone_patrol anchor=closet]",
+        10
+      ],
+      [
+        "sorting through the morning's research requests [mode=in_place anchor=desk]",
+        25
+      ],
+      [
+        "reading and annotating priority requests [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "updating task list and noting follow-ups [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "ordering a coffee at the counter [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "walking to Hobbs Cafe [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "reviewing challenge notes at a table [mode=in_place anchor=cafe customer seating]",
+        35
+      ],
+      [
+        "Settling into the cafe and reviewing the challenge rules [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Listening to challenge rules [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "Observing other pairs' dynamics [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Coordinating decision with partner [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "Submitting final choice to host [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Waiting for the challenge results [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "order lunch at the counter [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "order and pick up lunch at the counter [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "eat lunch while reviewing notes [mode=in_place anchor=cafe customer seating]",
+        25
+      ],
+      [
+        "finish meal and organize notes [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "summarize key points from notes [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "relax with coffee and people-watch [mode=in_place anchor=cafe customer seating]",
+        40
+      ],
+      [
+        "pack up and prepare to leave [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "walking to Oak Hill College library for research tasks",
+        60
+      ],
+      [
+        "at Oak Hill College library handling research requests",
+        60
+      ],
+      [
+        "walking to Johnson Park for a break",
+        60
+      ],
+      [
+        "walking to The Rose and Crown Pub for dinner",
+        60
+      ],
+      [
+        "eating dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        120
+      ],
+      [
+        "reading through campus research requests at home",
+        60
+      ],
+      [
+        "settling in at home and winding down for the night",
+        60
+      ],
+      [
+        "sleeping at home",
+        60
+      ]
+    ],
+    "f_daily_schedule_hourly_org": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "waking up and starting the morning routine at home",
+        60
+      ],
+      [
+        "having breakfast at home and checking the day's notes",
+        60
+      ],
+      [
+        "reading through the morning's campus research requests at home",
+        60
+      ],
+      [
+        "walking to Hobbs Cafe for the challenge",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the daily challenge",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe",
+        120
+      ],
+      [
+        "walking to Oak Hill College library for research tasks",
+        60
+      ],
+      [
+        "at Oak Hill College library handling research requests",
+        60
+      ],
+      [
+        "walking to Johnson Park for a break",
+        60
+      ],
+      [
+        "walking to The Rose and Crown Pub for dinner",
+        60
+      ],
+      [
+        "eating dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        120
+      ],
+      [
+        "reading through campus research requests at home",
+        60
+      ],
+      [
+        "settling in at home and winding down for the night",
+        60
+      ],
+      [
+        "sleeping at home",
+        60
+      ]
+    ],
+    "act_address": "the Ville:The Rose and Crown Pub:pub:bar customer seating",
+    "act_description": "Submitting final choice to host",
+    "chatting_with": null,
+    "living_area": "the Ville:artist's co-living space:Studio Room 5",
+    "work_area": "the Ville:Oak Hill College:library",
+    "currently": "On premiere day in Doubland with the full cohort of fifteen, taking in the shared experiment they stepped into together; Working as research assistant at Oak Hill College (library); handle requests, update task lists, and follow up on open items.",
+    "lifestyle": "Today, Alexis Reed is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Alexis Reed is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Oak Hill College (library) as research assistant; handle requests, update task lists, and follow up on open items.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "last_planned_date": "2026-08-29",
+    "resolved_name": "Alexis Reed"
+  },
+  {
+    "persona_id": "0e8d6398-bfe5-40c7-9b6d-1eae2b0abc49",
+    "name": "Alex Butcher",
+    "curr_tile": "(72,23)",
+    "curr_time": "2026-08-28T20:59:00+00:00",
+    "daily_plan": null,
+    "daily_plan_req": "Today, Alex Butcher is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Harvey Oak Supply Store (supply store) as logistics coordinator; execute assigned tasks, assist visitors, and complete shift responsibilities.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "waking up and stretching in bed [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "getting dressed at the closet [mode=in_place anchor=closet]",
+        15
+      ],
+      [
+        "checking phone and planning day at desk [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "washing up at the kitchen sink [mode=in_place anchor=kitchen sink]",
+        15
+      ],
+      [
+        "prepare breakfast [mode=in_place anchor=cooking area]",
+        15
+      ],
+      [
+        "eat breakfast [mode=in_place anchor=kitchen]",
+        25
+      ],
+      [
+        "check the day's schedule [mode=in_place anchor=kitchen]",
+        20
+      ],
+      [
+        "walking to Harvey Oak Supply Store [mode=zone_patrol anchor=supply store]",
+        15
+      ],
+      [
+        "stocking shelves with inventory [mode=workstation_hop anchor=supply store product shelf]",
+        25
+      ],
+      [
+        "assisting customers at the counter [mode=in_place anchor=supply store counter]",
+        20
+      ],
+      [
+        "walking to Harvey Oak Supply Store [mode=in_place anchor=supply store]",
+        10
+      ],
+      [
+        "setting up the register and checking morning inventory [mode=in_place anchor=behind the supply store counter]",
+        15
+      ],
+      [
+        "stocking shelves with new shipments [mode=zone_patrol anchor=supply store product shelf]",
+        20
+      ],
+      [
+        "assisting customers at the counter [mode=workstation_hop anchor=supply store counter]",
+        15
+      ],
+      [
+        "Restocking the product shelves [mode=zone_patrol anchor=supply store product shelf]",
+        20
+      ],
+      [
+        "Cleaning the supply store counter [mode=in_place anchor=supply store counter]",
+        15
+      ],
+      [
+        "Organizing inventory logs behind the counter [mode=workstation_hop anchor=behind the supply store counter]",
+        15
+      ],
+      [
+        "Wiping down the counter and preparing for next shift [mode=zone_patrol anchor=supply store counter]",
+        10
+      ],
+      [
+        "Reviewing the challenge instructions [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Deciding whether to hold or fold based on the secret card [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "Participating in the card reveal and comparing [mode=social_touch anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "Waiting for the challenge results to be announced [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "ordering lunch at the counter [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "eating the sandwich [mode=in_place anchor=bar customer seating]",
+        15
+      ],
+      [
+        "eating the salad [mode=in_place anchor=bar customer seating]",
+        12
+      ],
+      [
+        "sipping water and checking phone [mode=in_place anchor=bar customer seating]",
+        8
+      ],
+      [
+        "finishing up and wiping hands [mode=in_place anchor=bar customer seating]",
+        5
+      ],
+      [
+        "reviewing handwritten notes from class [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "sipping coffee and scanning the room [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "doing gentle stretches on the sofa [mode=in_place anchor=common room sofa]",
+        10
+      ],
+      [
+        "scrolling through notifications on phone [mode=in_place anchor=common room sofa]",
+        15
+      ],
+      [
+        "checking the time and gathering belongings [mode=in_place anchor=common room sofa]",
+        5
+      ],
+      [
+        "walking to Harvey Oak Supply Store [mode=in_place anchor=supply store]",
+        12
+      ],
+      [
+        "restocking product shelves [mode=workstation_hop anchor=supply store product shelf]",
+        50
+      ],
+      [
+        "assist customer with product inquiry [mode=in_place anchor=supply store counter]",
+        15
+      ],
+      [
+        "process payment for customer [mode=in_place anchor=supply store counter]",
+        20
+      ],
+      [
+        "restock shelves near counter [mode=in_place anchor=supply store product shelf]",
+        13
+      ],
+      [
+        "check inventory on computer [mode=in_place anchor=supply store counter]",
+        10
+      ],
+      [
+        "restock shelves with inventory from the back [mode=workstation_hop anchor=supply store product shelf]",
+        25
+      ],
+      [
+        "assist a customer at the counter [mode=in_place anchor=supply store counter]",
+        15
+      ],
+      [
+        "organize and tidy the checkout area [mode=zone_patrol anchor=behind the supply store counter]",
+        20
+      ],
+      [
+        "closing out the register and counting the till [mode=in_place anchor=supply store counter]",
+        20
+      ],
+      [
+        "restocking the product shelves [mode=zone_patrol anchor=supply store product shelf]",
+        25
+      ],
+      [
+        "sweeping the floor behind the counter [mode=workstation_hop anchor=behind the supply store counter]",
+        15
+      ],
+      [
+        "waking up and lying in bed [mode=in_place anchor=bed]",
+        5
+      ],
+      [
+        "stretching and getting out of bed [mode=in_place anchor=bed]",
+        5
+      ],
+      [
+        "getting dressed from the closet [mode=in_place anchor=closet]",
+        10
+      ],
+      [
+        "making coffee and toast in the kitchen [mode=in_place anchor=kitchen]",
+        15
+      ],
+      [
+        "eating breakfast at the desk [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "checking phone and planning the day [mode=in_place anchor=desk]",
+        10
+      ],
+      [
+        "ordering dinner at the counter [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=closet]",
+        5
+      ],
+      [
+        "ordering a meal at the counter [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "eating dinner [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "finishing up and clearing table [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "lingering over coffee and people-watching [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "Settling in at Hobbs Cafe [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "Casting vote in the evening vote [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "Observing the room from a table [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "Pacing near the seating area [mode=zone_patrol anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Getting a drink from the counter [mode=zone_patrol anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "Sitting and waiting for results [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Settling into a seat at the cafe [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "Reviewing the voting procedure [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Casting vote in the evening vote [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Waiting for vote results [mode=zone_patrol anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "Observing other contestants' reactions [mode=social_touch anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "at home winding down for the night",
+        60
+      ],
+      [
+        "going to sleep at home",
+        60
+      ]
+    ],
+    "f_daily_schedule_hourly_org": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "waking up and starting morning routine at home",
+        60
+      ],
+      [
+        "having breakfast at home and checking the day's schedule",
+        60
+      ],
+      [
+        "heading to Harvey Oak Supply Store for the morning shift",
+        60
+      ],
+      [
+        "working the morning shift at Harvey Oak Supply Store",
+        60
+      ],
+      [
+        "finishing morning shift at Harvey Oak Supply Store",
+        60
+      ],
+      [
+        "at Hobbs Cafe taking part in the daily challenge",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe",
+        120
+      ],
+      [
+        "working the afternoon shift at Harvey Oak Supply Store",
+        120
+      ],
+      [
+        "at Harvey Oak Supply Store finishing the afternoon shift",
+        60
+      ],
+      [
+        "wrapping up shift at Harvey Oak Supply Store",
+        60
+      ],
+      [
+        "waking up and starting morning routine at home",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "at Hobbs Cafe taking part in the evening vote",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "at home winding down for the night",
+        60
+      ],
+      [
+        "going to sleep at home",
+        60
+      ]
+    ],
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "Sitting and waiting for results",
+    "chatting_with": null,
+    "living_area": "the Ville:artist's co-living space:Studio Room 3",
+    "work_area": "the Ville:Harvey Oak Supply Store:supply store",
+    "currently": "On premiere day in Doubland with the full cohort of fifteen, taking in the shared experiment they stepped into together; Working as logistics coordinator at Harvey Oak Supply Store (supply store); execute assigned tasks, assist visitors, and complete shift responsibilities.",
+    "lifestyle": "Today, Alex Butcher is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Harvey Oak Supply Store (supply store) as logistics coordinator; execute assigned tasks, assist visitors, and complete shift responsibilities.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "last_planned_date": "2026-08-28",
+    "resolved_name": "Alex Butcher"
+  },
+  {
+    "persona_id": "29f18c9f-3ec0-4dc2-89ee-2c9d7066b1ca",
+    "name": "Vincent Slater",
+    "curr_tile": "(76,28)",
+    "curr_time": "2026-08-29T11:54:00+00:00",
+    "daily_plan": null,
+    "daily_plan_req": "Today, Vincent Slater is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Vincent Slater is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Oak Hill College (classroom) as curriculum developer; execute assigned tasks, assist visitors, and complete shift responsibilities.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "Taking a shower [mode=in_place anchor=shower]",
+        20
+      ],
+      [
+        "Brushing teeth and washing face [mode=in_place anchor=bathroom sink]",
+        10
+      ],
+      [
+        "Using the toilet [mode=in_place anchor=toilet]",
+        5
+      ],
+      [
+        "Grooming hair and checking appearance [mode=in_place anchor=bathroom sink]",
+        10
+      ],
+      [
+        "Doing light stretching and deep breathing [mode=in_place anchor=bathroom]",
+        15
+      ],
+      [
+        "preparing breakfast [mode=in_place anchor=cooking area]",
+        10
+      ],
+      [
+        "eating breakfast [mode=in_place anchor=desk]",
+        25
+      ],
+      [
+        "reviewing today's schedule [mode=in_place anchor=desk]",
+        25
+      ],
+      [
+        "walking to Hobbs Cafe from Johnson Park [mode=zone_patrol anchor=park garden]",
+        10
+      ],
+      [
+        "reviewing notes at a table near the window [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "pacing near the piano while thinking through challenge strategy [mode=zone_patrol anchor=piano]",
+        15
+      ],
+      [
+        "sitting down to finalize note organization [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "walking to Hobbs Cafe from Johnson Park [mode=zone_patrol anchor=park garden]",
+        10
+      ],
+      [
+        "ordering a coffee at the counter [mode=workstation_hop anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "Organizing notes by topic [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "Reviewing key challenge strategies [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "Summarizing action items [mode=in_place anchor=desk]",
+        10
+      ],
+      [
+        "settling in at the cafe seating area [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "listening to the challenge instructions [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "coordinating with partner on the dilemma [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "making the final decision and submitting [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "waiting for the challenge results [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe]",
+        5
+      ],
+      [
+        "ordering lunch at the counter [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "ordering lunch from the bartender [mode=in_place anchor=bar customer seating]",
+        5
+      ],
+      [
+        "ordering lunch at the bar [mode=in_place anchor=bar customer seating]",
+        5
+      ],
+      [
+        "eating lunch while reviewing game notes [mode=in_place anchor=bar customer seating]",
+        20
+      ],
+      [
+        "finishing meal and organizing notes [mode=in_place anchor=bar customer seating]",
+        5
+      ],
+      [
+        "finishing lunch and gathering belongings [mode=in_place anchor=bar customer seating]",
+        5
+      ],
+      [
+        "reviewing game notes [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "working at Oak Hill College as curriculum developer",
+        60
+      ],
+      [
+        "working at Oak Hill College classroom",
+        60
+      ],
+      [
+        "working on curriculum materials at Oak Hill College",
+        60
+      ],
+      [
+        "working at Oak Hill College as curriculum developer",
+        60
+      ],
+      [
+        "working at Oak Hill College classroom",
+        60
+      ],
+      [
+        "having dinner at Harvey Oak Supply Store",
+        60
+      ],
+      [
+        "arriving at Hobbs Cafe and settling in for the vote",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "returning home to Apartment 4 and winding down",
+        60
+      ],
+      [
+        "winding down at Apartment 4 for the night",
+        60
+      ],
+      [
+        "sleeping at Apartment 4",
+        60
+      ]
+    ],
+    "f_daily_schedule_hourly_org": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "waking up and completing the morning routine at home",
+        60
+      ],
+      [
+        "eating breakfast at home and reviewing today's schedule",
+        60
+      ],
+      [
+        "arriving at Hobbs Cafe and reviewing notes",
+        60
+      ],
+      [
+        "heading to Hobbs Cafe and reviewing notes",
+        60
+      ],
+      [
+        "participating in the daily challenge at Hobbs Cafe",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "working at Oak Hill College as curriculum developer",
+        60
+      ],
+      [
+        "working at Oak Hill College classroom",
+        60
+      ],
+      [
+        "working on curriculum materials at Oak Hill College",
+        60
+      ],
+      [
+        "working at Oak Hill College as curriculum developer",
+        60
+      ],
+      [
+        "working at Oak Hill College classroom",
+        60
+      ],
+      [
+        "having dinner at Harvey Oak Supply Store",
+        60
+      ],
+      [
+        "arriving at Hobbs Cafe and settling in for the vote",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "returning home to Apartment 4 and winding down",
+        60
+      ],
+      [
+        "winding down at Apartment 4 for the night",
+        60
+      ],
+      [
+        "sleeping at Apartment 4",
+        60
+      ]
+    ],
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "waiting for the challenge results",
+    "chatting_with": "Nick Miller",
+    "living_area": "the Ville:Apartment 4:main room",
+    "work_area": "the Ville:Oak Hill College:classroom",
+    "currently": "On premiere day in Doubland with the full cohort of fifteen, taking in the shared experiment they stepped into together; Working as curriculum developer at Oak Hill College (classroom); execute assigned tasks, assist visitors, and complete shift responsibilities.",
+    "lifestyle": "Today, Vincent Slater is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Vincent Slater is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Oak Hill College (classroom) as curriculum developer; execute assigned tasks, assist visitors, and complete shift responsibilities.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "last_planned_date": "2026-08-29",
+    "resolved_name": "Vincent Slater"
+  },
+  {
+    "persona_id": "42c86639-8f93-4f97-a541-8cd5baf2fea8",
+    "name": "Ivan Pitts",
+    "curr_tile": "(74,25)",
+    "curr_time": "2026-08-29T11:54:00+00:00",
+    "daily_plan": null,
+    "daily_plan_req": "Today, Ivan Pitts is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Ivan Pitts is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at The Willows Market and Pharmacy (store) as pharmacy technician; execute assigned tasks, assist visitors, and complete shift responsibilities.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "waking up and stretching in bed [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "getting dressed and organizing clothes [mode=in_place anchor=closet]",
+        15
+      ],
+      [
+        "reviewing today's schedule on the computer [mode=in_place anchor=computer]",
+        15
+      ],
+      [
+        "packing backpack and tidying desk [mode=zone_patrol anchor=desk]",
+        20
+      ],
+      [
+        "Preparing a simple breakfast [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "Eat breakfast while reading notes [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "Review key points while finishing meal [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "Organize notes after breakfast [mode=in_place anchor=desk]",
+        10
+      ],
+      [
+        "Sorting handwritten notes from yesterday [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "Reviewing challenge rules and partner details [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "Jotting down key reminders for the day [mode=in_place anchor=desk]",
+        10
+      ],
+      [
+        "Planning strategy for today's challenge [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe]",
+        10
+      ],
+      [
+        "ordering coffee at the counter [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "Organizing notes by subject [mode=in_place anchor=desk]",
+        10
+      ],
+      [
+        "Reading through key points [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "Highlighting important sections [mode=in_place anchor=desk]",
+        5
+      ],
+      [
+        "highlighting key points in notes [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe]",
+        8
+      ],
+      [
+        "ordering a coffee at the counter [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "sipping coffee while scanning notes [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "underlining key points in notes [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "glancing at the clock and reviewing challenge instructions [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "finishing coffee and observing the cafe [mode=in_place anchor=cafe customer seating]",
+        17
+      ],
+      [
+        "listening to the challenge briefing [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "reviewing the paired dilemma options [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "making the decision and submitting [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "waiting for the challenge results [mode=in_place anchor=cafe customer seating]",
+        25
+      ],
+      [
+        "ordering lunch [mode=social_touch anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "eating a sandwich [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "sipping coffee and reviewing notes [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "sipping coffee [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "having coffee and reviewing notes at Hobbs Cafe",
+        60
+      ],
+      [
+        "having coffee at Hobbs Cafe",
+        60
+      ],
+      [
+        "at The Willows Market and Pharmacy filling prescriptions",
+        60
+      ],
+      [
+        "at The Willows Market and Pharmacy working the register",
+        60
+      ],
+      [
+        "at The Willows Market and Pharmacy finishing shift tasks",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        120
+      ],
+      [
+        "having coffee and reviewing notes at Hobbs Cafe",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "sleeping at home",
+        60
+      ]
+    ],
+    "f_daily_schedule_hourly_org": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "waking up and starting morning routine at home",
+        60
+      ],
+      [
+        "having breakfast at home and reviewing the day's notes",
+        120
+      ],
+      [
+        "having coffee and reviewing notes at Hobbs Cafe",
+        60
+      ],
+      [
+        "having coffee at Hobbs Cafe",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the daily challenge",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "having coffee and reviewing notes at Hobbs Cafe",
+        60
+      ],
+      [
+        "having coffee at Hobbs Cafe",
+        60
+      ],
+      [
+        "at The Willows Market and Pharmacy filling prescriptions",
+        60
+      ],
+      [
+        "at The Willows Market and Pharmacy working the register",
+        60
+      ],
+      [
+        "at The Willows Market and Pharmacy finishing shift tasks",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        120
+      ],
+      [
+        "having coffee and reviewing notes at Hobbs Cafe",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "sleeping at home",
+        60
+      ]
+    ],
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "waiting for the challenge results",
+    "chatting_with": null,
+    "living_area": "the Ville:Dorm for Oak Hill College:Dorm Room 2",
+    "work_area": "the Ville:The Willows Market and Pharmacy:store",
+    "currently": "On premiere day in Doubland with the full cohort of fifteen, taking in the shared experiment they stepped into together; Working as pharmacy technician at The Willows Market and Pharmacy (store); execute assigned tasks, assist visitors, and complete shift responsibilities.",
+    "lifestyle": "Today, Ivan Pitts is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Ivan Pitts is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at The Willows Market and Pharmacy (store) as pharmacy technician; execute assigned tasks, assist visitors, and complete shift responsibilities.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "last_planned_date": "2026-08-29",
+    "resolved_name": "Ivan Pitts"
+  },
+  {
+    "persona_id": "69835d95-c543-48b1-85c0-f7d5351d845d",
+    "name": "Vince Vale",
+    "curr_tile": "(76,27)",
+    "curr_time": "2026-08-29T11:54:00+00:00",
+    "daily_plan": null,
+    "daily_plan_req": "Today, Vince Vale is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Vince Vale is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Oak Hill College (classroom) as guest lecturer; prepare lessons, teach sessions, and review progress.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "Wake up and stretch in bed [mode=in_place anchor=bed]",
+        5
+      ],
+      [
+        "Take a shower [mode=in_place anchor=shower]",
+        15
+      ],
+      [
+        "Get dressed and groom [mode=in_place anchor=closet]",
+        10
+      ],
+      [
+        "Make the bed and tidy up [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "Check phone and plan the day [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "preparing breakfast [mode=in_place anchor=cooking area]",
+        10
+      ],
+      [
+        "eating breakfast [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "reviewing challenge rules and partner assignment [mode=in_place anchor=desk]",
+        10
+      ],
+      [
+        "planning morning route to Hobbs Cafe [mode=in_place anchor=desk]",
+        10
+      ],
+      [
+        "checking college lecture schedule [mode=in_place anchor=desk]",
+        10
+      ],
+      [
+        "finishing morning grooming at the closet [mode=in_place anchor=closet]",
+        15
+      ],
+      [
+        "walking to apartment from cafe [mode=in_place anchor=main room]",
+        10
+      ],
+      [
+        "sorting lecture notes by topic [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "filing notes into binder [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "walking to Oak Hill College [mode=zone_patrol anchor=classroom]",
+        10
+      ],
+      [
+        "setting up lecture materials at the classroom podium [mode=in_place anchor=classroom podium]",
+        20
+      ],
+      [
+        "reviewing notes on the blackboard [mode=workstation_hop anchor=blackboard]",
+        15
+      ],
+      [
+        "arranging student seating area [mode=zone_patrol anchor=classroom student seating]",
+        15
+      ],
+      [
+        "walking from apartment to Hobbs Cafe while mentally reviewing the Silent Pact dilemma [mode=zone_patrol anchor=main room]",
+        10
+      ],
+      [
+        "ordering a coffee and finding a seat at Hobbs Cafe [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "reviewing challenge rules at cafe table [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "thinking about partner strategy [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "Waiting for the challenge to start [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Listening to the challenge instructions [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "reviewing the Silent Pact rules and options [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "engaging in the paired dilemma with partner [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "finalizing decision and submitting [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "Reviewing the challenge results [mode=social_touch anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "eating a sandwich and salad [mode=in_place anchor=cafe customer seating]",
+        25
+      ],
+      [
+        "sipping iced tea and reviewing challenge notes [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "lingering over dessert and people-watching [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "eating lunch at Hobbs Cafe and reviewing the challenge results",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe and reviewing notes",
+        60
+      ],
+      [
+        "reviewing lecture notes at Oak Hill College",
+        60
+      ],
+      [
+        "eating a late lunch at Hobbs Cafe and reviewing strategy notes",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe before the vote",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        120
+      ],
+      [
+        "preparing lecture notes at home",
+        60
+      ],
+      [
+        "having dinner at The Rose and Crown Pub",
+        60
+      ],
+      [
+        "asleep at home",
+        60
+      ]
+    ],
+    "f_daily_schedule_hourly_org": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "waking up and starting morning routine at home",
+        60
+      ],
+      [
+        "having breakfast at home and reviewing the day ahead",
+        60
+      ],
+      [
+        "finishing morning routine and gathering lecture notes at home",
+        60
+      ],
+      [
+        "preparing lecture materials at Oak Hill College",
+        60
+      ],
+      [
+        "walking to Hobbs Cafe and mentally reviewing the day's challenge",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the daily challenge",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe and reviewing the challenge results",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe and reviewing notes",
+        60
+      ],
+      [
+        "reviewing lecture notes at Oak Hill College",
+        60
+      ],
+      [
+        "eating a late lunch at Hobbs Cafe and reviewing strategy notes",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe before the vote",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        120
+      ],
+      [
+        "preparing lecture notes at home",
+        60
+      ],
+      [
+        "having dinner at The Rose and Crown Pub",
+        60
+      ],
+      [
+        "asleep at home",
+        60
+      ]
+    ],
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "Reviewing the challenge results",
+    "chatting_with": "Irene Dove",
+    "living_area": "the Ville:Apartment 5:main room",
+    "work_area": "the Ville:Oak Hill College:classroom",
+    "currently": "On premiere day in Doubland with the full cohort of fifteen, taking in the shared experiment they stepped into together; Working as guest lecturer at Oak Hill College (classroom); prepare lessons, teach sessions, and review progress.",
+    "lifestyle": "Today, Vince Vale is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Vince Vale is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Oak Hill College (classroom) as guest lecturer; prepare lessons, teach sessions, and review progress.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "last_planned_date": "2026-08-29",
+    "resolved_name": "Vince Vale"
+  },
+  {
+    "persona_id": "77c2f157-64bb-4fa0-b451-3a644661d1a4",
+    "name": "Mike Hooks",
+    "curr_tile": "(74,23)",
+    "curr_time": "2026-08-29T11:54:00+00:00",
+    "daily_plan": null,
+    "daily_plan_req": "Today, Mike Hooks is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Mike Hooks is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at The Willows Market and Pharmacy (store) as cashier; assist customers, manage inventory, and close daily tasks.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "waking up and stretching in bed [mode=in_place anchor=bed]",
+        5
+      ],
+      [
+        "taking a shower [mode=in_place anchor=shower]",
+        15
+      ],
+      [
+        "brushing teeth at the sink [mode=in_place anchor=bathroom sink]",
+        10
+      ],
+      [
+        "getting dressed from the closet [mode=in_place anchor=closet]",
+        10
+      ],
+      [
+        "making the bed and tidying up [mode=zone_patrol anchor=bed]",
+        10
+      ],
+      [
+        "checking the day's schedule on his phone [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "walking to kitchen to prepare breakfast [mode=zone_patrol anchor=kitchen]",
+        5
+      ],
+      [
+        "preparing a simple breakfast [mode=workstation_hop anchor=cooking area]",
+        10
+      ],
+      [
+        "eating breakfast in bed [mode=in_place anchor=bed]",
+        25
+      ],
+      [
+        "reviewing the day's schedule and challenge details [mode=in_place anchor=bed]",
+        20
+      ],
+      [
+        "making coffee in the kitchen [mode=in_place anchor=cooking area]",
+        19
+      ],
+      [
+        "walking to House 4 common room table [mode=zone_patrol anchor=common room table]",
+        5
+      ],
+      [
+        "walk to the common room [mode=zone_patrol anchor=common room table]",
+        2
+      ],
+      [
+        "walk to common room [mode=zone_patrol anchor=common room]",
+        2
+      ],
+      [
+        "walk to common room [mode=zone_patrol anchor=common room]",
+        1
+      ],
+      [
+        "walk to common room [mode=zone_patrol anchor=common room]",
+        2
+      ],
+      [
+        "walk to common room [mode=zone_patrol anchor=common room]",
+        2
+      ],
+      [
+        "walk to common room [mode=zone_patrol anchor=common room]",
+        2
+      ],
+      [
+        "walk to common room [mode=zone_patrol anchor=common room]",
+        2
+      ],
+      [
+        "walk to common room [mode=zone_patrol anchor=common room]",
+        2
+      ],
+      [
+        "settle at common room table with book [mode=in_place anchor=common room table]",
+        3
+      ],
+      [
+        "walk to common room [mode=workstation_hop anchor=common room table]",
+        2
+      ],
+      [
+        "read book at common room table [mode=in_place anchor=common room table]",
+        20
+      ],
+      [
+        "continue reading [mode=in_place anchor=common room table]",
+        20
+      ],
+      [
+        "reading a chapter of a novel [mode=in_place anchor=common room table]",
+        20
+      ],
+      [
+        "sipping coffee and reviewing the day's schedule [mode=in_place anchor=common room table]",
+        16
+      ],
+      [
+        "reviewing the Silent Pact challenge rules [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "listening to the challenge rules [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "discussing strategy with partner [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "making the protect or expose decision [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "submitting the decision [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "waiting for results [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "waiting for challenge results and debriefing [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "walking to Hobbs Cafe [mode=in_place anchor=cafe]",
+        5
+      ],
+      [
+        "ordering lunch at the counter [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "eating his sandwich [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "sipping coffee and people-watching [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "sipping coffee and reviewing notes [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "having lunch at Hobbs Cafe",
+        120
+      ],
+      [
+        "having coffee and reading at home",
+        60
+      ],
+      [
+        "having coffee at Hobbs Cafe and reviewing the day",
+        60
+      ],
+      [
+        "at The Willows Market and Pharmacy stocking shelves and checking inventory",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe before the vote",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "having dinner at The Rose and Crown Pub",
+        60
+      ],
+      [
+        "at home winding down for the night",
+        60
+      ],
+      [
+        "at home preparing for bed",
+        60
+      ]
+    ],
+    "f_daily_schedule_hourly_org": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "waking up and starting his morning routine at home",
+        60
+      ],
+      [
+        "eating breakfast at home and reviewing the day ahead",
+        60
+      ],
+      [
+        "having coffee and reading at home",
+        120
+      ],
+      [
+        "at Hobbs Cafe for the daily challenge",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "having lunch at Hobbs Cafe",
+        120
+      ],
+      [
+        "having coffee and reading at home",
+        60
+      ],
+      [
+        "having coffee at Hobbs Cafe and reviewing the day",
+        60
+      ],
+      [
+        "at The Willows Market and Pharmacy stocking shelves and checking inventory",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe before the vote",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "having dinner at The Rose and Crown Pub",
+        60
+      ],
+      [
+        "at home winding down for the night",
+        60
+      ],
+      [
+        "at home preparing for bed",
+        60
+      ]
+    ],
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "waiting for challenge results and debriefing",
+    "chatting_with": null,
+    "living_area": "the Ville:House 4:Room 2",
+    "work_area": "the Ville:The Willows Market and Pharmacy:store",
+    "currently": "On premiere day in Doubland with the full cohort of fifteen, taking in the shared experiment they stepped into together; Working as cashier at The Willows Market and Pharmacy (store); assist customers, manage inventory, and close daily tasks.",
+    "lifestyle": "Today, Mike Hooks is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Mike Hooks is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at The Willows Market and Pharmacy (store) as cashier; assist customers, manage inventory, and close daily tasks.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "last_planned_date": "2026-08-29",
+    "resolved_name": "Mike Hooks"
+  },
+  {
+    "persona_id": "87daf41e-0237-4a55-a1ad-14007cefbefe",
+    "name": "Olivia King",
+    "curr_tile": "(76,23)",
+    "curr_time": "2026-08-29T11:54:00+00:00",
+    "daily_plan": null,
+    "daily_plan_req": "Today, Olivia King is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Olivia King is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Hobbs Cafe (cafe) as waitstaff; execute assigned tasks, assist visitors, and complete shift responsibilities.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "washing face and brushing teeth [mode=in_place anchor=bathroom sink]",
+        10
+      ],
+      [
+        "taking a quick shower [mode=in_place anchor=shower]",
+        15
+      ],
+      [
+        "drying off and applying skincare [mode=in_place anchor=bathroom sink]",
+        10
+      ],
+      [
+        "getting dressed in the main room [mode=in_place anchor=closet]",
+        10
+      ],
+      [
+        "fixing hair and final touches [mode=in_place anchor=bathroom sink]",
+        15
+      ],
+      [
+        "preparing breakfast [mode=in_place anchor=cooking area]",
+        15
+      ],
+      [
+        "walking to the desk [mode=workstation_hop anchor=desk]",
+        1
+      ],
+      [
+        "eating breakfast [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "reviewing day's notes [mode=in_place anchor=desk]",
+        9
+      ],
+      [
+        "reviewing challenge rules for Silent Pact [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "studying player profiles and alliances [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "highlighting key strategies in notes [mode=in_place anchor=desk]",
+        10
+      ],
+      [
+        "cleaning up kitchen [mode=in_place anchor=kitchen sink]",
+        15
+      ],
+      [
+        "relaxing with coffee [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "walking to Hobbs Cafe via Johnson Park [mode=zone_patrol anchor=park garden]",
+        15
+      ],
+      [
+        "arriving at Hobbs Cafe and finding a seat [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "reviewing challenge notes [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "ordering a coffee from the counter [mode=workstation_hop anchor=behind the cafe counter]",
+        5
+      ],
+      [
+        "sipping coffee and reviewing notes [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Waiting for the challenge to begin [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Reading the challenge instructions carefully [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Weighing the pros and cons of protecting versus exposing [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "Writing down the final decision on the slip [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "Waiting for the challenge results to be announced [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Reflecting on the challenge outcome [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "ordering and picking up lunch [mode=workstation_hop anchor=behind the cafe counter]",
+        5
+      ],
+      [
+        "eating her lunch [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "sipping coffee and relaxing [mode=in_place anchor=cafe customer seating]",
+        12
+      ],
+      [
+        "watching the cafe activity [mode=in_place anchor=cafe customer seating]",
+        8
+      ],
+      [
+        "clearing up and checking messages [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "having lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "at Hobbs Cafe eating lunch",
+        60
+      ],
+      [
+        "at Hobbs Cafe grabbing a coffee and chatting with other players",
+        60
+      ],
+      [
+        "having coffee at Hobbs Cafe before the vote",
+        60
+      ],
+      [
+        "having a coffee break at Hobbs Cafe",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        120
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe after the vote",
+        60
+      ],
+      [
+        "heading home to rest for the night",
+        60
+      ],
+      [
+        "asleep at home",
+        60
+      ]
+    ],
+    "f_daily_schedule_hourly_org": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "waking up and starting her morning routine at home",
+        60
+      ],
+      [
+        "having breakfast at home and checking the day's notes",
+        120
+      ],
+      [
+        "heading to Hobbs Cafe for the challenge",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the daily challenge",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "having lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "at Hobbs Cafe eating lunch",
+        60
+      ],
+      [
+        "at Hobbs Cafe grabbing a coffee and chatting with other players",
+        60
+      ],
+      [
+        "having coffee at Hobbs Cafe before the vote",
+        60
+      ],
+      [
+        "having a coffee break at Hobbs Cafe",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        120
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe after the vote",
+        60
+      ],
+      [
+        "heading home to rest for the night",
+        60
+      ],
+      [
+        "asleep at home",
+        60
+      ]
+    ],
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "Reflecting on the challenge outcome",
+    "chatting_with": "Max Shoemaker",
+    "living_area": "the Ville:House 1:main room",
+    "work_area": "the Ville:Hobbs Cafe:cafe",
+    "currently": "On premiere day in Doubland with the full cohort of fifteen, taking in the shared experiment they stepped into together; Working as waitstaff at Hobbs Cafe (cafe); execute assigned tasks, assist visitors, and complete shift responsibilities.",
+    "lifestyle": "Today, Olivia King is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Olivia King is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Hobbs Cafe (cafe) as waitstaff; execute assigned tasks, assist visitors, and complete shift responsibilities.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "last_planned_date": "2026-08-29",
+    "resolved_name": "Olivia King"
+  },
+  {
+    "persona_id": "bcf5fb65-6e7e-464a-83bb-51668f967f77",
+    "name": "Max Shoemaker",
+    "curr_tile": "(78,21)",
+    "curr_time": "2026-08-29T11:54:00+00:00",
+    "daily_plan": null,
+    "daily_plan_req": "Today, Max Shoemaker is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Max Shoemaker is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Hobbs Cafe (cafe) as pastry chef; prep ingredients, cook menu items, and coordinate kitchen timing.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "waking up and stretching in bed [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "taking a shower [mode=in_place anchor=shower]",
+        15
+      ],
+      [
+        "brushing teeth and washing face [mode=in_place anchor=bathroom sink]",
+        10
+      ],
+      [
+        "getting dressed [mode=in_place anchor=closet]",
+        10
+      ],
+      [
+        "doing light morning stretches [mode=in_place anchor=bed]",
+        15
+      ],
+      [
+        "eating cereal at the desk [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "rinsing the bowl and spoon [mode=in_place anchor=desk]",
+        5
+      ],
+      [
+        "reviewing the day's schedule on phone [mode=in_place anchor=desk]",
+        5
+      ],
+      [
+        "Walking to desk in dorm room [mode=zone_patrol anchor=Dorm Room 4]",
+        2
+      ],
+      [
+        "Reviewing daily schedule and deadlines [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "Studying Silent Pact challenge notes [mode=in_place anchor=desk]",
+        25
+      ],
+      [
+        "Jotting down key points and strategy [mode=in_place anchor=desk]",
+        13
+      ],
+      [
+        "Stretching muscles on the bed [mode=in_place anchor=bed]",
+        15
+      ],
+      [
+        "Reviewing the day's schedule mentally [mode=in_place anchor=bed]",
+        15
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=dorm garden]",
+        10
+      ],
+      [
+        "setting up prep station at cafe [mode=workstation_hop anchor=behind the cafe counter]",
+        15
+      ],
+      [
+        "preparing pastry dough [mode=in_place anchor=cooking area]",
+        20
+      ],
+      [
+        "reviewing menu items for the day [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "stowing gear and getting oriented behind the counter [mode=in_place anchor=behind the cafe counter]",
+        10
+      ],
+      [
+        "checking refrigerator stock and taking out ingredients [mode=workstation_hop anchor=refrigerator]",
+        15
+      ],
+      [
+        "measuring and mixing pastry dough at the cooking area [mode=in_place anchor=cooking area]",
+        20
+      ],
+      [
+        "portioning dough and setting up baking trays [mode=in_place anchor=cooking area]",
+        15
+      ],
+      [
+        "Receiving the Silent Pact challenge instructions [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Deliberating the protect-or-expose dilemma with partner [mode=social_touch anchor=cafe customer seating]",
+        25
+      ],
+      [
+        "Submitting the paired decision [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Waiting for challenge results [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "sitting at cafe table [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "eating a sandwich and salad [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "sipping iced coffee [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "checking phone for game updates [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "finishing with a small pastry [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "clearing table [mode=workstation_hop anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "working on a pastry prep list at Hobbs Cafe",
+        60
+      ],
+      [
+        "prepping ingredients at Hobbs Cafe",
+        60
+      ],
+      [
+        "walking to Hobbs Cafe for prep work",
+        60
+      ],
+      [
+        "at Hobbs Cafe prepping for the dinner rush",
+        60
+      ],
+      [
+        "at Hobbs Cafe prepping for the evening service",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        120
+      ],
+      [
+        "at Hobbs Cafe participating in the evening vote",
+        60
+      ],
+      [
+        "walking home from Hobbs Cafe after the vote",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "sleeping at home",
+        60
+      ]
+    ],
+    "f_daily_schedule_hourly_org": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "waking up and starting morning routine at home",
+        60
+      ],
+      [
+        "having breakfast at home and reviewing the day ahead",
+        120
+      ],
+      [
+        "walking to Hobbs Cafe for prep work",
+        60
+      ],
+      [
+        "arriving at Hobbs Cafe for prep work",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the daily challenge",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "working on a pastry prep list at Hobbs Cafe",
+        60
+      ],
+      [
+        "prepping ingredients at Hobbs Cafe",
+        60
+      ],
+      [
+        "walking to Hobbs Cafe for prep work",
+        60
+      ],
+      [
+        "at Hobbs Cafe prepping for the dinner rush",
+        60
+      ],
+      [
+        "at Hobbs Cafe prepping for the evening service",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        120
+      ],
+      [
+        "at Hobbs Cafe participating in the evening vote",
+        60
+      ],
+      [
+        "walking home from Hobbs Cafe after the vote",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "sleeping at home",
+        60
+      ]
+    ],
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "Waiting for challenge results",
+    "chatting_with": "Olivia King",
+    "living_area": "the Ville:Dorm for Oak Hill College:Dorm Room 4",
+    "work_area": "the Ville:Hobbs Cafe:cafe",
+    "currently": "On premiere day in Doubland with the full cohort of fifteen, taking in the shared experiment they stepped into together; Working as pastry chef at Hobbs Cafe (cafe); prep ingredients, cook menu items, and coordinate kitchen timing.",
+    "lifestyle": "Today, Max Shoemaker is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Max Shoemaker is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Hobbs Cafe (cafe) as pastry chef; prep ingredients, cook menu items, and coordinate kitchen timing.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "last_planned_date": "2026-08-29",
+    "resolved_name": "Max Shoemaker"
+  },
+  {
+    "persona_id": "be6de09c-91e4-42c7-a936-2193977dd17c",
+    "name": "Andrew Abrams",
+    "curr_tile": "(72,25)",
+    "curr_time": "2026-08-29T11:54:00+00:00",
+    "daily_plan": null,
+    "daily_plan_req": "Today, Andrew Abrams is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Andrew Abrams is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Oak Hill College (library) as librarian; organize collections, help visitors, and maintain records.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "waking up and stretching in bed [mode=in_place anchor=bed]",
+        15
+      ],
+      [
+        "getting dressed from the closet [mode=in_place anchor=closet]",
+        10
+      ],
+      [
+        "organizing desk for the day [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "sitting quietly to plan the day [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "preparing breakfast at desk [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "walking to common room [mode=zone_patrol anchor=common room]",
+        2
+      ],
+      [
+        "walking to common room [mode=zone_patrol anchor=common room]",
+        2
+      ],
+      [
+        "walking to common room [mode=zone_patrol anchor=common room]",
+        2
+      ],
+      [
+        "eating breakfast at table [mode=in_place anchor=common room table]",
+        34
+      ],
+      [
+        "clearing table after breakfast [mode=in_place anchor=common room table]",
+        2
+      ],
+      [
+        "clearing dishes to kitchen sink [mode=zone_patrol anchor=kitchen sink]",
+        3
+      ],
+      [
+        "cleaning up and tidying room [mode=zone_patrol anchor=closet]",
+        20
+      ],
+      [
+        "walking to Studio Room 1 desk [mode=zone_patrol anchor=Studio Room 1]",
+        2
+      ],
+      [
+        "walking from common room to his studio room [mode=workstation_hop anchor=common room table]",
+        2
+      ],
+      [
+        "reviewing challenge notes at desk [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "analyzing partner options for Silent Pact [mode=in_place anchor=desk]",
+        16
+      ],
+      [
+        "ordering a coffee at the counter [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "sitting at a table and reviewing challenge notes [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "stretching and taking deep breaths [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "checking the time and waiting for the challenge to begin [mode=in_place anchor=cafe customer seating]",
+        25
+      ],
+      [
+        "listening to challenge briefing [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "coordinating with partner [mode=social_touch anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "deciding protect or expose [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "submitting decision to host [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "waiting for results [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe]",
+        10
+      ],
+      [
+        "ordering lunch at the counter [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "ordering lunch at the bar [mode=in_place anchor=bar customer seating]",
+        5
+      ],
+      [
+        "eating lunch while reviewing challenge notes [mode=in_place anchor=bar customer seating]",
+        30
+      ],
+      [
+        "sipping coffee and watching the cafe [mode=in_place anchor=cafe customer seating]",
+        30
+      ],
+      [
+        "reviewing notes about today's challenge [mode=in_place anchor=cafe customer seating]",
+        30
+      ],
+      [
+        "stretching and taking a quiet moment [mode=in_place anchor=cafe customer seating]",
+        24
+      ],
+      [
+        "reading and relaxing after lunch [mode=in_place anchor=cafe customer seating]",
+        106
+      ],
+      [
+        "eating a late lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "heading to Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe before the vote",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        120
+      ],
+      [
+        "heading home for the night",
+        60
+      ],
+      [
+        "at home sleeping",
+        60
+      ]
+    ],
+    "f_daily_schedule_hourly_org": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "waking up and starting his morning routine at home",
+        60
+      ],
+      [
+        "having breakfast at home",
+        120
+      ],
+      [
+        "heading to Hobbs Cafe for the challenge",
+        60
+      ],
+      [
+        "at Hobbs Cafe participating in the daily challenge",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe",
+        240
+      ],
+      [
+        "eating a late lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "heading to Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe before the vote",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        120
+      ],
+      [
+        "heading home for the night",
+        60
+      ],
+      [
+        "at home sleeping",
+        60
+      ]
+    ],
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "waiting for results",
+    "chatting_with": null,
+    "living_area": "the Ville:artist's co-living space:Studio Room 1",
+    "work_area": "the Ville:Oak Hill College:library",
+    "currently": "On premiere day in Doubland with the full cohort of fifteen, taking in the shared experiment they stepped into together; Working as librarian at Oak Hill College (library); organize collections, help visitors, and maintain records.",
+    "lifestyle": "Today, Andrew Abrams is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Andrew Abrams is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Oak Hill College (library) as librarian; organize collections, help visitors, and maintain records.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "last_planned_date": "2026-08-29",
+    "resolved_name": "Andrew Abrams"
+  },
+  {
+    "persona_id": "cc277da1-521b-4ba8-8f78-a7a1f09c3a32",
+    "name": "Owen Logan",
+    "curr_tile": "(79,23)",
+    "curr_time": "2026-08-29T11:54:00+00:00",
+    "daily_plan": null,
+    "daily_plan_req": "Today, Owen Logan is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Owen Logan is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at The Willows Market and Pharmacy (store) as stock clerk; assist customers, manage inventory, and close daily tasks.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "wake up and stretch in bed [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "get dressed from closet [mode=in_place anchor=closet]",
+        10
+      ],
+      [
+        "drink a glass of water from refrigerator [mode=in_place anchor=refrigerator]",
+        5
+      ],
+      [
+        "do light morning stretches at desk [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "check phone and plan the day at desk [mode=in_place anchor=desk]",
+        10
+      ],
+      [
+        "make the bed [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe]",
+        10
+      ],
+      [
+        "ordering breakfast at the counter [mode=in_place anchor=cafe]",
+        5
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe]",
+        10
+      ],
+      [
+        "ordering breakfast at the counter [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "walking to The Rose and Crown Pub [mode=zone_patrol anchor=bar customer seating]",
+        10
+      ],
+      [
+        "walking to The Rose and Crown Pub [mode=zone_patrol anchor=pub]",
+        8
+      ],
+      [
+        "ordering and eating breakfast at the bar [mode=in_place anchor=bar customer seating]",
+        22
+      ],
+      [
+        "sipping coffee and reading the morning paper [mode=in_place anchor=bar customer seating]",
+        20
+      ],
+      [
+        "reviewing notes for today's challenge [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "Sip coffee and scan the room [mode=in_place anchor=bar customer seating]",
+        12
+      ],
+      [
+        "Observe morning crowd dynamics [mode=in_place anchor=bar customer seating]",
+        10
+      ],
+      [
+        "Savor the last sips and check the time [mode=in_place anchor=bar customer seating]",
+        8
+      ],
+      [
+        "Order a refill at the bar [mode=workstation_hop anchor=bar customer seating]",
+        10
+      ],
+      [
+        "Relocate to a different seat near the window [mode=zone_patrol anchor=bar customer seating]",
+        5
+      ],
+      [
+        "Observe interactions at the bar from the new spot [mode=in_place anchor=bar customer seating]",
+        15
+      ],
+      [
+        "Sip a drink and watch the room [mode=in_place anchor=bar customer seating]",
+        15
+      ],
+      [
+        "walking to Hobbs Cafe [mode=in_place anchor=Hobbs Cafe]",
+        10
+      ],
+      [
+        "ordering a coffee at the counter [mode=workstation_hop anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "sip coffee and skim through notes [mode=in_place anchor=bar customer seating]",
+        15
+      ],
+      [
+        "highlight important passages [mode=in_place anchor=bar customer seating]",
+        10
+      ],
+      [
+        "lean back and review key concepts [mode=in_place anchor=bar customer seating]",
+        8
+      ],
+      [
+        "finish coffee and organize notes [mode=in_place anchor=bar customer seating]",
+        7
+      ],
+      [
+        "finishing coffee and packing up [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "walking to Hobbs Cafe [mode=in_place anchor=cafe customer seating]",
+        6
+      ],
+      [
+        "receiving partner assignment and challenge rules [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "making protect or expose decision [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "submitting decision and waiting for results [mode=in_place anchor=cafe customer seating]",
+        24
+      ],
+      [
+        "order a sandwich from the waiter [mode=in_place anchor=cafe customer seating]",
+        2
+      ],
+      [
+        "eat the sandwich [mode=in_place anchor=cafe customer seating]",
+        25
+      ],
+      [
+        "clean up and pay the bill [mode=in_place anchor=cafe customer seating]",
+        3
+      ],
+      [
+        "sip iced tea and watch the cafe bustle [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "stretch legs and check phone near the counter [mode=zone_patrol anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "having lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "stocking shelves at The Willows Market and Pharmacy",
+        120
+      ],
+      [
+        "at The Willows Market and Pharmacy restocking shelves",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        180
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        120
+      ],
+      [
+        "at home resting after the day's events",
+        60
+      ],
+      [
+        "sleeping at home",
+        60
+      ]
+    ],
+    "f_daily_schedule_hourly_org": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "waking up and starting the morning routine at home",
+        60
+      ],
+      [
+        "having breakfast at Hobbs Cafe",
+        180
+      ],
+      [
+        "having coffee at Hobbs Cafe and reviewing notes",
+        60
+      ],
+      [
+        "taking part in the daily challenge at Hobbs Cafe",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "having lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "stocking shelves at The Willows Market and Pharmacy",
+        120
+      ],
+      [
+        "at The Willows Market and Pharmacy restocking shelves",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        180
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        120
+      ],
+      [
+        "at home resting after the day's events",
+        60
+      ],
+      [
+        "sleeping at home",
+        60
+      ]
+    ],
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "submitting decision and waiting for results",
+    "chatting_with": null,
+    "living_area": "the Ville:Apartment 1:main room",
+    "work_area": "the Ville:The Willows Market and Pharmacy:store",
+    "currently": "On premiere day in Doubland with the full cohort of fifteen, taking in the shared experiment they stepped into together; Working as stock clerk at The Willows Market and Pharmacy (store); assist customers, manage inventory, and close daily tasks.",
+    "lifestyle": "Today, Owen Logan is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Owen Logan is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at The Willows Market and Pharmacy (store) as stock clerk; assist customers, manage inventory, and close daily tasks.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "last_planned_date": "2026-08-29",
+    "resolved_name": "Owen Logan"
+  },
+  {
+    "persona_id": "e473df98-8abb-44e9-a73f-f89771ec91d2",
+    "name": "Nick Miller",
+    "curr_tile": "(76,26)",
+    "curr_time": "2026-08-29T11:54:00+00:00",
+    "daily_plan": null,
+    "daily_plan_req": "Today, Nick Miller is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Nick Miller is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Oak Hill College (classroom) as teacher; prepare lessons, teach sessions, and review progress.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "Taking a hot shower [mode=in_place anchor=shower]",
+        20
+      ],
+      [
+        "Brushing teeth [mode=in_place anchor=bathroom sink]",
+        5
+      ],
+      [
+        "Washing face with cleanser [mode=in_place anchor=bathroom sink]",
+        5
+      ],
+      [
+        "Applying moisturizer [mode=in_place anchor=bathroom sink]",
+        5
+      ],
+      [
+        "Doing light stretches [mode=in_place anchor=bathroom]",
+        10
+      ],
+      [
+        "Changing into day clothes [mode=in_place anchor=bathroom]",
+        15
+      ],
+      [
+        "ordering coffee and a breakfast sandwich [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=common room]",
+        5
+      ],
+      [
+        "eating breakfast while scanning the room [mode=in_place anchor=cafe customer seating]",
+        25
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=house garden]",
+        5
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=house garden]",
+        10
+      ],
+      [
+        "reading the morning paper at cafe [mode=in_place anchor=cafe customer seating]",
+        25
+      ],
+      [
+        "Reviewing challenge rules and partner assignment [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "Highlighting key strategies for Silent Pact [mode=in_place anchor=cafe customer seating]",
+        12
+      ],
+      [
+        "Sipping coffee while re-reading notes [mode=in_place anchor=cafe customer seating]",
+        8
+      ],
+      [
+        "Jotting down personal thoughts on trust dynamics [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "sip coffee and review the challenge rules [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "observe other contestants arriving and gauge the mood [mode=zone_patrol anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "stretch and take deep breaths to calm nerves [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "Waiting for the challenge to begin [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "listening to challenge briefing [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "weighing protect vs expose options [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "submitting final decision card [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "Discussing the challenge outcome with nearby contestants [mode=social_touch anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "ordering and picking up lunch [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "eating the turkey sandwich [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "dipping fries in ketchup and eating them [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "wiping hands and finishing the meal [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "sipping iced tea and unwinding [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "having lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "heading to Johnson Park for a walk",
+        60
+      ],
+      [
+        "having lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "at Hobbs Cafe having a late lunch and reviewing student work",
+        60
+      ],
+      [
+        "having a late afternoon coffee at Hobbs Cafe",
+        60
+      ],
+      [
+        "eating dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe after the vote",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "heading home from Hobbs Cafe to rest",
+        60
+      ],
+      [
+        "asleep at home",
+        60
+      ]
+    ],
+    "f_daily_schedule_hourly_org": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "waking up and starting morning routine at home",
+        60
+      ],
+      [
+        "having breakfast at Hobbs Cafe",
+        120
+      ],
+      [
+        "heading to Hobbs Cafe for the challenge",
+        60
+      ],
+      [
+        "taking part in the daily challenge at Hobbs Cafe",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "having lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "heading to Johnson Park for a walk",
+        60
+      ],
+      [
+        "having lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "at Hobbs Cafe having a late lunch and reviewing student work",
+        60
+      ],
+      [
+        "having a late afternoon coffee at Hobbs Cafe",
+        60
+      ],
+      [
+        "eating dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe after the vote",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "heading home from Hobbs Cafe to rest",
+        60
+      ],
+      [
+        "asleep at home",
+        60
+      ]
+    ],
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "Discussing the challenge outcome with nearby contestants",
+    "chatting_with": "Vincent Slater",
+    "living_area": "the Ville:House 4:Room 1",
+    "work_area": "the Ville:Oak Hill College:classroom",
+    "currently": "On premiere day in Doubland with the full cohort of fifteen, taking in the shared experiment they stepped into together; Working as teacher at Oak Hill College (classroom); prepare lessons, teach sessions, and review progress.",
+    "lifestyle": "Today, Nick Miller is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Nick Miller is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Oak Hill College (classroom) as teacher; prepare lessons, teach sessions, and review progress.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "last_planned_date": "2026-08-29",
+    "resolved_name": "Nick Miller"
+  },
+  {
+    "persona_id": "e8c1b20c-dff4-4ab3-836b-cf1d86a8b958",
+    "name": "Dean Sanford",
+    "curr_tile": "(67,44)",
+    "curr_time": "2026-08-29T11:54:00+00:00",
+    "daily_plan": null,
+    "daily_plan_req": "Today, Dean Sanford is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Dean Sanford is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Harvey Oak Supply Store (supply store) as inventory manager; execute assigned tasks, assist visitors, and complete shift responsibilities.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "waking up and stretching in bed [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "getting dressed and grooming [mode=in_place anchor=closet]",
+        15
+      ],
+      [
+        "doing light morning stretches [mode=in_place anchor=bed]",
+        15
+      ],
+      [
+        "playing guitar to start the day [mode=in_place anchor=guitar]",
+        20
+      ],
+      [
+        "Prepare breakfast in kitchen [mode=in_place anchor=kitchen]",
+        10
+      ],
+      [
+        "Eat breakfast at common room table [mode=in_place anchor=common room table]",
+        25
+      ],
+      [
+        "Review challenge notes at common room table [mode=in_place anchor=common room table]",
+        25
+      ],
+      [
+        "Reading the Silent Pact challenge details at the common room table [mode=in_place anchor=common room table]",
+        20
+      ],
+      [
+        "Eating a bowl of granola at the common room table [mode=in_place anchor=common room table]",
+        25
+      ],
+      [
+        "Thinking through partner choices while relaxing on the common room sofa [mode=in_place anchor=common room sofa]",
+        15
+      ],
+      [
+        "walking to Hobbs Cafe [mode=zone_patrol anchor=common room]",
+        15
+      ],
+      [
+        "ordering a drink and finding a seat [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "reviewing challenge rules while sipping coffee [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "observing other contestants and mentally rehearsing strategies [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "reviewing the Silent Pact rules [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "waiting for partner assignment [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "deliberating the dilemma with partner [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "submitting the final decision [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "eating main course [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "sipping coffee and reviewing notes [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "clearing table and preparing to leave [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "sipping coffee and reviewing the day's events [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "walking to Harvey Oak Supply Store for inventory check",
+        60
+      ],
+      [
+        "working at Harvey Oak Supply Store",
+        60
+      ],
+      [
+        "walking to Harvey Oak Supply Store for inventory work",
+        60
+      ],
+      [
+        "working at Harvey Oak Supply Store",
+        60
+      ],
+      [
+        "walking to The Rose and Crown Pub for a drink",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "waking up and starting morning routine at home",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "eating dinner at Hobbs Cafe after the vote",
+        60
+      ],
+      [
+        "at home, winding down and reviewing the day's events",
+        60
+      ],
+      [
+        "sleeping at home",
+        60
+      ]
+    ],
+    "f_daily_schedule_hourly_org": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "waking up and starting morning routine at home",
+        60
+      ],
+      [
+        "having breakfast at home and reviewing the day's challenge",
+        60
+      ],
+      [
+        "eating breakfast at home and reviewing the day's challenge",
+        60
+      ],
+      [
+        "walking to Hobbs Cafe for the challenge",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the daily challenge",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "walking to Harvey Oak Supply Store for inventory check",
+        60
+      ],
+      [
+        "working at Harvey Oak Supply Store",
+        60
+      ],
+      [
+        "walking to Harvey Oak Supply Store for inventory work",
+        60
+      ],
+      [
+        "working at Harvey Oak Supply Store",
+        60
+      ],
+      [
+        "walking to The Rose and Crown Pub for a drink",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "waking up and starting morning routine at home",
+        60
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "eating dinner at Hobbs Cafe after the vote",
+        60
+      ],
+      [
+        "at home, winding down and reviewing the day's events",
+        60
+      ],
+      [
+        "sleeping at home",
+        60
+      ]
+    ],
+    "act_address": "the Ville:Harvey Oak Supply Store:supply store:behind the supply store counter",
+    "act_description": "submitting the final decision",
+    "chatting_with": null,
+    "living_area": "the Ville:artist's co-living space:Studio Room 2",
+    "work_area": "the Ville:Harvey Oak Supply Store:supply store",
+    "currently": "On premiere day in Doubland with the full cohort of fifteen, taking in the shared experiment they stepped into together; Working as inventory manager at Harvey Oak Supply Store (supply store); execute assigned tasks, assist visitors, and complete shift responsibilities.",
+    "lifestyle": "Today, Dean Sanford is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Dean Sanford is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Harvey Oak Supply Store (supply store) as inventory manager; execute assigned tasks, assist visitors, and complete shift responsibilities.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "last_planned_date": "2026-08-29",
+    "resolved_name": "Dean Sanford"
+  },
+  {
+    "persona_id": "eac7be2a-b689-40be-a3a1-b4c4426ae9dc",
+    "name": "Irene Dove",
+    "curr_tile": "(76,25)",
+    "curr_time": "2026-08-29T11:54:00+00:00",
+    "daily_plan": null,
+    "daily_plan_req": "Today, Irene Dove is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Irene Dove is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Hobbs Cafe (cafe) as barista; prepare drinks, serve customers, and clean the counter.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "waking up and stretching in bed [mode=in_place anchor=bed]",
+        5
+      ],
+      [
+        "taking a shower [mode=in_place anchor=shower]",
+        15
+      ],
+      [
+        "drying off and getting dressed [mode=in_place anchor=closet]",
+        10
+      ],
+      [
+        "doing hair and skincare at desk [mode=in_place anchor=desk]",
+        15
+      ],
+      [
+        "making the bed and tidying up [mode=zone_patrol anchor=bed]",
+        15
+      ],
+      [
+        "Prepare a simple breakfast at desk [mode=in_place anchor=desk]",
+        10
+      ],
+      [
+        "Walk to kitchen and prepare a quick breakfast [mode=zone_patrol anchor=kitchen]",
+        5
+      ],
+      [
+        "Eat breakfast at desk while browsing news on phone [mode=in_place anchor=desk]",
+        25
+      ],
+      [
+        "Read through news articles and check updates [mode=in_place anchor=desk]",
+        20
+      ],
+      [
+        "Prepare a simple breakfast in the dorm kitchen [mode=in_place anchor=cooking area]",
+        10
+      ],
+      [
+        "Eat breakfast bowl [mode=in_place anchor=desk]",
+        10
+      ],
+      [
+        "Scroll through news headlines on phone [mode=in_place anchor=desk]",
+        10
+      ],
+      [
+        "Read a brief article [mode=in_place anchor=desk]",
+        10
+      ],
+      [
+        "Lie on bed and read deeper news articles [mode=in_place anchor=bed]",
+        20
+      ],
+      [
+        "walking to Hobbs Cafe [mode=in_place anchor=cafe]",
+        10
+      ],
+      [
+        "ordering and settling in with coffee [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "reading a chapter of a novel [mode=in_place anchor=library table]",
+        25
+      ],
+      [
+        "sipping coffee and reviewing notes [mode=in_place anchor=library table]",
+        20
+      ],
+      [
+        "ordering a coffee and finding a seat [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "reviewing challenge notes and strategizing [mode=in_place anchor=cafe customer seating]",
+        25
+      ],
+      [
+        "greeting other contestants as they arrive [mode=social_touch anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "ordering a coffee at the counter [mode=workstation_hop anchor=behind the cafe counter]",
+        10
+      ],
+      [
+        "settling into the seating area [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "reviewing challenge notes [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "sipping coffee while re-reading key points [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "mentally rehearsing possible partner scenarios [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "ordering lunch at the counter [mode=workstation_hop anchor=behind the cafe counter]",
+        5
+      ],
+      [
+        "unwrapping her sandwich and taking the first bites [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "eating her sandwich while looking around the cafe [mode=in_place anchor=cafe customer seating]",
+        20
+      ],
+      [
+        "finishing her sandwich and wiping the table [mode=in_place anchor=cafe customer seating]",
+        10
+      ],
+      [
+        "sipping coffee and people-watching [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "having lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "walking to Hobbs Cafe for the challenge",
+        60
+      ],
+      [
+        "at Hobbs Cafe having an afternoon coffee",
+        60
+      ],
+      [
+        "having dinner at The Rose and Crown Pub",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        120
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "having dinner at The Rose and Crown Pub",
+        60
+      ],
+      [
+        "asleep at home",
+        60
+      ]
+    ],
+    "f_daily_schedule_hourly_org": [
+      [
+        "sleeping",
+        360
+      ],
+      [
+        "waking up and starting morning routine at home",
+        60
+      ],
+      [
+        "having breakfast at home and checking the day's news",
+        60
+      ],
+      [
+        "having breakfast at home and checking the news",
+        60
+      ],
+      [
+        "having morning coffee at Hobbs Cafe",
+        60
+      ],
+      [
+        "walking to Hobbs Cafe for the challenge",
+        60
+      ],
+      [
+        "arriving at Hobbs Cafe for the daily challenge",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "having lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "walking to Hobbs Cafe for the challenge",
+        60
+      ],
+      [
+        "at Hobbs Cafe having an afternoon coffee",
+        60
+      ],
+      [
+        "having dinner at The Rose and Crown Pub",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        120
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        60
+      ],
+      [
+        "having dinner at The Rose and Crown Pub",
+        60
+      ],
+      [
+        "asleep at home",
+        60
+      ]
+    ],
+    "act_address": "the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "act_description": "mentally rehearsing possible partner scenarios",
+    "chatting_with": "Vince Vale",
+    "living_area": "the Ville:Dorm for Oak Hill College:Dorm Room 1",
+    "work_area": "the Ville:Hobbs Cafe:cafe",
+    "currently": "On premiere day in Doubland with the full cohort of fifteen, taking in the shared experiment they stepped into together; Working as barista at Hobbs Cafe (cafe); prepare drinks, serve customers, and clean the counter.",
+    "lifestyle": "Today, Irene Dove is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Irene Dove is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Hobbs Cafe (cafe) as barista; prepare drinks, serve customers, and clean the counter.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alex Shepard, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "last_planned_date": "2026-08-29",
+    "resolved_name": "Irene Dove"
+  },
+  {
+    "persona_id": "f428ae04-975d-4163-b7e6-fbaea8befd24",
+    "name": "Alex Shepard",
+    "curr_tile": "(63,30)",
+    "curr_time": "2026-08-29T11:54:00+00:00",
+    "daily_plan": null,
+    "daily_plan_req": "Today, Alex Shepard is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Alex Shepard is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Oak Hill College (library) as archivist; organize collections, help visitors, and maintain records.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alexis Reed, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "f_daily_schedule": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "waking up and stretching in bed [mode=in_place anchor=bed]",
+        10
+      ],
+      [
+        "getting dressed from closet [mode=in_place anchor=closet]",
+        10
+      ],
+      [
+        "making bed and tidying up [mode=zone_patrol anchor=bed]",
+        10
+      ],
+      [
+        "checking challenge details on schedule [mode=in_place anchor=shelf]",
+        15
+      ],
+      [
+        "noting key deadlines for the day [mode=in_place anchor=shelf]",
+        15
+      ],
+      [
+        "eating breakfast at the common room table [mode=in_place anchor=common room table]",
+        25
+      ],
+      [
+        "reviewing challenge notes [mode=in_place anchor=common room sofa]",
+        20
+      ],
+      [
+        "re-reading key points [mode=in_place anchor=common room sofa]",
+        15
+      ],
+      [
+        "Walking to Oak Hill College through Johnson Park [mode=zone_patrol anchor=park garden]",
+        14
+      ],
+      [
+        "walking to Oak Hill College library [mode=in_place anchor=library]",
+        8
+      ],
+      [
+        "sorting archival boxes at library desk [mode=workstation_hop anchor=library table]",
+        20
+      ],
+      [
+        "labeling and filing documents [mode=workstation_hop anchor=library table]",
+        18
+      ],
+      [
+        "packing up and leaving the classroom [mode=in_place anchor=classroom student seating]",
+        5
+      ],
+      [
+        "walking through Johnson Park towards Hobbs Cafe [mode=zone_patrol anchor=park garden]",
+        10
+      ],
+      [
+        "arriving at Hobbs Cafe and ordering a coffee [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "walking to artist's co-living space from park [mode=zone_patrol anchor=park garden]",
+        5
+      ],
+      [
+        "reviewing challenge notes on common room sofa [mode=in_place anchor=common room sofa]",
+        25
+      ],
+      [
+        "arriving at Hobbs Cafe and finding a seat [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "listening to the challenge instructions [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "deliberating with partner on the Silent Pact decision [mode=social_touch anchor=cafe customer seating]",
+        25
+      ],
+      [
+        "submitting the final choice to the host [mode=in_place anchor=cafe customer seating]",
+        15
+      ],
+      [
+        "walking to Hobbs Cafe [mode=in_place anchor=cafe]",
+        10
+      ],
+      [
+        "ordering lunch at the counter [mode=in_place anchor=cafe customer seating]",
+        5
+      ],
+      [
+        "ordering a sandwich and a drink at the bar [mode=in_place anchor=bar customer seating]",
+        5
+      ],
+      [
+        "eating lunch while scanning the room [mode=in_place anchor=bar customer seating]",
+        25
+      ],
+      [
+        "sipping coffee and watching the crowd [mode=in_place anchor=bar customer seating]",
+        15
+      ],
+      [
+        "having lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "having coffee at Hobbs Cafe",
+        60
+      ],
+      [
+        "reviewing archives at Oak Hill College library",
+        60
+      ],
+      [
+        "at Oak Hill College library organizing archives",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        180
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        120
+      ],
+      [
+        "walking home from Hobbs Cafe after the vote",
+        60
+      ],
+      [
+        "sleeping at home",
+        60
+      ]
+    ],
+    "f_daily_schedule_hourly_org": [
+      [
+        "sleeping",
+        420
+      ],
+      [
+        "waking up and starting morning routine at home",
+        60
+      ],
+      [
+        "finishing breakfast and reviewing the day's challenge at home",
+        60
+      ],
+      [
+        "walking to Oak Hill College library for morning shift",
+        60
+      ],
+      [
+        "walking to Hobbs Cafe for the daily challenge",
+        60
+      ],
+      [
+        "taking part in the daily challenge at Hobbs Cafe",
+        60
+      ],
+      [
+        "eating lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "having lunch at Hobbs Cafe",
+        60
+      ],
+      [
+        "having coffee at Hobbs Cafe",
+        60
+      ],
+      [
+        "reviewing archives at Oak Hill College library",
+        60
+      ],
+      [
+        "at Oak Hill College library organizing archives",
+        60
+      ],
+      [
+        "having dinner at Hobbs Cafe",
+        180
+      ],
+      [
+        "at Hobbs Cafe for the evening vote",
+        120
+      ],
+      [
+        "walking home from Hobbs Cafe after the vote",
+        60
+      ],
+      [
+        "sleeping at home",
+        60
+      ]
+    ],
+    "act_address": "the Ville:The Rose and Crown Pub:pub:bar customer seating",
+    "act_description": "submitting the final choice to the host",
+    "chatting_with": null,
+    "living_area": "the Ville:artist's co-living space:Studio Room 4",
+    "work_area": "the Ville:Oak Hill College:library",
+    "currently": "On premiere day in Doubland with the full cohort of fifteen, taking in the shared experiment they stepped into together; Working as archivist at Oak Hill College (library); organize collections, help visitors, and maintain records.",
+    "lifestyle": "Today, Alex Shepard is on Day 2 \u2014 14 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Silent Pact; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Today, Alex Shepard is on Day 1 \u2014 15 players remain of a Survival Game season. Challenge and vote are fixed calendar events; the rest of the day should still feel like this person's life. Today's priorities, in order: (a) be at Hobbs Cafe before the challenge deadline at 11:00 for today's challenge: Hold for the Shield; (b) attend the voting block at Hobbs Cafe before the voting deadline at 20:00; (c) between those commitments, live as this person normally would (Start at Oak Hill College (library) as archivist; organize collections, help visitors, and maintain records.). If you naturally cross paths with Alex Butcher, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.). If you naturally cross paths with Alexis Reed, you may talk \u2014 about work, the day, or the upcoming challenge/vote and alliances \u2014 in your voice. Do not fill free hours with generic strategy meetings or \"review challenge notes.\"; (d) meals and brief rest as needed.",
+    "last_planned_date": "2026-08-29",
+    "resolved_name": "Alex Shepard"
+  }
+]

@@ -1,0 +1,477 @@
+[
+  {
+    "step": 785,
+    "clock": "d1 19:00",
+    "n": 8,
+    "denom": 15,
+    "present": [
+      "Dean Sanford",
+      "Irene Dove",
+      "Max Shoemaker",
+      "Mike Hooks",
+      "Nick Miller",
+      "Olivia King",
+      "Owen Logan",
+      "Vince Vale"
+    ],
+    "absent": [
+      "Alex Butcher",
+      "Alex Shepard",
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Diana Ogden",
+      "Ivan Pitts",
+      "Vincent Slater"
+    ]
+  },
+  {
+    "step": 790,
+    "clock": "d1 19:05",
+    "n": 9,
+    "denom": 15,
+    "present": [
+      "Dean Sanford",
+      "Diana Ogden",
+      "Irene Dove",
+      "Ivan Pitts",
+      "Max Shoemaker",
+      "Mike Hooks",
+      "Nick Miller",
+      "Olivia King",
+      "Vince Vale"
+    ],
+    "absent": [
+      "Alex Butcher",
+      "Alex Shepard",
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Owen Logan",
+      "Vincent Slater"
+    ]
+  },
+  {
+    "step": 795,
+    "clock": "d1 19:10",
+    "n": 10,
+    "denom": 15,
+    "present": [
+      "Alex Butcher",
+      "Dean Sanford",
+      "Diana Ogden",
+      "Irene Dove",
+      "Ivan Pitts",
+      "Max Shoemaker",
+      "Mike Hooks",
+      "Nick Miller",
+      "Olivia King",
+      "Vince Vale"
+    ],
+    "absent": [
+      "Alex Shepard",
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Owen Logan",
+      "Vincent Slater"
+    ]
+  },
+  {
+    "step": 800,
+    "clock": "d1 19:15",
+    "n": 9,
+    "denom": 15,
+    "present": [
+      "Alex Butcher",
+      "Dean Sanford",
+      "Diana Ogden",
+      "Irene Dove",
+      "Ivan Pitts",
+      "Mike Hooks",
+      "Nick Miller",
+      "Olivia King",
+      "Vince Vale"
+    ],
+    "absent": [
+      "Alex Shepard",
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Max Shoemaker",
+      "Owen Logan",
+      "Vincent Slater"
+    ]
+  },
+  {
+    "step": 805,
+    "clock": "d1 19:20",
+    "n": 9,
+    "denom": 15,
+    "present": [
+      "Alex Butcher",
+      "Dean Sanford",
+      "Diana Ogden",
+      "Irene Dove",
+      "Ivan Pitts",
+      "Mike Hooks",
+      "Nick Miller",
+      "Olivia King",
+      "Vince Vale"
+    ],
+    "absent": [
+      "Alex Shepard",
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Max Shoemaker",
+      "Owen Logan",
+      "Vincent Slater"
+    ]
+  },
+  {
+    "step": 810,
+    "clock": "d1 19:25",
+    "n": 8,
+    "denom": 15,
+    "present": [
+      "Alex Butcher",
+      "Diana Ogden",
+      "Irene Dove",
+      "Ivan Pitts",
+      "Mike Hooks",
+      "Nick Miller",
+      "Olivia King",
+      "Vince Vale"
+    ],
+    "absent": [
+      "Alex Shepard",
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Dean Sanford",
+      "Max Shoemaker",
+      "Owen Logan",
+      "Vincent Slater"
+    ]
+  },
+  {
+    "step": 815,
+    "clock": "d1 19:30",
+    "n": 9,
+    "denom": 15,
+    "present": [
+      "Alex Butcher",
+      "Diana Ogden",
+      "Irene Dove",
+      "Ivan Pitts",
+      "Max Shoemaker",
+      "Mike Hooks",
+      "Nick Miller",
+      "Olivia King",
+      "Vince Vale"
+    ],
+    "absent": [
+      "Alex Shepard",
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Dean Sanford",
+      "Owen Logan",
+      "Vincent Slater"
+    ]
+  },
+  {
+    "step": 820,
+    "clock": "d1 19:35",
+    "n": 9,
+    "denom": 15,
+    "present": [
+      "Alex Butcher",
+      "Diana Ogden",
+      "Irene Dove",
+      "Ivan Pitts",
+      "Max Shoemaker",
+      "Mike Hooks",
+      "Nick Miller",
+      "Olivia King",
+      "Vince Vale"
+    ],
+    "absent": [
+      "Alex Shepard",
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Dean Sanford",
+      "Owen Logan",
+      "Vincent Slater"
+    ]
+  },
+  {
+    "step": 825,
+    "clock": "d1 19:40",
+    "n": 8,
+    "denom": 15,
+    "present": [
+      "Alex Butcher",
+      "Diana Ogden",
+      "Irene Dove",
+      "Ivan Pitts",
+      "Max Shoemaker",
+      "Mike Hooks",
+      "Olivia King",
+      "Vince Vale"
+    ],
+    "absent": [
+      "Alex Shepard",
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Dean Sanford",
+      "Nick Miller",
+      "Owen Logan",
+      "Vincent Slater"
+    ]
+  },
+  {
+    "step": 830,
+    "clock": "d1 19:45",
+    "n": 8,
+    "denom": 15,
+    "present": [
+      "Alex Butcher",
+      "Diana Ogden",
+      "Irene Dove",
+      "Ivan Pitts",
+      "Max Shoemaker",
+      "Mike Hooks",
+      "Olivia King",
+      "Vince Vale"
+    ],
+    "absent": [
+      "Alex Shepard",
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Dean Sanford",
+      "Nick Miller",
+      "Owen Logan",
+      "Vincent Slater"
+    ]
+  },
+  {
+    "step": 835,
+    "clock": "d1 19:50",
+    "n": 8,
+    "denom": 15,
+    "present": [
+      "Alex Butcher",
+      "Diana Ogden",
+      "Irene Dove",
+      "Ivan Pitts",
+      "Max Shoemaker",
+      "Mike Hooks",
+      "Olivia King",
+      "Vince Vale"
+    ],
+    "absent": [
+      "Alex Shepard",
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Dean Sanford",
+      "Nick Miller",
+      "Owen Logan",
+      "Vincent Slater"
+    ]
+  },
+  {
+    "step": 840,
+    "clock": "d1 19:55",
+    "n": 8,
+    "denom": 15,
+    "present": [
+      "Alex Butcher",
+      "Diana Ogden",
+      "Irene Dove",
+      "Ivan Pitts",
+      "Max Shoemaker",
+      "Mike Hooks",
+      "Olivia King",
+      "Vince Vale"
+    ],
+    "absent": [
+      "Alex Shepard",
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Dean Sanford",
+      "Nick Miller",
+      "Owen Logan",
+      "Vincent Slater"
+    ]
+  },
+  {
+    "step": 845,
+    "clock": "d1 20:00",
+    "n": 8,
+    "denom": 15,
+    "present": [
+      "Alex Butcher",
+      "Diana Ogden",
+      "Irene Dove",
+      "Ivan Pitts",
+      "Max Shoemaker",
+      "Mike Hooks",
+      "Olivia King",
+      "Vince Vale"
+    ],
+    "absent": [
+      "Alex Shepard",
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Dean Sanford",
+      "Nick Miller",
+      "Owen Logan",
+      "Vincent Slater"
+    ]
+  },
+  {
+    "step": 850,
+    "clock": "d1 20:05",
+    "n": 8,
+    "denom": 15,
+    "present": [
+      "Alex Butcher",
+      "Diana Ogden",
+      "Irene Dove",
+      "Ivan Pitts",
+      "Max Shoemaker",
+      "Mike Hooks",
+      "Olivia King",
+      "Vince Vale"
+    ],
+    "absent": [
+      "Alex Shepard",
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Dean Sanford",
+      "Nick Miller",
+      "Owen Logan",
+      "Vincent Slater"
+    ]
+  },
+  {
+    "step": 855,
+    "clock": "d1 20:10",
+    "n": 11,
+    "denom": 15,
+    "present": [
+      "Alex Butcher",
+      "Dean Sanford",
+      "Diana Ogden",
+      "Irene Dove",
+      "Ivan Pitts",
+      "Max Shoemaker",
+      "Mike Hooks",
+      "Olivia King",
+      "Owen Logan",
+      "Vince Vale",
+      "Vincent Slater"
+    ],
+    "absent": [
+      "Alex Shepard",
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Nick Miller"
+    ]
+  },
+  {
+    "step": 860,
+    "clock": "d1 20:15",
+    "n": 12,
+    "denom": 15,
+    "present": [
+      "Alex Butcher",
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Dean Sanford",
+      "Diana Ogden",
+      "Irene Dove",
+      "Ivan Pitts",
+      "Max Shoemaker",
+      "Mike Hooks",
+      "Olivia King",
+      "Owen Logan",
+      "Vincent Slater"
+    ],
+    "absent": [
+      "Alex Shepard",
+      "Nick Miller",
+      "Vince Vale"
+    ]
+  },
+  {
+    "step": 865,
+    "clock": "d1 20:20",
+    "n": 11,
+    "denom": 15,
+    "present": [
+      "Alex Butcher",
+      "Dean Sanford",
+      "Diana Ogden",
+      "Irene Dove",
+      "Ivan Pitts",
+      "Max Shoemaker",
+      "Mike Hooks",
+      "Nick Miller",
+      "Olivia King",
+      "Owen Logan",
+      "Vincent Slater"
+    ],
+    "absent": [
+      "Alex Shepard",
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Vince Vale"
+    ]
+  },
+  {
+    "step": 870,
+    "clock": "d1 20:25",
+    "n": 11,
+    "denom": 15,
+    "present": [
+      "Alex Butcher",
+      "Dean Sanford",
+      "Diana Ogden",
+      "Irene Dove",
+      "Ivan Pitts",
+      "Max Shoemaker",
+      "Mike Hooks",
+      "Nick Miller",
+      "Olivia King",
+      "Owen Logan",
+      "Vincent Slater"
+    ],
+    "absent": [
+      "Alex Shepard",
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Vince Vale"
+    ]
+  },
+  {
+    "step": 875,
+    "clock": "d1 20:30",
+    "n": 12,
+    "denom": 15,
+    "present": [
+      "Alex Butcher",
+      "Alex Shepard",
+      "Dean Sanford",
+      "Diana Ogden",
+      "Irene Dove",
+      "Ivan Pitts",
+      "Max Shoemaker",
+      "Mike Hooks",
+      "Nick Miller",
+      "Olivia King",
+      "Owen Logan",
+      "Vincent Slater"
+    ],
+    "absent": [
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Vince Vale"
+    ]
+  }
+]

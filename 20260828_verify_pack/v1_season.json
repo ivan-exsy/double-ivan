@@ -1,0 +1,411 @@
+[
+  {
+    "simulation_id": "a31712bf-8b45-46fa-8fd8-56ba7c3d6058",
+    "current_day": 2,
+    "total_days": 0,
+    "phase": "CHALLENGE",
+    "status": "running",
+    "winner": null,
+    "ended_day": null,
+    "immunity_holder": "Irene Dove",
+    "active_challenge_id": "silent_pact",
+    "remaining_players": [
+      "Alex Shepard",
+      "Alexis Reed",
+      "Andrew Abrams",
+      "Dean Sanford",
+      "Diana Ogden",
+      "Irene Dove",
+      "Ivan Pitts",
+      "Max Shoemaker",
+      "Mike Hooks",
+      "Nick Miller",
+      "Olivia King",
+      "Owen Logan",
+      "Vince Vale",
+      "Vincent Slater"
+    ],
+    "eliminated": [
+      {
+        "day": 1,
+        "name": "Alex Butcher",
+        "vote_count": 3.0,
+        "vote_tally": {
+          "Irene Dove": "Alex Butcher",
+          "Ivan Pitts": "Alex Butcher",
+          "Mike Hooks": "Olivia King",
+          "Vince Vale": "Alex Butcher",
+          "Diana Ogden": "Ivan Pitts",
+          "Olivia King": "Mike Hooks",
+          "Alex Butcher": "Alex Shepard",
+          "Max Shoemaker": "Irene Dove"
+        },
+        "vote_reasons": {
+          "Irene Dove": {
+            "target": "Alex Butcher",
+            "reasoning": "My planning preference is early coordination and clear commitments, and since Alex Butcher and I haven't established any alliance or trust beyond neutral ground, I'm voting for the person I know least \u2014 it reduces risk while I assess the group dynamics in this first vote.",
+            "confidence": 0.65
+          },
+          "Ivan Pitts": {
+            "target": "Alex Butcher",
+            "reasoning": "My value of epistemic integrity means I test beliefs rather than assume them, and right now I have the highest trust level with Alex Butcher at 0.50 \u2014 but that's barely above neutral and based on zero actual interaction today. Voting for Alex gives me a clean baseline: if others target them for reasons I can verify later, I'll learn something about the group's real dynamics. If Alex survives, I can reassess tomorrow with clearer data.",
+            "confidence": 0.55
+          },
+          "Mike Hooks": {
+            "target": "Olivia King",
+            "reasoning": "I value clear incentives and second-order effects. Voting out my only ally on Day 1 would signal that I can't be trusted, but it also removes a player who might become a bigger threat later if she builds stronger ties. I'll stick with the alliance for now to maintain social capital and avoid early betrayal costs.",
+            "confidence": 0.85
+          },
+          "Vince Vale": {
+            "target": "Alex Butcher",
+            "reasoning": "As a systems-minded analyst, I need to test the incentive structure early\u2014Alex Butcher has the highest trust score on my list, which makes them the most likely to be a consensus vote if alliances solidify, and I'd rather see how the coalition forms than waste a vote on a non-threat. Irene Dove is my active ally, so I won't target her; among the rest, Alex Butcher's neutrality makes them a low-risk probe to gauge voting patterns without burning bridges.",
+            "confidence": 0.65
+          },
+          "Diana Ogden": {
+            "target": "Ivan Pitts",
+            "reasoning": "I lean toward systems thinking and want to see who actually engages early \u2014 Ivan has been quiet and hasn't signaled any intent, which makes him a low-information variable I'd rather not carry forward without testing the group's reaction. Dean Sanford is my only active alliance, and voting Ivan doesn't conflict with that, while keeping my social capital neutral for now.",
+            "confidence": 0.65
+          },
+          "Olivia King": {
+            "target": "Mike Hooks",
+            "reasoning": "My action bias says start with the clearest signal \u2014 the only alliance I have on record is with Mike, and in a new group I'd rather test trust early by voting someone I'm connected to, to see how they react and gather feedback on the real dynamics. Mike's not a threat yet, but this vote lets me learn quickly whether that alliance is solid or if I need to pivot before patterns set in.",
+            "confidence": 0.65
+          },
+          "Alex Butcher": {
+            "target": "Alex Shepard",
+            "reasoning": "I'm a builder who prototypes fast, so I want to see how people react to an early shake-up. Alex Shepard has the same first name and neutral trust, making them a low-risk test target to gauge coalition dynamics without burning a real bridge.",
+            "confidence": 0.3
+          },
+          "Max Shoemaker": {
+            "target": "Irene Dove",
+            "reasoning": "My bias toward action means I want to test the alliance lock-in early \u2014 Irene is my closest ally, so voting for her signals I'm not coasting on trust, and it forces a real conversation about how serious we are. No one else has done anything yet on Day 1, so this is a low-stakes probe that keeps everyone else neutral while I gather intel.",
+            "confidence": 0.35
+          }
+        },
+        "final_statement": "Well, that's that. I build things fast and prototype even faster\u2014guess the group wasn't ready for a beta version of me. Good luck holding the shield without a logistics guy; you're gonna need it."
+      }
+    ],
+    "immunity_history": [
+      {
+        "day": 1,
+        "holders": [
+          "Dean Sanford"
+        ]
+      },
+      {
+        "day": 2,
+        "holders": [
+          "Irene Dove"
+        ]
+      }
+    ],
+    "challenge_results": [
+      {
+        "day": 1,
+        "type": "hold_for_shield",
+        "winners": [
+          "Dean Sanford"
+        ],
+        "claimants": 15,
+        "decisions": [
+          {
+            "agent": "Alex Butcher",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "card": 1,
+            "agent": "Alex Shepard",
+            "action": "fold",
+            "reasoning": "I'm a systems thinker who watches for second-order effects, and holding a 1 is a losing proposition that reveals weakness. Folding keeps my card private and avoids handing the group information about my position on Day 1, which aligns with my default stance of gathering data before exposing my hand.",
+            "choice_reason_plain": "I'm a systems thinker who watches for second-order effects, and holding a 1 is a losing proposition that reveals weakness. Folding keeps my card private and avoids handing the group information about my position on Day 1, which aligns with my default stance of gathering data befo"
+          },
+          {
+            "agent": "Alexis Reed",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Andrew Abrams",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "card": 3,
+            "agent": "Dean Sanford",
+            "action": "hold",
+            "reasoning": "I'm a rank 3, the highest possible \u2014 that's the best leverage I'll see all season. Pragmatically, you don't fold the top card when only one shield exists; the incentive structure rewards holding your strongest position. My default is to stand when pressured, and this is the cleanest pressure test there is.",
+            "choice_reason_plain": "I'm a rank 3, the highest possible \u2014 that's the best leverage I'll see all season. Pragmatically, you don't fold the top card when only one shield exists; the incentive structure rewards holding your strongest position. My default is to stand when pressured, and this is the clean"
+          },
+          {
+            "agent": "Diana Ogden",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "card": 2,
+            "agent": "Irene Dove",
+            "action": "fold",
+            "reasoning": "I value clear commitments and early coordination, and with a low card rank of 2, holding would be a long shot that doesn't align with my practical, low-risk approach to planning\u2014I'd rather fold and keep my options open for building trust through transparency later.",
+            "choice_reason_plain": "I value clear commitments and early coordination, and with a low card rank of 2, holding would be a long shot that doesn't align with my practical, low-risk approach to planning\u2014I'd rather fold and keep my options open for building trust through transparency later."
+          },
+          {
+            "agent": "Ivan Pitts",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Max Shoemaker",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Mike Hooks",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Nick Miller",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Olivia King",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Owen Logan",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Vince Vale",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Vincent Slater",
+            "action": "fold",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          }
+        ],
+        "public_board": {
+          "winner": "Dean Sanford",
+          "holders": {
+            "Dean Sanford": 3
+          }
+        },
+        "challenge_name": "Hold for the Shield",
+        "win_path_one_liner": "Highest held card won the Shield"
+      },
+      {
+        "day": 2,
+        "type": "silent_pact",
+        "winners": [
+          "Irene Dove",
+          "Olivia King",
+          "Max Shoemaker"
+        ],
+        "claimants": 14,
+        "decisions": [
+          {
+            "agent": "Alex Shepard",
+            "action": "protect",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Alexis Reed",
+            "action": "protect",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Andrew Abrams",
+            "action": "protect",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Dean Sanford",
+            "action": "protect",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Diana Ogden",
+            "action": "protect",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Irene Dove",
+            "action": "expose",
+            "partner": "Vince Vale",
+            "reasoning": "I trust Vince Vale as an alliance, but the odds of both choosing Protect give only a chance at a stronger vote, while exposing alone gives me a movable Shield. Given that Max Shoemaker holds a grudge against me and I've been targeted once, I need the flexibility to protect myself. I'll take the risk that Vince chooses Protect.",
+            "pair_partner": "Vince Vale",
+            "choice_reason_plain": "I trust Vince Vale as an alliance, but the odds of both choosing Protect give only a chance at a stronger vote, while exposing alone gives me a movable Shield. Given that Max Shoemaker holds a grudge against me and I've been targeted once, I need the flexibility to protect myself"
+          },
+          {
+            "agent": "Ivan Pitts",
+            "action": "protect",
+            "partner": "Max Shoemaker",
+            "reasoning": "I lean toward Protect because my trust in Max Shoemaker is moderate but not zero, and mutual Expose would weaken both our votes. Given I've already been targeted once, I'd rather risk a weaker outcome from mutual Protect than guarantee a weaker vote from mutual Expose.",
+            "pair_partner": "Max Shoemaker",
+            "choice_reason_plain": "I lean toward Protect because my trust in Max Shoemaker is moderate but not zero, and mutual Expose would weaken both our votes. Given I've already been targeted once, I'd rather risk a weaker outcome from mutual Protect than guarantee a weaker vote from mutual Expose."
+          },
+          {
+            "agent": "Max Shoemaker",
+            "action": "protect",
+            "partner": "Ivan Pitts",
+            "reasoning": "I lean Protect because Ivan Pitts is still a trusted partner \u2014 we haven't had reason to doubt each other yet. Exposing alone would get me a Shield but burn trust early, and I'd rather build long-term social capital than grab a short-term advantage.",
+            "pair_partner": "Ivan Pitts",
+            "choice_reason_plain": "I lean Protect because Ivan Pitts is still a trusted partner \u2014 we haven't had reason to doubt each other yet. Exposing alone would get me a Shield but burn trust early, and I'd rather build long-term social capital than grab a short-term advantage."
+          },
+          {
+            "agent": "Mike Hooks",
+            "action": "protect",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Nick Miller",
+            "action": "protect",
+            "partner": "Olivia King",
+            "reasoning": "Olivia King is at a neutral trust level, and I have no reason to burn that bridge on Day 2. Exposing alone would net me a Shield but signal I'm willing to undercut a partner early \u2014 bad for reputation when 14 players remain. I'll play it safe and protect.",
+            "pair_partner": "Olivia King",
+            "choice_reason_plain": "Olivia King is at a neutral trust level, and I have no reason to burn that bridge on Day 2. Exposing alone would net me a Shield but signal I'm willing to undercut a partner early \u2014 bad for reputation when 14 players remain. I'll play it safe and protect."
+          },
+          {
+            "agent": "Olivia King",
+            "action": "expose",
+            "partner": "Nick Miller",
+            "reasoning": "I don't have enough trust built with Nick Miller yet to gamble on both of us protecting \u2014 a 0.50 trust level is neutral at best. I'd rather secure a movable Shield for myself now; if he protects, I win the shield, and if he exposes too, we both take weaker votes but at least I tried to gain an advantage.",
+            "pair_partner": "Nick Miller",
+            "choice_reason_plain": "I don't have enough trust built with Nick Miller yet to gamble on both of us protecting \u2014 a 0.50 trust level is neutral at best. I'd rather secure a movable Shield for myself now; if he protects, I win the shield, and if he exposes too, we both take weaker votes but at least I tr"
+          },
+          {
+            "agent": "Owen Logan",
+            "action": "protect",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          },
+          {
+            "agent": "Vince Vale",
+            "action": "protect",
+            "partner": "Irene Dove",
+            "reasoning": "Irene Dove is my only active alliance, and our trust is still moderate at 0.50. Exposing alone could net a Shield, but if she also protects, I'd betray her and damage the alliance. The safer play is to protect and hope the luck element favors one of us, preserving our coalition for later votes.",
+            "pair_partner": "Irene Dove",
+            "choice_reason_plain": "Irene Dove is my only active alliance, and our trust is still moderate at 0.50. Exposing alone could net a Shield, but if she also protects, I'd betray her and damage the alliance. The safer play is to protect and hope the luck element favors one of us, preserving our coalition f"
+          },
+          {
+            "agent": "Vincent Slater",
+            "action": "protect",
+            "reasoning": "absent",
+            "choice_reason_plain": "absent"
+          }
+        ],
+        "public_board": {
+          "sole_exposers": [
+            "Irene Dove",
+            "Olivia King"
+          ],
+          "mutual_protect": [
+            [
+              "Ivan Pitts",
+              "Max Shoemaker"
+            ]
+          ]
+        },
+        "challenge_name": "Silent Pact",
+        "win_path_one_liner": "Irene Dove won a movable Shield via sole expose"
+      }
+    ],
+    "alliance_log": [
+      {
+        "source": "chat",
+        "members": [
+          "Irene Dove",
+          "Max Shoemaker"
+        ],
+        "formed_day": 1
+      },
+      {
+        "source": "chat",
+        "members": [
+          "Dean Sanford",
+          "Diana Ogden"
+        ],
+        "formed_day": 1
+      },
+      {
+        "source": "chat",
+        "members": [
+          "Irene Dove",
+          "Vince Vale"
+        ],
+        "formed_day": 1
+      },
+      {
+        "source": "chat",
+        "members": [
+          "Mike Hooks",
+          "Olivia King"
+        ],
+        "formed_day": 1
+      },
+      {
+        "members": [
+          "Max Shoemaker",
+          "Irene Dove"
+        ],
+        "broken_by": "Max Shoemaker",
+        "broken_day": 1
+      },
+      {
+        "members": [
+          "Mike Hooks",
+          "Olivia King"
+        ],
+        "broken_by": "Mike Hooks",
+        "broken_day": 1
+      },
+      {
+        "members": [
+          "Olivia King",
+          "Mike Hooks"
+        ],
+        "broken_by": "Olivia King",
+        "broken_day": 1
+      },
+      {
+        "source": "chat",
+        "members": [
+          "Diana Ogden",
+          "Max Shoemaker"
+        ],
+        "formed_day": 2
+      }
+    ],
+    "daily_narratives": [
+      {
+        "day": 1,
+        "summary": "Dean Sanford won the challenge; Alex Butcher was eliminated."
+      }
+    ],
+    "updated_at": "2026-08-28T16:02:31.101283+00:00"
+  }
+]

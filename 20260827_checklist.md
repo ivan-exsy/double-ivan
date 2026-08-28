@@ -50,10 +50,12 @@ Runner PID **533153** still up (~4 h). 15/15 people every step. Traceback **0**.
 
 **Investigation:** evidence + RCA handoff → `20260827_handoff_challenge_miss.md`. H2/H3 above is provisional (scorer window started 09:30).
 
+**Verify pull (2026-08-28):** `20260828_verdict_authority_hypothesis.md` — day-1 vote **8/15** at 20:00 (12 at 20:15); day-2 challenge **6/14** at 11:00 (10 at 11:05). H-B confirmed as cause.
+
 ---
 
 ### Still waiting
 
-- Vote occupancy @ **20:00**
+- Day-2 vote occupancy @ **20:00** (step 2285)
 - Sofa persist / re-greet mill
 - Overlay / absentees-cannot-win after tonight’s elim

@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Diana Ogden",
+    "day1_first_cafe": "10:00-10:05",
+    "day2_first_cafe": "08:00",
+    "day2_start_min": 480
+  },
+  {
+    "name": "Alexis Reed",
+    "day1_first_cafe": "10:00-10:05",
+    "day2_first_cafe": "10:00",
+    "day2_start_min": 600
+  },
+  {
+    "name": "Alex Butcher",
+    "day1_first_cafe": "11:00",
+    "day2_first_cafe": "11:00",
+    "day2_start_min": 660
+  },
+  {
+    "name": "Vincent Slater",
+    "day1_first_cafe": "10:00-10:05",
+    "day2_first_cafe": "09:00",
+    "day2_start_min": 540
+  },
+  {
+    "name": "Ivan Pitts",
+    "day1_first_cafe": "11:00",
+    "day2_first_cafe": "09:00",
+    "day2_start_min": 540
+  },
+  {
+    "name": "Vince Vale",
+    "day1_first_cafe": "10:00-10:05",
+    "day2_first_cafe": "07:40",
+    "day2_start_min": 460
+  },
+  {
+    "name": "Mike Hooks",
+    "day1_first_cafe": "11:18",
+    "day2_first_cafe": "11:00",
+    "day2_start_min": 660
+  },
+  {
+    "name": "Olivia King",
+    "day1_first_cafe": "07:00-09:05",
+    "day2_first_cafe": "10:00",
+    "day2_start_min": 600
+  },
+  {
+    "name": "Max Shoemaker",
+    "day1_first_cafe": "07:00-09:05",
+    "day2_first_cafe": "09:00",
+    "day2_start_min": 540
+  },
+  {
+    "name": "Andrew Abrams",
+    "day1_first_cafe": "10:00-10:05",
+    "day2_first_cafe": "10:00",
+    "day2_start_min": 600
+  },
+  {
+    "name": "Owen Logan",
+    "day1_first_cafe": "11:00",
+    "day2_first_cafe": "07:00",
+    "day2_start_min": 420
+  },
+  {
+    "name": "Nick Miller",
+    "day1_first_cafe": "11:00",
+    "day2_first_cafe": "08:00",
+    "day2_start_min": 480
+  },
+  {
+    "name": "Dean Sanford",
+    "day1_first_cafe": "07:00-09:05",
+    "day2_first_cafe": "10:00",
+    "day2_start_min": 600
+  },
+  {
+    "name": "Irene Dove",
+    "day1_first_cafe": "07:00-09:05",
+    "day2_first_cafe": "09:00",
+    "day2_start_min": 540
+  },
+  {
+    "name": "Alex Shepard",
+    "day1_first_cafe": "10:00-10:05",
+    "day2_first_cafe": "10:05",
+    "day2_start_min": 605
+  }
+]

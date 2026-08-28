@@ -1,0 +1,65 @@
+[
+  {
+    "window": "d1_chal",
+    "name": "Alexis Reed",
+    "leave_step": 277,
+    "clock": "d1 10:32",
+    "chatting_with": "Diana Ogden",
+    "partner_left_within_3": {
+      "partner_leave_step": 277,
+      "partner": "Diana Ogden"
+    },
+    "description": "walking to Oak Hill College @ the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "zone": "other"
+  },
+  {
+    "window": "d1_chal",
+    "name": "Andrew Abrams",
+    "leave_step": 286,
+    "clock": "d1 10:41",
+    "chatting_with": "Irene Dove",
+    "partner_left_within_3": null,
+    "description": "waiting at Hobbs Cafe for the survival appointment @ the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "zone": "other"
+  },
+  {
+    "window": "d1_chal",
+    "name": "Diana Ogden",
+    "leave_step": 277,
+    "clock": "d1 10:32",
+    "chatting_with": "Vincent Slater",
+    "partner_left_within_3": null,
+    "description": "waiting at Hobbs Cafe for the survival appointment @ the Ville:Hobbs Cafe:cafe:cafe customer seating",
+    "zone": "other"
+  },
+  {
+    "window": "d1_chal",
+    "name": "Olivia King",
+    "leave_step": 291,
+    "clock": "d1 10:46",
+    "chatting_with": null,
+    "partner_left_within_3": null,
+    "description": "waiting at Hobbs Cafe for the survival appointment @ the Ville:Hobbs Cafe:cafe",
+    "zone": "other"
+  },
+  {
+    "window": "d1_vote",
+    "name": "Nick Miller",
+    "leave_step": 821,
+    "clock": "d1 19:36",
+    "chatting_with": "Ivan Pitts",
+    "partner_left_within_3": null,
+    "description": "waiting at Hobbs Cafe for the survival appointment @ the Ville",
+    "zone": "other"
+  },
+  {
+    "window": "d2_chal",
+    "name": "Andrew Abrams",
+    "leave_step": 1739,
+    "clock": "d2 10:54",
+    "chatting_with": "Nick Miller",
+    "partner_left_within_3": null,
+    "description": "at The Rose and Crown Pub @ the Ville",
+    "zone": "other"
+  }
+]

@@ -1,0 +1,235 @@
+[
+  {
+    "agent_name": "Alex Butcher",
+    "has_immunity": false,
+    "immunity_type": null,
+    "vote_history": [
+      {
+        "day": 1,
+        "voted": true,
+        "reasoning": "I'm a builder who prototypes fast, so I want to see how people react to an early shake-up. Alex Shepard has the same first name and neutral trust, making them a low-risk test target to gauge coalition dynamics without burning a real bridge.",
+        "voted_for": "Alex Shepard",
+        "confidence": 0.3
+      }
+    ],
+    "days_survived": 0,
+    "vote_weight": 1
+  },
+  {
+    "agent_name": "Irene Dove",
+    "has_immunity": true,
+    "immunity_type": "transferable",
+    "vote_history": [
+      {
+        "day": 1,
+        "voted": true,
+        "reasoning": "My planning preference is early coordination and clear commitments, and since Alex Butcher and I haven't established any alliance or trust beyond neutral ground, I'm voting for the person I know least \u2014 it reduces risk while I assess the group dynamics in this first vote.",
+        "voted_for": "Alex Butcher",
+        "confidence": 0.65
+      }
+    ],
+    "days_survived": 1,
+    "vote_weight": 1
+  },
+  {
+    "agent_name": "Alexis Reed",
+    "has_immunity": false,
+    "immunity_type": null,
+    "vote_history": [
+      {
+        "day": 1,
+        "voted": false,
+        "reason": "absent_from_gathering",
+        "phantom_applied": true
+      }
+    ],
+    "days_survived": 1,
+    "vote_weight": 1
+  },
+  {
+    "agent_name": "Diana Ogden",
+    "has_immunity": false,
+    "immunity_type": null,
+    "vote_history": [
+      {
+        "day": 1,
+        "voted": true,
+        "reasoning": "I lean toward systems thinking and want to see who actually engages early \u2014 Ivan has been quiet and hasn't signaled any intent, which makes him a low-information variable I'd rather not carry forward without testing the group's reaction. Dean Sanford is my only active alliance, and voting Ivan doesn't conflict with that, while keeping my social capital neutral for now.",
+        "voted_for": "Ivan Pitts",
+        "confidence": 0.65
+      }
+    ],
+    "days_survived": 1,
+    "vote_weight": 1
+  },
+  {
+    "agent_name": "Nick Miller",
+    "has_immunity": false,
+    "immunity_type": null,
+    "vote_history": [
+      {
+        "day": 1,
+        "voted": false,
+        "reason": "absent_from_gathering",
+        "phantom_applied": true
+      }
+    ],
+    "days_survived": 1,
+    "vote_weight": 1
+  },
+  {
+    "agent_name": "Dean Sanford",
+    "has_immunity": false,
+    "immunity_type": null,
+    "vote_history": [
+      {
+        "day": 1,
+        "voted": false,
+        "reason": "absent_from_gathering",
+        "phantom_applied": true
+      }
+    ],
+    "days_survived": 1,
+    "vote_weight": 1
+  },
+  {
+    "agent_name": "Max Shoemaker",
+    "has_immunity": false,
+    "immunity_type": null,
+    "vote_history": [
+      {
+        "day": 1,
+        "voted": true,
+        "reasoning": "My bias toward action means I want to test the alliance lock-in early \u2014 Irene is my closest ally, so voting for her signals I'm not coasting on trust, and it forces a real conversation about how serious we are. No one else has done anything yet on Day 1, so this is a low-stakes probe that keeps everyone else neutral while I gather intel.",
+        "voted_for": "Irene Dove",
+        "confidence": 0.35
+      }
+    ],
+    "days_survived": 1,
+    "vote_weight": 1
+  },
+  {
+    "agent_name": "Andrew Abrams",
+    "has_immunity": false,
+    "immunity_type": null,
+    "vote_history": [
+      {
+        "day": 1,
+        "voted": false,
+        "reason": "absent_from_gathering",
+        "phantom_applied": true
+      }
+    ],
+    "days_survived": 1,
+    "vote_weight": 1
+  },
+  {
+    "agent_name": "Alex Shepard",
+    "has_immunity": false,
+    "immunity_type": null,
+    "vote_history": [
+      {
+        "day": 1,
+        "voted": false,
+        "reason": "absent_from_gathering",
+        "phantom_applied": true
+      }
+    ],
+    "days_survived": 1,
+    "vote_weight": 1
+  },
+  {
+    "agent_name": "Owen Logan",
+    "has_immunity": false,
+    "immunity_type": null,
+    "vote_history": [
+      {
+        "day": 1,
+        "voted": false,
+        "reason": "absent_from_gathering",
+        "phantom_applied": true
+      }
+    ],
+    "days_survived": 1,
+    "vote_weight": 1
+  },
+  {
+    "agent_name": "Ivan Pitts",
+    "has_immunity": false,
+    "immunity_type": null,
+    "vote_history": [
+      {
+        "day": 1,
+        "voted": true,
+        "reasoning": "My value of epistemic integrity means I test beliefs rather than assume them, and right now I have the highest trust level with Alex Butcher at 0.50 \u2014 but that's barely above neutral and based on zero actual interaction today. Voting for Alex gives me a clean baseline: if others target them for reasons I can verify later, I'll learn something about the group's real dynamics. If Alex survives, I can reassess tomorrow with clearer data.",
+        "voted_for": "Alex Butcher",
+        "confidence": 0.55
+      }
+    ],
+    "days_survived": 1,
+    "vote_weight": 1
+  },
+  {
+    "agent_name": "Mike Hooks",
+    "has_immunity": false,
+    "immunity_type": null,
+    "vote_history": [
+      {
+        "day": 1,
+        "voted": true,
+        "reasoning": "I value clear incentives and second-order effects. Voting out my only ally on Day 1 would signal that I can't be trusted, but it also removes a player who might become a bigger threat later if she builds stronger ties. I'll stick with the alliance for now to maintain social capital and avoid early betrayal costs.",
+        "voted_for": "Olivia King",
+        "confidence": 0.85
+      }
+    ],
+    "days_survived": 1,
+    "vote_weight": 1
+  },
+  {
+    "agent_name": "Vince Vale",
+    "has_immunity": false,
+    "immunity_type": null,
+    "vote_history": [
+      {
+        "day": 1,
+        "voted": true,
+        "reasoning": "As a systems-minded analyst, I need to test the incentive structure early\u2014Alex Butcher has the highest trust score on my list, which makes them the most likely to be a consensus vote if alliances solidify, and I'd rather see how the coalition forms than waste a vote on a non-threat. Irene Dove is my active ally, so I won't target her; among the rest, Alex Butcher's neutrality makes them a low-risk probe to gauge voting patterns without burning bridges.",
+        "voted_for": "Alex Butcher",
+        "confidence": 0.65
+      }
+    ],
+    "days_survived": 1,
+    "vote_weight": 1
+  },
+  {
+    "agent_name": "Olivia King",
+    "has_immunity": false,
+    "immunity_type": null,
+    "vote_history": [
+      {
+        "day": 1,
+        "voted": true,
+        "reasoning": "My action bias says start with the clearest signal \u2014 the only alliance I have on record is with Mike, and in a new group I'd rather test trust early by voting someone I'm connected to, to see how they react and gather feedback on the real dynamics. Mike's not a threat yet, but this vote lets me learn quickly whether that alliance is solid or if I need to pivot before patterns set in.",
+        "voted_for": "Mike Hooks",
+        "confidence": 0.65
+      }
+    ],
+    "days_survived": 1,
+    "vote_weight": 1
+  },
+  {
+    "agent_name": "Vincent Slater",
+    "has_immunity": false,
+    "immunity_type": null,
+    "vote_history": [
+      {
+        "day": 1,
+        "voted": false,
+        "reason": "absent_from_gathering",
+        "phantom_applied": true
+      }
+    ],
+    "days_survived": 1,
+    "vote_weight": 1
+  }
+]

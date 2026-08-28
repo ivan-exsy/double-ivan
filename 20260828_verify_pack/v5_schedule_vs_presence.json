@@ -1,0 +1,377 @@
+[
+  {
+    "name": "Diana Ogden",
+    "first_cafe_start": "08:00",
+    "first_cafe_text": "walking to Hobbs Cafe [mode=zone_patrol anchor=Hobbs Cafe]",
+    "block_1030": {
+      "start_min": 610,
+      "end_min": 635,
+      "text": "browsing grocery shelves [mode=zone_patrol anchor=grocery store shelf]",
+      "mode": "zone_patrol",
+      "anchor": "grocery store shelf",
+      "clock": "10:10-10:35"
+    },
+    "block_1100": {
+      "start_min": 660,
+      "end_min": 670,
+      "text": "Reading the challenge instructions [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "11:00-11:10"
+    },
+    "cafe_block_covers_1030_1100": false,
+    "on_cafe_at_1100": false,
+    "act_description_now": "walking to Hobbs Cafe",
+    "act_address_now": "the Ville:Hobbs Cafe:cafe:cafe customer seating"
+  },
+  {
+    "name": "Alexis Reed",
+    "first_cafe_start": "10:00",
+    "first_cafe_text": "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe customer seating]",
+    "block_1030": {
+      "start_min": 625,
+      "end_min": 660,
+      "text": "reviewing challenge notes at a table [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "10:25-11:00"
+    },
+    "block_1100": {
+      "start_min": 660,
+      "end_min": 670,
+      "text": "Settling into the cafe and reviewing the challenge rules [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "11:00-11:10"
+    },
+    "cafe_block_covers_1030_1100": true,
+    "on_cafe_at_1100": false,
+    "act_description_now": "Submitting final choice to host",
+    "act_address_now": "the Ville:The Rose and Crown Pub:pub:bar customer seating"
+  },
+  {
+    "name": "Alex Butcher",
+    "first_cafe_start": "11:00",
+    "first_cafe_text": "Reviewing the challenge instructions [mode=in_place anchor=cafe customer seating]",
+    "block_1030": {
+      "start_min": 620,
+      "end_min": 635,
+      "text": "Cleaning the supply store counter [mode=in_place anchor=supply store counter]",
+      "mode": "in_place",
+      "anchor": "supply store counter",
+      "clock": "10:20-10:35"
+    },
+    "block_1100": {
+      "start_min": 660,
+      "end_min": 670,
+      "text": "Reviewing the challenge instructions [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "11:00-11:10"
+    },
+    "cafe_block_covers_1030_1100": false,
+    "on_cafe_at_1100": false,
+    "act_description_now": "Sitting and waiting for results",
+    "act_address_now": "the Ville:Hobbs Cafe:cafe:cafe customer seating"
+  },
+  {
+    "name": "Vincent Slater",
+    "first_cafe_start": "09:00",
+    "first_cafe_text": "walking to Hobbs Cafe from Johnson Park [mode=zone_patrol anchor=park garden]",
+    "block_1030": {
+      "start_min": 630,
+      "end_min": 650,
+      "text": "Reviewing key challenge strategies [mode=in_place anchor=desk]",
+      "mode": "in_place",
+      "anchor": "desk",
+      "clock": "10:30-10:50"
+    },
+    "block_1100": {
+      "start_min": 660,
+      "end_min": 665,
+      "text": "settling in at the cafe seating area [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "11:00-11:05"
+    },
+    "cafe_block_covers_1030_1100": false,
+    "on_cafe_at_1100": false,
+    "act_description_now": "waiting for the challenge results",
+    "act_address_now": "the Ville:Hobbs Cafe:cafe:cafe customer seating"
+  },
+  {
+    "name": "Ivan Pitts",
+    "first_cafe_start": "09:00",
+    "first_cafe_text": "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe]",
+    "block_1030": {
+      "start_min": 628,
+      "end_min": 638,
+      "text": "underlining key points in notes [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "10:28-10:38"
+    },
+    "block_1100": {
+      "start_min": 660,
+      "end_min": 670,
+      "text": "listening to the challenge briefing [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "11:00-11:10"
+    },
+    "cafe_block_covers_1030_1100": true,
+    "on_cafe_at_1100": true,
+    "act_description_now": "waiting for the challenge results",
+    "act_address_now": "the Ville:Hobbs Cafe:cafe:cafe customer seating"
+  },
+  {
+    "name": "Vince Vale",
+    "first_cafe_start": "07:40",
+    "first_cafe_text": "planning morning route to Hobbs Cafe [mode=in_place anchor=desk]",
+    "block_1030": {
+      "start_min": 625,
+      "end_min": 645,
+      "text": "reviewing challenge rules at cafe table [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "10:25-10:45"
+    },
+    "block_1100": {
+      "start_min": 660,
+      "end_min": 670,
+      "text": "Waiting for the challenge to start [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "11:00-11:10"
+    },
+    "cafe_block_covers_1030_1100": true,
+    "on_cafe_at_1100": true,
+    "act_description_now": "Reviewing the challenge results",
+    "act_address_now": "the Ville:Hobbs Cafe:cafe:cafe customer seating"
+  },
+  {
+    "name": "Mike Hooks",
+    "first_cafe_start": "11:00",
+    "first_cafe_text": "reviewing the Silent Pact challenge rules [mode=in_place anchor=cafe customer seating]",
+    "block_1030": {
+      "start_min": 624,
+      "end_min": 644,
+      "text": "reading a chapter of a novel [mode=in_place anchor=common room table]",
+      "mode": "in_place",
+      "anchor": "common room table",
+      "clock": "10:24-10:44"
+    },
+    "block_1100": {
+      "start_min": 660,
+      "end_min": 670,
+      "text": "reviewing the Silent Pact challenge rules [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "11:00-11:10"
+    },
+    "cafe_block_covers_1030_1100": false,
+    "on_cafe_at_1100": false,
+    "act_description_now": "waiting for challenge results and debriefing",
+    "act_address_now": "the Ville:Hobbs Cafe:cafe:cafe customer seating"
+  },
+  {
+    "name": "Olivia King",
+    "first_cafe_start": "10:00",
+    "first_cafe_text": "walking to Hobbs Cafe via Johnson Park [mode=zone_patrol anchor=park garden]",
+    "block_1030": {
+      "start_min": 625,
+      "end_min": 645,
+      "text": "reviewing challenge notes [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "10:25-10:45"
+    },
+    "block_1100": {
+      "start_min": 660,
+      "end_min": 670,
+      "text": "Waiting for the challenge to begin [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "11:00-11:10"
+    },
+    "cafe_block_covers_1030_1100": true,
+    "on_cafe_at_1100": true,
+    "act_description_now": "Reflecting on the challenge outcome",
+    "act_address_now": "the Ville:Hobbs Cafe:cafe:cafe customer seating"
+  },
+  {
+    "name": "Max Shoemaker",
+    "first_cafe_start": "09:00",
+    "first_cafe_text": "walking to Hobbs Cafe [mode=zone_patrol anchor=dorm garden]",
+    "block_1030": {
+      "start_min": 625,
+      "end_min": 645,
+      "text": "measuring and mixing pastry dough at the cooking area [mode=in_place anchor=cooking area]",
+      "mode": "in_place",
+      "anchor": "cooking area",
+      "clock": "10:25-10:45"
+    },
+    "block_1100": {
+      "start_min": 660,
+      "end_min": 670,
+      "text": "Receiving the Silent Pact challenge instructions [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "11:00-11:10"
+    },
+    "cafe_block_covers_1030_1100": false,
+    "on_cafe_at_1100": true,
+    "act_description_now": "Waiting for challenge results",
+    "act_address_now": "the Ville:Hobbs Cafe:cafe:cafe customer seating"
+  },
+  {
+    "name": "Andrew Abrams",
+    "first_cafe_start": "10:00",
+    "first_cafe_text": "ordering a coffee at the counter [mode=in_place anchor=cafe customer seating]",
+    "block_1030": {
+      "start_min": 625,
+      "end_min": 635,
+      "text": "stretching and taking deep breaths [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "10:25-10:35"
+    },
+    "block_1100": {
+      "start_min": 660,
+      "end_min": 670,
+      "text": "listening to challenge briefing [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "11:00-11:10"
+    },
+    "cafe_block_covers_1030_1100": true,
+    "on_cafe_at_1100": false,
+    "act_description_now": "waiting for results",
+    "act_address_now": "the Ville:Hobbs Cafe:cafe:cafe customer seating"
+  },
+  {
+    "name": "Owen Logan",
+    "first_cafe_start": "07:00",
+    "first_cafe_text": "walking to Hobbs Cafe [mode=zone_patrol anchor=cafe]",
+    "block_1030": {
+      "start_min": 630,
+      "end_min": 640,
+      "text": "highlight important passages [mode=in_place anchor=bar customer seating]",
+      "mode": "in_place",
+      "anchor": "bar customer seating",
+      "clock": "10:30-10:40"
+    },
+    "block_1100": {
+      "start_min": 660,
+      "end_min": 666,
+      "text": "walking to Hobbs Cafe [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "11:00-11:06"
+    },
+    "cafe_block_covers_1030_1100": true,
+    "on_cafe_at_1100": false,
+    "act_description_now": "submitting decision and waiting for results",
+    "act_address_now": "the Ville:Hobbs Cafe:cafe:cafe customer seating"
+  },
+  {
+    "name": "Nick Miller",
+    "first_cafe_start": "08:00",
+    "first_cafe_text": "ordering coffee and a breakfast sandwich [mode=in_place anchor=cafe customer seating]",
+    "block_1030": {
+      "start_min": 620,
+      "end_min": 640,
+      "text": "observe other contestants arriving and gauge the mood [mode=zone_patrol anchor=cafe customer seating]",
+      "mode": "zone_patrol",
+      "anchor": "cafe customer seating",
+      "clock": "10:20-10:40"
+    },
+    "block_1100": {
+      "start_min": 660,
+      "end_min": 670,
+      "text": "Waiting for the challenge to begin [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "11:00-11:10"
+    },
+    "cafe_block_covers_1030_1100": true,
+    "on_cafe_at_1100": true,
+    "act_description_now": "Discussing the challenge outcome with nearby contestants",
+    "act_address_now": "the Ville:Hobbs Cafe:cafe:cafe customer seating"
+  },
+  {
+    "name": "Dean Sanford",
+    "first_cafe_start": "10:00",
+    "first_cafe_text": "walking to Hobbs Cafe [mode=zone_patrol anchor=common room]",
+    "block_1030": {
+      "start_min": 620,
+      "end_min": 640,
+      "text": "reviewing challenge rules while sipping coffee [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "10:20-10:40"
+    },
+    "block_1100": {
+      "start_min": 660,
+      "end_min": 670,
+      "text": "reviewing the Silent Pact rules [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "11:00-11:10"
+    },
+    "cafe_block_covers_1030_1100": true,
+    "on_cafe_at_1100": false,
+    "act_description_now": "submitting the final decision",
+    "act_address_now": "the Ville:Harvey Oak Supply Store:supply store:behind the supply store counter"
+  },
+  {
+    "name": "Irene Dove",
+    "first_cafe_start": "09:00",
+    "first_cafe_text": "walking to Hobbs Cafe [mode=in_place anchor=cafe]",
+    "block_1030": {
+      "start_min": 615,
+      "end_min": 640,
+      "text": "reviewing challenge notes and strategizing [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "10:15-10:40"
+    },
+    "block_1100": {
+      "start_min": 660,
+      "end_min": 670,
+      "text": "ordering a coffee at the counter [mode=workstation_hop anchor=behind the cafe counter]",
+      "mode": "workstation_hop",
+      "anchor": "behind the cafe counter",
+      "clock": "11:00-11:10"
+    },
+    "cafe_block_covers_1030_1100": true,
+    "on_cafe_at_1100": true,
+    "act_description_now": "mentally rehearsing possible partner scenarios",
+    "act_address_now": "the Ville:Hobbs Cafe:cafe:cafe customer seating"
+  },
+  {
+    "name": "Alex Shepard",
+    "first_cafe_start": "10:05",
+    "first_cafe_text": "walking through Johnson Park towards Hobbs Cafe [mode=zone_patrol anchor=park garden]",
+    "block_1030": {
+      "start_min": 630,
+      "end_min": 635,
+      "text": "walking to artist's co-living space from park [mode=zone_patrol anchor=park garden]",
+      "mode": "zone_patrol",
+      "anchor": "park garden",
+      "clock": "10:30-10:35"
+    },
+    "block_1100": {
+      "start_min": 660,
+      "end_min": 665,
+      "text": "arriving at Hobbs Cafe and finding a seat [mode=in_place anchor=cafe customer seating]",
+      "mode": "in_place",
+      "anchor": "cafe customer seating",
+      "clock": "11:00-11:05"
+    },
+    "cafe_block_covers_1030_1100": false,
+    "on_cafe_at_1100": false,
+    "act_description_now": "submitting the final choice to the host",
+    "act_address_now": "the Ville:The Rose and Crown Pub:pub:bar customer seating"
+  }
+]

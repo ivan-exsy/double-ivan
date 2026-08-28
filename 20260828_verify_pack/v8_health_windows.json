@@ -1,0 +1,20 @@
+{
+  "fetched_steps": 458,
+  "missing_odd_n": [],
+  "missing_odd_n_count": 0,
+  "over6_start_end_n": 0,
+  "over6_sample": [],
+  "consec_over6_n": 0,
+  "consec_sample": [],
+  "curr_from_sim": [
+    {
+      "id": "a31712bf-8b45-46fa-8fd8-56ba7c3d6058",
+      "name": "20260827-1",
+      "start_date": "2026-08-27",
+      "curr_time": "2026-08-29T11:55:00+00:00",
+      "total_steps": 1800,
+      "status_id": "a3fd4d3c-9a04-497e-86f5-8de18bb5ff6c",
+      "is_generating": true
+    }
+  ]
+}

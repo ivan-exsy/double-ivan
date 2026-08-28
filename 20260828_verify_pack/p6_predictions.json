@@ -1,0 +1,9 @@
+{
+  "pulled_at_sim": {"curr_time": "2026-08-29T11:55:00+00:00", "total_steps": 1800},
+  "p1": {"vote_845": "8/15", "bar": 12, "verdict": "CONFIRMS H-B"},
+  "p2": {"n_2005": 8, "n_2010": 11, "n_2015": 12, "jump_2005_to_2015": 4, "verdict": "CONFIRMS H-B"},
+  "p3": {"heading_offcafe_n": 589, "moved_toward_n": 66, "frac": 0.112, "verdict": "CONFIRMS H-B"},
+  "p4": {"speed_0_spike": false, "speed_1_n": 567, "median_disp": 0, "stationary_common": true, "verdict": "MIXED — motion matches H-B, 0.0 fingerprint is wrong"},
+  "p5": {"note": "use 10:30 cafe-covering block, not OR-flag", "verdict": "PARTIAL H-B"},
+  "p6": {"d2_1100": "6/14", "bar": 11, "verdict": "CONFIRMS H-B as written; V5b they came earlier and still missed"}
+}

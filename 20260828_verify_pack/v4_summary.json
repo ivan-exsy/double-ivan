@@ -1,0 +1,57 @@
+{
+  "d1_chal": {
+    "window": [
+      275,
+      305
+    ],
+    "heading_offcafe_n": 380,
+    "moved_toward_n": 44,
+    "frac_toward": 0.11578947368421053,
+    "median_disp": 0.0,
+    "speed_multiplier": {
+      "1.0": 374,
+      "1.1": 6
+    },
+    "movement_mode": {
+      "stationary": 181,
+      "travel_to_zone": 79,
+      "in_zone": 120
+    }
+  },
+  "d1_vote": {
+    "window": [
+      815,
+      845
+    ],
+    "heading_offcafe_n": 209,
+    "moved_toward_n": 22,
+    "frac_toward": 0.10526315789473684,
+    "median_disp": 0,
+    "speed_multiplier": {
+      "1.0": 193,
+      "1.1": 16
+    },
+    "movement_mode": {
+      "stationary": 127,
+      "travel_to_zone": 26,
+      "in_zone": 56
+    }
+  },
+  "d2_chal": {
+    "window": [
+      1715,
+      1745
+    ],
+    "heading_offcafe_n": 0,
+    "moved_toward_n": 0,
+    "frac_toward": null,
+    "median_disp": null,
+    "speed_multiplier": {},
+    "movement_mode": {}
+  },
+  "combined": {
+    "heading_offcafe_n": 589,
+    "moved_toward_n": 66,
+    "frac_toward": 0.11205432937181664
+  }
+}

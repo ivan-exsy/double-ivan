@@ -1,0 +1,331 @@
+[
+  {
+    "name": "Alex Shepard",
+    "first_on": null,
+    "last_on": null,
+    "on_count": 0,
+    "leaves": [],
+    "on_at_end": false,
+    "class": "H3"
+  },
+  {
+    "name": "Alexis Reed",
+    "first_on": 1695,
+    "last_on": 1710,
+    "on_count": 16,
+    "leaves": [
+      {
+        "step": 1711,
+        "clock": "d2 10:26",
+        "pos": [
+          77,
+          30
+        ],
+        "description": "walking to Oak Hill College @ the Ville",
+        "chatting_with": "Ivan Pitts",
+        "address_label": "the Ville",
+        "zone": "other"
+      }
+    ],
+    "on_at_end": false,
+    "class": "H2"
+  },
+  {
+    "name": "Andrew Abrams",
+    "first_on": 1630,
+    "last_on": 1738,
+    "on_count": 37,
+    "leaves": [
+      {
+        "step": 1635,
+        "clock": "d2 09:10",
+        "pos": [
+          74,
+          30
+        ],
+        "description": "cleaning up and tidying room (heading to artist's co-living space) @ the Ville",
+        "chatting_with": "Nick Miller",
+        "address_label": "the Ville",
+        "zone": "other"
+      },
+      {
+        "step": 1739,
+        "clock": "d2 10:54",
+        "pos": [
+          76,
+          27
+        ],
+        "description": "at The Rose and Crown Pub @ the Ville",
+        "chatting_with": "Nick Miller",
+        "address_label": "the Ville",
+        "zone": "other"
+      }
+    ],
+    "on_at_end": false,
+    "class": "H2"
+  },
+  {
+    "name": "Dean Sanford",
+    "first_on": 1692,
+    "last_on": 1708,
+    "on_count": 17,
+    "leaves": [
+      {
+        "step": 1709,
+        "clock": "d2 10:24",
+        "pos": [
+          79,
+          30
+        ],
+        "description": "walking to Oak Hill College @ the Ville",
+        "chatting_with": null,
+        "address_label": "the Ville",
+        "zone": "other"
+      }
+    ],
+    "on_at_end": false,
+    "class": "H2"
+  },
+  {
+    "name": "Diana Ogden",
+    "first_on": 1578,
+    "last_on": 1635,
+    "on_count": 58,
+    "leaves": [
+      {
+        "step": 1636,
+        "clock": "d2 09:11",
+        "pos": [
+          77,
+          28
+        ],
+        "description": "walking to Oak Hill College @ the Ville:Hobbs Cafe:cafe",
+        "chatting_with": null,
+        "address_label": "the Ville:Hobbs Cafe:cafe",
+        "zone": "other"
+      }
+    ],
+    "on_at_end": false,
+    "class": "H2"
+  },
+  {
+    "name": "Irene Dove",
+    "first_on": 1638,
+    "last_on": 1745,
+    "on_count": 71,
+    "leaves": [
+      {
+        "step": 1647,
+        "clock": "d2 09:22",
+        "pos": [
+          77,
+          30
+        ],
+        "description": "walking to Oak Hill College @ the Ville:Hobbs Cafe:cafe",
+        "chatting_with": null,
+        "address_label": "the Ville:Hobbs Cafe:cafe",
+        "zone": "other"
+      }
+    ],
+    "on_at_end": true,
+    "class": "ON_AT_FIRE"
+  },
+  {
+    "name": "Ivan Pitts",
+    "first_on": 1637,
+    "last_on": 1745,
+    "on_count": 33,
+    "leaves": [
+      {
+        "step": 1649,
+        "clock": "d2 09:24",
+        "pos": [
+          79,
+          30
+        ],
+        "description": "Organizing notes by subject (heading to Dorm for Oak Hill College) @ the Ville",
+        "chatting_with": null,
+        "address_label": "the Ville",
+        "zone": "other"
+      },
+      {
+        "step": 1714,
+        "clock": "d2 10:29",
+        "pos": [
+          79,
+          30
+        ],
+        "description": "underlining key points in notes (heading to Oak Hill College) @ the Ville",
+        "chatting_with": "Olivia King",
+        "address_label": "the Ville",
+        "zone": "other"
+      }
+    ],
+    "on_at_end": true,
+    "class": "ON_AT_FIRE"
+  },
+  {
+    "name": "Max Shoemaker",
+    "first_on": 1639,
+    "last_on": 1745,
+    "on_count": 107,
+    "leaves": [],
+    "on_at_end": true,
+    "class": "ON_AT_FIRE"
+  },
+  {
+    "name": "Mike Hooks",
+    "first_on": 1578,
+    "last_on": 1585,
+    "on_count": 8,
+    "leaves": [
+      {
+        "step": 1586,
+        "clock": "d2 08:21",
+        "pos": [
+          76,
+          28
+        ],
+        "description": "walking to House 4 @ the Ville:Hobbs Cafe:cafe",
+        "chatting_with": "Vincent Slater",
+        "address_label": "the Ville:Hobbs Cafe:cafe",
+        "zone": "other"
+      }
+    ],
+    "on_at_end": false,
+    "class": "H2"
+  },
+  {
+    "name": "Nick Miller",
+    "first_on": 1579,
+    "last_on": 1745,
+    "on_count": 129,
+    "leaves": [
+      {
+        "step": 1643,
+        "clock": "d2 09:18",
+        "pos": [
+          79,
+          30
+        ],
+        "description": "walking to Oak Hill College @ the Ville",
+        "chatting_with": null,
+        "address_label": "the Ville",
+        "zone": "other"
+      }
+    ],
+    "on_at_end": true,
+    "class": "ON_AT_FIRE"
+  },
+  {
+    "name": "Olivia King",
+    "first_on": 1699,
+    "last_on": 1745,
+    "on_count": 47,
+    "leaves": [],
+    "on_at_end": true,
+    "class": "ON_AT_FIRE"
+  },
+  {
+    "name": "Owen Logan",
+    "first_on": 1514,
+    "last_on": 1701,
+    "on_count": 33,
+    "leaves": [
+      {
+        "step": 1535,
+        "clock": "d2 07:30",
+        "pos": [
+          76,
+          29
+        ],
+        "description": "walking to The Rose and Crown Pub @ the Ville:Hobbs Cafe:cafe",
+        "chatting_with": null,
+        "address_label": "the Ville:Hobbs Cafe:cafe",
+        "zone": "other"
+      },
+      {
+        "step": 1702,
+        "clock": "d2 10:17",
+        "pos": [
+          77,
+          28
+        ],
+        "description": "walking to Oak Hill College @ the Ville",
+        "chatting_with": null,
+        "address_label": "the Ville",
+        "zone": "other"
+      }
+    ],
+    "on_at_end": false,
+    "class": "H2"
+  },
+  {
+    "name": "Vince Vale",
+    "first_on": 1521,
+    "last_on": 1745,
+    "on_count": 41,
+    "leaves": [
+      {
+        "step": 1541,
+        "clock": "d2 07:36",
+        "pos": [
+          79,
+          30
+        ],
+        "description": "walking to Apartment 5 @ the Ville",
+        "chatting_with": null,
+        "address_label": "the Ville",
+        "zone": "other"
+      },
+      {
+        "step": 1710,
+        "clock": "d2 10:25",
+        "pos": [
+          77,
+          27
+        ],
+        "description": "walking to Apartment 5 @ the Ville:Hobbs Cafe:cafe",
+        "chatting_with": null,
+        "address_label": "the Ville:Hobbs Cafe:cafe",
+        "zone": "other"
+      }
+    ],
+    "on_at_end": true,
+    "class": "ON_AT_FIRE"
+  },
+  {
+    "name": "Vincent Slater",
+    "first_on": 1583,
+    "last_on": 1710,
+    "on_count": 28,
+    "leaves": [
+      {
+        "step": 1605,
+        "clock": "d2 08:40",
+        "pos": [
+          75,
+          30
+        ],
+        "description": "walking to Johnson Park @ the Ville",
+        "chatting_with": null,
+        "address_label": "the Ville",
+        "zone": "other"
+      },
+      {
+        "step": 1711,
+        "clock": "d2 10:26",
+        "pos": [
+          77,
+          27
+        ],
+        "description": "Organizing notes by topic (heading to Apartment 4) @ the Ville",
+        "chatting_with": null,
+        "address_label": "the Ville",
+        "zone": "other"
+      }
+    ],
+    "on_at_end": false,
+    "class": "H2"
+  }
+]
