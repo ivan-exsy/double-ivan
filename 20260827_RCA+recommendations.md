@@ -167,14 +167,11 @@ Read this before estimating. The machinery for three of the five already exists.
 | **4** identity seed | Add a refresh | `revise_identity()` (`plan.py:4110`) **already rewrites `currently`** — but it sits at `plan.py:4247` behind **three early returns** (post-vote skip 4189, `should_skip_daily_planning` 4212, `cached_plan` 4225). Any one fires and identity never refreshes. Byte-identical text across 15 personas and 3 days confirms it never runs. Rec 4 is **un-skipping**, not building. |
 | **3** travel anchor | Prompt + decompose example | Already built: `inherits_parent_location`, and a TRAVEL DEST DETACH branch at `plan.py:2165` whose comment literally names *“Vince: walking to Hobbs under a non-Hobbs parent.”* **All of it is behind `TASK_DECOMP_CONTEXTUAL_ENABLED`, which defaults to `false` in code.** See the blocking question. |
 
-### Blocking question — answer before chunk 4
+### Blocking question — ANSWERED 2026-08-28
 
-**What is `TASK_DECOMP_CONTEXTUAL_ENABLED` set to on the VPS?** `plan.py:160` defaults it to `false`; `double-docs/README.md` calls off the safe default; the project env table says `true`. `.env.local` is cursorignored locally, so this cannot be read from the repo.
+**`TASK_DECOMP_CONTEXTUAL_ENABLED=true`.** Read from `.env.local` (cursorignored to the editor, still greppable from the shell). `plan.py:160` defaults it to `false`, so **the code default and the deployed value disagree** — worth fixing separately, but not in 1-A.
 
-- **Off** → rec 3 is “turn it on,” which is a large behavioural switch that must be validated on its own, not slipped into 1-A.
-- **On** → the detach logic has a gap; debug it against the 13 recorded day-2 blocks.
-
-One line of the deployed env decides which. Do not guess.
+So the live branch was **On → the detach logic has a gap**, not the switch-on branch. Gap found and fixed in chunk 4; the large behavioural switch never had to be slipped into this pass.
 
 ### Chunks
 
@@ -195,15 +192,21 @@ One line of the deployed env decides which. Do not guess.
 After chunk 1, `_SURVIVAL_GATHER_LEAD_HOURS` only feeds the **seek pause**; its docstring now says so. That is the decoupling.
 **Verified:** the block rendered from real source reads “be at Hobbs Cafe for an hour BEFORE each event”, challenge `10:00 am – 11:00 am`, vote `7:00 pm – 8:00 pm`; seek-pause window unchanged at 0.5. Full suite failure set **identical to baseline** (76, all pre-existing) measured same-tree via stash — a fresh `git worktree` is *not* a valid baseline here, several trailer/deployment tests depend on untracked local data.
 
-**3 — Identity seed.** Do **not** hoist `revise_identity` above the skip gates: it costs ~4 LLM calls per persona (~60 per rollover at 15 personas), which is probably why those gates exist, and the generic prompt will not reliably produce “day 2, fourteen left.” Instead write a small **deterministic** survival refresh — day number, players remaining, job — called on day rollover **outside** the three early returns. Leave `revise_identity` for non-survival.
-**Test:** after a rollover with a cached plan, `currently` names the correct day and headcount and no longer says “premiere.”
+**3 — Identity seed.** DONE (`acf744b8`). Deterministic refresh as planned, ahead of the three early returns. Two findings that made it smaller than expected:
 
-**4 — Travel anchor.** Gated on the blocking question above.
+- **The job needed no work.** `currently` is `"<scenario prefix>; <role text>"` (`souls/soul15_scenario_legend.json`), and the role text already reads *“Working as barista at Hobbs Cafe (cafe); …”*. Only the **prefix** is stale, so the fix restamps the prefix and preserves the tail — day, headcount **and** job, without touching character texture.
+- **`revise_identity` is now skipped for survival entirely**, not just bypassed. Survival already owns both of its outputs: `currently` deterministically, and `daily_plan_req` through the controller's per-day lifestyle rewrite (`controller.py` Stage 2b). Saves ~4 LLM calls × 15 personas per rollover.
+- The one fact the planner could not reach was the day number, so the controller now snapshots `season.current_day` next to `alive_players`. Missing day or headcount leaves `currently` untouched rather than inventing one.
 
-**5 — Ritual position gate.** In `strip_offsite_survival_ritual`, split the two verb classes: travel verbs (“heading to Hobbs”) stay **destination**-gated; ritual verbs (casting vote, listening to the briefing, hold or fold) become **position**-gated on cafe tiles. That is the residual case — destination genuinely is Hobbs, body is still on the pub walk (steps 859–861).
-**Test:** dest = Hobbs, body off-cafe, “casting vote” → stripped. Same text with the body on a cafe tile → kept.
+**4 — Travel anchor.** DONE (`acf744b8`). **Blocking question answered: `TASK_DECOMP_CONTEXTUAL_ENABLED=true`** in `.env.local`, so this was the debug branch, not the switch-on branch.
 
-**6 — Tests.** Of the 18 in `tests/test_survival_gather_lock.py`, ~17 assert lock behaviour and retire with it. Carry the **wake-sleepers** case (20260713-1) to wherever that behaviour lands. Every new or surviving test must assert **`target_zone` / `movement_mode`**, not the sentence — that omission is why this shipped green three times.
+The gap is one line downstream of the detach that already existed. TRAVEL DEST DETACH correctly fires for *“walking to Hobbs”* under a non-Hobbs parent — and then resolution runs with the **parent's own anchor still attached** (`anchor_context`, plus two repoints after it). Alexis detached and was steered to the library by the very anchor the detach was supposed to discard. Fixed by dropping the anchor **only when we override the decomp's own `inherits_parent_location=true`**; when the decomp itself declared the detach, its anchor names the other location by prompt contract and is kept. Confirmed the new test fails without the fix (`'desk' is not None`).
+
+**5 — Ritual position gate.** DONE (`acf744b8`). Split as planned. The single destination gate is now two: travel verbs gated on destination, ritual verbs gated on presence, **unknown presence fails closed**. Both production callers already had `presence` in hand — the whole defect was one argument that was never passed. Four of the six new tests fail against the old behaviour.
+
+**6 — Tests.** DONE. Chunk 1 retired the 18 lock tests; the **wake-sleepers** case (20260713-1) was already independently covered by `test_survival_wake_override.py`, so nothing had to be carried. Chunks 2–5 added **19**: 1 prompt-drift wiring guard, 10 identity refresh, 2 travel anchor, 6 ritual gate, plus re-pointed calendar assertions.
+
+The “assert **`target_zone` / `movement_mode`**, not the sentence” rule still stands, but it bites on **occupancy / movement** tests — that is chunk 1's keeper (an off-cafe persona keeps its own `target_zone` and its action expires). Chunks 3–5 are not movement changes: the right assertion for the travel anchor is the **resolved address**, and for the ritual gate the sentence *is* the subject. Do not let that rule wave through a future gather test that only checks text.
 
 ### Sequencing
 
