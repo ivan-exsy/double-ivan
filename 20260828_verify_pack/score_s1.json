@@ -1,0 +1,449 @@
+{
+  "unique_utterances": 14643,
+  "conversations": 917,
+  "greet_open_conversations": 218,
+  "greet_reopen_within_30_steps": [
+    {
+      "pair": [
+        "Mike Hooks",
+        "Nick Miller"
+      ],
+      "gap": 1,
+      "prev_end": 487,
+      "new_start": 488,
+      "line": "Hey Nick \u2014 heading to campus now? I'm just about to unlock the market. Quiet afternoon so far."
+    },
+    {
+      "pair": [
+        "Mike Hooks",
+        "Nick Miller"
+      ],
+      "gap": 1,
+      "prev_end": 1567,
+      "new_start": 1568,
+      "line": "Morning, Mike. Got your breakfast yet? I'm grabbing coffee \u2014 figure we can find a table before the place gets too full for us to talk without being overheard."
+    },
+    {
+      "pair": [
+        "Irene Dove",
+        "Max Shoemaker"
+      ],
+      "gap": 5,
+      "prev_end": 18,
+      "new_start": 23,
+      "line": "Good morning! Ready for the day?"
+    },
+    {
+      "pair": [
+        "Irene Dove",
+        "Max Shoemaker"
+      ],
+      "gap": 5,
+      "prev_end": 23,
+      "new_start": 28,
+      "line": "Morning! How are you?"
+    },
+    {
+      "pair": [
+        "Irene Dove",
+        "Max Shoemaker"
+      ],
+      "gap": 1,
+      "prev_end": 1456,
+      "new_start": 1457,
+      "line": "Morning, Irene. You thinking about the Silent Pact too, or are you still in coffee-autopilot mode?"
+    },
+    {
+      "pair": [
+        "Irene Dove",
+        "Max Shoemaker"
+      ],
+      "gap": 1,
+      "prev_end": 1458,
+      "new_start": 1459,
+      "line": "Morning, Irene. Water's good? I'm already running through the Silent Pact pairs in my head while I brush. You got a read on who might crack first when we can't "
+    },
+    {
+      "pair": [
+        "Irene Dove",
+        "Max Shoemaker"
+      ],
+      "gap": 1,
+      "prev_end": 1459,
+      "new_start": 1460,
+      "line": "Morning, Max. Six AM and I'm already mentally running the Silent Pact math. You think the 'protect or expose' thing is going to be as messy as it sounds?"
+    },
+    {
+      "pair": [
+        "Irene Dove",
+        "Max Shoemaker"
+      ],
+      "gap": 1,
+      "prev_end": 1461,
+      "new_start": 1462,
+      "line": "Hey Max, water's still warm at least. I'm already running through the Silent Pact pairs in my head\u2014you think the protect-or-expose thing is gonna make people sh"
+    },
+    {
+      "pair": [
+        "Alexis Reed",
+        "Andrew Abrams"
+      ],
+      "gap": 1,
+      "prev_end": 597,
+      "new_start": 598,
+      "line": "Hey Andrew, I'm about to head out for that garden loop. Found one more misfiled footnote in this brief\u2014it points to the sociology text you mentioned. Either the"
+    },
+    {
+      "pair": [
+        "Alexis Reed",
+        "Andrew Abrams"
+      ],
+      "gap": 1,
+      "prev_end": 1617,
+      "new_start": 1618,
+      "line": "Morning, Alexis. You're up early for a Saturday \u2014 or is the Silent Pact already rattling around your head too?"
+    },
+    {
+      "pair": [
+        "Dean Sanford",
+        "Mike Hooks"
+      ],
+      "gap": 18,
+      "prev_end": 95,
+      "new_start": 113,
+      "line": "Hey, good morning."
+    },
+    {
+      "pair": [
+        "Dean Sanford",
+        "Mike Hooks"
+      ],
+      "gap": 1,
+      "prev_end": 1766,
+      "new_start": 1767,
+      "line": "Hey Mike. Still deep in that signaling book? I saw you camped here when I walked in twenty minutes ago."
+    },
+    {
+      "pair": [
+        "Alex Butcher",
+        "Dean Sanford"
+      ],
+      "gap": 5,
+      "prev_end": 598,
+      "new_start": 603,
+      "line": "Hey Alex \u2014 just finished that sale. You about done with the inventory check? Quarter to's coming up fast and I want to make sure we're locked up clean before we"
+    },
+    {
+      "pair": [
+        "Alex Butcher",
+        "Nick Miller"
+      ],
+      "gap": 14,
+      "prev_end": 343,
+      "new_start": 357,
+      "line": "Hey you!"
+    },
+    {
+      "pair": [
+        "Alex Shepard",
+        "Dean Sanford"
+      ],
+      "gap": 10,
+      "prev_end": 733,
+      "new_start": 743,
+      "line": "Hey, Alex. Burger's decent here \u2014 you tried it yet? And congrats on the morning shift, by the way. Looked like you had the archives under control."
+    },
+    {
+      "pair": [
+        "Alex Shepard",
+        "Dean Sanford"
+      ],
+      "gap": 1,
+      "prev_end": 1582,
+      "new_start": 1583,
+      "line": "Morning. I've been turning over this Silent Pact thing \u2014 it's basically a prisoner's dilemma with a social overlay. The interesting part is how little informati"
+    },
+    {
+      "pair": [
+        "Alex Shepard",
+        "Dean Sanford"
+      ],
+      "gap": 1,
+      "prev_end": 1583,
+      "new_start": 1584,
+      "line": "Morning. I've been staring at this challenge description and thinking\u2014Silent Pact is basically a prisoner's dilemma with a trust fall on top. The incentives are"
+    },
+    {
+      "pair": [
+        "Alex Shepard",
+        "Dean Sanford"
+      ],
+      "gap": 1,
+      "prev_end": 1584,
+      "new_start": 1585,
+      "line": "Morning. I've been looking at the Silent Pact structure \u2014 it's essentially a one-shot prisoner's dilemma with no iteration. The incentives are pretty stark if y"
+    },
+    {
+      "pair": [
+        "Diana Ogden",
+        "Irene Dove"
+      ],
+      "gap": 5,
+      "prev_end": 132,
+      "new_start": 137,
+      "line": "Hey! What's up?"
+    },
+    {
+      "pair": [
+        "Olivia King",
+        "Vince Vale"
+      ],
+      "gap": 10,
+      "prev_end": 512,
+      "new_start": 522,
+      "line": "Hey Vince \u2014 you look like you've been running on nothing but black coffee and lecture notes. Come to hide in the corner before the rush starts again?"
+    },
+    {
+      "pair": [
+        "Olivia King",
+        "Vince Vale"
+      ],
+      "gap": 1,
+      "prev_end": 525,
+      "new_start": 526,
+      "line": "Hey, you made it back. I see you grabbed the corner booth\u2014good call. The lull's still holding, but Irene just refilled the chamomile pot, so either someone's ab"
+    },
+    {
+      "pair": [
+        "Alex Shepard",
+        "Nick Miller"
+      ],
+      "gap": 1,
+      "prev_end": 1777,
+      "new_start": 1778,
+      "line": "Hey Nick \u2014 just saw the board update. Irene and Olivia solo exposed, and Max paired with Ivan. That's a cleaner split than I expected. You heading out soon?"
+    },
+    {
+      "pair": [
+        "Dean Sanford",
+        "Vince Vale"
+      ],
+      "gap": 9,
+      "prev_end": 275,
+      "new_start": 284,
+      "line": "Morning! Sleep well?"
+    },
+    {
+      "pair": [
+        "Dean Sanford",
+        "Vince Vale"
+      ],
+      "gap": 5,
+      "prev_end": 284,
+      "new_start": 289,
+      "line": "Morning! How are you?"
+    },
+    {
+      "pair": [
+        "Mike Hooks",
+        "Owen Logan"
+      ],
+      "gap": 5,
+      "prev_end": 187,
+      "new_start": 192,
+      "line": "Morning! How are you?"
+    },
+    {
+      "pair": [
+        "Mike Hooks",
+        "Owen Logan"
+      ],
+      "gap": 5,
+      "prev_end": 192,
+      "new_start": 197,
+      "line": "Morning! Sleep well?"
+    },
+    {
+      "pair": [
+        "Mike Hooks",
+        "Owen Logan"
+      ],
+      "gap": 7,
+      "prev_end": 197,
+      "new_start": 204,
+      "line": "Good morning! Ready for the day?"
+    },
+    {
+      "pair": [
+        "Mike Hooks",
+        "Owen Logan"
+      ],
+      "gap": 1,
+      "prev_end": 211,
+      "new_start": 212,
+      "line": "Hey Owen, just a heads up \u2014 the morning rush is finally letting up, but I've got a price check on aisle three in a minute. You almost done with those canned goo"
+    },
+    {
+      "pair": [
+        "Mike Hooks",
+        "Owen Logan"
+      ],
+      "gap": 1,
+      "prev_end": 447,
+      "new_start": 448,
+      "line": "Hey, finished that article on local zoning disputes. Turns out the town council's been kicking a development proposal back and forth for six months \u2014 classic ca"
+    },
+    {
+      "pair": [
+        "Mike Hooks",
+        "Owen Logan"
+      ],
+      "gap": 1,
+      "prev_end": 452,
+      "new_start": 453,
+      "line": "Hey Owen \u2014 looks like the lunch crowd is thinning out. You heading back to the market soon too? I need to finish this coffee first, but the afternoon shift is c"
+    }
+  ],
+  "greet_reopen_n": 72,
+  "fw_meta_n": 0,
+  "fw_meta_sample": [],
+  "fw_doubland_n": 4,
+  "fw_doubland_sample": [
+    {
+      "step": 386,
+      "name": "Olivia King",
+      "txt": "Yeah, I'll be restocking the canned goods aisle. If you come by, I'll show you the shelf-stable tomato paste \u2014 it's the most stable thing in Doubland right now."
+    },
+    {
+      "step": 386,
+      "name": "Owen Logan",
+      "txt": "Yeah, I'll be restocking the canned goods aisle. If you come by, I'll show you the shelf-stable tomato paste \u2014 it's the most stable thing in Doubland right now."
+    },
+    {
+      "step": 700,
+      "name": "Andrew Abrams",
+      "txt": "Bathroom line alliances \u2014 the next frontier of Doubland politics. I'll report back with whatever I find. If I'm gone more than three minutes, assume I got recruited by a coalition "
+    },
+    {
+      "step": 700,
+      "name": "Irene Dove",
+      "txt": "Bathroom line alliances \u2014 the next frontier of Doubland politics. I'll report back with whatever I find. If I'm gone more than three minutes, assume I got recruited by a coalition "
+    }
+  ],
+  "top_pair_chat_steps_approx": [
+    [
+      [
+        "Irene Dove",
+        "Olivia King"
+      ],
+      89
+    ],
+    [
+      [
+        "Mike Hooks",
+        "Owen Logan"
+      ],
+      72
+    ],
+    [
+      [
+        "Alex Shepard",
+        "Alexis Reed"
+      ],
+      66
+    ],
+    [
+      [
+        "Alexis Reed",
+        "Vincent Slater"
+      ],
+      64
+    ],
+    [
+      [
+        "Irene Dove",
+        "Nick Miller"
+      ],
+      53
+    ],
+    [
+      [
+        "Dean Sanford",
+        "Diana Ogden"
+      ],
+      52
+    ],
+    [
+      [
+        "Irene Dove",
+        "Max Shoemaker"
+      ],
+      45
+    ],
+    [
+      [
+        "Alexis Reed",
+        "Andrew Abrams"
+      ],
+      42
+    ]
+  ],
+  "pair_conversation_counts": [
+    [
+      [
+        "Irene Dove",
+        "Olivia King"
+      ],
+      54
+    ],
+    [
+      [
+        "Alex Shepard",
+        "Alexis Reed"
+      ],
+      45
+    ],
+    [
+      [
+        "Mike Hooks",
+        "Owen Logan"
+      ],
+      35
+    ],
+    [
+      [
+        "Alexis Reed",
+        "Vincent Slater"
+      ],
+      34
+    ],
+    [
+      [
+        "Andrew Abrams",
+        "Dean Sanford"
+      ],
+      31
+    ],
+    [
+      [
+        "Irene Dove",
+        "Nick Miller"
+      ],
+      31
+    ],
+    [
+      [
+        "Alex Shepard",
+        "Andrew Abrams"
+      ],
+      24
+    ],
+    [
+      [
+        "Dean Sanford",
+        "Diana Ogden"
+      ],
+      24
+    ]
+  ]
+}
