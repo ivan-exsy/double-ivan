@@ -35,27 +35,13 @@ That package is the **version-1 specimen** (auto-gen quality bar). The **live re
 | Closer tonight = default daily; short = `--sku scar` | Live |
 | Format lock [A] (Doubles, Day-1 vs later, living last line, ≥2 hooks, Peak choice/win) | Live in SOT §9.0; ship gate `check_closer_vo_facts` |
 | Later-night closer (Episode 2+) same CLI, drop alliances sermon | Live in writer + validator |
+| Bonding overlay (SOT §9.5) | Live 2026-08-29 — `closer_tonight_v11`. Kid-plain on weather, doing, one choice, inner vote, last words, living last line. Status then why/who/when if the ledger has it. Weather: `{A} and {B} have each other's backs.` plus context. Bake fails “are locked” / trust scores. |
+| P2 closer gates | Live 2026-08-29 — `validate_closer_p2`: black hole **fail** (interval overlap; recipe `_abut_picture_gaps`); wrong kit **fail**; starve-freeze **warn** (skip if duration unknown). Prove: same day3 bake `post_props_gates` passed after weather abut. Spec below. |
 | Longer informative cut as a *new SKU* | **Not open** — closer *is* that cut. Length follows the night. |
 
 Village MVP gate is gather + town talk (`20260901_launch.md`). Nothing below is that gate.
 
----
-
-## Open (video)
-
-Same closer skeleton. Not a second framework. Village gate is elsewhere.
-
-| P | Work | Notes |
-|---|------|-------|
-| **Now** | Skip-if-empty overlay (SOT §9.5) | Writer live (`closer_tonight_v9`). Vote-why + last words unchanged. **Doing** speaks only `roles[name].doing_plain` (skip if missing — no job_action). **Weather** = one confirmed Peak/Cost lock line; skip Peak+Cost boot pair; not `public_board`. Existing `vo_locked_long.txt` unchanged. |
-| **Craft** | Extra P1 pictures | Namecards + readable tie / VOTING TARGET. Peak/challenge/Phaser already accepted on the Episode 1 benchmark. grok.com/imagine 2.0 (6–15s, 720p, 9:16) → kit. Do not Imagine Phaser elim. |
-| **Eng** | P2 gates (closer) | Live in `validate_closer_p2`: black hole fail · wrong kit fail · starve-freeze **warn** (skip if duration unknown). Spec below. |
-| **Optional** | [E] leftover helpers | Copy remaining helpers anytime. No bulk move of eng `video/`. Polish UX already in `double-video`. |
-| **Optional art** | Exteriors / C5/C7 / Hobbs cafe / flyover names | Interiors + Johnson Park are done. |
-| **Post-MVP** | 2D→3D morph (outsource) | Phaser scene from a sim moment → cinematic. Producer brief: [`TODO_2D-3D.md`](TODO_2D-3D.md). Do not fold into tonight’s closer. |
-| — | Not this spine | Encyclopedia Gate A–E · `[B] day_normal` · moment clips · recut Ivan/Alex. |
-
-### P2 — closer bake gates (rewrite 2026-08-29)
+### P2 — closer bake gates (shipped 2026-08-29)
 
 For **cold closer** (`--sku closer`). Length follows the night. Do not use the Aug 11 Scar polish P2 as the live spec ([`../done/20260811_capcut-vs-post-prod.md`](../done/20260811_capcut-vs-post-prod.md) stays archive). Do not re-check VO facts, literacy plant/bridge/door, imported-media ban, or runtime band — those already ship.
 
@@ -70,6 +56,20 @@ Habitat, looped leave, census, flyover, weather, and lockup are **meant** to hol
 **Drop for closer** (old Scar P2): honour `fx[].enabled` + stop recipe FX on polish; `*.base.json` so force-materialize does not eat polish; “do not exempt beds.” Those are polish-path. Cold closer ignores `edit_script`.
 
 Hero-hold cadence already exists and already exempts closer-long roles; polish demotes it to warn. Do not bring back a 3.5s max on G1/G2/G5.
+
+---
+
+## Open (video)
+
+Same closer skeleton. Not a second framework. Village gate is elsewhere.
+
+| P | Work | Notes |
+|---|------|-------|
+| **Craft** | Extra P1 pictures | Namecards + readable tie / VOTING TARGET. Peak/challenge/Phaser already accepted on the Episode 1 benchmark. grok.com/imagine 2.0 (6–15s, 720p, 9:16) → kit. Do not Imagine Phaser elim. |
+| **Optional** | [E] leftover helpers | Copy remaining helpers anytime. No bulk move of eng `video/`. Polish UX already in `double-video`. |
+| **Optional art** | Exteriors / C5/C7 / Hobbs cafe / flyover names | Interiors + Johnson Park are done. |
+| **Post-MVP** | 2D→3D morph (outsource) | Phaser scene from a sim moment → cinematic. Producer brief: [`TODO_2D-3D.md`](TODO_2D-3D.md). Do not fold into tonight’s closer. |
+| — | Not this spine | Encyclopedia Gate A–E · `[B] day_normal` · moment clips · recut Ivan/Alex. |
 
 ---
 

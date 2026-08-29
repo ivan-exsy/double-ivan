@@ -27,7 +27,7 @@
 8. [Moment picker](#8-moment-picker)  
 9. [VO contract & templates](#9-vo-contract--templates)  
    - [9.0 Live closer format lock](#90-live-closer-format-lock)  
-   - [9.5 Skip-if-empty story beats](#95-skip-if-empty-story-beats)  
+   - [9.5 Bonding overlay](#95-bonding-overlay-skip-if-empty)  
 10. [CapCut / Remotion bins](#10-capcut--remotion-bins)  
    - [10.1 Picture kit commission (G1–G8)](#101-picture-kit-commission-g1g8)  
 11. [Eng pipeline & schema](#11-eng-pipeline--schema)  
@@ -415,6 +415,7 @@ Hybrid job every night: **teach the show and a person.** Not a tutorial-only rec
 
 - **Show framework:** Doubles line every night (first-time viewers land on a random episode); someone is voted out every night; tonight’s game in one breath; a vote happened; someone left; one-breath census; a Door to the live village.
 - **Personal touch:** two people at work, hands if we have them, one real choice, a dignified leave, a last line about someone still in tomorrow.
+- **Bonding beats (§9.5):** kid-plain (a 12-year-old). Status first, then why / who asked / when if the ledger has it. Never invent. Never “are locked.” Length is not the cap.
 - **Voice on pictures:** every picture in the body has spoken words under it. The only planned silence is the first few seconds (a face moving, no talking). After that, voice stays on.
 
 **Every night, keep (once):** `These are Doubles — AI versions of real people, making choices no one wrote for them.` Do not say “unscripted” / “no one knows how it ends” again later. The choice in the night has to prove it.
@@ -431,7 +432,7 @@ Beat order for speech (empty beats skip; do not invent; do not pad; do not drop 
 
 **Length:** follows the night. Under 90s is not a fail. Fail = pad, village recap, or no real choice. The §2 90–140 / hard 180 band is a historical closer clock, not a fail-under-90.
 
-**Ship gate:** missing `vo_locked_long.txt` auto-locks from `draft_closer_tonight_vo`. Bake fails if `check_closer_vo_facts` does not see Doubles, the living last line, ≥2 hooks, Day-1 vs later alliances, and Peak choice/win when the ledger has them. Pictures: same G1–G8 jobs. Do not redesign 2D↔cinematic on this contract. Share clip (Spark) and timestamp cards are **not** this SKU.
+**Ship gate:** missing `vo_locked_long.txt` auto-locks from `draft_closer_tonight_vo`. Bake fails if `check_closer_vo_facts` does not see Doubles, the living last line, ≥2 hooks, Day-1 vs later alliances, and Peak choice/win when the ledger has them. Bake also fails “are locked” and “trust score” / “trust level.” Pictures: same G1–G8 jobs. Do not redesign 2D↔cinematic on this contract. Share clip (Spark) and timestamp cards are **not** this SKU.
 
 **Pass after one watch:** a stranger can name the two people; they got the show (vote-out, tonight’s game, someone left); they felt one choice; they would send it; they want tomorrow for a named living person.
 
@@ -497,20 +498,29 @@ Tonight's game is [challenge]. [Day 1: short how-to. Later: one breath; skip ste
 
 Creative chain: screenwriter → engagement (Door) → videoproducer. Pull realitytv only if mechanics are open.
 
-### 9.5 Skip-if-empty story beats
+### 9.5 Bonding overlay (skip-if-empty)
 
-These four overlay beats sit on the locked spine. **Omit the clause when the board has nothing. Do not invent. Do not pad. The night still ships.** Habitat job+place and the required last line still run.
+These beats exist so a stranger **cares about a person**, not a board. They sit on the locked spine. They are **not** a second framework.
 
-| Beat | Speak when | Skip when | Picture |
-|------|------------|-----------|---------|
-| **One doing** | Ledger-true work or ritual that is *this* person (hands at the job). Not “I held a card.” | No safe doing field. | G1 / G2 habitat clip. No new rooms. |
-| **Relationship weather** | Leftover heat, a lock, or unreadability from `alliances.confirmed` / `public_board` / leftover. | No pair, no leftover, no unreadability. Episode 1 often empty — skip; do not invent a grudge. | Hold on habitat. No extra Phaser redesign. |
-| **Inner vote why** | Peak’s stated why they named Cost (`vote_reasons`). Spoken English. No mind-read. | No Peak→Cost `vote_reasons`. | G5 / G6 |
-| **Last words** | Cost `final_statement` cut for speech. Dignity. Sit on the leave walk. | Missing, empty, or engine-clone essay. | G5 loop 1× |
+**How every bonding beat speaks**
 
-Writer may already emit vote-why and last words when those fields exist. Doing and weather are named here so a later pass can fill them the same skip-if-empty way — they are **not** a second framework.
+1. **Kid-plain.** A 12-year-old gets it. No Lock-In / rank / trust-score / “are locked.”
+2. **Status, then context.** First breath is what is true. Second breath is **why**, **who asked**, or **when** — only if `alliances.confirmed`, `alliance_log`, `vote_reasons`, `choice_reason_plain`, or `final_statement` has it.
+3. **Skip if empty.** Omit the beat or the extra breath when the field is missing. Do not invent. Do not pad. The night still ships.
+4. **Bonding over the clock.** Do not cut these lines to hit 90s.
+
+| Beat | Status line (kid-plain) | Extra breath when the ledger has it | Skip when | Picture |
+|------|-------------------------|--------------------------------------|-----------|---------|
+| **One doing** | Hands at this person’s job (`doing_plain` only). | Where / when of that ritual, if a safe field exists. | No `doing_plain`. Never invent from `job_action`. Never “I held a card.” | G1 / G2 habitat |
+| **Relationship weather** | `{A} and {B} have each other's backs.` from `alliances.confirmed` (Peak pair first, else Cost; skip Peak+Cost boot pair). | Why they teamed up, who asked, or when (`They teamed up on day one.`). Prefer why, then who, then when. | No confirmed pair. Episode 1 often empty. Not `public_board`. | Hold on habitat |
+| **One choice** | `{Name} would rather … than …` from tonight’s reason. No rank. | The reason *is* the why. Do not add a slogan after it. | No `choice_reason_plain` / `absent`. | G3 / G4 |
+| **Inner vote why** | Peak names Cost in spoken English. No mind-read. | Peak’s stated `vote_reasons` (unreadability, leftover heat, or a short kid-plain first sentence). | No Peak→Cost `vote_reasons`. | G5 / G6 |
+| **Last words** | Cost’s own `final_statement`, cut for speech. Dignity. | The speech *is* the why. Do not compress to a recap slogan. | Missing, empty, or engine-clone essay. | G5 loop 1× |
+| **Living last line** | Named person still in tomorrow. | Cost leftover that names a living person, if present. | Never skip the last line. Never the boot. | Peak habitat / cliff |
 
 **Also skip (do not invent):** Cost “played and lost” when `choice_reason_plain` is `absent`; personality clause when no why-tonight after fallbacks; a clean pile-on when `safe_vo` is split/messy; chat as a deal log; narrator mind-read (`felt / realized / in my heart`).
+
+**Ship:** `check_closer_vo_facts` fails “are locked” and “trust score” / “trust level” in the long lock. Habitat job+place and the required last line still run.
 
 ---
 
@@ -914,6 +924,7 @@ Day 1 V6 **G1–G8 READY** — CapCut gold exists; further nights reuse the same
 
 | Date | Change |
 |------|--------|
+| 2026-08-29 | **§9.5 bonding overlay** — weather / doing / one choice / inner vote / last words / living last line speak kid-plain. Status then why/who/when when the ledger has it. Never “are locked.” Bonding over the 90s clock. |
 | 2026-08-29 | **§3.6 2D→3D morph postponed** — keep the locked closer picture (stock flyover plant/door + Cost leave_phaser still). True Phaser-scene → cinematic morph is post-MVP, outsourced to a video producer. Brief: [`TODO_2D-3D.md`](TODO_2D-3D.md). |
 | 2026-08-28 | **Primary video SOT** — this file replaces `sot-video.md` (archive `done/sot-video.md`). Borrowed still-current bits: trailer types now, 9:16 / TTS / LUFS, opener [A] as a separate product, 2D literacy in §3.6. |
 | 2026-08-28 | **§9.0–§9.5 live closer contract** — format lock [A] promoted here from `20260828_format_lock_closer.md` (that brief → `done/`). Skip-if-empty overlay: doing, weather, vote-why, last words. |
