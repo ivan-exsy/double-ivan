@@ -1,16 +1,11 @@
 # North star — Anya CapCut Day 1 → auto-gen uplift
 
-```````````````````````````
-**Assess D:\Coding\double-ivan\video\20260827_viral_video.md** (Post-MVP)
-- amount of work to bring the locked closer >> that paper’s ~60s / 2D-legend grammar
-- Dedicated branch when you pick it up — not the village gate
-```````````````````````````
-
-**Updated:** 2026-08-27 · auto-gen benchmark locked · that closer **is** the short ship · remaining video = **Post-MVP**  
-**Authority:** Creative bar = Anya’s approved cut. Contracts: [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md). Cut IDs / do-nots: [`../20260811_capcut-vs-post-prod.md`](../20260811_capcut-vs-post-prod.md).  
-**Loop names:** Path **[A]→[E]** below is the closed polish→cold program. Agentic nights are **Loop-A / Loop-B / Loop-C** ([`../20260821_video_loop.md`](../20260821_video_loop.md)). Do not say “send it back to A” without saying which.
+**Updated:** 2026-08-29 · primary video SOT = [`SOT-video.md`](SOT-video.md) (§9 closer lock). Old `sot-video.md` → `done/`. 2D→3D morph = post-MVP [`TODO_2D-3D.md`](TODO_2D-3D.md).  
+**Authority:** Creative bar = Anya’s approved cut. Daily contract = SOT §9. Path **[A]→[E]** below is **closed**. Watch-loop names: **Loop-A / Loop-B / Loop-C** (parked below). Do not say “send it back to A” without saying which.
 
 **Architecture:** Nightly + opener **code** is in `double-video/video/`. New extracts/packages under `double-video/data/` (gitignored). Locked 20260724-2 nights stay under eng `data/` until copied. Post-Production polishes `{package}/edit_script.json`. Rebuild cwd = `double-video`. Eng `video/` is rollback. Cold quality = recipe priors, not Save→train.
+
+**Current daily:** Closer tonight (`--sku closer`). New sim with no `vo_locked_long.txt` auto-locks from `draft_closer_tonight_vo`. Bake fails closed on `check_closer_vo_facts`. Short Scar is `--sku scar`. Episode 1 Ivan/Alex is a **specimen**, not the lock.
 
 ---
 
@@ -28,24 +23,83 @@ Founder accepted this **cold** closer as the nightly auto-gen quality bar (not a
 
 Do **not** `--force` / `--replace-vo-lock` this package without snapshotting first.
 
-This locked closer **is the short**. A later Post-MVP pass can make a **longer, more informative** cut. Do not reopen a 45–60s `--sku scar` Episode 1 as open work.
+That package is the **version-1 specimen** (auto-gen quality bar). The **live repeating format** is SOT §9. New sims (e.g. `20260825-1`) fill that format. Do not reopen a 45–60s `--sku scar` Episode 1 as the daily.
 
 ---
 
-## Post-MVP (video)
+## Done (do not reopen as closer work)
 
-Village MVP gate is gather + town talk (`20260901_launch.md`). Nothing below is that gate. The Episode 1 closer above is enough to post tape.
+| Item | Status |
+|------|--------|
+| Path **[A]→[E]** polish → Rebuild → learn → cold → migrate | Closed (summary below) |
+| Closer tonight = default daily; short = `--sku scar` | Live |
+| Format lock [A] (Doubles, Day-1 vs later, living last line, ≥2 hooks, Peak choice/win) | Live in SOT §9.0; ship gate `check_closer_vo_facts` |
+| Later-night closer (Episode 2+) same CLI, drop alliances sermon | Live in writer + validator |
+| Longer informative cut as a *new SKU* | **Not open** — closer *is* that cut. Length follows the night. |
 
-| P | Work | How |
-|---|------|-----|
-| **1** | Later-night **closer** (Episode 2+) | Census stills / leftover heat / `{N} still in`. **Spine is Episode 1:** alliances→votes + ballot + stamp-on-photo then HUD — already auto-gen. Same CLI, new package (`--day 3+`). Do not overwrite the Episode 1 benchmark. Needs a **finished** Survival-day vote (Peak + Cost), not challenge-only. |
-| **2** | Viral-grammar pass (`20260827_viral_video.md`) | Locked closer is ~90s cinematic-heavy; paper wants ~60s + tighter 2D legend. Dedicated branch; fold plant / cost-dive / door timestamps into recipe — do not throw away the locked bar. |
-| **3** | Extra **P1** pictures | Namecards + readable tie / VOTING TARGET. Peak/challenge/Phaser already accepted on the benchmark. grok.com/imagine 2.0 (6–15s, 720p, 9:16) → kit. Do not Imagine Phaser elim. |
-| **4** | Eng **P2** gates | Freeze/coverage/FX validators · kit sim-code guard · optional `*.base.json`. Spec: `20260811_capcut-vs-post-prod.md` §P2. |
-| **5** | **[E] leftover** helpers | Copy remaining helpers anytime. No bulk move of eng `video/`. Polish UX already in `double-video`. |
-| **6** | Longer informative cut + GrokFilm tokens | Second pass on length: more story, not a short Scar. Harvest lighting phrases into prompt families only. |
-| — | Optional art | Oak Hill / Willows exteriors · C5/C7 · Hobbs-branded cafe · flyover filenames. Interiors + Johnson Park are done. |
-| — | Not this spine | Encyclopedia Gate A–E · `[B] day_normal` · moment clips. |
+Village MVP gate is gather + town talk (`20260901_launch.md`). Nothing below is that gate.
+
+---
+
+## Open (video)
+
+Same closer skeleton. Not a second framework. Village gate is elsewhere.
+
+| P | Work | Notes |
+|---|------|-------|
+| **Now** | Skip-if-empty overlay (SOT §9.5) | Writer live (`closer_tonight_v9`). Vote-why + last words unchanged. **Doing** speaks only `roles[name].doing_plain` (skip if missing — no job_action). **Weather** = one confirmed Peak/Cost lock line; skip Peak+Cost boot pair; not `public_board`. Existing `vo_locked_long.txt` unchanged. |
+| **Craft** | Extra P1 pictures | Namecards + readable tie / VOTING TARGET. Peak/challenge/Phaser already accepted on the Episode 1 benchmark. grok.com/imagine 2.0 (6–15s, 720p, 9:16) → kit. Do not Imagine Phaser elim. |
+| **Eng** | P2 gates (closer) | Live in `validate_closer_p2`: black hole fail · wrong kit fail · starve-freeze **warn** (skip if duration unknown). Spec below. |
+| **Optional** | [E] leftover helpers | Copy remaining helpers anytime. No bulk move of eng `video/`. Polish UX already in `double-video`. |
+| **Optional art** | Exteriors / C5/C7 / Hobbs cafe / flyover names | Interiors + Johnson Park are done. |
+| **Post-MVP** | 2D→3D morph (outsource) | Phaser scene from a sim moment → cinematic. Producer brief: [`TODO_2D-3D.md`](TODO_2D-3D.md). Do not fold into tonight’s closer. |
+| — | Not this spine | Encyclopedia Gate A–E · `[B] day_normal` · moment clips · recut Ivan/Alex. |
+
+### P2 — closer bake gates (rewrite 2026-08-29)
+
+For **cold closer** (`--sku closer`). Length follows the night. Do not use the Aug 11 Scar polish P2 as the live spec ([`../done/20260811_capcut-vs-post-prod.md`](../done/20260811_capcut-vs-post-prod.md) stays archive). Do not re-check VO facts, literacy plant/bridge/door, imported-media ban, or runtime band — those already ship.
+
+Habitat, looped leave, census, flyover, weather, and lockup are **meant** to hold. Do not fail a closer because those sit longer than 3.5s.
+
+| # | Gate | When | Not |
+|---|------|------|-----|
+| **1** | **Black hole** | Fail if any body-clock second has no picture at opacity ≥0.5. | Captions / HUD type do not count as picture. |
+| **2** | **Wrong kit** | Fail if faces, challenge pack, or Phaser stills are from another sim. | Post-Production “pack status” chrome. |
+| **3** | **Starve freeze** | **Warn** when a *motion* cut is much longer than its file and has no loop / speed / Ken Burns. | Hard-fail on slowed gather, Ken Burns stills, looped G5 leave, census, flyover, lockup. |
+
+**Drop for closer** (old Scar P2): honour `fx[].enabled` + stop recipe FX on polish; `*.base.json` so force-materialize does not eat polish; “do not exempt beds.” Those are polish-path. Cold closer ignores `edit_script`.
+
+Hero-hold cadence already exists and already exempts closer-long roles; polish demotes it to warn. Do not bring back a 3.5s max on G1/G2/G5.
+
+---
+
+## Parked concepts (briefs → `done/`)
+
+Do not brief the next bake from these files. SOT §9 is the closer. Open work above is the next closer pass.
+
+**Watch a bake — Loop-A / B / C** (was `20260821_video_loop.md`)
+
+- **Loop-A (project):** Post-Production, Live on. Kit + VO + ledger + picture-under-this-line. Fail → eng. Do not “fix” by polishing `edit_script` as the win.
+- **Loop-B (taste):** Phone MP4, 1×, start through Door. Write 7 quiz answers before opening the ledger. Fail only on quiz miss or HF1–HF10. Unlisted complaint = `untaught`, not a fail.
+- **Loop-C (done):** A and B both pass → snapshot → stop.
+- Written for short Scar. Same shape for closer; ignore the old runtime band. Do not confuse with Path **[A]→[E]** (closed polish program below).
+
+**2D→3D morph — post-MVP, outsource** — live brief [`TODO_2D-3D.md`](TODO_2D-3D.md) (started from `daily-2D-3D-blend.md`)
+
+- Vision: actual Phaser scene from a simulation moment morphs into cinematic (location / pose / color). Not stock `signature_flyover.mp4`.
+- Today’s closer only plants a generic map, a Cost FE still (often the wrong beat, name tags on), and the same map at Door. Wipe/fade only. `2d-3d` recipe discarded 2026-08-29.
+- Spark / timestamps (was `20260827_viral_video.md`) stay archived. Not a closer ship gate.
+
+**2D ship gates on the locked daily** (SOT §3.6)
+
+- Phaser plant + Peak/Cost Phaser bridge + Door tease. Fail all-cinematic. Caps ≤3 cinematic punctuations on arc beats.
+- Tighter dive / morph timing is the producer TODO, not tonight’s closer.
+
+**Closer vs short SKU** (was `20260820_longer_daily.md`)
+
+- Shipped: closer is the default daily; `--sku scar` is the short sibling. Never clobber `vo_locked.txt` / `trailer_9x16.mp4` when baking closer.
+- Story overlay (doing / weather / vote-why / last words) = SOT §9.5. Spoken English; no recap slogans; no mind-read; chats only after they match the board.
+- Do not reopen a third show or a 90–140 fill-to clock.
 
 ---
 
@@ -116,10 +170,15 @@ Seeds G6 `ballots.mp4` + G7 census; habitat = namecard + mp4 (no still freeze); 
 
 | Doc | Use |
 |-----|-----|
-| [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md) | D1 contract, bins, G jobs |
+| [`SOT-video.md`](SOT-video.md) | **Primary video SOT** (closer + shared craft + opener pointer) |
+| [`TODO_2D-3D.md`](TODO_2D-3D.md) | **Post-MVP** 2D→3D morph — producer brief (do not bake from this) |
 | [`daily/gold/20260713-1_day1_anya/GOLD.md`](daily/gold/20260713-1_day1_anya/GOLD.md) | Anya gold hub |
-| [`../20260820_longer_daily.md`](../20260820_longer_daily.md) | Closer SKU rec |
-| [`../20260821_video_loop.md`](../20260821_video_loop.md) | Loop-A/B/C |
-| `video/sot-video.md` | Trailer taxonomy |
+| [`../opening/TODOs-opening-trailer.md`](../opening/TODOs-opening-trailer.md) | Opener [A] WIP |
 | [`../20260901_launch.md`](../20260901_launch.md) | Village MVP gate vs parallel video track |
+| [`../done/sot-video.md`](../done/sot-video.md) | Archived July taxonomy / opener scene map |
+| [`../done/20260828_format_lock_closer.md`](../done/20260828_format_lock_closer.md) | Archived format-lock brief |
+| [`../done/20260827_viral_video.md`](../done/20260827_viral_video.md) | Archived later 2D-legend / Spark paper |
+| [`../done/20260821_video_loop.md`](../done/20260821_video_loop.md) | Archived Loop-A/B/C detail |
+| [`../done/20260820_longer_daily.md`](../done/20260820_longer_daily.md) | Archived closer-SKU rec |
+| [`../done/20260811_capcut-vs-post-prod.md`](../done/20260811_capcut-vs-post-prod.md) | Archived Path [A] P0 field notes |
 | `double-video/prd.md` §22.2 | Polish→learn contract |

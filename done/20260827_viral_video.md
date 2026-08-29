@@ -1,7 +1,9 @@
 # Daily trailers that can travel — considerations and suggestions
 
+> **Archived 2026-08-28.** Live closer = `video/daily/SOT-new-daily.md` §9. Parked notes in `video/TODO_video.md`. Do not brief the next bake from this file.
+
 **Date:** 2026-08-27  
-**Status:** Council draft as written (sections 1–13) is **not** the next brief. The 2026-08-27 founder addendum was read as an Episode 1 recut — **wrong**. Format lock is now [`20260828_format_lock_closer.md`](20260828_format_lock_closer.md). This file’s mapping draft stays for later. Not a replacement for `video/daily/daily-2D-3D-blend.md`.  
+**Status:** Council draft as written (sections 1–13) is **not** the next brief. The 2026-08-27 founder addendum was read as an Episode 1 recut — **wrong**. Live closer format is [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md) §9. Brief archive: [`../done/20260828_format_lock_closer.md`](../done/20260828_format_lock_closer.md). This file’s mapping draft stays for later. Not a replacement for `video/daily/daily-2D-3D-blend.md`.  
 **For:** you, and the video team.  
 **Council:** Reality TV, Screenwriter, Engagement, Video Producer, synthesized by COS.  
 **Language:** plain. Craft words are named once, then used.
@@ -10,7 +12,7 @@
 
 ## Founder addendum (2026-08-27) — what I actually need
 
-**Superseded as the council brief (2026-08-28).** Keep this addendum as intent. Hand the council [`20260828_format_lock_closer.md`](20260828_format_lock_closer.md) instead: lock the **repeating closer format**; Episode 1 is a specimen, not the episode to rewrite.
+**Superseded as the council brief (2026-08-28).** Keep this addendum as intent. Live repeating closer is [`daily/SOT-new-daily.md`](daily/SOT-new-daily.md) §9. Episode 1 is a specimen, not the episode to rewrite.
 
 **Read this first (intent only).** The council draft below answered a real job: how a short tape *travels*, and how rare 2D flashes teach the live Phaser village. Keep that draft for later. It is **not** the format-lock brief.
 

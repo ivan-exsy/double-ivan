@@ -1,5 +1,7 @@
 # Longer daily trailers — production recommendation
 
+> **Archived 2026-08-28.** Closer vs short SKU shipped. Live contract = `video/daily/SOT-new-daily.md`. Parked note in `video/TODO_video.md`. Do not brief the next bake from this file.
+
 **Dates:** Inquiry 2026-08-20 · Production lock 2026-08-21 · Default ship 2026-08-21  
 **Status:** **Production lock.** Closer tonight is the default daily. Short Scar is `--sku scar`. Council packet COS `2026-08-20-003` stands except where this file overrides (featured day-in-life; Silent Pact pairs; fact-lock vs chat). Do not clobber `vo_locked.txt` / `trailer_9x16.mp4` when baking closer.  
 **Audience:** Video production + video eng (`NightlySurvival` / Post-Production). Backend RCA is a **parallel** track: [`20260821_RCA_realism.md`](20260821_RCA_realism.md).  

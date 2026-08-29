@@ -1,5 +1,7 @@
 # Video SOT — Doubland Trailer System
 
+> **Archived 2026-08-28.** Live video SOT is `video/daily/SOT-new-daily.md`. Do not brief from this file. Opener WIP remains `video/opening/TODOs-opening-trailer.md` (old scene map §10 here).
+
 > **Nav:** [Opener WIP](opening/TODOs-opening-trailer.md) · [Opener implementation](opening/opening-15person/20260617_vertical-trailer-automation.md) · [Opener visual timing](opening/opening-15person/teadown/) · [**Daily SOT — Tonight’s Scar (DEV)**](daily/SOT-new-daily.md) · [Survival daily WIP (legacy encyclopedia)](TODO_video.md) · [2D↔3D blend](daily/daily-2D-3D-blend.md) · [Video playbook](video_playbook.md) · [Prompts](prompts.md) · [Archive history](archive/sot-video-history.md) · Engineering PRD: `video/video_PRD.md`
 
 Authoritative source of truth for Doubland's **three trailer types**. Part I is shared creative grammar (all types inherit). Part II is per-type contracts. Part III is locked production status and recent changelog — not active task lists.

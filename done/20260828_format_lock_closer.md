@@ -1,7 +1,7 @@
 # Format lock [A] — daily closer
 
 **Date:** 2026-08-28  
-**Status:** Implementation lock after council + founder hybrid (2026-08-28 afternoon). Sections below this lock were the council brief; where they say “open this pass,” **this lock wins**. Engineering contract stays `video/daily/SOT-new-daily.md` §9 — extend it, do not replace it.  
+**Status:** **Archived.** Live closer contract is `video/daily/SOT-new-daily.md` §9.0–§9.5 (promoted 2026-08-28). Do not brief from this file.  
 **For:** video / sim team implementing the nightly closer.  
 **Language:** plain.
 

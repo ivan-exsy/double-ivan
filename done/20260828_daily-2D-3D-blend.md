@@ -1,5 +1,7 @@
 # 2D↔3D blend — daily trailers
 
+> **Archived 2026-08-28.** Live 2D ship gates are `video/SOT-video.md` §3.6. Morph / producer work is `video/TODO_2D-3D.md` (post-MVP). Do not brief the next bake from this file.
+
 **Canonical path:** this file (under `video/daily/`).  
 **Status:** Compact summary — long-form archive never landed at `done/video/`.  
 **Authority for dailies:** [`SOT-new-daily.md`](SOT-new-daily.md) §3.6 / §12 (ship gates). North-star: [`../sot-video.md`](../sot-video.md) L8 · [`../video_playbook.md`](../video_playbook.md) §Core 2D↔Cinematic.

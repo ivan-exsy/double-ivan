@@ -1,5 +1,7 @@
 # Eng ↔ production loop — notes and recommendations
 
+> **Archived 2026-08-28.** Short Loop-A/B/C note lives in `video/TODO_video.md`. Live closer = `video/daily/SOT-new-daily.md`. Do not brief the next bake from this file.
+
 **Date:** 2026-08-21  
 **Status:** Working notes. Not SOT yet. Not an implement ticket.  
 **Ask:** Can we formalize gates **A** (Post-Production project) and **B** (full-video taste) for a loop that sends fails back to **engineering**, and calls **C** only when both pass?

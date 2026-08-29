@@ -6,7 +6,7 @@
 
 Execution rules for when and how daily trailers blend 2D sketch/Phaser cards with 3D cinematic clips.
 
-**Status:** Active — governs B1 (manual clip drop-in) and B4 (Grok Imagine automation, fast-follow). See `video/daily/TODO_daily_trailer.md` §B.
+**Status:** Archived grammar. Live producer TODO is [`../../video/TODO_2D-3D.md`](../../video/TODO_2D-3D.md) (post-MVP). Locked daily literacy is `video/SOT-video.md` §3.6. Do not brief the next bake from this file.
 
 ---
 

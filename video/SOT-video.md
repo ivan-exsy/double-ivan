@@ -1,18 +1,22 @@
-# SOT — Daily Trailers (Tonight’s Scar)
+# Video SOT — Doubland trailers
 
-> **Audience:** DEV / Remotion / narration pipeline / CapCut ops  
-> **Authority:** For **daily** trailers, this file **supersedes** `../sot-video.md` §11–§12 and L11 spoken-stamp law until folded into the main Video SOT.  
-> **Does not replace:** Part I shared grammar in `../sot-video.md` (9:16, voice, mix, assets, baseline validators) · opener `[A]` · `daily-2D-3D-blend.md` · fact-lock to the sim ledger.  
-> **Locked VO gold:** [`VO_LOCKED.md`](VO_LOCKED.md) §V6 (Survival Day 1).  
-> **History / debate:** [`archive/SOT-new-daily-history.md`](archive/SOT-new-daily-history.md)
+> **Primary video SOT** (2026-08-28). Daily ship = **Closer tonight**. This file replaces `sot-video.md` (archive: [`../../done/sot-video.md`](../../done/sot-video.md)).  
+> **Audience:** DEV / Remotion / narration / CapCut ops.  
+> **Live closer format:** §9.0–§9.5. New sim bakes use `draft_closer_tonight_vo` + `check_closer_vo_facts`.  
+> **Opener [A]** is a separate product — WIP [`../opening/TODOs-opening-trailer.md`](../opening/TODOs-opening-trailer.md). Do not mix opener scene maps into the daily.  
+> **Paused / killed:** `[B] day_normal` (cast directory) · encyclopedia `[C]` / `[B] day_normal` recut. Short Scar is `--sku scar`, not the default.  
+> **Locked VO gold:** [`VO_LOCKED.md`](VO_LOCKED.md) §V6 (Episode 1 specimen only — do not silently rewrite).  
+> **History:** [`archive/SOT-new-daily-history.md`](archive/SOT-new-daily-history.md) · format-lock brief [`../../done/20260828_format_lock_closer.md`](../../done/20260828_format_lock_closer.md)
 
-**Nav:** [Video SOT](../sot-video.md) · [Legacy encyclopedia WIP](../TODO_video.md) · [2D↔3D](daily-2D-3D-blend.md) · [Prompts](../prompts.md) · [VO locked](VO_LOCKED.md)
+**Nav:** [Pending work](../TODO_video.md) · [Prompts](../prompts.md) · [VO locked](VO_LOCKED.md) · [Opener WIP](../opening/TODOs-opening-trailer.md)
 
 ---
 
 ## Contents
 
 1. [Intent](#1-intent)  
+   - [1.1 Trailer types (now)](#11-trailer-types-now)  
+   - [1.2 Shared craft (still current)](#12-shared-craft-still-current)  
 2. [Asset stack](#2-asset-stack)  
    - [2.1 Village place plates](#21-village-place-plates-interiors)  
 3. [D1 — Tonight’s Scar](#3-d1--tonights-scar)  
@@ -22,6 +26,8 @@
 7. [D3 — Personal Edge](#7-d3--personal-edge)  
 8. [Moment picker](#8-moment-picker)  
 9. [VO contract & templates](#9-vo-contract--templates)  
+   - [9.0 Live closer format lock](#90-live-closer-format-lock)  
+   - [9.5 Skip-if-empty story beats](#95-skip-if-empty-story-beats)  
 10. [CapCut / Remotion bins](#10-capcut--remotion-bins)  
    - [10.1 Picture kit commission (G1–G8)](#101-picture-kit-commission-g1g8)  
 11. [Eng pipeline & schema](#11-eng-pipeline--schema)  
@@ -37,6 +43,30 @@
 ## 1. Intent
 
 Default daily is **Closer tonight** (long social resolution of the same night). It is **not** a full-day encyclopedia. Short Scar is `--sku scar`.
+
+### 1.1 Trailer types (now)
+
+| Type | Job | Status |
+|------|-----|--------|
+| **Closer tonight** (D1, default) | Tonight’s Peak + Cost; teach the show and a person | **Live** — this file §9 |
+| **Tonight’s Scar** (`--sku scar`) | Same night, short sibling | Live sibling, not the pin |
+| **[A] Opener** | Lean ~60s: what Doubland is, group cast, Survival tease at close. No per-Double spoken intros. No Survival rules in the body. | Separate product. WIP `opening/TODOs-opening-trailer.md`. Old scene map: `done/sot-video.md` §10 |
+| **D2 Share Spark** | 12–20s mute-safe crop | **Not built.** Not a closer ship gate |
+| **D3 Personal Edge** | Paid one-Double report | **Not built.** Not the group daily |
+| **`day_normal` [B]** | Every-cast habitat directory | **Paused** |
+| Encyclopedia `[C]` | Full-day recap | **Killed** |
+
+### 1.2 Shared craft (still current)
+
+Borrowed from the old video SOT; still true for opener and daily.
+
+- **Frame:** 9:16 · 1080×1920 · ≥30 fps.
+- **Voice:** warm narrator; never mocks the Doubles. ElevenLabs `eleven_v3` warm @ **1.2×** (API max). Pronounce Doubland as fused `Dubland` (no hyphen).
+- **Mix:** ~**-14 LUFS** · true peak ≤ **-1 dBTP** · music under speech duck ~3–5 dB.
+- **End card:** `doubland.ai`. Do not fake a deep link.
+- **Fact-lock:** ledger and public board. Do not invent challenge, votes, or chat.
+- **2D literacy (L8):** trailers train “watch Phaser, see real life.” Daily execution is §3.6 (plant + Peak/Cost dive + Door tease). Fail all-cinematic. Opener uses matrix / flyover / cutouts, not daily dives.
+- **Length:** opener target ~60s. Closer follows the night (under 90s is not a fail). Short Scar 45–60 / warn 90 / hard 120. Encyclopedia still fails at any length.
 
 | Paused (do not build as default) | Ship instead |
 |----------------------------------|--------------|
@@ -165,9 +195,9 @@ Peak and Cost **may be different people**. Cold quiz must still yield **one clea
 - Prefer real **village place plates** (§2.1) under Stake / habitat beats when the featured workplace exists on disk.  
 - **Challenge teach:** resolve `today.challenge.id` → trailer teach pack in `double-docs/sot/sot_challenges.md` §5 (VO brief + visual library). Specimen: `hold_for_shield`.  
 - Cast: **1 protagonist + ≤2 satellites**.  
-- **2D↔3D literacy (L8) — required every D1 ship** (detail: `daily-2D-3D-blend.md`):  
+- **2D↔3D literacy (L8) — required every D1 ship.** Morph / true camera-dive craft is **post-MVP** ([`TODO_2D-3D.md`](TODO_2D-3D.md)); do not redesign it on tonight’s closer.  
   1. **Phaser plant** — ≥1 early beat (Stake / Survival literacy on Day 1; scar chip or follow on later nights) that shows the **live sim look** (top-down Phaser / schematic sprites). Silent — no new VO.  
-  2. **Peak/Cost bridge** — ≥1 **camera dive** (2D → cinematic) on Pressure, Peak, **or Cost**; prefer **Cost** when the scar is a leave/boot. Optional **pixel fracture** back to Phaser before the next graphic.  
+  2. **Peak/Cost bridge** — ≥1 Phaser beat on Pressure, Peak, **or Cost**; prefer **Cost** on leave/boot (`{cost}_leave_phaser` → cinematic leave). A cinematic namecard/habitat alone is not the bridge.  
   3. **Door tease** — ≥1 short Phaser beat at/under the Door so `doubland.ai` matches the watch surface.  
   4. **Caps** — ≤3 silent cinematic punctuations on arc beats; establishing (namecards, census, end-card lockup) stay cards/2D, not a full movie world.  
   5. **Fail** — all-cinematic picture with zero Phaser = bait-and-switch vs live product; do not ship.  
@@ -377,6 +407,34 @@ Human override until picker quality is proven.
 
 ## 9. VO contract & templates
 
+### 9.0 Live closer format lock
+
+**Status:** Live. New sim bakes (`--sku closer`, default) must fill this shape. Episode 1 Ivan/Alex (`double-video/data/20260823-2/trailer_ready_day2`) is a **specimen** of version 1, not the cut to rewrite. Do not `--force` / `--replace-vo-lock` that package.
+
+Hybrid job every night: **teach the show and a person.** Not a tutorial-only recap. Not a quiet movie with almost no voice.
+
+- **Show framework:** Doubles line every night (first-time viewers land on a random episode); someone is voted out every night; tonight’s game in one breath; a vote happened; someone left; one-breath census; a Door to the live village.
+- **Personal touch:** two people at work, hands if we have them, one real choice, a dignified leave, a last line about someone still in tomorrow.
+- **Voice on pictures:** every picture in the body has spoken words under it. The only planned silence is the first few seconds (a face moving, no talking). After that, voice stays on.
+
+**Every night, keep (once):** `These are Doubles — AI versions of real people, making choices no one wrote for them.` Do not say “unscripted” / “no one knows how it ends” again later. The choice in the night has to prove it.
+
+**Episode 1 / first Survival night (engine `--day 2`):** Survival primer (`{N} entered. Someone is voted out every night until one remains.`). Short challenge how-to. Alliances→votes teach + ballot line. Then people.
+
+**Later nights:** `{N} still in. Someone is voted out every night.` Then jobs. Do **not** replay the alliances sermon. Shorter game line if this challenge type was already taught.
+
+Beat order for speech (empty beats skip; do not invent; do not pad; do not drop G7): Doubles → Survival stake → body in a place → hands at the job if we have it → personality that showed up today if we have it → tonight’s game → one choice → leave → one-breath census (`{N} become {N−1}`) under G7 → last line → Door. Census is show-framework, not the feeling.
+
+**Last line (required):** name someone **still in** tomorrow. Default: tonight’s Peak, walking in without tonight-only power (the Shield does not go with them). If Cost leftover names a living person, past tense leftover + come back for the living name. Never: “someone else leaves,” “new alliances will form,” “we’ll miss them,” come-back-for-the-boot.
+
+**Required emotional hooks:** at least **2** of: one real choice (tonight’s reason, kid-plain, no rank), last words, inner vote why, living last line. The last line is always one of them. Hold-for-Shield Peak: `{Name} would rather …` then `She/He wins the Shield.` Quiet nights still need two hooks — do not ship choice-only or last-line-only.
+
+**Length:** follows the night. Under 90s is not a fail. Fail = pad, village recap, or no real choice. The §2 90–140 / hard 180 band is a historical closer clock, not a fail-under-90.
+
+**Ship gate:** missing `vo_locked_long.txt` auto-locks from `draft_closer_tonight_vo`. Bake fails if `check_closer_vo_facts` does not see Doubles, the living last line, ≥2 hooks, Day-1 vs later alliances, and Peak choice/win when the ledger has them. Pictures: same G1–G8 jobs. Do not redesign 2D↔cinematic on this contract. Share clip (Spark) and timestamp cards are **not** this SKU.
+
+**Pass after one watch:** a stranger can name the two people; they got the show (vote-out, tonight’s game, someone left); they felt one choice; they would send it; they want tomorrow for a named living person.
+
 ### 9.1 Gold specimen
 
 **Day 1 locked text:** `VO_LOCKED.md` §V6 — do not silently rewrite. CapCut/TTS for Day 1 cut to that text.
@@ -438,6 +496,21 @@ Tonight's game is [challenge]. [Day 1: short how-to. Later: one breath; skip ste
 ```
 
 Creative chain: screenwriter → engagement (Door) → videoproducer. Pull realitytv only if mechanics are open.
+
+### 9.5 Skip-if-empty story beats
+
+These four overlay beats sit on the locked spine. **Omit the clause when the board has nothing. Do not invent. Do not pad. The night still ships.** Habitat job+place and the required last line still run.
+
+| Beat | Speak when | Skip when | Picture |
+|------|------------|-----------|---------|
+| **One doing** | Ledger-true work or ritual that is *this* person (hands at the job). Not “I held a card.” | No safe doing field. | G1 / G2 habitat clip. No new rooms. |
+| **Relationship weather** | Leftover heat, a lock, or unreadability from `alliances.confirmed` / `public_board` / leftover. | No pair, no leftover, no unreadability. Episode 1 often empty — skip; do not invent a grudge. | Hold on habitat. No extra Phaser redesign. |
+| **Inner vote why** | Peak’s stated why they named Cost (`vote_reasons`). Spoken English. No mind-read. | No Peak→Cost `vote_reasons`. | G5 / G6 |
+| **Last words** | Cost `final_statement` cut for speech. Dignity. Sit on the leave walk. | Missing, empty, or engine-clone essay. | G5 loop 1× |
+
+Writer may already emit vote-why and last words when those fields exist. Doing and weather are named here so a later pass can fill them the same skip-if-empty way — they are **not** a second framework.
+
+**Also skip (do not invent):** Cost “played and lost” when `choice_reason_plain` is `absent`; personality clause when no why-tonight after fallbacks; a clean pile-on when `safe_vo` is split/messy; chat as a deal log; narrator mind-read (`felt / realized / in my heart`).
 
 ---
 
@@ -556,7 +629,7 @@ locked VO + picker/ledger
 | L13 scars | Scar chip + `scar.json` |
 | Encyclopedia Remotion polish | Do not block on stamp plates |
 
-Fold into main `sot-video.md` when Remotion nightly (Phase 2) is proven. CapCut stays gold-breakdown reference only (E4) — not a second product template path.
+This file **is** the main video SOT (2026-08-28). CapCut stays gold-breakdown reference only (E4) — not a second product template path. Old taxonomy / opener scene map: `done/sot-video.md`.
 
 ### 11.4 Auto-gen daily trailer (end-to-end)
 
@@ -798,8 +871,9 @@ Hub detail: [`gold/20260713-1_day1_anya/GOLD.md`](gold/20260713-1_day1_anya/GOLD
 | Spark | Queued on D1 lock |
 | Dignity | Existing ethics gates |
 | **2D↔3D literacy** | Fail if zero Phaser plant **or** zero Peak/Cost dive **or** Door has no Phaser tease; fail if &gt;3 cinematic arc punctuations; fail all-cinematic cut |
+| **Closer VO facts** (`check_closer_vo_facts`) | Fail without Doubles clause, living last line, ≥2 hooks, Day-1 vs later alliances, Peak “would rather” when the ledger has a tonight choice, Hold-for-Shield win line when Peak won |
 
-Shared Part I checks (9:16, LUFS, visual-change rate, end card): `../sot-video.md` §9.
+Shared craft checks (§1.2): 9:16 · ~-14 LUFS · true peak ≤ -1 dBTP · end card `doubland.ai`. Visual-change rate is opener guidance, not a closer fail.
 
 ---
 
@@ -840,6 +914,9 @@ Day 1 V6 **G1–G8 READY** — CapCut gold exists; further nights reuse the same
 
 | Date | Change |
 |------|--------|
+| 2026-08-29 | **§3.6 2D→3D morph postponed** — keep the locked closer picture (stock flyover plant/door + Cost leave_phaser still). True Phaser-scene → cinematic morph is post-MVP, outsourced to a video producer. Brief: [`TODO_2D-3D.md`](TODO_2D-3D.md). |
+| 2026-08-28 | **Primary video SOT** — this file replaces `sot-video.md` (archive `done/sot-video.md`). Borrowed still-current bits: trailer types now, 9:16 / TTS / LUFS, opener [A] as a separate product, 2D literacy in §3.6. |
+| 2026-08-28 | **§9.0–§9.5 live closer contract** — format lock [A] promoted here from `20260828_format_lock_closer.md` (that brief → `done/`). Skip-if-empty overlay: doing, weather, vote-why, last words. |
 | 2026-08-28 | **§9 closer ship gate** — new sim bakes auto-lock `vo_locked_long.txt` from the closer writer. `check_closer_vo_facts` fails closed without Doubles, living last line, ≥2 hooks, Day-1 vs later alliances, and Peak choice/win when the ledger has them. |
 | 2026-08-28 | **§9 two emotional hooks** — every closer needs ≥2 of: one real choice (tonight’s reason, kid-plain, no rank), last words, inner vote why, living last line. Last line still required. Hold-for-Shield Peak turn is `{She/He} wins the Shield.` after the choice. |
 | 2026-08-28 | **§9 closer format lock [A]** — Doubles line every night (full sentence, once). Later nights **drop** the alliances sermon (supersedes the same-day “alliances every night” row). Census stays (G7 + one breath). Last line names someone still in (default Peak without tonight-only power). Never “another Double will leave” / “new alliances will form.” Voice on after mute hook. Length follows the night; under 90s is not a fail. |
