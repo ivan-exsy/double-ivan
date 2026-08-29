@@ -1,6 +1,6 @@
 # Leave-after-arrival pack — `20260828-1`
 
-Read-only dump for `20260829_datareq_leave-after-arrival.md`. Raw rows: `data.json`. Cafe tiles = x 72–83, y 19–30. Collected with max_step **1780** on disk (day-2 ~11:35). Runner not touched.
+Read-only dump for the first leave-after-arrival collection. Raw rows: `data.json`. Cafe tiles = x 72–83, y 19–30. Collected with max_step **1780** on disk (day-2 ~11:35). Runner not touched. Narrative + key tables: RCA §12 / §12.9.
 
 `dest` / `target_zone` in the JSON is a **bounding box**, not a place name. Stated destination is `act_address` / `act_description`. Body is `curr_tile`.
 

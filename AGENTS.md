@@ -21,6 +21,7 @@ Doc / concept / video-WIP repo for Doubland. **Process rules** that are global l
 
 ## Recent Learnings / Changes
 
+- 2026-08-29: **Gather trail is one paper** — `20260827_gathering_issue_RCA+recommendations.md`. §§1–11 Pass 1 frozen; **§12** is 1-A (`20260828-1`) live diagnosis. Checklist stays the score card.
 - 2026-08-28: **`20260827-1` Pass 1 score @1850** — gather FAIL (chal 3/15 then 6/14; vote 8/15; day-2 vote wait 2285). Start-jump persist 0/26819. Honest text FAIL. Sofa re-greet mill FAIL. Leave runner; do not patch / rewrite SOT §4.7. Paper: `20260827_checklist.md`.
 - 2026-08-28: **Episode 1 closer spine is every night** — alliances→votes + ballot line after the Peak win; survival stamp on the group photo then census HUD. Not Day-1 only.
 - 2026-08-27: **Featured intro + want HUD are auto-gen personality** — job+place, then tonight's who-clause (else innate `roles.trait`). Never Expose/Protect/rank as intro. HUD stamps that line. Rebake 20260825-1 with `--replace-vo-lock`; do not treat 20260823-2 as the only cast that works.

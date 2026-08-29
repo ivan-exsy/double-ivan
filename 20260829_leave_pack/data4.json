@@ -1,0 +1,980 @@
+{
+  "sim": "20260828-1",
+  "simulation_id": "49f3ddd9-6cad-473a-9c96-97c82a7643ea",
+  "collected_at_et": "2026-08-29 16:35",
+  "max_step_on_disk": 2030,
+  "sim_curr_time": "2026-08-30 15:45:00+00",
+  "notes": [
+    "Runner still live. Q5.2 deferred: PID.",
+    "Q4 day-1 original hourly is empty on disk (rollover snapshot is a 1260-min earlier-today lump with no sector name). Q4 scored on Aug 30 live scratch hourlies only, through ~15:36.",
+    "Q4 from-arena is empty: hourly names a sector, not an arena string. Longest sector-name substring, exact case.",
+    "Counts drifted a few dozen rows while the sim wrote (Q2 n=29325, Q5 n=29339)."
+  ],
+  "q1": {
+    "n_arenas": 63,
+    "n_with_whitelist_key": 53,
+    "n_key_absent": 10,
+    "n_key_present_null": 0,
+    "distinct_activities": [
+      "art",
+      "cook",
+      "eat",
+      "exercise",
+      "hygiene",
+      "play",
+      "relax",
+      "serve",
+      "shop",
+      "sleep",
+      "social",
+      "storage",
+      "study",
+      "work"
+    ],
+    "arenas_allowing": {
+      "art": 1,
+      "cook": 14,
+      "eat": 12,
+      "exercise": 6,
+      "hygiene": 13,
+      "play": 16,
+      "relax": 31,
+      "serve": 4,
+      "shop": 2,
+      "sleep": 18,
+      "social": 20,
+      "storage": 18,
+      "study": 4,
+      "work": 18
+    },
+    "arena_table": [
+      {
+        "address": "the Ville:Apartment 1:bathroom",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "hygiene"
+        ]
+      },
+      {
+        "address": "the Ville:Apartment 1:main room",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "sleep",
+          "work",
+          "storage",
+          "play",
+          "relax",
+          "cook"
+        ]
+      },
+      {
+        "address": "the Ville:Apartment 2:bathroom",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "hygiene"
+        ]
+      },
+      {
+        "address": "the Ville:Apartment 2:main room",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "sleep",
+          "work",
+          "storage",
+          "play",
+          "relax",
+          "cook"
+        ]
+      },
+      {
+        "address": "the Ville:Apartment 3:bathroom",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "hygiene"
+        ]
+      },
+      {
+        "address": "the Ville:Apartment 3:main room",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "sleep",
+          "work",
+          "storage",
+          "play",
+          "relax",
+          "cook"
+        ]
+      },
+      {
+        "address": "the Ville:Apartment 4:bathroom",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "hygiene"
+        ]
+      },
+      {
+        "address": "the Ville:Apartment 4:main room",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "sleep",
+          "work",
+          "storage",
+          "play",
+          "relax",
+          "cook",
+          "study"
+        ]
+      },
+      {
+        "address": "the Ville:Apartment 5:bathroom",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "hygiene"
+        ]
+      },
+      {
+        "address": "the Ville:Apartment 5:main room",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "sleep",
+          "work",
+          "storage",
+          "play",
+          "relax",
+          "cook"
+        ]
+      },
+      {
+        "address": "the Ville:Dorm for Oak Hill College:Dorm Room 1",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "sleep",
+          "storage",
+          "work",
+          "play",
+          "relax"
+        ]
+      },
+      {
+        "address": "the Ville:Dorm for Oak Hill College:Dorm Room 2",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "sleep",
+          "study",
+          "storage",
+          "work",
+          "relax"
+        ]
+      },
+      {
+        "address": "the Ville:Dorm for Oak Hill College:Dorm Room 3",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "sleep",
+          "storage",
+          "work",
+          "relax"
+        ]
+      },
+      {
+        "address": "the Ville:Dorm for Oak Hill College:Dorm Room 4",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "sleep",
+          "storage",
+          "work",
+          "play",
+          "exercise",
+          "relax"
+        ]
+      },
+      {
+        "address": "the Ville:Dorm for Oak Hill College:bathroom 1",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "hygiene"
+        ]
+      },
+      {
+        "address": "the Ville:Dorm for Oak Hill College:bathroom 2",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "hygiene"
+        ]
+      },
+      {
+        "address": "the Ville:Dorm for Oak Hill College:common room",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "social",
+          "relax",
+          "eat",
+          "play"
+        ]
+      },
+      {
+        "address": "the Ville:Dorm for Oak Hill College:garden",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "relax",
+          "exercise",
+          "social"
+        ]
+      },
+      {
+        "address": "the Ville:Dorm for Oak Hill College:kitchen",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "cook",
+          "eat",
+          "social"
+        ]
+      },
+      {
+        "address": "the Ville:Harvey Oak Supply Store:supply store",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "shop",
+          "serve"
+        ]
+      },
+      {
+        "address": "the Ville:Hobbs Cafe:cafe",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "eat",
+          "social",
+          "serve",
+          "relax"
+        ]
+      },
+      {
+        "address": "the Ville:House 1:bathroom",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "hygiene"
+        ]
+      },
+      {
+        "address": "the Ville:House 1:main room",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "sleep",
+          "work",
+          "storage",
+          "play",
+          "relax",
+          "cook"
+        ]
+      },
+      {
+        "address": "the Ville:House 2:bathroom",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "hygiene"
+        ]
+      },
+      {
+        "address": "the Ville:House 2:main room",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "sleep",
+          "work",
+          "storage",
+          "play",
+          "relax",
+          "cook"
+        ]
+      },
+      {
+        "address": "the Ville:House 3:bathroom",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "hygiene"
+        ]
+      },
+      {
+        "address": "the Ville:House 3:main room",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "sleep",
+          "work",
+          "storage",
+          "play",
+          "relax",
+          "cook"
+        ]
+      },
+      {
+        "address": "the Ville:House 4:Room 1",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "sleep",
+          "storage",
+          "work",
+          "relax"
+        ]
+      },
+      {
+        "address": "the Ville:House 4:Room 2",
+        "has_whitelist_key": false,
+        "activity_whitelist": null
+      },
+      {
+        "address": "the Ville:House 4:bathroom",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "hygiene"
+        ]
+      },
+      {
+        "address": "the Ville:House 4:common room",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "social",
+          "relax",
+          "eat",
+          "play"
+        ]
+      },
+      {
+        "address": "the Ville:House 4:garden",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "relax",
+          "exercise",
+          "social"
+        ]
+      },
+      {
+        "address": "the Ville:House 4:kitchen",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "cook",
+          "eat",
+          "social"
+        ]
+      },
+      {
+        "address": "the Ville:House 5:Main Bedroom",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "sleep",
+          "storage",
+          "work",
+          "relax"
+        ]
+      },
+      {
+        "address": "the Ville:House 5:Second Bedroom",
+        "has_whitelist_key": false,
+        "activity_whitelist": null
+      },
+      {
+        "address": "the Ville:House 5:bathroom",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "hygiene"
+        ]
+      },
+      {
+        "address": "the Ville:House 5:common room",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "social",
+          "relax",
+          "eat",
+          "play"
+        ]
+      },
+      {
+        "address": "the Ville:House 5:garden",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "relax",
+          "exercise",
+          "social"
+        ]
+      },
+      {
+        "address": "the Ville:House 5:kitchen",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "cook",
+          "eat",
+          "social"
+        ]
+      },
+      {
+        "address": "the Ville:House 6:Main Bedroom",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "sleep",
+          "storage",
+          "work",
+          "relax"
+        ]
+      },
+      {
+        "address": "the Ville:House 6:Second Bedroom",
+        "has_whitelist_key": false,
+        "activity_whitelist": null
+      },
+      {
+        "address": "the Ville:House 6:bathroom",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "hygiene"
+        ]
+      },
+      {
+        "address": "the Ville:House 6:common room",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "social",
+          "relax",
+          "eat",
+          "play"
+        ]
+      },
+      {
+        "address": "the Ville:House 6:garden",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "relax",
+          "exercise",
+          "social"
+        ]
+      },
+      {
+        "address": "the Ville:House 6:kitchen",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "cook",
+          "eat",
+          "social"
+        ]
+      },
+      {
+        "address": "the Ville:Johnson Park:park",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "relax",
+          "exercise",
+          "social"
+        ]
+      },
+      {
+        "address": "the Ville:Oak Hill College:classroom",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "study",
+          "social"
+        ]
+      },
+      {
+        "address": "the Ville:Oak Hill College:hallway",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "social"
+        ]
+      },
+      {
+        "address": "the Ville:Oak Hill College:library",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "study",
+          "relax",
+          "social"
+        ]
+      },
+      {
+        "address": "the Ville:The Rose and Crown Pub:pub",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "eat",
+          "social",
+          "serve",
+          "relax",
+          "play",
+          "cook"
+        ]
+      },
+      {
+        "address": "the Ville:The Willows Market and Pharmacy:store",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "shop",
+          "serve"
+        ]
+      },
+      {
+        "address": "the Ville:artist's co-living space:Studio Bathroom 1",
+        "has_whitelist_key": false,
+        "activity_whitelist": null
+      },
+      {
+        "address": "the Ville:artist's co-living space:Studio Bathroom 2",
+        "has_whitelist_key": false,
+        "activity_whitelist": null
+      },
+      {
+        "address": "the Ville:artist's co-living space:Studio Bathroom 3",
+        "has_whitelist_key": false,
+        "activity_whitelist": null
+      },
+      {
+        "address": "the Ville:artist's co-living space:Studio Bathroom 4",
+        "has_whitelist_key": false,
+        "activity_whitelist": null
+      },
+      {
+        "address": "the Ville:artist's co-living space:Studio Bathroom 5",
+        "has_whitelist_key": false,
+        "activity_whitelist": null
+      },
+      {
+        "address": "the Ville:artist's co-living space:Studio Room 1",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "sleep",
+          "storage",
+          "work",
+          "relax"
+        ]
+      },
+      {
+        "address": "the Ville:artist's co-living space:Studio Room 2",
+        "has_whitelist_key": false,
+        "activity_whitelist": null
+      },
+      {
+        "address": "the Ville:artist's co-living space:Studio Room 3",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "sleep",
+          "storage",
+          "work",
+          "relax"
+        ]
+      },
+      {
+        "address": "the Ville:artist's co-living space:Studio Room 4",
+        "has_whitelist_key": false,
+        "activity_whitelist": null
+      },
+      {
+        "address": "the Ville:artist's co-living space:Studio Room 5",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "sleep",
+          "storage",
+          "work",
+          "art",
+          "relax"
+        ]
+      },
+      {
+        "address": "the Ville:artist's co-living space:common room",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "social",
+          "relax",
+          "eat",
+          "play"
+        ]
+      },
+      {
+        "address": "the Ville:artist's co-living space:kitchen",
+        "has_whitelist_key": true,
+        "activity_whitelist": [
+          "cook",
+          "eat",
+          "social"
+        ]
+      }
+    ]
+  },
+  "q2": {
+    "n_rows": 29325,
+    "action_family_rows": [
+      {
+        "action_family": "",
+        "n": 8969
+      },
+      {
+        "action_family": "relax",
+        "n": 6834
+      },
+      {
+        "action_family": "work",
+        "n": 4806
+      },
+      {
+        "action_family": "study",
+        "n": 2770
+      },
+      {
+        "action_family": "eat",
+        "n": 2731
+      },
+      {
+        "action_family": "hygiene",
+        "n": 1052
+      },
+      {
+        "action_family": "play",
+        "n": 879
+      },
+      {
+        "action_family": "cook",
+        "n": 696
+      },
+      {
+        "action_family": "social",
+        "n": 579
+      },
+      {
+        "action_family": "exercise",
+        "n": 9
+      }
+    ],
+    "in_run_not_in_q1_set": [
+      ""
+    ],
+    "in_q1_set_not_in_run": [
+      "art",
+      "serve",
+      "shop",
+      "sleep",
+      "storage"
+    ]
+  },
+  "q3": {
+    "top5": [
+      "",
+      "relax",
+      "work",
+      "study",
+      "eat"
+    ],
+    "flag_le3": [
+      {
+        "family": "",
+        "n_arenas": 0
+      }
+    ],
+    "arenas_by_family": {
+      "": [],
+      "relax": [
+        "the Ville:Apartment 1:main room",
+        "the Ville:Apartment 2:main room",
+        "the Ville:Apartment 3:main room",
+        "the Ville:Apartment 4:main room",
+        "the Ville:Apartment 5:main room",
+        "the Ville:Dorm for Oak Hill College:Dorm Room 1",
+        "the Ville:Dorm for Oak Hill College:Dorm Room 2",
+        "the Ville:Dorm for Oak Hill College:Dorm Room 3",
+        "the Ville:Dorm for Oak Hill College:Dorm Room 4",
+        "the Ville:Dorm for Oak Hill College:common room",
+        "the Ville:Dorm for Oak Hill College:garden",
+        "the Ville:Hobbs Cafe:cafe",
+        "the Ville:House 1:main room",
+        "the Ville:House 2:main room",
+        "the Ville:House 3:main room",
+        "the Ville:House 4:Room 1",
+        "the Ville:House 4:common room",
+        "the Ville:House 4:garden",
+        "the Ville:House 5:Main Bedroom",
+        "the Ville:House 5:common room",
+        "the Ville:House 5:garden",
+        "the Ville:House 6:Main Bedroom",
+        "the Ville:House 6:common room",
+        "the Ville:House 6:garden",
+        "the Ville:Johnson Park:park",
+        "the Ville:Oak Hill College:library",
+        "the Ville:The Rose and Crown Pub:pub",
+        "the Ville:artist's co-living space:Studio Room 1",
+        "the Ville:artist's co-living space:Studio Room 3",
+        "the Ville:artist's co-living space:Studio Room 5",
+        "the Ville:artist's co-living space:common room"
+      ],
+      "work": [
+        "the Ville:Apartment 1:main room",
+        "the Ville:Apartment 2:main room",
+        "the Ville:Apartment 3:main room",
+        "the Ville:Apartment 4:main room",
+        "the Ville:Apartment 5:main room",
+        "the Ville:Dorm for Oak Hill College:Dorm Room 1",
+        "the Ville:Dorm for Oak Hill College:Dorm Room 2",
+        "the Ville:Dorm for Oak Hill College:Dorm Room 3",
+        "the Ville:Dorm for Oak Hill College:Dorm Room 4",
+        "the Ville:House 1:main room",
+        "the Ville:House 2:main room",
+        "the Ville:House 3:main room",
+        "the Ville:House 4:Room 1",
+        "the Ville:House 5:Main Bedroom",
+        "the Ville:House 6:Main Bedroom",
+        "the Ville:artist's co-living space:Studio Room 1",
+        "the Ville:artist's co-living space:Studio Room 3",
+        "the Ville:artist's co-living space:Studio Room 5"
+      ],
+      "study": [
+        "the Ville:Apartment 4:main room",
+        "the Ville:Dorm for Oak Hill College:Dorm Room 2",
+        "the Ville:Oak Hill College:classroom",
+        "the Ville:Oak Hill College:library"
+      ],
+      "eat": [
+        "the Ville:Dorm for Oak Hill College:common room",
+        "the Ville:Dorm for Oak Hill College:kitchen",
+        "the Ville:Hobbs Cafe:cafe",
+        "the Ville:House 4:common room",
+        "the Ville:House 4:kitchen",
+        "the Ville:House 5:common room",
+        "the Ville:House 5:kitchen",
+        "the Ville:House 6:common room",
+        "the Ville:House 6:kitchen",
+        "the Ville:The Rose and Crown Pub:pub",
+        "the Ville:artist's co-living space:common room",
+        "the Ville:artist's co-living space:kitchen"
+      ]
+    }
+  },
+  "q4": {
+    "day1_original_hourly": "empty",
+    "day1_snapshot_hourly_names_sector": 0,
+    "day2": {
+      "n_rows": 13160,
+      "n_sector_naming": 5540,
+      "n_mismatch_inherit_or_planner": 1414,
+      "n_mismatch_action_ids": 90,
+      "share_of_naming": "1414/5540",
+      "top15_triples": [
+        {
+          "from_sector": "Hobbs Cafe",
+          "from_arena": "",
+          "to_sector": "Oak Hill College",
+          "to_arena": "classroom",
+          "action_family": "study",
+          "n": 343
+        },
+        {
+          "from_sector": "Hobbs Cafe",
+          "from_arena": "",
+          "to_sector": "The Rose and Crown Pub",
+          "to_arena": "pub",
+          "action_family": "play",
+          "n": 105
+        },
+        {
+          "from_sector": "Hobbs Cafe",
+          "from_arena": "",
+          "to_sector": "Apartment 4",
+          "to_arena": "main room",
+          "action_family": "study",
+          "n": 102
+        },
+        {
+          "from_sector": "Hobbs Cafe",
+          "from_arena": "",
+          "to_sector": "The Rose and Crown Pub",
+          "to_arena": "pub",
+          "action_family": "relax",
+          "n": 90
+        },
+        {
+          "from_sector": "Hobbs Cafe",
+          "from_arena": "",
+          "to_sector": "The Rose and Crown Pub",
+          "to_arena": "pub",
+          "action_family": "eat",
+          "n": 76
+        },
+        {
+          "from_sector": "Hobbs Cafe",
+          "from_arena": "",
+          "to_sector": "Oak Hill College",
+          "to_arena": "library",
+          "action_family": "study",
+          "n": 61
+        },
+        {
+          "from_sector": "Apartment 1",
+          "from_arena": "",
+          "to_sector": "Johnson Park",
+          "to_arena": "park",
+          "action_family": "",
+          "n": 58
+        },
+        {
+          "from_sector": "Apartment 1",
+          "from_arena": "",
+          "to_sector": "House 1",
+          "to_arena": "bathroom",
+          "action_family": "hygiene",
+          "n": 50
+        },
+        {
+          "from_sector": "Hobbs Cafe",
+          "from_arena": "",
+          "to_sector": "Apartment 5",
+          "to_arena": "main room",
+          "action_family": "work",
+          "n": 47
+        },
+        {
+          "from_sector": "Hobbs Cafe",
+          "from_arena": "",
+          "to_sector": "Apartment 4",
+          "to_arena": "main room",
+          "action_family": "work",
+          "n": 44
+        },
+        {
+          "from_sector": "Hobbs Cafe",
+          "from_arena": "",
+          "to_sector": "Dorm for Oak Hill College",
+          "to_arena": "Dorm Room 2",
+          "action_family": "study",
+          "n": 35
+        },
+        {
+          "from_sector": "Hobbs Cafe",
+          "from_arena": "",
+          "to_sector": "The Willows Market and Pharmacy",
+          "to_arena": "store",
+          "action_family": "",
+          "n": 35
+        },
+        {
+          "from_sector": "Hobbs Cafe",
+          "from_arena": "",
+          "to_sector": "Oak Hill College",
+          "to_arena": "library",
+          "action_family": "relax",
+          "n": 33
+        },
+        {
+          "from_sector": "Hobbs Cafe",
+          "from_arena": "",
+          "to_sector": "Dorm for Oak Hill College",
+          "to_arena": "common room",
+          "action_family": "eat",
+          "n": 31
+        },
+        {
+          "from_sector": "Hobbs Cafe",
+          "from_arena": "",
+          "to_sector": "Harvey Oak Supply Store",
+          "to_arena": "supply store",
+          "action_family": "work",
+          "n": 30
+        }
+      ],
+      "by_hour": [
+        {
+          "hour": 0,
+          "n_naming": 0,
+          "n_mismatch": 0
+        },
+        {
+          "hour": 1,
+          "n_naming": 0,
+          "n_mismatch": 0
+        },
+        {
+          "hour": 2,
+          "n_naming": 0,
+          "n_mismatch": 0
+        },
+        {
+          "hour": 3,
+          "n_naming": 0,
+          "n_mismatch": 0
+        },
+        {
+          "hour": 4,
+          "n_naming": 0,
+          "n_mismatch": 0
+        },
+        {
+          "hour": 5,
+          "n_naming": 0,
+          "n_mismatch": 0
+        },
+        {
+          "hour": 6,
+          "n_naming": 0,
+          "n_mismatch": 0
+        },
+        {
+          "hour": 7,
+          "n_naming": 60,
+          "n_mismatch": 60
+        },
+        {
+          "hour": 8,
+          "n_naming": 240,
+          "n_mismatch": 1
+        },
+        {
+          "hour": 9,
+          "n_naming": 540,
+          "n_mismatch": 71
+        },
+        {
+          "hour": 10,
+          "n_naming": 780,
+          "n_mismatch": 310
+        },
+        {
+          "hour": 11,
+          "n_naming": 840,
+          "n_mismatch": 258
+        },
+        {
+          "hour": 12,
+          "n_naming": 840,
+          "n_mismatch": 242
+        },
+        {
+          "hour": 13,
+          "n_naming": 840,
+          "n_mismatch": 244
+        },
+        {
+          "hour": 14,
+          "n_naming": 840,
+          "n_mismatch": 142
+        },
+        {
+          "hour": 15,
+          "n_naming": 574,
+          "n_mismatch": 88
+        }
+      ]
+    }
+  },
+  "q5": {
+    "resolution_source_rows": [
+      {
+        "resolution_source": "parent_location_inherit_v1",
+        "n": 15882
+      },
+      {
+        "resolution_source": "planner_contract_v1",
+        "n": 8273
+      },
+      {
+        "resolution_source": "llm_location_v1",
+        "n": 4488
+      },
+      {
+        "resolution_source": "",
+        "n": 696
+      }
+    ],
+    "log_counts": "deferred: PID"
+  }
+}

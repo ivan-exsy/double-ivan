@@ -1,0 +1,38 @@
+{
+  "sim": "20260828-1",
+  "simulation_id": "49f3ddd9-6cad-473a-9c96-97c82a7643ea",
+  "collected_at_et": "2026-08-29 17:15",
+  "max_step_on_disk": 2071,
+  "sim_curr_time": "2026-08-30 16:26:00+00",
+  "registry_vs_datareq4_q1": "equal",
+  "q1_study": {
+    "already_has_study": 4,
+    "sit": 28,
+    "pass": 21,
+    "ungated": 10,
+    "sit_only_widen_would_allow": 32,
+    "everywhere_gated_would_allow": 53
+  },
+  "q3": {
+    "source": "fresh count at step 2071",
+    "n_rows": 29899,
+    "action_family_rows": [
+      {"action_family": "", "n": 8995},
+      {"action_family": "relax", "n": 7028},
+      {"action_family": "work", "n": 5097},
+      {"action_family": "study", "n": 2802},
+      {"action_family": "eat", "n": 2747},
+      {"action_family": "hygiene", "n": 1052},
+      {"action_family": "play", "n": 879},
+      {"action_family": "cook", "n": 711},
+      {"action_family": "social", "n": 579},
+      {"action_family": "exercise", "n": 9}
+    ],
+    "empty_day1": 2917,
+    "empty_day2": 6078,
+    "empty_day2_hourly_names_sector": 185,
+    "in_run_not_in_registry": [""],
+    "in_registry_not_in_run": ["art", "serve", "shop", "sleep", "storage"]
+  },
+  "q5": "deferred: PID"
+}

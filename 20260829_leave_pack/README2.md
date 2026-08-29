@@ -1,6 +1,6 @@
 # Leave-after-arrival pack 2 — `20260828-1`
 
-Read-only dump for `20260829_datareq_2_finalize-fix.md`. Raw rows: `data2.json`. Cafe tiles = x 72–83, y 19–30. Collected with max_step **1819** on disk (day-2 ~12:14). Runner not touched. Same answers also sit under **Responses** in the data-request file.
+Read-only dump. Raw rows: `data2.json`. Cafe tiles = x 72–83, y 19–30. Collected with max_step **1819** on disk (day-2 ~12:14). Runner not touched. Narrative: RCA §12.
 
 `dest` / `target_zone` in the JSON is a **bounding box**, not a place name. Stated destination is `act_address` / `act_description`. Body is `curr_tile`.
 
@@ -255,4 +255,4 @@ Owen also sits on **bar customer seating** 10:15–10:45 (pub object). Reed/Andr
 
 **Stayers:** Irene / Ivan / Max / Nick / Olivia — Hobbs-cafe anchors only (seating, counter, cooking area, piano). **Mike** 10:00–10:05 walk · **common room table** (home object); still on cafe at 11:00.
 
-Full per-row tables: `20260829_datareq_2_finalize-fix.md` §Decomposition.
+Full per-row tables: RCA `20260827_gathering_issue_RCA+recommendations.md` **§12.9** (leavers + Group A). Raw: `data2.json`.

@@ -1,11 +1,37 @@
-# RCA + recommendations — empty Hobbs at the declared clock (`20260827-1`)
+# RCA + recommendations — empty Hobbs at the declared clock
 
-**Status:** RCA accepted. Not a patch. Not SOT.  
-**Sim:** `20260827-1` · tip `266aa54f` (Pass 1 on stay-pin `4ab4f5be`) · skip-Premiere · **still running** — do not stop, do not deploy.  
-**Score occupancy on tiles**, not “heading to Hobbs.” Bar is **80%** (12/15, then 11/14).  
+## Status (2026-08-29, afternoon)
+
+**Cause of the empty room: found and the code fix is in.** A preference list (`activity_whitelist`) was relocating people who already had the right cafe address. Reading notes tagged `study`; the cafe list does not include `study`; the nearest rooms that do are campus, one dorm, and Apartment 4. That is why the plan said Hobbs and the body walked to college. The relocating branch is **deleted** (`2dea146e`, on `railway` as `273e1f55`). The lists still *rank* places. They no longer *move* a body that already had one.
+
+**What we already know from the two scored runs**
+
+| Run | What we shipped | First 11:00 | Honest text | Read |
+|---|---|---|---|---|
+| Pass 1 `20260827-1` | Lock + 30-min invite | **3/15** | Fail (caption vs body) | Lock froze the room and invited late. **Frozen — §§1–11.** |
+| 1-A `20260828-1` | Lock gone, 1-hour invite, identity, travel-anchor, ritual gate | **6/14** (day-1 **10/15**) | **Pass** | People arrive, then the list walks them off. **§12.** |
+
+Bar is **80% on tiles** at the declared clock (12/15, then 11/14). Start-jump is already green. Do not rewrite SOT §4.7 until gather is too.
+
+**What is not this bug:** chat, sofa re-greets, social seek, the lock (it is gone). **What is still a separate miss:** Shepard — his hour is `asleep`; the planner never booked the appointment. One person. Will not decide the gate.
+
+**Right now**
+
+1. **1-B is running.** `20260829-1` PID `808722` on tip `273e1f55`. Checklist: `20260829-1_checklist.md`. First look ~step 5 (plans), then dests at 10:00–11:00.
+2. **Widen decided, not this score.** Sit-only `study` → **32** rooms (not 53). Same later pass: `eat` on eight home living rooms, `work` on six job sites, `play` on cafe/park/gardens. **Do not** stamp bathrooms or add lists to the ten ungated rooms. Datareq 5.
+3. **Do not restore the lock. Do not add `study` everywhere.**
+
+**How to read the rest of this file.** Two chapters. Do not mix them.
+
+| Chapter | Sims | Status |
+|---|---|---|
+| **§§1–11** | `20260827-1` Pass 1 @ `266aa54f` | **Frozen.** Lock writes the caption; the plan moves the body; lock also freezes arrivals. |
+| **§12** | `20260828-1` 1-A @ `acf744b8` | **Scored.** Five fixes landed; room still emptied. Cause = whitelist veto (§12.4). Veto **deleted** (§12.11). Widen is a later search-quality edit (§12.10, datareq 5). |
+
 **Founder lock (still out):** H3 dest-rewrite, fail-closed, longer pins, fire-when-12.
 
-This file **replaces** the working papers listed at the bottom. Raw JSON stays in `20260827_challenge_miss_pack/` and `20260828_verify_pack/`.
+Pass 1 evidence: `20260827_challenge_miss_pack/` · `20260828_verify_pack/`.  
+1-A evidence: `20260829_leave_pack/` (raw JSON). Score card: `20260828-1_checklist.md`. Key 1-A tables: **§12.9**.
 
 ---
 
@@ -43,6 +69,7 @@ Primary line is **first competitive 11:00**. Do not headline 25-1’s second mor
 | `20260823-2` | Persist 6-tile reject; ~1 h lock | **8/15** | **11/14** | (prior paper) |
 | `20260825-1` | Stay-pin | **9/15** | **6/14** | hit 80% under a **2 h** invitation |
 | `20260827-1` Pass 1 | Lock **30 min**; fire at **11:00**; honest text; skip-Premiere | **3/15** | **6/14** | **8/15** (bar 12) · **12/15 at 20:15** |
+| `20260828-1` **1-A** | Lock **deleted**; 1 h invitation; identity + travel detach + ritual gate | **10/15** | **6/14** | **9/15** · **14/15 at 20:15** · d2 vote still to score |
 
 **`20260827-1` occupancy shape (same three times):**
 
@@ -88,6 +115,7 @@ Five of seven phantom voters (Dean, Owen, Vincent, Alexis, Andrew) walked in wit
 | Gather lock (Jul) | Force last **hour** | Walk-in exists; does not keep (or fill) the room |
 | Stay-pin `4ab4f5be` | Reject leave dest while on cafe | 9/15 then 6/14. Walked people **in**. Did not **keep** them. |
 | **Pass 1** `266aa54f` | 30-min lock; fire at 11:00; honest dest text; skip-Premiere | **3/15**, **8/15 vote**, **6/14**. Shortened hang **and** invitation. Caption vs body unchanged. |
+| **1-A** `acf744b8` | Delete lock; restore 1 h invite; identity; travel detach; ritual gate | Day-1 **10/15** (shape no longer a freeze). Competitive 11:00 still **6/14**. Honest text **Pass**. See **§12**. |
 
 The wait was never the occupancy bug. Shortening it emptied the first morning and left the freeze in place.
 
@@ -107,6 +135,8 @@ Gather-lock tests (18 of them) assert sentence and address. **The words `target_
 ---
 
 ## 7. Recommendations (next fork, not this runner)
+
+**Shipped as 1-A** (`ivan/gather-1a` @ `acf744b8`). What each chunk actually found is in §7A. What the score sim did is **§12** — do not treat this table as the live diagnosis.
 
 Naturalness-first. **Less** coercion first.
 
@@ -216,6 +246,8 @@ Code and review on a branch now; the deploy waits for `20260827-1`. Do not resta
 
 ## 8. Open before anyone ships code
 
+**Historical for Pass 1.** 1-A deleted the lock anyway; on `20260828-1` the freeze plateau did **not** recur. Live open items are in **§12**.
+
 Day-2 V4 file is **empty**. The 11% walk rate is **two windows, not three**. Day 2 has the cleanest freeze plateau.
 
 Two possibilities:
@@ -241,6 +273,7 @@ First elimination: **8 real voters**, **3-vote plurality**, seven phantoms. The 
 - `20260827_challenge_miss_pack/` — day-1 11:00 tiles. **Read with §11B — three columns in it lie.**
 - `20260828_verify_pack/` — vote + day-2 + movement fields.
 - `COS/tasks/2026-08-27-003/collect_from_supabase.py` — the collector. Re-run the §8 query with it.
+- 1-A packs — see **§12.8**.
 
 **Safe to delete** (folded in above)
 
@@ -297,3 +330,361 @@ Read stated destination from `act` / `intent`. Read the body from `pos` / `on`.
 - ~~`20260825-1`’s “vote hit 80% under a 2 h invitation” (§3)~~ — **half wrong; corrected by chunk 2.** The **2.0 → 0.5** cut in the Pass 1 diff was the *lock* lead. The *invitation* went **1.0 → 0.5**, on both appointments, in the same commit. So 25-1’s passing vote ran on a **one-hour** invitation behind a two-hour lock, and recommendation 2 restores that one hour — not two. Still derived from the diff plus that run’s checklist, not measured in these packs.
 - **Recommendation 4 (identity seed).** Confirmed: the stale line reaches the daily-plan prompt, and the string never changes — same text for all 15 personas on day 2 of `20260827-1`, and the same text across days 1–3 of an unrelated older sim (`COS/tasks/2026-08-20-003/supabase_extract/`). **Not** confirmed: whether a refresh function exists and is failing, or no refresh path was ever written. Does not change the recommendation; does change the size of the fix.
 - The 11% walk rate behind the primary mechanism is still **two windows, not three** — see §8.
+
+---
+
+## 12. 1-A (`20260828-1`) — live chapter
+
+**Status:** the five §7 fixes **landed**. Occupancy still misses. Honest text is now **Pass**. Diagnosis **CLOSED 2026-08-29** — see §12.4. Veto **deleted** (§12.11, `2dea146e`). Remaining: deploy/score 1-B; Shepard is a separate planner miss; sit-and-read widen waits on datareq 5 (not this scoring run).
+
+**Sim:** `20260828-1` · UUID `49f3ddd9-6cad-473a-9c96-97c82a7643ea` · tip `acf744b8` · skip-Premiere · `TASK_DECOMP_CONTEXTUAL_ENABLED=true`.  
+**Score card** (checkpoints, bars, suite): `20260828-1_checklist.md`. Write verdicts here; keep numbers there.
+
+### 12.1 What a viewer saw
+
+Same competitive 11:00 as Pass 1: **6/14** on tiles. The room **did** fill — **10** at 10:15 — then dropped. Five of seven misses had sat and left (H2). Diana never sat (H3). Shepard was **asleep** at fire.
+
+Day-1 challenge improved **3/15 → 10/15** and the freeze plateau is gone. Day-1 vote still late: **9 at 20:00**, **14 at 20:15**. Honest caption: 930 standing-still lies → **217 moving / 0 standing still**. Ritual off-cafe **0**.
+
+1-A fixed attraction and the viewer lie. It did not keep the room.
+
+### 12.2 Did the five fixes take effect?
+
+Checked at runtime **before** occupancy (checklist §1). All five did, with one leftover:
+
+| Chunk | Landed? |
+|---|---|
+| 1 lock deleted | **Yes.** 0 `GATHER LOCK` lines. Roster still turns over through 10:30. |
+| 2 one-hour invitation | **Yes** for *start* time (15/15 cafe blocks ≤10:00). Coverage **at fire** is a different question — and on day 2 it is good (below). |
+| 3 identity seed | Premiere / full-cohort **gone**. Headcount **14**. **Day number stuck at “On day 1”** for all 15. Season counter is 2; the planner field the restamp reads is 1. Ordering bug. |
+| 4 travel dest detach | **Yes.** 13 detach lines. Residuals remain (Ivan cafe-table @ dorm blackboard; Dean cafe-seating @ supply). |
+| 5 ritual position gate | **Yes.** Off-cafe ritual 13 → 0. On-cafe ritual kept. |
+
+Seek pause was not widened (still 0.5). None-timer / wake-sleeper guards did not come back as crashes.
+
+**§7 discriminating read is now false.** “A surge ten minutes after the clock means the freeze is still on” — the lock is gone and the 20:15 surge remains. Do not use it on the next run.
+
+### 12.3 Ruled out (do not re-open)
+
+| Suspect | Why dead |
+|---|---|
+| Lock freeze | Deleted. Room is not a frozen set. |
+| Invitation missed the hour | Day 2: **13/14** Hobbs covering 10:00–11:00; **12/14** covering 19:00–20:00. Shepard `asleep`; Nick/Vince waking at home 19:00. |
+| Social seek | **0/12** leave `act_address` start with `<persona>`; seek target empty. |
+| Chat-end as a mechanical mint | Partners **stay** (Olivia, Dean). A close-triggered remint would move both. |
+| Walk-off-together chain | One pair (Vince + Vincent). Not the load. |
+| Crowding / self-limiting | Chat pairs peak at 4 while the room is at 10; evening 0 → 7 → 0 pairs on flat 9–10 headcount. |
+| Reaction / perceive | No `act_event`, no react flag, no perceived list, no survival broadcast, reaction-LLM **0**. |
+| Conversation named the dest | **No.** Three are two-line greetings. Andrew’s six-liner says *stay* (“I'll grab my coffee and come back”). Vince: “Getting some coffee?” → walks to **college**. |
+| Chat as the clock | Reed holds Hobbs **3 empty minutes** after greeting; Vince **2**. Write lands on its own boundary. ~917 chat opens → “a chat ended 1–4 steps ago” is base rate. |
+| Bare “Hobbs” vs full “Hobbs Cafe” (sector-pin gap) | **Falsified.** Stored hourlies: **128** “Hobbs Cafe” in full, **0** bare. With the full name the literal pin *does* fire. Premise was a **collector shortening**. |
+
+**Paraphrase trap (process).** **Three times** a summarised string became load-bearing and killed a hypothesis: pack 2 “college / pub / dorm” labels (were full place paths; briefly blamed seek); pack 3 “at Hobbs” (was `Hobbs Cafe`); pack 3 again, *“walking to Oak Hill College”* listed as the **sub-task** when it was the **emit rewrite** of `Reviewing challenge notes` — that one held for a day as the file’s strongest fact (§12.5b). **When a string is the evidence, quote it verbatim inside backticks.** Asking for it that way is what finally produced §12.9 and closed the case in one pass.
+
+**Sofa / re-greet stays deferred.** Chat was tested as the remover and cleared. The gather/sofa split holds. Greeting churn adds sub-task boundaries (more exposure to a broken resolver) — it is not the remover.
+
+### 12.4 Cause — **CONFIRMED** (whitelist veto, 2026-08-29 16:26 ET)
+
+**An arena `activity_whitelist` relocates a correctly-resolved body.** Every stage before it is right; a table lookup at the end overrules all of them.
+
+| # | Stage | What happens | Verdict |
+|---|---|---|---|
+| 1 | Hourly | `at Hobbs Cafe reviewing challenge notes` — names the venue **in full** | correct |
+| 2 | Sector pin | full name present → tree narrowed to Hobbs Cafe | correct |
+| 3 | Parent setting | seals `the Ville:Hobbs Cafe:cafe` (passes `activity_type=""`, so no cascade here) | correct |
+| 4 | Sub-task | `Reviewing challenge notes [mode=in_place anchor=cafe customer seating]` inherits it → tagged `parent_location_inherit_v1`, anchor live | correct |
+| 5 | **Post-validate** | `activity_type=study`; cafe whitelist is `eat, social, serve, relax` → **cascade** | **the bug** |
+| 6 | Cascade Tier 2 | searches for the nearest arena whose whitelist contains `study` → Oak Hill **classroom** (`study, social`) | faithful to a wrong premise |
+| 7 | Emit | dest is now far → rewrites the act into `walking to Oak Hill College` | downstream |
+
+**Why the row lies about itself.** The resolution tag is stamped at `plan.py:2069`; post-validate runs at `plan.py:2110`. The tag is never restamped. That is why the stored row reads *inherit + cafe anchor + classroom output* — three facts that look contradictory and are all true.
+
+**`activity_type` empty in storage is a red herring.** `plan.py:2130` builds `action_family=row_activity_type or None` from the **same variable** post-validate receives twenty lines earlier. So `action_family: study` on the contract *proves* the validator was handed `study`. The empty stored `activity_type` is a different surface.
+
+**Both controls are explained, by two different exemptions in that one function:**
+
+| Who | Family | Why they stayed |
+|---|---|---|
+| **Dean** | `relax` | `relax` **is** in the cafe whitelist — the branch never fires. (His label also names the resolved object, which would have exempted him anyway.) |
+| **Olivia** | `study` | `work_area` = `the Ville:Hobbs Cafe:cafe` → `is_worker` → **bypasses all three checks**. Same activity as the leavers, stays anyway. |
+
+Six rows, no exceptions, two independent mechanisms on the control side. That is what lifts this above pattern-matching on `work_area`.
+
+**Why the July fix does not cover it.** §3.3 named-destination protect and the Tier-4 guard both call `_named_destination_protects_address`, which **returns False immediately for non-travel acts**. `Reviewing challenge notes` is stationary, so the sector named by its own hourly protects nothing. Same class as the 2026-07-28 “Vince walking to Hobbs → Johnson Park” bug — same Vince — stationary instead of travel.
+
+**Category error, stated plainly.** `staff_only` is a world law. Privacy is a world law. Sleep-needs-a-bed is physics. *“You cannot study in a cafe”* is a **taste judgment installed as a hard gate** — and hard gates get to move bodies. `sot_action-location.md` §3.5 already forbids this shape (“soft scoring must not override hard gates”); §7.2 already lists it as a known limitation. This is that limitation cashing in.
+
+**Two groups of leavers (day-2 10:15–10:30):**
+
+| Group | Who | Plan | Call |
+|---|---|---|---|
+| **A** — plan sends them away | Shepard, Dean, Owen | Shepard hour `asleep`. Dean “walking to Hobbs” anchored to a **blackboard**. Owen anchored to **park** then pub | Chunk-4 family, incomplete |
+| **B** — plan is cafe, they left | Reed, Andrew, Vince, Vincent | Every slice cafe seating | **Whitelist veto** relocated them after a correct resolve (§12.4) |
+
+Fixing A only gets **~9/14**. Bar is **11**. B is the pass/fail difference.
+
+**Resolver tags at the four B flips:** Andrew `llm_location_v1` (intent “spreading out challenge notes on the table” → college classroom seating). Reed / Vincent / Vince `parent_location_inherit_v1`. One step earlier all four still pointed at Hobbs. Olivia and Dean, same minutes: dest stays Hobbs.
+
+**Andrew's different tag does not need a different cause.** The sub-task resolve passes `activity_type=row_activity_type` into `generate_action_location`, so the LLM branch runs the *same* post-validate with the *same* `study`, and `plan.py:2110` runs it again after. Both paths converge on the veto — which is why the row that detached and the three that inherited all land in the same classroom. (His detach was most likely `LABEL↔ANCHOR RECONCILE` on the word “table”; unconfirmed, and it does not change the outcome.)
+
+**Scale in 10:00–11:00 (all fifteen, new actions):** inherit **47**, **19** non-Hobbs; LLM **11**, **5** non-Hobbs. **24 / 58 = 41%** of resolutions that hour leave the cafe. That is the gathering failure, entire.
+
+**Contradiction — CLOSED.** It read: *every stage says Hobbs, yet the parent is college; so either the task string is not the stored hourly, or a later pass remaps a correct pick.* It is the **second** branch. The task string was never wrong (§12.9 hex-checked it); post-validate remaps the correct pick. Both halves of the puzzle resolve at once — that is why every upstream stage audited clean.
+
+**Day-1 plans are not a second coverage point.** By midnight the hourly had collapsed to one blob (“earlier today — survival preparations and the vote”). Coverage 0/14 both windows — snapshot artifact. **Snapshot plans at generation, not at midnight.** Coverage evidence is **n = 1** (day 2).
+
+**Day number.** Season **2**; restamp reads planner field **1**. Source the day from the season row / sim date, not the scratch snapshot taken before `_advance_day`.
+
+**Instrumentation.** Stored plan has label / duration / object-anchor / parent block. **Resolved address and `inherits_parent_location` are empty on every row.** `LLM_RESOLVER_DUMP` was off — prompt and tree not on disk.
+
+### 12.5 Falsified theories (kept so we do not repeat them)
+
+**(a) Sector-matcher gap.** Guard uses a lenient “Hobbs” match and stands down; the LLM pin requires “Hobbs Cafe” verbatim and never fires; unpinned tree → college. **Dead** once the 128/0 dump landed — the hourlies carry the full name and the pin *does* fire.
+
+**(b) “The parent was already resolved off-site.”** Argued from Vince’s sub-task *“walking to Oak Hill College”* keeping the inherit tag when chunk-4 should have detached it. **Dead:** that string is the **emit rewrite**; the real sub-task is `Reviewing challenge notes [mode=in_place]` (§12.9). No travel label ever existed, so chunk 4 was never in play. The parent was Hobbs the whole time. This inference read as the strongest fact in the file for a day — it was a paraphrase in a fresh disguise.
+
+**Do not over-read (a) into the real fix.** Two different crutches are in play and they must not be conflated:
+
+| Crutch | Role | Verdict |
+|---|---|---|
+| Activity-type **registry guard** (`_deterministic_guard_v2`) | picks an arena from activity type *before* typed/LLM | behaved **correctly** — sector-shortcircuited and stood down. Do not demote on this evidence. |
+| Activity **whitelist veto** (post-validate branch 2) | relocates an already-chosen address | **this is the bug.** |
+
+The SOT’s proposed next demotion (hand more cases to the LLM) targets the **first** and would not have helped. §12.10 is about the **second**.
+
+### 12.6 Verification (the bench is no longer a diagnostic)
+
+Diagnosis is closed in §12.4, so the six-row bench demotes from *find the bug* to *confirm the prediction*. It is still worth running because the prediction is exact and falsifiable:
+
+> With `study` in the Hobbs cafe whitelist — or with the veto disabled — Reed / Vincent / Vince / Andrew resolve to `the Ville:Hobbs Cafe:cafe:cafe customer seating`, and Olivia / Dean are unchanged.
+
+Deterministic given four inputs: verbatim task string, persona, maze, anchor. Call `generate_action_location` on a laptop with `LLM_RESOLVER_DUMP=true`. **Strings are in §12.9.** Stochasticity is not a threat here — with the tree pinned to one sector the model cannot return the college either way.
+
+Do not wait on step 2285 to *diagnose*; 2285 is still worth **scoring**. Reading runner **stdout files** does not touch the PID.
+
+**Still empty on disk (logs):** `LITERAL SECTOR PIN`, `GUARD SECTOR-SHORTCIRCUIT`, `DETERMINISTIC GUARD v2`, `TRAVEL DEST DETACH`, `PARENT-INHERIT DETACH`, `LABEL↔ANCHOR RECONCILE`, `INHERIT POST-VALIDATE` for those six people 09:30–11:00. Also Andrew’s location-LLM prompt (flag was off).
+
+**After the runner dies (once):** TELEPORT journal, overlay played/absent counts, persist at 2400.
+
+### 12.7 1-B posture (not a patch list yet)
+
+- **Do not** restore a gather lock, lengthen a pin, fail-closed, or fire-when-12.
+- **Do not** fold sofa into the next occupancy run. Chat is not the remover.
+- **Do** treat the **whitelist veto** as the remaining gather bug (§12.4). Group A (Shepard / Dean / Owen) is the chunk-4 anchor family and is **not** fixed by it.
+- **Arithmetic warning — neither group alone clears the bar.** Day-2 base is **6/14**. A alone → **9**. B alone → **10**. Bar is **11**. Both → 13. The veto fix *may* recover more than the four named leavers (the hour shows **24** non-Hobbs resolutions, not 4), so the true range is **10–13** and one run clearing 11 is **not** assured. Budget Group A into the same pass unless it can be shown to move a different number.
+- **Two candidate fixes, deliberately separate** (§12.10 sizes the second):
+  - **Unblock:** add `study` to the Hobbs cafe whitelist. One data line. Can only ever *prevent* a cascade away from the cafe, never create a new destination, so the blast radius is near zero.
+  - **Durable:** stop running the whitelist cascade on an address tagged `parent_location_inherit_v1`. Inheritance means the location was already decided with full context and a pinned sector; a sub-task's activity family should not get to relocate a body the parent already placed.
+- **Do not ship both in the same scoring run.** Both move occupancy, so under the pass-sizing rule in `20260901_launch.md` they serialize. The unblock has an early observable (resolver output at step ~1700) and can be read long before the 11:00 count.
+- Day-number restamp is a **separate, small** fix with its own observable (the `currently` string at step ~1445). It can ride with 1-B if it does not share the occupancy number — it doesn't.
+
+### 12.8 Evidence (1-A)
+
+**Keep**
+
+- This file (narrative + **§12.9** tables).
+- `20260828-1_checklist.md` — score / checkpoints only.
+- `20260829_leave_pack/` — raw JSON (`data.json`, `data2.json`, `data3.json`) and the collector READMEs. Not a second diagnosis.
+- `20260829_datareq_4_whitelist-strategy.md` — **live**, do not delete. Feeds the §12.10 decision. Retire it into §12.10 once answered.
+
+**Safe to delete** (folded into §12 / §12.9)
+
+- `20260829_datareq_leave-after-arrival.md`
+- `20260829_datareq_2_finalize-fix.md`
+- `20260829_datareq_3_chat-removal.md`
+
+**Do not copy diagnosis into the checklist.** One live copy: here.
+
+### 12.9 Key tables (1-A) — enough to bench without the datareqs
+
+Cafe box: **x 72–83, y 19–30**. `dest` is a coordinate box — never name-test it. Parent-setting `task` is `f_daily_schedule[curr_index][0]` at decomp time; after decomp that slot is the tagged sub-task. Surviving parent string is `f_daily_schedule_hourly_org`. On these six, **item 2 does not differ from item 1.** Hex-checked: no extra whitespace on hourly / living_area / work_area.
+
+#### Bench inputs (day 2)
+
+| Who | Step | Hourly (`hourly_org` 10:00–11:00) | Live sub-task / emit | Anchor | Tile | `living_area` | `work_area` |
+|---|---|---|---|---|---|---|---|
+| Reed | 1700 | `at Hobbs Cafe reviewing challenge notes` | `reading through the challenge rules` (no rewrite) | `cafe customer seating` | (75, 26) | `the Ville:artist's co-living space:Studio Room 5` | `the Ville:Oak Hill College:library` |
+| Vincent | 1701 | `at Hobbs Cafe reviewing notes before the challenge` | emit raw `Reviewing challenge notes` → rewritten `walking to Apartment 4` | `cafe customer seating` | (77, 29) | `the Ville:Apartment 4:main room` | `the Ville:Oak Hill College:classroom` |
+| Vince | 1705 | `arriving at Hobbs Cafe early for the challenge` | emit raw `Reviewing challenge notes` → rewritten `walking to Oak Hill College` | `cafe customer seating` | (77, 28) | `the Ville:Apartment 5:main room` | `the Ville:Oak Hill College:classroom` |
+| Andrew | 1706 | `arriving at Hobbs Cafe and reviewing challenge notes` | `spreading out challenge notes on the table` (no rewrite) | `cafe customer seating` | (77, 26) | `the Ville:artist's co-living space:Studio Room 1` | `the Ville:Oak Hill College:library` |
+| Olivia | 1700–05 | `arriving at Hobbs Cafe early for the challenge` | `sitting down to have breakfast at a table` | `cafe customer seating` | (80, 21) | `the Ville:House 1:main room` | `the Ville:Hobbs Cafe:cafe` |
+| Olivia | 1706 | same | `reviewing challenge strategy notes` | `cafe customer seating` | (80, 21) | same | same |
+| Dean | 1700 | `arriving at Hobbs Cafe early for the challenge` | live still `walking to Hobbs Cafe` (started 10:01); clock-mapped slot already `settling in at cafe customer seating` | live `blackboard` | (74, 23) | `the Ville:artist's co-living space:Studio Room 2` | `the Ville:Harvey Oak Supply Store:supply store` |
+| Dean | 1701–06 | same | `settling in at cafe customer seating` | `cafe customer seating` | (74, 23) | same | same |
+
+Vince tagged slot at 10:15: `Reviewing challenge notes [mode=in_place anchor=cafe customer seating]`. Reed: `reading through the challenge rules [mode=in_place anchor=cafe customer seating]`. Andrew: `spreading out challenge notes on the table [mode=in_place anchor=cafe customer seating]`. Dean 10:00–10:10 tagged walk: `walking to Hobbs Cafe [mode=zone_patrol anchor=blackboard]`.
+
+#### Flip resolution (coord row)
+
+`inherits_parent_location` and parent address: **empty** on every stored row. First appearance of the off-site dest is the flip step itself.
+
+| Who | Resolver | Stored anchor | Output |
+|---|---|---|---|
+| Reed 1700 | `parent_location_inherit_v1` | cafe seating | Oak Hill classroom **blackboard** |
+| Vincent 1701 | `parent_location_inherit_v1` | cafe seating | Apartment 4 **blackboard** |
+| Vince 1705 | `parent_location_inherit_v1` | cafe seating | Oak Hill classroom **seating** |
+| Andrew 1706 | `llm_location_v1` | cafe seating | Oak Hill classroom **seating** |
+
+Olivia at those minutes: `llm_location_v1` then inherit, dest **Hobbs seating**. Dean: inherit (blackboard walk, then seating), dest **Hobbs seating**.
+
+#### `activity_type` vs whitelist
+
+| Row | Stored `activity_type` | `action_family` |
+|---|---|---|
+| Reed 1700 · Vincent 1701 · Vince 1705 · Andrew 1706 · Olivia 1706 | empty | `study` |
+| Dean 1701 | empty | `relax` |
+
+Hobbs cafe whitelist: `eat, social, serve, relax`. Oak Hill classroom: `study, social`.
+
+Hour-window new actions (1685–1745): inherit **47 / 19** non-Hobbs; LLM **11 / 5** non-Hobbs; planner 1 / 1. **24/58** leave the cafe.
+
+#### Group A decomp (why three plans already send them away)
+
+| Who | Parent 10:00–11:00 | First non-Hobbs-cafe **anchor** |
+|---|---|---|
+| Shepard | `asleep` | whole hour |
+| Dean | arriving at Hobbs early | 10:00 `walking to Hobbs Cafe` · **blackboard** |
+| Owen | arriving at Hobbs / notes | 10:10 `walking from Johnson Park` · **park garden**; then **bar customer seating** 10:15–10:45 |
+
+Reed / Andrew / Vince / Vincent: **every** 10:00–11:00 slice tagged cafe seating (or `cafe`). They still left.
+
+Mike (stayer) has 10:00–10:05 walk · **common room table** and was still on cafe at 11:00. Off-site anchor is neither necessary nor sufficient.
+
+#### Raw `act_address` at leave-write (0/12 start with `<persona>`)
+
+| Person | Day | Step | Raw `act_address` |
+|---|---|---|---|
+| Butcher | 1 | 280 | `the Ville:Oak Hill College:classroom:classroom student seating` |
+| Reed | 1 | 287 | `the Ville:The Rose and Crown Pub:pub:bar customer seating` |
+| Diana | 1 | 247 | `the Ville:Oak Hill College:classroom:classroom student seating` |
+| Ivan | 1 | 280 | `the Ville:Dorm for Oak Hill College:Dorm Room 2:blackboard` |
+| Nick | 1 | 300 | `the Ville:House 4:common room:common room table` |
+| Shepard | 2 | 1599 | `the Ville:Oak Hill College:library:library table` |
+| Reed | 2 | 1700 | `the Ville:Oak Hill College:classroom:blackboard` |
+| Andrew | 2 | 1706 | `the Ville:Oak Hill College:classroom:classroom student seating` |
+| Dean | 2 | 1717 | `the Ville:Harvey Oak Supply Store:supply store:behind the supply store counter` |
+| Owen | 2 | 1718 | `the Ville:Oak Hill College:classroom:blackboard` |
+| Vince | 2 | 1705 | `the Ville:Oak Hill College:classroom:classroom student seating` |
+| Vincent | 2 | 1701 | `the Ville:Apartment 4:main room:blackboard` |
+
+#### Chat (enough to keep it closed)
+
+Reed 10:11 two-line greeting with Owen; three empty minutes; then college. Vincent 10:15 “Morning!” with Olivia — Olivia stays Hobbs. Vince 10:17 “Getting some coffee?” / “slept okay.” Andrew+Dean six-liner **ends** “I'll grab my coffee and come back” / “I'll hold the fort.” Dean stays. Same conversation id; stored script replaced at 10:19–10:20; ending text is the second script. No college / Apartment 4 in any of the four.
+
+#### Vote cover 19:00 (12/14)
+
+Nick and Vince: 19:00 = `waking up and starting morning routine at home`; Hobbs starts **20:00**. Dean and Mike: Hobbs **19:00–21:00**. The other ten cover 19:00. Two tests, both 12/14, not the same twelve.
+
+---
+
+### 12.10 Whitelist strategy — open decision (investigation running)
+
+Adding `study` to the cafe closes *this* instance and leaves the shape intact. The global question is open. Handoff: **`20260829_datareq_4_whitelist-strategy.md`** (agent [1], read-only).
+
+**Frame it by job, not by verb.** The whitelist does two unrelated things, and only one of them hurt us:
+
+| Job | Where | What it does |
+|---|---|---|
+| **Veto** | `_validate_address_post_resolution` branch 2 | rejects an already-chosen address and **relocates the body** |
+| **Search** | `_remap_for_forbidden_address` Tier 2, `_pick_nearest_accessible_arena`, `_deterministic_guard_v2` | given an activity, **find** arenas that allow it |
+
+| Option | Effect | Read |
+|---|---|---|
+| **A — delete whitelists** | kills both jobs | The search may be load-bearing (`sot_action-location.md` §3.4: “eat/study routing still carries much of cafe/college placement”). But that note predates the stronger resolver — **Q5 settles whether it is still true.** |
+| **B — widen everything** | looks safe, is not | If every arena allows `study`, then “nearest arena allowing study” collapses to “nearest arena.” Trades a wrong-specific-place bug for proximity noise, which is harder to see and harder to debug. |
+| **C — retire the veto, keep the search** | whitelist becomes a ranking signal | **Current lean.** Restores §3.5 (“soft scoring must not override hard gates”) by demoting an opinion that was installed as a gate. World laws — `staff_only`, privacy, sleep-needs-a-bed — are untouched. |
+
+#### Results (agent [1], 2026-08-29 16:36) — Q1–Q4 in, Q5 partial
+
+| Finding | Number |
+|---|---|
+| Rooms | **63** — 53 gated, 10 ungated |
+| `study` allowed in | **4** rooms: Apartment 4, one dorm room, the classroom, the library |
+| `relax` allowed in | **31** rooms |
+| Thinner still (unused this run) | `art` 1, `shop` 2 |
+| Types the lists name but the run never emits | `sleep`, `storage`, `serve`, `shop`, `art` |
+| Largest actual bucket | **empty** type (planner sleep/home contracts), then `relax`, `work`, `study`, `eat` |
+| Dest leaves the sector its hourly named (day 2, inherit + planner) | **1414 / 5540** |
+| Largest single slice | **Hobbs → Oak Hill classroom, tagged `study`: 343 rows** |
+| Concentration | **310 / 780 at 10:00**, high through 13:00 |
+| Writers | inherit 15882 · planner 8273 · location-LLM 4488 |
+
+**`study` = 4 of 63 is the funnel, and it names Vincent's apartment.** Apartment 4 is one of only four rooms in the world where the model believes reading is permitted, and it is Vincent's own home, so it was his nearest accessible one. The oddest data point in the whole investigation — the leaver who went home instead of to campus — is just this list being four items long.
+
+**Independent confirmation of the 41%.** 310/780 at 10:00 (39.7%) reproduces the 24/58 hand count in §12.4 from a completely different measurement. Two methods, same answer.
+
+**Correction — “empty = 0 rooms” is not a flag.** Agent [1] flagged the empty-type bucket against the ≤3-rooms funnel rule. It does not apply: post-validate branch 2 opens with `if activity_type and …`, so **an empty type skips the veto entirely**. Those rows are *immune*, not funnelled. Same for cascade Tier 2, which falls through to work_area / living_area. **Do not “fix” empty types by assigning them one** — that would newly expose the largest bucket in the run to the veto. The real read is the opposite: the veto's damage is concentrated in the typed minority, and `study` is the worst-hit type in it.
+
+**Vocabulary drift is real.** Five types exist only in the lists; the commonest type in the run exists only outside them. The two vocabularies were never reconciled.
+
+**1414 is an upper bound on the veto.** It includes misses that are not this bug (Olivia's hourly says Apartment 1, body at House 1; Hobbs → pub is likely the Group A anchor family). The clean, attributable number is the **343**.
+
+**Q5 cannot answer “what would we lose”, and the tags cannot be made to.** `resolution_source` is stamped `llm_location_v1` *before* `generate_action_location` is called, so a deterministic-guard hit is indistinguishable from a real LLM call inside that 4488. Sizing the search job needs the **stdout counters** (`DETERMINISTIC GUARD v2`, `forbidden-cascade Tier-N`) — still `deferred: PID`. Worth a separate resolution tag later.
+
+#### Recommendation — **C. Decided and shipped 2026-08-29** (see §12.11)
+
+Two stages of the draft plan below were dropped once the code was read. Keeping the reasoning because both looked right on paper.
+
+| Draft stage | Verdict | Why |
+|---|---|---|
+| **Unblock: add `study` to the Hobbs cafe list** | **dropped** | Only worth doing as a cheap stand-in for the structural fix. The structural fix turned out to be *the same size* — one branch deleted — so the data patch buys nothing and leaves the shape intact. |
+| **1-B: skip the cascade on `parent_location_inherit_v1`** | **dropped — would not have worked** | It guards one call site. Andrew's row is `llm_location_v1`, where the veto fires *inside* `generate_action_location` as well. Gating the inherit path leaves him walking to campus. Three of four leavers fixed reads like a success and is not one. |
+| **Later data pass: sit-only widen** | **decided 08-29, not 1-B** | `study` → **32** sit rooms (datareq 5). Not 53. Same pass: `eat`×8 homes, `work`×6 jobs, `play` on cafe/park/gardens, `relax` on classroom, `art` on four studios. Search-quality, not a gather unblock. |
+
+**What shipped instead: delete the branch.** Covers every caller at once, is smaller than either stage above, and removes the class rather than the instance.
+
+**Why not A (delete the whitelists themselves).** Still unsized — the guard's fire rate is exactly what Q5 could not measure. Deleting the *veto* does not touch the *search*: Tier 2 is reached from the `staff_only`, bed and affordance cascades, which are untouched, so the search job survives intact. That is what makes C safe and A not.
+
+**Why the veto is cheap to lose.** Its protective value is aesthetic: it stops someone reading in a pub. The hard gates that matter — `staff_only`, privacy, bed-for-non-sleep, `affordance_required` — are separate branches. Measured cost on one day: 1414 sector departures, 343 of them provably this.
+
+**Precedent — this finishes a job that stopped one branch short.** `affordance_repick` was deleted from this same function in May for this exact reason: a soft preference has no business in a validator that relocates bodies (`sot_action-location.md` §9.1, §9.8). That cleanup left `activity_whitelist` behind, classified as a hard gate. It never was one.
+
+---
+
+### 12.11 1-B chunk 1 — the veto is deleted (shipped 2026-08-29)
+
+**Change.** Branch 2 of `_validate_address_post_resolution` (`location_resolver.py`) removed. An arena's `activity_whitelist` no longer rejects an address that upstream already resolved.
+
+**Deliberately unchanged:**
+
+- **The search job.** `_pick_nearest_accessible_arena` and cascade Tier 2 still read whitelists. They are reached from the `staff_only`, bed and `affordance_required` gates, none of which moved.
+- **Every hard gate.** `staff_only`, privacy, bed-for-non-sleep, `affordance_required`.
+- **`maze_registry.json`.** No data edit. Narrow lists are now a search-quality question, not a correctness one.
+- **`_named_destination_protects_address`.** Still live in cascade Tier 4 — not orphaned by the deletion.
+
+**Tests** (`test_named_destination_travel.py`). The class went 6 → 5. The three that asserted the cascade *must* fire are retired; the three P1 keep-cases survive in intent. Added the 20260828-1 shape directly: `study` at `Hobbs Cafe:cafe customer seating` stays put.
+
+**Non-vacuity checked.** With the branch temporarily restored, 4 of the 5 fail — including `test_study_at_cafe_stays`. The tests catch the real bug, not a tautology.
+
+**Regression.** 191 passed across the ten location-resolution files. The 4 failures in `test_location_resolver.py` (`test_deterministic_trace_fields`, both `ActivityTypeFallback` cases, `test_infer_sleep`) reproduce identically on a stashed clean tree — pre-existing, part of the known 76.
+
+#### Group A is almost entirely the same bug — the destinations give it away
+
+Cross the twelve leave-writes in §12.9 against the Q1 census finding that **`study` is permitted in exactly four rooms — Apartment 4, one dorm room, the classroom, the library**:
+
+| Leave-write destination | Rows | A `study` room? |
+|---|---|---|
+| `Oak Hill College:classroom` | Butcher, Diana, Reed d2, Andrew, **Owen**, Vince | yes |
+| `Oak Hill College:library` | **Shepard** | yes |
+| `Dorm for Oak Hill College:Dorm Room 2` | Ivan | yes |
+| `Apartment 4:main room` | Vincent | yes |
+| `Harvey Oak Supply Store` (**Dean**'s own `work_area`) | Dean | cascade Tier 3 |
+| `The Rose and Crown Pub` / `House 4:common room` | Reed d1, Nick | no |
+
+**Nine of twelve land in a four-room set, and a tenth lands on the work_area snap of the same cascade.** The leavers' destinations are not scattered — they reproduce the `study` allowlist. Across both days, not just the four hand-traced rows.
+
+Two members of "Group A" reclassify on this:
+
+| Persona | Was filed as | Actually |
+|---|---|---|
+| **Owen** | decomp writes him to the pub | his plan *does* name `bar customer seating` at 10:15 — but the write at 10:18 goes to the **classroom**. The pub anchor lost to a cascade. Same bug. |
+| **Dean** | work pull | sat at 10:01, left 10:17 to his own `work_area` — that is cascade **Tier 3**, reached when Tier 2 finds nothing. Same function. |
+| **Shepard** | asleep | **genuinely separate.** His hourly is `asleep` across 10:00–11:00; the planner never scheduled the appointment at all. (His own leave-write, library at ~08:19, may be a veto hit too, but it is not why he missed the fire.) |
+
+**So Group A was one real bug and two mis-filings.** The remaining work is Shepard's shape — a planner that schedules sleep over a fixed event — not an anchor family.
+
+**Occupancy expectation, revised up.** The earlier 10–13 range assumed the veto was worth only the four hand-traced rows. On the destination signature it plausibly covers ten of twelve, which would put day 2 near the top of that range. Still not a guarantee: the signature is strong but circumstantial, and Shepard is untouched.
+
+**Cheap falsification.** If the veto was the mechanism, the next run's leave-writes should stop concentrating in those four rooms. If personas still walk to the classroom, the cascade was not the writer and this whole chain is wrong.
+
+**Datareq 5 — what 1-B will and will not stop.** Cafe list is `eat, social, serve, relax`. So a veto can still explain cafe→pub **`play`** and cafe→home **`work`**. It cannot explain cafe→pub **`relax`/`eat`** or dorm **`eat`** (cafe already allows those), nor Dean→Harvey / Owen→Willows (job snaps; Harvey’s list does not even contain `work`), nor Shepard asleep. Those leftovers are why a green 1-B is not assured from the four `study` rooms alone.

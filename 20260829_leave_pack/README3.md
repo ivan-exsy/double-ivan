@@ -1,6 +1,6 @@
 # Leave pack 3 — does a chat ending empty the cafe? (`20260828-1`)
 
-Read-only. Sim `49f3ddd9-6cad-473a-9c96-97c82a7643ea`. Max step on disk **1850** (day-2 ~12:45). Runner not touched. Raw: `data3.json`. Same answers sit under **Responses** in `20260829_datareq_3_chat-removal.md`.
+Read-only. Sim `49f3ddd9-6cad-473a-9c96-97c82a7643ea`. Max step on disk **1850** (day-2 ~12:45). Runner not touched. Raw: `data3.json`. Narrative + later tables (transcripts, resolution, verbatim bench): RCA **§12 / §12.9**.
 
 `chat_ended` = `chatting_with` nonempty at step S, empty or a different partner on the next stored step. `on_cafe` = tile x 72–83, y 19–30. `on_at_fire` = on cafe at the **exact** fire step. Destination = `act_address` (never name-test `dest`).
 
@@ -147,3 +147,33 @@ Andrew LLM prompt on disk: **empty**. Row intent = “spreading out challenge no
 Runner still live (step **1922**). `GUARD SECTOR-SHORTCIRCUIT` and `LITERAL SECTOR PIN` are stdout only. **deferred: PID** for the four flips, the pairing test, and Olivia/Dean.
 
 Day-2 hourly, all 15: **128** blocks say **Hobbs Cafe**. **0** say **Hobbs** without Cafe.
+
+---
+
+## Follow-up — verbatim bench strings
+
+Parent-setting `task` **matches** the hourly on all six (field: `f_daily_schedule[curr_index][0]` / `act_desp`). Item 5 still **deferred: PID** (step **1932**).
+
+Hourly (10:00–11:00):
+
+- Reed: `at Hobbs Cafe reviewing challenge notes`
+- Vincent: `at Hobbs Cafe reviewing notes before the challenge`
+- Vince / Olivia / Dean: `arriving at Hobbs Cafe early for the challenge`
+- Andrew: `arriving at Hobbs Cafe and reviewing challenge notes`
+
+Flip sub-task + anchor + tile:
+
+- Reed 1700: `reading through the challenge rules [mode=in_place anchor=cafe customer seating]` · `cafe customer seating` · **(75, 26)**
+- Vincent 1701: `Reviewing challenge notes [mode=in_place anchor=cafe customer seating]` · `cafe customer seating` · **(77, 29)** · emit raw same; stored dest text `walking to Apartment 4`
+- Vince 1705: `Reviewing challenge notes [mode=in_place anchor=cafe customer seating]` · `cafe customer seating` · **(77, 28)** · emit raw same; stored dest text `walking to Oak Hill College`
+- Andrew 1706: `spreading out challenge notes on the table [mode=in_place anchor=cafe customer seating]` · `cafe customer seating` · **(77, 26)**
+
+Controls stay on cafe tiles. Olivia `work_area` is `the Ville:Hobbs Cafe:cafe`. Dean 1700 live row is still `walking to Hobbs Cafe` / `blackboard` while the clock-mapped slot is already `settling in…`. Full quotes in the data-request file.
+
+---
+
+## Follow-up — activity_type + whitelist
+
+`activity_type` key: **empty** on all six rows. Stored decomp type is `action_family`: Reed / Vincent / Vince / Andrew / Olivia = `study`. Dean 1701 = `relax`.
+
+Hobbs cafe whitelist: `["eat", "social", "serve", "relax"]`. College classroom: `["study", "social"]`.

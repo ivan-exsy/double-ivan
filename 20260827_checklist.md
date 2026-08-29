@@ -27,7 +27,7 @@
 >
 > Vs `20260823-2` / `20260825-1`: first competitive 11:00 went **8/15 → 9/15 → 3/15**. Day-2 morning matches 25-1 (**6/14**), not 23-2’s 11/14. Day-1 vote went **12/15 → 12/15 → 8/15**.
 
-**Cause (already closed):** lock writes the sentence, not the walk — and freezes arrivals while it is on. Paper: `20260827_RCA+recommendations.md`. Do not re-litigate here.
+**Cause (already closed):** lock writes the sentence, not the walk — and freezes arrivals while it is on. Paper: `20260827_gathering_issue_RCA+recommendations.md` §§1–11. Do not re-litigate here.
 
 **Out (band-aids):** H3 dest-rewrite, fail-closed, longer pins, fire-when-12.
 
@@ -283,7 +283,7 @@ The room is not “they never came.” They sit, they wait, the daily plan wins,
 
 | Paper | Owns |
 |---|---|
-| `20260827_RCA+recommendations.md` | **Everything.** Cause, scorecard, counts, recommendations, code map. Replaces the whole 27/28 working set |
+| `20260827_gathering_issue_RCA+recommendations.md` | **Everything.** Pass 1 = §§1–11. 1-A = §12. |
 | `20260827_challenge_miss_pack/` | Day-1 11:00 tiles. Read with that paper’s §11B |
 | `20260828_verify_pack/` | Occupancy curves, V4 66/589, scratch snapshot |
 | `20260825_checklist.md` | Stay-pin score (9/15, 6/14) |
