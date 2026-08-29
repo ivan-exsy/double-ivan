@@ -31,7 +31,7 @@ Bar is **80% on tiles** at the declared clock (12/15, then 11/14). Start-jump is
 **Founder lock (still out):** H3 dest-rewrite, fail-closed, longer pins, fire-when-12.
 
 Pass 1 evidence: `20260827_challenge_miss_pack/` · `20260828_verify_pack/`.  
-1-A evidence: `20260829_leave_pack/` (raw JSON). Score card: `20260828-1_checklist.md`. Key 1-A tables: **§12.9**.
+1-A evidence: `20260829_leave_pack/` (raw JSON). Score card: `done/20260828-1_checklist.md`. Key 1-A tables: **§12.9**.
 
 ---
 
@@ -338,7 +338,7 @@ Read stated destination from `act` / `intent`. Read the body from `pos` / `on`.
 **Status:** the five §7 fixes **landed**. Occupancy still misses. Honest text is now **Pass**. Diagnosis **CLOSED 2026-08-29** — see §12.4. Veto **deleted** (§12.11, `2dea146e`). Remaining: deploy/score 1-B; Shepard is a separate planner miss; sit-and-read widen waits on datareq 5 (not this scoring run).
 
 **Sim:** `20260828-1` · UUID `49f3ddd9-6cad-473a-9c96-97c82a7643ea` · tip `acf744b8` · skip-Premiere · `TASK_DECOMP_CONTEXTUAL_ENABLED=true`.  
-**Score card** (checkpoints, bars, suite): `20260828-1_checklist.md`. Write verdicts here; keep numbers there.
+**Score card** (checkpoints, bars, suite): `done/20260828-1_checklist.md`. Write verdicts here; keep numbers there.
 
 ### 12.1 What a viewer saw
 
@@ -483,9 +483,9 @@ Do not wait on step 2285 to *diagnose*; 2285 is still worth **scoring**. Reading
 **Keep**
 
 - This file (narrative + **§12.9** tables).
-- `20260828-1_checklist.md` — score / checkpoints only.
+- `done/20260828-1_checklist.md` — 1-A score / checkpoints only.
 - `20260829_leave_pack/` — raw JSON (`data.json`, `data2.json`, `data3.json`) and the collector READMEs. Not a second diagnosis.
-- `20260829_datareq_4_whitelist-strategy.md` — **live**, do not delete. Feeds the §12.10 decision. Retire it into §12.10 once answered.
+- `done/20260829_datareq_4_whitelist-strategy.md` and `done/20260829_datareq_5_whitelist-widen.md` — **answered.** Decision is in §12.10. Q5 stdout counts were still `deferred: PID`; harvest from the stopped 28-1 log (or 29-1 after it stops). Raw tables also live in `20260829_leave_pack/`.
 
 **Safe to delete** (folded into §12 / §12.9)
 
@@ -579,7 +579,7 @@ Nick and Vince: 19:00 = `waking up and starting morning routine at home`; Hobbs 
 
 ### 12.10 Whitelist strategy — open decision (investigation running)
 
-Adding `study` to the cafe closes *this* instance and leaves the shape intact. The global question is open. Handoff: **`20260829_datareq_4_whitelist-strategy.md`** (agent [1], read-only).
+Adding `study` to the cafe closes *this* instance and leaves the shape intact. The global question is **decided** (sit-only 32, not 53) — see recommendation below. Archive: `done/20260829_datareq_4_whitelist-strategy.md`.
 
 **Frame it by job, not by verb.** The whitelist does two unrelated things, and only one of them hurt us:
 
