@@ -21,7 +21,8 @@ Doc / concept / video-WIP repo for Doubland. **Process rules** that are global l
 
 ## Recent Learnings / Changes
 
-- 2026-08-31: **Pass 2b in flight** — hello quiet until leave + persist partner keep. Score `20260831-2`. Do not resume `20260831-1`. Card: `20260831-2_checklist.md`.
+- 2026-09-02: **Phase 2B KEEP village-green** — `20260901-1` stopped @619. Mint **10**, mill **0**, `desync_scratch_cleared` **0**, day-1 11:00 **14/15**. Founder inherit 2b for 20:00 / day-2 occupancy + evening mill. Do not resume. Card: `20260901-1_checklist.md` Decision. Launch: `20260910_launch.md`.
+- 2026-08-31: **Pass 2b scored partial** — hello quiet until leave **PASS** mill 0 through 2285; persist partner keep **FAIL** Writer 2 53/97 `desync_scratch_cleared`. Occupancy hold **PASS**. Do not resume `20260831-1` or `20260831-2`. Card: `20260831-2_checklist.md`.
 - 2026-08-31: **Pass 2 talk FAIL** — `20260831-1` stopped @260. **77** greeting re-opens inside 30 steps (Pass 1 needed 1850 to hit 72). Hellos never sofa-persist; full talks die `desync_scratch_cleared`. Occupancy hold not scored. Do not resume. Card: `20260831_checklist.md` §8. Launch: `20260901_launch.md`.
 - 2026-08-29: **Gather trail is one paper** — `20260827_gathering_issue_RCA+recommendations.md`. §§1–11 Pass 1 frozen; **§12** is 1-A (`20260828-1`) live diagnosis. Checklist stays the score card.
 - 2026-08-28: **`20260827-1` Pass 1 score @1850** — gather FAIL (chal 3/15 then 6/14; vote 8/15; day-2 vote wait 2285). Start-jump persist 0/26819. Honest text FAIL. Sofa re-greet mill FAIL. Leave runner; do not patch / rewrite SOT §4.7. Paper: `20260827_checklist.md`.
