@@ -21,7 +21,8 @@ Doc / concept / video-WIP repo for Doubland. **Process rules** that are global l
 
 ## Recent Learnings / Changes
 
-- 2026-09-02: **3b leftover stance Current** — `20260902-3` @2399, 4 Doubles. Founder: 4-person is sufficient; a pass here is a pass at a larger roster. Contracts: `sot_chats.md` §3b v1.6, `sot_survival.md` Conversation Priors. Linger still not Current. Next village bets: overlay / occupancy leftovers / seek. Launch: `20260910_launch.md`.
+- 2026-09-03: **Drain 7a live** on box `railway` @ `efdaaf63` (`TimeoutStopSec=960`). Tab-reuse snap **PASS** on `20260903-2` @31; box FE `14dc6ce` with tab reuse **on**. Card: `20260903-2_checklist.md`. Do not resume `20260903-2`. Village ranked list empty; Seek is Hold / not MVP. Launch: `20260910_launch.md`.
+- 2026-09-02: **3b leftover stance Current** — `20260902-3` @2399, 4 Doubles. Founder: 4-person is sufficient; a pass here is a pass at a larger roster. Contracts: `sot_chats.md` §3b v1.6, `sot_survival.md` Conversation Priors. Linger still not Current. Launch: `20260910_launch.md`.
 - 2026-09-02: **Gather + KEEP talk SOT stamped Current** — launch items 1–2 closed. Contracts: `double-docs/sot/sot_action-location.md`, `sot_survival.md`, `sot_chats.md` §3b. Linger stays skip / not Current. Launch: `20260910_launch.md`.
 - 2026-09-02: **Linger skipped** — `20260902-1` @864, tip `ec8e2076`. `SOFA LINGER` **0** after 55 sit-stops. Visual packing only, not a deeper talk. Mill **0**, leftover mint **36**, day-1 11:00 / 20:00 occupancy **15/15**. Do not patch linger. Card: `20260902-1_checklist.md` Decision.
 - 2026-09-02: **Phase 2B KEEP village-green** — `20260901-1` stopped @619. Mint **10**, mill **0**, `desync_scratch_cleared` **0**, day-1 11:00 **14/15**. Founder inherit 2b for 20:00 / day-2 occupancy + evening mill. Do not resume. Card: `20260901-1_checklist.md` Decision. Launch: `20260910_launch.md`.
