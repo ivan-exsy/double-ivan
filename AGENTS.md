@@ -21,6 +21,9 @@ Doc / concept / video-WIP repo for Doubland. **Process rules** that are global l
 
 ## Recent Learnings / Changes
 
+- 2026-09-02: **3b leftover stance Current** — `20260902-3` @2399, 4 Doubles. Founder: 4-person is sufficient; a pass here is a pass at a larger roster. Contracts: `sot_chats.md` §3b v1.6, `sot_survival.md` Conversation Priors. Linger still not Current. Next village bets: overlay / occupancy leftovers / seek. Launch: `20260910_launch.md`.
+- 2026-09-02: **Gather + KEEP talk SOT stamped Current** — launch items 1–2 closed. Contracts: `double-docs/sot/sot_action-location.md`, `sot_survival.md`, `sot_chats.md` §3b. Linger stays skip / not Current. Launch: `20260910_launch.md`.
+- 2026-09-02: **Linger skipped** — `20260902-1` @864, tip `ec8e2076`. `SOFA LINGER` **0** after 55 sit-stops. Visual packing only, not a deeper talk. Mill **0**, leftover mint **36**, day-1 11:00 / 20:00 occupancy **15/15**. Do not patch linger. Card: `20260902-1_checklist.md` Decision.
 - 2026-09-02: **Phase 2B KEEP village-green** — `20260901-1` stopped @619. Mint **10**, mill **0**, `desync_scratch_cleared` **0**, day-1 11:00 **14/15**. Founder inherit 2b for 20:00 / day-2 occupancy + evening mill. Do not resume. Card: `20260901-1_checklist.md` Decision. Launch: `20260910_launch.md`.
 - 2026-08-31: **Pass 2b scored partial** — hello quiet until leave **PASS** mill 0 through 2285; persist partner keep **FAIL** Writer 2 53/97 `desync_scratch_cleared`. Occupancy hold **PASS**. Do not resume `20260831-1` or `20260831-2`. Card: `20260831-2_checklist.md`.
 - 2026-08-31: **Pass 2 talk FAIL** — `20260831-1` stopped @260. **77** greeting re-opens inside 30 steps (Pass 1 needed 1850 to hit 72). Hellos never sofa-persist; full talks die `desync_scratch_cleared`. Occupancy hold not scored. Do not resume. Card: `20260831_checklist.md` §8. Launch: `20260901_launch.md`.
