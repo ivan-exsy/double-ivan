@@ -109,7 +109,7 @@ Today’s code is good enough to **hold a still**. It is not the morph.
 | Recipe roles | `signature_flyover`, `cost_phaser_bridge`, `signature_flyover_door` | Morph layer / matched cinematic first frame |
 | Validator | Phaser plant + Cost/Peak Phaser + Door Phaser exist | Continuity checks once the producer defines them |
 
-Village MVP gate is gather + town talk (`20260901_launch.md`). This TODO is not that gate.
+Village MVP gate is gather + town talk (`done/20260910_launch.md`). This TODO is not that gate.
 
 ---
 

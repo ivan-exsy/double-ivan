@@ -39,7 +39,7 @@ That package is the **version-1 specimen** (auto-gen quality bar). The **live re
 | P2 closer gates | Live 2026-08-29 — `validate_closer_p2`: black hole **fail** (interval overlap; recipe `_abut_picture_gaps`); wrong kit **fail**; starve-freeze **warn** (skip if duration unknown). Prove: same day3 bake `post_props_gates` passed after weather abut. Spec below. |
 | Longer informative cut as a *new SKU* | **Not open** — closer *is* that cut. Length follows the night. |
 
-Village MVP gate is gather + town talk (`20260901_launch.md`). Nothing below is that gate.
+Village MVP gate is gather + town talk (`done/20260910_launch.md`). Nothing below is that gate. Post-MVP index: `double-docs/TODO_post_mvp.md`.
 
 ### P2 — closer bake gates (shipped 2026-08-29)
 
@@ -174,7 +174,7 @@ Seeds G6 `ballots.mp4` + G7 census; habitat = namecard + mp4 (no still freeze); 
 | [`TODO_2D-3D.md`](TODO_2D-3D.md) | **Post-MVP** 2D→3D morph — producer brief (do not bake from this) |
 | [`daily/gold/20260713-1_day1_anya/GOLD.md`](daily/gold/20260713-1_day1_anya/GOLD.md) | Anya gold hub |
 | [`../opening/TODOs-opening-trailer.md`](../opening/TODOs-opening-trailer.md) | Opener [A] WIP |
-| [`../20260901_launch.md`](../20260901_launch.md) | Village MVP gate vs parallel video track |
+| [`../done/20260910_launch.md`](../done/20260910_launch.md) | Closed village MVP score trail vs parallel video track |
 | [`../done/sot-video.md`](../done/sot-video.md) | Archived July taxonomy / opener scene map |
 | [`../done/20260828_format_lock_closer.md`](../done/20260828_format_lock_closer.md) | Archived format-lock brief |
 | [`../done/20260827_viral_video.md`](../done/20260827_viral_video.md) | Archived later 2D-legend / Spark paper |
