@@ -7,7 +7,7 @@ Doc / concept / video-WIP repo for Doubland. **Process rules** that are global l
 - **Main-track only:** commit and push on `main`. Do **not** create `ivan/*` (or any) feature branches unless the founder explicitly asks.
 - This is **not** an eng app repo. Do not copy `generative_agents` / `double-front` branch naming here.
 - Product concept entry: `concept/mission.md`. Video taxonomy WIP: `video/sot-video.md`. Daily trailer SOT: `video/daily/SOT-new-daily.md`.
-- Pittsburgh Phaser plan / Breakfasts spec live in **`double-docs`**: `double-docs/R3F/Pitts_Phaser.md`, `double-docs/MVP-0.1.md` (moved here 2026-09-04). Do not keep a second copy in this repo.
+- Pittsburgh Phaser plan lives in **`double-docs`**: `R3F/Pitts_Phaser.md`, spatial `MVP-0.1.md`. **Breakfasts product MVP (village-first):** `double-docs/MVP-breakfasts.md`. Do not keep a second copy in this repo.
 - Live landing ship notes (when present): dated `2026*_ux_landing_*.md` at repo root may beat aspirational docs in `double-docs/landing/`.
 
 ## Gotchas
@@ -22,7 +22,8 @@ Doc / concept / video-WIP repo for Doubland. **Process rules** that are global l
 
 ## Recent Learnings / Changes
 
-- 2026-09-04: Pittsburgh Breakfasts **look still OSM floor contours** (Nicolas TODOs 1–4). Engine occupancy **walked** on `20260904-1` (Luba → PPG Cafe). Status lives in `double-docs/MVP-0.1.md` + `R3F/handoff/pittsburgh-be.md`. Not a group demo.
+- 2026-09-07: Breakfasts **demo on `the_ville`** while look cooks. Spec: `double-docs/MVP-breakfasts.md`.
+- 2026-09-04: Pittsburgh Breakfasts **look still OSM floor contours** (Nicolas TODOs 1–4). Engine occupancy **walked** on `20260904-1` (Luba → PPG Cafe). Look status: `MVP-0.1.md` + `R3F/handoff/pittsburgh-be.md`. Not a group demo.
 - 2026-09-03: **Village ranked list empty.** Launch archived `done/20260910_launch.md`. Post-MVP index: `TODO_post_mvp.md` (PM-VIL-1 Seek Hold; PM-VIL-2 “That’s me”; PM-VIL-3 Talk Path A). Drain 7a live `railway` @ `24cc9d94`. Tab-reuse snap **PASS** `20260903-2` @31; card `done/20260903-2_checklist.md`. Do not resume `20260903-2`.
 - 2026-09-02: **3b leftover stance Current** — `20260902-3` @2399, 4 Doubles. Founder: 4-person is sufficient; a pass here is a pass at a larger roster. Contracts: `sot_chats.md` §3b v1.6, `sot_survival.md` Conversation Priors. Linger still not Current. Score trail: `done/20260910_launch.md`.
 - 2026-09-02: **Gather + KEEP talk SOT stamped Current** — launch items 1–2 closed. Contracts: `double-docs/sot/sot_action-location.md`, `sot_survival.md`, `sot_chats.md` §3b. Linger stays skip / not Current. Score trail: `done/20260910_launch.md`.
