@@ -1,6 +1,6 @@
 # TODO — Post-MVP backlog (prioritized)
 
-> **Updated:** 2026-09-03. Village gather + town talk is **closed**. Score trail: `double-ivan/done/20260910_launch.md`. This file is the living post-MVP backlog. Video craft stays in `double-ivan/video/TODO_video.md`. “That’s me” charter stays in `double-ivan/TODO_realism_matriAIx.md`.
+> **Updated:** 2026-09-10 (PM-VIL-2 Bernstein split). Village gather + town talk is **closed**. Score trail: `double-ivan/done/20260910_launch.md`. This file is the living post-MVP backlog. Video craft stays in `double-ivan/video/TODO_video.md`. “That’s me” charter stays in `double-ivan/TODO_realism_matriAIx.md`.
 >
 > **Renamed from `TODO_be_debt.md` on 2026-06-11.** Triaged against `20260609_LIVE_mode.md` and `TODO_production_hardening.md`: LIVE-mode items moved there; dead items closed (log at the bottom). This doc holds **only work not tracked elsewhere**, in priority order.
 >
@@ -36,7 +36,7 @@ Clear post-MVP items that lived in `double-ivan/done/20260910_launch.md`. Detail
 | ID | Item | Status | Notes |
 |---|---|---|---|
 | **PM-VIL-1** | Seek (everyday + multi) | **Hold** | Own occupancy bet. Satiation is load-bearing. Do not turn seek on to “finish” village. Prior plan (will / linger / seek / sofa / fourth wall): `done/20260825_true_doubles.md` from “Plan: Will, linger, seek”. Linger was later **cut**. |
-| **PM-VIL-2** | “That’s me” / quiz twin | Open | Compile quiz/interview into short if–then scene lines; measure express *and* suppress; interview as evidence; human recognition before any public “scientifically you.” **Charter (living):** `TODO_realism_matriAIx.md`. Research KB (not an implement brief): `done/20260825_true_doubles.md`. No paper we reviewed is a proven twin. |
+| **PM-VIL-2** | “That’s me” / quiz twin | Open | Compile quiz/interview into short if–then scene lines; measure express *and* suppress; interview as evidence; human recognition before any public “scientifically you.” **Eval:** person’s own later answer is the ceiling (not 100%); score a **held-out in-village choice** (e.g. stay-and-talk vs leave) — not cafe occupancy, not GSS “85% you.” Park et al. arXiv 2411.10109 is a **survey** twin (GSS/BFI vs two-week retest); it is **not** a village twin. Games in that paper were weaker — expect that band for maze minutes. **Skip:** 2-hour portal interview; Socrates/Centaur as village brain; GUM computer-watching; demographic “act as a [group]”; mixing this gate with Naturalness. **Charter (living):** `TODO_realism_matriAIx.md`. COS decision: `COS/agents/willwright/kb/wiki/decision/bernstein-believability-vs-accuracy.md`. Research KB (not an implement brief): `done/20260825_true_doubles.md`. Not a Saturday Breakfasts chunk (`MVP-breakfasts.md` A2 stays). |
 | **PM-VIL-3** | Talk Path A (you ↔ one Double) | Open | Talk tab cadence + anti-loop. Village talk does not prove this. Village leftover process packet (KEEP wave, now Current): `done/20260901_chat_realism.md`. |
 | **PM-VIL-4** | Acting-model swap | Parked | Only if village still sounds like one writer after compiled lines. |
 | **PM-VIL-5** | Official Naturalness Gate pair, display-honesty probe, MatrAIx catalog / MBTI / fine-tune on private messages | Parked or banned | As in the charter. Do not transplant the MatrAIx catalog. |

@@ -22,6 +22,7 @@ Doc / concept / video-WIP repo for Doubland. **Process rules** that are global l
 
 ## Recent Learnings / Changes
 
+- 2026-09-10: **Bernstein split on PM-VIL-2.** Park 1,052 is a **survey** twin (GSS vs own retest: interview 83% / survey 82% / combined 86%). Not a village twin. Eval = held-out in-village choice + retest ceiling. Skip 2h portal / Socrates-as-brain / public 85%. Charter `TODO_realism_matriAIx.md`. COS: `bernstein-believability-vs-accuracy`. Not a Saturday Breakfasts chunk.
 - 2026-09-09: Breakfasts live tracker is `double-docs/BREAKFASTS-BOARD.md`. Archived R3F history in `done/r3f/` (not live).
 - 2026-09-07: Breakfasts **demo on `the_ville`** while look cooks. Spec: `double-docs/MVP-breakfasts.md`.
 - 2026-09-04: Engine occupancy **walked** on `20260904-1` (Luba → PPG Cafe). Look that day was OSM contours; first-pass rooms landed 2026-09-08.

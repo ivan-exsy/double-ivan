@@ -1,10 +1,10 @@
 # Realism charter — “That’s me” Double fidelity (MatrAIx → eng)
 
-**Date:** 2026-08-10 (amended same day: interpretation honesty + post-MVP review foreword)  
+**Date:** 2026-08-10 (amended 2026-09-10: Bernstein survey-twin vs village-twin split)  
 **Status:** charter locked as starting point; **eng deferred to post-MVP** (stronger Grok expected)  
 **Evidence (deep dive):** `done/20260810_realism_matriAIx_findings.md`  
-**Doctrine:** `COS/tasks/2026-08-10-001/final.md` · Will Wright `matraix-validation-split` · Jordan Peterson `minimal-double-trait-pack`  
-**Paper:** [MatrAIx arXiv 2608.04205](https://arxiv.org/html/2608.04205v1)
+**Doctrine:** `COS/tasks/2026-08-10-001/final.md` · Will Wright `matraix-validation-split` · Jordan Peterson `minimal-double-trait-pack` · Will Wright `bernstein-believability-vs-accuracy` (2026-09-10)  
+**Papers:** [MatrAIx arXiv 2608.04205](https://arxiv.org/html/2608.04205v1) · Park et al. [arXiv 2411.10109v3](https://arxiv.org/abs/2411.10109) (survey twin, not village) · COS memo `COS/tasks/2026-09-10-001/final.md`
 
 ---
 
@@ -24,6 +24,16 @@
 
 ### What not to redo from scratch
 Doctrine (validation split, thin IPIP spine, express-or-suppress) and cost triage are **accepted starting beliefs**. Challenge them with evidence if the stronger model finds them wrong — do not silently discard them.
+
+### Bernstein addendum (2026-09-10 — does not replace two gates)
+
+Park/Bernstein **Generative Agents** (UIST 2023) is already our **Current** cognitive loop (**believability**). Park et al. arXiv 2411.10109 (1,052 people) is a **different game**: interview- and/or survey-grounded agents predict **held-out GSS items** at 83% / 82% / 86% of the **same person’s two-week retest** (demographics-only 74%). Economic games in that study were weaker (~66% in the HAI writeup). A persistent village was **not** the test.
+
+**Steal into this charter:** keep two scoreboards; treat own-retest as the ceiling; backstory over demographic costumes; **compile once** (their “expert notes” layer = our situation-actionable lines); held-out eval including **one in-village choice**. Portal A2 (Mini-IPIP-10 + 4 beats) is the compressed analogue — **do not** ship a 2-hour American Voices interview as the door.
+
+**Skip:** Socrates/Centaur as the village brain; GUM always-on computer observation; public “85% you” / “Stanford-accurate twin”; OCEAN dumps at runtime; folding twin scores into Naturalness.
+
+**Implication for P0:** expect maze minutes to look more like their **games** band than GSS until we measure Doubland ourselves. Index: `TODO_post_mvp.md` **PM-VIL-2**.
 
 ---
 
@@ -122,6 +132,7 @@ Full trace + tables: `done/20260810_realism_matriAIx_findings.md` (re-verify liv
 - [ ] 60–100 step smoke: Naturalness Gate non-regression  
 - [ ] Cost: `tokens_in` / step **≤ baseline × 1.05** (watch at +3%)  
 - [ ] **Named behavior delta:** high vs low **E** shows a measurable difference (e.g. talk-initiation rate or withdraw-on-conflict), not only “prompts look different”  
+- [ ] Do **not** report GSS/retest % as this smoke’s bar. Optional later: one held-out in-village approach/withdraw vs a user-owned signal (`PM-VIL-2`)  
 - [ ] PR review rejects any design in the “worst” token band (+80–150) and any “act according to this profile” dump
 
 ### P1 — After P0 shows a visible delta
@@ -142,7 +153,7 @@ Full trace + tables: `done/20260810_realism_matriAIx_findings.md` (re-verify liv
 Opposite poles, same maze/day window, same model. Score express **and** suppress. Never fold into Naturalness GO/NO-GO. Cheapest trustworthy: 60–100 step code metrics on E/C + 2 LLM-judged tone poles. Detail: findings §D7–D9.
 
 ### Explicit non-goals
-1290-dim schema · Persona 1M as Double truth · MBTI driver · playground runtime · growing poignancy identity · replacing Naturalness Gate · FE quiz redesign as P0 blocker · hoping a stronger model alone fixes fidelity without interpretation honesty.
+1290-dim schema · Persona 1M as Double truth · MBTI driver · playground runtime · growing poignancy identity · replacing Naturalness Gate · FE quiz redesign as P0 blocker · hoping a stronger model alone fixes fidelity without interpretation honesty · 2-hour portal interview · Socrates/Centaur as step LLM · GUM screenshot observer · public “85% you” from Park 1,052.
 
 ---
 
