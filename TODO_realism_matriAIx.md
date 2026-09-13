@@ -35,6 +35,8 @@ Park/Bernstein **Generative Agents** (UIST 2023) is already our **Current** cogn
 
 **Implication for P0:** expect maze minutes to look more like their **games** band than GSS until we measure Doubland ourselves. Index: `TODO_post_mvp.md` **PM-VIL-2**.
 
+**JP watch (2026-09-13):** Khedar et al. [arXiv:2609.08592](https://arxiv.org/abs/2609.08592) (What's New #3; JP verify **WATCH**) — flat role labels collapse; supports PM-VIL-2 compiled if–then + express/suppress. Scenario-reactive emotion only as **scene-local compiled overlays**, not durable soul dimensions (aligns with interpretation honesty / thin IPIP spine / ≤+5% tokens; fights OCEAN or 23-dim runtime dumps). **No** 23-dim instrumentation workstream. Optional later only: one emotion→directive compile rule under Persona Adherence Gate. Their 15.8 pp spread is synthetic agent-eval, not village twin; public fidelity claims still pending_approval.
+
 ---
 
 ## 1. Why improve realism (MatrAIx vs our goals)
