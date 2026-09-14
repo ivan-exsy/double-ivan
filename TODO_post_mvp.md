@@ -1,6 +1,6 @@
 # TODO — Post-MVP backlog (prioritized)
 
-> **Updated:** 2026-09-13 (PM-MEM-CTX LangChain note). Prior: 2026-09-10 (PM-VIL-2 Bernstein split). Village gather + town talk is **closed**. Score trail: `double-ivan/done/20260910_launch.md`. This file is the living post-MVP backlog. Video craft stays in `double-ivan/video/TODO_video.md`. “That’s me” charter stays in `double-ivan/TODO_realism_matriAIx.md`.
+> **Updated:** 2026-09-13 (PM-MEM-CTX LangChain note; PM-SEC-7 agent-unreachable backups). Prior: 2026-09-10 (PM-VIL-2 Bernstein split). Village gather + town talk is **closed**. Score trail: `double-ivan/done/20260910_launch.md`. This file is the living post-MVP backlog. Video craft stays in `double-ivan/video/TODO_video.md`. “That’s me” charter stays in `double-ivan/TODO_realism_matriAIx.md`.
 >
 > **Renamed from `TODO_be_debt.md` on 2026-06-11.** Triaged against `20260609_LIVE_mode.md` and `TODO_production_hardening.md`: LIVE-mode items moved there; dead items closed (log at the bottom). This doc holds **only work not tracked elsewhere**, in priority order.
 >
@@ -91,6 +91,9 @@ Keep **landing + viewer on Vercel** and **generation + API gateway on the sim VP
 | **PM-SEC-4** | **Public API abuse controls** | Rate-limit + bot checks on waitlist and other unauthenticated routes; keep sim start/stop/control behind auth. |
 | **PM-SEC-5** | **Write the security model down** | Short note in the VPS deploy runbook: what is public, what is Tailscale-only, what agents must not “fix” (open ports, bind services to `0.0.0.0`, disable firewall). |
 | **PM-SEC-6** | **Backups before new services** | Provider snapshots + tested restore of `.env.local.vps-prod` / critical config; don’t add new daemons until restore is boring. |
+| **PM-SEC-7** | **Agent-unreachable 3-2-1 backups** | At least one restore path no AI agent can reach (Levels / @levelsio, 2026-03-06). Hetzner console snapshots (no `HCLOUD_TOKEN` in any agent-readable env). Supabase dashboard PITR or daily backups + one dump to B2/Storage Box with keys only in Ivan's password manager. Secrets (`.env.local.vps-prod`, OpenRouter, service role, xAI) in password manager + one encrypted USB. GitHub history is a safety net, not isolation — protect `main` so agents cannot direct-push. Laptop uncommitted work + gitignored envs → that USB, not Drive/rclone if an agent can run it. **Prove:** restore `.env.local.vps-prod` from USB to a scratch path, and one Supabase dump into a throwaway project. **Skip:** restic daemons, extra VPN, giving agents B2/Hetzner tokens. Complements **PM-SEC-6** (snapshots exist); this item is the isolation + prove-it bar. |
+
+**PM-SEC-7 note (2026-09-13).** Crown jewels are Supabase (memory/coords/scratch), not the 3.8 GB VPS disk. Same-box timestamped copies of `.env.local.vps-prod` are not isolation. Ivan does this in hoster UIs himself — do not store Hetzner/B2/API tokens in any `.env` Cursor, Grok Bot, or a Cloud Agent can open.
 
 **Out of scope here:** moving FE/landing onto the VPS; Caddy+SQLite “whole product on one box”; Claude-in-tmux as the primary production admin path. Those fight the current Vercel + VPS + Supabase split.
 
