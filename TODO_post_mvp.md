@@ -1,6 +1,6 @@
 # TODO — Post-MVP backlog (prioritized)
 
-> **Updated:** 2026-09-10 (PM-VIL-2 Bernstein split). Village gather + town talk is **closed**. Score trail: `double-ivan/done/20260910_launch.md`. This file is the living post-MVP backlog. Video craft stays in `double-ivan/video/TODO_video.md`. “That’s me” charter stays in `double-ivan/TODO_realism_matriAIx.md`.
+> **Updated:** 2026-09-13 (PM-MEM-CTX LangChain note). Prior: 2026-09-10 (PM-VIL-2 Bernstein split). Village gather + town talk is **closed**. Score trail: `double-ivan/done/20260910_launch.md`. This file is the living post-MVP backlog. Video craft stays in `double-ivan/video/TODO_video.md`. “That’s me” charter stays in `double-ivan/TODO_realism_matriAIx.md`.
 >
 > **Renamed from `TODO_be_debt.md` on 2026-06-11.** Triaged against `20260609_LIVE_mode.md` and `TODO_production_hardening.md`: LIVE-mode items moved there; dead items closed (log at the bottom). This doc holds **only work not tracked elsewhere**, in priority order.
 >
@@ -187,6 +187,8 @@ External framing (context engineering vs memory engineering): memory = what pers
 **Success criteria (when scheduled):** lower tokens and higher cache hits on routine stretches; equal or better naturalness and Double situational awareness (who/what/where now); no forced-fallback or freshness regressions. Validate with §4 safe tuning loop in `sot_memory.md`.
 
 **Fit.** Feeds Phase 4 economics after P1 behaviour work; does not replace PM-MEM-1..5 trailer-facing write cleanup.
+
+**Consideration (2026-09-13) — LangChain custom agent harness ([post](https://www.langchain.com/blog/how-to-build-a-custom-agent-harness)).** Steal ideas only. Do **not** adopt `create_agent` / LangChain middleware for the sim loop (step + scratch + schedule + multi-persona retrieve; ~40 typed prompts). Maps onto CTX-2/3/5/6: transient vs persistent trim, budget-before-retrieve, compress-on-arrival, routine delta-pack, byte-stable prompt-cache prefix. If picked up, order: (1) clamp `ConversationManager.start_conversation` batch pack with `prompt_budget` (dual ISS + up to 5×14 recent chat lines are unclamped today); (2) stop per-utterance ISS+retrieve rebuild in `agent_chat_v2`; (3) then CTX-6 prefix. Chat-with-Double (`sot_chats.md` §6) is the only accumulating conversation that might later trial old-turn summarization — still not `create_agent`.
 
 ---
 
