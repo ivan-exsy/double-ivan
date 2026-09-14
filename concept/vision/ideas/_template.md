@@ -5,7 +5,7 @@ status: inbox # inbox | candidate | promote-ready | incorporated | parked | reje
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
 lane: # promote | candidate | park | reject — filled on triage
-incorporated_into: [] # e.g. [../north-star.md §Why it exists]
+incorporated_into: [] # e.g. [../../mission.md §Why I want to build Double]
 ---
 
 # Idea — <title>

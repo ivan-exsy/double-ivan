@@ -16,10 +16,10 @@ Doubland is a matrix. It can be better than real life. It can also be a scratchp
 
 ## COS triage
 
-- **Fits today:** “Scratchpad for hard decisions” is already Canon in spirit — rehearsal, dream-chats, Double It!, “preparation not escape” (`north-star.md`, `mission.md`). Worth **naming explicitly** as a dual job of the Matrix.
+- **Fits today:** “Scratchpad for hard decisions” is already Canon in spirit — rehearsal, dream-chats, Double It!, “preparation not escape” (`mission.md`). Worth **naming explicitly** as a dual job of the destination.
 - **Tension with Canon:** “Better than real life” can read as *replacement / escape*, which current Canon rejects. Productive framing: the Matrix can feel *safer, clearer, more agency-rich* than IRL **as a practice ground**, without claiming people should abandon real life.
 - **Recommendation:** **candidate** — promote the scratchpad half now; you choose how strong “better than RL” language is.
-- **If promote — proposed patch** (add under `north-star.md` §Long-horizon destination — Matrix axes):
+- **If promote — proposed patch** (add under `mission.md` §Long-horizon destination):
 
 ```markdown
 ### Dual job of the Matrix

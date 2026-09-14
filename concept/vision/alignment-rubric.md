@@ -2,7 +2,7 @@
 status: canon
 updated: 2026-08-02
 sources:
-  - north-star.md
+  - ../mission.md
   - pillars.md
   - ../index.md
 needs-review: false
@@ -23,7 +23,7 @@ Score each row: **2** strong · **1** weak / stretch · **0** absent or conflict
 | # | Criterion | Score | Note |
 |---|-----------|-------|------|
 | 1 | Serves ≥1 Canon pillar (name them) | | |
-| 2 | Fits north-star category (simulation media / personal mythology — not generic social or productivity agent) | | |
+| 2 | Fits mission category (simulation media / personal mythology — not generic social or productivity agent) | | |
 | 3 | Strengthens watchable / shareable loop **or** rehearsal safety **or** squad intimacy | | |
 | 4 | Teen / privacy posture acceptable (no dark patterns, no reckless psychographic exposure) | | |
 | 5 | Clear Current vs Desired: does not pretend eng SOT already supports it | | |
@@ -64,4 +64,4 @@ Founder override: n/a | requested
 
 ## Related
 
-- [`north-star.md`](north-star.md) · [`pillars.md`](pillars.md) · [`../index.md`](../index.md)
+- [`../mission.md`](../mission.md) · [`pillars.md`](pillars.md) · [`../index.md`](../index.md)

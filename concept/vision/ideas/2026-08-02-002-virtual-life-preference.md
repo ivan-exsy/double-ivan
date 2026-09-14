@@ -16,10 +16,10 @@ People say they want real life, but more and more they find themselves enjoying 
 
 ## COS triage
 
-- **Fits today:** Cultural / market “why now” — strengthens north-star and VC narrative. Does not change product pillars. Aligns with teen primary audience already in Canon.
+- **Fits today:** Cultural / market “why now” — strengthens mission and spoken room locks in `vc_msg.md`. Does not change product pillars. Aligns with the long-horizon teen gift already in Canon; spoken intro is still adults first.
 - **Tension with Canon:** Mild — if we only celebrate “kids won’t go outside,” we sound cynical. Pair with purpose: meet them where attention already is, and make that time *rehearsal + meaning*, not empty scroll.
-- **Recommendation:** **promote** into `north-star.md` (Why it exists / new Why-now) and optionally one line in `vc_msg.md` later.
-- **If promote — proposed patch** (add after §Why it exists in `north-star.md`):
+- **Recommendation:** **promote** into `mission.md` (after §Category, as Why now) and optionally one line in `vc_msg.md` §Spoken later.
+- **If promote — proposed patch** (add after §Category in `mission.md`):
 
 ```markdown
 ## Why now
@@ -30,4 +30,4 @@ People say they want “real life,” but attention already lives in phones, gam
 ## Decision
 
 - **Founder:** pending
-- **Notes:** Reply `promote 002` to apply the north-star patch.
+- **Notes:** Reply `promote 002` to apply the mission patch.

@@ -1,15 +1,12 @@
 # Doubland — Investor Narrative
 
-**Date:** 2026-05-16  
-**Purpose:** Seed / Series A positioning for investors
-
 ---
 
 ## The One-Sentence Hook
 
 **Doubland is the first scalable media format in which every user is the star of their own reality show.**
 
-We do not build another social network or game. We are inventing a new category of entertainment: personalized, user-generated reality that produces daily, shareable 60-second stories at zero marginal production cost.
+We do not build another social network or game. We are inventing a new category of entertainment: personalized, user-generated reality that produces daily, shareable 60-second stories user want to watch and share.
 
 ---
 
@@ -22,7 +19,7 @@ Doubland flips the model:
 - Every participant is the protagonist.
 - Every day generates a watchable “day-in-life” trailer.
 - Every friend group becomes its own private reality series.
-- The content is infinitely personalized, infinitely replayable, and infinitely shareable.
+- The content is *infinitely* personalized - replayable - shareable.
 
 This is not “The Sims meets TikTok.” This is a new native format — the first reality medium that scales to millions of simultaneous casts while remaining intimate to each viewer.
 
@@ -154,3 +151,99 @@ The seed round will deliver the 12-month traction targets above: 80k–120k MAU,
 It is the first platform where the question “What if?” gets answered by a version of you that already lived it — and where that version eventually becomes more compelling than the original.
 
 The Matrix is not science fiction. It is the logical destination of the two axes we are deliberately climbing.
+
+---
+
+## Spoken room locks
+
+Folded from the 2026-08-25 Q&A (that dump is deleted). The memo above is the written story. This section is the mouth. **In a room, this section wins** where it conflicts with the memo (teen ICP, naming the far corner, quoting ARR/MAU/COGS). Those tables stay a plan, not a log.
+
+Lead with the hook. Name a friend group. Show a trailer, not a metric. Two to four sentences. Stop.
+
+**Pronounce** Doubland as *Dohb-land* (like *double*, never *doubt*). Doubles live **in** Doubland, not on it. Do not pair “Double” and “Doubland” in a short headline (the hook is the exception). Do not decode the name as “Land of Doubles.”
+
+### 15 seconds
+
+> Doubland is where “What if?” gets answered — by your Double, living the version of your life you didn’t.
+>
+> You and your friends put personality twins in a private village. They live. You watch. Every day you get a one-minute story of what happened.
+
+Then: show a trailer. Then: “Request an early invite at doubland.ai.”
+
+### 60 seconds
+
+People say they want real life. Attention already lives on phones, in games, in chats. Virtual is already winning.
+
+We still have a chance to use that as a safe playground. Your squad drops Doubles into a shared village. They laugh, fight, fall for someone, choke, try again. You watch a daily trailer. At night you can steer a little. Then you take the bold choice into real life.
+
+I started this as a tool for my son. The product in front of you is for adults: a private group, starting with people already in a Telegram. Teens may come later. They are not who we are introducing this to.
+
+This is not another feed. It is a new kind of show: every person in the group is the star.
+
+### Sequence (adults first)
+
+Long-horizon gift can still be young people. **Intro today:** adults, invite-only, a group that will actually show up. Stranger villages are cartoons. Density beats a big empty world. Do not fake a crowd. Do not open with “for teens” or “for kids.”
+
+Origin: a tool for my son. Say “my son” only — no name, no age.
+
+### What to do / not do
+
+Watching is the product, not a missing feature. Follow anyone. Replay the moment. The habit is the one-minute trailer. At night, whisper — dream-chat, a goal, “try this tomorrow.” Not a joystick. Recognition dies if they puppet every step.
+
+The village is the backlot. The trailer is the episode. Compute is the crew. Reality TV proved the appetite and could not scale: one cast, huge cost, months. Every friend group is a cast. Every day is an episode.
+
+A chatbot talks to you. A Double lives with your friends when you are not looking. GPT talks. That reaction — still sounds like you after days with your people — is the tech demo.
+
+**Try path:** show, then waitlist. Live tonight: a village you can watch, daily trailers, Survival as a mode, invite at doubland.ai. Not live: self-serve “make my village in five minutes”; a world you cannot tell from film; being inside the life instead of watching it. Do not sell the horizon as a ship date.
+
+The sentence we want: “Build one for my group.”
+
+### Consent
+
+Invite-only. A mirror for the group, not a public psych profile. We do not sell the inner file. Claim, remove, out. Delicious truth in private — not an ambush, not a public dossier. If it is cruel, we pull it. Humans own their Doubles; a company can buy a season, not the people. If someone has no group, we do not fake them a crowd and call it love.
+
+Do not claim “COPPA certified,” “fully compliant,” or any legal guarantee counsel has not given.
+
+### Comparisons (say these cold)
+
+- **The Sims** — dollhouse of strangers you puppet. Here you watch more than you drive, and the cast is people you know.
+- **TikTok** — you are the audience of everyone else. Here you are the star of a story about you and your squad.
+- **Character.AI** — it talks to you. A Double *does* things while you are not looking.
+- **Black Mirror** — the warning. We are building the positive version: rehearsal, not a trap. If it only makes people more stuck in a screen, we failed.
+- **Metaverse / second life** — those asked you to move in. We ask you to practice, watch, and come back braver.
+
+Do not say “The Sims meets TikTok.”
+
+### Magnetism, not the tables
+
+Proof is pull: a hard-to-impress adult group watches, forwards, and asks for their own season. Quotes and inbound beat a user count. If those quotes are not in hand, say so. Do not invent MAU, D1, ARR, infra cost, or “early data shows…” from the memo above.
+
+Founder-funded to date. No outside round closed. Volunteer **$5.5 million** only if they ask. Seed finishes the thing people can feel: live village, daily show, first group seasons — after the pull is real enough to put on a slide. Do not spend the round on a far-corner demo nobody watches.
+
+Say the money menu (groups / beautiful daily story / brands as places / guided experiments). Do not say a twelve-month ARR target out loud.
+
+### Far corner (whiteboard only)
+
+If there is a whiteboard: across = what you see (today’s pixels → cinema). Up = how deep you are (night whisper → being there). **Leave the top-right unlabeled.** Never say Matrix, BCI, Neuralink, chip. If they name it: pause. “Now you see where the plane goes.” Do not confirm it. Do not put it on a slide. Plant: the line between watching a life and living it disappears.
+
+This is a scratchpad with a soul — not a replacement planet.
+
+### Kill risks / growth / join
+
+Two honest kill risks: the Double is not recognizable, or we get recognition and get sloppy on consent.
+
+The unit is the village, not a global feed of strangers. Growth is a group asking for the next group. Intimacy is the network. Invite-only is density, not cover for no distribution.
+
+Co-founder: right person, any seat — builder, format, product, growth. Not a title for someone who thinks this is a cute AI wrapper. Specialists already help. A co-founder owns a whole side and stays when it is ugly.
+
+### Never say
+
+Invented users / ARR / COGS / retention. “We are backed by…”. Escape / abandon IRL / “better than life, so stay.” Matrix / BCI / Neuralink / chip. “On Doubland” / “inside Doubland.” A self-serve village tonight. A Telegram group as if it were millions of users. Draft forks (local-first, open marketplace) as the company plan. Your son’s name or age.
+
+### Close (pick one)
+
+- “Want to see what your Double would do?”
+- “If you have a group, I want to build you a season.”
+- “Watch this one-minute story. Then tell me you don’t want one.”
+- Join: “If this is the thing you cannot stop thinking about, we should talk.”
+- VC: “I don’t need you to believe a TAM slide. I need you to feel the pull — then decide.”

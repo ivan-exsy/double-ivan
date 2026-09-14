@@ -3,7 +3,7 @@
 **Status:** Draft  
 **Decision:** Founder has **not** chosen this as Canon.
 
-This folder explores a **local-first / open-scaling** direction that could accelerate growth and distribution. It may conflict with parts of the village / RealityTV Canon spine in [`../vision/north-star.md`](../vision/north-star.md).
+This folder explores a **local-first / open-scaling** direction that could accelerate growth and distribution. It may conflict with parts of the village / RealityTV Canon spine in [`../mission.md`](../mission.md).
 
 **Rules for agents**
 

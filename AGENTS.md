@@ -22,6 +22,8 @@ Doc / concept / video-WIP repo for Doubland. **Process rules** that are global l
 
 ## Recent Learnings / Changes
 
+- 2026-09-14: **Q&A dump deleted.** Unique spoken locks live in `concept/vc_msg.md` §Spoken room locks. Do not recreate `concept/Q&A.md`. In a room, that section wins over quoting the memo’s ARR/MAU tables or naming the far corner.
+- 2026-09-14: **Vision north-star folded into `concept/mission.md`.** Category, who, product shape, destination axes, and non-goals live there. `concept/vision/north-star.md` is a pointer only. Spoken rooms: `concept/vc_msg.md` §Spoken (adults first).
 - 2026-09-10: **Bernstein split on PM-VIL-2.** Park 1,052 is a **survey** twin (GSS vs own retest: interview 83% / survey 82% / combined 86%). Not a village twin. Eval = held-out in-village choice + retest ceiling. Skip 2h portal / Socrates-as-brain / public 85%. Charter `TODO_realism_matriAIx.md`. COS: `bernstein-believability-vs-accuracy`. Not a Saturday Breakfasts chunk.
 - 2026-09-09: Breakfasts live tracker is `double-docs/BREAKFASTS-BOARD.md`. Archived R3F history in `done/r3f/` (not live).
 - 2026-09-07: Breakfasts **demo on `the_ville`** while look cooks. Spec: `double-docs/MVP-breakfasts.md`.

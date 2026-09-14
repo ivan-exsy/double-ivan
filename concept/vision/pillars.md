@@ -5,7 +5,6 @@ sources:
   - ../mission.md
   - ../v0_vision.md
   - ../vc_msg.md
-  - north-star.md
 needs-review: true
 ---
 
