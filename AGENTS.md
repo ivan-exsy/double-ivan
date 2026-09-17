@@ -22,6 +22,8 @@ Doc / concept / video-WIP repo for Doubland. **Process rules** that are global l
 
 ## Recent Learnings / Changes
 
+- 2026-09-17: **LLM env-only spec locked** in `20260917_pre-MVP.md`. Next LLM pass: models + one thinking knob per tier from env (A off / B high / C high); no six-job thinking list; short leftover B jobs move to A. Votes + Watch Chat will start thinking. Cap 6.
+- 2026-09-17: **PM-BOOT-1 PASS** on `20260917-1` (`railway` `d4e5e226`). Bodies at Start; sleep/wake stickers hold. Residual: already-at-Hobbs leftover `walking to Hobbs Cafe`. T-E7 body-vs-bed still open. www Chat smoke later today. Living list `20260917_pre-MVP.md`. Cap 6.
 - 2026-09-16: **PM-AUTH-1 FE** on `ivan/pm-auth-1-chat-login` (www + map iframe). Chat without login does not send; magic link returns to Watch, not onboard. B1 spoken “yes I’m your Double” stays backend. Hard-refresh www after Promote.
 - 2026-09-16: **PM-AUTH-1 + VC-prep fold.** Chat with a Double requires magic-link login (Watch can stay anonymous; no quiz/Join unless they want a Double). Remaining `TODO_VC_prep.md` open todos live in `20260917_pre-MVP.md`. Consent stays surprise + Claim/Remove. Next Watch Chat pass: **PM-AUTH-1 + B1**. Cap 6.
 - 2026-09-16: **T-E8 caption retry PASS** on `20260916-2` @89. Person dest never drives the sticker. Hobbs walks name Hobbs. Owner Chat lore still T-E5. SOT `sot_action-location.md` §5.4 Current. Cap 6.

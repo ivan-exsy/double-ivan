@@ -21,7 +21,7 @@
 | Bodies stay on the last honest tile (tab-reuse snap) | `20260903-2` @31; generation box FE still branch `vercel` + `HEADLESS_TAB_REUSE=true` on localhost. Public Watch is a different tip (`e9f2107` on `vercel`, 2026-09-16) |
 | Challenge / vote occupancy | 1-B `20260829-1` + leftover cafe stay-keep `20260903-1` (H2 = 0, day-1 11:00 **15/15**) |
 | Cafe talk mill + leftover KEEP + stance thought | 2b mill 0; 2B `20260901-1`; 3b `20260902-3` (4 Doubles is enough) |
-| Talk unmute (encounters; leftover / same-cafe distance do not mute a sit) | `20260915-3` @500; SOT `sot_chats.md` §3c temp lock. Before LeaderTalks Watch cut: **T-E8 / T-E5 / PM-BOOT-1 / first-sight / B1–B2** → `20260917_pre-MVP.md`. Still here: **PM-VIL-6/7/9/11** |
+| Talk unmute (encounters; leftover / same-cafe distance do not mute a sit) | `20260915-3` @500; SOT `sot_chats.md` §3c temp lock. Watch cut living list: `20260917_pre-MVP.md` (T-E8 / T-E5 / PM-AUTH-1+B1 BE / PM-BOOT-1 shipped; leftover walk sentence + first-sight + B2 still open). Still here: **PM-VIL-6/7/9/11** |
 | Overlay sit + elim | `20260902-4` @2399 |
 | Drain / clean restart (launch 7a) | Drain code `6a9cbd22`; SIGTERM finishes the current minute then `stopped`; `TimeoutStopSec=960`; `KillMode=mixed`. Unit `api-gateway` (not `double-api`). Do not restore the old 30s kill |
 | Backend-table RLS (launch 7c) | Applied on `double-openrouter`, migration `20260903174000` |
@@ -52,11 +52,11 @@ Talk leftovers after unmute `20260915-3` (added 2026-09-16). **Not LeaderTalks b
 |---|---|---|---|
 | **PM-VIL-6** | Stay at the table after the last line | Open | On `20260915-3` Katya walked off Hobbs by ~06:05 after a 3-minute sit; Gosha stayed. Linger was tried and **cut** (`SOFA LINGER` 0). Chase-the-person is **PM-VIL-1**. This is “keep co-presence after a sit,” not restoring linger packing. |
 | **PM-VIL-7** | Cafe talk in the gather wait (10:30–11:00) | Open | New talks still `hard_stop:prewindow`. Occupancy stay-keep is Current; 11:00 on that tape was **4/4**. Opening talk in the wait is a product call, not a mute-village bug. |
-| **PM-VIL-8** | Caption vs body (T-E8) | **PASS** | `20260916-2` @89, `railway` `907274cf`. Person dest never drives the sticker. Place-dest stand-still (sleeping→dorm; already at Hobbs still “walking to Hobbs”) is later. SOT §5.4 Current. |
+| **PM-VIL-8** | Caption vs body (T-E8) | **PASS** | Person dest never drives the sticker (`20260916-2`). Sleep/wake no longer rewrite to `walking to {place}` (`20260917-1`). Residual: already at Hobbs can still print leftover `walking to Hobbs Cafe`. Next Watch pass in `20260917_pre-MVP.md`. SOT §5.4 Current for person dest. |
 | **PM-VIL-9** | Turn-by-turn sit (break one-LLM-call batch) | Open | Current: one model call writes the whole sit; Watch slices it. Pros: wall-clock, cost, a beginning–end script. Cons: leftover lines after a walk-off; no mid-sit interrupt. Revisit only if scripted sits start to feel fake. |
 | **PM-VIL-10** | First-sight hello | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Watch list, not a fail. Cafe hello on `20260916-2` ~07:21. Dorm next-door still silent. |
 | **PM-VIL-11** | Sleep on the bed (T-E7) | Open | Blocked. Same family as Watch snaps (**T-W10**). Do not treat as a separate sit-mute. |
-| **PM-BOOT-1** | First minute empty on Watch | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Listed, not the T-E8/T-E5 diff. `20260915-3` stayed on step 0 **16+ min**. Empty `daily_plan` (~8 min ×3) + ~70 hourly calls before minute 0 publishes. Cut first-minute boot — not only the 90s miss log (**T-E6**). |
+| **PM-BOOT-1** | First minute empty on Watch | **PASS** | Spawn Watch payload at boot (`railway` `d4e5e226`). `20260917-1`: bodies on disk ~30s after Start; day plan still ~22 min before first planned minute. Next Start also writes the database copy of step 0 (this run needed a one-time backfill). Living note: `20260917_pre-MVP.md`. |
 | **—** | S2 suggested homes/roles | Hold | No extra model hop. T-P6 leftover stills already shipped. |
 | **—** | T-W3 Saturday email-names | Parked | Manual rename; low urgency. |
 | **—** | Thought `created_at` wall-clock vs sim-time | Parked | Only if we score the 180-min mute **after a resume**. |
@@ -75,7 +75,7 @@ Talk leftovers after unmute `20260915-3` (added 2026-09-16). **Not LeaderTalks b
 | **PM-BFST-2** | Downtown tiles in Supabase | **LeaderTalks** | CSVs stay local until you promote. After **PM-BFST-1** is frozen. |
 | **PM-BFST-3** | Join on stamped Downtown apartments | **LeaderTalks** | Option C catalogue already coded. Score on first allowlisted Downtown Join (not `Residence N`). Bind this maze’s home/job — do not clone `base_family_pittsburgh`. After **PM-BFST-1**. |
 | **PM-BFST-4** | Daily 9:16 + 15s spotlight | **LeaderTalks** | Look persist is Current. Daily 60s vertical + per-person 15s “Your Double's Day”. Render craft is `video/TODO_video.md`. Telegram/WhatsApp post is founder ops. |
-| **PM-AUTH-1** | Chat requires magic-link login | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Group with **B1** for the next Watch Chat pass. Watch can stay anonymous. No quiz/Join unless they want a Double. Metrics, not B1 lore. |
+| **PM-AUTH-1** | Chat requires magic-link login | **Shipped (www smoke pending)** | BE `ivan/pm-auth-b1` + FE `ivan/pm-auth-1-chat-login`. Watch stays anonymous. No quiz/Join unless they want a Double. Owner “yes, I’m your Double” is **B1** (same ship). www Watch smoke later 2026-09-17. Living note: `20260917_pre-MVP.md`. |
 | **PM-LTALK-2** | Season Spec (cadence + `tg-survival-d{N}` tags) | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Gate to trustworthy funnel data. |
 | **PM-LTALK-3** | Pick the 15; portrayal tone | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Consent = surprise + manual Claim/Remove. |
 | **PM-LTALK-4** | Operator log (completion / forwards / inbound) | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Manual screenshots are enough. |
