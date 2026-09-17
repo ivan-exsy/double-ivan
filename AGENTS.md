@@ -7,7 +7,7 @@ Doc / concept / video-WIP repo for Doubland. **Process rules** that are global l
 - **Main-track only:** commit and push on `main`. Do **not** create `ivan/*` (or any) feature branches unless the founder explicitly asks.
 - This is **not** an eng app repo. Do not copy `generative_agents` / `double-front` branch naming here.
 - Product concept entry: `concept/mission.md`. Video taxonomy WIP: `video/sot-video.md`. Daily trailer SOT: `video/daily/SOT-new-daily.md`.
-- Pittsburgh Phaser plan lives in **`double-docs`**: board `BREAKFASTS-BOARD.md`, how-to `R3F/Pitts_Phaser.md`, spatial numbers `MVP-0.1.md`. **Breakfasts product MVP:** `double-docs/MVP-breakfasts.md`. Do not keep a second live copy in this repo. Retired R3F notes: `done/r3f/`.
+- Pittsburgh Phaser plan lives in **`double-docs`**: board `BREAKFASTS-BOARD.md`, how-to `R3F/Pitts_Phaser.md`, spatial numbers `MVP-0.1.md`. **Breakfasts product MVP:** spec `double-docs/MVP-breakfasts.md`; remaining eng `20260917_pre-MVP.md`; later `TODO_post_mvp.md` (**PM-BFST-***). Do not keep a second live copy in this repo. Retired R3F notes: `done/r3f/`.
 - Live landing ship notes (when present): dated `2026*_ux_landing_*.md` at repo root may beat aspirational docs in `double-docs/landing/`.
 
 ## Gotchas
@@ -22,6 +22,9 @@ Doc / concept / video-WIP repo for Doubland. **Process rules** that are global l
 
 ## Recent Learnings / Changes
 
+- 2026-09-16: **PM-AUTH-1 + VC-prep fold.** Chat with a Double requires magic-link login (Watch can stay anonymous; no quiz/Join unless they want a Double). Remaining `TODO_VC_prep.md` open todos live in `20260917_pre-MVP.md`. Consent stays surprise + Claim/Remove. Next Watch Chat pass: **PM-AUTH-1 + B1**. Cap 6.
+- 2026-09-16: **T-E8 caption retry PASS** on `20260916-2` @89. Person dest never drives the sticker. Hobbs walks name Hobbs. Owner Chat lore still T-E5. SOT `sot_action-location.md` §5.4 Current. Cap 6.
+- 2026-09-16: **Breakfasts remaining work split.** Pre-MVP: `20260917_pre-MVP.md`. Spec leftovers (Downtown, video, B2B, 4b UI, OAuth): **PM-BFST-1..12** in this file. Live index: `double-docs/BREAKFASTS-BOARD.md`.
 - 2026-09-14: **Q&A dump deleted.** Unique spoken locks live in `concept/vc_msg.md` §Spoken room locks. Do not recreate `concept/Q&A.md`. In a room, that section wins over quoting the memo’s ARR/MAU tables or naming the far corner.
 - 2026-09-14: **Vision north-star folded into `concept/mission.md`.** Category, who, product shape, destination axes, and non-goals live there. `concept/vision/north-star.md` is a pointer only. Spoken rooms: `concept/vc_msg.md` §Spoken (adults first).
 - 2026-09-10: **Bernstein split on PM-VIL-2.** Park 1,052 is a **survey** twin (GSS vs own retest: interview 83% / survey 82% / combined 86%). Not a village twin. Eval = held-out in-village choice + retest ceiling. Skip 2h portal / Socrates-as-brain / public 85%. Charter `TODO_realism_matriAIx.md`. COS: `bernstein-believability-vs-accuracy`. Not a Saturday Breakfasts chunk.
