@@ -79,7 +79,7 @@ Raw view count, total reactions, follower count — small at this scale, and VCs
 
 ### Tier 1 — cheap, and the play can't prove anything without them (days)
 - **Attribution + funnel.** Add source/UTM tags to the play-page deep-links and a `source` field to the waitlist; capture which episode/subject drove each signup; a simple way to read views → clicks → signups.
-- **A CTA in the content.** Today the video has *no* link/CTA (end card only). Add an end-card CTA + a tracked link in the post copy. **Re-enable the 9:16 vertical format** (built but currently disabled) — vertical wins for in-feed / Telegram sharing.
+- **A CTA in the content.** Today the video has *no* link/CTA (end card only). Add an end-card CTA + a tracked link to the post copy. **Re-enable the 9:16 vertical format** (built but currently disabled) — vertical wins for in-feed / Telegram sharing.
 - **A separate "build one for my group" capture** — distinct from the generic email waitlist. This is the wedge-demand signal that raises money; even a fake-door counts as data.
 
 ### Tier 2 — multiplies the engagement the play generates
@@ -191,3 +191,31 @@ The Tier-1 measurement layer (§6.A) is **built, deployed, and — as of 2026-06
 ---
 
 **Status (updated 2026-06-16):** Measurement layer + CTA routing complete **and verified end-to-end in production** (§9). Core demo execution ready to proceed once consent and cadence are confirmed; the remaining gate to trustworthy funnel data is operator discipline — paste the `tg-survival-d{N}` tag into each drop.
+
+---
+
+## 10. Addendum — Chen / a16z metric lens (2026-09-17)
+
+**Status:** Archive addendum only. Live operator todos stay in `20260917_pre-MVP.md`. Target KB: `cos/agents/vc/kb/raw/user-provided/a16z-andreessen-horowitz.md`.
+
+Founder notes from **Andrew Chen** (a16z; *Cold Start Problem*) interviews. Do not treat as a commitment from Chen or a16z.
+
+### What stays right in §3
+- Intensity over vanity volume at ~15/300.
+- Inbound “build one for us” + completion/forwards as money signals.
+- Measurement layer already closed (§9) — do not rebuild attribution.
+
+### What to elevate for LeaderTalks logging
+| Priority | Signal | Operator action |
+|---|---|---|
+| **Co-hero** | **Retention** — people come back and stay (daily-return / night-N watchers who saw night 1) | Log returning watchers / “same people asking for tomorrow” each drop — treat former Slide 5 as required, not optional |
+| **Co-hero** | **Pull** — people need more of it (join/claim, forwards, “build one for us,” time with Watch/show) | Same as HPVP bar; screenshot inbound |
+| Keep | Magnetism / completion | Where YouTube or proxy exists |
+| Keep | Attributable signups | Paste `tg-survival-d{N}` every post |
+| Ignore | Raw views, reaction totals, follower count | Unchanged |
+
+### Narrative fit (not a metric)
+Personalized entertainment + auto daily short video + new format — keep Truman / Doubles voice. Warm intros: CMU → LeaderTalks → X DM. Tinder-style campus party distribution = **post-MVP** (hand to Engagement / Andrew Chen specialist when executing; Legal before teen/campus claims).
+
+### Deck reframe (when numbers exist)
+Lead with **retention curve + pull** (want more), then B2B inbound quotes, then attributable funnel. Still no invented counts.
