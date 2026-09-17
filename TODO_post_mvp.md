@@ -67,13 +67,13 @@ Talk leftovers after unmute `20260915-3` (added 2026-09-16). **Not LeaderTalks b
 
 ## LeaderTalks in Pittsburgh (product MVP)
 
-**LeaderTalks** (docs also **L-Talks**) is the ship. World = Downtown Pittsburgh / PPG Cafe. New Downtown sim — do **not** reuse the old Breakfasts watch URL. Daily trailer craft: `video/TODO_video.md`. How-to / door numbers (archive): `double-docs/R3F/Pitts_Phaser.md`. Map checklist folded here **2026-09-16**; `R3F/TODOs_ivan-nicolas.md` is not the live list.
+**LeaderTalks** (docs also **L-Talks**) is the ship. World = Downtown Pittsburgh / PPG Cafe. New Downtown sim — do **not** reuse the old Breakfasts watch URL. Daily trailer craft: `video/TODO_video.md`. How-to / door numbers: `double-docs/R3F/Pitts_Phaser.md`. Occupancy + Join + scored PPG day live on `20260917_pre-MVP.md` (pulled 17 Sep). `R3F/TODOs_ivan-nicolas.md` is not the live list.
 
 | ID | Item | Status | Notes |
 |---|---|---|---|
-| **PM-BFST-1** | Downtown occupancy world | **LeaderTalks** | Nico draw is in. Remaining Ivan ticks below. Extra pads = founder gate. Do not git the maze. Cap stays 6. Do not hollow Star Loft / Wood Street / Academic Hall / YWCA / Penn Avenue Library. |
-| **PM-BFST-2** | Downtown tiles in Supabase | **LeaderTalks** | CSVs stay local until you promote. After **PM-BFST-1** is frozen. |
-| **PM-BFST-3** | Join on stamped Downtown apartments | **LeaderTalks** | Option C catalogue already coded. Score on first allowlisted Downtown Join (not `Residence N`). Bind this maze’s home/job — do not clone `base_family_pittsburgh`. After **PM-BFST-1**. |
+| **PM-BFST-1** | Downtown occupancy world | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md` 17 Sep. |
+| **PM-BFST-2** | Downtown tiles in Supabase | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md` 17 Sep. After **PM-BFST-1** is frozen. |
+| **PM-BFST-3** | Join on stamped Downtown apartments | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md` 17 Sep. After **PM-BFST-1**. |
 | **PM-BFST-4** | Daily 9:16 + 15s spotlight | **LeaderTalks** | Look persist is Current. Daily 60s vertical + per-person 15s “Your Double's Day”. Render craft is `video/TODO_video.md`. Telegram/WhatsApp post is founder ops. |
 | **PM-AUTH-1** | Chat requires magic-link login | **Shipped (www smoke pending)** | BE `ivan/pm-auth-b1` + FE `ivan/pm-auth-1-chat-login`. Watch stays anonymous. No quiz/Join unless they want a Double. Owner “yes, I’m your Double” is **B1** (same ship). www Watch smoke later 2026-09-17. Living note: `20260917_pre-MVP.md`. |
 | **PM-LTALK-2** | Season Spec (cadence + `tg-survival-d{N}` tags) | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Gate to trustworthy funnel data. |
@@ -82,21 +82,12 @@ Talk leftovers after unmute `20260915-3` (added 2026-09-16). **Not LeaderTalks b
 | **PM-BFST-5** | B2B on Watch | **LeaderTalks** | Watch header + video description: *Bring Doubland to your organization* + one-field email. No second CRM. Tune on a live Downtown day. |
 | **PM-BFST-6** | Find My Double | **LeaderTalks** | Downtown / r3f spectator only. First camera: this Double or PPG Cafe, not the whole Triangle. `double-front` stays village until that cutover. |
 | **PM-BFST-12** | Alter-ego jobs vs Option C | **LeaderTalks** | Catalogue jobs stay real rooms at Join. Daytime plans can sound like their real work; challenge text can be business-themed. Do not invent titles at Join. |
-| **PM-BFST-13** | Scored Downtown Survival day | **LeaderTalks** | After **PM-BFST-1**. 11:00 / 20:00 occupancy on **PPG Cafe** (≥80% tiles), honest leftovers, fourth wall. Headless tab-reuse already Current on village. |
+| **PM-BFST-13** | Scored Downtown Survival day | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md` 17 Sep. After **PM-BFST-1**. |
 | **PM-LTALK-1** | LeaderTalks Telegram rollout | **LeaderTalks** | The actual cohort (~300 alumni chat). Video + Downtown + Survival day above are the product; this is showing it to that group. |
 
 ### PM-BFST-1 — remaining Ivan ticks
 
-Folded from the map checklist. Nico proposes cells; you stamp. Do not ask him to write collision, rebuild Tiled, or pick new OSM homes.
-
-- [ ] **Stamp furniture colliders** — `R3F/20260909_colliders.csv`, 149 cells. Rooms stay one component from the door. Collision comes from occupancy, not Tiled art.
-- [ ] **Glance homes** after Nico’s one-room pass (PPG already looks like a cafe).
-- [ ] **Export objects** — `npx tsx scripts/export-pittsburgh-objects.ts` in `double-r3f` after the hand pass. If you rerun `place-osm-pittsburgh.ts`, export again (that generator wipes the catalog).
-- [ ] **Ingest object CSVs** into Downtown (copy his CSVs; do not re-run ingest as-is — it blanks objects).
-- [ ] **Watch canvas shows this floor** — iframe is Downtown occupancy / Tiled, not village Hobbs. Separate yes before merge to `vercel` / `double-front`. (First camera = **PM-BFST-6**. Join on stamped apartments = **PM-BFST-3**.)
-- [ ] **A\* “no path → arrive anyway”** — engine fix if it still jumps walls on Downtown.
-
-Shop doors stay: PPG `[273, 221]`, Fifth Avenue `[286, 162]`, EQT `[346, 151]`, O’Reilly `[323, 132]`, Penn `[267, 130]`. Home doors: First & Market `[264, 268]` · Gateway `[216, 150]` · Roosevelt `[314, 135]` · Midtown `[349, 149]` · Encore `[334, 105]`. Star Loft sealed.
+**Live list:** `20260917_pre-MVP.md` (pulled 17 Sep). Do not keep a second tick list here.
 
 ## After LeaderTalks
 
