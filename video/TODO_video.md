@@ -1,11 +1,13 @@
 # North star — Anya CapCut Day 1 → auto-gen uplift
 
-**Updated:** 2026-08-29 · primary video SOT = [`SOT-video.md`](SOT-video.md) (§9 closer lock). Old `sot-video.md` → `done/`. 2D→3D morph = post-MVP [`TODO_2D-3D.md`](TODO_2D-3D.md).  
+**Updated:** 2026-09-18 · primary video SOT = [`SOT-video.md`](SOT-video.md) (§9 closer lock). Old `sot-video.md` → `done/`. 2D→3D morph = post-MVP [`TODO_2D-3D.md`](TODO_2D-3D.md).  
 **Authority:** Creative bar = Anya’s approved cut. Daily contract = SOT §9. Path **[A]→[E]** below is **closed**. Watch-loop names: **Loop-A / Loop-B / Loop-C** (parked below). Do not say “send it back to A” without saying which.
 
 **Architecture:** Nightly + opener **code** is in `double-video/video/`. New extracts/packages under `double-video/data/` (gitignored). Locked 20260724-2 nights stay under eng `data/` until copied. Post-Production polishes `{package}/edit_script.json`. Rebuild cwd = `double-video`. Eng `video/` is rollback. Cold quality = recipe priors, not Save→train.
 
 **Current daily:** Closer tonight (`--sku closer`). New sim with no `vo_locked_long.txt` auto-locks from `draft_closer_tonight_vo`. Bake fails closed on `check_closer_vo_facts`. Short Scar is `--sku scar`. Episode 1 Ivan/Alex is a **specimen**, not the lock.
+
+**LeaderTalks season:** Premiere opener = **Anya’s locked L-Talks cut** (do not auto-gen a Downtown opener). Then 15 evening closers on the **Pittsburgh Downtown** maze (`20260917_pre-MVP.md` Season Spec). Village Hobbs plates will **silently** attach to PPG Cafe unless the Downtown pack below ships first.
 
 ---
 
@@ -61,15 +63,81 @@ Hero-hold cadence already exists and already exempts closer-long roles; polish d
 
 ## Open (video)
 
-Same closer skeleton. Not a second framework. Village gate is elsewhere.
+Same closer skeleton. Not a second framework. Village gather/talk is elsewhere. **LeaderTalks daily is blocked on Pittsburgh plates** (section below).
 
 | P | Work | Notes |
 |---|------|-------|
 | **Craft** | Extra P1 pictures | Namecards + readable tie / VOTING TARGET. Peak/challenge/Phaser already accepted on the Episode 1 benchmark. grok.com/imagine 2.0 (6–15s, 720p, 9:16) → kit. Do not Imagine Phaser elim. |
+| **L-Talks (blocking)** | Pittsburgh place plates + habitat_lock | Interiors, exteriors, Phaser crops, Downtown C-pack. See **LeaderTalks — Pittsburgh Downtown** below. Village Hobbs plates must not leak onto PPG. |
+| **L-Talks (drop)** | **PM-LTALK-8** YouTube chapters + Telegram blurb | Hook closer bake in **`double-video`**. Encyclopedia generator already works; closer does not call it. See below. |
 | **Optional** | [E] leftover helpers | Copy remaining helpers anytime. No bulk move of eng `video/`. Polish UX already in `double-video`. |
-| **Optional art** | Exteriors / C5/C7 / Hobbs cafe / flyover names | Interiors + Johnson Park are done. |
+| **Optional art (village only)** | Exteriors / C5/C7 / Hobbs cafe / flyover names | Village interiors + Johnson Park are done. **Does not** unblock Downtown daily. |
 | **Post-MVP** | 2D→3D morph (outsource) | Phaser scene from a sim moment → cinematic. Producer brief: [`TODO_2D-3D.md`](TODO_2D-3D.md). Do not fold into tonight’s closer. |
-| — | Not this spine | Encyclopedia Gate A–E · `[B] day_normal` · moment clips · recut Ivan/Alex. |
+| — | Not this spine | Encyclopedia Gate A–E · `[B] day_normal` · moment clips · recut Ivan/Alex · auto-gen L-Talks opener (Anya’s cut is the premiere). |
+
+---
+
+## LeaderTalks — Pittsburgh Downtown (blocking daily)
+
+**Want:** the existing closer bake (`python -m video.run_tonight_scar`, cwd `double-video`) on a Downtown sim, with Imagine refs that look like Pittsburgh, not Hobbs.
+
+**Do not:** reuse village interiors as PPG / Fifth Avenue / EQT / O’Reilly / Penn. Do not auto-gen the season opener. Encyclopedia `[C]` stays killed. Night 15 overview stays closer-shaped.
+
+Occupancy shops (doors locked in `20260917_pre-MVP.md`): **PPG Cafe** (gather) · **Fifth Avenue Market** · **EQT Supply Store** · **O’Reilly Pub** · **Penn College**. Homes: **20** apartments (`double-docs/R3F/20260918_home-wave-20.md`).
+
+Village plates live in `double-video/video/assets/village/{interior,exterior}/`. Phaser moodboard still in `generative_agents/video/assets/phaser/_moodboard/`. C1–C8 + `signature_flyover.mp4` are the_ville (`double-video/video/fly-over/`). SOT §2.1 still names `generative_agents/video/assets/…` — treat `double-video` as the live copy.
+
+### Place plates (Imagine refs)
+
+Same commission order as SOT §2.1: unlabeled Phaser crop → room inventory → Imagine (layout + style frame + continuity) → register. New files go under e.g. `double-video/video/assets/pittsburgh/`, **not** into `village/`.
+
+| # | Asset | Why daily needs it |
+|---|--------|---------------------|
+| **1** | **Workplace interiors** (empty, eye-level) for PPG Cafe, Fifth Avenue Market, EQT Supply, O’Reilly Pub, Penn College | `habitat_lock.py` stamps job+place cards and habitat beds from these plates. G3 gather / challenge table Imagine also needs PPG cafe refs. |
+| **2** | **Home interiors** — 2–3 Downtown apartment types (living + bath), not 20 unique pads | Habitat / living-last-line when the beat is at home. Phaser crop per type. |
+| **3** | **Exteriors** of the five shops + a representative homes street | Flyover / Door / weather B-roll so the city reads as Pittsburgh. |
+| **4** | **Cinematic pack Downtown twins** of C1–C8 + a Downtown Phaser `signature_flyover` | Recipe currently swaps village C-pack under weather/cliff. Village C5/C7/Hobbs-branded cafe extras stay optional village polish. |
+| **5** | **Phaser `_moodboard` crops** of those Downtown rooms (unlabeled top-down) | Imagine layout gate. Do not auto-crop from a low-res birdseye. Do not feed `*_labeled.png`. |
+
+### Code (after plates exist — otherwise bake will look like Hobbs)
+
+`habitat_lock.py` matches any `"cafe"` → `cafe_int_dining.png` (Hobbs). **PPG Cafe would silently get the village cafe.** Same risk for `"market"` / `"supply"` / `"pub"` / `"classroom"`.
+
+- Register Downtown plates; Downtown keywords **first**; **fail closed** if maze is Downtown and the plate is missing.
+- Gather/G3 Imagine: PPG Cafe refs; ban Hobbs furniture and metal shields.
+- Recipe world plates: Downtown C-pack, not `cinematic_ville_*`.
+- Prove: one cold closer on a Downtown sim (`--ignore-edit-script`). Fail if any cut still uses Hobbs / Willows / Oak Hill / Rose and Crown plates.
+
+Census G7 15-seat assets are fine for soul_15. Look photos in Supabase still do **not** feed `_find_cohort_portrait` — named portraits remain a kit requirement (identity, not maze).
+
+### PM-LTALK-8 — YouTube chapters + Telegram blurb
+
+Ticket: `double-ivan/20260917_pre-MVP.md`. BE Cloud Agent brief is the right **acceptance**, wrong **repo as primary**. Nightly closer code lives in `double-video/video/` (`run_tonight_scar`). Eng `generative_agents/video/` is rollback. `generate_description.py` exists in both; tests exist **only** in eng.
+
+**Verified 2026-09-18 (you have not been missing a closer test — there is nothing to test yet on closer packages):**
+
+| Check | Result |
+|-------|--------|
+| Encyclopedia units | `python tests/test_generate_description.py` from `generative_agents` — **24 passed** |
+| Encyclopedia Step 6 | `generate_trailer.py` still calls it (best-effort; MP4 ships if description fails) |
+| Historical paste-ready files | Yes — May 2025 encyclopedia / opener packages. Example: `generative_agents/data/20260526-3/overview_day1&003/output/youtube_description.txt` (also `…/opener&001/output/` on `20250516-2`, `20260506-5`, `20260513-1`, …). Shape: `M:SS — Name: label` + `https://doubland.ai/sim/{code}/play?t=&double=` |
+| Closer bake | **`run_tonight_scar` does not call it.** No `youtube_description.txt` under `double-video/data/` |
+| Closer `script.json` | Beats `hook` / `stake` / `pressure` / `peak` / `cliff_door` only. **No** `key_steps` / `step_range` / `time_range_sec` (those are encyclopedia Showrunner fields) |
+| Dry-run on Episode 1 closer | `python -m video.generate_description data/20260823-2/trailer_ready_day2 20260823-2 --output youtube_description_probe.txt` → skips every scene; file is title + empty “Key moments” + `https://doubland.ai/?source=yt`. Do not leave a probe on that locked package. |
+| Watch URLs | Stale `/sim/{code}/play`. Current Watch is `https://www.doubland.ai/{sim}` (`?double=` already works on the iframe). Keep `source=` (`tg-survival-premiere`, `tg-survival-d{N}`) per `sot_api.md` §10 |
+| Telegram blurb | **Does not exist** (no second file / section today) |
+
+**Do (when you say go):** hook closer packages in **`double-video`** — bake or a documented one-liner after bake writes `output/youtube_description.txt` with `M:SS` chapter lines derived from closer beats / `edit_script` windows / ledger. No new Showrunner/LLM picker. Telegram blurb = YouTube + Current Watch + `source=`. MP4 stays load-bearing if description fails. Keep encyclopedia Step 6 working. Units: copy/extend `tests/test_generate_description.py` into `double-video`. If BE opens `ivan/ltalk-closer-youtube-chapters` on `generative_agents`, PR no merge — still land the closer hook here or nightly drops stay empty.
+
+**How to test the old generator today (encyclopedia only):**
+
+```bash
+cd generative_agents
+python tests/test_generate_description.py
+python -m video.generate_description data/20260526-3/overview_day1&003 20260526-3 --source-campaign yt-d1
+```
+
+Diff against the existing `output/youtube_description.txt` in that folder.
 
 ---
 
@@ -161,7 +229,7 @@ Seeds G6 `ballots.mp4` + G7 census; habitat = namecard + mp4 (no still freeze); 
 
 - **N1–N6:** Tonight’s Scar chain · challenge teach packs in git · auto picture G1–G5+G8+G3 i2v · Soul15 seat_map C/B/A (Ivan 3.3) · interiors+Phaser crops · one-command `run_tonight_scar`.
 - **Gold replay:** CapCut CSV → `DailyGoldReplay` · C1–C8 wired · Remotion = product, CapCut = forensics only.
-- **Village interiors + Johnson Park:** inventory 0 interior TODO.
+- **Village interiors + Johnson Park:** inventory 0 interior TODO. **Does not cover Downtown.** Pittsburgh plates are open above.
 - **P1 peak/challenge/Phaser + Episode 1 closer auto-gen:** Alexis rank **11** still+clip · challenge table card-backs · FE `*_leave_phaser.png`. `20260823-2` closer locked 2026-08-27.
 
 ---
@@ -171,6 +239,7 @@ Seeds G6 `ballots.mp4` + G7 census; habitat = namecard + mp4 (no still freeze); 
 | Doc | Use |
 |-----|-----|
 | [`SOT-video.md`](SOT-video.md) | **Primary video SOT** (closer + shared craft + opener pointer) |
+| [`../20260917_pre-MVP.md`](../20260917_pre-MVP.md) | LeaderTalks Season Spec + **PM-LTALK-8** + Downtown occupancy shops |
 | [`TODO_2D-3D.md`](TODO_2D-3D.md) | **Post-MVP** 2D→3D morph — producer brief (do not bake from this) |
 | [`daily/gold/20260713-1_day1_anya/GOLD.md`](daily/gold/20260713-1_day1_anya/GOLD.md) | Anya gold hub |
 | [`../opening/TODOs-opening-trailer.md`](../opening/TODOs-opening-trailer.md) | Opener [A] WIP |

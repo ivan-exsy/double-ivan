@@ -76,10 +76,14 @@ Talk leftovers after unmute `20260915-3` (added 2026-09-16). **Not LeaderTalks b
 | **PM-BFST-3** | Join on stamped Downtown apartments | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md` 17 Sep. After **PM-BFST-1**. |
 | **PM-BFST-4** | Daily 9:16 + 15s spotlight | **LeaderTalks** | Look persist is Current. Daily 60s vertical + per-person 15s “Your Double's Day”. Render craft is `video/TODO_video.md`. Telegram/WhatsApp post is founder ops. |
 | **PM-AUTH-1** | Chat requires magic-link login | **Shipped (www smoke pending)** | BE `ivan/pm-auth-b1` + FE `ivan/pm-auth-1-chat-login`. Watch stays anonymous. No quiz/Join unless they want a Double. Owner “yes, I’m your Double” is **B1** (same ship). www Watch smoke later 2026-09-17. Living note: `20260917_pre-MVP.md`. |
-| **PM-LTALK-2** | Season Spec (cadence + `tg-survival-d{N}` tags) | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Gate to trustworthy funnel data. |
-| **PM-LTALK-3** | Pick the 15; portrayal tone | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Consent = surprise + manual Claim/Remove (runbook there). |
-| **PM-LTALK-4** | Operator log (completion / forwards / inbound) | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Manual screenshots are enough. |
-| **PM-BFST-5** | B2B on Watch | **LeaderTalks** | Watch header + video description: *Bring Doubland to your organization* + one-field email. No second CRM. Tune on a live Downtown day. |
+| **PM-LTALK-2** | Season Spec (cadence + `tg-survival-d{N}` tags) | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md`. **Locked 2026-09-18:** premiere opener + 15 evening drops; night 15 = winner/overview. |
+| **PM-LTALK-3** | Tone pass + maze init (cast exists) | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md`. soul_15 personas; do not re-pick the 15. Consent = surprise + manual Claim/Remove. |
+| **PM-LTALK-4** | Operator log (retention / pull / Showrunner rows) | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Manual screenshots are enough. |
+| **PM-LTALK-5** | Showrunner identity + one job | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Flintstone; Ivan = Showrunner #1. Doctrine `TODO_VC_prep.md` §11. |
+| **PM-LTALK-7** | Showrunner waitlist door (draft) | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Draft only until founder ships. |
+| **PM-LTALK-6** | Recruit 1–3 next Showrunners | **LeaderTalks** | Pulled to `20260917_pre-MVP.md`. After the drop; work/friends, not campus. |
+| **PM-LTALK-8** | YouTube/Telegram key-moment timecodes | **LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Reuse `generate_description.py`; hook to nightly closer; fix Watch URLs. |
+| **PM-BFST-5** | B2B on Watch | **LeaderTalks** | Watch header + video description: *Bring Doubland to your organization* + one-field email. Treat host/organize asks as Showrunner interest. No second CRM. Tune on a live Downtown day. |
 | **PM-BFST-6** | Find My Double | **LeaderTalks** | Downtown / r3f spectator only. First camera: this Double or PPG Cafe, not the whole Triangle. `double-front` stays village until that cutover. |
 | **PM-BFST-12** | Alter-ego jobs vs Option C | **LeaderTalks** | Catalogue jobs stay real rooms at Join. Daytime plans can sound like their real work; challenge text can be business-themed. Do not invent titles at Join. |
 | **PM-BFST-13** | Scored Downtown Survival day | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md` 17 Sep. After **PM-BFST-1**. |

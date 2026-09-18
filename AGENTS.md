@@ -22,6 +22,7 @@ Doc / concept / video-WIP repo for Doubland. **Process rules** that are global l
 
 ## Recent Learnings / Changes
 
+- 2026-09-18: **LeaderTalks play SOT = `20260917_pre-MVP.md`.** `TODO_VC_prep.md` is doctrine only (§10 Chen, §11 Showrunner). New tickets **PM-LTALK-5/6/7**. soul_15 cast re-init on Downtown; do not re-pick 15. Cap 6.
 - 2026-09-18: **Self-serve epic + June demo gate archived.** `done/EPIC_self-serve-double.md` / `done/TODO_mvp-release-gate.md`. Leftovers: **PM-OWN-3** Daily Dilemma; **PM-OWN-1** chapter-changed memory. Live Claim/Remove runbook: `20260917_pre-MVP.md`.
 - 2026-09-17: **LLM env-only spec locked** in `20260917_pre-MVP.md`. Next LLM pass: models + one thinking knob per tier from env (A off / B high / C high); no six-job thinking list; short leftover B jobs move to A. Votes + Watch Chat will start thinking. Cap 6.
 - 2026-09-17: **PM-BOOT-1 PASS** on `20260917-1` (`railway` `d4e5e226`). Bodies at Start; sleep/wake stickers hold. Residual: already-at-Hobbs leftover `walking to Hobbs Cafe`. T-E7 body-vs-bed still open. www Chat smoke later today. Living list `20260917_pre-MVP.md`. Cap 6.

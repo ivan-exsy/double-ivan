@@ -1,12 +1,12 @@
 # Release Gate — Telegram "Doubles" Demo as a Fundraising Asset
 
-> **2026-09-16:** Remaining **open** todos live in `20260917_pre-MVP.md` (§ LeaderTalks play + **PM-AUTH-1**). This file is the June raise-strategy archive. Measurement layer is Current (`double-docs/sot/sot_api.md` §10). Consent SOP is surprise + manual Claim/Remove (`20260917_pre-MVP.md`) — **§5 triage here is not live.** June gate: `done/TODO_mvp-release-gate.md`.
+> **2026-09-18:** Living todos (Season Spec, soul_15 maze init, operator log, Showrunner **PM-LTALK-5/6/7**, drop) live in `20260917_pre-MVP.md`. This file is **doctrine + June archive** — do **not** add todos here. Measurement layer is Current (`double-docs/sot/sot_api.md` §10). Consent SOP is surprise + manual Claim/Remove (`20260917_pre-MVP.md`) — **§5 triage here is not live.** June gate: `done/TODO_mvp-release-gate.md`.
 >
-> **2026-09-17 / 09-18 addenda:** §10 Chen/a16z retention+pull lens. §11 Cold Start **Showrunner** (hard side) lock — use this file as primary raise prep for promote / enhance / collect VC metrics.
+> **§10–§11 stay here as locks:** Chen/a16z retention+pull lens; Cold Start **Showrunner** (hard side). Operator checklist copies into pre-MVP **PM-LTALK-4**.
 
 **Date:** 2026-06-02
 **Owner:** Ivan
-**Status:** Archive + living addenda (§10–§11). Open work folded to `20260917_pre-MVP.md`.
+**Status:** Archive + doctrine (§10–§11). Open work folded to `20260917_pre-MVP.md`.
 
 **Context:** MVP is close (sims run, trailer gen mostly fixed, Nicolas integrating the video section on the landing page). This doc plans the launch play: build AI **"doubles"** of the 15 most-active members of a 300+ person elite alumni Telegram group (founders / VCs / corporate leaders), run them through **Survival**, and post daily video updates back to the group — to generate the engagement and demand signals that fuel the raise.
 
@@ -227,7 +227,7 @@ Lead with **retention curve + pull** (want more), then B2B inbound quotes, then 
 
 ## 11. Addendum — Cold Start hard side = Showrunners (LOCKED 2026-09-18)
 
-**Status:** Living raise-prep addendum. Full vision: `cos/agents/vc/kb/raw/user-provided/2026-09-18-hard-side-organizers-admin.md`. Live ops: `20260917_pre-MVP.md`.
+**Status:** Doctrine lock (not a todo list). Live ops: `20260917_pre-MVP.md` (**PM-LTALK-5/6/7** + log rows on **PM-LTALK-4**). Full vision note (if present): `cos/agents/vc/kb/raw/user-provided/2026-09-18-hard-side-organizers-admin.md`.
 
 Chen / Cold Start: seed networks die without the **hard side**. For Doubland that is **organizers**, not viewers.
 
