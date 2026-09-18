@@ -1,10 +1,12 @@
 # Release Gate — Telegram "Doubles" Demo as a Fundraising Asset
 
 > **2026-09-16:** Remaining **open** todos live in `20260917_pre-MVP.md` (§ LeaderTalks play + **PM-AUTH-1**). This file is the June raise-strategy archive. Measurement layer is Current (`double-docs/sot/sot_api.md` §10). Consent SOP is surprise + manual Claim/Remove (`20260917_pre-MVP.md`) — **§5 triage here is not live.** June gate: `done/TODO_mvp-release-gate.md`.
+>
+> **2026-09-17 / 09-18 addenda:** §10 Chen/a16z retention+pull lens. §11 Cold Start **Showrunner** (hard side) lock — use this file as primary raise prep for promote / enhance / collect VC metrics.
 
 **Date:** 2026-06-02
 **Owner:** Ivan
-**Status:** Archive. Open work folded to `20260917_pre-MVP.md`.
+**Status:** Archive + living addenda (§10–§11). Open work folded to `20260917_pre-MVP.md`.
 
 **Context:** MVP is close (sims run, trailer gen mostly fixed, Nicolas integrating the video section on the landing page). This doc plans the launch play: build AI **"doubles"** of the 15 most-active members of a 300+ person elite alumni Telegram group (founders / VCs / corporate leaders), run them through **Survival**, and post daily video updates back to the group — to generate the engagement and demand signals that fuel the raise.
 
@@ -41,6 +43,7 @@
 | Fundraising wedge | **Community/B2B pull** | Hero metric = inbound "build one for my group/company." The CTA is **"Bring this to your community,"** not a generic signup. |
 | Build first | **Attribution + CTA** | Make the funnel measurable *before* adding content features. |
 | Consent / rollout | *Pending* — leaning **triage** (see §5) | — |
+| Hard-side role title | **Showrunner** (locked 2026-09-18) | See §11. Organizers own their group run; "Admin" retired. |
 
 ---
 
@@ -219,3 +222,49 @@ Personalized entertainment + auto daily short video + new format — keep Truman
 
 ### Deck reframe (when numbers exist)
 Lead with **retention curve + pull** (want more), then B2B inbound quotes, then attributable funnel. Still no invented counts.
+
+---
+
+## 11. Addendum — Cold Start hard side = Showrunners (LOCKED 2026-09-18)
+
+**Status:** Living raise-prep addendum. Full vision: `cos/agents/vc/kb/raw/user-provided/2026-09-18-hard-side-organizers-admin.md`. Live ops: `20260917_pre-MVP.md`.
+
+Chen / Cold Start: seed networks die without the **hard side**. For Doubland that is **organizers**, not viewers.
+
+### Decision locked
+| Item | Lock |
+|---|---|
+| Role title | **Showrunner** (ownership + responsibility for *their* Doubland run). Working title “Doubland Admin” **retired**. |
+| Soft side | Viewers / claim / watch / share |
+| L-Talks model | Ivan = Showrunner #1 → recruit next Showrunners from attendees for **their own** groups (work / friends; school later, not the intro) |
+| Comp | Free for organizers; status / tools / recognition / soft credits first. **No $ pitch** this pass (Legal before any cash). |
+| North star (Chen) | Smallest Showrunner-led atomic that works; density before scale |
+
+### How this maps onto §3 money slides
+| §3 / §10 signal | Showrunner twist |
+|---|---|
+| Slide 4 inbound demand | Split: (a) soft-side “want more / claim” vs (b) **Showrunner-sourced** “run a season for my group” — (b) is the Cold Start closer for a16z |
+| Slide 5 / retention co-hero | Still log night-N returners; add whether returners are *in a named Showrunner roster* |
+| Conversion / B2B CTA | Keep `b2b_group` + `group_name`; treat as **Showrunner interest** when the ask is “host / organize for my group” |
+| Magnetism / spread | Unchanged; do not swap them for hard-side vanity |
+
+### Operator log checklist (LeaderTalks → VC deck)
+Each drop / week, capture honest zeros if empty:
+1. **Showrunner count** — named hosts who accepted (Ivan + recruits)
+2. **Activation** — % of invite roster who finished test + profile
+3. **Create+share** — Showrunner (or co-creator) originated a personal share
+4. **Showrunner-sourced pull** — named “run this for my group” (screenshot + who)
+5. **Retention** — night-N returners (same people)
+6. **Pull** — join/claim, forwards, time, want-more (HPVP bar)
+7. Tags — paste `tg-survival-d{N}` every post (§9 discipline)
+
+### Promote / enhance (raise leverage order)
+1. **Keep:** measurement tags, daily tape quality, retention+pull logging (§10).
+2. **Add now (Flintstone OK):** Showrunner identity + one job (invite → roster done → watch together); recruit 1–3 next Showrunners from L-Talks; second waitlist door copy = “You’re the Showrunner…” (draft-only until founder ships).
+3. **Defer:** cash for Showrunners; Tinder-party campus distribution; teen/public-graph Showrunner GTM; parallel empty groups.
+
+### Deck line (when true — never invent)
+Lead: retention + pull. Then: **hard side works** — named Showrunners, roster activation, Showrunner-sourced “build for my group.” Then attributable funnel. Intensity, not fake scale.
+
+### Legal / Tax
+Cash or rev-share for Showrunners → **Legal** before any promise. QSBS / entity → **Tax**. No handoff required for title lock alone.
