@@ -1,8 +1,9 @@
 # Rehears × Doubland — Assessment & Integration Plan
 
 **Audience:** Doubland team (product, FE, BE, future onboarding owner)  
-**Status:** Decisions locked 2026-07-14 → **implementation epic active**.  
-**Epic (one-pager + weekly ACs):** `double-ivan/EPIC_self-serve-double.md`  
+**Status:** Decisions locked 2026-07-14. Implementation epic **archived 2026-09-18**.  
+**Epic (archive):** `double-ivan/done/EPIC_self-serve-double.md`  
+**Leftovers:** `TODO_post_mvp.md` **PM-OWN-1** / **PM-OWN-3** (village 25 stems: **PM-VIL-2**).  
 **Branch / worktree:** `ivan/dev` → `D:\Coding\generative_agents-ivan-dev`  
 **Related SOT:** `double-docs/sot/sot_lifecycle.md` §6 · `sot_chats.md` §6 (Chat with Double v4) · `double-docs/x_next/5.2.rehears-double.md`  
 **Code:** Rehears → `D:\Coding\rehears` · Doubland FE → `double-front` · BE → `generative_agents`
@@ -349,7 +350,7 @@ Use this in a short alignment meeting; record outcomes at the top of this file w
 - Chat ownership roadmap: `double-docs/sot/sot_chats.md` §6.9 v4  
 - Historical integration sketch: `double-docs/x_next/5.2.rehears-double.md`  
 - Brand / design: `double-docs/landing/`  
-- MVP scope guard (auth deferred): `double-ivan/TODO_mvp-release-gate.md`  
+- MVP scope guard (auth deferred — historical): `double-ivan/done/TODO_mvp-release-gate.md`. Live consent: `20260917_pre-MVP.md`.  
 
 ---
 

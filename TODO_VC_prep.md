@@ -1,6 +1,6 @@
 # Release Gate — Telegram "Doubles" Demo as a Fundraising Asset
 
-> **2026-09-16:** Remaining **open** todos live in `20260917_pre-MVP.md` (§ LeaderTalks play + **PM-AUTH-1**). This file is the June raise-strategy archive. Measurement layer is Current (`double-docs/sot/sot_api.md` §10). Consent SOP is surprise + manual Claim/Remove (`TODO_mvp-release-gate.md`) — **§5 triage here is not live.**
+> **2026-09-16:** Remaining **open** todos live in `20260917_pre-MVP.md` (§ LeaderTalks play + **PM-AUTH-1**). This file is the June raise-strategy archive. Measurement layer is Current (`double-docs/sot/sot_api.md` §10). Consent SOP is surprise + manual Claim/Remove (`20260917_pre-MVP.md`) — **§5 triage here is not live.** June gate: `done/TODO_mvp-release-gate.md`.
 
 **Date:** 2026-06-02
 **Owner:** Ivan

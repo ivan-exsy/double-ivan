@@ -4,7 +4,7 @@
 **From:** Ivan / product + engineering (self-serve Double epic)  
 **Date:** 2026-07-14  
 **Status:** **Accepted 2026-07-14** — engineering may implement Week 3.3 from §9 (COS `2026-07-14-003`); FE confirm UI required before Path A apply  
-**Epic:** `EPIC_self-serve-double.md`  
+**Epic:** `double-ivan/done/EPIC_self-serve-double.md`  
 **Related:** Week 3 interview inquiry (accepted); Week 3.1 identity publish (Path A); Week 3.2 Talk-to-my-Double **API** (BE wire; FE deferred)  
 **Audience:** Subject-matter expert (not engineering). Engineering will implement your recommendations as specified under **Week 3.3**.
 
@@ -1124,7 +1124,7 @@ This report is **Peterson-informed psychometric product design**, not a clinical
 | Prior interview allow/deny, soul map, completeness, ethics | `raw/task-deliverables/2026-07-14-week3-interview-recommendations.md` §A6 §B §C §F |
 | Decision lock | `kb/wiki/decision/self-serve-interview-v1.md` |
 | ISS fields, chat caps, P3-1 episodic write-back | `double-docs/sot/sot_chats.md` §6 |
-| Epic Week 3.1–3.3 Path A / post-chat intent | `double-ivan/rehears-double/EPIC_self-serve-double.md` |
+| Epic Week 3.1–3.3 Path A / post-chat intent | `double-ivan/done/EPIC_self-serve-double.md` |
 
 ### Quotes used (from pack `## Quotes` only)
 

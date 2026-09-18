@@ -4,7 +4,7 @@
 **From:** Ivan / product + engineering (self-serve Double epic)  
 **Date:** 2026-07-14  
 **Status:** **Accepted 2026-07-14** — engineering may implement Week 3 from §9 (COS `2026-07-14-002`)  
-**Epic:** `double-ivan/rehears-double/EPIC_self-serve-double.md`  
+**Epic:** `double-ivan/done/EPIC_self-serve-double.md`  
 **Audience for this doc:** Subject-matter expert (not engineering). Engineering will implement your recommendations as specified.
 
 ---

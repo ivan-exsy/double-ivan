@@ -2,7 +2,7 @@
 
 **For:** double-front / FE team  
 **Scope doc:** `double-ivan/rehears-double/20260714_fe_request.md`  
-**Epic:** `double-ivan/rehears-double/EPIC_self-serve-double.md`  
+**Epic:** `double-ivan/done/EPIC_self-serve-double.md`  
 **Date:** 2026-07-14
 
 ---

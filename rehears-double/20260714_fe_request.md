@@ -4,7 +4,7 @@
 **From:** Ivan / Doubland BE (self-serve Double epic)  
 **Date:** 2026-07-14  
 **Status:** Ready for capacity + approach reply  
-**Epic:** `double-ivan/rehears-double/EPIC_self-serve-double.md` (Week 2)  
+**Epic:** `double-ivan/done/EPIC_self-serve-double.md` (Week 2)  
 **Related:** Rehears content reply (same day) — instrument **IPIP-BFM-25**, adult-retuned stems, **domain means only** (no teen percentiles)
 
 ---
