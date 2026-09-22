@@ -68,7 +68,7 @@ Same closer skeleton. Not a second framework. Village gather/talk is elsewhere. 
 | P | Work | Notes |
 |---|------|-------|
 | **Craft** | Extra P1 pictures | Namecards + readable tie / VOTING TARGET. Peak/challenge/Phaser already accepted on the Episode 1 benchmark. grok.com/imagine 2.0 (6–15s, 720p, 9:16) → kit. Do not Imagine Phaser elim. |
-| **L-Talks (blocking)** | Pittsburgh place plates + habitat_lock | Interiors, exteriors, Phaser crops, Downtown C-pack. See **LeaderTalks — Pittsburgh Downtown** below. Village Hobbs plates must not leak onto PPG. |
+| **L-Talks (blocking)** | Pittsburgh place plates + habitat_lock | Full maze roster: [`20260918_pittsburgh-places-video.md`](../../double-docs/R3F/20260918_pittsburgh-places-video.md). Daily closer still unblocks on five shops + 2–3 apt looks + Point. Village Hobbs plates must not leak onto PPG. |
 | **L-Talks (drop)** | **PM-LTALK-8** YouTube chapters + Telegram blurb | Hook closer bake in **`double-video`**. Encyclopedia generator already works; closer does not call it. See below. |
 | **Optional** | [E] leftover helpers | Copy remaining helpers anytime. No bulk move of eng `video/`. Polish UX already in `double-video`. |
 | **Optional art (village only)** | Exteriors / C5/C7 / Hobbs cafe / flyover names | Village interiors + Johnson Park are done. **Does not** unblock Downtown daily. |
@@ -85,27 +85,57 @@ Same closer skeleton. Not a second framework. Village gather/talk is elsewhere. 
 
 Occupancy shops (doors locked in `20260917_pre-MVP.md`): **PPG Cafe** (gather) · **Fifth Avenue Market** · **EQT Supply Store** · **O’Reilly Pub** · **Penn College**. Homes: **20** apartments (`double-docs/R3F/20260918_home-wave-20.md`).
 
+**Photo roster (sim name + real address):** [`double-docs/R3F/20260918_pittsburgh-places-video.md`](../../double-docs/R3F/20260918_pittsburgh-places-video.md). Photograph **real façades**. Interiors are **ground-floor sim rooms**, not real tower floor plans. Daily closer still only **needs** the five shops + 2–3 apartment looks + Point. The roster is the **full maze** so tomorrow’s shoot can cover every building Doubles can be tied to.
+
 Village plates live in `double-video/video/assets/village/{interior,exterior}/`. Phaser moodboard still in `generative_agents/video/assets/phaser/_moodboard/`. C1–C8 + `signature_flyover.mp4` are the_ville (`double-video/video/fly-over/`). SOT §2.1 still names `generative_agents/video/assets/…` — treat `double-video` as the live copy.
 
-### Place plates (Imagine refs)
+### Place plates (Imagine refs + photo)
 
-Same commission order as SOT §2.1: unlabeled Phaser crop → room inventory → Imagine (layout + style frame + continuity) → register. New files go under e.g. `double-video/video/assets/pittsburgh/`, **not** into `village/`.
+Same commission order as SOT §2.1 for interiors: unlabeled Phaser crop → room inventory → Imagine (layout + style frame + continuity) → register. New files go under e.g. `double-video/video/assets/pittsburgh/`, **not** into `village/`.
 
-| # | Asset | Why daily needs it |
-|---|--------|---------------------|
-| **1** | **Workplace interiors** (empty, eye-level) for PPG Cafe, Fifth Avenue Market, EQT Supply, O’Reilly Pub, Penn College | `habitat_lock.py` stamps job+place cards and habitat beds from these plates. G3 gather / challenge table Imagine also needs PPG cafe refs. |
-| **2** | **Home interiors** — 2–3 Downtown apartment types (living + bath), not 20 unique pads | Habitat / living-last-line when the beat is at home. Phaser crop per type. |
-| **3** | **Exteriors** of the five shops + a representative homes street | Flyover / Door / weather B-roll so the city reads as Pittsburgh. |
-| **4** | **Cinematic pack Downtown twins** of C1–C8 + a Downtown Phaser `signature_flyover` | Recipe currently swaps village C-pack under weather/cliff. Village C5/C7/Hobbs-branded cafe extras stay optional village polish. |
-| **5** | **Phaser `_moodboard` crops** of those Downtown rooms (unlabeled top-down) | Imagine layout gate. Do not auto-crop from a low-res birdseye. Do not feed `*_labeled.png`. |
+Do **not** use Tower at PNC Plaza (300 Fifth) for PNC Center or One PNC Plaza. Do **not** put **East Park** on VO (sim label only). Landmark pads get skyline stills, **no interiors** this wave.
+
+#### A — Daily closer (blocking — do first)
+
+| # | Asset | Why |
+|---|--------|-----|
+| **1** | **Workplace interiors** (empty, eye-level) for PPG Cafe, Fifth Avenue Market, EQT Supply, O’Reilly Pub, Penn College | `habitat_lock.py` job+place cards + habitat beds. G3 gather needs PPG cafe refs. Two cameras OK on PPG (counter + dining). |
+| **2** | **Home interiors** — 2–3 Downtown apartment types (living + bath), not 20 unique pads | Habitat / living-last-line when the beat is at home. |
+| **3** | **Exteriors** of those five shops + **Point State Park** (601 Commonwealth Place; fountain if same stop) + one homes-street | Flyover / Door / weather / outdoor habitat. Village Johnson Park maps to Point. |
+| **4** | **Phaser `_moodboard` crops** of those five shops + the 2–3 homes (unlabeled top-down) | Imagine layout gate. Do not auto-crop from a low-res birdseye. Do not feed `*_labeled.png`. |
+| **5** | **Cinematic pack Downtown twins** of C1–C8 + a Downtown Phaser `signature_flyover` | Recipe currently swaps village C-pack under weather/cliff. Can finish after the photo day. |
+
+Tick when the still is on disk under `video/assets/pittsburgh/`:
+
+- [ ] PPG Cafe interior (+ counter plate if you shoot two cameras)
+- [ ] Fifth Avenue Market interior
+- [ ] EQT Supply interior
+- [ ] O’Reilly Pub interior
+- [ ] Penn College interior
+- [ ] Those five shop façades
+- [ ] 2–3 apartment interiors (living + bath)
+- [ ] Point State Park (+ fountain)
+- [ ] One homes-street exterior
+- [ ] Phaser crops for the rooms above
+- [ ] Downtown C-pack / `signature_flyover` (ok to lag the photo day)
+
+#### B — Full maze (same trip; every pad Doubles can be tied to)
+
+Addresses in the roster. Tick when the still is on disk under `video/assets/pittsburgh/`.
+
+- [ ] **20 home façades** (First & Market, Gateway Towers, Roosevelt, Midtown, Encore + the fifteen in the roster)
+- [ ] Remaining **outdoors Doubles walk:** Market Square, Mellon Square, Gateway Center lawns, Arts Landing, Firstside Park, Mon Wharf, riverwalk, Roberto Clemente / Andy Warhol / Rachel Carson bridges. Fort Pitt Museum **grounds** only (locked pad).
+- [ ] **On the map, not enterable** (skyline / flyover, no interiors): Wyndham Grand 600 Commonwealth, Heinz Hall, Benedum, rest of PPG Place, Star Lofts, Wood Street Galleries, Point Park Academic Hall, old YWCA **305 Wood Street**
+- [ ] Unnamed OSM boxes, garages, rivers = backdrop only — do not commission as locations
 
 ### Code (after plates exist — otherwise bake will look like Hobbs)
 
-`habitat_lock.py` matches any `"cafe"` → `cafe_int_dining.png` (Hobbs). **PPG Cafe would silently get the village cafe.** Same risk for `"market"` / `"supply"` / `"pub"` / `"classroom"`.
+`habitat_lock.py` matches any `"cafe"` → `cafe_int_dining.png` (Hobbs). **PPG Cafe would silently get the village cafe.** Same risk for `"market"` / `"supply"` / `"pub"` / `"classroom"`. `INTERIOR_DIR` is hard-coded to `video/assets/village/interior/` — plates sitting only under `assets/pittsburgh/` will not load until that path (or a maze switch) exists.
 
 - Register Downtown plates; Downtown keywords **first**; **fail closed** if maze is Downtown and the plate is missing.
 - Gather/G3 Imagine: PPG Cafe refs; ban Hobbs furniture and metal shields.
-- Recipe world plates: Downtown C-pack, not `cinematic_ville_*`.
+- Recipe world plates: Downtown C-pack. Today `cinematic_pack.py` stages C1–C8 as `cinematic_ville_*`, and `nightly_scar_recipe.py` `_WORLD_PLATE_NEEDLES` is `village` / `ville_overhead` / `cinematic_ville`.
+- Phaser plant/door: `signature_flyover.mp4` is the_ville. Commission a Downtown twin; do not swap plant/door for a C-plate (SOT §11.5).
 - Prove: one cold closer on a Downtown sim (`--ignore-edit-script`). Fail if any cut still uses Hobbs / Willows / Oak Hill / Rose and Crown plates.
 
 Census G7 15-seat assets are fine for soul_15. Look photos in Supabase still do **not** feed `_find_cohort_portrait` — named portraits remain a kit requirement (identity, not maze).
@@ -114,22 +144,23 @@ Census G7 15-seat assets are fine for soul_15. Look photos in Supabase still do 
 
 Ticket: `double-ivan/20260917_pre-MVP.md`. BE Cloud Agent brief is the right **acceptance**, wrong **repo as primary**. Nightly closer code lives in `double-video/video/` (`run_tonight_scar`). Eng `generative_agents/video/` is rollback. `generate_description.py` exists in both; tests exist **only** in eng.
 
-**Verified 2026-09-18 (you have not been missing a closer test — there is nothing to test yet on closer packages):**
+**Verified 2026-09-18 (re-checked this evening — encyclopedia works; closer has nothing to test yet):**
 
 | Check | Result |
 |-------|--------|
-| Encyclopedia units | `python tests/test_generate_description.py` from `generative_agents` — **24 passed** |
-| Encyclopedia Step 6 | `generate_trailer.py` still calls it (best-effort; MP4 ships if description fails) |
-| Historical paste-ready files | Yes — May 2025 encyclopedia / opener packages. Example: `generative_agents/data/20260526-3/overview_day1&003/output/youtube_description.txt` (also `…/opener&001/output/` on `20250516-2`, `20260506-5`, `20260513-1`, …). Shape: `M:SS — Name: label` + `https://doubland.ai/sim/{code}/play?t=&double=` |
-| Closer bake | **`run_tonight_scar` does not call it.** No `youtube_description.txt` under `double-video/data/` |
-| Closer `script.json` | Beats `hook` / `stake` / `pressure` / `peak` / `cliff_door` only. **No** `key_steps` / `step_range` / `time_range_sec` (those are encyclopedia Showrunner fields) |
-| Dry-run on Episode 1 closer | `python -m video.generate_description data/20260823-2/trailer_ready_day2 20260823-2 --output youtube_description_probe.txt` → skips every scene; file is title + empty “Key moments” + `https://doubland.ai/?source=yt`. Do not leave a probe on that locked package. |
-| Watch URLs | Stale `/sim/{code}/play`. Current Watch is `https://www.doubland.ai/{sim}` (`?double=` already works on the iframe). Keep `source=` (`tg-survival-premiere`, `tg-survival-d{N}`) per `sot_api.md` §10 |
+| Encyclopedia units | `python tests/test_generate_description.py` from `generative_agents` — **24 passed**. **No** `test_generate_description.py` in `double-video`. |
+| Same module in both repos | `video/generate_description.py` is **byte-identical** (`double-video` copy vs eng rollback). |
+| Encyclopedia Step 6 | `double-video/video/generate_trailer.py` still calls it (best-effort; MP4 ships if description fails). Same in eng. |
+| Historical paste-ready files | **41** `youtube_description.txt` under `generative_agents/data/` (openers + encyclopedia). **0** under `double-video/data/`. Best example: `generative_agents/data/20260526-3/overview_day1&003/output/youtube_description.txt` — `0:00 — Gosha: …` + `/sim/20260526-3/play?t=238&double=Gosha%20Pistsov`. Also `20250516-2`, `20260506-5`, `20260513-1` openers. |
+| Closer bake | **`run_tonight_scar` does not call it.** |
+| Closer `script.json` | Beats `hook` / `stake` / `pressure` / `peak` / `cliff_door` only. **No** `key_steps` / `step_range` / `time_range_sec` (encyclopedia Showrunner fields). |
+| Dry-run (in memory, no write) | Episode 1 closer `20260823-2/trailer_ready_day2`: skips every scene; body is title + empty “Key moments” + current CTA `Watch live at doubland.ai…` + `https://doubland.ai/?source=yt`. Do **not** write a probe onto that locked package. |
+| Watch URLs | Stale `/sim/{code}/play` (module docstring still says Play mode was unshipped). Current Watch is `https://www.doubland.ai/{sim}` (`?double=` already works on the iframe). Keep `source=` (`tg-survival-premiere`, `tg-survival-d{N}`) per `sot_api.md` §10. May files often **omit** `source=` — generator added it later. |
 | Telegram blurb | **Does not exist** (no second file / section today) |
 
-**Do (when you say go):** hook closer packages in **`double-video`** — bake or a documented one-liner after bake writes `output/youtube_description.txt` with `M:SS` chapter lines derived from closer beats / `edit_script` windows / ledger. No new Showrunner/LLM picker. Telegram blurb = YouTube + Current Watch + `source=`. MP4 stays load-bearing if description fails. Keep encyclopedia Step 6 working. Units: copy/extend `tests/test_generate_description.py` into `double-video`. If BE opens `ivan/ltalk-closer-youtube-chapters` on `generative_agents`, PR no merge — still land the closer hook here or nightly drops stay empty.
+**Do (when you say go):** hook closer packages in **`double-video`** — bake or a documented one-liner after bake writes `output/youtube_description.txt` with `M:SS` chapter lines derived from closer beats / `edit_script` windows / ledger. No new Showrunner/LLM picker. Telegram blurb = YouTube + Current Watch + `source=`. MP4 stays load-bearing if description fails. Keep encyclopedia Step 6 working. Units: copy/extend `tests/test_generate_description.py` into `double-video`. BE brief `ivan/ltalk-closer-youtube-chapters` is the right **acceptance**, wrong **primary repo** — if that branch lands only on `generative_agents`, nightly closer drops stay empty.
 
-**How to test the old generator today (encyclopedia only):**
+**How to test the old generator today (encyclopedia only — this is the past work):**
 
 ```bash
 cd generative_agents
@@ -137,7 +168,14 @@ python tests/test_generate_description.py
 python -m video.generate_description data/20260526-3/overview_day1&003 20260526-3 --source-campaign yt-d1
 ```
 
-Diff against the existing `output/youtube_description.txt` in that folder.
+Compare **chapter lines** (`M:SS — Name: label` and `t=` / `double=`) to the existing `output/youtube_description.txt`. Do not expect a full-file match: May footers say waitlist; today’s generator says the Watch-live CTA and appends `source=`.
+
+To see closer fail closed (optional; write somewhere that is **not** the locked package):
+
+```bash
+cd double-video
+python -c "import json,sys; from video.generate_description import _render_description; s=json.load(open('data/20260823-2/trailer_ready_day2/script.json',encoding='utf-8')); print(_render_description(s,'20260823-2','https://doubland.ai','yt'))"
+```
 
 ---
 
