@@ -83,7 +83,7 @@ Talk leftovers after unmute `20260915-3` (added 2026-09-16). **Not LeaderTalks b
 | **PM-LTALK-7** | Showrunner waitlist door (draft) | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Draft only until founder ships. |
 | **PM-LTALK-6** | Recruit 1–3 next Showrunners | **LeaderTalks** | Pulled to `20260917_pre-MVP.md`. After the drop; work/friends, not campus. |
 | **PM-LTALK-8** | YouTube/Telegram key-moment timecodes | **LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Reuse `generate_description.py`; hook to nightly closer; fix Watch URLs. |
-| **PM-BFST-5** | B2B on Watch | **LeaderTalks** | Watch header + video description: *Bring Doubland to your organization* + one-field email. Treat host/organize asks as Showrunner interest. No second CRM. Tune on a live Downtown day. |
+| **PM-BFST-5** | B2B on Watch | **Dropped** | Dropped 2026-09-24. Irrelevant. Do not add the organization line on Watch or in the video description. |
 | **PM-BFST-6** | Find My Double | **LeaderTalks** | Downtown / r3f spectator only. First camera: this Double or PPG Cafe, not the whole Triangle. `double-front` stays village until that cutover. |
 | **PM-BFST-12** | Alter-ego jobs vs Option C | **LeaderTalks** | Catalogue jobs stay real rooms at Join. Daytime plans can sound like their real work; challenge text can be business-themed. Do not invent titles at Join. |
 | **PM-BFST-13** | Scored Downtown Survival day | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md` 17 Sep. After **PM-BFST-1**. |
