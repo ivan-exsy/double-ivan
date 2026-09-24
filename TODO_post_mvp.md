@@ -103,6 +103,7 @@ Talk leftovers after unmute `20260915-3` (added 2026-09-16). **Not LeaderTalks b
 | **PM-BFST-10** | Hide Play at step 0 | After | Play is playback, not Start. Empty first minute is **PM-BOOT-1** (Watch honesty cut). |
 | **PM-BFST-11** | Overlay beat / snapshot-refresh CTA | After | Portal overlay copy. Optional later: refresh A2 snapshot for people still on `pgh-micro-v1`. |
 | **PM-OWN-3** | Daily Dilemma / “what would my Double do?” | After | Salvaged from `done/EPIC_self-serve-double.md` **W4-b**. Adult dilemma bank **or** a Chat-with-Double mode. Retention only — not a LeaderTalks gate. One chat stack; do not port Rehears Ask My Double as a second product. |
+| **PM-BFST-15** | Meet screen: schedule adapts to the town | After | Landing Meet screen, before Join: “Your Double keeps your personality. Its schedule adapts to the town it lives in.” Front-end only. Pairs with BE `ivan/life-not-destination`. |
 | **PM-BFST-14** | Visit on invite | After | Downtown homes that are not theirs stay walls on the route. Own home, streets, parks, and shops stay open. Later: one recorded invite (who, which home, how long) opens only that home for that window. No invite exists today. Village apartment-colored halls stay walkable. Case: `double-docs/20260924_pit_2.md` (Katya through Four Gateway Center). |
 | **—** | Height / façades | Parked | `R3F/Pitts_Phaser.md` Vision. Not occupancy. |
 | **—** | `ondouble.com` leftovers | Parked | Front door is doubland.ai. Retire `api.ondouble.com` only after leftover clients move. |
