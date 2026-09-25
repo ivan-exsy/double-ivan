@@ -80,7 +80,7 @@ Talk leftovers after unmute `20260915-3` (added 2026-09-16). **Not LeaderTalks b
 | **PM-LTALK-3** | Tone pass + maze init (cast exists) | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md`. soul_15 personas; do not re-pick the 15. Consent = surprise + manual Claim/Remove. |
 | **PM-LTALK-4** | Operator log (retention / pull / Showrunner rows) | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Manual screenshots are enough. |
 | **PM-LTALK-5** | Showrunner identity + one job | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Flintstone; Ivan = Showrunner #1. Doctrine `TODO_VC_prep.md` §11. |
-| **PM-LTALK-7** | Showrunner waitlist door (draft) | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Draft only until founder ships. |
+| **PM-LTALK-7** | Showrunner waitlist door | **Done** | Done 2026-09-24. Homepage footer is the door. Founder yes on the live copy. Email, name, group name; every submit is `b2b_group`. |
 | **PM-LTALK-6** | Recruit 1–3 next Showrunners | **LeaderTalks** | Pulled to `20260917_pre-MVP.md`. After the drop; work/friends, not campus. |
 | **PM-LTALK-8** | YouTube/Telegram key-moment timecodes | **LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Reuse `generate_description.py`; hook to nightly closer; fix Watch URLs. |
 | **PM-BFST-5** | B2B on Watch | **Dropped** | Dropped 2026-09-24. Irrelevant. Do not add the organization line on Watch or in the video description. |
