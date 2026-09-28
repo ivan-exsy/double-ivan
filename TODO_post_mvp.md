@@ -2,7 +2,7 @@
 
 > **Naming (2026-09-16):** **Product MVP = LeaderTalks in Pittsburgh** (Telegram group; Downtown world). Docs also say **L-Talks**. **Breakfasts was a rehearsal**, not the MVP. Village gather + town talk is a **closed engine gate**, not the product MVP. Living lists: this file + `20260917_pre-MVP.md`. Breakfasts spec files in `double-docs/` (`BREAKFASTS-BOARD.md`, `MVP-breakfasts.md`, `MVP-breakfasts_ivan.md`, `MVP-0.1.md`) are archive — moving to `done/`.
 >
-> **Updated:** 2026-09-16 (LeaderTalks lock; Watch-honesty cut → `20260917_pre-MVP.md`). Prior: stale box/FE facts; restore after 13 Sep stub wipe; 2026-09-10 PM-VIL-2 Bernstein. Score trail: `double-ivan/done/20260910_launch.md`. Talk unmute: `double-docs/20260912_Breakfasts/20260915-3_TODOs.md`. Video craft: `double-ivan/video/TODO_video.md`. “That’s me” charter: `double-ivan/TODO_realism_matriAIx.md`.
+> **Updated:** 2026-09-28 (Pittsburgh look + invited visit moved here from `double-docs/Pittsburgh_TODOs.md`; **PM-SEC-7** private sim admin, after MVP). Prior: 2026-09-16 (LeaderTalks lock; Watch-honesty cut → `20260917_pre-MVP.md`); stale box/FE facts; restore after 13 Sep stub wipe; 2026-09-10 PM-VIL-2 Bernstein. Score trail: `double-ivan/done/20260910_launch.md`. Talk unmute: `double-docs/20260912_Breakfasts/20260915-3_TODOs.md`. Video craft: `double-ivan/video/TODO_video.md`. “That’s me” charter: `double-ivan/TODO_realism_matriAIx.md`.
 >
 > **Filename** `TODO_post_mvp.md` is historical. This file holds (1) work **for LeaderTalks**, (2) work **after** LeaderTalks. Rows say which.
 >
@@ -84,7 +84,7 @@ Talk leftovers after unmute `20260915-3` (added 2026-09-16). **Not LeaderTalks b
 | **PM-LTALK-6** | Recruit 1–3 next Showrunners | **LeaderTalks** | Pulled to `20260917_pre-MVP.md`. After the drop; work/friends, not campus. |
 | **PM-LTALK-8** | YouTube/Telegram key-moment timecodes | **LeaderTalks** | Pulled to `20260917_pre-MVP.md`. Reuse `generate_description.py`; hook to nightly closer; fix Watch URLs. |
 | **PM-BFST-5** | B2B on Watch | **Dropped** | Dropped 2026-09-24. Irrelevant. Do not add the organization line on Watch or in the video description. |
-| **PM-BFST-6** | Find My Double | **LeaderTalks** | Downtown / r3f spectator only. First camera: this Double or PPG Cafe, not the whole Triangle. `double-front` stays village until that cutover. |
+| **PM-BFST-6** | First frame | **LeaderTalks** | Every maze. Logged in with their Double on the map: camera starts close on that Double. Otherwise: that map’s center, slight zoom-in; stickers stay readable; a sticker click zooms in and opens the card. |
 | **PM-BFST-12** | Alter-ego jobs vs Option C | **LeaderTalks** | Catalogue jobs stay real rooms at Join. Daytime plans can sound like their real work; challenge text can be business-themed. Do not invent titles at Join. |
 | **PM-BFST-13** | Scored Downtown Survival day | **Before LeaderTalks** | Pulled to `20260917_pre-MVP.md` 17 Sep. After **PM-BFST-1**. |
 | **PM-LTALK-1** | LeaderTalks Telegram rollout | **LeaderTalks** | The actual cohort (~300 alumni chat). Video + Downtown + Survival day above are the product; this is showing it to that group. |
@@ -104,8 +104,10 @@ Talk leftovers after unmute `20260915-3` (added 2026-09-16). **Not LeaderTalks b
 | **PM-BFST-11** | Overlay beat / snapshot-refresh CTA | After | Portal overlay copy. Optional later: refresh A2 snapshot for people still on `pgh-micro-v1`. |
 | **PM-OWN-3** | Daily Dilemma / “what would my Double do?” | After | Salvaged from `done/EPIC_self-serve-double.md` **W4-b**. Adult dilemma bank **or** a Chat-with-Double mode. Retention only — not a LeaderTalks gate. One chat stack; do not port Rehears Ask My Double as a second product. |
 | **PM-BFST-15** | Meet screen: schedule adapts to the town | Done | Done 2026-09-24. First-time Meet, before Join: “Your Double keeps your personality. Its schedule adapts to the town it lives in.” Review Meet unchanged. Front-end only. Pairs with BE `ivan/life-not-destination`. |
-| **PM-BFST-14** | Visit on invite | After | Downtown homes that are not theirs stay walls on the route. Own home, streets, parks, and shops stay open. Later: one recorded invite (who, which home, how long) opens only that home for that window. No invite exists today. Village apartment-colored halls stay walkable. Case: `double-docs/20260924_pit_2.md` (Katya through Four Gateway Center). |
-| **—** | Height / façades | Parked | `R3F/Pitts_Phaser.md` Vision. Not occupancy. |
+| **PM-BFST-14** | Visit on invite | After | Someone may enter another apartment when invited. Own home stays open either way. Downtown homes that are not theirs stay walls on the route. Streets, parks, and shops stay open. Later: one recorded invite (who, which home, how long) opens only that home for that window. No invite exists today. Village apartment-colored halls stay walkable. Case: `double-docs/20260924_pit_2.md` (Katya through Four Gateway Center). Moved off the Pittsburgh open list 2026-09-28. |
+| **—** | Height / façades | Parked | Enough outside that PPG Place, the Point, Grant, and Market Square read without a legend. `double-front`. Do not rewrite collision CSVs to match the picture. `double-docs/R3F/Pitts_Phaser.md` Vision. Not occupancy. Moved off the Pittsburgh open list 2026-09-28. |
+| **—** | Smoother walking | Parked | Advice only. Keep 4:1. Paths stay 4-way in the engine. Playback that follows a smoother path is `double-front`, after those paths exist. `double-docs/R3F/Pitts_Phaser.md` §Current vs Desired. Moved off the Pittsburgh open list 2026-09-28. |
+| **—** | Building sprite factory | Parked | WPRDC footprints, LiDAR, Overture, Wikimedia heroes. `double-front`, after a watchable town is on the preview. Google meshes stay banned as shipped assets. Moved off the Pittsburgh open list 2026-09-28. |
 | **—** | `ondouble.com` leftovers | Parked | Front door is doubland.ai. Retire `api.ondouble.com` only after leftover clients move. |
 
 ---
@@ -152,9 +154,18 @@ Keep **landing + viewer on Vercel** and **generation + API gateway on the sim VP
 | **PM-SEC-1** | **Admin via Tailscale (or similar); no public SSH** | Biggest cheap win. Keys only, one key per device; close provider SSH from the open internet once Tailscale SSH works. |
 | **PM-SEC-2** | **Tight VPS firewall** | Allow only what production needs inbound (HTTPS to the gateway for Vercel proxies / public read APIs). Drop everything else; keep headless FE on localhost. |
 | **PM-SEC-3** | **Optional shield on `api.doubland.ai` only** | Cloudflare (or equivalent WAF/rate-limit) in front of the **API hostname** if abuse shows up — not in front of `www.doubland.ai` / Vercel. Do not put a second CDN in front of landing. |
-| **PM-SEC-4** | **Public API abuse controls** | Rate-limit + bot checks on waitlist and other unauthenticated routes; keep sim start/stop/control behind auth. |
+| **PM-SEC-4** | **Public API abuse controls** | Rate-limit + bot checks on waitlist and other unauthenticated routes. Sim create / start / stop is **PM-SEC-7**, not a public login. |
 | **PM-SEC-5** | **Write the security model down** | Short note in the VPS deploy runbook: what is public, what is Tailscale-only, what agents must not “fix” (open ports, bind services to `0.0.0.0`, disable firewall). |
 | **PM-SEC-6** | **Backups before new services** | Provider snapshots + tested restore of `.env.local.vps-prod` / critical config; don’t add new daemons until restore is boring. |
+| **PM-SEC-7** | **Private sim admin page** | After MVP. Screen for create, start, continue, gentle stop, and the log. Tailscale only. Detail below. |
+
+**PM-SEC-7 — private sim admin page** *(locked 2026-09-26; parked after MVP 2026-09-28).* Founder Tailscale account is live. Desktop and phone apps are installed. The VPS is not on Tailscale yet; that install happens in the same idle window as the gateway restart.
+
+The page replaces the SSH curl runbook for day-to-day runs. It lists runs (name, step, target, maze, time since the last step), shows the latest log lines, and has create, start, and stop. Start on an existing run is also continue: same code, picks up the last saved step. Stop is the gentle one (finish the current step, keep saved minutes) and asks for a confirm.
+
+Create, start, and stop answer on the Tailscale address and on localhost on the box. `api.doubland.ai` keeps Watch, Join, and Chat, and loses those three actions. SSH curl on the box stays the fallback.
+
+Off the page: restarting the gateway or the headless player, force-kill, scoring, pause. Those stay SSH. Own commit. Ship only while nothing is generating, because turning the lock on restarts the gateway.
 
 **Out of scope here:** moving FE/landing onto the VPS; Caddy+SQLite “whole product on one box”; Claude-in-tmux as the primary production admin path. Those fight the current Vercel + VPS + Supabase split.
 
@@ -247,6 +258,7 @@ External framing (context engineering vs memory engineering): memory = what pers
 | **PM-MEM-CTX-5** | **Repetitive-step context delta** — on low-novelty / same-act consecutive steps, reuse or delta-pack prior context instead of full re-retrieve + full rebuild. |
 | **PM-MEM-CTX-6** | **Prompt-cache utilization** — byte-stable prefixes; volatile memory after stable block; track cache hit rate + tokens/routine-step next to Section 9. |
 | **PM-MEM-CTX-7** | **Awareness under smaller windows** — prefer structured scratch/schedule/partners/inbox for routine steps; spend episodic retrieve on plan/chat/reflect and novelty spikes. |
+| **PM-MEM-CTX-8** | **Memory across worlds, aware of the moment** *(added 2026-09-26)*. A Double keeps memories from every sim it lived in, and recall understands the moment: which world, which date, who is here. The current world ranks first. Another world’s memory comes back as a memory (“last season in the village…”), never as today’s appointment. **MVP shortcut in force:** recall reads only the current sim (planning, reflection, chat, votes); Ivan’s call 2026-09-26, to ship LeaderTalks. **Failed attempt:** a prompt sentence (`generative_agents` `5e43d5c9`, “a challenge or a vote they remember already happened”). On `20260925-2` it lost to Gosha’s stored “plan for Saturday September 26” from `20260924-4`, which recall returned because it looks people up by name across every sim. Result: the Silent Pact and a vote booked on a Survival-off family day. **Lifting the shortcut needs at least:** each recalled memory shows its world and date in the prompt; a dated plan from another world never feeds today’s plan; a score on a family fork whose dates overlap an older Survival run (the adversarial case). Case: `double-docs/20260925-1_pitt_vps.md`; plan `double-docs/Pittsburgh_TODOs.md` item 3. |
 
 **Success criteria (when scheduled):** lower tokens and higher cache hits on routine stretches; equal or better naturalness and Double situational awareness (who/what/where now); no forced-fallback or freshness regressions. Validate with §4 safe tuning loop in `sot_memory.md`.
 
