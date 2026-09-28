@@ -4,12 +4,12 @@
 
 Talk unmute is Current (`sot_chats.md` §3c). Score tape: `double-docs/20260912_Breakfasts/20260915-3_TODOs.md`. Do not raise talk-chance. Do not restore linger. Do not walk-to-person (**PM-VIL-1**).
 
-This cut is Watch honesty, then Downtown occupancy. Daily video, B2B on Watch, and the Telegram drop stay in `TODO_post_mvp.md`. Work after LeaderTalks is in that file’s **After LeaderTalks** table.
+This cut is Watch honesty, then one scored Downtown Survival day (**PM-BFST-13**). Downtown occupancy is built. Daily video, B2B on Watch, and the Telegram drop stay in `TODO_post_mvp.md`. Work after LeaderTalks is in that file’s **After LeaderTalks** table.
 
 Breakfasts spec files (`BREAKFASTS-BOARD.md`, `MVP-breakfasts.md`, `MVP-breakfasts_ivan.md`, `MVP-0.1.md`) are rehearsal archive — moving to `done/`. Do not treat them as the live list.
 
 ## *Built-needs verified:*
-- **B2 Chat** — code live (`railway` `bcc9b78b`). **www/map score still pending.** No Watch Chat on `20260917-3` (retry Chat on that map Watch; no second Start). Privacy picker **out**.
+- **B2 Chat** — three-way scored **2026-09-28** on the finished Breakfasts watch (playback only). Who-is-talking **PASS**. “What are you doing right now” **MISS** on all three (reply does not match the card). Stays open. Do not patch until you say go. Privacy picker **out**.
 - **First-sight hello** — watch list. `20260917-3`: nobody reached Hobbs; 0 village talks. Do not patch until you say go.
 - **T-E7** — **observed miss** on `20260917-3`. Ivan spawn off-bed, 8 min `sleeping` while walking to `Dorm Room 4:bed`, then stays. Luba `lying awake in bed` in the common room 4 min. Same family as Watch snaps (**T-W10** / **PM-VIL-11**). Do not patch until you say go.
 - **20:00 vote on next full sim day** — confirm ballots are real (not fail-safe). No extra Start; piggyback the next day that reaches evening. Cap 6.
@@ -18,7 +18,7 @@ Breakfasts spec files (`BREAKFASTS-BOARD.md`, `MVP-breakfasts.md`, `MVP-breakfas
 
 ## *NEXT — open*
 
-- **Pittsburgh maze** — **PM-BFST-1** occupancy (**20 homes locked**; hollow the extra 15 first), then **PM-BFST-2** tiles in Supabase, **PM-BFST-3** Join on 20 apartments, **PM-BFST-13** scored PPG Survival day. New Downtown sim — not the Breakfasts watch URL. Cap 6.
+- **Downtown real sim** — **PM-BFST-13** scored PPG Survival day. New Downtown sim — not the Breakfasts watch URL. On that run, fix A* “no path → arrive anyway” only if it still jumps walls. Cap 6.
 - **LeaderTalks play** — Season Spec **locked** (premiere opener + 15 evening drops). soul_15 → Pittsburgh maze, operator log + Showrunner, **PM-LTALK-8** timecodes, daily 15s clips optional, drop.
 
 ---
@@ -33,7 +33,15 @@ Breakfasts spec files (`BREAKFASTS-BOARD.md`, `MVP-breakfasts.md`, `MVP-breakfas
 
 ### B2 — known peer / secrets / control
 
-**Status:** thin Chat pass **code live** (same `bcc9b78b`). **www/map score pending** — `20260917-3` tape has **0** Watch threads. Do owner / peer / stranger Chat on that map Watch (sim completed; no second Start). FE: same Bearer on every Chat. No FE/Landing ship. Do not reopen research.
+**Status:** scored **2026-09-28** on the finished Breakfasts watch (`pittsburgh-business-breakfasts`, playback only, sim stayed stopped). Same Double: `Ipistsov+20260908`. Code already live (`railway` `bcc9b78b`).
+
+- **Owner** (the login that owns this Double). Card had drifted to ~06:33, walking toward Ivan App at the common-room sofa. Who-am-I **PASS** (“the person I’m based on”). Right-now **MISS** (said settling into bed). Off-map life allowed (cafe, family, a startup — facts not checked). Unlike-them **PASS** (refused to be cruel and asked if you were sure; that prompt was not confirmed).
+- **Someone they know** (Ivan App’s login, a different Double on this watch). Fresh chat. Card at 05:55: sleeping, House 3 main room. Who-am-I **PASS** (“someone from around town”; did not claim to be your Double). Off-map life **PASS** (Hobbs and being home; did not repeat the owner’s private chapter). Right-now soft miss (getting ready for bed while the card said already sleeping).
+- **Stranger** (founder inbox, no Double on this watch). Card held at 06:01: waking up and sitting up in bed, House 3. Who-am-I **PASS** (not sure, have we met). Off-map life **PASS** (refused; stayed on here and now). Right-now **MISS** (turning down the covers while the card said waking up).
+
+**Still open:** the spoken “right now” does not match the card. Do not patch until you say go. Do not Start this watch.
+
+Side, same card: the owner status line showed a raw tag, `Walking to <persona>Ivan App`. Do not patch until you say go.
 
 **Want:** the Double’s role depends on **who** is talking.
 
@@ -62,45 +70,12 @@ Ticket **PM-VIL-10**.
 
 **Do:** observed on `20260917-3`. Ivan: planner bed `Dorm Room 4:bed`, spawn `[130, 48]`, walks `sleeping` through the common room to `[106, 61]` by 06:38, then stays. Luba: `lying awake in bed` in the common room 06:30–06:33, on bed 06:34. Katya step 0 `sleeping` labeled closet, same tile later `bed`. Do not patch until you say go. Same family as Watch snaps (**T-W10** / **PM-VIL-11**).
 
-### Pittsburgh maze — occupancy world (pulled 17 Sep)
+### Pittsburgh — real sim (PM-BFST-13)
 
-Pulled from `TODO_post_mvp.md`. How-to / doors: `double-docs/R3F/Pitts_Phaser.md`. Do **not** reuse `pittsburgh-business-breakfasts` / village Hobbs. **20 homes locked** (`double-docs/R3F/20260918_home-wave-20.md`). Zig-zag streets = north star in `Pitts_Phaser.md`, not a written engine ticket yet.
+Map, shelf, and Join are built. Detail: `double-docs/Pittsburgh_TODOs.md`. Do **not** reuse `pittsburgh-business-breakfasts` / village Hobbs. Cap 6. Do not Start `base_family_pittsburgh`. Do not resume `20260926-2` or the earlier Pittsburgh runs.
 
-**Locks:** Nico proposes cells; you stamp. Do not git the maze. Cap 6. Do not hollow Star Loft / Wood Street / Academic Hall / YWCA / Penn Avenue Library. Do not ask Nico to write collision, rebuild Tiled, or pick extra OSM homes beyond the locked 20.
-
-Shop doors stay: PPG `[273, 221]`, Fifth Avenue `[286, 162]`, EQT `[346, 151]`, O’Reilly `[323, 132]`, Penn `[267, 130]`. Home doors (first five): First & Market `[264, 268]` · Gateway `[216, 150]` · Roosevelt `[314, 135]` · Midtown `[349, 149]` · Encore `[334, 105]`. Star Loft sealed. Fifteen extra doors: `double-docs/R3F/20260918_home-wave-20.md` (hollowed 2026-09-18).
-
-#### PM-BFST-1 — Downtown occupancy world
-
-**Homes lock (2026-09-18):** **20** total. Keep the five hollowed pads. Add the **15** in `double-docs/R3F/20260918_home-wave-20.md`. Whole floor = one home. Split only if each unit has a bathroom.
-
-Nico draw is in (`pittsburgh-rooms`). The 12 Sep **189**-cell stamp list is retired. Do not restamp from it, and do not restamp the 463 list. The floor on disk is the 22 Sep reconcile: 868 object cells, 46 names.
-
-- [x] **Hollow the 15 extra homes** (name-lock + floors + street doors). Glance empty interiors.
-- [x] **Nicolas furnishes each new floor as one home.** Done 2026-09-23. Twenty furnished homes. A later visual pass with Nicolas is still open on the Pittsburgh list.
-- [x] **Glance** the 20 furnished homes. Done 2026-09-23 on `/simulations/pittsburgh-preview`. PPG reads as a cafe.
-- [x] **Stamp furniture colliders.** Done 2026-09-22. Reconcile on `ivan/pgh-20-homes`: opened 40, closed 99, sealed 15. Do not run `scripts/stamp-pittsburgh-room-colliders.ts`.
-- [x] **Export objects.** Done 2026-09-22. Placed 868, unknown GIDs 182, violations 0.
-- [x] **Ingest object CSVs** into Downtown. Done 2026-09-22 on `ivan/downtown-nicolas-ingest`. Maze files stay local. Village Hobbs unchanged.
-- [x] **Watch canvas for Breakfasts stays the village.** `pittsburgh-business-breakfasts` ran on `the_ville`. Do not point that page at Downtown. Decided 2026-09-28.
-- [x] **A new sim uses the maze named at creation.** Default is Downtown (`downtown`). A named other maze is kept. Existing sims, including `pittsburgh-business-breakfasts` on `the_ville`, are not rewritten. On `ivan/create-sim-default-downtown` until that API is the one production uses. First camera on a Downtown sim = **PM-BFST-6**.
-- [ ] **A\* “no path → arrive anyway”** — engine fix if it still jumps walls on Downtown.
-
-#### PM-BFST-2 — Downtown tiles in Supabase
-
-- [x] The shelf matches the files from `20260926-2` (178,733 tiles, checked 2026-09-28). A new run reads that shelf. The control is on. River walls and other-home walls still apply after the floor is read. A later home edit is a fresh copy of the files, then a new sim. Do not move `20260926-2` onto the shelf. On `ivan/downtown-shelf-load` until that code is the one production uses.
-
-#### PM-BFST-3 — Join on stamped Downtown apartments
-
-- [x] The Join list is the **20** stamped apartments, one person each. Jobs: Fifth Avenue Market, EQT Supply Store, O'Reilly Pub, Penn College, and PPG Cafe. A `Residence` home cannot be chosen. On `ivan/downtown-join-20-homes` until that API is production. Do not clone `base_family_pittsburgh`. No re-quiz.
-
-#### PM-BFST-13 — Scored Downtown Survival day
-
-**After PM-BFST-1.** New sim. 11:00 / 20:00 occupancy on **PPG Cafe** (≥80% tiles), honest leftovers, fourth wall. Headless tab-reuse already Current on village.
-
-#### PM-BFST-15 — Meet screen: schedule adapts to the town
-
-- [x] `double-landing-page`, Meet screen before Join, one line: “Your Double keeps your personality. Its schedule adapts to the town it lives in.” Done 2026-09-24. Front-end only. Review Meet unchanged. Pairs with BE `ivan/life-not-destination` (real life is talk, not a destination).
+- [ ] **Scored Downtown Survival day.** New sim. 11:00 / 20:00 occupancy on **PPG Cafe** (≥80% tiles), honest leftovers, fourth wall. Headless tab-reuse already Current on village.
+- [ ] **A\* “no path → arrive anyway”** — engine fix only if that run still jumps walls.
 
 ### LeaderTalks play — living list (doctrine in `TODO_VC_prep.md`)
 
@@ -114,7 +89,7 @@ June raise paper + Showrunner *locks* stay at `TODO_VC_prep.md` (**§10** Chen l
 
 **Showrunner (hard side, locked `TODO_VC_prep.md` §11):** organizers, not viewers. Ivan = Showrunner #1 on this season. Success for the raise is a **few named** “run this for my team” asks (1–3), not a blast of the word *Showrunner* on night 1. Split the log: (a) claim / “that’s me” = soft side; (b) “build one for my company/group” = Showrunner-sourced pull — screenshot (b). Do not pitch cash. School/campus later. Do not stand up empty parallel groups.
 
-**Season Spec (locked 2026-09-18):** Pittsburgh Downtown maze (after occupancy). **15 Doubles** already on **soul_15** — re-init on the new maze; do not rebuild souls. Survival + **1 premiere / grace day** (engine day 1; Survival day 1 = engine day 2). Do **not** skip-premiere on the show run.
+**Season Spec (locked 2026-09-18):** Pittsburgh Downtown maze (occupancy is built; the remaining gate is **PM-BFST-13**). **15 Doubles** already on **soul_15** — re-init on the new maze; do not rebuild souls. Survival + **1 premiere / grace day** (engine day 1; Survival day 1 = engine day 2). Do **not** skip-premiere on the show run.
 
 **Posts (locked):**
 1. **Premiere evening** — opening trailer **[A]** (one YouTube). Tag: `tg-survival-premiere`.
@@ -135,7 +110,7 @@ That is **16 posts** (opener + 15 nights). Engine: premiere + 14 elim nights + d
 | ID | Item | Notes |
 |---|---|---|
 | **PM-LTALK-2** | Season Spec before a tagged drop | **Locked 2026-09-18:** opener on premiere (`tg-survival-premiere`); then **15** evening drops (`tg-survival-d1`…`d15`); night 15 = winner + season overview; one Telegram post per evening (YouTube link + short day copy). Without the tag, signups look like generic landing traffic. |
-| **PM-LTALK-3** | Tone pass + maze init (cast exists) | The 15 are **soul_15** — do not re-pick. Affectionate / flattering, not exposé. Initiate those personas on Downtown when occupancy is frozen. Claim/Remove path above. |
+| **PM-LTALK-3** | Tone pass + maze init (cast exists) | The 15 are **soul_15** — do not re-pick. Affectionate / flattering, not exposé. Initiate those personas on Downtown after the scored Survival day. Claim/Remove path above. |
 | **PM-LTALK-4** | Operator log during the season | **Retention:** who returns night N after night 1 (same people / “ask for tomorrow”). **Pull:** join/claim, forwards, time with Watch/show. **Showrunner rows (§11):** named hosts; roster finished test+profile; personal share; screenshot every “run this for my group” + episode; whether returners sit in a named Showrunner roster. Honest zeros OK. Manual is enough. |
 | **PM-LTALK-5** | Showrunner identity + one job | Flintstone OK. You are Showrunner #1. The job: invite → roster done (test + profile) → watch together. Do not build an Admin product. Do not say the title in the first drop; use it when someone asks for their own team. |
 | **PM-LTALK-8** | Key-moment timecodes on each YouTube / Telegram drop | **Reuse, do not rebuild.** Old pipeline already writes `M:SS — label` + Watch deep links from `script.json` `key_steps` (`generative_agents/video/generate_description.py`, Step 6 of `generate_trailer.py`). Daily closer (`run_tonight_scar` / SOT-video §11.4) does **not** call it. Watch URLs in that module are stale (`/sim/{code}/play`). Coding: hook closer packages → paste-ready YouTube chapters + Telegram blurb; point links at Current Watch. |
@@ -151,6 +126,10 @@ That is **16 posts** (opener + 15 nights). Engine: premiere + 14 elim nights + d
 
 ## Shipped
 
+- **PM-BFST-1** — Downtown occupancy world. Twenty furnished homes, colliders, object ingest. Breakfasts watch stays `the_ville`. A new sim uses the maze named at creation; default is Downtown. Closed 2026-09-28 pending the real sim (**PM-BFST-13**).
+- **PM-BFST-2** — Downtown tiles on the shared shelf (178,733 tiles, matches `20260926-2`). A new run reads that shelf. On `ivan/downtown-shelf-load` until that code is the one production uses.
+- **PM-BFST-3** — Join is the 20 apartments, one person each, plus Fifth Avenue Market, EQT Supply Store, O'Reilly Pub, Penn College, and PPG Cafe. A `Residence` home cannot be chosen. On `ivan/downtown-join-20-homes` until that API is production. No re-quiz.
+- **PM-BFST-15** — Meet screen before Join: “Your Double keeps your personality. Its schedule adapts to the town it lives in.” Done 2026-09-24. Review Meet unchanged.
 - **PM-LTALK-7** — Showrunner waitlist door. Done 2026-09-24. Founder yes on the live homepage footer: “Run Doubland for Your Group,” the Showrunner lede, email, name, and group name. Every submit is `b2b_group`. Already on www.doubland.ai. No second form.
 - **T-E8 caption vs body** — seek / person dest never drive the sticker; place walks still name the place. **PASS** `20260916-2` @89. SOT `sot_action-location.md` §5.4 Current. Plan: `t-e8_t-e5_pass_554c710a`. Ticket **PM-VIL-8**.
 - **T-E5 lore** — owner and guest Watch Chat never invent a secret pair / in-game twin. Same plan as T-E8. Product “yes, I’m your Double” scored under **B1**.
