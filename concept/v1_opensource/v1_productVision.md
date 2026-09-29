@@ -21,7 +21,7 @@
 
 ## 2) Target audience & positioning
 ### Initial target (practical launch)
-- Social, game-curious users who like watching stories: teens/young adults + friend groups.
+- Social, game-curious adults (18+) who like watching stories, in invite-only friend groups.
 - Early adopters: creators who want to design worlds, events, and economies.
 
 ### Positioning

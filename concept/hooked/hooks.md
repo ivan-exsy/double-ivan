@@ -32,7 +32,7 @@ This document outlines all ideas for making simulations engaging, drawing from e
 Double is an AI-powered social simulation app that lets users create a digital twin—called a "Double"—of themselves through a quick personality quiz, then drop it into shared virtual worlds with real-life friends or groups. These avatars interact autonomously in fun, unpredictable scenarios like peer drama or triumphs, delivering binge-worthy entertainment while sparking self-reflection and stronger group bonds.
 
 ### *Target market and customer segment*
-Double targets high school teens aged 13-18 in the U.S., a demographic eager for fun, low-pressure ways to explore social dynamics, personal identity, and group interactions.
+Double targets adults (18+) in invite-only friend groups, a demographic eager for fun, low-pressure ways to explore social dynamics, personal identity, and group interactions.
 This customer segment includes individuals who enjoy social networks & games, and potentially seeking subtle self-growth through insights into peer behaviors and decision-making.
 
 ---

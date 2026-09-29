@@ -76,11 +76,11 @@ This is not escapism. This is rehearsal at the highest fidelity. When the simula
 Doubland monetizes natively as a new media format. Every premium feature either deepens immersion for users or lets brands participate inside the reality show. The four primary streams are designed to offset the core infra cost ($2.6M annual at 100k MAU) while creating multiple high-margin revenue lines.
 
 ### 1. Branded Simulation Real Estate (Primary for Seed)
-Brands pay to place their locations inside active villages (Giant Eagle, Starbucks, Carnegie Library, local high-school hangouts, etc.). These become natural backdrops where Doubles work, date, study, or hang out — exactly as in real life.
+Brands pay to place their locations inside active villages (Giant Eagle, Starbucks, Carnegie Library, local hangouts, etc.). These become natural backdrops where Doubles work, date, study, or hang out — exactly as in real life.
 
 - Pricing: $8k–$25k per location per 6-month placement (tiered by brand size and exclusivity).
 - 12-month target: 8–12 paid locations generating **$180k–$250k ARR**.
-- Why it works: Teens already accept branded environments in games and social platforms. Done tastefully, it increases world realism and gives brands measurable engagement inside a new reality format. This stream directly offsets infra cost and validates the media thesis.
+- Why it works: Adults already accept branded environments in games and social platforms. Done tastefully, it increases world realism and gives brands measurable engagement inside a new reality format. This stream directly offsets infra cost and validates the media thesis.
 
 ### 2. Premium Day-in-Life Trailers
 Users pay for personalized, high-production 60-second trailers focused on their own Double (cinematic editing, voiceover, music, emphasis on key emotional moments).
@@ -114,13 +114,13 @@ These are the concrete milestones the seed round will deliver. They are ambitiou
 
 | Metric | 12-Month Target | Why It Matters to Investors |
 |--------|-----------------|-----------------------------|
-| **Monthly Active Users** | 80,000 – 120,000 MAU (US teens 13–18) | Proves category resonance in the core demographic. 100k+ MAU in a new media format is a strong signal. |
+| **Monthly Active Users** | [audience sizing TBD: adults 18+] | Proves category resonance in the core demographic. 100k+ MAU in a new media format is a strong signal. |
 | **Daily Engagement** | 38–45% DAU/MAU | Daily trailer habit + notifications = sticky new media behavior. |
 | **Retention** | D1: 42%+<br>D7: 20%+<br>D30: 11%+ | Shows users return to watch their own Double and their friends. |
 | **Sessions per DAU** | 2.4 – 3.0 | Users actively check for new drama/trailers multiple times per day. |
 | **Trailer Output & Virality** | 5M+ trailers generated<br>28%+ of DAU share ≥1 trailer/week<br>K-factor ≥ 1.35 | The core growth engine. High share rate proves the “new reality format” thesis. |
 | **Cost Efficiency** | Simulation cost at **$0.05 – $0.07** per double per day<br>On-device inference live for ≥25% of lightweight actions | Directly validates the biggest technical bet. Clear line of sight to $0.01. |
-| **Media Presence** | Consistent daily trailer volume<br>4–6 pieces of meaningful earned press/creator coverage<br>60–80 active school/brand pilots | Proves Doubland is a legitimate new media property, not just another app. |
+| **Media Presence** | Consistent daily trailer volume<br>4–6 pieces of meaningful earned press/creator coverage<br>60–80 active organization/brand pilots | Proves Doubland is a legitimate new media property, not just another app. |
 | **Branded Real Estate Revenue** | 8–12 paid locations live generating $180k–$250k ARR | Proves brands will pay to exist inside user-generated reality shows. |
 | **Premium Revenue (Trailers + Creation)** | $310k–$410k ARR from personalized trailers + premium sim ownership | High-margin consumer monetization on top of the free core. |
 | **Branded Experiments & Insights** | 15–25 paid experiments generating $280k–$380k ARR | Validates B2B demand for measurable social simulations. |
@@ -131,7 +131,7 @@ These are the concrete milestones the seed round will deliver. They are ambitiou
 ## Why Now
 
 - Generative AI has reached the fidelity threshold where autonomous social behavior feels real.
-- Teens are desperate for safe spaces to rehearse identity and relationships (post-pandemic loneliness + social media fatigue).
+- Adults in tight friend groups want safe spaces to rehearse identity and relationships (post-pandemic loneliness + social media fatigue).
 - Short-form video has trained a generation to consume 60-second emotional arcs.
 - No existing product owns the intersection of “personalized reality format” + “simulation as second life.”
 
@@ -156,7 +156,7 @@ The Matrix is not science fiction. It is the logical destination of the two axes
 
 ## Spoken room locks
 
-Folded from the 2026-08-25 Q&A (that dump is deleted). The memo above is the written story. This section is the mouth. **In a room, this section wins** where it conflicts with the memo (teen ICP, naming the far corner, quoting ARR/MAU/COGS). Those tables stay a plan, not a log.
+Folded from the 2026-08-25 Q&A (that dump is deleted). The memo above is the written story. This section is the mouth. **In a room, this section wins** where it conflicts with the memo (adult ICP, naming the far corner, quoting ARR/MAU/COGS). Those tables stay a plan, not a log.
 
 Lead with the hook. Name a friend group. Show a trailer, not a metric. Two to four sentences. Stop.
 
@@ -176,13 +176,13 @@ People say they want real life. Attention already lives on phones, in games, in 
 
 We still have a chance to use that as a safe playground. Your squad drops Doubles into a shared village. They laugh, fight, fall for someone, choke, try again. You watch a daily trailer. At night you can steer a little. Then you take the bold choice into real life.
 
-I started this as a tool for my son. The product in front of you is for adults: a private group, starting with people already in a Telegram. Teens may come later. They are not who we are introducing this to.
+I started this as a tool for my son. The product in front of you is for adults (18+): a private group, starting with people already in a Telegram. That is who we are introducing this to.
 
 This is not another feed. It is a new kind of show: every person in the group is the star.
 
-### Sequence (adults first)
+### Sequence (adults)
 
-Long-horizon gift can still be young people. **Intro today:** adults, invite-only, a group that will actually show up. Stranger villages are cartoons. Density beats a big empty world. Do not fake a crowd. Do not open with “for teens” or “for kids.”
+**Intro today:** adults (18+), invite-only friend groups that will actually show up. Stranger villages are cartoons. Density beats a big empty world. Do not fake a crowd. Do not open with “for teens” or “for kids.” Never target or market to minors.
 
 Origin: a tool for my son. Say “my son” only — no name, no age.
 

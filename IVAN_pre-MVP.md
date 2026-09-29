@@ -118,7 +118,7 @@ That is **16 posts** (opener + 15 nights). Engine: premiere + 14 elim nights + d
 | **PM-LTALK-6** | Recruit 1–3 next Showrunners | From this alumni group, for **their** work/friends groups (school later). After the drop is live and pull is visible — not a night-1 blast. Target a few named yeses. |
 | **PM-LTALK-1** | Show it to the alumni group | The actual ~300 chat. Product pieces above; this is the drop. |
 
-**Hold until numbers justify:** serialized cliffhangers, Survival “that’s so them” fidelity (**PM-VIL-2**), group influence / vote. Not this cut. Campus/Tinder-style party distribution = **After LeaderTalks** (Engagement) — Legal before any campus/teen public claim.
+**Hold until numbers justify:** serialized cliffhangers, Survival “that’s so them” fidelity (**PM-VIL-2**), group influence / vote. Not this cut. Campus/Tinder-style party distribution = **After LeaderTalks** (Engagement) — Legal before any campus/minor-targeting public claim.
 
 ## Dropped
 

@@ -16,7 +16,7 @@ People say they want real life, but more and more they find themselves enjoying 
 
 ## COS triage
 
-- **Fits today:** Cultural / market “why now” — strengthens mission and spoken room locks in `vc_msg.md`. Does not change product pillars. Aligns with the long-horizon teen gift already in Canon; spoken intro is still adults first.
+- **Fits today:** Cultural / market “why now” — strengthens mission and spoken room locks in `vc_msg.md`. Does not change product pillars. Aligns with adults (18+) in invite-only friend groups as Canon audience.
 - **Tension with Canon:** Mild — if we only celebrate “kids won’t go outside,” we sound cynical. Pair with purpose: meet them where attention already is, and make that time *rehearsal + meaning*, not empty scroll.
 - **Recommendation:** **promote** into `mission.md` (after §Category, as Why now) and optionally one line in `vc_msg.md` §Spoken later.
 - **If promote — proposed patch** (add after §Category in `mission.md`):
@@ -24,7 +24,7 @@ People say they want real life, but more and more they find themselves enjoying 
 ```markdown
 ## Why now
 
-People say they want “real life,” but attention already lives in phones, games, and social feeds — friend time is increasingly virtual. Doubland does not fight that shift by scolding. It meets teens where they already gather and turns virtual hours into shared mythology, safe practice, and connection that can still improve who they are offline.
+People say they want “real life,” but attention already lives in phones, games, and social feeds — friend time is increasingly virtual. Doubland does not fight that shift by scolding. It meets adults where they already gather and turns virtual hours into shared mythology, safe practice, and connection that can still improve who they are offline.
 ```
 
 ## Decision
