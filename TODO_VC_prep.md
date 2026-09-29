@@ -1,270 +1,296 @@
-# Release Gate — Telegram "Doubles" Demo as a Fundraising Asset
+# VC Pitch Doctrine: Doubland, Chen-first
 
-> **2026-09-18:** Living todos (Season Spec, soul_15 maze init, operator log, Showrunner **PM-LTALK-5/6/7**, drop) live in `20260917_pre-MVP.md`. This file is **doctrine + June archive** — do **not** add todos here. Measurement layer is Current (`double-docs/sot/sot_api.md` §10). Consent SOP is surprise + manual Claim/Remove (`20260917_pre-MVP.md`) — **§5 triage here is not live.** June gate: `done/TODO_mvp-release-gate.md`.
->
-> **§10–§11 stay here as locks:** Chen/a16z retention+pull lens; Cold Start **Showrunner** (hard side). Operator checklist copies into pre-MVP **PM-LTALK-4**.
-
-**Date:** 2026-06-02
+**Last updated:** 2026-09-28
 **Owner:** Ivan
-**Status:** Archive + doctrine (§10–§11). Open work folded to `20260917_pre-MVP.md`.
-
-**Context:** MVP is close (sims run, trailer gen mostly fixed, Nicolas integrating the video section on the landing page). This doc plans the launch play: build AI **"doubles"** of the 15 most-active members of a 300+ person elite alumni Telegram group (founders / VCs / corporate leaders), run them through **Survival**, and post daily video updates back to the group — to generate the engagement and demand signals that fuel the raise.
+**Status:** Doctrine. Not a todo list.
 
 ---
 
-## 0. TL;DR
+## 0. What this doc is
 
-- We are **not proving "traction"** — at 15 subjects / 300 people the numbers are small, and a smart VC discounts "we got 40 reactions" instantly. We're proving **magnetism + demand**: that AI doubles of real people are so compelling that a hard-to-impress audience watches, shares, and asks *"can I get one for my own group?"*
-- **Fundraising wedge = Community/B2B pull.** The money signal is **inbound "build one for us" requests** from a room full of founders and VCs.
-- **First thing to build = the measurement / funnel layer** (attribution + a B2B call-to-action). Today we can't see view → click → signup, and the waitlist captures email only. Without this, the play generates no provable numbers.
-- The content engine is **~80% there** already. The gaps are about **measuring** and **packaging**, not a big new build.
-- **Privacy:** the pseudonyms + generic photos are smart for the *public* layer but don't hide identities from the *in-group*. Recommend a **triage rollout** (brief the senior/sensitive subjects first — which doubles as the first B2B sales call — surprise the playful ones) and drop the "all matches incidental" disclaimer for honest-playful framing.
+This is the pitch doctrine for the Doubland raise. It says what we claim, which metrics lead, what order the deck goes in, and which decisions are locked. It is written through Andrew Chen's lens (a16z, *The Cold Start Problem*) because that is the first target.
 
----
+Live todos do not go here. They live in `IVAN_pre-MVP.md` (the file previously named `20260917_pre-MVP.md`), under "LeaderTalks play" (PM-LTALK-2 through PM-LTALK-8 and the operator runbook). The measurement contract is Current in `double-docs/sot/sot_api.md` §10. The June release gate is archived at `done/TODO_mvp-release-gate.md`. The June 2026 planning material that used to fill this file is kept in the Appendix, marked superseded where it conflicts with the sections above it.
 
-## 1. The play & why it works
-
-**What:** 15 doubles of the group's most-active members → a Survival season → daily video updates posted in the group.
-
-**Why it's strong:**
-- Warm, dense, high-value network (300 people who know each other; founders + VCs — some could be investors).
-- Personalization is an irresistible hook — people can't *not* watch a version of themselves; the 15 become the distribution engine.
-- The group **is** the channel — zero paid acquisition.
-- The content **is** the demo — VCs see the product working, not a deck.
-
-**The structural truth (read this twice):** a 15/300 demo can't produce traction-scale metrics. So we don't compete on volume. We instrument for **completion, spread, conversion intent, and inbound demand**, and we frame the raise as *"here's the intensity of pull — extrapolate it,"* not *"here are our big numbers."*
+Rules for this doc: never invent traction, investor interest, or comps. Honest zeros are fine. Adults first; teens and campus come later and are never the lead framing.
 
 ---
 
-## 2. Decisions locked
+## 1. Thesis in Andrew Chen's terms
+
+Doubland is a new kind of personalized entertainment and a new social format. Real people take a personality test and get a Double, an AI version of themselves that lives in a village simulation with the Doubles of the people they already know. Every day the product auto-generates a short video episode of what the group's Doubles did. You do not play it and you do not have to feed it. You watch a show about you and your people.
+
+Product clarity for the pitch: Doubland is not another social network. It needs no continuous babysitting input from users. It is a show about you with a heavy social layer. To Chen, "a new social network format" is the thesis fit; in the room we still say plainly that we are not asking people to post.
+
+Network shape, in Cold Start terms:
+
+- **Hard side: Showrunners.** The organizer who brings a named, real group into Doubland, gets members through the test and profile, and sustains the season. Without a Showrunner a village is an empty map, no matter how good the video looks.
+- **Soft side: the cast and viewers.** Members whose Doubles appear in the show, plus the people who watch, claim their Double, share, and come back.
+- **Atomic network:** one Showrunner-led group with enough of its roster active that the daily episode is about people who know each other. Density before scale.
+
+The first public sim is LeaderTalks (L-Talks), an adults-first Telegram group, with Ivan as Showrunner #1. The cast is the 15 Doubles already built on soul_15.
+
+---
+
+## 2. Why Chen
+
+Everything in this section comes from founder notes on Andrew Chen interviews (`cos/agents/vc/kb/raw/user-provided/2026-09-17-andrew-chen-cold-start-notes.md`). These are not verified quotes and not a signal that he will meet or invest.
+
+- **He invests very early** when the early signals are real, the idea is genuinely new, and it rides the right trends.
+- **His interests line up with Doubland:** new formats (such as auto-generated short video), new gaming built on the latest tech, new personalized entertainment formats, and new social network formats.
+- **He judges on retention and pull.** Retention means people come and stay. Pull means people need more of it.
+- **He cares about the hard side.** In his framework seed networks die without it. For Doubland that is Showrunners, not viewers.
+- **Warm intro path:** CMU, then LeaderTalks, then a DM on X. The intro graph is part of the raise process, not a product ticket.
+- **HPVP rhymes.** HPVP's bar (viewers, join requests, time on platform) measures the same thing as Chen's retention and pull, so one operator log serves both.
+
+Post-MVP only: Chen's Tinder-style campus party distribution idea (profile plus test as the pass-in, sim on a big screen). It goes to Engagement after LeaderTalks, with Legal before any campus or teen public claim. It is not part of this pitch.
+
+---
+
+## 3. What the first public sim (LeaderTalks) must prove
+
+1. **Retention.** The people who watched night 1 are still watching on night N. The curve flattens instead of decaying to zero.
+2. **Pull.** People want more without being asked: they ask what happens tomorrow, ask to join or add someone, and claim their Double.
+3. **The hard side works.** Ivan runs one group end to end as Showrunner #1, and at least a few named people ask to run it for their own group (the target is 1 to 3 named yeses, not a blast).
+4. **Recognizability.** Members react with "that's so them." This is also the answer to "why isn't this just GPT": the fidelity of the Doubles is the tech story.
+
+We are not proving traction-scale volume. At this size a smart VC discounts raw counts instantly. We are proving intensity of pull on the right side of the network.
+
+---
+
+## 4. Metric stack
+
+Capture facts reused from the June 16 production verification (Appendix A9): the waitlist records signups per source, not clicks, because no redirect hop was built. Retention from YouTube Studio is aggregate, not per-user cohorts, so the per-person retention curve comes from the manual operator log. The Telegram tag `tg-survival-d{N}` (and `tg-survival-premiere` for the opener) is manual and must be pasted into every post, or those signups collapse into `landing-hero`. On-screen end-card URLs cannot be tagged and also read as `landing-hero`.
+
+### Hero metrics
+
+| Metric | Definition | How captured | Honest limit |
+|---|---|---|---|
+| Retention curve | The same night-1 cohort (named people who watched or reacted on night 1) tracked through night N. Does it flatten or decay to zero? | Manual operator log per drop (PM-LTALK-4): who from the night-1 set is back. YouTube Studio returning viewers as a cross-check. | Per-person tracking is manual and only sees people who react or tell us. YouTube retention is aggregate, not a cohort. Small N. |
+| Pull per episode | Unprompted "what happens tomorrow" questions, add or join requests, and claims per drop, shown as a trend across drops. | Manual log plus screenshots per drop, tied to the episode that triggered it. Claims come through the Claim/Remove runbook. | Manual and qualitative. Only counts what is visible in chat, DMs, or email. |
+
+### Hard-side metrics
+
+| Metric | Definition | How captured | Honest limit |
+|---|---|---|---|
+| Showrunner count | Named people who accepted the host role (Ivan plus recruits). | Operator log (PM-LTALK-5, PM-LTALK-6). | Starts at 1. Recruiting is after pull is visible, not night 1. |
+| Showrunner-sourced asks | Named "run it for my group" requests, separate from soft-side claims. | Screenshot plus who plus episode. Waitlist `interest_type = b2b_group` with `group_name` from the live "Run Doubland for Your Group" footer door (PM-LTALK-7). | A form submit is interest, not an activated group. |
+| Time to activate a new group | Time from a Showrunner saying yes to their roster being tested, profiled, and in a sim. | Operator log dates. | Only measurable once a second group exists. |
+| Roster activation % | Share of the invited roster that finished test plus profile. | Operator log (Flintstone roster is fine). | Manual. Depends on how the roster is defined. |
+
+### Atomic network health
+
+| Metric | Definition | How captured | Honest limit |
+|---|---|---|---|
+| Density | Share of the roster that watched or engaged with the show. | Operator log against the named roster. | Silent watchers are invisible unless the platform reports them. |
+| Unprompted activity | Whether activity continues on days the founder does not push. | Operator log marks which days Ivan nudged and which he did not. | Needs discipline to record the nudge days honestly. |
+
+### Second-group signal (only if it is real)
+
+| Metric | Definition | How captured | Honest limit |
+|---|---|---|---|
+| Group #2 speed | Whether group #2 activates faster or with less founder time than LeaderTalks. | Founder time and activation dates in the operator log. | Only report if a second group actually runs. Never stand up empty parallel groups to fill this row. |
+
+### Supporting metrics
+
+| Metric | Definition | How captured | Honest limit |
+|---|---|---|---|
+| Completion % | Share of viewers who watch each episode to the end. | YouTube Studio. | Aggregate. Only for traffic that lands on YouTube. |
+| Attributable funnel (view to signup) | Signups by episode and channel, set against views per episode. | Waitlist `source` tag per signup (verified in production 2026-06-16). | Signups per source, not clicks. Untagged Telegram posts and end-card URLs read as `landing-hero`. |
+| Organic spread | Reach and forwards with zero paid spend. | Manual Telegram tally; `sim-share` and `play-hud` tags for signups from viewer re-shares. | Forwards are hand-counted. |
+| Recognizability log | "That's so them" quotes and screenshots. | Qualitative log per drop. | Qualitative by design. Needs consent to show in a deck. |
+
+### Ignore or de-emphasize
+
+Raw view counts, total reactions, follower counts, and any other vanity totals. They are small at this scale and VCs know it.
+
+---
+
+## 5. First public sim results (LeaderTalks)
+
+No numbers go here until they come from the sim and the operator log. Honest zeros are fine. Never invent a value.
+
+| Metric | Value |
+|---|---|
+| Retention curve (night-1 cohort through night N) | TBD, fill from sim data |
+| Pull per episode (tomorrow questions, add or join requests, claims) | TBD, fill from sim data |
+| Showrunner count | TBD, fill from sim data |
+| Showrunner-sourced "run it for my group" asks | TBD, fill from sim data |
+| Time to activate a new group | TBD, fill from sim data |
+| Roster activation % | TBD, fill from sim data |
+| Density (share of roster that watched or engaged) | TBD, fill from sim data |
+| Activity on non-push days | TBD, fill from sim data |
+| Second-group signal | TBD, fill from sim data |
+| Completion % | TBD, fill from sim data |
+| Attributable funnel (view to signup) | TBD, fill from sim data |
+| Organic spread (zero paid) | TBD, fill from sim data |
+| Recognizability quotes and screenshots | TBD, fill from sim data |
+
+---
+
+## 6. Deck order
+
+1. **Retention curve.** The night-1 cohort through night N.
+2. **Pull.** Per-episode trend of tomorrow questions, add or join requests, and claims.
+3. **Showrunner proof.** Named Showrunners, roster activation, Showrunner-sourced "run it for my group" asks.
+4. **Inbound quotes.** Named "build one for my group" and "that's so them" screenshots, with consent.
+5. **Attributable funnel.** Every signup traces to an episode. This proves the pull is real and attributable; it is not a volume slide.
+
+**Fallback if retention decays:** lead with the Showrunner story and the pull quotes, and say plainly what is being fixed (for example serialization and cliffhangers, or Double fidelity) and how we will know it worked. Do not pad the deck with spread or view counts to cover the gap.
+
+---
+
+## 7. Locks and decisions
+
+| Item | Lock |
+|---|---|
+| Consent | Surprise group review, then Claim double / Remove double in chat. Locked 2026-08-31. Handled by hand, no product build. Remove is no questions asked and honored within about 24 hours. Portrayals stay affectionate and flattering. The June brief-first triage (Appendix A5) is retired. Runbook: `IVAN_pre-MVP.md`. |
+| Showrunner title | Locked 2026-09-18. "Doubland Admin" is retired as a live term. Avoid Admin, Moderator, Community Manager, Ambassador. |
+| Measurement layer | Live. Waitlist `source`, `interest_type`, and `group_name`, verified end to end in production 2026-06-16 (`sot_api.md` §10). Do not rebuild attribution. |
+| Showrunner waitlist door | Live on www.doubland.ai since 2026-09-24 ("Run Doubland for Your Group"; every submit is `b2b_group`). No second form. |
+| Showrunner compensation | Free for organizers. Status, tools, recognition, and soft credits come first. No cash pitch this pass. Any cash, stipend, or rev-share goes to Legal before any promise. QSBS and entity questions go to Tax. |
+| Season Spec | Locked 2026-09-18: premiere opener (`tg-survival-premiere`), then 15 evening drops (`tg-survival-d1` to `tg-survival-d15`), one Telegram post per evening, night 15 is winner plus season overview. Detail in `IVAN_pre-MVP.md` (PM-LTALK-2). |
+| Audience | Adults first (LeaderTalks). School, campus, and teen go-to-market come later and never lead the pitch. |
+
+**Showrunner twist on the older money slides (carried from the old §11):** split inbound demand into (a) soft-side "want more" or claim and (b) Showrunner-sourced "run a season for my group". (b) is the Cold Start closer. Log whether night-N returners sit in a named Showrunner roster. Treat `b2b_group` with `group_name` as Showrunner interest when the ask is to host or organize. Do not swap magnetism or spread for hard-side vanity.
+
+**Promote and defer (carried from the old §11):**
+1. Keep: measurement tags, daily tape quality, retention and pull logging.
+2. Add now (Flintstone is fine): Showrunner identity plus one job (invite, roster done, watch together); recruit 1 to 3 next Showrunners from L-Talks after pull is visible.
+3. Defer: cash for Showrunners; campus party distribution; teen or public-graph Showrunner go-to-market; parallel empty groups.
+
+**Open items:**
+- **Season cadence beyond LeaderTalks.** The LeaderTalks season is locked; the cadence for later seasons and for group #2 is not.
+- **Distribution mix check.** Native Telegram post plus tracked YouTube link is the locked drop shape. Whether and when to add the per-Double 9:16 15-second clips (PM-BFST-4) is still open.
+- **Scope guard.** Serialized cliffhangers, Survival "that's so them" fidelity (PM-VIL-2), and letting the group influence the sim stay held until the numbers justify them. Revisit after the first results are in, using the fallback logic in §6.
+
+---
+
+## 8. Showrunner operator checklist (LeaderTalks to VC deck)
+
+Carried over intact from the old §11 lock (2026-09-18). The live copy sits on PM-LTALK-4 in `IVAN_pre-MVP.md`.
+
+Each drop / week, capture honest zeros if empty:
+1. **Showrunner count**: named hosts who accepted (Ivan + recruits)
+2. **Activation**: % of invite roster who finished test + profile
+3. **Create+share**: Showrunner (or co-creator) originated a personal share
+4. **Showrunner-sourced pull**: named "run this for my group" (screenshot + who)
+5. **Retention**: night-N returners (same people)
+6. **Pull**: join/claim, forwards, time, want-more (HPVP bar)
+7. Tags: paste `tg-survival-d{N}` every post (§9 discipline, now Appendix A9)
+
+---
+
+## Appendix: Archive (June 2026), superseded where it conflicts with the sections above
+
+Kept for history and for the facts it records. Section numbers are the old ones, prefixed with A. Lines marked **[Superseded]** are no longer doctrine.
+
+**Original header.** Title: "Release Gate: Telegram 'Doubles' Demo as a Fundraising Asset." Date 2026-06-02, owner Ivan.
+
+**Original context.** MVP was close (sims ran, trailer generation mostly fixed, Nicolas integrating the video section on the landing page). The plan was to build AI Doubles of the 15 most active members of a 300+ person alumni Telegram group (founders, VCs, corporate leaders), run them through Survival, and post daily video updates back to the group to generate engagement and demand signals for the raise. **[Superseded in framing]** The live play is LeaderTalks with Ivan as Showrunner #1 and the soul_15 cast (§1, §3).
+
+### A0. TL;DR (June)
+
+- We are not proving traction. At 15 subjects in a group of about 300 the numbers are small. We are proving magnetism and demand: that Doubles of real people are compelling enough that a hard-to-impress audience watches, shares, and asks for one for their own group.
+- Fundraising wedge: Community/B2B pull. The money signal was inbound "build one for us" requests from a room of founders and VCs. (This became Showrunner-sourced pull in §4.)
+- First thing to build: the measurement and funnel layer. **[Superseded]** "Today we can't see view to click to signup, and the waitlist captures email only" is stale; the layer was built and verified in production on 2026-06-16 (A9).
+- The content engine was about 80% there. The gaps were measuring and packaging, not a big new build.
+- Privacy: pseudonyms and generic photos protect the public layer but not identities inside the group. **[Superseded]** The recommended triage rollout and brief-first approach were replaced by surprise group review plus Claim/Remove, locked 2026-08-31 (§7). Dropping the "all matches are incidental" disclaimer for honest, playful framing still stands as advice.
+
+### A1. The play and why it works (June)
+
+What: 15 Doubles of the group's most active members, a Survival season, daily video updates posted in the group.
+
+Why it is strong: a warm, dense, high-value network where people know each other (some could be investors); personalization is an irresistible hook, and the 15 become the distribution engine; the group is the channel, so zero paid acquisition; the content is the demo.
+
+Structural truth: a demo this size cannot produce traction-scale metrics, so we compete on intensity, not volume, and frame the raise as "here is the intensity of pull, extrapolate it." **[Superseded in part]** June instrumented for completion, spread, conversion intent, and inbound demand. Retention and pull now lead (§4).
+
+### A2. Decisions locked (June)
 
 | Decision | Choice | Implication |
 |---|---|---|
-| Fundraising wedge | **Community/B2B pull** | Hero metric = inbound "build one for my group/company." The CTA is **"Bring this to your community,"** not a generic signup. |
-| Build first | **Attribution + CTA** | Make the funnel measurable *before* adding content features. |
-| Consent / rollout | *Pending* — leaning **triage** (see §5) | — |
-| Hard-side role title | **Showrunner** (locked 2026-09-18) | See §11. Organizers own their group run; "Admin" retired. |
+| Fundraising wedge | Community/B2B pull | Hero metric was inbound "build one for my group or company." CTA "Bring this to your community," not a generic signup. **[Superseded]** Hero metrics are now retention and pull; the hard-side ask is Showrunner-sourced. |
+| Build first | Attribution plus CTA | Done and verified (A9). |
+| Consent / rollout | Pending, leaning triage | **[Superseded]** Surprise group review plus Claim/Remove, locked 2026-08-31. |
+| Hard-side role title | Showrunner (locked 2026-09-18) | Now in §7. |
 
----
+### A3. Metrics that matter (June "four money slides")
 
-## 3. Metrics that matter (what proves it to a VC)
+1. Magnetism / completion: share who watch each 60 to 90 second episode to the end (YouTube gives this free). High completion against the roughly 50 to 60% norm means genuinely gripping. Pair with in-group reaction rate. **[Superseded as lead]** Now a supporting metric (§4).
+2. Spread: people reached plus forwards with zero ad spend ("one group of 300 reached N via M forwards").
+3. Conversion funnel: views to link clicks to waitlist signups, plotted against drops. **[Superseded]** "This is the one we can't measure today" is stale; closed 2026-06-16, with signups per source rather than clicks (A9).
+4. Inbound demand (the closer): unsolicited "can you build one for my community, company, or portfolio?" requests, ideally from named founders or VCs. Quotes beat numbers; log and screenshot every one with the triggering episode.
+5. (Optional, for a full multi-day season) Daily-return retention: do day-5 viewers come back from day 1? **[Superseded]** Retention is now a required hero metric (§4).
 
-### The four "money slides"
-1. **Magnetism / completion** — % who watch each 60–90s episode to the end (YouTube gives this free). High completion vs. the ~50–60% norm = genuinely gripping. Pair with in-group reaction rate.
-2. **Spread** — people reached + forwards/shares with zero ad spend. *"One group of 300 → reached N via M forwards."* The network expanding itself.
-3. **Conversion funnel** — views → link clicks → waitlist signups, plotted against episode drops. **This is the one we can't measure today.**
-4. **Inbound demand (the closer)** — unsolicited *"can you build one for my community / company / portfolio?"* requests, ideally from named founders/VCs. **Quotes beat numbers here** — log and screenshot every one, attributed to the episode that triggered it.
+Defensibility note: VCs will ask why this isn't just GPT. The proof is recognizability ("that's SO them"), which evidences cognitive depth (memory, emergent behaviour). Still valid (§3).
 
-### If we run a full multi-day season
-5. **Daily-return retention** — do day-5 viewers come back from day-1? The most fundable engagement metric there is.
+Ignore as vanity: raw view count, total reactions, follower count. Still valid.
 
-### Defensibility note
-VCs will ask *"why isn't this just GPT?"* The proof is **recognizability** — *"that's SO them."* That reaction is evidence of the cognitive depth (memory, emergent behaviour), so let the doubles' fidelity carry the tech story.
+Capturable today vs gap (June): YouTube views and completion free if posted to YouTube; Telegram reactions, forwards, and inbound by manual tally. **[Superseded]** "Click to signup attribution is the one real gap" is stale (A9).
 
-### Ignore (vanity)
-Raw view count, total reactions, follower count — small at this scale, and VCs know it.
+Insight: no analytics platform needed; a tiny attribution tag plus the discipline to log qualitative inbound.
 
-### Capturable today vs. gap
-- ✅ YouTube views / completion (free) — *if* posted to YouTube.
-- ✅ Telegram reactions / forwards / inbound — **manual** tally is perfectly fine at this scale.
-- ❌ Click → signup attribution — **the one real gap.** No source/UTM on links; the waitlist stores email only.
+### A4. Missing functionality, prioritized by traction leverage (June)
 
-**Insight:** we don't need an analytics platform. We need a tiny attribution tag + the discipline to log qualitative inbound. That's it.
+What already existed: Survival Mode (elimination game with daily challenges, voting, alliances, betrayals, eliminations, day summaries, relationship states, a "Previously on" recap card); video pipeline (per-day per-character 60 second trailers, per-day ensemble recap, pre-sim cast opener, personalized with personality, daily plan, real dialogue quotes, and a hand-drawn sketch portrait); funnel skeleton (waitlist endpoint plus YouTube-only distribution with deep links to the play page).
 
----
+Tier 1 (cheap, required to prove anything): attribution and funnel (source/UTM tags on deep links, `source` field on the waitlist, per-episode and per-subject capture, a simple readout); a CTA in the content (end-card CTA, tracked link in post copy, re-enable the built but disabled 9:16 vertical format); a separate "build one for my group" capture, where even a fake door counts as data. **[Done]** Attribution and capture shipped (A8, A9); the Showrunner door is live (§7). Vertical 9:16 clips remain on PM-BFST-4.
 
-## 4. Missing functionality, prioritized by traction leverage
+Tier 2 (multiplies engagement): per-subject shareable clips ("your Double's day"); serialized show quality (day-overview narration read as disconnected captions; no season arc or cliffhangers); persona fidelity in Survival (every agent started neutral at 0.5 and drama was purely emergent, so Survival was not personality-aware). Still held (§7 open items).
 
-### What already exists (we're ~80% there)
-- **Survival Mode:** elimination game, daily challenges / voting / alliances / betrayals / eliminations, day summaries, relationship states, a "Previously on…" recap card.
-- **Video pipeline:** per-day per-character 60s trailers + per-day ensemble recap + a pre-sim cast opener; personalized with each character's personality, daily plan, **real dialogue quotes**, and a hand-drawn sketch portrait.
-- **Funnel skeleton:** a waitlist endpoint + YouTube-only distribution with deep-links to the play page.
+Tier 3 (most fundable, biggest build): let the group influence the sim (vote on immunity, suggest a scenario, ask a character a question). Held until the base play is measured.
 
-### Tier 1 — cheap, and the play can't prove anything without them (days)
-- **Attribution + funnel.** Add source/UTM tags to the play-page deep-links and a `source` field to the waitlist; capture which episode/subject drove each signup; a simple way to read views → clicks → signups.
-- **A CTA in the content.** Today the video has *no* link/CTA (end card only). Add an end-card CTA + a tracked link to the post copy. **Re-enable the 9:16 vertical format** (built but currently disabled) — vertical wins for in-feed / Telegram sharing.
-- **A separate "build one for my group" capture** — distinct from the generic email waitlist. This is the wedge-demand signal that raises money; even a fake-door counts as data.
+### A5. Privacy and consent (June)
 
-### Tier 2 — multiplies the engagement the play generates
-- **Per-subject shareable clips.** Package each character's existing video as a personal, forwardable *"your double's day."* 15 subjects forwarding to *their* networks = the reach multiplier.
-- **Serialized show quality.** Known issue: day-overview narration reads as disconnected captions; Survival has day boundaries but no season-arc/cliffhanger framing. Continuous narration + cliffhangers + recaps = the daily-return retention curve.
-- **Persona fidelity in Survival.** Today every agent starts neutral (0.5) and drama is purely emergent — Survival isn't personality-aware. For a *real-people* play, recognizability is the whole magic; making outcomes reflect each person's known traits is the heart of the differentiation (and the tech proof).
+June plan: psychological Doubles of real members; fictionalized names recognizable to the subject but not obvious to outsiders ("Misha Kryukov" to "Mike Hooks"); generic AI photos; an "all matches are incidental" disclaimer; claim your Double by creating an account and linking it.
 
-### Tier 3 — most "fundable" feature, biggest build
-- **Let the group influence the sim** — vote on immunity, suggest a scenario, ask a character a question. Converts passive viewers into daily participants and is a differentiated product story. **Hold** until the base play is measured — unless we deliberately want it as the demo centerpiece.
+June assessment, still useful as background:
+- The veil protects against outsiders, not the in-group. Everyone who knows the subject can decode the name. The real risk is an influential peer feeling caricatured in front of people you both care about.
+- "All matches are incidental" is the weak link and reads as a wink. Suggested replacement: "AI doubles inspired by the legends of this group, fictionalized with love, names changed to protect the guilty."
+- The psychological profile is more sensitive than the name. Keep every portrayal affectionate and flattering, not exposé. (Still a live rule, §7.)
+- Light flag, not legal advice: profiling identifiable people and publishing it is the sensitive combination (reputational, plus data-protection norms if any subjects are in the EU or UK).
 
----
+**[Superseded]** June recommended triage: brief senior or sensitive subjects first (as the first B2B sales call), surprise the playful ones, soft-launch with 2 or 3, and add a quiet "this isn't me / remove me" path. Replaced by surprise group review plus Claim/Remove, locked 2026-08-31 (§7). The remove path survives as the Remove half of that lock.
 
-## 5. Privacy & consent
+### A6. Action plan (June)
 
-**Current plan:** psychological doubles of real members; fictionalized names recognizable to the subject but not obvious to outsiders (*'Misha Kryukov' → 'Mike Hooks'*); generic AI photos detached from real faces; post with *"all matches are incidental"*; let people claim their double (create account → link it).
+A. Build now, the measurement layer: UTM tags on deep links; `source` on the waitlist; a distinct "Bring this to your community" B2B capture; end-card CTA plus tracked link and 9:16 vertical; a one-screen funnel readout. **[Done]** except vertical clips (PM-BFST-4).
 
-**Assessment:**
-- **The veil protects against outsiders, not the in-group.** The names are *designed* to be recognizable; in a 300-person group where everyone knows each other, if the subject can decode it, so can everyone else. Good protection against random viewers / journalists / leaked screenshots — **no** protection against the one risk that hurts the raise: an influential peer feeling caricatured in front of people you both care about.
-- **"All matches are incidental" is the weak link.** To founders/VCs it's transparently untrue (the puns are deliberate) — little real cover, and reads as a wink. Replace with honest-playful: *"AI doubles inspired by the legends of this group — fictionalized with love, names changed to protect the guilty."*
-- **The psychological profile is more sensitive than the name.** Publishing how a peer-identifiable person thinks/behaves under pressure — inside a game of betrayal and elimination — is the part that can sting. Keep every portrayal affectionate/flattering, not exposé.
-- **The rollout is optimized for the wrong goal.** "Post first, claim later" maximizes surprise/virality (the *consumer* play). We chose **B2B** — where telling the subject *first* IS the first sales call and the best demand slide.
+B. Prepare the run: pick the 15 **[Done: soul_15]**; triage into brief-first vs surprise **[Superseded: consent lock, §7]**; tone check each portrayal; swap the "incidental" disclaimer for the honest-playful frame; package per-subject vertical clips; distribution as a native Telegram post plus a tracked link to the full episode. (Live version: PM-LTALK-2 and PM-LTALK-3.)
 
-**Recommended approach — triage, not all-or-nothing:**
-- **Public layer:** keep pseudonyms + generic photos as planned.
-- **Senior / sensitive / less-flatteringly-portrayed subjects → brief first** (or leave out). Highest value, highest risk; the heads-up turns them into amplifiers and doubles as the B2B ask.
-- **Playful, well-known-to-you, flattering portrayals → surprise in-channel is fine** and makes great authentic content. **Soft-launch with 2–3** to read the room first.
-- **Keep "claim your double"** (great account hook) + add a quiet *"this isn't me / remove me"* path.
-- Light flag (not legal advice): the sensitive combination anywhere is *profiling identifiable people + publishing it.* Recognizability is what trips it (reputational, plus data-protection norms if any subjects are EU/UK based). Having asked is the single best protection on every axis.
+C. During the season: post daily; capture YouTube completion and the funnel readout; tally reactions and forwards by hand; log and screenshot every "can I get one for my X" with its episode; run brief-first conversations as soft sales calls **[Superseded: consent lock]**. (Live version: PM-LTALK-4.)
 
----
+D. Decide later: if retention is the gap, invest in serialization; if "that's so them" lands weakly, invest in persona fidelity; if we want a daily participation loop, build the interactive mechanic.
 
-## 6. Action plan (sequenced)
+Operational note, still valid: do not run trailer generation while a sim is generating. Shared headless-browser contention on localhost:3000 can crash the sim. Sequence them.
 
-### A. Build now — the measurement layer (Tier 1)
-1. Add source/UTM tagging to the play-page deep-links (per episode, per channel).
-2. Add a `source` field to the waitlist; record which episode/subject drove each signup.
-3. Add a distinct **"Bring this to your community"** B2B CTA + capture (separate from the email waitlist).
-4. Add an end-card CTA + tracked link to the video/post; **re-enable 9:16 vertical** output.
-5. Stand up a one-screen funnel readout (views → clicks → signups; even a simple query/sheet to start).
+### A7. Open decisions (June)
 
-### B. Prepare the run
-6. Pick the 15; triage into "brief-first" vs "surprise" buckets (§5).
-7. Sanity-check each portrayal for tone — affectionate/flattering, not exposé.
-8. Swap the "incidental" disclaimer for the honest-playful frame.
-9. Package per-subject shareable clips (vertical) so each subject can forward their own.
-10. Decide distribution: native vertical clip in Telegram (reach) **+** tracked link to the full episode / play page (analytics + conversion) — get both.
+- Consent and rollout: confirm triage. **[Superseded]** Locked 2026-08-31 (§7).
+- Season length and cadence. **[Resolved for LeaderTalks]** Season Spec locked 2026-09-18. Later-season cadence is open (§7).
+- Distribution: native Telegram vertical plus tracked link vs YouTube link only. **[Resolved]** One Telegram post per evening with the YouTube link and short copy (§7). Vertical clips optional (PM-BFST-4).
+- Scope guard: do not build Tier 2 or 3 until the base play's numbers justify it. Still in force (§7).
 
-### C. During the season
-11. Post daily; capture YouTube completion + the funnel readout each day.
-12. Manually tally in-group reactions/forwards; **log + screenshot every "can I get one for my X"** with the episode it came from.
-13. Run the brief-first conversations as **soft sales calls** (*"…want one for your own company / portfolio / club?"*).
+### A8. Implementation updates (2026-06-04)
 
-### D. Decide later, based on early numbers (Tier 2/3)
-14. If retention is the gap → invest in serialization (continuous narration, cliffhangers, season arc).
-15. If "that's so them" is landing weakly → invest in Survival persona fidelity.
-16. If we want a daily participation loop / standout demo feature → build the interactive mechanic.
+Launch package: the core play plus a B2B CTA that surfaces a paid or premium interest tier from day one, for willingness-to-pay signals without first solving onboarding friction or multi-sim backend limits.
 
-### Operational notes
-- **Don't run trailer generation while a sim is generating** — shared headless-browser contention on localhost:3000 can crash the sim. Sequence them, don't overlap.
+Landing spec v8 measurement layer: a B2B capture reusing the footer newsletter block, with two micro-buttons ("Stay updated" and "Bring this to my group") feeding one waitlist form. Payload extended with `source`, `interest_type` (`generic` or `b2b_group`), and optional `group_name`, on the existing `POST /api/waitlist`. All primary "Create your Double" CTAs open that form; the external `app.ondouble.com` link was removed. Email line: "Request Doubland for your team or group, or just stay in the loop." **[Superseded in part]** The footer door is now the Showrunner door, "Run Doubland for Your Group" (live 2026-09-24, §7). The B2B line on Watch (PM-BFST-5) was dropped 2026-09-24.
 
----
+June "next steps" (triage consent, season length, distribution) are superseded by §7.
 
-## 7. Open decisions needed from Ivan
-- **Consent / rollout:** confirm the triage approach (who to brief vs. surprise; which 2–3 allies to soft-launch with).
-- **Season length / cadence:** how many days, posting frequency.
-- **Distribution:** confirm native-Telegram-vertical **+** tracked-link (vs. YouTube-link-only, which loses in-group reach but keeps free analytics).
-- **Scope guard:** agree to *not* build Tier 2/3 until the base play's numbers justify it.
+### A9. What we actually built (2026-06-16)
 
----
+The Tier 1 measurement layer was built, deployed, and verified end to end through the live production path on 2026-06-16: a live submit (browser to landing proxy to gateway to Supabase) confirmed that a tagged B2B signup persists correctly and that the never-downgrade ratchet holds. Build detail and verification: `double-docs/done/20260615_link-tracking.md`. Durable contract: `sot/sot_api.md` §10. Ready-to-run deck queries (per-episode funnel, channel split, B2B lead list) are in the link-tracking doc under "Operator runbook", "Deck cuts".
 
-## 8. Implementation updates (2026-06-04)
+What it unlocked: every signup records `source` and a timestamp, so views to signups by episode is a real, attributable curve, with the channel split (Telegram, YouTube, viewer share, organic) from the same data. `interest_type = b2b_group` plus `group_name` make "build one for my group" countable, with names and the triggering episode. `sim-share` and `play-hud` tags count signups from viewers re-sharing a sim.
 
-**Launch package locked:** Execute the core play (15 doubles → Survival season → daily videos in the Telegram group) with one addition — the B2B CTA now surfaces a paid/premium interest tier from day one. This gives revenue scaling path + strong "willingness to pay" signals without solving onboarding friction or multi-sim backend limits first.
+Honest limits (still true, reused in §4): signups per source, not clicks, since no redirect hop was built; retention is aggregate (YouTube Studio plus manual view curve), not per-user cohorts; on-screen end-card URLs cannot be tagged and read as `landing-hero`.
 
-**Landing spec (v8) updated with Tier 1 measurement layer:**
-- New §6: concise B2B capture reusing the existing footer newsletter block. Two micro-buttons (`Stay updated` for generic, `Bring this to my group` for B2B) feed a single enhanced waitlist form.
-- Form payload extended with `source` (UTM/episode tag), `interest_type` (`generic` | `b2b_group`), and optional `group_name`. No new endpoints or UI states — extends `POST /api/waitlist`.
-- All primary CTAs ("Create your Double") now open the §6 form (Option 1 chosen); button text kept verbatim everywhere for brand continuity. External `app.ondouble.com` link removed.
-- Email form line rephrased to Option A (implemented): **"Request Doubland for your team or group — or just stay in the loop."** This makes the new request capability unmistakable while keeping the low-friction generic path.
+Operational dependency (still true): YouTube and viewer-share tags are automatic, but the Telegram `tg-survival-d{N}` tag is manual and must be pasted into every post.
 
-**Result:** Every CTA and deep link is now source-tagged and interest-segmented. Funnel readout (views → clicks → signups by episode/source + B2B/paid-interest count) is ready with zero extra design surface. Spec shared with landing/BE team; build is days, not weeks.
+**[Superseded]** June deck reframe: "lead with completion % and B2B asks plus named quotes, use the funnel as proof." Retention and pull now lead (§6).
 
-**Next immediate steps:** triage consent for the 15 subjects (brief-first for senior/sensitive), finalize season length, confirm distribution mix. Tier 2/3 (serialization, persona fidelity, interactive voting) deferred until early numbers justify.
+### Folded sections
 
----
-
-## 9. What we actually built — reflection (2026-06-16)
-
-The Tier-1 measurement layer (§6.A) is **built, deployed, and — as of 2026-06-16 — verified end-to-end through the live production path.** §8 (2026-06-04) called it "complete" before it was proven; a live submit on 2026-06-16 (browser → landing proxy → gateway → Supabase) confirmed a tagged B2B signup persists correctly and that the never-downgrade ratchet holds. **The funnel can now be trusted for the deck.** Build detail + verification live in `double-docs/done/20260615_link-tracking.md`; the durable API contract is now in `sot/sot_api.md` §10.
-
-**What this unlocks against the four money slides (§3):**
-
-- **Slide 3 (conversion funnel) — the one gap we couldn't measure is closed.** Every signup records `source` (which episode/channel drove it) + `timestamp`, so *YouTube views → signups-by-episode* is now a real, attributable curve, not guesswork. Channel split (Telegram vs YouTube vs viewer-share vs organic) falls out of the same data.
-- **Slide 4 (inbound demand) — the hero signal is now countable, not just anecdotal.** `interest_type = b2b_group` + `group_name` turn "build one for my group" into a number with names attached, tied to the episode that triggered it. The manual quote/screenshot log still carries the qualitative weight — the two reinforce each other.
-- **Slide 2 (spread) gains a measurable sliver** — `sim-share` / `play-hud` tags count signups that came from viewers re-sharing a sim, so "the network expands itself" has data behind it, not just forward tallies.
-- **Slides 1 & 5 unchanged** — YouTube Studio (completion %, returning viewers) + manual Telegram tallies, exactly as planned.
-
-**Honest limits (state these to VCs so the numbers hold):**
-- We record **signups per source, not clicks** — no redirect hop was built (out of scope, accepted at 15/300). The funnel is *views → signups* with clicks proxied.
-- **Retention is aggregate** (YouTube Studio + manual view-curve), not per-user cohorts.
-- On-screen end-card URLs can't be tagged (viewers retype them) → that traffic reads as `landing-hero`; don't misread it as organic failure.
-
-**Reframe for the deck (consistent with §0/§1):** at 15/300 the absolute counts stay small, so **lead with completion % (Slide 1) and B2B asks + named quotes (Slide 4)**, and use the funnel (Slide 3) as proof the pull is *real and attributable* — "every signup traces to an episode" — not as a volume slide. We're selling intensity + demand, not traction-scale numbers.
-
-**The one operational dependency:** the YouTube and viewer-share tags are automatic, but the **Telegram `tg-survival-d{N}` tag is manual — the operator must paste it into each post.** Without it those signups collapse into `landing-hero` and Slide 3 goes blank. This is now the single discipline gate before the first drop (§6.C.11–12). Ready-to-run deck queries (per-episode funnel, channel split, B2B lead list) are in the link-tracking doc's §Operator runbook → "Deck cuts."
-
-**Still deferred (correctly):** Tier 2/3 (serialization/cliffhangers, Survival persona fidelity, interactive voting) stay held until early numbers justify them (§4, §6.D). The measurement layer was the prerequisite — and it's done.
-
----
-
-**Status (updated 2026-06-16):** Measurement layer + CTA routing complete **and verified end-to-end in production** (§9). Core demo execution ready to proceed once consent and cadence are confirmed; the remaining gate to trustworthy funnel data is operator discipline — paste the `tg-survival-d{N}` tag into each drop.
-
----
-
-## 10. Addendum — Chen / a16z metric lens (2026-09-17)
-
-**Status:** Archive addendum only. Live operator todos stay in `20260917_pre-MVP.md`. Target KB: `cos/agents/vc/kb/raw/user-provided/a16z-andreessen-horowitz.md`.
-
-Founder notes from **Andrew Chen** (a16z; *Cold Start Problem*) interviews. Do not treat as a commitment from Chen or a16z.
-
-### What stays right in §3
-- Intensity over vanity volume at ~15/300.
-- Inbound “build one for us” + completion/forwards as money signals.
-- Measurement layer already closed (§9) — do not rebuild attribution.
-
-### What to elevate for LeaderTalks logging
-| Priority | Signal | Operator action |
-|---|---|---|
-| **Co-hero** | **Retention** — people come back and stay (daily-return / night-N watchers who saw night 1) | Log returning watchers / “same people asking for tomorrow” each drop — treat former Slide 5 as required, not optional |
-| **Co-hero** | **Pull** — people need more of it (join/claim, forwards, “build one for us,” time with Watch/show) | Same as HPVP bar; screenshot inbound |
-| Keep | Magnetism / completion | Where YouTube or proxy exists |
-| Keep | Attributable signups | Paste `tg-survival-d{N}` every post |
-| Ignore | Raw views, reaction totals, follower count | Unchanged |
-
-### Narrative fit (not a metric)
-Personalized entertainment + auto daily short video + new format — keep Truman / Doubles voice. Warm intros: CMU → LeaderTalks → X DM. Tinder-style campus party distribution = **post-MVP** (hand to Engagement / Andrew Chen specialist when executing; Legal before teen/campus claims).
-
-### Deck reframe (when numbers exist)
-Lead with **retention curve + pull** (want more), then B2B inbound quotes, then attributable funnel. Still no invented counts.
-
----
-
-## 11. Addendum — Cold Start hard side = Showrunners (LOCKED 2026-09-18)
-
-**Status:** Doctrine lock (not a todo list). Live ops: `20260917_pre-MVP.md` (**PM-LTALK-5/6/7** + log rows on **PM-LTALK-4**). Full vision note (if present): `cos/agents/vc/kb/raw/user-provided/2026-09-18-hard-side-organizers-admin.md`.
-
-Chen / Cold Start: seed networks die without the **hard side**. For Doubland that is **organizers**, not viewers.
-
-### Decision locked
-| Item | Lock |
-|---|---|
-| Role title | **Showrunner** (ownership + responsibility for *their* Doubland run). Working title “Doubland Admin” **retired**. |
-| Soft side | Viewers / claim / watch / share |
-| L-Talks model | Ivan = Showrunner #1 → recruit next Showrunners from attendees for **their own** groups (work / friends; school later, not the intro) |
-| Comp | Free for organizers; status / tools / recognition / soft credits first. **No $ pitch** this pass (Legal before any cash). |
-| North star (Chen) | Smallest Showrunner-led atomic that works; density before scale |
-
-### How this maps onto §3 money slides
-| §3 / §10 signal | Showrunner twist |
-|---|---|
-| Slide 4 inbound demand | Split: (a) soft-side “want more / claim” vs (b) **Showrunner-sourced** “run a season for my group” — (b) is the Cold Start closer for a16z |
-| Slide 5 / retention co-hero | Still log night-N returners; add whether returners are *in a named Showrunner roster* |
-| Conversion / B2B CTA | Keep `b2b_group` + `group_name`; treat as **Showrunner interest** when the ask is “host / organize for my group” |
-| Magnetism / spread | Unchanged; do not swap them for hard-side vanity |
-
-### Operator log checklist (LeaderTalks → VC deck)
-Each drop / week, capture honest zeros if empty:
-1. **Showrunner count** — named hosts who accepted (Ivan + recruits)
-2. **Activation** — % of invite roster who finished test + profile
-3. **Create+share** — Showrunner (or co-creator) originated a personal share
-4. **Showrunner-sourced pull** — named “run this for my group” (screenshot + who)
-5. **Retention** — night-N returners (same people)
-6. **Pull** — join/claim, forwards, time, want-more (HPVP bar)
-7. Tags — paste `tg-survival-d{N}` every post (§9 discipline)
-
-### Promote / enhance (raise leverage order)
-1. **Keep:** measurement tags, daily tape quality, retention+pull logging (§10).
-2. **Add now (Flintstone OK):** Showrunner identity + one job (invite → roster done → watch together); recruit 1–3 next Showrunners from L-Talks; second waitlist door copy = “You’re the Showrunner…” (draft-only until founder ships).
-3. **Defer:** cash for Showrunners; Tinder-party campus distribution; teen/public-graph Showrunner GTM; parallel empty groups.
-
-### Deck line (when true — never invent)
-Lead: retention + pull. Then: **hard side works** — named Showrunners, roster activation, Showrunner-sourced “build for my group.” Then attributable funnel. Intensity, not fake scale.
-
-### Legal / Tax
-Cash or rev-share for Showrunners → **Legal** before any promise. QSBS / entity → **Tax**. No handoff required for title lock alone.
+The old §10 (Chen / a16z metric lens, 2026-09-17) is folded into §2, §4, and §6. The old §11 (Cold Start hard side = Showrunners, locked 2026-09-18) is folded into §1, §4, and §7, and its operator checklist is §8.
