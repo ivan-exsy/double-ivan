@@ -19,7 +19,7 @@
    - **sufficient context** (what to inject, per channel, under cost caps),
    - **model intelligence** (what we can safely leave to the stronger Grok),
    - **behavior accuracy / realism** (what must be pre-translated, code-prior’d, or measured — not hoped).
-4. **Preserve constraints unless founder lifts them:** ≤ +5% tokens/step on smoke; replace soup don’t stack; Naturalness Gate non-regression; no MatrAIx catalog/coreset/MBTI/playground transplant; teen/privacy posture on public fidelity claims.
+4. **Preserve constraints unless founder lifts them:** ≤ +5% tokens/step on smoke; replace soup don’t stack; Naturalness Gate non-regression; no MatrAIx catalog/coreset/MBTI/playground transplant; privacy/minor-safeguard posture on public fidelity claims.
 5. **Deliverable of the re-investigation:** an updated recommendations section (or a dated sibling note) that either green-lights P0 as written, or replaces it with a sharper P0 that still fits cost + interpretation honesty. Then eng on `ivan/*` only after founder **go**.
 
 ### What not to redo from scratch
@@ -147,7 +147,7 @@ Full trace + tables: `done/20260810_realism_matriAIx_findings.md` (re-verify liv
 ### P2 — Later / privacy-gated
 - Talk sim-to-real: refusal, correction, abandonment, next-turn vs **shuffled-persona** baseline.  
 - Human recognition study before any public “scientifically you” claim.  
-- Teen psychographic / marketing review required.
+- Psychographic / marketing review required before any public fidelity claim (no targeting minors).
 
 ### Persona Adherence Gate v0 (summary)
 Opposite poles, same maze/day window, same model. Score express **and** suppress. Never fold into Naturalness GO/NO-GO. Cheapest trustworthy: 60–100 step code metrics on E/C + 2 LLM-judged tone poles. Detail: findings §D7–D9.

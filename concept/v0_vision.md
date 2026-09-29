@@ -14,10 +14,10 @@ This fork is designed to surface character under pressure and let coalitions, so
 
 
 #### **B. Social Experiments**
-Villages can also run as **Social Experiments**: guided simulations that stress-test group dynamics (leadership, conformity, conflict, inclusion) under controlled prompts, then turn what happened into shareable highlights + “what actually worked” takeaways. This creates value for high school squads, clubs, and team captains (and counselors/educators running safe SEL-style exercises) who want a low-stakes way to rehearse messy social moments before they blow up IRL. Example: “one VIP invite + a misunderstood DM + a new kid joining the group” becomes a mini episode you can binge and discuss—like a personalized, private social-psych reality show you can rerun with different rules.
+Villages can also run as **Social Experiments**: guided simulations that stress-test group dynamics (leadership, conformity, conflict, inclusion) under controlled prompts, then turn what happened into shareable highlights + “what actually worked” takeaways. This creates value for friend groups, clubs, and team leads (and facilitators running safe group-dynamics exercises) who want a low-stakes way to rehearse messy social moments before they blow up IRL. Example: “one VIP invite + a misunderstood DM + a new kid joining the group” becomes a mini episode you can binge and discuss—like a personalized, private social-psych reality show you can rerun with different rules.
 
 #### **C. Marketing Research (Interview Doubles)**
-As users spend more time with their Double—chatting, steering scenarios, and reflecting—the system steadily enriches their profile so the Double becomes a higher-fidelity digital avatar of their preferences and decision patterns. In this fork, organizations can run market research by “interviewing” Doubles instead of pulling real people into surveys or focus groups, capturing fast feedback on products, services, or policies at scale. Individual profiles stay private, while research customers receive **aggregated, cumulative insights** (e.g., “perspective of 10,000 users ages 14–18 with X/Y psychological profiles”) with stats and segment breakdowns—think Nielsen-style panels, but powered by opt-in digital twins that keep getting smarter the longer people play.
+As users spend more time with their Double—chatting, steering scenarios, and reflecting—the system steadily enriches their profile so the Double becomes a higher-fidelity digital avatar of their preferences and decision patterns. In this fork, organizations can run market research by “interviewing” Doubles instead of pulling real people into surveys or focus groups, capturing fast feedback on products, services, or policies at scale. Individual profiles stay private, while research customers receive **aggregated, cumulative insights** (e.g., “perspective of 10,000 adult users with X/Y psychological profiles”) with stats and segment breakdowns—think Nielsen-style panels, but powered by opt-in digital twins that keep getting smarter the longer people play.
 
 
 ===================================================================================
@@ -57,19 +57,19 @@ The primary expansion and sharing engine is not raw simulation footage, but tigh
 
 
 ## *Target Audience*
-Double targets high school teens aged 13-18 in the U.S., a demographic eager for fun, low-pressure ways to explore social dynamics, personal identity, and group interactions.
+Double targets adults (18+) in invite-only friend groups in the U.S., a demographic eager for fun, low-pressure ways to explore social dynamics, personal identity, and group interactions.
 This customer segment includes individuals who enjoy social networks & games, and potentially seeking subtle self-growth through insights into peer behaviors and decision-making.
 
 
 ## User Value
 - **Epic Entertainment**: Like bingeing personalized TikTok chaos—spot your squad's quirks in hilarious sims, turning "What if?" into can't-miss daily drops that slay boredom.
 - **Sneaky Growth**: Build self-awareness by seeing your Double's choices; turn insights into real-life wins with reflection prompts and "Level-Up Plays"—boosting confidence without the lectures.
-- **Squad Bonding**: Sparks IRL convos ("Did you see our Doubles beef?"), normalizes teen pressures, serves like private, risk-free exploration.
+- **Squad Bonding**: Sparks IRL convos ("Did you see our Doubles beef?"), normalizes social pressures, serves like private, risk-free exploration.
 - **Safe & Addictive**: No-judgment space with ironclad privacy—users obsess over the mix of fun and foresight, making Double the app you can't quit.
 
 ## Monetization & Growth
 - **Freemium Vibes**: Free basics (quiz, villages, summaries); premium unlocks dream-chats, ad-free, and master controls.
-- **Viral Strategy**: Easy video shares + group invites fuel organic growth; partner with schools/teams for custom villages. Aim for high DAU via notifications and squad challenges.
+- **Viral Strategy**: Easy video shares + group invites fuel organic growth; partner with teams and organizations for custom villages. Aim for high DAU via notifications and squad challenges.
 - **Metrics**: Track video shares, village joins, and "smarter choices" feedback to iterate.
 
 
@@ -212,7 +212,7 @@ Here’s the revised question set a serious Hollywood producer would push on.
 67. If I remove the simulation and show only the trailers, is the product still compelling?
 68. If I remove the trailers and show only the simulation, does the product still make sense?
 69. Which part is the engine, and which part is the theater?
-70. What would have to happen in the first 15 seconds for a skeptical teenager to stop scrolling?
-71. What would have to happen in the first week for this to become a social object people talk about at school?
+70. What would have to happen in the first 15 seconds for a skeptical adult to stop scrolling?
+71. What would have to happen in the first week for this to become a social object people talk about with their friends?
 
 The deepest question underneath all of this is: **are you building a simulation that can be watched, or a storytelling machine that happens to use simulation as its raw material?** That distinction will decide how the Sprite Detail Card, over-sprite labels, narration, and cut logic should evolve.

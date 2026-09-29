@@ -12,7 +12,7 @@ This is the pitch doctrine for the Doubland raise. It says what we claim, which 
 
 Live todos do not go here. They live in `IVAN_pre-MVP.md` (the file previously named `20260917_pre-MVP.md`), under "LeaderTalks play" (PM-LTALK-2 through PM-LTALK-8 and the operator runbook). The measurement contract is Current in `double-docs/sot/sot_api.md` §10. The June release gate is archived at `done/TODO_mvp-release-gate.md`. The June 2026 planning material that used to fill this file is kept in the Appendix, marked superseded where it conflicts with the sections above it.
 
-Rules for this doc: never invent traction, investor interest, or comps. Honest zeros are fine. Adults first; teens and campus come later and are never the lead framing.
+Rules for this doc: never invent traction, investor interest, or comps. Honest zeros are fine. Audience is adults (18+) in invite-only friend groups; never target or market to minors. Campus distribution is post-MVP and never the lead framing.
 
 ---
 
@@ -28,7 +28,7 @@ Network shape, in Cold Start terms:
 - **Soft side: the cast and viewers.** Members whose Doubles appear in the show, plus the people who watch, claim their Double, share, and come back.
 - **Atomic network:** one Showrunner-led group with enough of its roster active that the daily episode is about people who know each other. Density before scale.
 
-The first public sim is LeaderTalks (L-Talks), an adults-first Telegram group, with Ivan as Showrunner #1. The cast is the 15 Doubles already built on soul_15.
+The first public sim is LeaderTalks (L-Talks), an adults (18+) Telegram group, with Ivan as Showrunner #1. The cast is the 15 Doubles already built on soul_15.
 
 ---
 
@@ -43,7 +43,7 @@ Everything in this section comes from founder notes on Andrew Chen interviews (`
 - **Warm intro path:** CMU, then LeaderTalks, then a DM on X. The intro graph is part of the raise process, not a product ticket.
 - **HPVP rhymes.** HPVP's bar (viewers, join requests, time on platform) measures the same thing as Chen's retention and pull, so one operator log serves both.
 
-Post-MVP only: Chen's Tinder-style campus party distribution idea (profile plus test as the pass-in, sim on a big screen). It goes to Engagement after LeaderTalks, with Legal before any campus or teen public claim. It is not part of this pitch.
+Post-MVP only: Chen's Tinder-style campus party distribution idea (profile plus test as the pass-in, sim on a big screen). It goes to Engagement after LeaderTalks, with Legal before any campus or minor-targeting public claim. It is not part of this pitch.
 
 ---
 
@@ -150,14 +150,14 @@ No numbers go here until they come from the sim and the operator log. Honest zer
 | Showrunner waitlist door | Live on www.doubland.ai since 2026-09-24 ("Run Doubland for Your Group"; every submit is `b2b_group`). No second form. |
 | Showrunner compensation | Free for organizers. Status, tools, recognition, and soft credits come first. No cash pitch this pass. Any cash, stipend, or rev-share goes to Legal before any promise. QSBS and entity questions go to Tax. |
 | Season Spec | Locked 2026-09-18: premiere opener (`tg-survival-premiere`), then 15 evening drops (`tg-survival-d1` to `tg-survival-d15`), one Telegram post per evening, night 15 is winner plus season overview. Detail in `IVAN_pre-MVP.md` (PM-LTALK-2). |
-| Audience | Adults first (LeaderTalks). School, campus, and teen go-to-market come later and never lead the pitch. |
+| Audience | Adults (18+) in invite-only friend groups (LeaderTalks). Never target or market to minors. Campus go-to-market is post-MVP and never leads the pitch. |
 
 **Showrunner twist on the older money slides (carried from the old §11):** split inbound demand into (a) soft-side "want more" or claim and (b) Showrunner-sourced "run a season for my group". (b) is the Cold Start closer. Log whether night-N returners sit in a named Showrunner roster. Treat `b2b_group` with `group_name` as Showrunner interest when the ask is to host or organize. Do not swap magnetism or spread for hard-side vanity.
 
 **Promote and defer (carried from the old §11):**
 1. Keep: measurement tags, daily tape quality, retention and pull logging.
 2. Add now (Flintstone is fine): Showrunner identity plus one job (invite, roster done, watch together); recruit 1 to 3 next Showrunners from L-Talks after pull is visible.
-3. Defer: cash for Showrunners; campus party distribution; teen or public-graph Showrunner go-to-market; parallel empty groups.
+3. Defer: cash for Showrunners; campus party distribution; minor-targeting or public-graph Showrunner go-to-market; parallel empty groups.
 
 **Open items:**
 - **Season cadence beyond LeaderTalks.** The LeaderTalks season is locked; the cadence for later seasons and for group #2 is not.

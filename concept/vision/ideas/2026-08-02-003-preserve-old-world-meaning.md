@@ -16,8 +16,8 @@ The purpose of Doubland is not create a NEW world, but to preserve the OLD world
 
 ## COS triage
 
-- **Fits today:** Powerful long-horizon thesis. Echoes Matrix destination and “positive simulation layer.” Could eventually become the deepest mission line (civilizational, not only teen rehearsal).
-- **Tension with Canon:** **Hard / consequential.** Current Canon centers *rehearsal for becoming better in real life* and US teens 13–18. This idea reframes purpose as *meaning-preservation when professional identity collapses* — post-work / AI-abundance civilization. Audience, VC story, and “not escape” doctrine all need a deliberate rewrite if promoted.
+- **Fits today:** Powerful long-horizon thesis. Echoes Matrix destination and “positive simulation layer.” Could eventually become the deepest mission line (civilizational, not only personal rehearsal).
+- **Tension with Canon:** **Hard / consequential.** Current Canon centers *rehearsal for becoming better in real life* and adults (18+) in invite-only friend groups. This idea reframes purpose as *meaning-preservation when professional identity collapses* — post-work / AI-abundance civilization. Audience, VC story, and “not escape” doctrine all need a deliberate rewrite if promoted.
 - **Also:** “Preserve the OLD world” vs “Matrix can be better than real life” (001) — complementary if OLD = human meaning, friendship, courage, love; conflicting if OLD = literal pre-digital life only.
 - **Recommendation:** **park** — keep visible; do **not** merge into Canon until you want a mission-level rewrite. Optional later: a `vision/civilizational-thesis.md` Draft page.
 - **If promote later — sketch only (not applying):**

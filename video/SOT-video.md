@@ -890,7 +890,7 @@ Shared craft checks (§1.2): 9:16 · ~-14 LUFS · true peak ≤ -1 dBTP · end c
 ## 13. Guardrails
 
 - Fact-lock absolute  
-- Teen dignity — no humiliation-as-hook, no FOMO create pressure  
+- Dignity — no humiliation-as-hook, no FOMO create pressure  
 - Doors only to **shipped** artifacts  
 - Personal Edge non-spam; no “tag 5 friends” dark patterns  
 - Masked cohort rules unchanged (L7)  

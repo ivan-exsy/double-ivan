@@ -34,9 +34,9 @@ Users influence without puppeting: dream-chats, gentle guidance, optional “Dou
 
 RealityTV / Survival and Social Experiments surface alliances, courage, and social strategy under rules — still on the same Double + village spine.
 
-## P6 — Privacy & teen safety
+## P6 — Privacy & safety
 
-Ironclad privacy defaults; no-judgment space; minors’ data and psychographic use stay constrained. Growth tactics that prey on teens fail this pillar.
+Ironclad privacy defaults; no-judgment space; never target, market to, or collect data from minors (under 18); treat any minors’ data as high-risk (COPPA, state privacy laws). Psychographic use stays constrained. Growth tactics that target or prey on minors fail this pillar.
 
 ## P7 — Believability & agency over time (Matrix)
 
