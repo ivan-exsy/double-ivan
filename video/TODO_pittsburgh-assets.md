@@ -10,8 +10,8 @@ Interiors wait on the unlabeled Phaser crops at the bottom of this file (`video/
 
 | Order | Maze Place | Plate | Save as | Why this one |
 | --- | --- | --- | --- | --- |
-| 1 | Point State Park | Mass | `double-video/video/assets/pittsburgh/exterior/ref/point_state_park_exterior_ref.jpg` | Main outdoor plate for a closer. Wide triangle. |
-| 2 | Point State Park | Door | `double-video/video/assets/pittsburgh/exterior/ref/point_state_park_exterior_ref_door.jpg` | Lawn stand-spot. A person reads at life size. |
+| *done* | Point State Park | Mass | `double-video/video/assets/pittsburgh/exterior/ref/point_state_park_exterior_ref.jpg` | Main outdoor plate for a closer. Wide triangle. |
+| *done* | Point State Park | Door | `double-video/video/assets/pittsburgh/exterior/ref/point_state_park_exterior_ref_door.jpg` | Lawn stand-spot. A person reads at life size. |
 | 3 | PPG Cafe | Interior | `double-video/video/assets/pittsburgh/interior/ppg_cafe_int.png` | Street and door exist. Dining floor still missing. |
 | 4 | Fifth Avenue Market | Interior | `double-video/video/assets/pittsburgh/interior/fifth_avenue_market_int.png` | Street and door exist. Aisle still missing. |
 | 5 | EQT Supply Store | Interior | `double-video/video/assets/pittsburgh/interior/eqt_supply_int.png` | Street and door exist. Counter still missing. |
@@ -165,17 +165,65 @@ After polish, street refs copy to `double-video/video/assets/pittsburgh/exterior
 
 ## Interiors
 
-Empty eye-level plates of the **sim ground floor**. Do not photograph real office or apartment interiors. Layout ref = unlabeled Phaser top-down of that room (no `*_labeled.png`). Imagine stack: that crop + `double-video/video/assets/village/exterior/_style_frame_master.png` + a continuity plate. No people.
+Empty eye-level plates of the **sim ground floor**. Do not photograph real office or apartment interiors. Look comes from a real photo of that place. Layout comes from the unlabeled Phaser top-down of that room (no `*_labeled.png`). Do not attach the village style frame or Hobbs plates. No people. Prompts are in [Interior prompts](#interior-prompts) below.
+
+### Interior prompt
+
+Photoreal 9:16 interior photograph of *Fifth Avenue Market*: **Empty market aisle.**
+
+IMAGE 1 is a photo of the real place. Use it for look only: architecture, walls, ceiling, windows, floor, materials, light fixtures, light, and color. Ignore its furniture, people, food, signage, clutter, size, and camera angle.
+
+IMAGE 2 is a top-down plan of the same room in a game. Use it for furniture only: which pieces exist, how many, and where they stand. Do not copy its pixel style, its floor, its walls, or its top-down view.
+
+Build exactly the furniture below, no more and no fewer. Every piece takes the real place's materials, except a piece named with a color, which keeps that color.
+
+The camera stands by the entrance door at the eye level and captures inside view .
+
+{ZONE 1 — nearest the camera}
+*Rows of fresh produce and packaged goods*
+
+{ZONE 2 — middle}
+*Rest area with flowers*
+
+{ZONE 3 — back wall}
+*Register counter, sign on the wall behind the counter "Fifth Avenue Market"*
+
+The room is about 15x15m, so every piece reads clearly and none is tiny. Camera at standing eye height, lens about 24 mm, horizon level, far enough back that the whole back wall and every listed piece is in frame. Leave a little open floor between zones.
+
+Empty of people. No furniture beyond the list. No plants in front of furniture. No pixel art, no top-down view.
+
+*Attach:*
+- IMAGE 1 = real photo of the place (look). 
+- IMAGE 2 = unlabeled Phaser crop (furniture). 
+- Fill the `{…}` slots and paste the furniture list. One prompt, one result.
+
+
+**Filling the slots**
+
+- Camera: stand where customers are, look toward where the job happens, so a worker faces the camera.
+- Furniture: copy the Phaser list, check counts against the crop (the crop wins). Write positions as seen from that camera. If the camera stands at the top edge of the crop, the plan's left becomes the frame's right.
+- Up to about eight groups per frame. A bath or second room is its own plate.
+- Size: shop or pub about 8 × 10 m; cafe or classroom about 10 × 12 m; apartment living room about 5 × 6 m.
+
+**Fix pass** (when one to three pieces are missing). Attach only the best result:
+
+```
+Keep this exact room, camera, light, and every object already here. Add only: {missing items, each with its position in the frame}. Do not move, restyle, or duplicate anything else.
+```
+
 
 | Pittsburgh address | Maze Place | Save as | How to shoot |
 | --- | --- | --- | --- |
-| One PPG Place, Pittsburgh, PA 15222 | PPG Cafe | double-video/video/assets/pittsburgh/interior/ppg_cafe_int.png | Empty cafe, dining floor. Optional second: `ppg_cafe_int_counter.png` (bar). Ban Hobbs furniture. |
-| 120 Fifth Avenue, Pittsburgh, PA 15222 | Fifth Avenue Market | double-video/video/assets/pittsburgh/interior/fifth_avenue_market_int.png | Empty market aisle. |
-| 625 Liberty Avenue, Pittsburgh, PA 15222 | EQT Supply Store | double-video/video/assets/pittsburgh/interior/eqt_supply_int.png | Empty supply counter / crates. |
-| 621 Penn Avenue, Pittsburgh, PA 15222 | O'Reilly Pub | double-video/video/assets/pittsburgh/interior/oreilly_pub_int.png | Empty pub bar. |
-| 501 Penn Avenue, Pittsburgh, PA 15222 | Penn College | double-video/video/assets/pittsburgh/interior/penn_college_int.png | Empty classroom. Do not make a second library interior until that room is hollowed. |
-| 603 Stanwix Street, Pittsburgh, PA 15222 | Two Gateway Center | double-video/video/assets/pittsburgh/interior/apt_small_int.png | Shared small look for the 20 homes. One living room + bath. Example pad only. Not 20 unique units. |
-| 164 First Avenue, Pittsburgh, PA 15222 | First & Market Apartments | double-video/video/assets/pittsburgh/interior/apt_mid_int.png | Shared mid look. One open room + bath. Example pad only. |
-| 420 Fort Duquesne Boulevard, Pittsburgh, PA 15222 | One Gateway Center | double-video/video/assets/pittsburgh/interior/apt_large_int.png | Shared large look. Larger living + bath. Example pad. Two PPG Place can use this same plate. Not a real tower plan. |
+### DONE
+| One PPG Place, Pittsburgh, PA 15222 | PPG Cafe | double-video/video/assets/`pittsburgh/interior/ppg_cafe_int.png` | Empty cafe, dining floor. Optional second: `ppg_cafe_int_counter.png` (bar). Ban Hobbs furniture. |
+
+### TODO
+| 120 Fifth Avenue, Pittsburgh, PA 15222 | Fifth Avenue Market | double-video/`video/assets/pittsburgh/interior/fifth_avenue_market_int.png` | Empty market aisle. |
+| 625 Liberty Avenue, Pittsburgh, PA 15222 | EQT Supply Store | double-video/`video/assets/pittsburgh/interior/eqt_supply_int.png` | Empty supply counter / crates. |
+| 621 Penn Avenue, Pittsburgh, PA 15222 | O'Reilly Pub | double-video/video/`assets/pittsburgh/interior/oreilly_pub_int.png` | Empty pub bar. |
+| 501 Penn Avenue, Pittsburgh, PA 15222 | Penn College | double-video/video/`assets/pittsburgh/interior/penn_college_int.png` | Empty classroom. Do not make a second library interior until that room is hollowed. |
+| 603 Stanwix Street, Pittsburgh, PA 15222 | Two Gateway Center | `double-video/video/assets/pittsburgh/interior/apt_small_int.png` | Shared small look for the 20 homes. One living room + bath. Example pad only. Not 20 unique units. |
+| 164 First Avenue, Pittsburgh, PA 15222 | First & Market Apartments | `double-video/video/assets/pittsburgh/interior/apt_mid_int.png` | Shared mid look. One open room + bath. Example pad only. |
+| 420 Fort Duquesne Boulevard, Pittsburgh, PA 15222 | One Gateway Center | `double-video/video/assets/pittsburgh/interior/apt_large_int.png` | Shared large look. Larger living + bath. Example pad. Two PPG Place can use this same plate. Not a real tower plan. |
 
 Phaser crops (Imagine layout only, not on-screen plates): `double-video/video/assets/phaser/_moodboard/pittsburgh/{slug}.png` — same slug as the interior file, unlabeled top-down.

@@ -9,7 +9,7 @@ This cut is Watch honesty, then one scored Downtown Survival day (**PM-BFST-13**
 Breakfasts spec files (`BREAKFASTS-BOARD.md`, `MVP-breakfasts.md`, `MVP-breakfasts_ivan.md`, `MVP-0.1.md`) are rehearsal archive — moving to `done/`. Do not treat them as the live list.
 
 ## *Built-needs verified:*
-- **B2 Chat** — three-way scored **2026-09-28** on the finished Breakfasts watch (playback only). Who-is-talking **PASS**. “What are you doing right now” **MISS** on all three (reply does not match the card). Stays open. Do not patch until you say go. Privacy picker **out**.
+- **B2 Chat** — three-way scored **2026-09-28** on the finished Breakfasts watch (playback only). Who-is-talking **PASS**. “What are you doing right now” **MISS** on all three (reply does not match the card). **Postponed to After LeaderTalks (2026-09-29).** Pull it back only if a claimer complains. Privacy picker **out**.
 - **First-sight hello** — watch list. `20260917-3`: nobody reached Hobbs; 0 village talks. Do not patch until you say go.
 - **T-E7** — **observed miss** on `20260917-3`. Ivan spawn off-bed, 8 min `sleeping` while walking to `Dorm Room 4:bed`, then stays. Luba `lying awake in bed` in the common room 4 min. Same family as Watch snaps (**T-W10** / **PM-VIL-11**). Do not patch until you say go.
 - **20:00 vote on next full sim day** — confirm ballots are real (not fail-safe). No extra Start; piggyback the next day that reaches evening. Cap 6.
@@ -20,10 +20,38 @@ Breakfasts spec files (`BREAKFASTS-BOARD.md`, `MVP-breakfasts.md`, `MVP-breakfas
 
 - **Downtown real sim** — **PM-BFST-13** scored PPG Survival day. New Downtown sim — not the Breakfasts watch URL. On that run, fix A* “no path → arrive anyway” only if it still jumps walls. Cap 6.
 - **LeaderTalks play** — Season Spec **locked** (premiere opener + 15 evening drops). soul_15 → Pittsburgh maze, operator log + Showrunner, **PM-LTALK-8** timecodes, daily 15s clips optional, drop.
+- **Public sim list** — **PM-AUTH-2**, next pass. FE ships the homepage and the landing camera first. BE then locks the list, costs, and the roster. Do not reload `api-gateway` while `20260929-3` is the live iframe unless Ivan names the window.
 
 ---
 
 ## Open todos
+
+### Public sim list — next pass (PM-AUTH-2)
+
+UX-04. `GET /api/simulations/`, `GET /api/simulations/{sim}/costs`, and `GET /api/simulations/{sim}/personas` answer with no login. The public homepage lists every sim. Costs have no client. The landing calls the roster only to aim the camera.
+
+The live iframe stays `20260929-3`: `https://double-front.vercel.app/simulations/20260929-3?embed=1&t=2&zoom=0.899`. Watch production is `4c6dfa6`. Landing production is `42087a6`. FE agreed 2026-09-29. No code yet.
+
+Anyone who knows that sim can still read names and locations from the step payload and from a person's card. That iframe is the public demo.
+
+**Order:** FE on Vercel first. BE branch with no deploy. Reload `api-gateway` only when Ivan names the window. A normal restart drains a sim the gateway launched.
+
+#### Frontend
+
+- [ ] **Homepage stops calling the full list.** `double-front.vercel.app` links `20260929-3` and does not call `GET /api/simulations/`. The connection test on that page goes with it.
+- [ ] **Landing stops calling the roster.** No `GET /api/simulations/{sim}/personas`. Follow only a name the page already has: the viewer's own Double, or the `double` on a share link.
+- [ ] **No name means the center of the floor.** Omit `zoom` and `focus` when there is no name. Watch then opens on the center, a little closer than the whole map. Today `zoom=0.899` is treated as a saved view, so the camera stays in the corner.
+- [ ] **Leave playback alone.** Step bundles, the CDN manifest, and `/status/current` stay as they are for `20260929-3`.
+- [ ] **Leave the person card alone.** A click still calls that person's `/personas/{name}/details` and `card-summary`.
+- [ ] **Leave the signed-in lookup alone.** Watch still calls `GET /api/me/sims/{sim}/persona` with the session token.
+
+#### Backend
+
+- [ ] **Lock the three open reads.** `GET /api/simulations/`, `GET /api/simulations/{sim}/costs`, and `GET /api/simulations/{sim}/personas` require an admin Supabase JWT or a service token. The personas lock is the roster collection only.
+- [ ] **Lock the second roster route.** `app/routes/simulation_control.py` registers the same `GET /personas`. It is registered second, so it does not answer today. Close it in the same change.
+- [ ] **Leave the engine path alone.** No change to observation posts, start, stop, or reverie. No sim-env change.
+- [ ] **Do not reload `api-gateway` in this pass** unless Ivan names the window. `20260929-3` is the running sim and the iframe.
+- [ ] **Leave the admin list alone.** `/admin/simulations` reads `double.simulations` with the browser Supabase client. Tightening anonymous access there takes that page down. Public Watch does not use it.
 
 ### 20:00 vote — confirm on next full sim day
 
@@ -39,7 +67,7 @@ Breakfasts spec files (`BREAKFASTS-BOARD.md`, `MVP-breakfasts.md`, `MVP-breakfas
 - **Someone they know** (Ivan App’s login, a different Double on this watch). Fresh chat. Card at 05:55: sleeping, House 3 main room. Who-am-I **PASS** (“someone from around town”; did not claim to be your Double). Off-map life **PASS** (Hobbs and being home; did not repeat the owner’s private chapter). Right-now soft miss (getting ready for bed while the card said already sleeping).
 - **Stranger** (founder inbox, no Double on this watch). Card held at 06:01: waking up and sitting up in bed, House 3. Who-am-I **PASS** (not sure, have we met). Off-map life **PASS** (refused; stayed on here and now). Right-now **MISS** (turning down the covers while the card said waking up).
 
-**Still open:** the spoken “right now” does not match the card. Do not patch until you say go. Do not Start this watch.
+**Postponed (2026-09-29):** the spoken “right now” does not match the card. After LeaderTalks (`TODO_post_mvp.md` **PM-CHAT-1**). Pull it back only if a claimer complains. Do not Start this watch.
 
 Side, same card: the owner status line showed a raw tag, `Walking to <persona>Ivan App`. Do not patch until you say go.
 
@@ -96,7 +124,9 @@ June raise paper + Showrunner *locks* stay at `TODO_VC_prep.md` (**§10** Chen l
 2. **Then 15 evenings, one Telegram drop each** — YouTube link to **that night’s closer** + a short day description. Tag: `tg-survival-d{N}` for N=1…15. One drop per calendar evening (wall-clock 2× is for generating tape ahead, not two posts a day).
 3. **Night 15 (last evening)** — winner celebration + whole-season overview (still one closer-shaped video, **not** encyclopedia `[C]`).
 
-That is **16 posts** (opener + 15 nights). Engine: premiere + 14 elim nights + dedicated finale evening. **Not** 15 personal YouTube uploads every night — per-Double 15s clips stay **PM-BFST-4** (optional inside the drop later).
+**Named poll (locked 2026-09-29):** same question three times, “Who do you think wins the season?” with public votes: premiere evening (second message after the opener), mid-season (night 7 or 8), and finale. Say “just for fun — the Doubles decide.” Poll voters are the named cohort for the retention slide. Log poll nights as nudge days; votes are not unprompted pull. No nightly poll.
+
+That is **16 posts** (opener + 15 nights), plus the three polls. Engine: premiere + 14 elim nights + dedicated finale evening. **Not** 15 personal YouTube uploads every night — per-Double 15s clips stay **PM-BFST-4** (optional inside the drop later).
 
 **Consent (live, not the June triage):** surprise the group, then **Claim double / Remove double** in chat. You handle it by hand — no product build. `TODO_VC_prep.md` §5 brief-first is **not** the SOP. June gate archive: `done/TODO_mvp-release-gate.md` §4.
 
@@ -126,9 +156,11 @@ That is **16 posts** (opener + 15 nights). Engine: premiere + 14 elim nights + d
 
 ## Shipped
 
+- **Spoken Survival promises reach the vote** — a full sit stores the promise; the 20:00 ballot lists it; betrayal fires when the voter promised. `railway` `1cea4b3c`. Score on `20260929-3`. Shipped 2026-09-29.
+- **Watch keeps accented names** — Nicolás stays on the roster and the map. `railway` `ca653738`. Shipped 2026-09-29.
 - **PM-BFST-1** — Downtown occupancy world. Twenty furnished homes, colliders, object ingest. Breakfasts watch stays `the_ville`. A new sim uses the maze named at creation; default is Downtown. Closed 2026-09-28 pending the real sim (**PM-BFST-13**).
-- **PM-BFST-2** — Downtown tiles on the shared shelf (178,733 tiles, matches `20260926-2`). A new run reads that shelf. On `ivan/downtown-shelf-load` until that code is the one production uses.
-- **PM-BFST-3** — Join is the 20 apartments, one person each, plus Fifth Avenue Market, EQT Supply Store, O'Reilly Pub, Penn College, and PPG Cafe. A `Residence` home cannot be chosen. On `ivan/downtown-join-20-homes` until that API is production. No re-quiz.
+- **PM-BFST-2** — Downtown tiles on the shared shelf (178,733 tiles, matches `20260926-2`). A new run reads that shelf. Production `railway` as of 2026-09-29.
+- **PM-BFST-3** — Join is the 20 apartments, one person each; jobs stay open (PPG Cafe can be shared). Fifth Avenue Market, EQT Supply Store, O'Reilly Pub, Penn College. A `Residence` home cannot be chosen. Production `railway` `94589b8b`. Closed 2026-09-29. No re-quiz.
 - **PM-BFST-15** — Meet screen before Join: “Your Double keeps your personality. Its schedule adapts to the town it lives in.” Done 2026-09-24. Review Meet unchanged.
 - **PM-LTALK-7** — Showrunner waitlist door. Done 2026-09-24. Founder yes on the live homepage footer: “Run Doubland for Your Group,” the Showrunner lede, email, name, and group name. Every submit is `b2b_group`. Already on www.doubland.ai. No second form.
 - **T-E8 caption vs body** — seek / person dest never drive the sticker; place walks still name the place. **PASS** `20260916-2` @89. SOT `sot_action-location.md` §5.4 Current. Plan: `t-e8_t-e5_pass_554c710a`. Ticket **PM-VIL-8**.
