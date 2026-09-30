@@ -298,13 +298,15 @@ The demo is a **showroom, not the product**. It's one permanent village house wi
 ### 7.1 Engagement KPI gates (invite-only phase)
 | Gate | Threshold |
 |---|---|
-| D1 (back the day after moving in) | ≥ 40% |
-| D7 (back a week later) | ≥ 15% |
+| D1 (back the day after moving in) | ≥ 50% (a16z seed "OK"; 60% good, 70% great) |
+| D7 (back a week later) | ≥ 35% (a16z "OK"; 40% good, 50% great) |
+| D30 (still active a month later, across seasons) | ≥ 20% (a16z "OK"; 25% good, 30% great) |
 | Homes held by real, active people (AI stand-ins fill the rest) | ≥ 80% |
 | Median time from invite to move-in | ≤ 24h |
 | Residents who submit a host application with a group name | ≥ 5% |
 
-- Open to the public when all 5 hold for **2 consecutive weekly seasons**, with no open safety incidents, plus at least 1 showrunner launched from the demo with ≥ 5 completed profiles. If only D1/D7 pass, stay invite-only.
+- Retention targets updated 2026-09-30 to a16z's seed-stage consumer-social benchmarks (https://a16z.com/do-you-have-lightning-in-a-bottle-how-to-benchmark-your-social-app/). Before pitching seed investors, aim for the "good" column. Earlier targets were D1 ≥ 40%, D7 ≥ 15%.
+- Open to the public when all 6 hold for **2 consecutive weekly seasons**, with no open safety incidents, plus at least 1 showrunner launched from the demo with ≥ 5 completed profiles. If only D1/D7 pass, stay invite-only.
 - **Adjusted:** Engagement's "≥ 50 real residents per season" can't fit in a 20-home sim (16 resident homes). It is restated as **≥ 50 distinct real residents counted across everyone who rotated through, pooled across consecutive seasons**.
 - **COS arithmetic (redone for 16 resident homes and weekly residency):**
   - Each season starts with up to 16 real residents.
@@ -344,7 +346,7 @@ The demo is a **showroom, not the product**. It's one permanent village house wi
 
 ### 7.4 Merged "ready to go public" checklist (Ivan decides)
 All of these must be true:
-- [ ] **Engagement:** D1 ≥ 40%, D7 ≥ 15%, ≥ 80% real-held homes, median invite→move-in ≤ 24h, ≥ 5% host applications, holding for 2 consecutive weekly seasons.
+- [ ] **Engagement:** D1 ≥ 50%, D7 ≥ 35%, D30 ≥ 20%, ≥ 80% real-held homes, median invite→move-in ≤ 24h, ≥ 5% host applications, holding for 2 consecutive weekly seasons.
 - [ ] **Volume:** ≥ 40 real residents pooled across consecutive weekly cohorts (PLG), and ≥ 50 distinct real residents counted across everyone who rotated through, pooled across seasons (adjusted Engagement). *Open: COS recommends 40 (section 2.2).*
 - [ ] **PLG rates:** ≥ 10% create a pending sim, ≥ 50% of those reach 3 real members in 7 days, ≥ 60% survive week 2, median first clip ≤ 24h, K ≥ 0.3.
 - [ ] **Chen:** 3+ sims self-sustaining for 2+ weeks without staff, AI homes shrinking, unprompted host applications (some from friends' trailers), the demo converting visitors to applicants.

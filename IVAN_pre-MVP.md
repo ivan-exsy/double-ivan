@@ -21,6 +21,8 @@ Breakfasts spec files (`BREAKFASTS-BOARD.md`, `MVP-breakfasts.md`, `MVP-breakfas
 - **Downtown real sim** — **PM-BFST-13** scored PPG Survival day. New Downtown sim — not the Breakfasts watch URL. On that run, fix A* “no path → arrive anyway” only if it still jumps walls. Cap 6.
 - **LeaderTalks play** — Season Spec **locked** (premiere opener + 15 evening drops). soul_15 → Pittsburgh maze, operator log + Showrunner, **PM-LTALK-8** timecodes, daily 15s clips optional, drop.
 - **Public sim list** — **PM-AUTH-2**, next pass. FE ships the homepage and the landing camera first. BE then locks the list, costs, and the roster. Do not reload `api-gateway` while `20260929-3` is the live iframe unless Ivan names the window.
+- **Supabase health** — when `20260929-3` finishes, check Disk IO on `double-openrouter`. Warning 2026-09-30. Leave the Micro compute size in place while this sim is the live iframe.
+- **Public API name** — when `20260929-3` finishes, `https://api.doubland.ai` is the only public API. Point landing and watch off `https://api.ondouble.com:8001`, then close public port 8001. Docs: `https://api.doubland.ai/docs`. Do not reload `api-gateway` while this sim is the live iframe.
 
 ---
 
@@ -52,6 +54,14 @@ Anyone who knows that sim can still read names and locations from the step paylo
 - [ ] **Leave the engine path alone.** No change to observation posts, start, stop, or reverie. No sim-env change.
 - [ ] **Do not reload `api-gateway` in this pass** unless Ivan names the window. `20260929-3` is the running sim and the iframe.
 - [ ] **Leave the admin list alone.** `/admin/simulations` reads `double.simulations` with the browser Supabase client. Tightening anonymous access there takes that page down. Public Watch does not use it.
+
+### Public API name — after `20260929-3`
+
+- [ ] **Finish the Doubland cutover.** One gateway. Public URL `https://api.doubland.ai`. Point landing `API_GATEWAY_URL` (and the code fallback) and the watch debug hardcode off `https://api.ondouble.com:8001`. Confirm health and websocket playback, then close public `:8001` from the firewall. `https://api.doubland.ai:8001` presents the `api.ondouble.com` certificate (`ERR_CERT_COMMON_NAME_INVALID`); docs stay `https://api.doubland.ai/docs`. Uvicorn on localhost HTTP waits for a later restart window. Do not reload `api-gateway` while `20260929-3` is the live iframe.
+
+### Supabase health — after `20260929-3`
+
+- [ ] **Confirm Disk IO once the sim stops.** `double-openrouter` is on Micro and sent a Disk IO budget warning on 2026-09-30, while this run was still writing. Open Database health: Disk IO % consumed, whether queries are still quick, and disk space (about 88% of 12 GB). Keep Micro unless the budget is used up or the map is slow. A compute change restarts Postgres for a couple of minutes, so wait for a quiet window. Small (~$15/mo) or Medium (~$60/mo) is the upgrade if one is needed.
 
 ### 20:00 vote — confirm on next full sim day
 

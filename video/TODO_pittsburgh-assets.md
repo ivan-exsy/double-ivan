@@ -1,27 +1,27 @@
 # Pittsburgh places — video shoot
 
-**2026-09-26** · Sim names stay the occupancy names. Street addresses are the real pads. ZIP **15222** unless noted.
+**2026-09-29** · Sim names stay the occupancy names. Street addresses are the real pads. ZIP **15222** unless noted.
 
 ## Shoot these first
 
-This is the Downtown closer set. Do it when Imagine quota is back. Shops already have street and door plates. Home street faces, landmarks, bridges, and skyline stay in the exteriors list below.
+This is the Downtown closer set. Point and all five workplaces are on disk (2026-09-29). **Three home looks are left.** Home street faces, landmarks, bridges, and skyline stay in the exteriors list below.
 
-Interiors wait on the unlabeled Phaser crops at the bottom of this file (`video/assets/phaser/_moodboard/pittsburgh/`). Layout comes from that crop.
-
-| Order | Maze Place | Plate | Save as | Why this one |
+| Order | Maze Place | Plate | Save as | Status |
 | --- | --- | --- | --- | --- |
-| *done* | Point State Park | Mass | `double-video/video/assets/pittsburgh/exterior/ref/point_state_park_exterior_ref.jpg` | Main outdoor plate for a closer. Wide triangle. |
-| *done* | Point State Park | Door | `double-video/video/assets/pittsburgh/exterior/ref/point_state_park_exterior_ref_door.jpg` | Lawn stand-spot. A person reads at life size. |
-| 3 | PPG Cafe | Interior | `double-video/video/assets/pittsburgh/interior/ppg_cafe_int.png` | Street and door exist. Dining floor still missing. |
-| 4 | Fifth Avenue Market | Interior | `double-video/video/assets/pittsburgh/interior/fifth_avenue_market_int.png` | Street and door exist. Aisle still missing. |
-| 5 | EQT Supply Store | Interior | `double-video/video/assets/pittsburgh/interior/eqt_supply_int.png` | Street and door exist. Counter still missing. |
-| 6 | O'Reilly Pub | Interior | `double-video/video/assets/pittsburgh/interior/oreilly_pub_int.png` | Street and door exist. Bar still missing. |
-| 7 | Penn College | Interior | `double-video/video/assets/pittsburgh/interior/penn_college_int.png` | Street and door exist. Classroom still missing. |
-| 8 | Two Gateway Center | Interior | `double-video/video/assets/pittsburgh/interior/apt_small_int.png` | Shared small home look. One plate for the small pads. |
-| 9 | First & Market Apartments | Interior | `double-video/video/assets/pittsburgh/interior/apt_mid_int.png` | Shared mid home look. |
-| 10 | One Gateway Center | Interior | `double-video/video/assets/pittsburgh/interior/apt_large_int.png` | Shared large home look. Two PPG Place can reuse it. |
+| *done* | Point State Park | Mass | `double-video/video/assets/pittsburgh/exterior/ref/point_state_park_exterior_ref.jpg` | Main outdoor plate. Wide triangle. |
+| *done* | Point State Park | Door | `double-video/video/assets/pittsburgh/exterior/ref/point_state_park_exterior_ref_door.jpg` | Lawn stand-spot. |
+| *done* | PPG Cafe | Interior | `double-video/video/assets/pittsburgh/interior/ppg_cafe_int.jpg` | Dining floor, bar, and back-wall kitchen in one frame. No separate counter plate needed. |
+| *done* | Fifth Avenue Market | Interior | `double-video/video/assets/pittsburgh/interior/fifth_avenue_market_int.jpg` | Aisle. |
+| *done* | EQT Supply Store | Interior | `double-video/video/assets/pittsburgh/interior/eqt_supply_int.jpg` | Supply counter and crates. |
+| *done* | O'Reilly Pub | Interior | `double-video/video/assets/pittsburgh/interior/oreilly_pub_int.jpg` | Bar. |
+| *done* | Penn College | Interior | `double-video/video/assets/pittsburgh/interior/penn_college_library_int.jpg` + `penn_college_reception-gym_int.jpg` | **Changed:** library, and gym with rest area. No classroom plate. |
+| 1 | Six PPG Place | Interior | `double-video/video/assets/pittsburgh/interior/apt_mid_int.jpg` | Mid one-room look. Covers 16 of 20 homes — do first. |
+| 2 | First & Market Apartments | Interior | `double-video/video/assets/pittsburgh/interior/apt_small_int.jpg` | Small studio look. First & Market + Midtown. |
+| 3 | One Gateway Center | Interior | `double-video/video/assets/pittsburgh/interior/apt_large_int.jpg` | Large two-bedroom look. One Gateway + Two PPG Place. |
 
-**Exteriors** = real photos (façades, landmarks, outdoor plates). **Interiors** = empty ground-floor sim rooms (Imagine plates), not real tower floor plans. The closer needs this set: Point, five shop rooms, and three apartment looks. The rest of this file is the full shoot.
+**Exteriors** = real photos (façades, landmarks, outdoor plates). **Interiors** = empty ground-floor sim rooms (Imagine plates), not real tower floor plans. The closer needs this set: Point, five workplaces, and three apartment looks. The rest of this file is the full shoot.
+
+**Before the first Downtown bake:** `habitat_lock` still loads Hobbs for any “cafe,” and has no library or gym. Penn College Doubles need their job mapped to the library or the gym plate, or the bake must fail. Code section in [`TODO_video.md`](TODO_video.md) (LeaderTalks → Code).
 
 **Scale lock.** Phaser stays 4:1 so Downtown fits: people read large, and one step covers 4 Pittsburgh metres. Video does not inherit that. Exteriors are real façades, parks, and bridges at photographic scale. Interiors are the hollowed sim ground floor, dressed as a modern empty room. Layout comes from the Phaser crop. Do not shrink a real tower plan by 4. Do not use a Phaser screenshot as an exterior plate.
 
@@ -165,7 +165,7 @@ After polish, street refs copy to `double-video/video/assets/pittsburgh/exterior
 
 ## Interiors
 
-Empty eye-level plates of the **sim ground floor**. Do not photograph real office or apartment interiors. Look comes from a real photo of that place. Layout comes from the unlabeled Phaser top-down of that room (no `*_labeled.png`). Do not attach the village style frame or Hobbs plates. No people. Prompts are in [Interior prompts](#interior-prompts) below.
+Empty eye-level plates of the **sim ground floor**. Do not photograph real office or apartment interiors. Look comes from a real photo of that place. Layout comes from the unlabeled Phaser top-down of that room (no `*_labeled.png`). Do not attach the village style frame or Hobbs plates. No people. Prompt is in [Interior prompt](#interior-prompt) below.
 
 ### Interior prompt
 
@@ -212,18 +212,72 @@ Keep this exact room, camera, light, and every object already here. Add only: {m
 ```
 
 
-| Pittsburgh address | Maze Place | Save as | How to shoot |
-| --- | --- | --- | --- |
-### DONE
-| One PPG Place, Pittsburgh, PA 15222 | PPG Cafe | double-video/video/assets/`pittsburgh/interior/ppg_cafe_int.png` | Empty cafe, dining floor. Optional second: `ppg_cafe_int_counter.png` (bar). Ban Hobbs furniture. |
+Interiors save as `.jpg`. Filenames are slugs (no spaces or apostrophes).
 
-### TODO
-| 120 Fifth Avenue, Pittsburgh, PA 15222 | Fifth Avenue Market | double-video/`video/assets/pittsburgh/interior/fifth_avenue_market_int.png` | Empty market aisle. |
-| 625 Liberty Avenue, Pittsburgh, PA 15222 | EQT Supply Store | double-video/`video/assets/pittsburgh/interior/eqt_supply_int.png` | Empty supply counter / crates. |
-| 621 Penn Avenue, Pittsburgh, PA 15222 | O'Reilly Pub | double-video/video/`assets/pittsburgh/interior/oreilly_pub_int.png` | Empty pub bar. |
-| 501 Penn Avenue, Pittsburgh, PA 15222 | Penn College | double-video/video/`assets/pittsburgh/interior/penn_college_int.png` | Empty classroom. Do not make a second library interior until that room is hollowed. |
-| 603 Stanwix Street, Pittsburgh, PA 15222 | Two Gateway Center | `double-video/video/assets/pittsburgh/interior/apt_small_int.png` | Shared small look for the 20 homes. One living room + bath. Example pad only. Not 20 unique units. |
-| 164 First Avenue, Pittsburgh, PA 15222 | First & Market Apartments | `double-video/video/assets/pittsburgh/interior/apt_mid_int.png` | Shared mid look. One open room + bath. Example pad only. |
-| 420 Fort Duquesne Boulevard, Pittsburgh, PA 15222 | One Gateway Center | `double-video/video/assets/pittsburgh/interior/apt_large_int.png` | Shared large look. Larger living + bath. Example pad. Two PPG Place can use this same plate. Not a real tower plan. |
+#### *DONE* (2026-09-29)
+
+| Pittsburgh address | Maze Place | Save as | What it shows |
+| --- | --- | --- | --- |
+| One PPG Place, Pittsburgh, PA 15222 | PPG Cafe | `double-video/video/assets/pittsburgh/interior/ppg_cafe_int.jpg` | Glass wintergarden cafe. Dining floor (red and yellow chairs, piano), counter with three stools, back-wall kitchen. One plate covers dining and bar. |
+| 120 Fifth Avenue, Pittsburgh, PA 15222 | Fifth Avenue Market | `double-video/video/assets/pittsburgh/interior/fifth_avenue_market_int.jpg` | **Changed.** Produce and packaged-goods rows up front, flower rest area in the middle, register at the back with a “Fifth Avenue Market” sign on the wall. |
+| 625 Liberty Avenue, Pittsburgh, PA 15222 | EQT Supply Store | `double-video/video/assets/pittsburgh/interior/eqt_supply_int.jpg` | Empty supply counter and crates. |
+| 621 Penn Avenue, Pittsburgh, PA 15222 | O'Reilly Pub | `double-video/video/assets/pittsburgh/interior/oreilly_pub_int.jpg` | Empty pub bar. |
+| 501 Penn Avenue, Pittsburgh, PA 15222 | Penn College | `double-video/video/assets/pittsburgh/interior/penn_college_library_int.jpg` | **Changed.** College library, not the classroom. |
+| 501 Penn Avenue, Pittsburgh, PA 15222 | Penn College | `double-video/video/assets/pittsburgh/interior/penn_college_reception-gym_int.jpg` | **Changed.** College gym and rest area. |
+
+Penn College has no classroom plate. Make one only if a Double’s job needs a classroom beat.
+
+#### *TODO* — homes
+
+**Lookup rule (video bake).** For a Double's home: use that home's own plate `{slug}_int.jpg` if it is on disk. Otherwise use the shared look named in its row below. Fail the bake if neither exists. Never fall back to a village room.
+
+Short term: three shared looks cover all 20 homes. Permanent: one plate per home, filled in over time. Each new home plate replaces its fallback automatically.
+
+##### Shared looks (fallback)
+
+The 20 homes fall into three sizes (floor cells from `double-docs/R3F/20260909_home-pass.md` and `20260918_wave20-furnishing.md`). One plate per size, built from **one example pad's** Phaser crop and furniture list.
+
+| Look | Save as | Example pad (Phaser crop + list) | Homes that use it | What the frame shows |
+| --- | --- | --- | --- | --- |
+| **Small studio** (~25 cells) | `double-video/video/assets/pittsburgh/interior/apt_small_int.jpg` | First & Market Apartments (164 First Avenue) | First & Market, Midtown Tower | One open room: bed, desk, clothes rack, rug. |
+| **Mid one-room** (59–116 cells) | `double-video/video/assets/pittsburgh/interior/apt_mid_int.jpg` | Six PPG Place (6 PPG Place) — plain kit, no signature prop | Gateway Tower, Roosevelt, Encore, River Vue, Tower Two-Sixty, 11 Stanwix, Six PPG, USW, PNC Center, One PNC, Three PNC, Four Gateway, K&L Gates, Three Gateway, Two Gateway, Two PNC | Bed, desk, bookshelf, dresser, table, armchair, clothes stand, fridge, plant. Bath door closed in the back wall. |
+| **Large two-bedroom** (158–194 cells) | `double-video/video/assets/pittsburgh/interior/apt_large_int.jpg` | One Gateway Center (420 Fort Duquesne Boulevard) | One Gateway Center, Two PPG Place | Living, dining, and kitchen in one frame. Two bedroom doors in the back. |
+
+Camera for homes: stand just inside the street door and look into the room.
+
+Skip bath plates unless a beat needs one. Home beats are rare; most habitat shots are the workplace.
+
+##### Every home (exact plates — when time permits)
+
+Same interior prompt, with that home's own Phaser crop and furniture list. Keep its signature pieces and palette: they are how a viewer matches the plate to that Double's room in the sim. The three example pads get their exact plate for free: save the shared plate a second time under the home's slug.
+
+Order: homes of Doubles who are about to be featured first, then homes with signature pieces, then the plain ones.
+
+All files go in `double-video/video/assets/pittsburgh/interior/`. Addresses are ZIP 15222 unless noted.
+
+| # | Maze Place | Address | Cells | Fallback look | Exact plate | Signature pieces (from the sim) | Status |
+| --- | --- | --- | ---: | --- | --- | --- | --- |
+| 1 | First & Market Apartments | 164 First Avenue | 25 | small | `first_and_market_int.jpg` | Open plan: bed, clothes rack, rug | Example pad — copy the small look |
+| 2 | Midtown Tower | 643 Liberty Avenue | 26 | small | `midtown_tower_int.jpg` | Square bed, desk, rug, bath wall | TODO |
+| 3 | Six PPG Place | 6 PPG Place | 94 | mid | `six_ppg_place_int.jpg` | Plain kit | Example pad — copy the mid look |
+| 4 | River Vue Apartments | 300 Liberty Avenue | 116 | mid | `river_vue_int.jpg` | Bookshelf, globe, flowers, floor lamp | TODO |
+| 5 | Tower Two-Sixty | 260 Forbes Avenue | 114 | mid | `tower_two_sixty_int.jpg` | Sofa, TV, reading chair, floor lamp | TODO |
+| 6 | 11 Stanwix Street | 11 Stanwix Street | 101 | mid | `11_stanwix_int.jpg` | Drum, guitar | TODO |
+| 7 | USW \| United Steelworkers | 60 Boulevard of the Allies | 88 | mid | `usw_int.jpg` | Guitar, music corner, no TV | TODO |
+| 8 | PNC Center | 500 First Avenue, **15219** | 86 | mid | `pnc_center_int.jpg` | Plain kit, fridge | TODO |
+| 9 | Roosevelt Building | 609 Penn Avenue | 80 | mid | `roosevelt_building_int.jpg` | Dresser, armchair, bath wall | TODO |
+| 10 | One PNC Plaza | 249 Fifth Avenue | 77 | mid | `one_pnc_plaza_int.jpg` | Guitar, floor lamp | TODO |
+| 11 | Encore on 7th | 100 7th Street | 76 | mid | `encore_on_7th_int.jpg` | Easel, guitar | TODO |
+| 12 | Three PNC Plaza | 225 Fifth Avenue | 75 | mid | `three_pnc_plaza_int.jpg` | Bookshelf, flowers, floor lamp | TODO |
+| 13 | Four Gateway Center | 444 Liberty Avenue | 75 | mid | `four_gateway_int.jpg` | Harp, urn | TODO |
+| 14 | K&L Gates Center | 210 Sixth Avenue | 74 | mid | `kl_gates_int.jpg` | Easel, flowers | TODO |
+| 15 | Gateway Tower | 320 Fort Duquesne Boulevard | 73 | mid | `gateway_tower_int.jpg` | Desk with computer, bookcase | TODO |
+| 16 | Three Gateway Center | 401 Liberty Avenue | 69 | mid | `three_gateway_int.jpg` | Floor lamp, no fridge | TODO |
+| 17 | Two Gateway Center | 603 Stanwix Street | 66 | mid | `two_gateway_int.jpg` | Sparse: bed, desk, dresser, armchair | TODO |
+| 18 | Two PNC Plaza | 620 Liberty Avenue | 60 | mid | `two_pnc_plaza_int.jpg` | Flowers, tight bath | TODO |
+| 19 | One Gateway Center | 420 Fort Duquesne Boulevard | 195 | large | `one_gateway_int.jpg` | Two bedrooms. Sage and terracotta walls, stocked bar, exercise machine, easel, guitar, globe | Example pad — copy the large look |
+| 20 | Two PPG Place | 2 PPG Place | 159 | large | `two_ppg_place_int.jpg` | Two bedrooms. Blue walls and mosaic floor, harp, guitar, games console, TV | TODO |
+
+Slugs match the exterior files (`{slug}_exterior_ref.jpg`) so one home has one name across plates. Cells are Phaser floor cells, used only to pick the fallback size. Signature pieces come from the September furnishing notes; the Phaser crop wins if they differ.
 
 Phaser crops (Imagine layout only, not on-screen plates): `double-video/video/assets/phaser/_moodboard/pittsburgh/{slug}.png` — same slug as the interior file, unlabeled top-down.
