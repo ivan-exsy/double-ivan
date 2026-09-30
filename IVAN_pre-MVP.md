@@ -21,8 +21,7 @@ Breakfasts spec files (`BREAKFASTS-BOARD.md`, `MVP-breakfasts.md`, `MVP-breakfas
 - **Downtown real sim** — **PM-BFST-13** scored PPG Survival day. New Downtown sim — not the Breakfasts watch URL. On that run, fix A* “no path → arrive anyway” only if it still jumps walls. Cap 6.
 - **LeaderTalks play** — Season Spec **locked** (premiere opener + 15 evening drops). soul_15 → Pittsburgh maze, operator log + Showrunner, **PM-LTALK-8** timecodes, daily 15s clips optional, drop.
 - **Public sim list** — **PM-AUTH-2**, next pass. FE ships the homepage and the landing camera first. BE then locks the list, costs, and the roster. Do not reload `api-gateway` while `20260929-3` is the live iframe unless Ivan names the window.
-- **Supabase health** — when `20260929-3` finishes, check Disk IO on `double-openrouter`. Warning 2026-09-30. Leave the Micro compute size in place while this sim is the live iframe.
-- **Public API name** — when `20260929-3` finishes, `https://api.doubland.ai` is the only public API. Point landing and watch off `https://api.ondouble.com:8001`, then close public port 8001. Docs: `https://api.doubland.ai/docs`. Do not reload `api-gateway` while this sim is the live iframe.
+- **Team door** — **PM-AUTH-3**. Same Supabase login. Docs and operator calls require a team mark. Watch playback, status, one person card, signup, and health stay open. List, costs, and roster stay **PM-AUTH-2**.
 
 ---
 
@@ -55,13 +54,26 @@ Anyone who knows that sim can still read names and locations from the step paylo
 - [ ] **Do not reload `api-gateway` in this pass** unless Ivan names the window. `20260929-3` is the running sim and the iframe.
 - [ ] **Leave the admin list alone.** `/admin/simulations` reads `double.simulations` with the browser Supabase client. Tightening anonymous access there takes that page down. Public Watch does not use it.
 
-### Public API name — after `20260929-3`
+### Team door — docs and operator calls (PM-AUTH-3)
 
-- [ ] **Finish the Doubland cutover.** One gateway. Public URL `https://api.doubland.ai`. Point landing `API_GATEWAY_URL` (and the code fallback) and the watch debug hardcode off `https://api.ondouble.com:8001`. Confirm health and websocket playback, then close public `:8001` from the firewall. `https://api.doubland.ai:8001` presents the `api.ondouble.com` certificate (`ERR_CERT_COMMON_NAME_INVALID`); docs stay `https://api.doubland.ai/docs`. Uvicorn on localhost HTTP waits for a later restart window. Do not reload `api-gateway` while `20260929-3` is the live iframe.
+One login, the one people already use. Ivan and Nicolas carry a team mark on that Supabase user. No second password.
 
-### Supabase health — after `20260929-3`
+The docs page is the map. Start, stop, the file watcher, and background tasks are the open controls. Both require the team mark. Visiting `https://api.doubland.ai/docs` without a session goes through the magic link and returns to the docs. Same rule for `/redoc` and `/openapi.json`.
 
-- [ ] **Confirm Disk IO once the sim stops.** `double-openrouter` is on Micro and sent a Disk IO budget warning on 2026-09-30, while this run was still writing. Open Database health: Disk IO % consumed, whether queries are still quick, and disk space (about 88% of 12 GB). Keep Micro unless the budget is used up or the map is slow. A compute change restarts Postgres for a couple of minutes, so wait for a quiet window. Small (~$15/mo) or Medium (~$60/mo) is the upgrade if one is needed.
+Watch playback, sim status, one person’s card, signup, and health stay open. Chat, `/api/me`, and onboard stay as they are.
+
+The full sim list, costs, and roster stay **PM-AUTH-2**. Lock those after the homepage and landing stop calling them.
+
+Reload `api-gateway` only when Ivan names the window. The public demo iframe still plays `20260929-3`.
+
+- [ ] **Team mark** on Ivan and Nicolas. Same login as Chat.
+- [ ] **Docs require the team mark.** `/docs`, `/redoc`, and `/openapi.json`. A browser visit uses the magic link and returns to the docs.
+- [ ] **Operator calls require the team mark.** Start, stop, file watcher, background tasks.
+- [ ] **Leave the public product open.** Playback, status, one person card, signup, health.
+- [ ] **Leave signed-in product routes as they are.** Chat, `/api/me`, onboard.
+- [ ] **List, costs, and roster stay PM-AUTH-2.** After that front end ships.
+- [ ] **Update the API how-to** in `double-docs/sot/sot_api.md` once the docs page asks for the team login.
+- [ ] **Reload `api-gateway` only when Ivan names the window.**
 
 ### 20:00 vote — confirm on next full sim day
 
@@ -166,6 +178,8 @@ That is **16 posts** (opener + 15 nights), plus the three polls. Engine: premier
 
 ## Shipped
 
+- **Supabase health** — Closed 2026-09-30. `double-openrouter` stays Micro. After `20260929-3` stopped, a normal read of that sim’s latest steps was 5 ms and nothing was waiting on disk. The Disk IO warning was the run itself (138 statement timeouts, 2–4 PM Eastern on 2026-09-29; about 600 MB still in swap). Disk was 88% of 12 GB. Supabase auto-grew it 12 GB → 18 GB when the old-sim delete crossed 90%. Do not shrink it. The files still use about 12 GB; the extra 6 GB is about $0.75/month. A smaller disk is not a dashboard control.
+- **Public API name** — Closed 2026-09-30. `https://api.doubland.ai` is the only public API. Landing production `API_GATEWAY_URL` and the landing fallback are that host (`a6f51bb` on www). Watch production uses the same host, including the debug step links (`b8afb18d` on `vercel`). Public port 8001 is closed on the box firewall. Health and this sim’s status answered after the close. The API process was not restarted. Docs stay `https://api.doubland.ai/docs`.
 - **Spoken Survival promises reach the vote** — a full sit stores the promise; the 20:00 ballot lists it; betrayal fires when the voter promised. `railway` `1cea4b3c`. Score on `20260929-3`. Shipped 2026-09-29.
 - **Watch keeps accented names** — Nicolás stays on the roster and the map. `railway` `ca653738`. Shipped 2026-09-29.
 - **PM-BFST-1** — Downtown occupancy world. Twenty furnished homes, colliders, object ingest. Breakfasts watch stays `the_ville`. A new sim uses the maze named at creation; default is Downtown. Closed 2026-09-28 pending the real sim (**PM-BFST-13**).
