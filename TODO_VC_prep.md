@@ -110,6 +110,20 @@ Raw view counts, total reactions, follower counts, and any other vanity totals. 
 
 No numbers go here until they come from the sim and the operator log. Honest zeros are fine. Never invent a value.
 
+### Retention targets (set 2026-09-30)
+
+These are the bars the retention curve gets judged against. They come from a16z's seed-stage benchmarks for consumer social apps ([source](https://a16z.com/do-you-have-lightning-in-a-bottle-how-to-benchmark-your-social-app/)). They match the demo targets in `TODO_front-page-sim.md`, and they're targets, not results.
+
+| Return window | Minimum (a16z "OK") | Pitch target (a16z "good") | a16z "great" |
+|---|---|---|---|
+| D1: back the day after moving in | at least 50% | 60% | 70% |
+| D7: back a week later | at least 35% | 40% | 50% |
+| D30: still active a month later | at least 20% | 25% | 30% |
+
+- Aim for the "good" column before pitching seed investors, and for Speedrun (SR008, late January 2027) after 2 to 4 weeks of demo data.
+- If you only clear the minimum, lead with the Showrunner story and pull (see the fallback in section 6).
+- The earlier targets of 40% D1 and 15% D7 are retired.
+
 | Metric | Value |
 |---|---|
 | Retention curve (night-1 cohort through night N) | TBD, fill from sim data |
