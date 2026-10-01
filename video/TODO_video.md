@@ -7,7 +7,7 @@
 
 **Current daily:** Closer tonight (`--sku closer`). New sim with no `vo_locked_long.txt` auto-locks from `draft_closer_tonight_vo`. Bake fails closed on `check_closer_vo_facts`. Short Scar is `--sku scar`. Episode 1 Ivan/Alex is a **specimen**, not the lock.
 
-**LeaderTalks season:** Premiere opener = **Anya’s locked L-Talks cut** (do not auto-gen a Downtown opener). Then 15 evening closers on the **Pittsburgh Downtown** maze (`20260917_pre-MVP.md` Season Spec). Village Hobbs plates will **silently** attach to PPG Cafe unless the Downtown pack below ships first.
+**LeaderTalks season:** Premiere opener = **Anya’s locked L-Talks cut** (do not auto-gen a Downtown opener). Then 15 evening closers on the **Pittsburgh Downtown** maze (`20260917_pre-MVP.md` Season Spec). Workplace and home interiors are on disk. A bake from `mvp-ready` still attaches Hobbs until `ivan/pittsburgh-habitat-lock` merges. Weather and flyover are still the village pack.
 
 ---
 
@@ -63,12 +63,12 @@ Hero-hold cadence already exists and already exempts closer-long roles; polish d
 
 ## Open (video)
 
-Same closer skeleton. Not a second framework. Village gather/talk is elsewhere. **LeaderTalks daily is blocked on Pittsburgh plates** (section below).
+Same closer skeleton. Not a second framework. Village gather/talk is elsewhere. **LeaderTalks daily is blocked on the Downtown bake** (lookup branch not merged; weather and flyover are still the village pack). Interior plates are done.
 
 | P | Work | Notes |
 |---|------|-------|
 | **Craft** | Extra P1 pictures | Namecards + readable tie / VOTING TARGET. Peak/challenge/Phaser already accepted on the Episode 1 benchmark. grok.com/imagine 2.0 (6–15s, 720p, 9:16) → kit. Do not Imagine Phaser elim. |
-| **L-Talks (blocking)** | Pittsburgh place plates + habitat_lock | Shoot list: [`TODO_pittsburgh-assets.md`](TODO_pittsburgh-assets.md). Point + five workplaces done 2026-09-29; home interiors done 2026-09-30 (three shared looks, 19 own plates, bedrooms for One Gateway + Two PPG). Next: `habitat_lock` code. Village Hobbs plates must not leak onto PPG. |
+| **L-Talks (blocking)** | Remaining Pittsburgh exteriors + Downtown bake | Pending shots only: [`TODO_pittsburgh-assets.md`](TODO_pittsburgh-assets.md). Interiors done 2026-09-30. Point, five shop façades, ten home streets, and five walk plazas are on disk. Lookup is written on `ivan/pittsburgh-habitat-lock` (not merged). Still open: remaining façades, G3 PPG refs, Downtown C-pack, flyover, one cold Downtown closer. |
 | **L-Talks (drop)** | **PM-LTALK-8** YouTube chapters + Telegram blurb | Hook closer bake in **`double-video`**. Encyclopedia generator already works; closer does not call it. See below. |
 | **Optional** | [E] leftover helpers | Copy remaining helpers anytime. No bulk move of eng `video/`. Polish UX already in `double-video`. |
 | **Optional art (village only)** | Exteriors / C5/C7 / Hobbs cafe / flyover names | Village interiors + Johnson Park are done. **Does not** unblock Downtown daily. |
@@ -85,7 +85,7 @@ Same closer skeleton. Not a second framework. Village gather/talk is elsewhere. 
 
 Occupancy shops (doors locked in `20260917_pre-MVP.md`): **PPG Cafe** (gather) · **Fifth Avenue Market** · **EQT Supply Store** · **O’Reilly Pub** · **Penn College**. Homes: **20** apartments (`double-docs/R3F/20260918_home-wave-20.md`).
 
-**Photo roster (sim name + real address):** [`TODO_pittsburgh-assets.md`](TODO_pittsburgh-assets.md). Photograph **real façades**. Interiors are **ground-floor sim rooms**, not real tower floor plans. Daily closer still only **needs** the five shops + 2–3 apartment looks + Point. The roster is the **full maze** so tomorrow’s shoot can cover every building Doubles can be tied to.
+**Photo roster:** pending shots only in [`TODO_pittsburgh-assets.md`](TODO_pittsburgh-assets.md). Finished interiors are in `double-video/video/assets/pittsburgh/interior/`. Finished exteriors are in `double-video/video/assets/pittsburgh/exterior/ref/`. Photograph **real façades**. Interiors are **ground-floor sim rooms**, not real tower floor plans. The closer interior set (five shops, three apartment looks, Point) is on disk.
 
 Village plates live in `double-video/video/assets/village/{interior,exterior}/`. Phaser moodboard still in `generative_agents/video/assets/phaser/_moodboard/`. C1–C8 + `signature_flyover.mp4` are the_ville (`double-video/video/fly-over/`). SOT §2.1 still names `generative_agents/video/assets/…` — treat `double-video` as the live copy.
 
@@ -99,9 +99,9 @@ Do **not** use Tower at PNC Plaza (300 Fifth) for PNC Center or One PNC Plaza. D
 
 | # | Asset | Why |
 |---|--------|-----|
-| **1** | **Workplace interiors** (empty, eye-level) for PPG Cafe, Fifth Avenue Market, EQT Supply, O’Reilly Pub, Penn College | `habitat_lock.py` job+place cards + habitat beds. G3 gather needs PPG cafe refs. Two cameras OK on PPG (counter + dining). |
-| **2** | **Home interiors** — 2–3 Downtown apartment types (living + bath), not 20 unique pads | Habitat / living-last-line when the beat is at home. |
-| **3** | **Exteriors** of those five shops + **Point State Park** (601 Commonwealth Place; fountain if same stop) + one homes-street | Flyover / Door / weather / outdoor habitat. Village Johnson Park maps to Point. |
+| **1** | **Workplace interiors** — on disk 2026-09-29 | PPG Cafe, Fifth Avenue Market, EQT Supply, O’Reilly Pub, Penn College (library + gym). G3 gather still needs to be pointed at the PPG cafe ref. |
+| **2** | **Home interiors** — on disk 2026-09-30 | Three shared looks, 19 own plates, bedrooms for One Gateway and Two PPG. First & Market uses `apt_small_int.jpg`. |
+| **3** | **Shop + Point exteriors** — on disk | Five shop façades with door plates, Point wide + lawn door, ten home streets. Fountain is still open in the shoot list. |
 | **4** | **Phaser `_moodboard` crops** of those five shops + the 2–3 homes (unlabeled top-down) | Imagine layout gate. Do not auto-crop from a low-res birdseye. Do not feed `*_labeled.png`. |
 | **5** | **Cinematic pack Downtown twins** of C1–C8 + a Downtown Phaser `signature_flyover` | Recipe currently swaps village C-pack under weather/cliff. Can finish after the photo day. |
 
@@ -113,30 +113,29 @@ Tick when the still is on disk under `video/assets/pittsburgh/`:
 - [x] O’Reilly Pub interior (2026-09-29)
 - [x] Penn College interior — **library** + **gym / rest area**, no classroom (2026-09-29)
 - [x] Those five shop façades (+ door plates)
-- [x] Three home looks: small studio, mid one-room, large two-bedroom (see `TODO_pittsburgh-assets.md`) — 2026-09-30
+- [x] Three home looks: small studio, mid one-room, large two-bedroom, plus 19 own plates and two large bedrooms — 2026-09-30. Files in `double-video/video/assets/pittsburgh/interior/`.
 - [x] Point State Park wide + lawn door (fountain still open)
-- [ ] One homes-street exterior
-- [ ] Phaser crops for the rooms above
+- [x] Home street faces for the closer (ten on disk; Encore is mass-only). The other ten streets are in the shoot list.
+- [ ] Phaser crops for the rooms above (`video/assets/phaser/_moodboard/pittsburgh/` is empty)
 - [ ] Downtown C-pack / `signature_flyover` (ok to lag the photo day)
 
-#### B — Full maze (same trip; every pad Doubles can be tied to)
+#### B — Full maze (remaining)
 
-Addresses in the roster. Tick when the still is on disk under `video/assets/pittsburgh/`.
+Filenames and shoot notes: [`TODO_pittsburgh-assets.md`](TODO_pittsburgh-assets.md). On disk already, and removed from that list: ten home streets (Gateway Tower, Roosevelt, Midtown, River Vue, Tower Two-Sixty, 11 Stanwix, Six PPG, USW, PNC Center, One PNC) plus Market Square, Mellon Square, Gateway Center Park, Arts Landing, and Firstside Park.
 
-- [ ] **20 home façades** (First & Market, Gateway Towers, Roosevelt, Midtown, Encore + the fifteen in the roster)
-- [ ] Remaining **outdoors Doubles walk:** Market Square, Mellon Square, Gateway Center lawns, Arts Landing, Firstside Park, Mon Wharf, riverwalk, Roberto Clemente / Andy Warhol / Rachel Carson bridges. Fort Pitt Museum **grounds** only (locked pad).
-- [ ] **On the map, not enterable** (skyline / flyover, no interiors): Wyndham Grand 600 Commonwealth, Heinz Hall, Benedum, rest of PPG Place, Star Lofts, Wood Street Galleries, Point Park Academic Hall, old YWCA **305 Wood Street**
+- [ ] **10 home street faces** still missing (Encore street, First & Market, Three PNC, Four Gateway, K&L Gates, Three Gateway, Two Gateway, Two PNC, Two PPG, One Gateway)
+- [ ] **Outdoors still open:** fountain, Fort Pitt Museum grounds, Mon Wharf, Roberto Clemente / Andy Warhol / Rachel Carson bridges, East Park lawn, downtown skyline
+- [ ] **On the map, not enterable** (skyline / flyover, no interiors): Wyndham Grand, Heinz Hall, Benedum, PPG wintergarden, Three / Four / Five PPG, St. Mary of Mercy, Star Loft, Wood Street Studios, Academic Hall, YWCA 305 Wood, CityHigh if the façade is certain
 - [ ] Unnamed OSM boxes, garages, rivers = backdrop only — do not commission as locations
 
-### Code (after plates exist — otherwise bake will look like Hobbs)
+### Code
 
-`habitat_lock.py` matches any `"cafe"` → `cafe_int_dining.png` (Hobbs). **PPG Cafe would silently get the village cafe.** Same risk for `"market"` / `"supply"` / `"pub"` / `"classroom"`. Homes: use `{slug}_int.jpg` if on disk, else the shared look in that home's row of `TODO_pittsburgh-assets.md` (small / mid / large); fail closed if neither exists. Large homes (One Gateway, Two PPG) may also have `{slug}_bedroom_int.jpg` / `apt_large_bedroom_int.jpg`: use it only for sleep or bed beats, otherwise the living plate. Penn College has **library** and **gym** plates, not a classroom — map Penn jobs to one of those two (`penn_college_library_int.jpg`, `penn_college_reception-gym_int.jpg`). Downtown plates are `.jpg`. `INTERIOR_DIR` is hard-coded to `video/assets/village/interior/` — plates sitting only under `assets/pittsburgh/` will not load until that path (or a maze switch) exists.
+**Lookup — written 2026-10-01 on `ivan/pittsburgh-habitat-lock`, not merged to `mvp-ready`.** Downtown place names resolve before the village words. PPG Cafe, Fifth Avenue Market, EQT Supply, and O’Reilly Pub use their Pittsburgh jpg. Penn College uses the library plate, or the gym plate when the job or room says gym, coach, fitness, or trainer. Homes use `{slug}_int.jpg` when that file is on disk, otherwise `apt_small_int.jpg` / `apt_mid_int.jpg` / `apt_large_int.jpg`. First & Market uses the small look. A known Downtown place with no file fails closed. Bedroom plates (`one_gateway_bedroom_int.jpg`, `two_ppg_place_bedroom_int.jpg`) are used only when the caller passes `sleep=True`. The closer recipe does not pass that flag yet, so a sleep beat still gets the living plate. A bake from `mvp-ready` still attaches Hobbs.
 
-- Register Downtown plates; Downtown keywords **first**; **fail closed** if maze is Downtown and the plate is missing.
 - Gather/G3 Imagine: PPG Cafe refs; ban Hobbs furniture and metal shields.
 - Recipe world plates: Downtown C-pack. Today `cinematic_pack.py` stages C1–C8 as `cinematic_ville_*`, and `nightly_scar_recipe.py` `_WORLD_PLATE_NEEDLES` is `village` / `ville_overhead` / `cinematic_ville`.
 - Phaser plant/door: `signature_flyover.mp4` is the_ville. Commission a Downtown twin; do not swap plant/door for a C-plate (SOT §11.5).
-- Prove: one cold closer on a Downtown sim (`--ignore-edit-script`). Fail if any cut still uses Hobbs / Willows / Oak Hill / Rose and Crown plates.
+- Prove: one cold closer on a Downtown sim (`--ignore-edit-script`) after the lookup branch is merged. Fail if any cut still uses Hobbs / Willows / Oak Hill / Rose and Crown plates.
 
 Census G7 15-seat assets are fine for soul_15. Look photos in Supabase still do **not** feed `_find_cohort_portrait` — named portraits remain a kit requirement (identity, not maze).
 
@@ -267,7 +266,7 @@ Seeds G6 `ballots.mp4` + G7 census; habitat = namecard + mp4 (no still freeze); 
 
 - **N1–N6:** Tonight’s Scar chain · challenge teach packs in git · auto picture G1–G5+G8+G3 i2v · Soul15 seat_map C/B/A (Ivan 3.3) · interiors+Phaser crops · one-command `run_tonight_scar`.
 - **Gold replay:** CapCut CSV → `DailyGoldReplay` · C1–C8 wired · Remotion = product, CapCut = forensics only.
-- **Village interiors + Johnson Park:** inventory 0 interior TODO. **Does not cover Downtown.** Pittsburgh plates are open above.
+- **Village interiors + Johnson Park:** inventory 0 interior TODO. **Does not cover Downtown.** Downtown interiors are done; remaining Pittsburgh exteriors are in [`TODO_pittsburgh-assets.md`](TODO_pittsburgh-assets.md).
 - **P1 peak/challenge/Phaser + Episode 1 closer auto-gen:** Alexis rank **11** still+clip · challenge table card-backs · FE `*_leave_phaser.png`. `20260823-2` closer locked 2026-08-27.
 
 ---
