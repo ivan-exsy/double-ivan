@@ -68,7 +68,7 @@ Same closer skeleton. Not a second framework. Village gather/talk is elsewhere. 
 | P | Work | Notes |
 |---|------|-------|
 | **Craft** | Extra P1 pictures | Namecards + readable tie / VOTING TARGET. Peak/challenge/Phaser already accepted on the Episode 1 benchmark. grok.com/imagine 2.0 (6–15s, 720p, 9:16) → kit. Do not Imagine Phaser elim. |
-| **L-Talks (blocking)** | Pittsburgh place plates + habitat_lock | Shoot list: [`TODO_pittsburgh-assets.md`](TODO_pittsburgh-assets.md). Point + five workplaces done 2026-09-29; **three home looks left**, then `habitat_lock` code. Village Hobbs plates must not leak onto PPG. |
+| **L-Talks (blocking)** | Pittsburgh place plates + habitat_lock | Shoot list: [`TODO_pittsburgh-assets.md`](TODO_pittsburgh-assets.md). Point + five workplaces done 2026-09-29; home interiors done 2026-09-30 (three shared looks, 19 own plates, bedrooms for One Gateway + Two PPG). Next: `habitat_lock` code. Village Hobbs plates must not leak onto PPG. |
 | **L-Talks (drop)** | **PM-LTALK-8** YouTube chapters + Telegram blurb | Hook closer bake in **`double-video`**. Encyclopedia generator already works; closer does not call it. See below. |
 | **Optional** | [E] leftover helpers | Copy remaining helpers anytime. No bulk move of eng `video/`. Polish UX already in `double-video`. |
 | **Optional art (village only)** | Exteriors / C5/C7 / Hobbs cafe / flyover names | Village interiors + Johnson Park are done. **Does not** unblock Downtown daily. |
@@ -113,7 +113,7 @@ Tick when the still is on disk under `video/assets/pittsburgh/`:
 - [x] O’Reilly Pub interior (2026-09-29)
 - [x] Penn College interior — **library** + **gym / rest area**, no classroom (2026-09-29)
 - [x] Those five shop façades (+ door plates)
-- [ ] Three home looks: small studio, mid one-room, large two-bedroom (see `TODO_pittsburgh-assets.md`)
+- [x] Three home looks: small studio, mid one-room, large two-bedroom (see `TODO_pittsburgh-assets.md`) — 2026-09-30
 - [x] Point State Park wide + lawn door (fountain still open)
 - [ ] One homes-street exterior
 - [ ] Phaser crops for the rooms above
@@ -130,7 +130,7 @@ Addresses in the roster. Tick when the still is on disk under `video/assets/pitt
 
 ### Code (after plates exist — otherwise bake will look like Hobbs)
 
-`habitat_lock.py` matches any `"cafe"` → `cafe_int_dining.png` (Hobbs). **PPG Cafe would silently get the village cafe.** Same risk for `"market"` / `"supply"` / `"pub"` / `"classroom"`. Homes: use `{slug}_int.jpg` if on disk, else the shared look in that home's row of `TODO_pittsburgh-assets.md` (small / mid / large); fail closed if neither exists. Penn College has **library** and **gym** plates, not a classroom — map Penn jobs to one of those two (`penn_college_library_int.jpg`, `penn_college_reception-gym_int.jpg`). Downtown plates are `.jpg`. `INTERIOR_DIR` is hard-coded to `video/assets/village/interior/` — plates sitting only under `assets/pittsburgh/` will not load until that path (or a maze switch) exists.
+`habitat_lock.py` matches any `"cafe"` → `cafe_int_dining.png` (Hobbs). **PPG Cafe would silently get the village cafe.** Same risk for `"market"` / `"supply"` / `"pub"` / `"classroom"`. Homes: use `{slug}_int.jpg` if on disk, else the shared look in that home's row of `TODO_pittsburgh-assets.md` (small / mid / large); fail closed if neither exists. Large homes (One Gateway, Two PPG) may also have `{slug}_bedroom_int.jpg` / `apt_large_bedroom_int.jpg`: use it only for sleep or bed beats, otherwise the living plate. Penn College has **library** and **gym** plates, not a classroom — map Penn jobs to one of those two (`penn_college_library_int.jpg`, `penn_college_reception-gym_int.jpg`). Downtown plates are `.jpg`. `INTERIOR_DIR` is hard-coded to `video/assets/village/interior/` — plates sitting only under `assets/pittsburgh/` will not load until that path (or a maze switch) exists.
 
 - Register Downtown plates; Downtown keywords **first**; **fail closed** if maze is Downtown and the plate is missing.
 - Gather/G3 Imagine: PPG Cafe refs; ban Hobbs furniture and metal shields.
