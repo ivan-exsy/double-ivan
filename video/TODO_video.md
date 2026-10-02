@@ -7,7 +7,7 @@
 
 **Current daily:** Closer tonight (`--sku closer`). New sim with no `vo_locked_long.txt` auto-locks from `draft_closer_tonight_vo`. Bake fails closed on `check_closer_vo_facts`. Short Scar is `--sku scar`. Episode 1 Ivan/Alex is a **specimen**, not the lock.
 
-**LeaderTalks season:** Premiere opener = **Anya’s locked L-Talks cut** (do not auto-gen a Downtown opener). Then 15 evening closers on the **Pittsburgh Downtown** maze (`20260917_pre-MVP.md` Season Spec). Workplace and home interiors are on disk. A bake from `mvp-ready` still attaches Hobbs until `ivan/pittsburgh-habitat-lock` merges. Weather and flyover are still the village pack.
+**LeaderTalks season:** Premiere opener = **Anya’s locked L-Talks cut** (do not auto-gen a Downtown opener). Then 15 evening closers on the **Pittsburgh Downtown** maze (`20260917_pre-MVP.md` Season Spec). Workplace and home interiors are on disk. The room lookup and the PPG Cafe gather plate are on `mvp-ready` locally (not pushed). Weather and flyover are still the village pack.
 
 ---
 
@@ -63,12 +63,12 @@ Hero-hold cadence already exists and already exempts closer-long roles; polish d
 
 ## Open (video)
 
-Same closer skeleton. Not a second framework. Village gather/talk is elsewhere. **LeaderTalks daily is blocked on the Downtown bake** (lookup branch not merged; weather and flyover are still the village pack). Interior plates are done.
+Same closer skeleton. Not a second framework. Village gather/talk is elsewhere. **LeaderTalks daily is blocked on a cold Downtown closer** (weather and flyover are still the village pack). Interior plates, the room lookup, and the PPG Cafe gather plate are on `mvp-ready` locally.
 
 | P | Work | Notes |
 |---|------|-------|
 | **Craft** | Extra P1 pictures | Namecards + readable tie / VOTING TARGET. Peak/challenge/Phaser already accepted on the Episode 1 benchmark. grok.com/imagine 2.0 (6–15s, 720p, 9:16) → kit. Do not Imagine Phaser elim. |
-| **L-Talks (blocking)** | Remaining Pittsburgh exteriors + Downtown bake | Pending shots only: [`TODO_pittsburgh-assets.md`](TODO_pittsburgh-assets.md). Interiors done 2026-09-30. Point, five shop façades, ten home streets, and five walk plazas are on disk. Lookup is written on `ivan/pittsburgh-habitat-lock` (not merged). Still open: remaining façades, G3 PPG refs, Downtown C-pack, flyover, one cold Downtown closer. |
+| **L-Talks (blocking)** | Cold Downtown closer | Pending shots only: [`TODO_pittsburgh-assets.md`](TODO_pittsburgh-assets.md). Interiors done 2026-09-30. Room lookup and PPG Cafe gather are on `mvp-ready` locally (not pushed). Still open: remaining façades, Downtown C-pack, flyover, one cold Downtown closer. |
 | **L-Talks (drop)** | **PM-LTALK-8** YouTube chapters + Telegram blurb | Hook closer bake in **`double-video`**. Encyclopedia generator already works; closer does not call it. See below. |
 | **Optional** | [E] leftover helpers | Copy remaining helpers anytime. No bulk move of eng `video/`. Polish UX already in `double-video`. |
 | **Optional art (village only)** | Exteriors / C5/C7 / Hobbs cafe / flyover names | Village interiors + Johnson Park are done. **Does not** unblock Downtown daily. |
@@ -99,7 +99,7 @@ Do **not** use Tower at PNC Plaza (300 Fifth) for PNC Center or One PNC Plaza. D
 
 | # | Asset | Why |
 |---|--------|-----|
-| **1** | **Workplace interiors** — on disk 2026-09-29 | PPG Cafe, Fifth Avenue Market, EQT Supply, O’Reilly Pub, Penn College (library + gym). G3 gather still needs to be pointed at the PPG cafe ref. |
+| **1** | **Workplace interiors** — on disk 2026-09-29 | PPG Cafe, Fifth Avenue Market, EQT Supply, O’Reilly Pub, Penn College (library + gym). Gather uses the PPG Cafe plate on a Downtown night. |
 | **2** | **Home interiors** — on disk 2026-09-30 | Three shared looks, 19 own plates, bedrooms for One Gateway and Two PPG. First & Market uses `apt_small_int.jpg`. |
 | **3** | **Shop + Point exteriors** — on disk | Five shop façades with door plates, Point wide + lawn door, ten home streets. Fountain is still open in the shoot list. |
 | **4** | **Phaser `_moodboard` crops** of those five shops + the 2–3 homes (unlabeled top-down) | Imagine layout gate. Do not auto-crop from a low-res birdseye. Do not feed `*_labeled.png`. |
@@ -130,12 +130,11 @@ Filenames and shoot notes: [`TODO_pittsburgh-assets.md`](TODO_pittsburgh-assets.
 
 ### Code
 
-**Lookup — written 2026-10-01 on `ivan/pittsburgh-habitat-lock`, not merged to `mvp-ready`.** Downtown place names resolve before the village words. PPG Cafe, Fifth Avenue Market, EQT Supply, and O’Reilly Pub use their Pittsburgh jpg. Penn College uses the library plate, or the gym plate when the job or room says gym, coach, fitness, or trainer. Homes use `{slug}_int.jpg` when that file is on disk, otherwise `apt_small_int.jpg` / `apt_mid_int.jpg` / `apt_large_int.jpg`. First & Market uses the small look. A known Downtown place with no file fails closed. Bedroom plates (`one_gateway_bedroom_int.jpg`, `two_ppg_place_bedroom_int.jpg`) are used only when the caller passes `sleep=True`. The closer recipe does not pass that flag yet, so a sleep beat still gets the living plate. A bake from `mvp-ready` still attaches Hobbs.
+**Lookup and gather — on `mvp-ready` locally, 2026-10-01, not pushed.** Downtown place names resolve before the village words. PPG Cafe, Fifth Avenue Market, EQT Supply, and O’Reilly Pub use their Pittsburgh jpg. Penn College uses the library plate, or the gym plate when the job or room says gym, coach, fitness, or trainer. Homes use `{slug}_int.jpg` when that file is on disk, otherwise `apt_small_int.jpg` / `apt_mid_int.jpg` / `apt_large_int.jpg`. First & Market uses the small look. A known Downtown place with no file fails closed. Bedroom plates (`one_gateway_bedroom_int.jpg`, `two_ppg_place_bedroom_int.jpg`) are used only when the caller passes `sleep=True`. The closer recipe does not pass that flag yet, so a sleep beat still gets the living plate. A Downtown gather says PPG Cafe, attaches `ppg_cafe_int.jpg`, and bans Hobbs furniture and metal shields. The clip file stays `hobbs_gather` so the edit can find it. Village nights still gather at Hobbs.
 
-- Gather/G3 Imagine: PPG Cafe refs; ban Hobbs furniture and metal shields.
 - Recipe world plates: Downtown C-pack. Today `cinematic_pack.py` stages C1–C8 as `cinematic_ville_*`, and `nightly_scar_recipe.py` `_WORLD_PLATE_NEEDLES` is `village` / `ville_overhead` / `cinematic_ville`.
 - Phaser plant/door: `signature_flyover.mp4` is the_ville. Commission a Downtown twin; do not swap plant/door for a C-plate (SOT §11.5).
-- Prove: one cold closer on a Downtown sim (`--ignore-edit-script`) after the lookup branch is merged. Fail if any cut still uses Hobbs / Willows / Oak Hill / Rose and Crown plates.
+- Prove: one cold closer on a Downtown sim (`--ignore-edit-script`) from this `mvp-ready`. Fail if any cut still uses Hobbs / Willows / Oak Hill / Rose and Crown plates. The gather clip may still be named `hobbs_gather`; judge the picture, not that filename.
 
 Census G7 15-seat assets are fine for soul_15. Look photos in Supabase still do **not** feed `_find_cohort_portrait` — named portraits remain a kit requirement (identity, not maze).
 

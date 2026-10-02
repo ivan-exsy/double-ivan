@@ -18,18 +18,9 @@ Rules for this doc: never invent traction, investor interest, or comps. Honest z
 
 ## 1. Thesis in Andrew Chen's terms
 
-Doubland is its own genre. It combines:
+Doubland is a new kind of personalized entertainment and a new social format. Real people take a personality test and get a Double, an AI version of themselves that lives in a village simulation with the Doubles of the people they already know. Every day the product auto-generates a short video episode of what the group's Doubles did. You do not play it and you do not have to feed it. You watch a show about you and your people.
 
-1. **A social network** with people you know or want to get to know.
-2. **Reality TV about you and your friends**, with new personalized episodes daily.
-3. **A game that looks like real life**, entertaining to watch and learn from without much time spent.
-4. **A self-reflection tool** to observe yourself from outside. (Public: "See yourself from the outside.")
-5. **Growth practice** (internal name): practicing action, word and behavior patterns and seeing how they play out in a safe-play environment. *Public safe framing only:* "A safe place to practice. Try a different word, move or reaction in a low-stakes sim and watch how the scene plays out." Never say "coach" in public, ads or the App Store.
-6. **Life-choice rehearsal** (internal name): playing out important life choices before making them. *Public safe framing only:* "Play out a big choice before you make it. See one possible version (a rehearsal, not a forecast)." No "prediction" claim until PM-VIL-2 measures hit rates on held-out real choices, and then only as "tends to match your choices X% of the time in tests", with founder approval.
-
-How it works: real people take a personality test and get a Double, an AI version of themselves built from their own answers. It lives in a village simulation with the Doubles of the people they already know. Every day the product auto-generates a short video episode of what the group's Doubles did. You do not have to play it or feed it. You watch, and you can step in when you want.
-
-Product clarity for the pitch: Doubland is a new social network format, and it is more than that. It is the six things above in one product. It needs no continuous babysitting input from users: the daily episode is the default loop, and reflection, practice and choice rehearsal are there when someone wants them. To Chen, "a new social network format" plus "new personalized entertainment" is the thesis fit. In the room we still say plainly that we are not asking people to post. Do not say "not a social network" or "just a daily reality show". Both are retired framings.
+Product clarity for the pitch: Doubland is not another social network. It needs no continuous babysitting input from users. It is a show about you with a heavy social layer. To Chen, "a new social network format" is the thesis fit; in the room we still say plainly that we are not asking people to post.
 
 Network shape, in Cold Start terms:
 
@@ -174,8 +165,6 @@ These are the bars the retention curve gets judged against. They come from a16z'
 | Showrunner compensation | Free for organizers. Status, tools, recognition, and soft credits come first. No cash pitch this pass. Any cash, stipend, or rev-share goes to Legal before any promise. QSBS and entity questions go to Tax. |
 | Season Spec | Locked 2026-09-18: premiere opener (`tg-survival-premiere`), then 15 evening drops (`tg-survival-d1` to `tg-survival-d15`), one Telegram post per evening, night 15 is winner plus season overview. Detail in `IVAN_pre-MVP.md` (PM-LTALK-2). |
 | Audience | Adults (18+) in invite-only friend groups (LeaderTalks). Never target or market to minors. Campus go-to-market is post-MVP and never leads the pitch. |
-| Positioning | Locked 2026-10-01. Its own genre: social network, daily reality TV about you and your friends, a life-like game, self-reflection, growth practice (5), life-choice rehearsal (6). Replaces "not a social network" and "just a daily reality show". Product definition: `double-docs/sot/index.md`. |
-| Public claims (4-6) | Use only the Legal-approved wording. Put the disclaimer near any 4-6 copy and in the footer/ToS. No predict, forecast, accurate, therapy, mental health, heal, coach (noun), proven, science-backed. No testimonials claiming real-life change. Any accuracy claim needs PM-VIL-2 hit-rate data plus founder approval. |
 
 **Showrunner twist on the older money slides (carried from the old §11):** split inbound demand into (a) soft-side "want more" or claim and (b) Showrunner-sourced "run a season for my group". (b) is the Cold Start closer. Log whether night-N returners sit in a named Showrunner roster. Treat `b2b_group` with `group_name` as Showrunner interest when the ask is to host or organize. Do not swap magnetism or spread for hard-side vanity.
 
@@ -187,7 +176,7 @@ These are the bars the retention curve gets judged against. They come from a16z'
 **Open items:**
 - **Season cadence beyond LeaderTalks.** The LeaderTalks season is locked; the cadence for later seasons and for group #2 is not.
 - **Distribution mix check.** Native Telegram post plus tracked YouTube link is the locked drop shape. Whether and when to add the per-Double 9:16 15-second clips (PM-BFST-4) is still open.
-- **Scope guard.** Serialized cliffhangers, Survival "that's so them" fidelity (PM-VIL-2), and letting the group influence the sim stay held until the numbers justify them. Revisit after the first results are in, using the fallback logic in §6. PM-VIL-2 is also the gate for any public "prediction" wording for item 6. Until it reports measured hit rates on held-out real choices, the deck says "rehearsal, not a forecast".
+- **Scope guard.** Serialized cliffhangers, Survival "that's so them" fidelity (PM-VIL-2), and letting the group influence the sim stay held until the numbers justify them. Revisit after the first results are in, using the fallback logic in §6.
 
 ---
 

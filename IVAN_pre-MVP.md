@@ -22,7 +22,7 @@ Breakfasts spec files (`BREAKFASTS-BOARD.md`, `MVP-breakfasts.md`, `MVP-breakfas
 
 - **Downtown real sim** — **PM-BFST-13** scored PPG Survival day. New Downtown sim — not the Breakfasts watch URL. That run is also the name and live-pledge check, after `ivan/persona-relation-ids` is on the machine. On that run, fix A* “no path → arrive anyway” only if it still jumps walls. Cap 6.
 - **LeaderTalks play** — Season Spec **locked** (premiere opener + 15 evening drops). soul_15 → Pittsburgh maze, operator log + Showrunner, **PM-LTALK-8** timecodes, daily 15s clips optional, drop.
-- **Public sim list** — **PM-AUTH-2**, next pass. FE ships the homepage and the landing camera first. BE then locks the list, costs, and the roster. Do not reload `api-gateway` while `20260929-3` is the live iframe unless Ivan names the window.
+- **Public sim list** — **PM-AUTH-2**. Backend lock is on the machine (`railway` `50ad1be5`, 2026-10-01). An anonymous list call is refused. The homepage still plays `20260930-2`. Frontend boxes below stay open until you tick them from Nicolas's note. Tell Nicolas: he does not redeploy. Leave **PM-AUTH-3** open.
 - **Team door** — **PM-AUTH-3**. Same Supabase login. Docs and operator calls require a team mark. Watch playback, status, one person card, signup, and health stay open. List, costs, and roster stay **PM-AUTH-2**.
 
 ---
@@ -33,11 +33,9 @@ Breakfasts spec files (`BREAKFASTS-BOARD.md`, `MVP-breakfasts.md`, `MVP-breakfas
 
 UX-04. `GET /api/simulations/`, `GET /api/simulations/{sim}/costs`, and `GET /api/simulations/{sim}/personas` answer with no login. The public homepage lists every sim. Costs have no client. The landing calls the roster only to aim the camera.
 
-The live iframe stays `20260929-3`: `https://double-front.vercel.app/simulations/20260929-3?embed=1&t=2&zoom=0.899`. Watch production is `4c6dfa6`. Landing production is `42087a6`. FE agreed 2026-09-29. No code yet.
+The live iframe stays `20260929-3`: `https://double-front.vercel.app/simulations/20260929-3?embed=1&t=2&zoom=0.899`. Anyone who knows that sim can still read names and locations from the step payload and from a person's card. That iframe is the public demo.
 
-Anyone who knows that sim can still read names and locations from the step payload and from a person's card. That iframe is the public demo.
-
-**Order:** FE on Vercel first. BE branch with no deploy. Reload `api-gateway` only when Ivan names the window. A normal restart drains a sim the gateway launched.
+**Reminder (2026-10-01, after the reload).** The three reads require a sign-in. Checked: anonymous list and costs return 401. The homepage still loads and Watch of `20260930-2` still draws Downtown. `sot_api.md` matches that. Tell Nicolas: he does not redeploy, and he should say if the frontpage or the camera errors. Frontend boxes stay open until you tick them from his note. Leave **PM-AUTH-3** open.
 
 #### Frontend
 
@@ -50,11 +48,11 @@ Anyone who knows that sim can still read names and locations from the step paylo
 
 #### Backend
 
-- [ ] **Lock the three open reads.** `GET /api/simulations/`, `GET /api/simulations/{sim}/costs`, and `GET /api/simulations/{sim}/personas` require an admin Supabase JWT or a service token. The personas lock is the roster collection only.
-- [ ] **Lock the second roster route.** `app/routes/simulation_control.py` registers the same `GET /personas`. It is registered second, so it does not answer today. Close it in the same change.
-- [ ] **Leave the engine path alone.** No change to observation posts, start, stop, or reverie. No sim-env change.
-- [ ] **Do not reload `api-gateway` in this pass** unless Ivan names the window. `20260929-3` is the running sim and the iframe.
-- [ ] **Leave the admin list alone.** `/admin/simulations` reads `double.simulations` with the browser Supabase client. Tightening anonymous access there takes that page down. Public Watch does not use it.
+- [x] **Lock the three open reads.** `GET /api/simulations/`, `GET /api/simulations/{sim}/costs`, and `GET /api/simulations/{sim}/personas` require a signed-in Supabase user. The personas lock is the roster collection only. On the machine as `railway` `50ad1be5`. Anonymous list and costs return 401.
+- [x] **Lock the second roster route.** The unused second `GET /personas` is removed in the same change.
+- [x] **Leave the engine path alone.** The lock does not change observation posts, start, or stop. No sim-env change.
+- [x] **Reload `api-gateway` only after the generating sim has stopped.** Reloaded after `20260930-2` stopped. Anonymous list is refused. The frontpage still plays.
+- [x] **Leave the admin list alone.** `/admin/simulations` was not tightened.
 
 ### Team door — docs and operator calls (PM-AUTH-3)
 

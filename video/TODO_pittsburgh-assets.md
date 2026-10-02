@@ -3,9 +3,9 @@
 **2026-10-01.** Finished plates are on disk and are not listed again.
 
 - Interiors (2026-09-29 workplaces, 2026-09-30 homes): `double-video/video/assets/pittsburgh/interior/`. Five shops, Penn library + gym, three shared looks (`apt_small_int.jpg`, `apt_mid_int.jpg`, `apt_large_int.jpg`), 19 own home plates, bedrooms for One Gateway and Two PPG. First & Market uses the small look.
-- Exteriors already in `double-video/video/assets/pittsburgh/exterior/ref/`: Point wide + lawn door; five shops (street + door; PPG also mass); home streets for Gateway Tower, Roosevelt, Midtown, River Vue, Tower Two-Sixty, 11 Stanwix, Six PPG, USW, PNC Center, One PNC; Encore mass file only (`encore_on_7th_exterior_ref_full.jpg`); Market Square, Mellon Square, Gateway Center Park, Arts Landing, Firstside Park.
+- Exteriors already in `double-video/video/assets/pittsburgh/exterior/ref/`: Point wide + lawn door; five shops (street + door; PPG also mass); home streets for Gateway Tower, Roosevelt, Midtown, River Vue, Tower Two-Sixty, 11 Stanwix, Six PPG, USW, PNC Center, One PNC; Encore mass file only    (`encore_on_7th_exterior_ref_full.jpg`); Market Square, Mellon Square, Gateway Center Park, Arts Landing, Firstside Park.
 
-Lookup behavior is in [`TODO_video.md`](TODO_video.md) (LeaderTalks → Code). Bake from `mvp-ready` still uses Hobbs until `ivan/pittsburgh-habitat-lock` merges.
+Lookup behavior is in [`TODO_video.md`](TODO_video.md) (LeaderTalks → Code). The room lookup and the PPG Cafe gather plate are on `double-video` `mvp-ready` locally (not pushed).
 
 **Scale lock.** Phaser stays 4:1 so Downtown fits: people read large, and one step covers 4 Pittsburgh metres. Video does not inherit that. Exteriors are real façades, parks, and bridges at photographic scale. Do not shrink a real tower plan by 4. Do not use a Phaser screenshot as an exterior plate.
 
@@ -106,6 +106,46 @@ ZIP **15222** unless noted. These rows do not block the closer interiors. They a
 | 7th Street Bridge, Pittsburgh, PA 15222 | Andy Warhol Bridge | `double-video/video/assets/pittsburgh/exterior/ref/bridge_warhol_exterior_ref.jpg` | **Mass.** Same. |
 | 9th Street Bridge, Pittsburgh, PA 15222 | Rachel Carson Bridge | `double-video/video/assets/pittsburgh/exterior/ref/bridge_carson_exterior_ref.jpg` | **Mass.** Same. |
 | Penn Avenue east of Wood Street, Pittsburgh, PA 15222 | East Park | `double-video/video/assets/pittsburgh/exterior/ref/east_park_cultural_exterior_ref.jpg` | One generic park lawn. Never label this East Park on VO. |
-| Downtown overlook, Pittsburgh, PA 15222 | — | `double-video/video/assets/pittsburgh/exterior/ref/downtown_skyline_exterior_ref.jpg` | **Mass.** One wide skyline for later flyover. Slightly wider than you need. No single maze sector. |
+| Downtown overlook, Pittsburgh, PA 15222 | — | `double-video/video/assets/pittsburgh/exterior/ref/downtown_skyline_exterior_ref.jpg` | **Mass.** Same plate as the flyover still below. Do not make a second skyline. |
 
 After polish, street refs copy to `double-video/video/assets/pittsburgh/exterior/{slug}_exterior_wide.png`. Mass refs copy to `{slug}_exterior_full.png`. Door refs copy to `{slug}_exterior_door.png`. Drop `_ref` and use `.png`. Camera originals stay in `ref/`.
+
+---
+
+## Downtown flyover stills - **DONE 2026-10-02**
+
+**2026-10-02.** These are the world shots for a Downtown closer. A frame from a Pittsburgh flyover video is identity only. Polish it in Imagine first. Do not put the raw screenshot in the trailer.
+
+Save under `double-video/video/assets/pittsburgh/flyover/`. The bake still plays the village pack until the recipe points here. Empty of people, crowds, faces, hero cars, and readable signs. Natural color. No watermark.
+
+Rows 1–4 are the day-1 closer. Rows 5–9 finish the pack. This night will not show 5–9.
+
+| # | Save as | Shape | What the still shows |
+| --- | --- | --- | --- |
+| 1 | `downtown_skyline_exterior_ref.jpg` | Landscape, wider than 16:9 | Day. The Point and the downtown towers in one frame, from the river or from Mount Washington. PPG’s glass castle or the three yellow bridges must be readable. This is also the outdoors skyline row above. |
+| 2 | `cinematic_downtown_overhead_day.jpg` | Landscape | Day. The whole downtown triangle from high up. Rivers on two sides. Towers read as a group, not one building. |
+| 3 | `cinematic_downtown_plaza_dusk.jpg` | Vertical 9:16 | Dusk. PPG Place plaza or Market Square. The open ground and the glass around it. A person would read small. |
+| 4 | `cinematic_downtown_towers_day.jpg` | Vertical 9:16 | Day. One downtown street of towers, Gateway or Liberty. Street wall and a bit of sidewalk. Crowns may be cut. |
+| 5 | `cinematic_downtown_overhead_dusk.jpg` | Landscape | Same view as 2, at dusk. Do not change the buildings. |
+| 6 | `cinematic_downtown_overhead_night.jpg` | Landscape | Same view as 2, at night. Window light on. Still only. Do not make a video. |
+| 7 | `cinematic_downtown_plaza_night.jpg` | Vertical 9:16 | Same plaza as 3, at night. Still only. Do not make a video. |
+| 8 | `cinematic_downtown_ppg_street_day.jpg` | Vertical 9:16 | Day. The PPG Cafe street front and the sidewalk in front of it. Not the cafe interior. |
+| 9 | `cinematic_downtown_ppg_street_dusk.jpg` | Vertical 9:16 | Same street as 8, at dusk. |
+
+## Still to short video
+
+Attach the polished still. Paste the prompt. Fill `{move}` from the table. Imagine video length is 1–15 seconds. Use the seconds in the table.
+
+```
+The attached still is the plate. Animate this same Pittsburgh place. Keep these buildings, this glass, these bridges, and this skyline. Do not invent a different city. Do not add people, crowds, faces, cars, signs, logos, or text. Do not change the time of day. Natural color. One slow camera move only: {move}. No whip pan. No punch zoom. No orbit that loses the landmark.
+```
+
+| Still | {move} | Seconds | Save the clip as |
+| --- | --- | --- | --- |
+| `downtown_skyline_exterior_ref.jpg` | Slow push from the river toward the downtown towers. The Point stays in frame. | 8 | `signature_flyover.mp4` |
+| `cinematic_downtown_overhead_day.jpg` | Slow drift across the triangle. The rivers and the tower group stay readable. | 8 | `cinematic_downtown_overhead_day.mp4` |
+| `cinematic_downtown_overhead_dusk.jpg` | Same slow drift as the day overhead. | 8 | `cinematic_downtown_overhead_dusk.mp4` |
+| `cinematic_downtown_plaza_dusk.jpg` | Slow push in across the plaza. The vertical frame stays full. | 6 | `cinematic_downtown_plaza_dusk.mp4` |
+| `cinematic_downtown_ppg_street_day.jpg` | Slow push along the sidewalk toward the cafe front. | 6 | `cinematic_downtown_ppg_street_day.mp4` |
+| `cinematic_downtown_ppg_street_dusk.jpg` | Same push as the day street. | 6 | `cinematic_downtown_ppg_street_dusk.mp4` |
+| `cinematic_downtown_towers_day.jpg` | Slow glide along the tower street. The street wall stays in frame. | 6 | `cinematic_downtown_towers_day.mp4` |
