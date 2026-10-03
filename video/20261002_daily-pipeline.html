@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Daily trailer — word catalog</title>
+<style>
+  :root {
+    --ink: #1c1915;
+    --muted: #5e584e;
+    --line: #e3dbd0;
+    --paper: #f6f3ee;
+    --card: #fffcf8;
+    --green: #1f4a3a;
+    --green-soft: #e7f0eb;
+    --amber: #8a4b08;
+    --amber-soft: #f8efe3;
+    --red: #7a2e24;
+    --red-soft: #f8ebe7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 15px/1.4 "Segoe UI", sans-serif;
+  }
+  header { max-width: 1180px; margin: 0 auto; padding: 24px 22px 0; }
+  h1 { font-size: 26px; letter-spacing: -0.03em; margin: 0 0 8px; }
+  .lede, .scope { max-width: 78ch; margin: 0 0 10px; color: var(--muted); }
+  main {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 16px 22px 40px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 18px;
+    align-items: start;
+  }
+  .decision {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px 14px 8px;
+    margin-bottom: 12px;
+  }
+  .decision h2 { font-size: 16px; margin: 0 0 4px; }
+  .decision .hint { color: var(--muted); font-size: 13px; margin: 0 0 8px; }
+  .opt {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 8px 10px;
+    margin: 0 0 8px;
+    background: #fff;
+  }
+  .opt.selected { border-color: var(--green); background: #f7fbf8; }
+  .opt.marked { box-shadow: inset 3px 0 0 var(--amber); }
+  .opt label { display: flex; gap: 8px; align-items: baseline; font-weight: 650; cursor: pointer; }
+  .dep { font-size: 12px; color: var(--amber); margin: 2px 0 6px 22px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; vertical-align: top; padding: 4px 8px 4px 0; border-top: 1px solid var(--line); }
+  th { width: 72px; color: var(--muted); font-weight: 650; }
+  .pill {
+    display: inline-block; font-size: 11px; border-radius: 999px;
+    padding: 0 6px; margin-left: 4px; font-weight: 650;
+  }
+  .pill.decided { background: var(--green-soft); color: var(--green); }
+  .pill.open { background: var(--amber-soft); color: var(--amber); }
+  .pill.na { background: #eeeae4; color: var(--muted); }
+  .cond { margin: 4px 0 0; color: var(--ink); }
+  .cond em { font-style: normal; color: var(--amber); font-weight: 650; }
+  aside {
+    position: sticky; top: 12px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px 14px 14px;
+  }
+  aside h2 { font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+  button {
+    width: 100%; font: inherit; font-size: 14px; padding: 8px 10px;
+    border-radius: 8px; border: 0; cursor: pointer; margin-bottom: 8px;
+  }
+  button.primary { background: var(--green); color: white; }
+  button.ghost { background: transparent; border: 1px solid var(--line); }
+  .banner {
+    border-radius: 10px; padding: 8px 10px; margin: 0 0 8px; font-size: 13px;
+  }
+  .banner.block { background: var(--red-soft); color: var(--red); }
+  .banner.ok { background: var(--green-soft); color: var(--green); }
+  .issue { background: var(--amber-soft); border-radius: 10px; padding: 8px 10px; margin: 0 0 8px; font-size: 13px; }
+  .issue strong { display: block; }
+  .script { margin: 0; padding-left: 16px; font-size: 13px; }
+  .script li { margin: 3px 0; }
+  .script .pending { color: var(--amber); }
+  .colhead { font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); margin: 10px 0 4px; }
+  @media (max-width: 960px) {
+    main { grid-template-columns: 1fr; }
+    aside { position: static; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Word catalog</h1>
+  <p class="lede">Each option is a rule. Today and the wanted rule are both shown. The page stops when the words would lock. Pictures come later.</p>
+  <p class="scope">Time scope for every choice: the engine evening being narrated. Survival night 1 is engine day 2. A fact from a later evening is not eligible. The grace day has no vote. One exception is called out on the pair: today’s writer does not compare <em>formed day</em> to this evening.</p>
+</header>
+<main>
+  <section id="catalog"></section>
+  <aside id="lock"></aside>
+</main>
+<script>
+const DECISIONS = [
+  {
+    id: "sku",
+    title: "Length",
+    hint: "Same night. The structure decides which beats have a place.",
+    options: [
+      {
+        id: "closer",
+        label: "Closer",
+        depends: "Permits a leave slot, so a recorded goodbye has a place.",
+        today: {
+          read: "Default SKU. Writer is the long slot list.",
+          keep: "Doubles, stake, introductions, a pair if one is admitted, the game, one choice, the turn, the first-night lesson, the vote, the census, a living last line, the Door.",
+          line: "The long script. A goodbye is spoken only if it already reached the ledger."
+        },
+        want: {
+          status: "Decided",
+          read: "Same long structure.",
+          keep: "The leave slot stays. A recorded goodbye must use it.",
+          line: "“{Cost}, on the way out: {their words.}” when a goodbye was recorded."
+        }
+      },
+      {
+        id: "scar",
+        label: "Short scar",
+        depends: "Permits only the short beat list. Conflicts with a required goodbye.",
+        today: {
+          read: "SKU scar. Writer is the short slot list.",
+          keep: "Doubles, stake, introductions, the game, a generic win line, the alliances lesson on every night, the vote shape, a cliff, the Door.",
+          line: "No goodbye, no pair, and no “would rather” line. The cliff can say “New alliances will form” and “another Double will leave.”"
+        },
+        want: {
+          status: "Open",
+          read: "The short structure.",
+          keep: "Which required beats must still fit is not decided.",
+          line: "No accepted short line for a goodbye.",
+          open: "Where does a required goodbye sit in the short structure?",
+          conditional: [
+            "Include it by dropping or shortening another beat.",
+            "Change the length to the closer."
+          ]
+        }
+      }
+    ]
+  },
+  {
+    id: "night",
+    title: "Which night",
+    hint: "Changes the lesson and the stake sentence. It does not change who entered.",
+    options: [
+      {
+        id: "first",
+        label: "First survival night",
+        today: {
+          read: "Engine day is 2.",
+          keep: "The entered-the-season sentence, “Today we are following two of them,” the long challenge how-to, and the alliances lesson.",
+          line: "“Fifteen of them entered Survival mode: someone is voted out every night until one remains.” Then “Just like that, fifteen become fourteen.”"
+        },
+        want: {
+          status: "Decided",
+          read: "Engine day is 2. The count is the baseline roster, from the other choice.",
+          keep: "The lesson stays on this night only.",
+          line: "“{N} of them entered Survival mode: someone is voted out every night until one remains.” Then “{N} become {N−1}.”"
+        }
+      },
+      {
+        id: "later",
+        label: "A later night",
+        today: {
+          read: "Engine day is after 2. Still-in is 15 minus earlier trailer packages.",
+          keep: "Closer drops the alliances lesson. Short scar still speaks it.",
+          line: "“{15 − earlier exits} still in Survival mode. Someone is voted out every night.”"
+        },
+        want: {
+          status: "Decided",
+          read: "Exits already in the season row through the previous night. Not the live remaining list.",
+          keep: "Both lengths drop the alliances lesson.",
+          line: "“{N} still in Survival mode. Someone is voted out every night.” N is the baseline minus earlier exits."
+        }
+      },
+      {
+        id: "grace",
+        label: "Grace day — no closer",
+        today: {
+          read: "Engine day is 1. Nothing in the writer tests for the grace day.",
+          keep: "The later-night slot list still runs, so words can lock.",
+          line: "A later-night script, with no vote behind it."
+        },
+        want: {
+          status: "Decided",
+          read: "Engine day is 1, or the season has no vote.",
+          keep: "Do not draft and do not lock.",
+          line: "No line."
+        }
+      }
+    ]
+  },
+  {
+    id: "world",
+    title: "World",
+    hint: "Village or Downtown. This view ends at the locked words.",
+    options: [
+      {
+        id: "village",
+        label: "Village",
+        today: {
+          read: "The maze is not an input to the word writers.",
+          keep: "No word is added or dropped.",
+          line: "No line."
+        },
+        want: {
+          status: "Not applicable",
+          read: "The maze.",
+          keep: "Plates and the flyover are chosen after the words lock.",
+          line: "No line in this view."
+        }
+      },
+      {
+        id: "downtown",
+        label: "Downtown",
+        today: {
+          read: "The maze is not an input to the word writers.",
+          keep: "No word is added or dropped.",
+          line: "No line."
+        },
+        want: {
+          status: "Not applicable",
+          read: "The maze.",
+          keep: "Downtown plates are a picture choice, after the lock.",
+          line: "No line in this view."
+        }
+      }
+    ]
+  },
+  {
+    id: "left",
+    title: "Someone left",
+    hint: "Permits the leave beat. The vote shape chooses the sentence.",
+    options: [
+      {
+        id: "yes",
+        label: "Yes",
+        depends: "Requires a leave sentence. The vote choice supplies it.",
+        today: {
+          read: "today.eliminated.name, plus the ballot list.",
+          keep: "Closer always adds “{Cost} is gone,” and a count, and ignores the tie. Short scar uses the vote shape.",
+          line: "Closer: “Tonight {N} people name {Cost}.” “{Cost} is gone.”"
+        },
+        want: {
+          status: "Decided",
+          read: "The elimination row for this evening only.",
+          keep: "Speak the leave with the vote-shape sentence.",
+          line: "A leave sentence from the vote choice, then the goodbye if one was recorded."
+        }
+      },
+      {
+        id: "no",
+        label: "No",
+        depends: "Conflicts with a locked closer when no other hook supplies the second beat.",
+        today: {
+          read: "An empty elimination still falls through to the named Cost.",
+          keep: "Closer still says “{Cost} is gone.” Short scar says nothing.",
+          line: "Closer: “{Cost} is gone.” Short scar: no line."
+        },
+        want: {
+          status: "Decided",
+          read: "No elimination row for this evening.",
+          keep: "Do not say someone is gone. Do not decrement the census.",
+          line: "No leave line."
+        }
+      }
+    ]
+  },
+  {
+    id: "vote",
+    title: "Vote shape",
+    hint: "Used only when someone left.",
+    options: [
+      {
+        id: "clean",
+        label: "One clear name",
+        today: {
+          read: "Closer reads the inbound count and not the shape. Short scar reads vote_count.",
+          keep: "The count of people who named the person who left.",
+          line: "Closer: “Tonight {N} people name {Cost}.” Short scar: “Tonight, {N} votes land on {Cost}.”"
+        },
+        want: {
+          status: "Decided",
+          read: "Ballots whose target is the person who left.",
+          keep: "The count. No claim that everyone voted the same way unless they did.",
+          line: "“Tonight {N} people name {Cost}.” “{Cost} is gone.”"
+        }
+      },
+      {
+        id: "tie",
+        label: "Tie, then tiebreak",
+        today: {
+          read: "votes.safe_vo, tied names, and the tied count are on the ledger. The closer writer does not read them.",
+          keep: "Short scar speaks the tie. Closer drops it and speaks a plain count.",
+          line: "Short scar: “Tonight, {Cost} and {Other} tie at {N} votes each. After the tiebreak, {Cost} is gone.”"
+        },
+        want: {
+          status: "Decided",
+          read: "votes.safe_vo = tie, then tiebreak.",
+          keep: "Both lengths speak the tie and the tiebreak. Do not speak a plain count instead.",
+          line: "“Tonight, {Cost} and {Other} tie at {N} votes each. After the tiebreak, {Cost} is gone.”"
+        }
+      },
+      {
+        id: "split",
+        label: "Split",
+        today: {
+          read: "votes.safe_vo = split. Closer does not read it.",
+          keep: "Neither writer says “the vote splits.” Closer uses the same count as a clean vote.",
+          line: "“Tonight {N} people name {Cost}.” “{Cost} is gone.”"
+        },
+        want: {
+          status: "Decided",
+          read: "votes.safe_vo = split.",
+          keep: "The count of names. Do not invent a pile-on. Do not say “the vote splits.”",
+          line: "“Tonight {N} people name {Cost}.” “{Cost} is gone.”"
+        }
+      },
+      {
+        id: "none",
+        label: "No vote",
+        today: {
+          read: "No ballot list.",
+          keep: "Closer can still say the Cost is gone. Short scar has no elimination row, so no line.",
+          line: "Closer may still say “{Cost} is gone.”"
+        },
+        want: {
+          status: "Decided",
+          read: "No ballots for this evening.",
+          keep: "Do not invent a count.",
+          line: "No tally line."
+        }
+      }
+    ]
+  },
+  {
+    id: "win",
+    title: "Turn",
+    hint: "What changed for the person the night is about.",
+    options: [
+      {
+        id: "hold",
+        label: "Won by holding",
+        today: {
+          read: "Challenge type Hold for the Shield, Peak is a winner, win path is not a draw.",
+          keep: "Closer speaks the Shield. Short scar speaks a generic win, then a cliff that spends the Shield.",
+          line: "Closer: “She/He wins the Shield.” Short scar: “{Peak} wins and is safe tonight.”"
+        },
+        want: {
+          status: "Decided",
+          read: "Same hold result.",
+          keep: "Both lengths use the Shield sentence. The last line says the Shield does not carry to tomorrow.",
+          line: "“She/He wins the Shield.”"
+        }
+      },
+      {
+        id: "draw",
+        label: "Won by a draw",
+        today: {
+          read: "win_path contains “nobody held” or “random draw,” or the holder list is empty.",
+          keep: "Closer speaks the draw. Short scar does not read the path.",
+          line: "Closer: “Nobody held, so a draw gives {Peak} the Shield.” Short scar: “{Peak} wins and is safe tonight.”"
+        },
+        want: {
+          status: "Decided",
+          read: "The same win path.",
+          keep: "Both lengths say it was a draw. The short turn slot can hold this one sentence.",
+          line: "“Nobody held, so a draw gives {Peak} the Shield.”"
+        }
+      },
+      {
+        id: "other",
+        label: "Another game",
+        today: {
+          read: "Challenge winners, else the picker’s one-line share.",
+          keep: "A generic win. No Shield sentence.",
+          line: "“{Peak} wins and is safe tonight.”"
+        },
+        want: {
+          status: "Decided",
+          read: "That game’s result on this evening.",
+          keep: "Speak the result that game records. Do not call it a Shield.",
+          line: "“{Peak} wins and is safe tonight.” unless that game has its own sentence."
+        }
+      },
+      {
+        id: "none",
+        label: "No game",
+        today: {
+          read: "No winners and no share line.",
+          keep: "The turn slot is empty. The challenge sentence can still name a game.",
+          line: "No turn line."
+        },
+        want: {
+          status: "Decided",
+          read: "No result for this evening.",
+          keep: "Do not invent a winner.",
+          line: "No turn line."
+        }
+      }
+    ]
+  },
+  {
+    id: "pair",
+    title: "Pair by this evening",
+    hint: "Time exception: formed day has to be this evening or earlier.",
+    options: [
+      {
+        id: "yes",
+        label: "Yes",
+        depends: "The closer permits this beat. Whether the short list permits it is open.",
+        today: {
+          read: "alliances.confirmed. formed_day is stored and not compared to this evening. Peak’s first partner is used. The Peak–Cost pair is skipped.",
+          keep: "Closer speaks whichever pair is first. A pair formed the next night can pass. Short scar has no pair beat.",
+          line: "Closer: “{A} and {B} have each other’s backs.” Short scar: no line."
+        },
+        want: {
+          status: "Decided",
+          read: "A confirmed pair whose formed day is on or before this evening.",
+          keep: "Closer speaks it. The short list has not accepted this beat.",
+          line: "Closer: “{A} and {B} have each other’s backs.”",
+          open: "Does the short structure include the pair line?",
+          conditional: [
+            "Closer, decided: speak the status line, then why, who, or when if that field exists.",
+            "Short scar: include the line, or leave it out. Not accepted."
+          ]
+        }
+      },
+      {
+        id: "no",
+        label: "No",
+        today: {
+          read: "No confirmed pair for Peak or Cost.",
+          keep: "The beat is skipped. Nothing is invented.",
+          line: "No line."
+        },
+        want: {
+          status: "Not applicable",
+          read: "No eligible pair.",
+          keep: "Skip. This is not an open rule.",
+          line: "No line."
+        }
+      }
+    ]
+  },
+  {
+    id: "goodbye",
+    title: "Goodbye on the record",
+    hint: "Inclusion is decided. Dropping it is not a valid wanted outcome.",
+    options: [
+      {
+        id: "yes",
+        label: "Yes",
+        depends: "Requires a spoken slot. Conflicts with Short scar.",
+        today: {
+          read: "Season row, eliminated[].final_statement. The digest vote pack copies the name and the tally and does not copy this field.",
+          keep: "The writer would speak a statement that reached the ledger, unless it is an engine-clone essay. It does not reach the ledger. Short scar has no slot even then.",
+          line: "No line."
+        },
+        want: {
+          status: "Decided",
+          read: "The final statement on this evening’s elimination.",
+          keep: "It must be spoken. The closer leave slot can hold it. The short structure cannot, until that structure changes.",
+          line: "“{Cost}, on the way out: {their words.}”"
+        }
+      },
+      {
+        id: "no",
+        label: "No",
+        today: {
+          read: "No final statement on this evening’s elimination.",
+          keep: "Skip. Do not invent a farewell.",
+          line: "No line."
+        },
+        want: {
+          status: "Not applicable",
+          read: "No final statement.",
+          keep: "Nothing to require.",
+          line: "No line."
+        }
+      }
+    ]
+  },
+  {
+    id: "reason",
+    title: "Tonight’s reason",
+    hint: "The choice beat. Peak first, otherwise Cost.",
+    options: [
+      {
+        id: "rather",
+        label: "A rather-than sentence",
+        depends: "The closer permits this beat. Whether the short list permits it is open.",
+        today: {
+          read: "choice_reason_plain. The predicate is “I’d rather … than …”, and the left side is not only a fold.",
+          keep: "Closer speaks it. Ranks are stripped. Short scar has no choice beat.",
+          line: "Closer: “{Name} would rather {this} than {that}.” Short scar: no line."
+        },
+        want: {
+          status: "Decided",
+          read: "The same rather-than sentence.",
+          keep: "Closer speaks it. The short list has not accepted this beat.",
+          line: "“{Name} would rather {this} than {that}.”",
+          open: "Does the short structure include the choice line?",
+          conditional: [
+            "Closer, decided: speak it, with no rank.",
+            "Short scar: include it, or leave it out. Not accepted."
+          ]
+        }
+      },
+      {
+        id: "other",
+        label: "Another reason",
+        today: {
+          read: "choice_reason_plain, with no “than”.",
+          keep: "The predicate fails. The reason is dropped. This behavior is known, not unknown.",
+          line: "No line."
+        },
+        want: {
+          status: "Open",
+          read: "The recorded reason.",
+          keep: "Neither effect is accepted.",
+          line: "No accepted line.",
+          open: "When the recorded reason does not follow “I’d rather … than …,” do we speak its supported meaning or omit it?",
+          conditional: [
+            "Speak a kid-plain sentence taken from that reason. Conditional, not accepted.",
+            "Omit the choice line. Conditional, not accepted. If there is also no goodbye, only one hook remains and the words cannot lock."
+          ]
+        }
+      },
+      {
+        id: "none",
+        label: "None",
+        depends: "If there is also no goodbye, the lock is short one hook.",
+        today: {
+          read: "No choice_reason_plain.",
+          keep: "Skip.",
+          line: "No line."
+        },
+        want: {
+          status: "Decided",
+          read: "No reason on this evening.",
+          keep: "Do not invent a choice. The hook rule still applies at assembly.",
+          line: "No line."
+        }
+      }
+    ]
+  },
+  {
+    id: "job",
+    title: "Job and place",
+    hint: "The introduction of the two people.",
+    options: [
+      {
+        id: "record",
+        label: "In the night record",
+        today: {
+          read: "roles.spoken, built only from a “Working as … at …” sentence.",
+          keep: "That sentence becomes the introduction.",
+          line: "“{Name} is a {job} at {place}.”"
+        },
+        want: {
+          status: "Decided",
+          read: "The role card already on the night record.",
+          keep: "Speak it. Do not add a second biography.",
+          line: "“{Name} is a {job} at {place}.”"
+        }
+      },
+      {
+        id: "sim",
+        label: "Known in the sim, not in the record",
+        today: {
+          read: "Scratch “Currently” and the daily plan. Those are stored as the job summary. They do not match “Working as.”",
+          keep: "The role card stays empty. The introduction falls through to the bare name.",
+          line: "“{Peak}.” “{Cost}.”"
+        },
+        want: {
+          status: "Open",
+          read: "A job that exists outside the night record.",
+          keep: "No source is selected, so no introduction is accepted.",
+          line: "No accepted job line.",
+          open: "Which source is authoritative for the job used in the introduction?",
+          conditional: [
+            "The roster workplace and role. Not selected.",
+            "The scratch “Currently” line. Not selected. Today this is what gets stored, and it is not a job.",
+            "A “Working as” sentence, when one exists. Not selected.",
+            "Conditional wording, not accepted: “{Name} is a {job} at {place}.”"
+          ]
+        }
+      },
+      {
+        id: "none",
+        label: "Unknown",
+        today: {
+          read: "No role card and no usable job sentence.",
+          keep: "Do not invent a workplace.",
+          line: "“{Peak}.” “{Cost}.”"
+        },
+        want: {
+          status: "Decided",
+          read: "No supported job.",
+          keep: "The name only.",
+          line: "“{Peak}.” “{Cost}.”"
+        }
+      }
+    ]
+  },
+  {
+    id: "roster",
+    title: "Who entered",
+    hint: "The season’s start count. Still-in is that count minus exits through this evening.",
+    options: [
+      {
+        id: "fifteen",
+        label: "A fifteen-person season",
+        today: {
+          read: "The constant 15 on the first night. Later nights use 15 minus earlier exits.",
+          keep: "The number is not read from a roster. It matches today only when the season did start at fifteen.",
+          line: "“Fifteen of them entered…” and “fifteen become fourteen.”"
+        },
+        want: {
+          status: "Decided",
+          read: "The baseline roster, walked by parent sim. Use fifteen only when that count is 15.",
+          keep: "Same sentences as today when the roster is fifteen.",
+          line: "“Fifteen of them entered Survival mode…”"
+        }
+      },
+      {
+        id: "other",
+        label: "This sim’s own baseline",
+        today: {
+          read: "The parent sim is not read. The constant 15 is still spoken on night 1.",
+          keep: "The real roster is dropped.",
+          line: "“Fifteen of them entered…” even when the baseline is smaller."
+        },
+        want: {
+          status: "Decided",
+          read: "parent sim, up to the baseline. Count that roster once. Do not count whoever is still on the map on a later day.",
+          keep: "Entered is the baseline. Still in is the baseline minus exits through this evening.",
+          line: "“{N} of them entered Survival mode…” Then “{N} become {N−1}” after someone leaves."
+        }
+      }
+    ]
+  }
+];
+
+const PRESET = {
+  sku: "scar", night: "first", world: "downtown", left: "yes", vote: "tie",
+  win: "draw", pair: "yes", goodbye: "yes", reason: "other", job: "sim", roster: "other"
+};
+const CLEAN = {
+  sku: "closer", night: "first", world: "village", left: "yes", vote: "clean",
+  win: "hold", pair: "no", goodbye: "no", reason: "rather", job: "record", roster: "fifteen"
+};
+
+const state = { ...CLEAN, preset: false };
+
+function pill(status) {
+  const cls = status === "Decided" ? "decided" : status === "Open" ? "open" : "na";
+  return `<span class="pill ${cls}">${status}</span>`;
+}
+
+function issues(s) {
+  if (s.night === "grace") return [];
+  const out = [];
+  if (s.sku === "scar" && s.goodbye === "yes") {
+    out.push({
+      choices: ["sku", "goodbye"],
+      title: "Conflict",
+      text: "The goodbye is required, but the selected short structure provides no place for it.",
+      current: "Goodbye omitted.",
+      wanted: "Goodbye included. Handling inside the short structure remains undecided."
+    });
+  }
+  if (s.sku === "scar" && s.pair === "yes") {
+    out.push({
+      choices: ["sku", "pair"],
+      title: "Open",
+      text: "A pair is eligible. The short structure has no pair beat.",
+      current: "Pair omitted.",
+      wanted: "Whether the short cut speaks a pair is not decided."
+    });
+  }
+  if (s.sku === "scar" && s.reason === "rather") {
+    out.push({
+      choices: ["sku", "reason"],
+      title: "Open",
+      text: "The reason can be spoken as a choice. The short structure has no choice beat.",
+      current: "Choice omitted.",
+      wanted: "Whether the short cut speaks the choice is not decided."
+    });
+  }
+  if (s.reason === "other") {
+    out.push({
+      choices: ["reason"],
+      title: "Open",
+      text: "When the recorded reason does not follow “I’d rather … than …,” do we speak its supported meaning or omit it?",
+      current: "Choice omitted.",
+      wanted: "Both effects are conditional. Neither is accepted. If it is omitted and there is no goodbye, the script has one hook and cannot lock."
+    });
+  }
+  if (s.job === "sim") {
+    out.push({
+      choices: ["job"],
+      title: "Open",
+      text: "Which source is authoritative for the job used in the introduction?",
+      current: "The introduction is the bare name.",
+      wanted: "No source is selected. The job line is not accepted."
+    });
+  }
+  const choiceSpoken = s.reason === "rather" && s.sku === "closer";
+  const goodbyeSpoken = s.goodbye === "yes" && s.sku === "closer";
+  if (!choiceSpoken && !goodbyeSpoken && s.reason !== "other") {
+    out.push({
+      choices: ["goodbye", "reason"],
+      title: "Conflict",
+      text: "A lock needs two hooks. This selection has no spoken goodbye and no spoken choice. The living last line is only one.",
+      current: "A script is still emitted. The closer fact gate fails the bake.",
+      wanted: "Do not lock. No other structure is accepted yet."
+    });
+  }
+  return out;
+}
+
+function line(text, pending) {
+  return { text, pending: !!pending };
+}
+
+function todayScript(s) {
+  const rows = [];
+  const scar = s.sku === "scar";
+  const first = s.night === "first";
+  rows.push(line("These are Doubles — AI versions of real people, making choices no one wrote for them."));
+  if (first) {
+    rows.push(line("Fifteen of them entered Survival mode: someone is voted out every night until one remains."));
+    rows.push(line("Today we are following two of them."));
+  } else {
+    rows.push(line("{15 − earlier exits} still in Survival mode. Someone is voted out every night."));
+  }
+  if (s.job === "record") rows.push(line("{Peak} is a {job} at {place}. {Cost} is a {job} at {place}."));
+  else rows.push(line("{Peak}. {Cost}."));
+  if (!scar && s.pair === "yes") rows.push(line("{A} and {B} have each other’s backs."));
+  if (s.win !== "none") {
+    rows.push(line(first
+      ? "At the daily challenge — {game} — {how it is played}."
+      : (scar ? "Tonight’s game is {game}. {steps already taught.}" : "Tonight’s game is {game}.")));
+  }
+  if (!scar && s.reason === "rather") rows.push(line("{Name} would rather {this} than {that}."));
+  if (s.win === "hold" && !scar) rows.push(line("She/He wins the Shield."));
+  else if (s.win === "draw" && !scar) rows.push(line("Nobody held, so a draw gives {Peak} the Shield."));
+  else if (s.win !== "none") rows.push(line("{Peak} wins and is safe tonight."));
+  if (scar || first) {
+    rows.push(line("As the day continues, conversations turn into alliances. Alliances turn into votes."));
+    rows.push(line("At the end of the day, every Double casts a ballot."));
+  }
+  if (s.left === "no" && scar) {
+    /* no leave */
+  } else if (scar && s.vote === "tie" && s.left === "yes") {
+    rows.push(line("Tonight, {Cost} and {Other} tie at {N} votes each. After the tiebreak, {Cost} is gone."));
+  } else if (s.left === "yes" || !scar) {
+    rows.push(line(scar && s.vote === "clean"
+      ? "Tonight, {N} votes land on {Cost}. {Cost} is gone."
+      : "Tonight {N} people name {Cost}. {Cost} is gone."));
+  }
+  if (first) rows.push(line("Just like that, fifteen become fourteen."));
+  else if (s.left !== "no") rows.push(line("{15 − earlier exits} become {one fewer}."));
+  if (scar) rows.push(line("Tomorrow, the Shield is gone. New alliances will form. And another Double will leave the game."));
+  else if (s.win === "hold" || s.win === "draw") rows.push(line("Tomorrow {Peak} walks in without the Shield."));
+  else rows.push(line("Tomorrow {Peak} is still in."));
+  rows.push(line("Watch every conversation, challenge, and vote live at doubland.ai."));
+  return rows;
+}
+
+function wantedScript(s) {
+  if (s.night === "grace") return [line("No closer. The words do not lock.")];
+  const rows = [];
+  const first = s.night === "first";
+  const n = s.roster === "other" ? "{Baseline}" : "Fifteen";
+  rows.push(line("These are Doubles — AI versions of real people, making choices no one wrote for them."));
+  if (first) {
+    rows.push(line(`${n} of them entered Survival mode: someone is voted out every night until one remains.`));
+    rows.push(line("Today we are following two of them."));
+  } else {
+    rows.push(line(`${s.roster === "other" ? "{Baseline minus earlier exits}" : "{15 − earlier exits}"} still in Survival mode. Someone is voted out every night.`));
+  }
+  if (s.job === "record") rows.push(line("{Peak} is a {job} at {place}. {Cost} is a {job} at {place}."));
+  else if (s.job === "none") rows.push(line("{Peak}. {Cost}."));
+  else rows.push(line("Introduction: not ready. The job source is open.", true));
+  if (s.pair === "yes" && s.sku === "closer") rows.push(line("{A} and {B} have each other’s backs. The pair must already be true this evening."));
+  else if (s.pair === "yes") rows.push(line("Pair line: not ready. The short structure has not accepted it.", true));
+  if (s.win !== "none") {
+    rows.push(line(first
+      ? "At the daily challenge — {game} — {how it is played}."
+      : "Tonight’s game is {game}."));
+  }
+  if (s.reason === "rather" && s.sku === "closer") rows.push(line("{Name} would rather {this} than {that}."));
+  else if (s.reason === "rather") rows.push(line("Choice line: not ready. The short structure has not accepted it.", true));
+  else if (s.reason === "other") rows.push(line("Choice line: not ready. Speak the reason, or omit it. Not accepted.", true));
+  if (s.win === "draw") rows.push(line("Nobody held, so a draw gives {Peak} the Shield."));
+  else if (s.win === "hold") rows.push(line("She/He wins the Shield."));
+  else if (s.win === "other") rows.push(line("{Peak} wins and is safe tonight."));
+  if (first) {
+    rows.push(line("As the day continues, conversations turn into alliances. Alliances turn into votes."));
+    rows.push(line("At the end of the day, every Double casts a ballot."));
+  }
+  if (s.left === "yes" && s.vote === "tie") rows.push(line("Tonight, {Cost} and {Other} tie at {N} votes each. After the tiebreak, {Cost} is gone."));
+  else if (s.left === "yes" && s.vote !== "none") rows.push(line("Tonight {N} people name {Cost}. {Cost} is gone."));
+  if (s.goodbye === "yes" && s.sku === "closer") rows.push(line("{Cost}, on the way out: {their words.}"));
+  else if (s.goodbye === "yes") rows.push(line("Goodbye: required, and not placed. The short structure has no slot.", true));
+  if (s.left === "yes") {
+    rows.push(line(first ? `Just like that, ${s.roster === "other" ? "{N} become {N−1}" : "fifteen become fourteen"}.` : "{N} become {N−1}."));
+  }
+  if (s.win === "hold" || s.win === "draw") rows.push(line("Tomorrow {Peak} walks in without the Shield."));
+  else rows.push(line("Tomorrow {Peak} is still in."));
+  rows.push(line("Watch every conversation, challenge, and vote live at doubland.ai."));
+  return rows;
+}
+
+function renderCatalog() {
+  const marked = new Set(issues(state).flatMap((i) => i.choices));
+  document.getElementById("catalog").innerHTML = DECISIONS.map((d) => `
+    <section class="decision">
+      <h2>${d.title}</h2>
+      <p class="hint">${d.hint}</p>
+      ${d.options.map((o) => `
+        <div class="opt ${state[d.id] === o.id ? "selected" : ""} ${marked.has(d.id) && state[d.id] === o.id ? "marked" : ""}">
+          <label>
+            <input type="radio" name="${d.id}" value="${o.id}" ${state[d.id] === o.id ? "checked" : ""} />
+            ${o.label}
+          </label>
+          ${o.depends ? `<div class="dep">${o.depends}</div>` : ""}
+          <table>
+            <thead><tr><th></th><th>Read</th><th>Keep or drop</th><th>Line</th></tr></thead>
+            <tbody>
+              <tr>
+                <th>Today</th>
+                <td>${o.today.read}</td>
+                <td>${o.today.keep}</td>
+                <td>${o.today.line}</td>
+              </tr>
+              <tr>
+                <th>Wanted ${pill(o.want.status)}</th>
+                <td>${o.want.read}</td>
+                <td>${o.want.keep}</td>
+                <td>${o.want.line}
+                  ${o.want.open ? `<div class="cond"><em>Open.</em> ${o.want.open}</div>` : ""}
+                  ${(o.want.conditional || []).map((c) => `<div class="cond"><em>Conditional.</em> ${c}</div>`).join("")}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>`).join("")}
+    </section>`).join("");
+  document.querySelectorAll("input[type=radio]").forEach((el) => {
+    el.onchange = () => {
+      state[el.name] = el.value;
+      state.preset = false;
+      render();
+    };
+  });
+}
+
+function renderLock() {
+  const list = issues(state);
+  const ready = state.night === "grace" || list.length === 0;
+  const items = (rows) => `<ol class="script">${rows.map((r) => `<li class="${r.pending ? "pending" : ""}">${r.text}</li>`).join("")}</ol>`;
+  document.getElementById("lock").innerHTML = `
+    <h2>Assembled script</h2>
+    <button class="primary" id="preset" type="button">Lay a short Downtown night here</button>
+    <button class="ghost" id="clean" type="button">Lay a fifteen-person closer</button>
+    ${state.preset ? `<p class="hint">Short scar, first Downtown night, this sim’s own roster, a tie, a draw, a pair, a goodbye, a reason that is not “rather than,” and a job that is not in the record.</p>` : ""}
+    ${list.map((i) => `
+      <div class="issue">
+        <strong>${i.title}</strong>
+        ${i.text}
+        <div>Current result: ${i.current}</div>
+        <div>Wanted result: ${i.wanted}</div>
+      </div>`).join("")}
+    <div class="banner ${ready ? "ok" : "block"}">${ready
+      ? (state.night === "grace" ? "Ready: this day does not lock words." : "Ready to lock. No open rule and no conflict.")
+      : "Not ready to lock. An open rule or a conflict is still on this selection."}</div>
+    <div class="colhead">Today</div>
+    ${items(todayScript(state))}
+    <div class="colhead">Wanted</div>
+    ${items(wantedScript(state))}`;
+  document.getElementById("preset").onclick = () => {
+    Object.assign(state, PRESET, { preset: true });
+    render();
+  };
+  document.getElementById("clean").onclick = () => {
+    Object.assign(state, CLEAN, { preset: false });
+    render();
+  };
+}
+
+function render() {
+  renderCatalog();
+  renderLock();
+}
+render();
+</script>
+</body>
+</html>

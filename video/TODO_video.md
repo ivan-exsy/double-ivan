@@ -63,12 +63,13 @@ Hero-hold cadence already exists and already exempts closer-long roles; polish d
 
 ## Open (video)
 
-Same closer skeleton. Not a second framework. Village gather/talk is elsewhere. **LeaderTalks daily is blocked on one cold Downtown closer.** Interior plates, the room lookup, the PPG Cafe gather plate, and the Downtown flyover are on `mvp-ready` locally. A cold bake has not been run.
+Story rehaul: [`20261002_daily-story.md`](20261002_daily-story.md). Do not open a second show. Do not edit `SOT-video.md` until a script from that note is accepted. Village gather/talk is elsewhere. **LeaderTalks daily is blocked on that story note**, then one cold Downtown closer. Interior plates, the room lookup, the PPG Cafe gather plate, and the Downtown flyover are on `mvp-ready` locally. A cold bake has not been run.
 
 | P | Work | Notes |
 |---|------|-------|
 | **Craft** | Extra P1 pictures | Namecards + readable tie / VOTING TARGET. Peak/challenge/Phaser already accepted on the Episode 1 benchmark. grok.com/imagine 2.0 (6–15s, 720p, 9:16) → kit. Do not Imagine Phaser elim. |
-| **L-Talks (blocking)** | Cold Downtown closer | Pending shots only: [`TODO_pittsburgh-assets.md`](TODO_pittsburgh-assets.md). Interiors done 2026-09-30. Room lookup, PPG Cafe gather, and the Downtown C-pack / flyover are on `mvp-ready` locally (not pushed). Still open: remaining façades, and one cold Downtown closer. |
+| **L-Talks (blocking)** | Daily story rehaul | [`20261002_daily-story.md`](20261002_daily-story.md). Headcount is this sim’s start roster, not fifteen. The `20261001-2` draft is a form, not the night. Script only until that note is accepted. |
+| **L-Talks (blocking)** | Cold Downtown closer | After the story note. Pending shots: [`TODO_pittsburgh-assets.md`](TODO_pittsburgh-assets.md). Interiors done 2026-09-30. Room lookup, PPG Cafe gather, and the Downtown C-pack / flyover are on `mvp-ready` locally (not pushed). Still open: remaining façades, then one cold Downtown closer. |
 | **L-Talks (drop)** | **PM-LTALK-8** YouTube chapters + Telegram blurb | Hook closer bake in **`double-video`**. Encyclopedia generator already works; closer does not call it. See below. |
 | **Optional** | [E] leftover helpers | Copy remaining helpers anytime. No bulk move of eng `video/`. Polish UX already in `double-video`. |
 | **Optional art (village only)** | Exteriors / C5/C7 / Hobbs cafe / flyover names | Village interiors + Johnson Park are done. **Does not** unblock Downtown daily. |
