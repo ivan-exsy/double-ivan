@@ -1,5 +1,20 @@
 # Before LeaderTalks MVP — 17 Sep (Watch honesty + owner Chat)
 
+## **Naturalness and Realism Gaps (based on 20261001-2):**
+
+A viewer would need these changes before the days read as a life.
+
+### **Priority**
+- *The line under a person has to match the body.* While they are still on the street, the caption has to say the street. It cannot say they are walking to Point State Park. When they stop, it has to name the room they are actually in. That false park line showed up 159 times.
+- *A day has to leave the job.* Luba’s first day and her third day are only the cafe, her home, and the street. A believable day also has a meal, an errand, or time somewhere that is not the workplace and the vote.
+
+### Less so
+- *A promise has to show up before 20:00.* People promise to find each other, and the ballot quotes those promises, but nobody’s day ever shows a walk toward that person. The viewer should see the pair meet, sit, or walk together.
+- *Speech cannot invent a place.* Nicolás’s promise to Gosha still talks about a pool. Nothing in the day is a pool.
+- *Every ballot has to sound like that person.* One of Yevgenia’s nights is the stock line “No strong preference.” The others are real sentences. That stock line should not reach the viewer.
+- *The vote count has to match the names.* Three people named Katya. The record says 8. A viewer who sees that number will not trust the result.
+
+
 **Product MVP is LeaderTalks in Pittsburgh** (Telegram group; Downtown world). Breakfasts was a rehearsal, not the MVP. Village gather + talk is a closed engine gate, not the product MVP.
 
 Talk unmute is Current (`sot_chats.md` §3c). Score tape: `double-docs/20260912_Breakfasts/20260915-3_TODOs.md`. Do not raise talk-chance. Do not restore linger. Do not walk-to-person (**PM-VIL-1**).
@@ -58,7 +73,7 @@ The live iframe stays `20260929-3`: `https://double-front.vercel.app/simulations
 
 One login, the one people already use. Ivan and Nicolas carry a team mark on that Supabase user. No second password.
 
-The docs page is the map. Start, stop, the file watcher, and background tasks are the open controls. Both require the team mark. Visiting `https://api.doubland.ai/docs` without a session goes through the magic link and returns to the docs. Same rule for `/redoc` and `/openapi.json`.
+The docs page is the map. Start, stop, the file watcher, and background tasks are the open controls. Both require the team mark. Visiting `https://api.doubland.ai/docs` without a session uses the same 6-digit sign-in code and returns to the docs. Same rule for `/redoc` and `/openapi.json`.
 
 Watch playback, sim status, one person’s card, signup, and health stay open. Chat, `/api/me`, and onboard stay as they are.
 
@@ -67,7 +82,7 @@ The full sim list, costs, and roster stay **PM-AUTH-2**. Lock those after the ho
 Reload `api-gateway` only when Ivan names the window. The public demo iframe still plays `20260929-3`.
 
 - [ ] **Team mark** on Ivan and Nicolas. Same login as Chat.
-- [ ] **Docs require the team mark.** `/docs`, `/redoc`, and `/openapi.json`. A browser visit uses the magic link and returns to the docs.
+- [ ] **Docs require the team mark.** `/docs`, `/redoc`, and `/openapi.json`. A browser visit uses the same 6-digit sign-in code and returns to the docs.
 - [ ] **Operator calls require the team mark.** Start, stop, file watcher, background tasks.
 - [ ] **Leave the public product open.** Playback, status, one person card, signup, health.
 - [ ] **Leave signed-in product routes as they are.** Chat, `/api/me`, onboard.
@@ -176,43 +191,46 @@ That is **16 posts** (opener + 15 nights), plus the three polls. Engine: premier
 
 **Source:** Ivan's notes from the Oct 3 demo. Draft and code check: box `/workspace/demo-notes-20261003/proposal.md`. These are blockers for the first friend group. Later items are in `TODO_post_mvp.md` § *Demo feedback 2026-10-03 — after the first friend group*.
 
-**Who builds it:** rows marked **Nicolas** are screens and landing. His checklist is `double-docs/Nicolas-UX_polish.md` § *October 3 demo — your screens*. Rows marked **Ivan (backend)** are still yours to build. A split row names both halves.
+**Who builds it:** screens and landing are under **Nicolas** below. He is implementing that block. Backend and API stay in the next block. His checklist is `double-docs/Nicolas-UX_polish.md` § *October 3 demo — your screens*.
+
+**Dropped:** **PM-DEMO-2** (the “open this in Safari or Chrome” note). The login email is a code only, so that warning is irrelevant.
 
 **Seen in code (www `double-landing-page` `main`, Oct 3):**
-- Login is an email link only. The sign-in is saved in the one browser that opened the link, not shared across browsers. A link tapped inside Gmail, WhatsApp, or a text app signs them in only inside that app.
+- The login email is now a 6-digit code (**PM-DEMO-1**, shipped below). Sign-in stays in the browser where the code is entered.
 - Sign out is only on `/login`.
 - There's no way to leave a sim on www. The old backend leave routes aren't wired to the portal.
 - After Join, "You're in!" → **Go to Doubland** opens `/`, not their sim. "Back to sim" and "Watch" exist only on `/account`.
 - No sim yet → "you can't join a simulation just yet," with no chat. Chat with your Double lives inside a sim's Watch page.
 
-| ID | Item | Owner | Done when |
-|---|---|---|---|
-| **PM-DEMO-1** | Login email is a 6-digit code only, easy to copy, with no link. People open www.doubland.ai in Safari or Chrome and type it there. A link in that email is a trap: Gmail or WhatsApp opens it in the wrong browser and uses up the code. This is the user login on www. The team docs login (PM-AUTH-3) stays a link. | **Ivan (backend)** (Supabase email: code only, easy to copy, no link) · **Nicolas** (clear code field on `/login`) | A tester on phone Safari asks for the email, copies the code, pastes it on `/login`, and lands on their account. The email has no link. Entering a code they already have does not send a second email. |
-| **PM-DEMO-2** | Inside the Gmail, WhatsApp, Instagram, or text-app browser, show: "To stay signed in, open this in Safari/Chrome," with a copy-link button. The login email itself has no link (PM-DEMO-1). This is for any other doubland.ai page opened from those apps. | **Nicolas** | Opening a doubland.ai page from Gmail on iPhone and Android shows the note. Following it, they end up signed in in the normal browser. |
-| **PM-DEMO-3** | Make getting back in obvious: "Already have a Double? Sign in with your email" on the homepage menu and `/login`. | **Nicolas** | A tester who closed the browser mid-onboarding gets back to where they were within 1 minute, with no help. |
-| **PM-DEMO-4** | Confirm how long a sign-in lasts and set it long (30+ days in the same browser). | **Ivan (backend)** | Written down for `sot_api.md`. A tester is still signed in 7 days later in the same browser. |
-| **PM-DEMO-5** | Onboarding picks up where they left off after they sign in again. | **Nicolas** | Close the tab after the test, sign in again, and land on the next step, not the start. |
-| **PM-DEMO-6** | "Sign out" on `/account` and in the site menu. | **Nicolas** | One tap from `/account` and from the mobile menu. Afterwards the menu shows Login. |
-| **PM-DEMO-7** | "Leave this sim": the Double steps out of that sim but stays on the account. | **Nicolas** (button + confirm) · **Ivan (backend)** (leave call + "moved away" memory for the others) | Leave → confirm → the sim no longer lists the Double, `/account` shows it not joined, and they can join again. |
-| **PM-DEMO-8** | After Join, "You're in!" goes to **their sim's page**, not the homepage. | **Nicolas** | The button opens the same address "Watch" opens today. |
-| **PM-DEMO-9** | One clear "Go to my sim" in the menu and at the top of `/account` for returning users. | **Nicolas** | A signed-in user who joined a sim reaches it in one tap from the homepage. |
-| **PM-DEMO-10** | Honest "not ready" message: if the sim isn't running or they aren't placed yet, say so plainly, with what happens next and when. | **Nicolas** · Ivan writes the sentences and dates | Every signed-in state (no sim / joined but not running / running) shows one clear sentence and one next step. No dead ends. |
-| **PM-DEMO-11** | "Talk to your Double" on `/account`, usable before the sim runs, so they can ask it about themselves and correct it. | **Nicolas** (entry on `/account`) · **Ivan (backend)** (owner chat with no live sim; reuse `/api/me/double/*`) | Right after onboarding, with no sim running, a tester asks "what do you know about me?", corrects one fact, and the Double uses the correction next time. |
-| **PM-DEMO-12** | One honest line on the front page above the fold: what it is and who it's for. No "daily," "coach," or "predicts you." Example: "An invite-only sim where AI Doubles of you and your friends live together. Watch what they do." | **Nicolas** · Ivan picks the line | 3 of 3 first-time testers can say back what it is and who it's for. |
-| **PM-DEMO-13** | Full run on a phone, starting from a WhatsApp or text invite, with one friend-group tester before the group gets invites. | **Ivan** (phone test, not a build) | Invite → onboarding → chat with Double → own sim → leave and come back, all on a phone with no help. Problems logged. |
-| **PM-DEMO-14** | **Simple hero video:** a short loop of the stock Pittsburgh flyover clips with 3 captions: "Create your Double" → "It lives in town on your behalf" → "Watch, learn, have fun." Clips: `D:\Coding\double-video\video\assets\pittsburgh\flyover\` (`cinematic_downtown_overhead_day.mp4`, `_overhead_dusk.mp4`, `_plaza_dusk.mp4`, `_ppg_street_day.mp4` / `_dusk.mp4`, `_towers_day.mp4`, `signature_flyover.mp4`; added 2026-10-02). No real people, no Double footage. | **Nicolas** (hero) · Ivan picks the clips and confirms the license | Hero plays the loop with captions on phone and desktop, loads fast, and Ivan has confirmed the clips' license allows public use. |
-| **PM-DEMO-15** | **Simple value message:** headline + 3 short lines under the hero, written for the angle Ivan picks (see decisions below). Same words on the front page and in the invite text. | **Nicolas** (place the lines on the front page) · Ivan (angle, headline, invite text) | Angle picked. Headline + 3 lines are live on www and in the invite template. No "daily," "coach," or "prediction" wording. |
+### Nicolas — screens and landing
 
-**Backend still mine**
+He is implementing this block.
 
-- **PM-DEMO-1** — Supabase login email sends only a 6-digit code, on its own line so it is easy to copy. No link in that email. Tell them to open www.doubland.ai in Safari or Chrome and enter the code. Nicolas puts the code field on `/login`.
-- **PM-DEMO-4** — sign-in lasts 30+ days in the same browser; write it into `sot_api.md`.
-- **PM-DEMO-7** — leave call, plus a quiet “moved away” memory for the others (Nicolas builds the button).
-- **PM-DEMO-11** — owner chat with no live sim, reusing `/api/me/double/*` (Nicolas puts the entry on `/account`).
+| ID | Item | Done when |
+|---|---|---|
+| **PM-DEMO-1** | `/login` has a clear place to type or paste the 6-digit code. Someone who already has a code can enter it without asking for another email. After they ask for an email, the same screen shows the code field and says to open www.doubland.ai in Safari or Chrome. | A tester on phone Safari copies the code, pastes it on `/login`, and lands on their account. Entering a code they already have does not send a second email. |
+| **PM-DEMO-3** | "Already have a Double? Sign in with your email" on the homepage menu and `/login`. | A tester who closed the browser mid-onboarding gets back to where they were within 1 minute, with no help. |
+| **PM-DEMO-5** | Onboarding picks up where they left off after they sign in again. | Close the tab after the test, sign in again, and land on the next step, not the start. |
+| **PM-DEMO-6** | "Sign out" on `/account` and in the site menu. | One tap from `/account` and from the mobile menu. Afterwards the menu shows Login. |
+| **PM-DEMO-7** | "Leave this sim" button, with a confirm step. | Leave → confirm → the sim no longer lists the Double, `/account` shows it not joined, and they can join again. The leave call is in the backend block. |
+| **PM-DEMO-8** | After Join, "You're in!" goes to **their sim's page**. | The button opens the same address "Watch" opens today. |
+| **PM-DEMO-9** | One clear "Go to my sim" in the menu and at the top of `/account` for returning users. | A signed-in user who joined a sim reaches it in one tap from the homepage. |
+| **PM-DEMO-10** | Honest "not ready" message: if the sim isn't running or they aren't placed yet, say so plainly, with what happens next and when. Use Ivan's sentences. Until those arrive, a plain "not ready" line. | Every signed-in state (no sim / joined but not running / running) shows one clear sentence and one next step. |
+| **PM-DEMO-11** | "Talk to your Double" on `/account`, before the sim runs. | The entry is on `/account`. Chat itself waits on the backend block. |
+| **PM-DEMO-12** | One honest line on the front page above the fold: what it is and who it's for. Example until Ivan picks the line: "An invite-only sim where AI Doubles of you and your friends live together. Watch what they do." | 3 of 3 first-time testers can say back what it is and who it's for. |
+| **PM-DEMO-14** | **Simple hero video:** a short loop of the stock Pittsburgh flyover clips with 3 captions: "Create your Double" → "It lives in town on your behalf" → "Watch, learn, have fun." Clips: `D:\Coding\double-video\video\assets\pittsburgh\flyover\`. | Hero plays the loop with captions on phone and desktop and loads fast. Ivan confirms the clips' license first. |
+| **PM-DEMO-15** | Headline + 3 short lines under the hero. Same words as the invite. Wait for Ivan's words before publishing them. | Headline + 3 lines are live on www and in the invite template. |
+
+### Backend — mine
+
+| ID | Item | Done when |
+|---|---|---|
+| **PM-DEMO-7** | Leave call, plus a quiet "moved away" memory for the others. | Leave removes the Double from that sim and keeps the account. The others get a quiet "moved away" memory. |
+| **PM-DEMO-11** | Owner chat with no live sim, reusing `/api/me/double/*`. | Right after onboarding, with no sim running, a tester asks "what do you know about me?", corrects one fact, and the Double uses the correction next time. |
 
 **Not a build:** **PM-DEMO-13** is the phone test. You still pick the sentences (**10**), the front-page line (**12**), the clips (**14**), and the angle plus invite text (**15**).
 
-**Locked 2026-10-03 — login email is a code only.** Supabase sends a 6-digit code, easy to copy, and no link. `/login` has a clear place to type or paste that code, including when they already have one. Asking again would throw away the code in their hand. Team docs login (PM-AUTH-3) stays a link.
+**Locked 2026-10-03 — login email is a code only.** Supabase sends a 6-digit code, easy to copy, and no link. The team docs login uses that same email. `/login` still needs a clear place to type or paste that code, including when they already have one. Asking again would throw away the code in their hand. That screen is Nicolas’s **PM-DEMO-1**.
 
 **Open decisions — pending Ivan**
 
@@ -226,10 +244,13 @@ That is **16 posts** (opener + 15 nights), plus the three polls. Engine: premier
 
 ## Dropped
 
+- **PM-DEMO-2** — “Open this in Safari or Chrome” note. Dropped 2026-10-03. The login email is a code only, so the warning is irrelevant.
 - **PM-BFST-5** — B2B line on Watch. Dropped 2026-09-24. Irrelevant. Do not add “Bring Doubland to your organization” on Watch or in the video description.
 
 ## Shipped
 
+- **PM-DEMO-1** — Login email is a 6-digit code on its own line, with no link. Subject: “Your Doubland code.” It tells them to open www.doubland.ai in Safari or Chrome and enter the code. The code lasts one hour. A new email replaces it. The team uses this same email. Live in Supabase 2026-10-03. The code box on `/login` stays with Nicolas.
+- **PM-DEMO-4** — A sign-in in the same browser has no time limit and no inactivity logout, so it lasts past 30 days, until they sign out. The site refreshes it about every hour. Checked in Supabase 2026-10-03. No 30-day cutoff was added.
 - **Supabase health** — Closed 2026-09-30. `double-openrouter` stays Micro. After `20260929-3` stopped, a normal read of that sim’s latest steps was 5 ms and nothing was waiting on disk. The Disk IO warning was the run itself (138 statement timeouts, 2–4 PM Eastern on 2026-09-29; about 600 MB still in swap). Disk was 88% of 12 GB. Supabase auto-grew it 12 GB → 18 GB when the old-sim delete crossed 90%. Do not shrink it. The files still use about 12 GB; the extra 6 GB is about $0.75/month. A smaller disk is not a dashboard control.
 - **Public API name** — Closed 2026-09-30. `https://api.doubland.ai` is the only public API. Landing production `API_GATEWAY_URL` and the landing fallback are that host (`a6f51bb` on www). Watch production uses the same host, including the debug step links (`b8afb18d` on `vercel`). Public port 8001 is closed on the box firewall. Health and this sim’s status answered after the close. The API process was not restarted. Docs stay `https://api.doubland.ai/docs`.
 - **Spoken Survival promises, first cut** — a full sit stores the promise. On the machine as `railway` `1cea4b3c` (2026-09-29). `20260929-3` kept a Survival sit from writing a Park leftover. The ballot, the reason, and betrayal failed where the name was split, a favor was stored as a pledge, or a pledge stayed live after the person left. The follow-up is in *Built-needs verified*. Do not patch that run.
