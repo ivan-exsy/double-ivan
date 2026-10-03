@@ -10,7 +10,7 @@
 
 This is the pitch doctrine for the Doubland raise. It says what we claim, which metrics lead, what order the deck goes in, and which decisions are locked. It is written through Andrew Chen's lens (a16z, *The Cold Start Problem*) because that is the first target.
 
-Live todos do not go here. They live in `IVAN_pre-MVP.md` (the file previously named `20260917_pre-MVP.md`), under "LeaderTalks play" (PM-LTALK-2 through PM-LTALK-8 and the operator runbook). The measurement contract is Current in `double-docs/sot/sot_api.md` §10. The June release gate is archived at `done/TODO_mvp-release-gate.md`. The June 2026 planning material that used to fill this file is kept in the Appendix, marked superseded where it conflicts with the sections above it.
+Live todos do not go here. They live in `IVAN_pre-MVP.md` (the file previously named `20260917_pre-MVP.md`): open show items are **PM-LTALK-3**, **PM-LTALK-4**, and **PM-LTALK-1**; the locked season shape is under *Season — locked*. The measurement contract is Current in `double-docs/sot/sot_api.md` §10. The June release gate is archived at `done/TODO_mvp-release-gate.md`. The June 2026 planning material that used to fill this file is kept in the Appendix, marked superseded where it conflicts with the sections above it.
 
 Rules for this doc: never invent traction, investor interest, or comps. Honest zeros are fine. Audience is adults (18+) in invite-only friend groups; never target or market to minors. Campus distribution is post-MVP and never the lead framing.
 
