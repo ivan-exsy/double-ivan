@@ -172,6 +172,45 @@ That is **16 posts** (opener + 15 nights), plus the three polls. Engine: premier
 
 **Hold until numbers justify:** serialized cliffhangers, Survival “that’s so them” fidelity (**PM-VIL-2**), group influence / vote. Not this cut. Campus/Tinder-style party distribution = **After LeaderTalks** (Engagement) — Legal before any campus/minor-targeting public claim.
 
+### Demo feedback 2026-10-03 — first friend-group path (PM-DEMO-1…15)
+
+**Source:** Ivan's notes from the Oct 3 demo. Draft and code check: box `/workspace/demo-notes-20261003/proposal.md`. These are blockers for the first friend group. Later items are in `TODO_post_mvp.md` § *Demo feedback 2026-10-03 — after the first friend group*.
+
+**Seen in code (www `double-landing-page` `main`, Oct 3):**
+- Login is an email link only. The sign-in is saved in the one browser that opened the link, not shared across browsers. A link tapped inside Gmail, WhatsApp, or a text app signs them in only inside that app.
+- Sign out is only on `/login`.
+- There's no way to leave a sim on www. The old backend leave routes aren't wired to the portal.
+- After Join, "You're in!" → **Go to Doubland** opens `/`, not their sim. "Back to sim" and "Watch" exist only on `/account`.
+- No sim yet → "you can't join a simulation just yet," with no chat. Chat with your Double lives inside a sim's Watch page.
+
+| ID | Item | Owner | Done when |
+|---|---|---|---|
+| **PM-DEMO-1** | Sign in with a 6-digit code from the email as well as the link, so people can finish in whatever browser they're in. | CTO (email template) + Nicolas (code box on `/login`) | A tester asks for an email on phone Safari, types the code there, and lands on their account without tapping the link. |
+| **PM-DEMO-2** | Inside the Gmail, WhatsApp, Instagram, or text-app browser, show: "To stay signed in, open this in Safari/Chrome," with a copy-link button. | Nicolas | Opening the email link from Gmail on iPhone and Android shows the note. Following it, they end up signed in in the normal browser. |
+| **PM-DEMO-3** | Make getting back in obvious: "Already have a Double? Sign in with your email" on the homepage menu and `/login`. | Nicolas + Ivan (words) | A tester who closed the browser mid-onboarding gets back to where they were within 1 minute, with no help. |
+| **PM-DEMO-4** | Confirm how long a sign-in lasts and set it long (30+ days in the same browser). | CTO | Written down for `sot_api.md`. A tester is still signed in 7 days later in the same browser. |
+| **PM-DEMO-5** | Onboarding picks up where they left off after they sign in again. | Nicolas (check) | Close the tab after the test, sign in again, and land on the next step, not the start. |
+| **PM-DEMO-6** | "Sign out" on `/account` and in the site menu. | Nicolas | One tap from `/account` and from the mobile menu. Afterwards the menu shows Login. |
+| **PM-DEMO-7** | "Leave this sim": the Double steps out of that sim but stays on the account. | CTO (leave call + "moved away" memory for the others) + Nicolas (button + confirm) | Leave → confirm → the sim no longer lists the Double, `/account` shows it not joined, and they can join again. |
+| **PM-DEMO-8** | After Join, "You're in!" goes to **their sim's page**, not the homepage. | Nicolas | The button opens the same address "Watch" opens today. |
+| **PM-DEMO-9** | One clear "Go to my sim" in the menu and at the top of `/account` for returning users. | Nicolas | A signed-in user who joined a sim reaches it in one tap from the homepage. |
+| **PM-DEMO-10** | Honest "not ready" message: if the sim isn't running or they aren't placed yet, say so plainly, with what happens next and when. | Ivan (words, dates) + Nicolas | Every signed-in state (no sim / joined but not running / running) shows one clear sentence and one next step. No dead ends. |
+| **PM-DEMO-11** | "Talk to your Double" on `/account`, usable before the sim runs, so they can ask it about themselves and correct it. | CTO (owner chat with no live sim; reuse `/api/me/double/*`, `double-front` `/onboarding/talk`) + Nicolas | Right after onboarding, with no sim running, a tester asks "what do you know about me?", corrects one fact, and the Double uses the correction next time. |
+| **PM-DEMO-12** | One honest line on the front page above the fold: what it is and who it's for. No "daily," "coach," or "predicts you." Example: "An invite-only sim where AI Doubles of you and your friends live together. Watch what they do." | Ivan (pick the line) + Nicolas | 3 of 3 first-time testers can say back what it is and who it's for. |
+| **PM-DEMO-13** | Full run on a phone, starting from a WhatsApp or text invite, with one friend-group tester before the group gets invites. | Ivan | Invite → onboarding → chat with Double → own sim → leave and come back, all on a phone with no help. Problems logged. |
+| **PM-DEMO-14** | **Simple hero video:** a short loop of the stock Pittsburgh flyover clips with 3 captions: "Create your Double" → "It lives in town on your behalf" → "Watch, learn, have fun." Clips: `D:\Coding\double-video\video\assets\pittsburgh\flyover\` (`cinematic_downtown_overhead_day.mp4`, `_overhead_dusk.mp4`, `_plaza_dusk.mp4`, `_ppg_street_day.mp4` / `_dusk.mp4`, `_towers_day.mp4`, `signature_flyover.mp4`; added 2026-10-02). No real people, no Double footage. | Ivan (pick clips, approve captions) + Nicolas (hero) | Hero plays the loop with captions on phone and desktop, loads fast, and Ivan has confirmed the clips' license allows public use. |
+| **PM-DEMO-15** | **Simple value message:** headline + 3 short lines under the hero, written for the angle Ivan picks (see decisions below). Same words on the front page and in the invite text. | Ivan | Angle picked. Headline + 3 lines are live on www and in the invite template. No "daily," "coach," or "prediction" wording. |
+
+**Open decisions — pending Ivan**
+
+| Decision | Options | Recommendation |
+|---|---|---|
+| **"Daily show" claim** | Keep "daily" / drop it until episodes are automatic / say "episodes" or "show" | **Drop "daily."** Trailers are hand-made and sims run in short bursts. Also fix `TODO_front-page-sim.md` §1 "runs 24/7." |
+| **Front-page angle** | Personal reality show about you and friends / social network / real-life-looking game / self-reflection / safe practice | **"A show about you and your friends, starring your AI Doubles,"** with self-reflection as the second line. No "growth coach," no "prediction." |
+| **Take-over design (item 6)** | (a) Doubles decide, the user can only nudge in private chat / (b) full take-over of a chat or choice / (c) the user suggests, the Double decides in character | **(c), later.** Today there's no way to steer a Double, only private chat. Decide how the show labels user-driven moments before any build. Build is in `TODO_post_mvp.md` **PM-DEMO-19**. |
+| **While waiting for a sim** | Chat only on `/account` (PM-DEMO-11) / stand-by sim / one-player sandbox | **Chat only for MVP.** Stand-by and sandbox are post-MVP (**PM-DEMO-16/17**). |
+| **What others see when someone leaves** | Quiet "moved away" card and memory / shown on screen as a scene / nothing | **Quiet "moved away"** (matches `TODO_front-page-sim.md` §4.3). The Double and its history stay on the account. |
+
 ## Dropped
 
 - **PM-BFST-5** — B2B line on Watch. Dropped 2026-09-24. Irrelevant. Do not add “Bring Doubland to your organization” on Watch or in the video description.

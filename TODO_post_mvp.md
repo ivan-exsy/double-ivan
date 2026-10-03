@@ -113,6 +113,18 @@ Talk leftovers after unmute `20260915-3` (added 2026-09-16). **Not LeaderTalks b
 | **—** | Building sprite factory | Parked | WPRDC footprints, LiDAR, Overture, Wikimedia heroes. `double-front`, after a watchable town is on the preview. Google meshes stay banned as shipped assets. Moved off the Pittsburgh open list 2026-09-28. |
 | **—** | `ondouble.com` leftovers | Parked | Front door is doubland.ai. Retire `api.ondouble.com` only after leftover clients move. |
 
+### Demo feedback 2026-10-03 — after the first friend group
+
+Added 2026-10-03 from Ivan's Oct 3 demo notes. Pre-MVP part: `IVAN_pre-MVP.md` § *Demo feedback 2026-10-03* (**PM-DEMO-1…15**).
+
+| ID | Item | Status | Notes |
+|---|---|---|---|
+| **PM-DEMO-16** | Stand-by sim mode | After | Only if the pre-MVP "Talk to your Double" (**PM-DEMO-11**) isn't enough. A sim exists with every onboarded Double fully working (chat, profile, card) but no automatic generation. **Done when:** a stand-by sim lists its Doubles, chat works, and it spends no generation cost while waiting. Owner: CTO. |
+| **PM-DEMO-17** | One-player sandbox | After | Your Double alone in a small space you can watch while your group fills. Pairs with **PM-OWN-4** (private test scene). Do one, not both. **Done when:** a user with no group sees their Double doing something within 5 minutes of onboarding. Owner: CTO + Nicolas. |
+| **PM-DEMO-18** | Full hero video | After | Beyond the stock-flyover loop (**PM-DEMO-14**): real sim clips with one clear line each (create your Double → it lives for you → watch, learn, have fun). Ivan approves every clip. Every person shown has opted in (`TODO_front-page-sim.md` §4.4). **Done when:** the hero plays at least one real captioned sim clip. Owner: Ivan + video producer + Nicolas. |
+| **PM-DEMO-19** | Take over at key moments | After (design first) | In-app alert about a key moment → take over from the Double → the user drives that chat or choice. Conflicts with the current design (no way to steer a Double, only private chat). Blocked on Ivan's take-over decision in `IVAN_pre-MVP.md`. **Done when:** Ivan has written what the user may control and how the show labels it, and one user steers one chat in a test sim. Owner: Ivan, then CTO + Nicolas. |
+| **PM-DEMO-20** | Key-moment alerts | After | Notify the user when their Double has a key moment. Tapping it opens that moment. Needed by **PM-DEMO-19**, and useful alone for bringing people back. **Done when:** a test user gets the alert and lands on the moment. Owner: CTO + Nicolas. |
+
 ---
 
 ## Infra hygiene — survival mode as a per-sim field, not a global env flag *(added 2026-06-15; non-blocking)*
