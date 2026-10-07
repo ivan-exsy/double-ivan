@@ -319,3 +319,15 @@ Operational dependency (still true): YouTube and viewer-share tags are automatic
 ### Folded sections
 
 The old §10 (Chen / a16z metric lens, 2026-09-17) is folded into §2, §4, and §6. The old §11 (Cold Start hard side = Showrunners, locked 2026-09-18) is folded into §1, §4, and §7, and its operator checklist is §8.
+
+## 12. a16z Top 100 (7th ed, 2026-10-05) — category ammo
+Source: https://a16z.com/100-gen-ai-apps-7/
+
+- Investor **category**: AI media / personalized entertainment company (not “another AI chatbot” or “social network clone”).
+- Cite: entertainment + social white space; almost no top AI apps are multiplayer/networked; media is where consumer subscriptions historically work at scale.
+- Product clarity unchanged: new genre (daily show of you + friends as Doubles); Showrunner cold start unchanged.
+- Pitch tweak: upgrade Why Now / category line; no full deck rewrite.
+- Full notes: `COS/agents/vc/kb/raw/user-provided/a16z-andreessen-horowitz.md` log 2026-10-06.
+
+### Correction (2026-10-06, Andrew Chen)
+Chen-facing: **new media format / genre with network effects** — **not** "media company." Media packaging for category + later monetization; Showrunner network for GTM. See a16z KB log.
