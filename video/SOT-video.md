@@ -14,6 +14,7 @@
 
 ## Contents
 
+0. TODOs: Workflow for new sims
 1. [Intent](#1-intent)  
    - [1.1 Trailer types (now)](#11-trailer-types-now)  
    - [1.2 Shared craft (still current)](#12-shared-craft-still-current)  
@@ -37,6 +38,100 @@
 13. [Guardrails](#13-guardrails)  
 14. [DEV backlog](#14-dev-backlog)  
 15. [Changelog](#15-changelog)
+
+---
+
+## **TODOs: Workflow for new sims**
+
+### 0. Generate global assets:
+
+#### Census clip v2 — replace hard-coded census_15_to_1.mp4
+```
+<implemented by @CTO>
+**Why:** Trailers show the old L-Talks 15→1 counter regardless of the sim.
+The census beat must reflect the real cast and tonight's numbers.
+
+**Goal:** One reusable template, fed 4 facts from the sim each night:
+{start} (starting cast), {now} (count at episode start),
+{after} (count after tonight), {cost} (who leaves).
+No per-count video files.
+
+### Made once (shared library)
+- 2–3 background motion clips per beat (run / hold / drop), rotated nightly
+- 3 sound stems: tick (per decrement), low drone (hold), one impact (drop)
+- Face-grid layout that auto-arranges 2–20 tiles
+
+### Per episode (rendered fresh)
+- Real cast face tiles + big number overlay
+
+### Beats
+1. **Run (~1.2 s):** number ticks {start}→{now}; earlier leavers grey out
+   in order. Skip on Day 1 and for casts of 6 or fewer. Fast for big casts.
+2. **Hold (1.5–2.5 s):** tonight's {now} faces lit, slow push-in.
+3. **Drop (0.6 s):** number falls to {after} with the impact.
+   - Census before the vote scene: leaving tile is blurred only (no spoiler).
+   - Face greys out only after the walk-out has played.
+
+### Narration (synced via TTS word timestamps)
+- Cold viewer: "{start} Doubles started." (spin starts on "started")
+  → "One leaves every night. {now} are left." ("left" lands on hold)
+- Returning viewer: "{now} left."
+- Small casts (≤6): drop "until one remains"; use
+  "{now} left. Tonight, one goes."
+- Never speak {after}; the drop plays silent.
+
+### Placement
+- Every vote night: 2–3 s version
+- Cold / weekly cuts: full version
+- No-vote nights: skip
+
+### Don'ts
+- Slot-machine sounds, red X's or slashes over faces
+- A hold with no faces
+- The identical background every day
+- Any number that doesn't match the sim's records
+
+### Done when
+- Works for any start 2–20, verified on 20261001-2 (5→4) and a 20→19 test
+- Numbers come from the sim, never typed in
+- census_15_to_1.mp4 no longer referenced in code
+```
+
+#### Ensure that all habitat interiors for the map exist
+  >> ALREADY THERE: all 20 Pittsburgh homes + 5 workplaces (29 room
+  >> photos, 29 outside). Real fix: map every Double to a Pittsburgh
+  >> home + workplace, and never fall back to Ville rooms (that's how
+  >> Gosha, listed only as "student", got a Ville classroom).
+
+####  Select the flyover videos of the town to be featured
+  >> RIGHT, nearly done: 7 Pittsburgh flyover clips to pick from.
+
+### 1. Prep
+   - each double should have 2 photos (portait, full height)
+     >> RIGHT. Only headshots exist today, no full-height photos.
+   - 1 group photo + 2 sec animated version
+     >> RIGHT, and urgent: the only group photo/animation in code is
+     >> the old 15-person L-Talks cast, so the trailer opened on the
+     >> wrong people. ADD: a note of who stands where, so the vote-out
+     >> greys out the right face.
+
+### 2. Ensure that we have everything ready for these type of visuals to be generated for specific cast/place/sim:
+   1. Habitat videos (each double in their a. home and b. work) - generated when video workflow requires, then stored to be re-used (if needed in the following episodes
+      >> RIGHT, real gap: only work scenes are made today, never home,
+      >> and nothing is saved for reuse. Store per Double (not per
+      >> sim), since family Doubles appear in several sims.
+   2. Gather videos - generated in a place specified by scenario writer with selected doubles (unique for each episode)
+      >> RIGHT. Today the place is fixed to PPG Cafe for every
+      >> Pittsburgh sim; the writer can't choose it.
+   3. Unique Phaser scenes should be captured for every episode
+      >> RIGHT. Today it's one still image, and it was switched off
+      >> for this render. Should record short clips from the live
+      >> doubland.ai viewer every episode.
+
+### MISSING:
+1. Safety rules: show name, episode number and player count come from the sim, never typed in (poster said "L-TALKS", "EPISODE 2", "15 ACTIVE"; one VO line said "the village"). A Pittsburgh sim may never use Ville or L-Talks pictures.
+2. Vote-out exit scene in Pittsburgh (none exists yet).
+3. Check shared clips are show-neutral: ballots, end card, stamp.
 
 ---
 
