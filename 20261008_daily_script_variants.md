@@ -9,6 +9,8 @@ This is a decision about the **spoken story** only. Pictures, voice recording, a
 
 ---
 
+
+
 ## What we are making
 
 Doubland runs a simulated day. Each person is a Double: an AI version of a real adult. They live, talk, work, and, on a Survival night, play a social game. Nobody writes their dialogue in advance.
@@ -89,9 +91,17 @@ Version 2 did not do the job it was given. It was supposed to be one Double and 
 
 Version 3 will sound like this on every first night. The slots are fixed: what a Double is, how many entered, the two names, one pair, the game, the win, the lesson, the vote, the farewell if we have it, the headcount, tomorrow, the door. Empty slots stay empty. That is why the names have no jobs, and why the win line is only “He wins the Shield.”
 
+
+## Voice-overs generated
+
+Variant |	Spoken |    length	|   Listen here |
+Group recap | 66.4 s | data/pittsburgh-demo-2/day2/vo/group-recap.mp3 | 
+Protagonist choice | 109.8 s | .../vo/protagonist-choice.mp3 | 
+Peak / cost | 82.3 s | .../vo/peak-cost.mp3 | 
+One story | 107.0 s | .../vo/one-story.mp3 | 
 ---
 
-## Version 1 — group recap
+## Variant 1 — group recap
 
 Tonight, Yevgenia Pritchard is sent home after a tied vote. It is a quiet ending to a day full of trust and secrets. The question everyone will be asking: who turned on her?
 
@@ -113,7 +123,7 @@ The hidden truth surfaces: Yevgenia voted against Elfi on Day 1. Elfi, too, reme
 
 ---
 
-## Version 2 — one-person brief, group draft
+## Variant 2 — one-person brief, group draft
 
 Morning at the cafe. After the challenge, Luba Istomina tells Yevgenia Pritchard she saw Ivan take the shield. Yevgenia says Ivan played it smart. Luba mentions deposition transcripts and swim practice.
 
@@ -139,7 +149,7 @@ Elfi and Luba sit together as the vote nears; Elfi says the coffee is helping. T
 
 ---
 
-## Version 3 — winner and the person who leaves
+## Variant 3 — winner and the person who leaves
 
 These are Doubles — AI versions of real people, making choices no one wrote for them.
 Five of them entered Survival mode: someone is voted out every night until one remains.
@@ -167,7 +177,24 @@ Watch every conversation, challenge, and vote live at doubland.ai.
 - The farewell drops “Well,” and the closing “Good luck on your houses…”
 - The challenge how-to is accurate and a bit like a rule card.
 
+### Variant 4 (20261008-3_pittsburgh-demo-2_one-story - 92 sec)
+
+Yevgenia Pritchard tells Elfi: "I meant what I said earlier — I'll vote with you, and I've been talking with Luba and Marsha too."
+These are Doubles, AI versions of real people. Five of them are playing Survival. Every night, one is voted out, until one remains.
+Elfi tells Yevgenia: "Let's watch each other's backs through this vote, and then we can both breathe easy."
+Before the vote, Elfi and Yevgenia sit together. Elfi talks about a quiet dinner promised to a daughter. Elfi says, "I'm glad we're sitting together."
+At the challenge, Yevgenia holds. "I don't fold on things I've started." Elfi folds. "I keep my energy for the home and the kid." Ivan holds, and wins the Shield.
+Alliances turn into votes. Every Double casts a ballot.
+Yevgenia's ballot goes to Elfi. Elfi's ballot goes to Luba.
+Elfi and Yevgenia tie, two votes each. After the tiebreak, Yevgenia is gone.
+Yevgenia, on the way out: "Well, I showed up, I did the work, and I didn’t ask for a handout. If that’s worth two votes in this game, then you all can have it — just remember that loyalty’s a two‑way street, and you’ll get what you give. Good luck on your houses, and may you finish what you said you’d start."
+Five become four.
+Tomorrow Elfi is still in.
+Watch every conversation, challenge, and vote live at doubland.ai.
+
 ---
+
+
 
 ## What we need back
 

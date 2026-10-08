@@ -132,6 +132,27 @@ No per-count video files.
 1. Safety rules: show name, episode number and player count come from the sim, never typed in (poster said "L-TALKS", "EPISODE 2", "15 ACTIVE"; one VO line said "the village"). A Pittsburgh sim may never use Ville or L-Talks pictures.
 2. Vote-out exit scene in Pittsburgh (none exists yet).
 3. Check shared clips are show-neutral: ballots, end card, stamp.
+4. **Role cards.** Plates on disk are not enough. The bake reads each Double's home and job from the night's role card. Empty cards (this Pittsburgh night has none) select the village flyover, Hobbs, and a village room. Gosha's classroom happened that way.
+5. **Gather filename.** The place label can say PPG Cafe, but the file the bake opens is still `hobbs_gather.png` / `hobbs_gather.mp4`. A file named `ppg_gather` is not opened.
+6. **Census filename.** The recipe asks for `census_15_to_1.mp4` by that name. Saving `census_5_to_4.mp4` does nothing until the recipe stops asking for the old name. The census v2 block above is the replacement. It is not live.
+7. **Full-height photo.** There is no lookup for a body photo. Only the headshot paths below are read.
+8. **Seat map.** Grey-out uses `seat_map.json` for the old 15-person cast. A new group photo without a new seat map greys the wrong face. A first name that matches the old cast (Ivan) lands on that old seat.
+
+### Where to save a file so the bake finds it
+
+All paths are under `double-video`. A file in any other folder is invisible. The name has to match. A new place also needs a line in the lookup table, or the file is never chosen.
+
+| Asset | Save as | What else has to be true |
+|---|---|---|
+| Room interior | `video/assets/pittsburgh/interior/<name>_int.jpg` | `<name>` is already in `video/habitat_lock.py` (`ppg_cafe_int.jpg`, `fifth_avenue_market_int.jpg`, the home list). A new building needs a new row there. |
+| Room exterior (Imagine reference, not the plate the closer plays) | `video/assets/pittsburgh/exterior/ref/<name>_exterior_ref.jpg` | Used as a photo reference. The closer plays the interior plate, not this file. |
+| Town flyover | `video/assets/pittsburgh/flyover/` with the exact names: `cinematic_downtown_overhead_day.mp4` (C1), `cinematic_downtown_overhead_dusk.mp4` (C2), `cinematic_downtown_overhead_night.jpg` (C3), `cinematic_downtown_plaza_dusk.mp4` (C4), `cinematic_downtown_plaza_night.jpg` (C5), `cinematic_downtown_ppg_street_day.mp4` (C6), `cinematic_downtown_ppg_street_dusk.mp4` (C7), `cinematic_downtown_towers_day.mp4` (C8), `signature_flyover.mp4` | Used only when a role card names a Pittsburgh home or job. Otherwise the bake uses `video/fly-over/`. |
+| Headshot | `video/assets/cohort/<sim>/` and the file name contains the person's slug (`yevgenia_pritchard`). Or `video/assets/cohort/<cohort>/hero/<persona_id>.png` and `portraits/<persona_id>.png`, with that display name in the cohort manifest. | Supabase look photos are not the first place the bake looks. |
+| Group photo | `video/assets/cohort/<cohort>/group_photo.png` | Plus `seat_map.json` in that same folder: who stands in which seat. Grey-out plates are then `group_photo_<firstname>_out.png` inside the night's kit. The fallback photo is the old 15-person plate. |
+| Reused habitat or gather for this sim | `data/<sim>/picture_kit_cache/` under the same file name the kit job uses (`hobbs_gather.png`, `<slug>_habitat.mp4`) | This shelf is per sim. A Double who appears in another sim does not inherit it yet. |
+| Ballots, stamp | `video/assets/nightly/ballots.mp4`, `video/assets/nightly/survival_stamp_red.png` | These names are copied into every night. Replacing the file at this path changes every future bake. |
+| Phaser clip for one episode | The night package, `trailer_ready_dayN/clip_kit/bins/F_phaser/` | Not a global library. One still today. A few seconds from the live viewer is the missing step. |
+| Census v2 | Do not add another numbered mp4. | The template in the block above has to replace the `census_15_to_1.mp4` lookup. Numbers come from the sim. |
 
 ---
 
