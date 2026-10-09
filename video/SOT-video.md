@@ -154,9 +154,9 @@ Workplace pictures for the whole cast are part of the pre-season library (workfl
 3. **Phaser.** One short clip per episode, from the live viewer, at bake time, saved in that night's package. It cannot be filmed in advance on the baseline. If that night has no step, the slot stays empty. Capture today still writes a still (`{cost}_leave_phaser.png`). The clip is the next live night, not a file to review now.
 
 ### [] MISSING:
-1. Safety rules: show name, episode number and player count come from the sim, never typed in (poster said "L-TALKS", "EPISODE 2", "15 ACTIVE"; one VO line said "the village"). Place pictures follow the maze lock above. A Pittsburgh sim may never use Ville or L-Talks pictures, including as a fallback when a card is empty.
-2. Vote-out exit scene in Pittsburgh (none exists yet).
-3. Check shared clips are show-neutral: ballots, end card, stamp.
+[x] Safety rules: show name, episode number and player count come from the sim, never typed in (poster said "L-TALKS", "EPISODE 2", "15 ACTIVE"; one VO line said "the village"). Place pictures follow the maze lock above. A Pittsburgh sim may never use Ville or L-Talks pictures, including as a fallback when a card is empty.
+[x] Vote-out exit. The empty door is locked (2026-10-09): `video/assets/pittsburgh/flyover/cinematic_downtown_ppg_street_exit_night.jpg`. PPG Place at night, door and sidewalk, no sign, no people. Each night's walk-out is generated from this plate plus that night's voted-out person. The empty plate is not the clip the closer plays.
+[x] Shared clips (2026-10-09). Stamp and `Talk.mp4` were already show-neutral. End card `video/assets/nightly/end_lockup_9x16.png` no longer says L-TALKS (DOUBLAND.AI + WATCH LIVE only), every show. Ballots: Pittsburgh nights open `video/assets/pittsburgh/ballots.mp4` (PPG Cafe, evening). Village nights keep the Hobbs clip in `video/assets/nightly/ballots.mp4`. A Pittsburgh night never falls back to the Hobbs clip.
 4. **Role cards.** Plates on disk are not enough. The bake reads each Double's home and job from the night's role card, then opens only that maze's plate. Empty cards (this Pittsburgh night has none) still select the village flyover, Hobbs, and a village room. That violates the maze lock. The slot stays empty until the card names a Pittsburgh home and job. Gosha's classroom happened that way.
 5. **Gather filename.** Locked 2026-10-09. A PPG night writes and opens `ppg_cafe_gather.png` / `ppg_cafe_gather.mp4`. Hobbs nights still use `hobbs_gather`. The picture itself is made the night the writer names the place. Nothing to watch until that bake.
 6. **Census filename.** The recipe still asks for `census_15_to_1.mp4`. At the one integrate pass it opens `census_hud.mp4` in that night's `E_cliff_door` bin, rendered from the ledger, under `{N} become {N−1}`. See the census block above. Not live until that pass.
@@ -165,19 +165,30 @@ Workplace pictures for the whole cast are part of the pre-season library (workfl
 
 ### Where to save a file so the bake finds it
 
-All paths are under `double-video`. A file in any other folder is invisible. The name has to match. A new place also needs a line in the lookup table, or the file is never chosen.
+All paths are under `double-video/video/assets`. A file in any other folder is invisible. The name has to match. A new place also needs a line in the lookup table, or the file is never chosen.
+
+**Shelf (2026-10-09).** That folder is one shared Google Drive folder, not a copy in git. On disk it is `My Drive/sync/video/assets`, linked at `double-video/video/assets`. The bake still opens only that path. Pictures, clips, and audio are not checked out by git. Python under `video/assets/scripts-prompts`, plus the markdown and JSON next to the packs, still come from git.
+
+Set up once: use the shared folder (do not upload a second copy). Google Drive for Desktop, **Mirror** (files on disk; the bake needs a real file). Then:
+
+- Windows: `mklink /J D:\Coding\double-video\video\assets "<Drive path>\sync\video\assets"`
+- Mac: a symlink from `video/assets` to the same Drive folder.
+
+Pull `kebab` at `98402ae` so git stops checking the media out. After the link, the files are there. Wait until Drive shows the upload is done before you assume the rest of the team has a new file. Two people should not edit the same file at the same time. Drive keeps the last save and may add a conflict copy.
 
 | Asset | Save as | What else has to be true |
 |---|---|---|
 | Room interior | `video/assets/pittsburgh/interior/<name>_int.jpg` | `<name>` is already in `video/habitat_lock.py` (`ppg_cafe_int.jpg`, `fifth_avenue_market_int.jpg`, the home list). A new building needs a new row there. |
 | Room exterior (Imagine reference, not the plate the closer plays) | `video/assets/pittsburgh/exterior/ref/<name>_exterior_ref.jpg` | Used as a photo reference. The closer plays the interior plate, not this file. |
 | Town flyover | `video/assets/pittsburgh/flyover/` — every file in that folder. Names and which beat uses which file are in the flyover block above. | Plant and door stay `signature_flyover.mp4`. Other files play when the beat matches their place and time. Downtown sims only. A missing clip stays missing. `video/fly-over/` is the Ville pack. |
+| Pittsburgh walk-out door | `video/assets/pittsburgh/flyover/cinematic_downtown_ppg_street_exit_night.jpg` | Locked empty plate. Door and sidewalk, no sign, no people. The nightly leave still is generated from this file plus that night's voted-out portrait. The closer does not play this empty plate by itself. |
 | Headshot | `video/assets/cohort/<sim>/portraits/<persona_id>.jpg` or `.png` | Same id as the sim roster. A baseline folder counts only when the persona ids are the same people. Supabase look photos are not the first place the bake looks. |
 | Full height | `video/assets/users/character-sheets/<persona_id>/full_body_standing.png` | 2K, transparent, from that portrait. The bake does not open this file yet. The cast check does. |
 | Group photo | `video/assets/cohort/<cohort>/group_photo.png` and `group_photo_matrix_bright.png` | 2K. The matrix plate matches `double-ivan/video/l-talk/cast/group_photo_matrix.png`: green cast, `PERSONALITIES UPLOADED ...`, one green frame per person from the head to the waist, taller when that person is taller. The poster wipes from the clean photo to that plate. Plus `seat_map.json` in that same folder: one seat per person, `persona_id` set. Grey-out plates are then `group_photo_<firstname>_out.png` inside the night's kit. No file for this cast means the beat is missing. The old 15-person plate is another maze's cast. |
 | Workplace, every Double on the cast | `video/assets/cohort/<sim>/habitats/<persona_id>/work.png` and `work.mp4`. Home is `home.png` / `home.mp4` when the roster names a home. | Before that cast's first season, or right after it starts. A later fork reuses a parent folder when the persona id is the same person. The roster must name the job and workplace. `pittsburgh-demo-2` workplace files are on that sim. `l-talks-pit` has work and home for all 15. |
 | Gather for this episode | That night's kit: `ppg_cafe_gather.mp4` (or `{place}_gather.mp4`). Hobbs stays `hobbs_gather.mp4`. | One crowd per episode. Not the baseline library. |
-| Ballots, stamp | `video/assets/nightly/ballots.mp4`, `video/assets/nightly/survival_stamp_red.png` | These names are copied into every night. Replacing the file at this path changes every future bake. |
+| Ballots, stamp | `video/assets/nightly/ballots.mp4`, `video/assets/nightly/survival_stamp_red.png` | These names are copied into every night. Replacing the file at this path changes every future bake. The `nightly` ballots clip is the Hobbs room, village nights only. |
+| Ballots, Pittsburgh | `video/assets/pittsburgh/ballots.mp4` | PPG Cafe in the evening. Every Downtown night copies this file into its kit as `ballots.mp4`. Missing means the ballots beat stays empty, not Hobbs. |
 | Phaser clip for one episode | The night package, `trailer_ready_dayN/clip_kit/bins/F_phaser/` | Not a global library. One still today. A few seconds from the live viewer is the missing step. |
 | Census HUD | `trailer_ready_dayN/clip_kit/bins/E_cliff_door/census_hud.mp4` | Rendered that night from the ledger (`start`, `now`, `after`). Plays under `{N} become {N−1}`. Wired in the one integrate pass. Until then the bake still opens `census_15_to_1.mp4`. |
 
@@ -1067,6 +1078,7 @@ Day 1 V6 **G1–G8 READY** — CapCut gold exists; further nights reuse the same
 
 | Date | Change |
 |------|--------|
+| 2026-10-09 | **Asset shelf is Drive** — save paths under `video/assets` are unchanged. The folder is a link to the shared Drive folder `My Drive/sync/video/assets` (Mirror). Git no longer checks out the pictures, clips, or audio (`kebab` `98402ae`). Scripts, markdown, and JSON next to the packs still come from git. |
 | 2026-10-09 | **Matrix plate canonical** — look is `double-ivan/video/l-talk/cast/group_photo_matrix.png`: green cast, `PERSONALITIES UPLOADED ...`, one green frame per person from the head to the waist. Frame height follows that person. `l-talks-pit` and `pittsburgh-demo-2` were redrawn to it. |
 | 2026-10-09 | **Workplace shelf** — home and work pictures save on the sim that owns the cast (`cohort/<sim>/habitats/<persona_id>/`), with the group photo. A later fork reuses a parent folder for the same persona id. The oldest parent in the database is not the shelf. |
 | 2026-10-08 | **Workflow census** — approved picture is the HUD clip under the existing `{N} become {N−1}` line. PR #16 stays open. Wired in the one integrate pass, as `census_hud.mp4` in that night's `E_cliff_door` bin. |
