@@ -41,102 +41,127 @@
 
 ---
 
+## **Automated workflow**
+
+This is the template for auto-mode on a new season. Run it once the cast is finalized, before the baseline sim's first season, or right after that season has started if the cast was finished late. The opening video needs every step, including a workplace picture for every Double.
+
+Each step's picture is the reference for the next. Do not invent a face from a name. A fork may reuse its baseline cohort folder only when the persona ids are the same people. A new cast does not reuse another sim's plate.
+
+Stills are 2K, 9:16. Clips are 720p.
+
+1. Portrait photos, submitted by users. Save as `video/assets/cohort/<sim>/portraits/<persona_id>.jpg` or `.png`.
+2. Full-height photos from that portrait. 2K, transparent background. Save as `video/assets/users/character-sheets/<persona_id>/full_body_standing.png`.
+3. Group photo from those full-height refs. 2K, transparent background. Save as `video/assets/cohort/<sim>/group_photo.png`. Then the matrix plate of that same photo: `group_photo_matrix_bright.png` in the same folder. Canonical look is `double-ivan/video/l-talk/cast/group_photo_matrix.png`: the same people, a green cast, the line `PERSONALITIES UPLOADED ...` in the upper left, and one green frame per person from just above the head to the waist. The frame follows that person's height. A taller Double gets a taller frame. No scan grid. No even row of identical boxes. The poster wipes from the clean photo to this plate. Do not redraw the people.
+4. `seat_map.json` for that group photo, same arrangement. One seat per person, `persona_id` set, so a shared first name does not land on another cast's seat. Save as `video/assets/cohort/<sim>/seat_map.json`.
+5. Group video from the group photo. 2 seconds, 720p, happy to be there together. Save as `video/assets/cohort/<sim>/motion/group_anim.mp4`.
+6. Workplace still and clip for every Double on that cast. The person at their job, in that room. 2K still, 720p clip. Save with the rest of that sim's cast files: `video/assets/cohort/<sim>/habitats/<persona_id>/work.png` and `work.mp4`. A later fork reuses a parent folder when the persona id is the same person. Do not save them on the oldest parent in the database. That root is often a different cast. The roster must already name each person's job and workplace. An empty card is not a room. Home (`home.png` and `home.mp4`) is the same pass when the roster already names a home.
+
+Steps 1–6 are the pre-season library. They are generated once per baseline cast. Gather, the Phaser clip, and the census HUD are a different list: one file per episode, after that night exists. They are not part of this template.
+
+The cast check covers steps 1–5. Step 6 is not in that check yet, and the nightly bake still makes a workplace picture only for that night's Peak and Cost. Auto-mode has to walk the full roster before the opener.
+
+
+---
 ## **TODOs: Workflow for new sims**
 
-### 0. Generate global assets:
+### [x] Global assets:
 
-#### Census clip v2 — replace hard-coded census_15_to_1.mp4
-```
-<implemented by @CTO>
-**Why:** Trailers show the old L-Talks 15→1 counter regardless of the sim.
-The census beat must reflect the real cast and tonight's numbers.
+#### [x] Census clip — HUD under `{N} become {N−1}`
+>> SAMPLES APPROVED 2026-10-08. Leave PR #16 (`census-clip-v2`) open.
+>> Bake it in the one integrate pass, with the other assets on this list.
 
-**Goal:** One reusable template, fed 4 facts from the sim each night:
-{start} (starting cast), {now} (count at episode start),
-{after} (count after tonight), {cost} (who leaves).
-No per-count video files.
+The approved picture is a normal video: the HUD. Nothing is spoken inside the file. It plays under the closer line the trailer already says.
 
-### Made once (shared library)
-- 2–3 background motion clips per beat (run / hold / drop), rotated nightly
-- 3 sound stems: tick (per decrement), low drone (hold), one impact (drop)
-- Face-grid layout that auto-arranges 2–20 tiles
+- Vote night, including Day 1: `{N} become {N−1}.` Day 1 keeps the existing sentence shape (`Just like that, {N} become {N−1}.`) and fills N from that night's ledger.
+- The drop in the picture lands on that line. Short cut: frame 24 (0.8 s). Full cut: frame 66 (2.2 s).
+- No vote tonight: leave the clip out.
 
-### Per episode (rendered fresh)
-- Real cast face tiles + big number overlay
+Reference renders for real ledger `20261001-2` (start 6, now 5, after 4) live in `C:\Users\ipist\cto-read\census_clip_v3\`:
 
-### Beats
-1. **Run (~1.2 s):** number ticks {start}→{now}; earlier leavers grey out
-   in order. Skip on Day 1 and for casts of 6 or fewer. Fast for big casts.
-2. **Hold (1.5–2.5 s):** tonight's {now} faces lit, slow push-in.
-3. **Drop (0.6 s):** number falls to {after} with the impact.
-   - Census before the vote scene: leaving tile is blurred only (no spoiler).
-   - Face greys out only after the walk-out has played.
+- Vote night: `census_hud_5to4_short_20261001-2.mp4` (1.5 s)
+- Cold open or weekly recap: `census_hud_6to5to4_full_20261001-2.mp4` (3.1 s)
 
-### Narration (synced via TTS word timestamps)
-- Cold viewer: "{start} Doubles started." (spin starts on "started")
-  → "One leaves every night. {now} are left." ("left" lands on hold)
-- Returning viewer: "{now} left."
-- Small casts (≤6): drop "until one remains"; use
-  "{now} left. Tonight, one goes."
-- Never speak {after}; the drop plays silent.
+Files with `TEST` in the name are cast-size checks. They are not episode plates.
 
-### Placement
-- Every vote night: 2–3 s version
-- Cold / weekly cuts: full version
-- No-vote nights: skip
+**At the integrate pass** (after every item in this list has its asset):
 
-### Don'ts
-- Slot-machine sounds, red X's or slashes over faces
-- A hold with no faces
-- The identical background every day
-- Any number that doesn't match the sim's records
+1. Render that night's short HUD from the package `fact_ledger.json` (`start`, `now`, `after`). A number that does not match the ledger does not render. Day 1 uses the same check (the picture job must not keep a hard-coded 15→14).
+2. Save it as `trailer_ready_dayN/clip_kit/bins/E_cliff_door/census_hud.mp4`. The recipe opens that name. Cold and weekly cuts use the full version on the same beat, drop at 2.2 s.
+3. Time the clip so the drop sits on `{N} become {N−1}`.
+4. In that same pass, stop opening `census_15_to_1.mp4`, and merge PR #16 with the rest of the asset wiring.
 
-### Done when
-- Works for any start 2–20, verified on 20261001-2 (5→4) and a 20→19 test
-- Numbers come from the sim, never typed in
-- census_15_to_1.mp4 no longer referenced in code
-```
+Generator, from that branch, when a count combination is not already rendered:
 
-#### Ensure that all habitat interiors for the map exist
-  >> ALREADY THERE: all 20 Pittsburgh homes + 5 workplaces (29 room
-  >> photos, 29 outside). Real fix: map every Double to a Pittsburgh
-  >> home + workplace, and never fall back to Ville rooms (that's how
-  >> Gosha, listed only as "student", got a Ville classroom).
+`python -m video.census_hud --package <trailer_ready folder> --start N --now N --after N --cut short --out out.mp4`
 
-####  Select the flyover videos of the town to be featured
-  >> RIGHT, nearly done: 7 Pittsburgh flyover clips to pick from.
+#### [x] Ensure that all habitat interiors for the map exist
+  >> CONFIRMED 2026-10-08: 31 interior plates and 29 exteriors are on
+  >> disk under `video/assets/pittsburgh/`. The plates exist.
 
-### 1. Prep
-   - each double should have 2 photos (portait, full height)
-     >> RIGHT. Only headshots exist today, no full-height photos.
-   - 1 group photo + 2 sec animated version
-     >> RIGHT, and urgent: the only group photo/animation in code is
-     >> the old 15-person L-Talks cast, so the trailer opened on the
-     >> wrong people. ADD: a note of who stands where, so the vote-out
-     >> greys out the right face.
+#### [**NEEDS BUILT**] Maze lock
+The bake opens place pictures only from the maze this sim ran in.
 
-### 2. Ensure that we have everything ready for these type of visuals to be generated for specific cast/place/sim:
-   1. Habitat videos (each double in their a. home and b. work) - generated when video workflow requires, then stored to be re-used (if needed in the following episodes
-      >> RIGHT, real gap: only work scenes are made today, never home,
-      >> and nothing is saved for reuse. Store per Double (not per
-      >> sim), since family Doubles appear in several sims.
-   2. Gather videos - generated in a place specified by scenario writer with selected doubles (unique for each episode)
-      >> RIGHT. Today the place is fixed to PPG Cafe for every
-      >> Pittsburgh sim; the writer can't choose it.
-   3. Unique Phaser scenes should be captured for every episode
-      >> RIGHT. Today it's one still image, and it was switched off
-      >> for this render. Should record short clips from the live
-      >> doubland.ai viewer every episode.
+- Downtown: `video/assets/pittsburgh/` (rooms, flyovers, gather). Never `video/assets/village/`, `video/fly-over/`, Hobbs, or the L-Talks group plate.
+- The Ville: village plates only. Never a Pittsburgh room or a Downtown flyover.
+- A missing plate stays missing. Do not fill it from the other maze. Gosha's classroom is that fill-in: the card said "student" and the bake opened a Ville room.
+- Ballots, the survival stamp, and the end card are not a place. They stay in `video/assets/nightly/`.
 
-### MISSING:
-1. Safety rules: show name, episode number and player count come from the sim, never typed in (poster said "L-TALKS", "EPISODE 2", "15 ACTIVE"; one VO line said "the village"). A Pittsburgh sim may never use Ville or L-Talks pictures.
+####  [x] Select the flyover videos of the town to be featured
+  >> LOCKED 2026-10-08: every file in `video/assets/pittsburgh/flyover/` is featured. Pick the one that matches the beat. Do not play the whole folder every night.
+
+- **Open and close, every Pittsburgh closer:** `signature_flyover.mp4`. Plant and door. Not swapped for another plate.
+- **Then match place and time.** Motion file when the beat moves; the still of that same shot when the beat holds.
+
+| Beat | File |
+|---|---|
+| Day, town from above | `cinematic_downtown_overhead_day.mp4` (still: `.jpg`) |
+| Evening or dusk, town from above | `cinematic_downtown_overhead_dusk.mp4` (still: `.jpg`) |
+| Night, town from above | `cinematic_downtown_overhead_night.jpg` |
+| Evening at the plaza | `cinematic_downtown_plaza_dusk.mp4`. Frame variants: `cinematic_downtown_plaza_dusk_vertical.jpg` (9:16), `cinematic_downtown_plaza_dusk_wide.jpg` |
+| Night at the plaza | `cinematic_downtown_plaza_night.jpg` |
+| Day on the PPG street | `cinematic_downtown_ppg_street_day.mp4` (still: `.jpg`) |
+| Evening on the PPG street | `cinematic_downtown_ppg_street_dusk.mp4` (still: `.jpg`) |
+| Day, the towers | `cinematic_downtown_towers_day.mp4` (still: `.jpg`) |
+| Skyline, when none of the shots above is the picture | `downtown_skyline_exterior_ref.jpg` |
+
+### [x] Sim-specific assets
+>> DONE 2026-10-08: portrait, full height, group photo, seat map, and the 2 s group animation for `pittsburgh-demo-2` and `l-talks-pit`. Stills are generated at 2K. Motion clips are 720p.
+
+When a sim's cast is finalized, the roster is the persona list on that sim. The system then checks the files below and does not bake until they exist. A fork with the same persona ids may use its baseline cohort folder. A new cast does not reuse another sim's plate.
+
+Check: `python -m video.check_sim_cast_assets <sim>` from `double-video`. Exit 1 means something is still missing.
+
+| Asset | Save as |
+|---|---|
+| Portrait, one per Double | `video/assets/cohort/<sim>/portraits/<persona_id>.jpg` or `.png` |
+| Full height, one per Double | `video/assets/users/character-sheets/<persona_id>/full_body_standing.png` |
+| Group photo | `video/assets/cohort/<sim>/group_photo.png` |
+| Who stands where | `video/assets/cohort/<sim>/seat_map.json` — one seat per person, `persona_id` set |
+| Short move of that photo (2 s) | `video/assets/cohort/<sim>/motion/group_anim.mp4` |
+
+**Checked 2026-10-08**
+
+- `l-talks-pit` — **Done** (2026-10-08). 15 people. Portraits: `video/assets/cohort/l-talks-pit/portraits/`. Full height: `video/assets/users/character-sheets/<persona_id>/full_body_standing.png`. Group photo: `video/assets/cohort/l-talks-pit/group_photo.png` (1584×2816, transparent, three rows). Matrix plate: `group_photo_matrix_bright.png` (2026-10-09). Seat map matches that plate. Animation: `motion/group_anim.mp4`, 2 s, 720p. The older soul15 plate stays in `soul15_seed_20260224`.
+- `pittsburgh-demo-2` — **Done** (2026-10-08). Elfi, Ivan, Luba Istomina, Marsha Shisman, Yevgenia Pritchard. Group photo: `video/assets/cohort/pittsburgh-demo-2/group_photo.png` (1584×2816, room plate). Matrix plate: `group_photo_matrix_bright.png` (2026-10-09). Left to right: Marsha, Elfi, Ivan, Luba, Yevgenia (`seat_map.json` seats 1.1–1.5). Animation: `motion/group_anim.mp4`, 2 s, 720p. The automated rule above is a transparent group plate; this approved file is the room plate.
+- Step 6 for `pittsburgh-demo-2` is workplace only, on that sim: `video/assets/cohort/pittsburgh-demo-2/habitats/<persona_id>/work.png` and `work.mp4` (2026-10-09). Home files are not made. Step 6 for `l-talks-pit` is done (2026-10-09): `work.png`, `work.mp4`, `home.png`, and `home.mp4` for all 15, in `video/assets/cohort/l-talks-pit/habitats/<persona_id>/`.
+
+### [x] Locked 2026-10-09 — three shelves
+
+Workplace pictures for the whole cast are part of the pre-season library (workflow step 6). The opening video needs every Double at their job. Make them before the baseline's first season, or right after that season has started. The roster must already name the job and workplace. An empty card bakes the wrong room.
+
+1. **Habitat (home and work).** Save on the sim that owns the cast, keyed by `persona_id`, in the same folder as that sim's group photo. A later fork reuses a parent folder when the persona id already has a file there. The oldest parent in the database is not the shelf. Every Double gets `work.png` and `work.mp4` in that pre-season pass. Home (`home.png`, `home.mp4`) is the same pass when the roster already names a home. Path: `video/assets/cohort/<sim>/habitats/<persona_id>/`. `pittsburgh-demo-2` workplace files are on that sim (2026-10-09). Home is not made for that cast. `l-talks-pit` has work and home for all 15 (2026-10-09).
+2. **Gather.** One file per episode. The writer picks the place and which Doubles. Pittsburgh is not locked to PPG Cafe. The village is not locked to Hobbs. The bake opens `{place}_gather.mp4` (`ppg_cafe_gather.mp4` for PPG Cafe). Hobbs keeps the name `hobbs_gather.mp4` so older village nights still play. The crowd changes every night, so the file stays in that night's package.
+3. **Phaser.** One short clip per episode, from the live viewer, at bake time, saved in that night's package. It cannot be filmed in advance on the baseline. If that night has no step, the slot stays empty. Capture today still writes a still (`{cost}_leave_phaser.png`). The clip is the next live night, not a file to review now.
+
+### [] MISSING:
+1. Safety rules: show name, episode number and player count come from the sim, never typed in (poster said "L-TALKS", "EPISODE 2", "15 ACTIVE"; one VO line said "the village"). Place pictures follow the maze lock above. A Pittsburgh sim may never use Ville or L-Talks pictures, including as a fallback when a card is empty.
 2. Vote-out exit scene in Pittsburgh (none exists yet).
 3. Check shared clips are show-neutral: ballots, end card, stamp.
-4. **Role cards.** Plates on disk are not enough. The bake reads each Double's home and job from the night's role card. Empty cards (this Pittsburgh night has none) select the village flyover, Hobbs, and a village room. Gosha's classroom happened that way.
-5. **Gather filename.** The place label can say PPG Cafe, but the file the bake opens is still `hobbs_gather.png` / `hobbs_gather.mp4`. A file named `ppg_gather` is not opened.
-6. **Census filename.** The recipe asks for `census_15_to_1.mp4` by that name. Saving `census_5_to_4.mp4` does nothing until the recipe stops asking for the old name. The census v2 block above is the replacement. It is not live.
-7. **Full-height photo.** There is no lookup for a body photo. Only the headshot paths below are read.
-8. **Seat map.** Grey-out uses `seat_map.json` for the old 15-person cast. A new group photo without a new seat map greys the wrong face. A first name that matches the old cast (Ivan) lands on that old seat.
+4. **Role cards.** Plates on disk are not enough. The bake reads each Double's home and job from the night's role card, then opens only that maze's plate. Empty cards (this Pittsburgh night has none) still select the village flyover, Hobbs, and a village room. That violates the maze lock. The slot stays empty until the card names a Pittsburgh home and job. Gosha's classroom happened that way.
+5. **Gather filename.** Locked 2026-10-09. A PPG night writes and opens `ppg_cafe_gather.png` / `ppg_cafe_gather.mp4`. Hobbs nights still use `hobbs_gather`. The picture itself is made the night the writer names the place. Nothing to watch until that bake.
+6. **Census filename.** The recipe still asks for `census_15_to_1.mp4`. At the one integrate pass it opens `census_hud.mp4` in that night's `E_cliff_door` bin, rendered from the ledger, under `{N} become {N−1}`. See the census block above. Not live until that pass.
+7. **Full-height photo.** >> DONE for `l-talks-pit` and `pittsburgh-demo-2`. Plates are `video/assets/users/character-sheets/<persona_id>/full_body_standing.png`. The bake does not open this file yet.
+8. **Seat map.** `l-talks-pit` and `pittsburgh-demo-2` each have a `seat_map.json` with `persona_id` on every seat. A bake of those sims uses that folder (the old 15-person plate is not the fallback once this sim has its own group photo). Grey-out ellipses are still drawn for the old three-row head plate. Do not judge a greyed face on the new plates until that drawing follows the new layout.
 
 ### Where to save a file so the bake finds it
 
@@ -146,13 +171,15 @@ All paths are under `double-video`. A file in any other folder is invisible. The
 |---|---|---|
 | Room interior | `video/assets/pittsburgh/interior/<name>_int.jpg` | `<name>` is already in `video/habitat_lock.py` (`ppg_cafe_int.jpg`, `fifth_avenue_market_int.jpg`, the home list). A new building needs a new row there. |
 | Room exterior (Imagine reference, not the plate the closer plays) | `video/assets/pittsburgh/exterior/ref/<name>_exterior_ref.jpg` | Used as a photo reference. The closer plays the interior plate, not this file. |
-| Town flyover | `video/assets/pittsburgh/flyover/` with the exact names: `cinematic_downtown_overhead_day.mp4` (C1), `cinematic_downtown_overhead_dusk.mp4` (C2), `cinematic_downtown_overhead_night.jpg` (C3), `cinematic_downtown_plaza_dusk.mp4` (C4), `cinematic_downtown_plaza_night.jpg` (C5), `cinematic_downtown_ppg_street_day.mp4` (C6), `cinematic_downtown_ppg_street_dusk.mp4` (C7), `cinematic_downtown_towers_day.mp4` (C8), `signature_flyover.mp4` | Used only when a role card names a Pittsburgh home or job. Otherwise the bake uses `video/fly-over/`. |
-| Headshot | `video/assets/cohort/<sim>/` and the file name contains the person's slug (`yevgenia_pritchard`). Or `video/assets/cohort/<cohort>/hero/<persona_id>.png` and `portraits/<persona_id>.png`, with that display name in the cohort manifest. | Supabase look photos are not the first place the bake looks. |
-| Group photo | `video/assets/cohort/<cohort>/group_photo.png` | Plus `seat_map.json` in that same folder: who stands in which seat. Grey-out plates are then `group_photo_<firstname>_out.png` inside the night's kit. The fallback photo is the old 15-person plate. |
-| Reused habitat or gather for this sim | `data/<sim>/picture_kit_cache/` under the same file name the kit job uses (`hobbs_gather.png`, `<slug>_habitat.mp4`) | This shelf is per sim. A Double who appears in another sim does not inherit it yet. |
+| Town flyover | `video/assets/pittsburgh/flyover/` — every file in that folder. Names and which beat uses which file are in the flyover block above. | Plant and door stay `signature_flyover.mp4`. Other files play when the beat matches their place and time. Downtown sims only. A missing clip stays missing. `video/fly-over/` is the Ville pack. |
+| Headshot | `video/assets/cohort/<sim>/portraits/<persona_id>.jpg` or `.png` | Same id as the sim roster. A baseline folder counts only when the persona ids are the same people. Supabase look photos are not the first place the bake looks. |
+| Full height | `video/assets/users/character-sheets/<persona_id>/full_body_standing.png` | 2K, transparent, from that portrait. The bake does not open this file yet. The cast check does. |
+| Group photo | `video/assets/cohort/<cohort>/group_photo.png` and `group_photo_matrix_bright.png` | 2K. The matrix plate matches `double-ivan/video/l-talk/cast/group_photo_matrix.png`: green cast, `PERSONALITIES UPLOADED ...`, one green frame per person from the head to the waist, taller when that person is taller. The poster wipes from the clean photo to that plate. Plus `seat_map.json` in that same folder: one seat per person, `persona_id` set. Grey-out plates are then `group_photo_<firstname>_out.png` inside the night's kit. No file for this cast means the beat is missing. The old 15-person plate is another maze's cast. |
+| Workplace, every Double on the cast | `video/assets/cohort/<sim>/habitats/<persona_id>/work.png` and `work.mp4`. Home is `home.png` / `home.mp4` when the roster names a home. | Before that cast's first season, or right after it starts. A later fork reuses a parent folder when the persona id is the same person. The roster must name the job and workplace. `pittsburgh-demo-2` workplace files are on that sim. `l-talks-pit` has work and home for all 15. |
+| Gather for this episode | That night's kit: `ppg_cafe_gather.mp4` (or `{place}_gather.mp4`). Hobbs stays `hobbs_gather.mp4`. | One crowd per episode. Not the baseline library. |
 | Ballots, stamp | `video/assets/nightly/ballots.mp4`, `video/assets/nightly/survival_stamp_red.png` | These names are copied into every night. Replacing the file at this path changes every future bake. |
 | Phaser clip for one episode | The night package, `trailer_ready_dayN/clip_kit/bins/F_phaser/` | Not a global library. One still today. A few seconds from the live viewer is the missing step. |
-| Census v2 | Do not add another numbered mp4. | The template in the block above has to replace the `census_15_to_1.mp4` lookup. Numbers come from the sim. |
+| Census HUD | `trailer_ready_dayN/clip_kit/bins/E_cliff_door/census_hud.mp4` | Rendered that night from the ledger (`start`, `now`, `after`). Plays under `{N} become {N−1}`. Wired in the one integrate pass. Until then the bake still opens `census_15_to_1.mp4`. |
 
 ---
 
@@ -1040,6 +1067,11 @@ Day 1 V6 **G1–G8 READY** — CapCut gold exists; further nights reuse the same
 
 | Date | Change |
 |------|--------|
+| 2026-10-09 | **Matrix plate canonical** — look is `double-ivan/video/l-talk/cast/group_photo_matrix.png`: green cast, `PERSONALITIES UPLOADED ...`, one green frame per person from the head to the waist. Frame height follows that person. `l-talks-pit` and `pittsburgh-demo-2` were redrawn to it. |
+| 2026-10-09 | **Workplace shelf** — home and work pictures save on the sim that owns the cast (`cohort/<sim>/habitats/<persona_id>/`), with the group photo. A later fork reuses a parent folder for the same persona id. The oldest parent in the database is not the shelf. |
+| 2026-10-08 | **Workflow census** — approved picture is the HUD clip under the existing `{N} become {N−1}` line. PR #16 stays open. Wired in the one integrate pass, as `census_hud.mp4` in that night's `E_cliff_door` bin. |
+| 2026-10-08 | **Workflow flyover** — every file in `video/assets/pittsburgh/flyover/` is featured. `signature_flyover.mp4` opens and closes. The rest play when the beat matches that place and time of day. |
+| 2026-10-08 | **Sim-specific cast assets** — when the roster is final, `check_sim_cast_assets` must pass before a bake: portrait, full height, group photo, seat map, ~2 s group anim. Portrait and full height are done for `l-talks-pit` and `pittsburgh-demo-2`. |
 | 2026-08-29 | **§9.5 bonding overlay** — weather / doing / one choice / inner vote / last words / living last line speak kid-plain. Status then why/who/when when the ledger has it. Never “are locked.” Bonding over the 90s clock. |
 | 2026-08-29 | **§3.6 2D→3D morph postponed** — keep the locked closer picture (stock flyover plant/door + Cost leave_phaser still). True Phaser-scene → cinematic morph is post-MVP, outsourced to a video producer. Brief: [`TODO_2D-3D.md`](TODO_2D-3D.md). |
 | 2026-08-28 | **Primary video SOT** — this file replaces `sot-video.md` (archive `done/sot-video.md`). Borrowed still-current bits: trailer types now, 9:16 / TTS / LUFS, opener [A] as a separate product, 2D literacy in §3.6. |
