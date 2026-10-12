@@ -1,8 +1,8 @@
-# TODO — LeaderTalks MVP + later backlog
+﻿# TODO — LeaderTalks MVP + later backlog
 
 > **Naming (2026-09-16):** **Product MVP = LeaderTalks in Pittsburgh** (Telegram group; Downtown world). Docs also say **L-Talks**. **Breakfasts was a rehearsal**, not the MVP. Village gather + town talk is a **closed engine gate**, not the product MVP. Living lists: this file + `20260917_pre-MVP.md`. Breakfasts spec files in `double-docs/` (`BREAKFASTS-BOARD.md`, `MVP-breakfasts.md`, `MVP-breakfasts_ivan.md`, `MVP-0.1.md`) are archive — moving to `done/`.
 >
-> **Updated:** 2026-10-05 (**PM-CHAT-3** screen minute, both slices After). Prior: 2026-10-03 (**Realism-2** clock out of the job, moved here from `double-docs/IVAN_pre-MVP.md`). Prior: 2026-10-02 (**PM-OWN-4** private test scene, from Nicolas's landing review). Prior: 2026-09-28 (Pittsburgh look + invited visit moved here from `double-docs/Pittsburgh_TODOs.md`; **PM-SEC-7** private sim admin, after MVP). Prior: 2026-09-16 (LeaderTalks lock; Watch-honesty cut → `20260917_pre-MVP.md`); stale box/FE facts; restore after 13 Sep stub wipe; 2026-09-10 PM-VIL-2 Bernstein. Score trail: `double-ivan/done/20260910_launch.md`. Talk unmute: `double-docs/20260912_Breakfasts/20260915-3_TODOs.md`. Video craft: `double-ivan/video/TODO_video.md`. “That’s me” charter: `double-ivan/TODO_realism_matriAIx.md`.
+> **Updated:** 2026-10-12 (**PM-OWN-5** choice-based onboarding, from What's New? digest). Prior: 2026-10-05 (**PM-CHAT-3** screen minute, both slices After). Prior: 2026-10-03 (**Realism-2** clock out of the job, moved here from `double-docs/IVAN_pre-MVP.md`). Prior: 2026-10-02 (**PM-OWN-4** private test scene, from Nicolas's landing review). Prior: 2026-09-28 (Pittsburgh look + invited visit moved here from `double-docs/Pittsburgh_TODOs.md`; **PM-SEC-7** private sim admin, after MVP). Prior: 2026-09-16 (LeaderTalks lock; Watch-honesty cut → `20260917_pre-MVP.md`); stale box/FE facts; restore after 13 Sep stub wipe; 2026-09-10 PM-VIL-2 Bernstein. Score trail: `double-ivan/done/20260910_launch.md`. Talk unmute: `double-docs/20260912_Breakfasts/20260915-3_TODOs.md`. Video craft: `double-ivan/video/TODO_video.md`. “That’s me” charter: `double-ivan/TODO_realism_matriAIx.md`.
 >
 > **Filename** `TODO_post_mvp.md` is historical. This file holds (1) work **for LeaderTalks**, (2) work **after** LeaderTalks. Rows say which.
 >
@@ -292,6 +292,8 @@ External framing (context engineering vs memory engineering): memory = what pers
 - [ ] **PM-OWN-2 — “Ask your AI” profile import** — Option to ask an external AI (ChatGPT / Claude / etc.) to build a profile for you, then share/paste that profile into Doubland so your Double can use it. Complements portal quiz/interview and **PM-OWN-1** edit surface. After LeaderTalks. Owner: Ivan (product).
 
 - [ ] **PM-OWN-3 — Daily Dilemma / “what would my Double do?”** — After LeaderTalks retention candidate (epic **W4-b**). Adult dilemma bank **or** a mode on existing Chat-with-Double. Not a second chat product. See After LeaderTalks table.
+
+- [ ] **PM-OWN-5 - Choice-based onboarding** *(added 2026-10-12, from What's New? digest 2026-10-11)* - Build each Double from the person's past choices (real decisions, what they picked and why, what they'd redo), not just a short bio or trait quiz. Research in the digest: Doubles built from past choices capture how real people differ much better than bio-based ones. Add a short "past choices" step to the portal quiz/interview, feed answers into the profile, and check whether Doubles from the same group behave more distinctly. Complements **PM-OWN-1** and **PM-OWN-2**. After LeaderTalks. Owner: Ivan (product).
 
 ---
 
