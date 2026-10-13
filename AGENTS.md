@@ -7,6 +7,7 @@ Doc / concept / video-WIP repo for Doubland. **Process rules** that are global l
 - **Main-track only:** commit and push on `main`. Do **not** create `ivan/*` (or any) feature branches unless the founder explicitly asks.
 - This is **not** an eng app repo. Do not copy `generative_agents` / `double-front` branch naming here.
 - Product concept entry: `concept/mission.md`. Video taxonomy WIP: `video/sot-video.md`. Daily trailer SOT: `video/daily/SOT-new-daily.md`.
+- **Backend change log:** `BE_WORKLOG.md` in this repo. Backend and API notes from `generative_agents` are prepended here and are not copied into `double-docs/WORKLOG.md`.
 - Pittsburgh Phaser plan lives in **`double-docs`**: board `BREAKFASTS-BOARD.md`, how-to `R3F/Pitts_Phaser.md`, spatial numbers `MVP-0.1.md`. **Breakfasts product MVP:** spec `double-docs/MVP-breakfasts.md`; remaining eng `20260917_pre-MVP.md`; later `TODO_post_mvp.md` (**PM-BFST-***). Do not keep a second live copy in this repo. Retired R3F notes: `done/r3f/`.
 - Live landing ship notes (when present): dated `2026*_ux_landing_*.md` at repo root may beat aspirational docs in `double-docs/landing/`.
 

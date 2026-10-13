@@ -3,6 +3,8 @@
 **Date:** 2026-10-12
 **To:** screenwriter and video production
 **From:** Doubland
+**Status (2026-10-12):** Locked. Variant 5, `daily-golden`. The script for this night, and the rules a later night follows, are at the end. The two expert reads above that lock are how we got there. The pipeline does not generate this variant yet.
+
 **Ask:** Give us the spoken script for this night, line by line, and a picture note on each line. Tell us if the shape below is right, or replace it. Do not publish. We will record one voice from the words you lock, then add sound, then motion.
 
 This follows the 2026-10-08 inquiry (`20261008_daily_script_variants.md`). Four spoken drafts were filmed. The founder has watched them. We are not asking for a fifth experiment. We are asking for the one script to build.
@@ -358,3 +360,268 @@ After one watch, a stranger should be able to say:
 - **Why come back:** Elfi and Luba tried to vote each other out, and both are still in.
 
 The line a friend retells is "She promised to vote with Elfi. Then she voted against her."
+
+---
+
+## Locked — variant 5, `daily-golden`
+
+**Date locked:** 2026-10-12
+**This night:** `pittsburgh-demo-2`, first Survival vote (engine day 2).
+**Not a publish.** The next build records this voice, then adds the bed and the moving shots this script names. Nothing here writes the nightly voice lock.
+
+Both expert reads agreed on the shape. This lock uses the second read, because its length math matches the narrator we already recorded, and because two of the first read's lines do not survive a cold listen. One phrase comes from the first read: "turns on," instead of "is about."
+
+What was dropped from the first read, and why:
+
+- "She told Elfi she would vote with her. Then her ballot went to Elfi." By ear, "her" is unclear, and "went to Elfi" can sound like support. The locked line names Yevgenia and says she voted against Elfi.
+- "Loyalty's a two-way street; you get what you give" as its own sentence. That is the narrator judging, and it is how the accent came back. The goodbye stays inside "she says …".
+- "So is Luba, who cast the other vote against her." Luba's ballot named Elfi, not Yevgenia. "The other vote against her" points the wrong way. The close states the two ballots that did happen: Elfi named Luba, and Luba named Elfi.
+
+About 164 words. At this narrator's measured pace, about 2.2 words a second, that is roughly 75 seconds of voice, plus one second of black. It has not been read aloud on this lock. If the timed read is over 75 seconds, cut in the order in the rules. If it is under 70, add back in that same order, reversed.
+
+### This night, line by line
+
+These sentences are the read for this night. They are not the phrases a later night must say. Lines 4 to 7 are Hold for the Shield, this day's challenge. A later night writes its own challenge in that spot, or leaves the spot out.
+
+Each line is the spoken words, then the scene. "Moving" is one of the shots. The picture maker follows the scene. It does not choose a picture from the wording.
+
+**Teaser.** Not the start of the film. No music. Room tone only.
+
+1. "Yevgenia promises to vote with Elfi." || Live capture of Elfi and Yevgenia at PPG Cafe, at the logged step of that promise, then the cinematic two-shot of those two only. Moving. Promise hit on "vote with Elfi." Then about one second of black and silence.
+
+**Film.** The music bed's first beat lands on line 2. That is the start.
+
+2. "These are Doubles, AI versions of real people. Five of them are playing Survival. Every night, one is voted out, until one remains." || Group photo. Still.
+3. "Tonight turns on two of them: Yevgenia Pritchard and Elfi." || Yevgenia at her work, then Elfi at hers. Each alone, each with her name. Moving.
+4. "All five play Hold for the Shield. Each holds a secret card, or folds. Whoever holds the highest card is safe tonight." || Live capture of all five at the challenge. Sprites, no generated faces. Moving. If that capture does not exist, a slow push on the group photo.
+5. "Yevgenia holds. She says she doesn't fold on things she's started." || Yevgenia alone. Moving.
+6. "Elfi folds, to keep her energy for the home and the kid." || Elfi alone. Moving.
+7. "Ivan holds, and wins." || Ivan alone, his name on screen. Still.
+8. "Then every Double casts a ballot." || The ballots clip. This is its only use. Moving.
+9. "Yevgenia promised to vote with Elfi. Then she voted against her." || A frozen frame of the teaser two-shot. Still. Ballot hit on "against."
+10. "Elfi and Yevgenia tie, two votes each. After the tiebreak, Yevgenia is gone." || Group photo with Yevgenia greyed out. Still. The bed thins under this line.
+11. "On her way out, she says she showed up and did the work, and that loyalty is a two-way street." || The PPG Place door at night. Moving. Goodbye hit on the cut to the door.
+12. "Five become four." || The count. Still.
+13. "Elfi and Luba voted against each other tonight. Tomorrow, both are still in." || On the names, Elfi alone and Luba alone, side by side, Luba at PPG Cafe with her name. On "Tomorrow," the downtown flyover. Moving.
+14. "Watch every conversation, challenge, and vote live at doubland.ai." || The flyover continues into the end card.
+
+**Before any other picture:** generate the teaser two-shot and approve the faces. Elfi and Yevgenia have blended before. Line 9 reuses that frame. If the faces mix, the callback fails, and the rest of the pictures wait.
+
+**If the timed read is over 75 seconds,** cut in this order. First, the challenge block, lines 4 to 7. The promise, the ballot, and the goodbye stay. Second, drop line 8 and play the ballots clip under line 9. Third, if the challenge stays, shorten line 6 to "Elfi folds."
+
+**If the timed read is under 70 seconds,** add back in this order. First, in line 3, that they work at the same market. Both work at Fifth Avenue Market. Second, on line 5, that she had promised Elfi they would keep each other safe.
+
+### Rules for the next episode
+
+Variant id: `daily-golden`. The writer writes fresh sentences from that night's record. A later night must not reuse this night's wording. What repeats is the job of each beat, the facts that beat may use, and the bans. A slot with no fact is skipped. The writer does not invent a scene to fill it.
+
+**Whose story.** One story. Prefer a promise to vote with someone, or to watch their back, that the same person breaks by naming that someone on the ballot. That person and the person they named are the pair. If more than one, take the pair where the promise-breaker is the person who leaves. Ignore a vote note that opens with "No strong preference." If no such pair exists, there is no teaser. The story is the sharpest recorded choice that night: a vote reason that is not "no strong preference," or a challenge reason, then the goodbye. Do not speak a second betrayal. Save it for a later night.
+
+**Teaser.** One new sentence. Both names. The promise, said so a stranger hears who promised and who they turned on. Two people only. Live capture of that logged moment, then a cinematic of those two, then about one second of black and silence. No music yet. Skip the teaser when there is no such promise.
+
+**Open.** First Survival night: what a Double is, how many entered, and that someone is voted out every night until one remains. Say it in new words. A later night drops that lesson and says how many are still in. Group photo. The bed starts here.
+
+**The two.** Name the pair, each alone, name on screen. Do not use a fixed lead-in. Not a generated picture of the two of them. That picture is the teaser, and it comes back only on the betrayal.
+
+**The challenge.** Optional. It is whatever this day played, under that day's name, in one plain sentence from the record. No card numbers, no standing line about a winner. Include it only when it changes this story: someone in the pair played it in a way the night turns on, and there is still time. Then one short reported quote for that choice, and the other lead's choice only if it contrasts and the words are on file. Skip the whole block when the promise, the ballot, and the goodbye already fill the film, or when adding it would push the read past 75 seconds before the goodbye. Wide shot is the live game, or the group photo. Never a generated portrait of the whole cast.
+
+**The ballot.** One line, one use of the ballots clip. The betrayal is the next line, on the frozen teaser. Both names, spoken again. Say that the promise was to vote with that person and the ballot went against them. Do not say a ballot "went to" someone. That sounds like support. Do not say the betrayal is why they went home. On this night her ballot is what made it a tie. Without it she had two votes and Elfi had one, and she was gone outright. Place the ballot and the exit side by side. Do not connect them.
+
+**The result.** If it was a tie, say the tie and both names, then that a tiebreak sends one home. Do not say which step broke it. Do not say a vote count "lands on" the person who leaves. Grey-out of the person who leaves.
+
+**Goodbye.** One narrator, in their own voice, reporting what was said. About twenty words. Keep two phrases that are actually theirs, inside the report. Drop the rest. No second voice. The picture is the walk-out door. The voice does not name the door. The record does not say where they walked out.
+
+**The count.** How many remain, as a count that falls by one. The count graphic. Still.
+
+**Tomorrow.** One new sentence. If two people who are both still in voted against each other, that is the thread. Otherwise the person who was promised to, if they are still in. Then the town flyover into the end card, under an invitation to watch live at doubland.ai.
+
+**Length.** 70 to 75 seconds of voice. When it runs long, cut the challenge block first. Then drop the separate ballot line and play the ballots clip under the betrayal. Then cut the second lead's reason. Add a workplace only when the two leads share one, and only if the read is under 70.
+
+**Motion.** Up to eight, and only for beats that are in the film: teaser, the two names, the challenge wide, each spoken challenge choice, the ballots clip, the door, the flyover. A skipped challenge is not replaced with another moving shot. Stills: the group, the frozen teaser on the betrayal, the grey-out, the count. A generated frame holds two faces. The two leads are never generated in a frame with anyone else.
+
+**Sound.** One bed, starting on the group photo. Three hits, on the promise, on the betrayal, and on the cut to the door. No other hits. A night with no teaser has no promise hit.
+
+**What a later night still may not say.** A second person leaving. A motive the sentence does not contain. That anyone is a rival, that it is a feud, or that someone knows. Card numbers, or any challenge statistic. A job title that is not on the card. An alliance row from a log that lists nearly every pair. A feeling that is not a quote. A sentence copied from a previous episode.
+
+---
+
+## Finalized post-production plan from selected facts
+
+**Date:** 2026-10-13
+**To:** screenwriter, video producer, reality format
+**From:** Doubland
+**Status:** Inquiry. The night's facts and the bans above stay locked. This asks for the step that turns those facts into a package Post-Production can cut.
+
+### What we found
+
+The generator does select the story. For this night it correctly kept one promise, the challenge, the tie, the goodbye, and Elfi and Luba still in. It then writes each beat as its own sentence. Nothing after that pass joins the sentences into one narrator. The lines a stranger hears are:
+
+1. Yevgenia promises Elfi she will vote with her.
+2. Five Doubles play this game. A Double is an AI version of a real person. Each night, one is voted out until one remains.
+3. Tonight, the game turns on Yevgenia and Elfi.
+4. Hold for the Shield asks each player to choose HOLD or FOLD with a secret card. The highest held card wins immunity tonight.
+5. Elfi says, "I keep my energy for the home and the kid."
+6. Yevgenia says, "I don't fold on things I've started."
+7. Ivan held and won.
+8. Every Double casts a ballot.
+9. Yevgenia promised to vote with Elfi, then voted against her.
+10. Elfi and Yevgenia tied at two votes each. A tiebreak sends Yevgenia home.
+11. Yevgenia said she showed up, did the work, and loyalty is a two-way street.
+12. Five become four.
+13. Elfi and Luba voted against each other and both are still in.
+14. Watch every conversation, challenge, and vote live at doubland.ai.
+
+The facts are the locked ones. The read is a list. Compare it with the locked read above (lines 390–406). That read carries a person from the promise to the ballot to the door. The generated read makes the viewer do that work.
+
+A scene note is written beside each line, but the picture maker does not follow it. It follows a shot name (`teaser`, `wide`, `win`, `ballots`, and so on) and picks a fixed asset. The sound rules above — one bed from the group photo, three hits, on the promise, on "against," and on the door — are not in the package at all. Post-Production receives spoken lines and pictures. It does not receive a cut.
+
+We think the missing step is one pass after the facts are chosen: write the night as one spoken story, attach a scene that production will actually obey, and mark the sound and picture accents. That package is what gets sent to Post-Production. Please tell us if that step is right, and the cheapest way to build it.
+
+### Do not reopen
+
+- One story. This night it is Yevgenia's promise to vote with Elfi, broken on the ballot.
+- The bans. No "went to." No "votes land." No "you" copied out of the goodbye. No motive that is not a quote. No second person leaving. Do not say the ballot is why she goes home. Place the ballot and the exit side by side.
+- Fresh words on a later night. This night's sentences are a specimen, not a script to copy.
+- Length. 70–75 seconds at about 2.2 words a second. Cut the challenge block first if the read runs long.
+- One narrator. Reported speech. No second voice.
+
+The earlier smooth draft (the fourteen lines under "Script") bought some of its flow by breaking those bans. We want the flow of the locked read, not that draft.
+
+### What we need back
+
+1. **Is the missing step the right one?** If you would put the craft somewhere else, say where, and why it is cheaper.
+2. **How the spoken story should be made.** Pick one:
+   - **One pass.** The same writer fills the beats, and each beat's job includes the handoff into the next line. The checker allows connectors and rejects new facts.
+   - **Two passes.** Pass 1 is the fact lines we have now. Pass 2 may add connectors, scene notes, and accent marks. It may not add a person, a motive, or a cause.
+   - **A connective grammar.** You lock the only legal ways one beat may lead to the next ("Then," "On her way out," "Tonight turns on"). The generator fills facts. A thin pass applies the grammar and cannot freely rewrite.
+   Say which one a later night can run with no human in the room, and what the checker must reject so the pass cannot smuggle a new fact in.
+3. **The connectors you will allow,** as a short list. And the connectors you will not allow, because they sneak in a cause, a feud, or a feeling.
+4. **The package, one row per spoken line.** Amend this if it is the wrong contract. Post-Production should be able to cut from the row without guessing.
+
+   | Field | What it decides |
+   |---|---|
+   | Spoken | The words, already joined to the line before and the line after |
+   | Scene | Who is on screen, where, still or moving, and which asset (live capture, group photo, frozen teaser, ballots clip, grey-out, count, flyover, door, end card) |
+   | Sound | Bed in, bed under, bed thin, or bed out. Hit on which word, or no hit |
+   | Picture | Generate, reuse the teaser frame, or use a clip we already have |
+
+   Today the locked note says the picture maker follows the scene. The code follows the shot name. Tell us which one Post-Production should obey.
+5. **A rewrite of this night only,** in that package, obeying the bans. We will compare it with the fourteen lines above. If it reads as one story and adds no fact, that is the shape we will build. Do not publish. Do not score it as a new variant.
+
+Short answers are enough. If a beat has no fact, leave it out.
+
+---
+
+## Production lock — join pass and package
+
+**Date:** 2026-10-13
+**Status:** Locked for the build. Not a publish. This night's spoken lines stay the lock above (lines 390–406). Do not re-speak them from the expert table in `20261013_answer_post_plan.md`.
+
+The experts are right about the missing step and wrong about several sentences in their sample. We build the step. We do not replace this night's read.
+
+### Stage names
+
+These are the names Post-Production uses for one night. In this order. No human in the room.
+
+| # | Stage | Who writes it | What it hands on |
+|---|---|---|---|
+| 1 | **Logline** | Code (`pick_story`) | The one premise. This night: Yevgenia promised to vote with Elfi, then named her on the ballot. |
+| 2 | **Research** | Code (`fact_packet`) | The verified facts that premise may use, and the bans. |
+| 3 | **Outline** | Code, from the standing beat sheet | Which beats are in. Each beat holds its fact. No sentences yet. An empty beat is left out. |
+| 4 | **First draft** | Tier B | The skeleton. One spoken fact line per outline beat. No scene, no bed, no hit. |
+| 5 | **Coverage** | Code (`check_script`) | Pass, or notes back to the first draft. A fail does not continue. |
+| 6 | **Final draft** | Tier C, one call | The narration, written from the skeleton. These words go to production. There is no second coverage pass. |
+| 7 | **Shooting script** | Code | One row per final-draft line: the words, plus scene, asset, motion, picture, bed, and hit. Post-Production cuts from this row. |
+
+The beat sheet is the standing format. It is not a per-night stage. There is no polish stage and no treatment.
+
+The final draft and the shooting script stay two stages. Tier C writes the words. It does not choose the picture, the bed, or the hit. The shooting script is the lookup on those words.
+
+**Locked 2026-10-13.** Stage 6 ships. Coverage stays on the skeleton only. If the call is not JSON, or it does not return one line per beat, there is no stage 6 draft and the skeleton ships. A new word, a connector, a pronoun, a tense, or the length does not send it back.
+
+### This night's words stay
+
+The expert rewrite is a method demo. These swaps are rejected because they change a line that was already ear-locked, or they add a fact the final draft is not allowed to add:
+
+| Expert line | Locked line | Why the lock wins |
+|---|---|---|
+| "Yevgenia promises Elfi she'll vote with her." Hit on "Elfi." | "Yevgenia promises to vote with Elfi." Hit on "vote with." | One clause. The hit is the promise, not the name. |
+| "At the challenge… Whoever holds the highest card is safe tonight." | "All five play Hold for the Shield…" | "All five" is a fact. Pass 2 must not paraphrase the challenge. |
+| "Ivan holds too, and wins." | "Ivan holds, and wins." | "Too" pulls his hold into her story. His win stays one clause. |
+| "Then Yevgenia votes against her." | "Then she voted against her." | This is the line a friend retells. Past tense. See the one exception below. |
+
+### Final draft rules
+
+The carrier is the person who breaks the promise. On a later night that is whoever `pick_story` already chose. Their name comes first on the teaser, on their own challenge choice, on the betrayal, and on the goodbye. Beat order never changes.
+
+Tier C rewrites the skeleton into one spoken narration. It may:
+
+- Change the shape of a sentence so the line hands off to the next.
+- Add a connector from the allowed list, at the start of a line or clause.
+- Join two fact lines with "and" when they share a picture. Never across a picture change.
+- Turn a direct "I…" quote into "she says" / "he says", keeping the quoted words. Pronoun gender comes from the cast record. If the record has no gender, repeat the name.
+- On the betrayal line only, use this shape: "{Name} promised to vote with {Other}. Then she/he voted against her/him." "She/he" is the person who promised. "Her/him" is the person they promised to vote with. This is the one place a pronoun is legal after a sentence that names two people. Everywhere else, a pronoun is legal only when the previous sentence named exactly one person.
+
+The prompt asks Tier C not to:
+
+- Change a verb into a different tense. The teaser and the live action stay present ("promises", "holds", "casts", "says"). The betrayal ballot stays past ("promised", "voted"). Tomorrow's mutual votes stay past ("voted against each other tonight").
+- Add "too" on the win line.
+- Add a content word that was not in the skeleton. Connectors, "says", and the betrayal pronouns are the only exceptions.
+- Move a beat, drop a fact, or invent a cause.
+
+**Allowed connectors:** Then · Tonight · "Tonight turns on two of them" (names beat only, and not required on a later night) · At the challenge, · Before the vote, · When the ballots come in, · After the tiebreak, · On her/his way out, · she/he says · and · Both · Each · Tomorrow, · still (only in "still in").
+
+**Banned connectors:** because, so, that's why, which is why, as a result, after all, that's when, but, yet, even though, despite, instead, only to, ironically, finally, suddenly, just like that, in the end, too late, everything changes, secretly, behind her back, little does she know, knows, realizes, feels, hopes, wants, fears, betrays, turns on her, backstabs, revenge, payback, rival, feud, shocking, stunning, unbelievable, of course. "Turns on" is allowed only inside "Tonight turns on two of them."
+
+Those limits are the ask. They are not a gate. A stage 6 draft that breaks one still goes to the shooting script.
+
+### Package
+
+One row per spoken line. Post-Production obeys the row. A missing asset fails the package. The cut does not start.
+
+| Field | Rule |
+|---|---|
+| `beat` | teaser, open, names, challenge, choice, win, ballot, betrayal, result, goodbye, count, tomorrow, close. A beat with no fact is absent. |
+| `spoken` | The joined line. |
+| `subjects` | Cast ids. A generated frame has at most two faces, and they are the pair. A lead is never generated in a frame with anyone else. |
+| `asset` | live_capture, cinematic_two, solo, group_photo, frozen_ref, ballots_clip, greyout, count, door, flyover, end_card. |
+| `source_ref` | The log step, cast id, or earlier row this asset comes from. |
+| `motion` | still or move. |
+| `picture` | generate, reuse, or existing. |
+| `name_chip` | On the first solo, not on the teaser. Also on anyone who was not in the teaser pair (Ivan, Luba). |
+| `bed` | off, in, under, thin, or out. |
+| `hit` / `hit_on` | A word in the line, or "cut". |
+| `min_s` | From the voice timestamps. Cuts fall on line boundaries. |
+
+Package caps: `hits_max` 3, `move_max` 8, `black_after_teaser` 1 second when a teaser exists. The ballots clip is used once. `frozen_ref` may point only at the teaser row. The betrayal line says "she" and still shows the frozen two-shot. A line that says "she" does not force a solo on that row.
+
+**This night's picture and sound, from the lock:**
+
+| Beat | Asset | Motion | Picture | Sound |
+|---|---|---|---|---|
+| Teaser | Live capture of the pair at the logged step, then cinematic two-shot | move (one shot) | generate, faces approved before anything else | Bed off. Room tone. Hit on "vote with." Then 1s black. |
+| Open | Group photo | still | existing | Bed in |
+| Names | Solo, then solo, name chips | move | existing | under |
+| Challenge | Live capture of all five, else a push on the group photo | move | existing | under |
+| Choice, carrier | Solo | move | existing | under |
+| Choice, other lead | Solo | move | existing | under |
+| Win | Solo, name chip | still | existing | under |
+| Ballot | Ballots clip, only use | move | existing | under |
+| Betrayal | Frozen teaser frame | still | reuse | Hit on "against." Bed under. |
+| Result | Grey-out of the person who leaves | still | existing | thin |
+| Goodbye | Door | move | existing | Hit on the cut to the door, then under. |
+| Count | Count | still | existing | under |
+| Tomorrow | Two solos side by side, then the flyover on "Tomorrow" | move | existing | under |
+| Close | Same flyover into the end card | same shot as tomorrow | existing | out about 1.5s after the card |
+
+Eight moves: teaser, the two names, the challenge wide, each spoken choice, the ballots clip, the door, the flyover. The close does not add a ninth. Stills: group photo, win, frozen teaser, grey-out, count. A skipped challenge is not replaced with another moving shot.
+
+**If the timed read is over 75 seconds:** drop the challenge block first (wide, choices, win) and do not replace those moves. Then drop the ballot line and play the ballots clip under the betrayal. Then shorten the other lead's choice to the verb only ("Elfi folds.").
+
+**If the timed read is under 70 seconds:** add the shared workplace on the names line, then the safety promise on the carrier's choice line. Only when the ledger has those facts.
+
+### What the build changes
+
+The picture maker today follows the shot name. The scene sentence is unused. The build deletes that split: the shooting script is the scene, and the shot name is a label derived from the beat.
+
+The first draft stays on Tier B. The final draft is the one Tier C call. Do not add a model call for scene or sound. Do not write `vo_locked_long.txt` from this pass.

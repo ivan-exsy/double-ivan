@@ -255,14 +255,17 @@ Trailer cast ranking exposed that **memory write/read quality** is noisy for “
 | **PM-MEM-3** | Rebalance survival `tag_event` / broadcast poignancy vs perceived challenge steps so vote/boot ≥ ambient “waiting/competing”. |
 | **PM-MEM-4** | Expose `keywords` (and preferably `meta`) on `dbl_get_sim_memories` for downstream consumers. |
 | **PM-MEM-5** | Optional: one durable “day highlight” memory per persona (vote / challenge / elim) for trailers and FE. |
+| **PM-MEM-6** | When reflection writes the memory of a talk, copy that talk’s `conversation_id` and `tier` into memory `meta`. Pair with **PM-MEM-4** so a reader can see `meta`. Do not backfill sims already run. Until the id is on the memory, the trailer matches a conversation memory to the nearest talk between those two people. |
 
 **Near-term trailer mitigation (shipped separately):** ranker dedupes content, hard day window, boosts survival-plot text, and scores **chat transcript impact** into ranking + digest Moments — does **not** replace the engine cleanup above.
+
+**Talk log cap (daily-v1, 2026-10-13):** the showrunner digest still trims each line to 25 words and each talk to 6 lines. A talk that a conversation memory points at is stored through the end of the sentence, about 60 words, and up to 12 lines. The trailer speaks at most two of those sharp sentences, after the challenge and before the vote. A greeting the pair already marked as brief is not spoken. The 25-word cap stays for every other talk.
 
 ---
 
 ## Context + memory engineering (post-SOT-release) *(added 2026-08-08)*
 
-> **Do not start until after the active SOT release.** Desired-only note lives in `sot/sot_memory.md` §7. Complements **PM-MEM-1..5** (write quality) and **Phase 4 cost levers** (routine fast path / caching) — this track is specifically *what enters the prompt, in what form/order, on repetitive steps*, not only store hygiene or model tier.
+> **Do not start until after the active SOT release.** Desired-only note lives in `sot/sot_memory.md` §7. Complements **PM-MEM-1..6** (write quality) and **Phase 4 cost levers** (routine fast path / caching) — this track is specifically *what enters the prompt, in what form/order, on repetitive steps*, not only store hygiene or model tier.
 
 External framing (context engineering vs memory engineering): memory = what persists; context = what each inference call sees and where it sits; they meet at retrieval. Current stack already has hybrid retrieve + budgets + compact packing; the gaps below are write governance, placement, maintenance, and **token/cache efficiency on similar steps without hurting Double awareness**.
 
@@ -279,7 +282,7 @@ External framing (context engineering vs memory engineering): memory = what pers
 
 **Success criteria (when scheduled):** lower tokens and higher cache hits on routine stretches; equal or better naturalness and Double situational awareness (who/what/where now); no forced-fallback or freshness regressions. Validate with §4 safe tuning loop in `sot_memory.md`.
 
-**Fit.** Feeds Phase 4 economics after P1 behaviour work; does not replace PM-MEM-1..5 trailer-facing write cleanup.
+**Fit.** Feeds Phase 4 economics after P1 behaviour work; does not replace PM-MEM-1..6 trailer-facing write cleanup.
 
 **LangChain harness — steal only** (noted 2026-09-13; the commit that added this wiped the file — restored 2026-09-16). Copy patterns if they help this table (tool routing, graph of steps, checkpoint). Do **not** adopt LangChain / LangGraph as the Doubland runtime; keep our prompt + retrieve + scratch loop.
 
