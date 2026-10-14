@@ -17,6 +17,8 @@ Do not resume `20261001-2`, `20261001-1`, `20260930-2`, `20260930-1`, or `202609
 |---|---|---|
 | **PM-BFST-13** | One scored Downtown Survival day. New sim, not the Breakfasts watch. Cap 6. Do not Start `base_family_pittsburgh`. | 11:00 and 20:00 occupancy on PPG Cafe (at least 80% of tiles), honest leftovers, no fourth wall. Fix A* “no path, arrive anyway” only if that run still jumps walls. | ... |
 | **PM-LTALK-8** | Key-moment times on each YouTube and Telegram drop. The old pipeline already writes `M:SS` labels. The daily closer does not call it, and its Watch links are the old `/sim/{code}/play` shape. | A closer package pastes YouTube chapters and a Telegram blurb, and the links open Current Watch. | ... |
+| **Compress the snapshot** | Gzip `20261009-1` `observations/pending.archive-0-3333.json` (121,625,315 bytes) when nothing has that file open. It is the only full observation queue from before the live trim. Older rows are in this file and in `pending.processed.ndjson`. A script that reads only `pending.json` misses them. | The gzip opens cleanly, and the sim is not reading the file. | ... |
+| **URL fix** | Movement reports still POST to `http://localhost:8001`. That port is HTTPS, so the post disconnects and the engine writes the local queue. Use a host the certificate names (`api.ondouble.com` or `api.doubland.ai`). `https://127.0.0.1:8001` fails the name check. Headless movement validation stays blocking. The archive flag is already on. | A step’s movement reports are accepted by the gateway, and headless validation is still blocking. | ... |
 
 **Note to Nicolas — send after PM-DEMO-21 is live**
 

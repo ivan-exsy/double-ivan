@@ -1,3 +1,13 @@
+## 2026-10-13 — Ivan — branch: ivan/observation-queue-compact
+
+### Backend
+
+- [x] **The observation queue keeps the last two steps and archives older rows**
+   - `reverie/backend_server/reverie.py`: After observations are marked processed, append older rows to the archive, then rewrite the queue with unprocessed rows and the last two movement steps
+   - `reverie/backend_server/tests/test_continuation_playback_semantics.py`: Resume inference stays the same, a partial latest step still uses the step before, and a fork drops the archive and the live snapshot
+   - `scripts/trim_live_observation_queue.py`: Between steps, snapshot the live queue and swap in the same two-step keep, then repeat about every 100 steps
+   - `scripts/resume_20261009_to5000.py`: Resume this sim from its saved step and stop when the counter reaches 5000
+
 ## 2026-10-13 — Ivan — branch: ivan/card-warm-and-hearts
 
 ### Backend
