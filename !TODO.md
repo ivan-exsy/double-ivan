@@ -1,0 +1,1 @@
+1. when user photo is submitted, we need to auto-orient it vertically before saving
