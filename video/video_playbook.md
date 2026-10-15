@@ -200,7 +200,7 @@ This makes the closing line carry two meanings:
 
 What if… you had a second chance to make it right? What if you could practice that hard conversation before it ever happened? What — if you had a Double? An AI version of you — talking like you. Reacting like you. Making choices like you. In Doubland, you create an AI Double based on your personality. Then you watch it live in a world with other Doubles. Every conversation. Every choice. Every relationship. This season: the Pistsov family enters Survival Mode. Four family members. Four personalities. Four Doubles. Gosha thinks three moves ahead. Ivan refuses to lose. Katya knows how to move people. Luba stays calm — until everyone realizes they underestimated her. See how people change under pressure. See what happens when relationships become part of the game. Watch live 24/7. Follow any Double. Replay every moment. These aren't just avatars. They learn. They change. They surprise you. And after a while… you ask — what would MY Double do?
 
-**Sources:** `generative_agents/video/showrunner.py` (fixed blocks), `generative_agents/video/voiceover/auto_match_v3_warm/narration_timing.json` (18 segments), Anya reference cut `generative_agents/video/opening-anya/DOUBLAND1.mov`. Per-scene spec: `double-ivan/video/video-production-anya/20260617_anya-trailer-per-scene-spec.md`.
+**Sources:** `generative_agents/video/showrunner.py` (fixed blocks), `generative_agents/video/voiceover/auto_match_v3_warm/narration_timing.json` (18 segments), Anya reference cut `double-video/data/anya/v1_opening/DOUBLAND1.mov`. Per-scene spec: `double-ivan/video/video-production-anya/20260617_anya-trailer-per-scene-spec.md`.
 
 ## 
 

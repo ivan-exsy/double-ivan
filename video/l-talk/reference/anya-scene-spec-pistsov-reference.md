@@ -18,7 +18,7 @@
 
 ## Per-scene table
 
-Legend — Asset status: ✅ have · 🔷 per-cohort (auto-generate) · 🛠 Remotion component · ⬜ not built / open. "Anya file" = delivered source in `video/opening-anya/`. Effect status reflects **auto-gen as of 2026-06-17** (Phases 2–4 done).
+Legend — Asset status: ✅ have · 🔷 per-cohort (auto-generate) · 🛠 Remotion component · ⬜ not built / open. "Anya file" = delivered source in `data/anya/v1_opening/`. Effect status reflects **auto-gen as of 2026-06-17** (Phases 2–4 done).
 
 | # | T (s) | VO line | On-screen text | Visual / asset (Anya file) | Effect / transition | Status |
 |---|---|---|---|---|---|---|

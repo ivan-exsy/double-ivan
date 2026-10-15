@@ -5,7 +5,7 @@ PRIMARY implementation doc · Phase 0–6 DONE · P1 OPEN · Latest: `opener&008
 Creative bible → `../sot-video.md` · Visual SOT → `teadown/`
 
 
-> **Primary engineering plan** for auto-generating vertical (9:16) opening trailers. Goal: match Anya's hand-edited cut (`video/opening-anya/DOUBLAND1.mov`). Scope locked **2026-06-17: vertical only**. Creative standard + asset map: **`video/sot-video.md`** (Part I + §10 [A]). Visual timing: **`opening-15person/teadown/`**.
+> **Primary engineering plan** for auto-generating vertical (9:16) opening trailers. Goal: match Anya's hand-edited cut (`data/anya/v1_opening/DOUBLAND1.mov`). Scope locked **2026-06-17: vertical only**. Creative standard + asset map: **`video/sot-video.md`** (Part I + §10 [A]). Visual timing: **`opening-15person/teadown/`**.
 
 **Duration policy:** Opener [A] target **~60s** (SOT L6). Total length is **not a hard product requirement** — a few seconds of slack is fine. **L-Talks manual cut:** locked VO **~83s** (`script_cos` @ 1.2× one-shot, 2026-07-06). **Larger casts** may need slightly more room; tiered layouts keep the cast *block* efficient (~15–20s). Validator band for [A]: **~50–75s**. Anya reference cut (**~76.6s**) informs pacing structure, not target runtime.
 
@@ -80,7 +80,7 @@ python -m video.generate_trailer base_family_sim opener --mode opener --top 4 --
 
 - **Format:** 2160×3840 (9:16 vertical), 120fps, **76.578s** master runtime, HEVC. Mobile-first. Engineering renders **1080×1920** (50% scale); native 9:16 — no proxy side margins.
 - **Narration:** ElevenLabs **`eleven_v3`** warm take at **1.5×** (evolved from the `v3_warm_x1.2` experiment), with inline delivery cues `[curious]` / `[warmly]` / `[excited]`. Script = showrunner opener fixed blocks (v2.4 "Anya cut" **minus** the dropped *"sometimes… you never noticed before"* line). Pauses minimal (~2.75s total silence). **Narration audio ~76.7s** — close to Anya's **76.578s** master. **Final MP4** may run slightly longer when VO tail + composition padding apply — acceptable; see Duration policy. Reference: `video/voiceover/auto_match_v3_warm_x1.5/narration.mp3`. Legacy producer script still at `video/anya/narration_anya.json`.
-- **Her toolkit:** ~24 transparent PNG overlay graphics + 4 short image-to-video B-roll loops (`opening-anya/Anya_animated/{Family,Pressure,Talk,Village}.mp4`, 3–5s each, mixed aspect) + existing anthem + SFX library. **Editor: CapCut** (project file available on request — usable as a *blueprint*, not a render engine; CapCut can't run headless). Reference cut + assets live in `video/opening-anya/`.
+- **Her toolkit:** ~24 transparent PNG overlay graphics + 4 short image-to-video B-roll loops (`data/anya/v1_opening/Anya_animated/{Family,Pressure,Talk,Village}.mp4`, 3–5s each, mixed aspect) + existing anthem + SFX library. **Editor: CapCut** (project file available on request — usable as a *blueprint*, not a render engine; CapCut can't run headless). Reference cut + assets live in `data/anya/v1_opening/`.
 
 ## 2. Beat / shot map
 
@@ -189,7 +189,7 @@ Supabase: sim roster + scratch + relationships + cohort manifest + trait lines
 
 | Path | Role |
 |---|---|
-| `video/opening-anya/`, `video/fly-over/` | Shared brand / village kit (or migrate to `brand-assets` bucket) |
+| `data/anya/v1_opening/`, `video/fly-over/` | Shared brand / village kit (or migrate to `brand-assets` bucket) |
 | `video/remotion/public/render/` | Per-render staging copy from Storage URLs |
 | `data/*/opener&*/` | Dev run folder until upload step exists |
 | `video/assets/users/*` | **Legacy** — migrate soul15 inputs to Storage; do not add new cohort folders as SOT |
@@ -202,7 +202,7 @@ Supabase: sim roster + scratch + relationships + cohort manifest + trait lines
 - Silent fallback to Anya/Pistsov PNGs when Storage object missing (fail or warn)
 
 ### Asset buckets (logical)
-- **Reusable once (built):** Remotion components in `video/remotion/src/components/` + `opener_beat_map.py` + brand assets in `opening-anya/`.
+- **Reusable once (built):** Remotion components in `video/remotion/src/components/` + `opener_beat_map.py` + brand assets in `data/anya/v1_opening/`.
 - **Per-village (the_ville = done):** village B-roll, map, night aerial (`video/fly-over/`).
 - **Per-cast:** cut-out portraits, group photo, trait narration, relationship graph data — **registered in Supabase** (Storage + `trailer_asset`); local copies are not authoritative.
 
@@ -297,7 +297,7 @@ cd video/remotion && npx remotion render OpenerTrailer out/soul15_seed_20260224_
 
 Current lock (`tts.py` → `OPENER_VOICE_PROFILE`): `eleven_v3`, stability **0.60** (warm), speed **1.5×**.
 
-**Next run:** trial **trailer** delivery at the same **1.5×** pace. Reference takes live in `video/opening-anya/_teardown/cand/` (`v3_trailer_x1.0.wav`, `v3_trailer_x1.2.wav`; generate `v3_trailer_x1.5` to match current speed). Compare side-by-side with Anya's extracted audio (`_teardown/video_audio.wav`) using `_teardown/match_vo.py` before re-locking.
+**Next run:** trial **trailer** delivery at the same **1.5×** pace. Reference takes live in `data/anya/v1_opening/_teardown/cand/` (`v3_trailer_x1.0.wav`, `v3_trailer_x1.2.wav`; generate `v3_trailer_x1.5` to match current speed). Compare side-by-side with Anya's extracted audio (`_teardown/video_audio.wav`) using `_teardown/match_vo.py` before re-locking.
 
 **Action:** bump `OPENER_VOICE_PROFILE.stability` (or equivalent v3 trailer preset) for opener mode only; re-run TTS on `opener&006` — do not change day-trailer voice.
 
@@ -371,7 +371,7 @@ Talk hero on hook seg 1 at **≥0.85 opacity** with `ConversationHud`. `Family.m
 
 Inventory of Anya's kit vs **`opener&008`**. Rows marked **P1** = polish or scale still open.
 
-| Asset / technique | Anya (`opening-anya/`) | Auto-gen today | Gap |
+| Asset / technique | Anya (`data/anya/v1_opening/`) | Auto-gen today | Gap |
 |---|---|---|---|
 | **Reference master** | `DOUBLAND1.mov` — 2160×3840, 120fps, 76.6s | 1080×1920 @ 30fps, **~77.2s** (`008`) | P2 resolution/fps; runtime OK |
 | **Hook 0–11s** | Continuous morph | `hookContinuous` + HUD + ink figures | Partial — softer than Anya montage |
@@ -407,10 +407,10 @@ python -m video.generate_trailer base_family_sim opener --mode opener --top 4 --
 
 | Role | Path |
 |---|---|
-| Reference master | `D:\Coding\generative_agents\video\opening-anya\DOUBLAND1.mov` |
-| Motion clips | `…/opening-anya/Anya_animated/` (Talk, Family, Village, Pressure) |
-| PNG kit | `…/opening-anya/Anya_PNG_assets/` |
-| Concept still | `…/opening-anya/_teardown/montage_concept.png` |
+| Reference master | `data/anya/v1_opening/DOUBLAND1.mov` |
+| Motion clips | `data/anya/v1_opening/Anya_animated/` (Talk, Family, Village, Pressure) |
+| PNG kit | `data/anya/v1_opening/Anya_PNG_assets/` |
+| Concept still | not in the current `data/anya/v1_opening/` kit |
 | Matrix poster ref | `…/Anya_PNG_assets/Cards5_family-matrix.png` |
 | 008 output | `…/data/base_family_sim/opener&008/output/trailer_9x16.mp4` |
 | 008 poster | `…/data/base_family_sim/opener&008/output/poster.png` |

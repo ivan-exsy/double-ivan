@@ -2,7 +2,7 @@
 
 **Date:** 2026-07-02. Baseline: `opener&009` (3/8 rubric gates). Target: 8/8 + top-10 v2 gaps closed.
 Inputs: `rubric_scorecard_opener009.md`, `top_10_visual_gaps_ranked_v2.md`, `visual_beat_map.csv`, `transition_primitive_catalog.md`, `remotion_props_schema.md`.
-Anya kit: `video/opening-anya/` (`Anya_PNG_assets/`, `Anya_animated/`), registered via `video/asset_manifest.py`.
+Anya kit: `data/anya/v1_opening/` (`Anya_PNG_assets/`, `Anya_animated/`), registered via `video/asset_manifest.py`.
 
 Ordered by payoff-per-effort. Each item: task → files → asset leverage → acceptance.
 

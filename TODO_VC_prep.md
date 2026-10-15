@@ -1,6 +1,6 @@
 # VC Pitch Doctrine: Doubland, Chen-first
 
-**Last updated:** 2026-09-28
+**Last updated:** 2026-10-15
 **Owner:** Ivan
 **Status:** Doctrine. Not a todo list.
 
@@ -10,7 +10,7 @@
 
 This is the pitch doctrine for the Doubland raise. It says what we claim, which metrics lead, what order the deck goes in, and which decisions are locked. It is written through Andrew Chen's lens (a16z, *The Cold Start Problem*) because that is the first target.
 
-Live todos do not go here. They live in `IVAN_pre-MVP.md` (the file previously named `20260917_pre-MVP.md`): open show items are **PM-LTALK-3**, **PM-LTALK-4**, and **PM-LTALK-1**; the locked season shape is under *Season — locked*. The measurement contract is Current in `double-docs/sot/sot_api.md` §10. The June release gate is archived at `done/TODO_mvp-release-gate.md`. The June 2026 planning material that used to fill this file is kept in the Appendix, marked superseded where it conflicts with the sections above it.
+Live todos do not go here. They live in `IVAN_pre-MVP.md` (the file previously named `20260917_pre-MVP.md`): open show items are **PM-LTALK-3**, **PM-LTALK-4**, and **PM-LTALK-1**; the locked season shape is under *Season — locked*. The measurement contract is Current in `double-docs/sot/sot_api.md` §10. The live homepage does not honor it yet; the deferred form fix is under §7 *Open items* (after trailer work). The June release gate is archived at `done/TODO_mvp-release-gate.md`. The June 2026 planning material that used to fill this file is kept in the Appendix, marked superseded where it conflicts with the sections above it.
 
 Rules for this doc: never invent traction, investor interest, or comps. Honest zeros are fine. Audience is adults (18+) in invite-only friend groups; never target or market to minors. Campus distribution is post-MVP and never the lead framing.
 
@@ -69,7 +69,7 @@ We are not proving traction-scale volume. At this size a smart VC discounts raw 
 
 ## 4. Metric stack
 
-Capture facts reused from the June 16 production verification (Appendix A9): the waitlist records signups per source, not clicks, because no redirect hop was built. Retention from YouTube Studio is aggregate, not per-user cohorts, so the per-person retention curve comes from the manual operator log. The Telegram tag `tg-survival-d{N}` (and `tg-survival-premiere` for the opener) is manual and must be pasted into every post, or those signups collapse into `landing-hero`. On-screen end-card URLs cannot be tagged and also read as `landing-hero`.
+Capture facts reused from the June 16 production verification (Appendix A9): the waitlist records signups per source, not clicks, because no redirect hop was built. Retention from YouTube Studio is aggregate, not per-user cohorts, so the per-person retention curve comes from the manual operator log. Until the §7 form fix ships, a signup on the live homepage is stored as `landing-b` even when the link carried `?source=`. After that fix, the Telegram tag `tg-survival-d{N}` (and `tg-survival-premiere` for the opener) is manual and must be pasted into every post, or those signups stay `landing-b`. On-screen end-card text is bare `doubland.ai` and cannot carry a tag; people who type it stay `landing-b`. A YouTube description link and a YouTube end screen can carry `?source=yt-d{N}` (opener: `yt-opener`).
 
 ### Hero metrics
 
@@ -83,7 +83,7 @@ Capture facts reused from the June 16 production verification (Appendix A9): the
 | Metric | Definition | How captured | Honest limit |
 |---|---|---|---|
 | Showrunner count | Named people who accepted the host role (Ivan plus recruits). | Operator log (PM-LTALK-5, PM-LTALK-6). | Starts at 1. Recruiting is after pull is visible, not night 1. |
-| Showrunner-sourced asks | Named "run it for my group" requests, separate from soft-side claims. | Screenshot plus who plus episode. Waitlist `interest_type = b2b_group` with `group_name` from the live "Run Doubland for Your Group" footer door (PM-LTALK-7). | A form submit is interest, not an activated group. |
+| Showrunner-sourced asks | Named "run it for my group" requests, separate from soft-side claims. | Screenshot plus who plus episode. Waitlist `interest_type = b2b_group` with `group_name` from the live "Run Doubland for Your Group" footer door (PM-LTALK-7). | A form submit is interest, not an activated group. The live homepage form marks every submit `b2b_group`, so count a Showrunner ask only when `group_name` is filled or the person said it in chat. |
 | Time to activate a new group | Time from a Showrunner saying yes to their roster being tested, profiled, and in a sim. | Operator log dates. | Only measurable once a second group exists. |
 | Roster activation % | Share of the invited roster that finished test plus profile. | Operator log (Flintstone roster is fine). | Manual. Depends on how the roster is defined. |
 
@@ -105,7 +105,7 @@ Capture facts reused from the June 16 production verification (Appendix A9): the
 | Metric | Definition | How captured | Honest limit |
 |---|---|---|---|
 | Completion % | Share of viewers who watch each episode to the end. | YouTube Studio. | Aggregate. Only for traffic that lands on YouTube. |
-| Attributable funnel (view to signup) | Signups by episode and channel, set against views per episode. | Waitlist `source` tag per signup (verified in production 2026-06-16). | Signups per source, not clicks. Untagged Telegram posts and end-card URLs read as `landing-hero`. |
+| Attributable funnel (view to signup) | Signups by episode and channel, set against views per episode. | Waitlist `source` tag per signup. API verified in production 2026-06-16. The live homepage form does not read the tag (checked 2026-10-15; see §7). | Until the form fix ships, homepage signups are one bucket: `landing-b`. The deck cannot split YouTube from Telegram from ambient. After the fix: signups per source, not clicks. Tagged description and end-screen clicks count. Typed end-card visits stay `landing-b`. |
 | Organic spread | Reach and forwards with zero paid spend. | Manual Telegram tally; `sim-share` and `play-hud` tags for signups from viewer re-shares. | Forwards are hand-counted. |
 | Recognizability log | "That's so them" quotes and screenshots. | Qualitative log per drop. | Qualitative by design. Needs consent to show in a deck. |
 
@@ -169,7 +169,7 @@ These are the bars the retention curve gets judged against. They come from a16z'
 |---|---|
 | Consent | Surprise group review, then Claim double / Remove double in chat. Locked 2026-08-31. Handled by hand, no product build. Remove is no questions asked and honored within about 24 hours. Portrayals stay affectionate and flattering. The June brief-first triage (Appendix A5) is retired. Runbook: `IVAN_pre-MVP.md`. |
 | Showrunner title | Locked 2026-09-18. "Doubland Admin" is retired as a live term. Avoid Admin, Moderator, Community Manager, Ambassador. |
-| Measurement layer | Live. Waitlist `source`, `interest_type`, and `group_name`, verified end to end in production 2026-06-16 (`sot_api.md` §10). Do not rebuild attribution. |
+| Measurement layer | API live. Do not rebuild attribution. `POST /api/waitlist` still stores `source` (last-write-wins, `^[a-z0-9.-]{1,64}$`, column default `landing-hero`), verified through the old footer on 2026-06-16 (`sot_api.md` §10). The live homepage (`LandingPremiere`, production default) hardcodes `source: "landing-b"` and ignores `?source=`. Checked in `double-landing-page` `components/landing-b/landing-premiere.tsx` on 2026-10-15. Fix is deferred; see Open items. |
 | Showrunner waitlist door | Live on www.doubland.ai since 2026-09-24 ("Run Doubland for Your Group"; every submit is `b2b_group`). No second form. |
 | Showrunner compensation | Free for organizers. Status, tools, recognition, and soft credits come first. No cash pitch this pass. Any cash, stipend, or rev-share goes to Legal before any promise. QSBS and entity questions go to Tax. |
 | Season Spec | Locked 2026-09-18: premiere opener (`tg-survival-premiere`), then 15 evening drops (`tg-survival-d1` to `tg-survival-d15`), one Telegram post per evening, night 15 is winner plus season overview. Detail in `IVAN_pre-MVP.md` (PM-LTALK-2). |
@@ -185,6 +185,7 @@ These are the bars the retention curve gets judged against. They come from a16z'
 3. Defer: cash for Showrunners; campus party distribution; minor-targeting or public-graph Showrunner go-to-market; parallel empty groups.
 
 **Open items:**
+- **Homepage attribution (after trailers).** Deferred 2026-10-15 until the trailer work is finished. Do not start it during that pass. The Premiere group form must read inbound `?source=` the same way `WaitlistProvider` does (first tag in the session wins) and send that tag. An untagged submit stays `landing-b`. No gateway change, no redirect hop, no new column. Then paste `https://www.doubland.ai/?source=yt-opener`, `yt-d{N}`, `tg-survival-premiere`, and `tg-survival-d{N}` into the description and the YouTube end screen. `video/generate_description.py` already writes the YouTube slugs when `generate_trailer.py` runs. The burned-in end card stays bare `doubland.ai`; typed visits stay `landing-b`. Until this ships, the attributable-funnel slide is one bucket.
 - **Season cadence beyond LeaderTalks.** The LeaderTalks season is locked; the cadence for later seasons and for group #2 is not.
 - **Distribution mix check.** Native Telegram post plus tracked YouTube link is the locked drop shape. Whether and when to add the per-Double 9:16 15-second clips (PM-BFST-4) is still open.
 - **Scope guard.** Serialized cliffhangers, Survival "that's so them" fidelity (PM-VIL-2), and letting the group influence the sim stay held until the numbers justify them. Revisit after the first results are in, using the fallback logic in §6. PM-VIL-2 is also the gate for any public "prediction" wording for item 6. Until it reports measured hit rates on held-out real choices, the deck says "rehearsal, not a forecast".

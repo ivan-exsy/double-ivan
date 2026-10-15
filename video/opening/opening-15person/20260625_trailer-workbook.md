@@ -6,7 +6,7 @@
 |---|---|
 | **Simulation (pilot)** | `soul15_seed_20260224` (15 Doubles, Survival Mode, the Ville) — display name **Leadertalks** (was Soul 15) |
 | **Cohort folder** | `D:\Coding\generative_agents\video\assets\cohort\soul15_seed_20260224` |
-| **Reference standard** | Anya cut `video/opening-anya/DOUBLAND1.mov`; timing SOT `trailer-opening/teadown/` |
+| **Reference standard** | Anya cut `data/anya/v1_opening/DOUBLAND1.mov`; timing SOT `trailer-opening/teadown/` |
 | **Automation baseline** | `data/base_family_sim/opener&009/output/trailer_9x16.mp4` |
 | **Implementation plan** | `trailer-opening/20260617_vertical-trailer-automation.md` |
 
@@ -149,7 +149,7 @@ Manual Grok work on soul15 is **R&D** — prompts, QA gates, and file layout get
 3. **Longer trailer is OK** — target **~90–105 s** total (vs Anya ~77 s). Validator uses manifest `target_runtime_sec` for soul15 spotlight cohorts.
 4. **No Pistsov/Anya cast fallbacks** — wrong-cohort assets must fail or warn, not silently substitute.
 
-### Anya animated kit (`video/opening-anya/Anya_animated`)
+### Anya animated kit (`data/anya/v1_opening/Anya_animated`)
 
 Four motion plates — **three sim-agnostic**, one cast-specific:
 
@@ -226,7 +226,7 @@ Builder prints the next `_vN` filename automatically (`--version N` to override)
 | **Trait / narration copy** | Locked lines in manifest export | `cohort_trailer_cast.trait_line` (SOT) + mirror in `video_narration_cache` |
 | **Persona inputs** | `souls/*.md` on disk; scratch from sim at render time | Persona UUID + sim-scoped scratch/profile from Supabase; soul summaries ingested or linked by persona id |
 | **Generated visuals** | `video/assets/users/{character-sheets,cutouts,sprite-walkouts}` + `cohort/{hero,portraits,group_photo}` | Supabase Storage bucket(s) + `double.trailer_asset` rows: persona id, asset type, storage path, prompt hash, `qa_status` |
-| **Brand / village B-roll** | `opening-anya/`, `video/fly-over/` (OK as shared kit) | Shared kit can stay repo-local or move to a `brand-assets` bucket; sim-specific assets must not |
+| **Brand / village B-roll** | `data/anya/v1_opening/`, `data/library/assets/village/fly-over/` | Shared kit lives on the Drive library; sim-specific assets must not |
 | **Render outputs** | `data/<sim>/opener&NNN/output/*.mp4` | Storage upload + run metadata row (sim, run id, poster frame, validation report) |
 | **Remotion staging** | `video/remotion/public/render/` copy per build | **Transport only** — download from Storage URLs for render; do not treat as SOT |
 
@@ -425,7 +425,7 @@ Soul15: `import_cohort_manifest` loads locked lines; no LLM call for traits.
 - PostgREST / FE API for manifest editing
 - Soul file ingest table (keep `profile_doc` path + file read at seed)
 - Auto-copy trailer rows on `fork_simulation`
-- Replacing `opening-anya/` brand kit with Storage
+- Replacing `data/anya/v1_opening/` brand kit with Storage
 - `trailer_run` table (unless Phase 9 starts early)
 
 ---
@@ -777,7 +777,7 @@ What we need to extract later:
 # `opener&009` Review Notes
 
 **Video:** `generative_agents/data/base_family_sim/opener&009/output/trailer_9x16.mp4`  
-**Anya ref:** `video/opening-anya/DOUBLAND1.mov`; grabs in `teadown/reference_grabs/`
+**Anya ref:** `data/anya/v1_opening/DOUBLAND1.mov`; grabs in `teadown/reference_grabs/`
 **Props / assets:** `video/remotion/props/base_family_sim__opener_009.json`; staged files in `video/remotion/public/render/`
 
 **How:** Pause at **Scrub**, compare to **Grab**, jot notes. Severity: OK / Tweak / Wrong / Blocker.
@@ -939,7 +939,7 @@ Changes needed in auto version:
 
 - **Soul15 export (dev):** `D:\Coding\generative_agents\video\assets\cohort\soul15_seed_20260224\manifest.json`
 - **Prompt registry (pilot backfill):** `.../cohort/soul15_seed_20260224/prompt_log.md`
-- Anya kit (reference only): `video/opening-anya/`
+- Anya kit (reference only): `data/anya/v1_opening/`
 - **Character sheets (legacy input, migrate to Storage):** `video/assets/users/character-sheets/{uuid}/`
 - **Sprite walkouts (legacy input):** `video/assets/users/sprite-walkouts/{uuid}.mp4`
 - Cutouts (generate → register): `video/assets/users/cutouts/` until migrated
