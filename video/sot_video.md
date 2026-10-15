@@ -15,7 +15,7 @@ Length gate: 132–280 words, about 60–120 seconds.
 | Order | Name | What stays | What changes |
 |---|---|---|---|
 | 1 | teaser | Both people in tonight's promise, each named once | The hook from this night's quote |
-| 2 | open | The Doubles sentence. Night 1 adds the full Survival teach | Later nights add how many started and how many are left |
+| 2 | open | The signature, every Survival night | How many entered the season |
 | 3 | intro | Workplace, then one thing they did today | This person's place and action |
 | 4 | intro | Same, for the other featured person | Same |
 | 5 | challenge | Night 1: "Tonight every Double faces a challenge." Later: "Tonight the challenge is {name}." | This night's game and the prize it pays |
@@ -35,13 +35,9 @@ An afternoon row is omitted when the day has no real talk in that window. The br
 
 #### Locked sentences
 
-**Open, Survival night 1.** Exact:
+**Open, every Survival night.** Exact shape. `{N}` is how many entered the season, spoken as a word. It does not change on later nights. Who is still in stays on the census line.
 
-> These are Doubles, AI versions of real people. The simulation is running Survival mode. Every night, one is voted out, until one remains.
-
-**Open, later nights.** The first sentence stays. Then the count of who started and who is still in:
-
-> These are Doubles, AI versions of real people. Five started in Survival mode, and now four are left.
+> These are Doubles, AI versions of real people, making choices no one wrote for them. Five of them entered Survival mode. Someone is voted out every night, until one remains.
 
 **Bridge, every night.** Exact:
 
@@ -106,5 +102,7 @@ Say "safe from tonight's vote" only when a Shield was awarded. A person who leav
 
 `pittsburgh-demo-2`, variant `daily-v2`.
 
-- Survival night 1, engine day 2, run `20261014-1`. Hold for the Shield. Yevgenia leaves. Five become four.
-- Survival night 2, engine day 3, run `20261014-2`. Silent Pact. Elfi and Ivan each cast a vote and a half. Elfi leaves. Four become three. The closer is the chat line.
+- Survival night 1, engine day 2, run `20261015-1`. Hold for the Shield. Yevgenia leaves. Five become four.
+- Survival night 2, engine day 3, run `20261015-2`. Silent Pact. Elfi and Ivan each cast a vote and a half. Elfi leaves. Four become three. The closer is the chat line.
+
+The October 14 picture films (`20261014-1`, `20261014-2`) still carry the previous voice.
