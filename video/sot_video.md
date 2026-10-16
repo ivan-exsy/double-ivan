@@ -2,6 +2,19 @@
 
 Live video SOT. Only locked rules go here. The previous long file is an archive: `SOT-video-dump.md`.
 
+<WORKFLOW>
+
+1. Sim facts are collected, ranked
+2. Featured doubles identified
+3. More facts on those Doubles
+4. Script drafted as a four-column sheet:
+| Stage | VO | Scene Description | Audio/SFX | Video/VFX |
+5. Voice generated
+6. Existing sound and pictures assigned
+7. Missing clips made with Imagine
+8. Final production. One film: the Remotion nightly trailer (composition `NightlySurvival`). Picture assignment and the render are that same trailer. Do not stitch a separate one-picture-per-line cut.
+
+
 ### Script engine
 
 Locked 2026-10-14. Variant `daily-v2`. The writer is `double-video/video/trailer_pipeline/daily_golden.py`.
@@ -105,4 +118,64 @@ Say "safe from tonight's vote" only when a Shield was awarded. A person who leav
 - Survival night 1, engine day 2, run `20261015-1`. Hold for the Shield. Yevgenia leaves. Five become four.
 - Survival night 2, engine day 3, run `20261015-2`. Silent Pact. Elfi and Ivan each cast a vote and a half. Elfi leaves. Four become three. The closer is the chat line.
 
-The October 14 picture films (`20261014-1`, `20261014-2`) still carry the previous voice.
+The October 14 picture films (`20261014-1`, `20261014-2`) still carry the previous voice and the full-level mix. Do not remix them. The next bake applies the picture and sound rules below.
+
+### Picture and sound
+
+Locked 2026-10-16 from the Night 1 review. Anya's 88s master is the reference. The writer does not change.
+
+Open `double-video/data/anya/L-talks/Daily_1/final/L-talks Day 1.mp4`. First frame: `double-video/data/anya/L-talks/Daily_1/final/L-talks Day 1-Cover.jpg`. This is the file previously called `0720(1).mp4`.
+
+Shelf is `double-video/data/library/`. Pictures under `assets/`. Sound under `audio/`. Type under `type/`. A bake path that still says `video/assets` or `video/audio` is stale.
+
+#### Sound
+
+Hits land on chosen moments. A whoosh on every cut is wrong. The October 14 whoosh is late and quiet, so the cut itself has no hit.
+
+| Job | File | When |
+|---|---|---|
+| Glass break | `library/audio/sfx/glass-break.mp3` | Betrayal, as the photo cracks. One crack, under a second, no music tail. |
+| Short whoosh | `library/audio/sfx/attack-whoosh-impact.mp3` | A picture change that needs a hit. Loud in the first instant. |
+| Low hit | `library/audio/sfx/cinematic-impact-09.mp3` | Challenge title, Shield win, walk-out, end card. About 2 seconds. |
+| Scan | `library/audio/sfx/startup-sound-02.mp3` | Group photo into the matrix, and the end card. A digital sweep, not typing. |
+| Stakes sting | `library/audio/sfx/horror-trailer-opener.mp3` | Season slam, when that card should hit harder than a whoosh. |
+
+Voice stays at `1.0` through the opening line, then `0.66` from the first workplace scene to the end. On Night 1 that duck starts at Yevgenia at work. Ducking the teaser buries the open. Anya kept that line loud.
+
+Music is a separate ride: about `0.21`, then `0.16`, then `0.06` under the challenge teach, then `0.19`.
+
+#### Type and color
+
+Rubik Bold for kinetic words, step lines we set ourselves, and vote numbers. File: `library/type/Rubik-Bold.ttf`. Words stay white `#FFFFFF`, one phrase at a time, fade up with a soft glow. Designed HUD chips keep their own type.
+
+Palette: navy `#060C1C`, cyan `#78D2FF`, card white `#F5F8FC`. Those are `NAVY`, `CYAN`, and `WHITE`. Kinetic white is a step brighter than the card white. The orange threat accent is the later-night NEW TARGETS cliff. Night 1 does not use it.
+
+#### Challenge cards
+
+Each game lives in `library/assets/challenges/<id>/` and must have `title.png`, `steps_board.png`, and `immunity_status.png`. All 14 catalog games have those three. A ledger id that does not match the folder is aliased. Today that is `group_betrayal_game` → `group_betrayal`.
+
+One steps board. Do not draw a separate chip per step. The board is transparent, so the cards can sit on a photo. A baked-in checkerboard is a broken file.
+
+Reveal the cards in order by cropping that one board. Crop fractions live in the challenge `manifest.json` under `steps` (`cropTop`, `cropBottom`). Hold for the Shield is measured: four cards. A board with no `steps` list uses the shared crop table until it is measured. Silent Pact is a three-card board and is not measured yet.
+
+The title card covers the challenge name. The steps then sit on one still from the challenge place and appear one card at a time with the voice. On Hold for the Shield, cards 1–2 sit under "Choose HOLD or FOLD with your secret card," and cards 3–4 sit under "The highest held card wins the Shield." A short whoosh can mark each card. The gather clip then plays with the cards gone.
+
+The immunity graphic plays only when this path awarded a Shield and someone won it: Hold for the Shield, Roll for the Shield, Bid for the Vest, Call the Bluff, Leader's Burden. It sits on the last frame of the winner's clip, on "safe from tonight's vote." It is not its own grey card.
+
+#### Picture
+
+Same faces. No new people.
+
+- Map teaser: punch in during the first half second, then hold.
+- Group photo: a short move from this photo. If that clip fails, punch in during the first half second. Then the existing group-photo matrix. Portraits stand upright. An empty cell stays when the roster does not fill the grid.
+- Workplace lines: the workplace clip, once, name on screen.
+- Shield win: the winner at the challenge place, celebrating, winning card in hand. Not a frozen workplace shot.
+- Strategies sentence: short type on the Talk clip ("conversations," then "strategies"), each up for about a second. Talk plays faster, about 1.65×. No navy STRATEGIES card held for seconds. No Village plate. Then the ballots, with "at the end of the day" and "every Double casts a ballot" as type.
+- Ballots clip stays.
+- Betrayal: the frozen two-shot. A glass crack spreads across it at the cut, with the glass-break hit.
+- Tally: the same group photo, black and white. Stamp a number on each person who received votes. Zeros stay off the picture. The spoken line only names the counts it speaks. On this Night 1 that is Elfi 2, Yevgenia 2, and Luba 1. Marsha 0 and Ivan 0 stay off.
+- Farewell: the person leaving goes out through the door, back to camera, and walks away. Night 1 is the night PPG door, bag in hand, hair down, no glasses. The October 14 clip walked in. That clip is replaced.
+- Census, the people still in, and the flyover stay.
+- Last 1.5 seconds: `library/assets/nightly/end_lockup_9x16.png`, with the low hit and the scan. Anya's L-TALKS plate is her show mark. This film uses the Doubland lockup.
+
+The season-title card is not locked. Her open slams kinetic words over the group photo. A Doubland mark plus SURVIVAL in about 1.5 seconds is a proposal, not a rule.

@@ -1,6 +1,6 @@
 # Gold beat map — sheet ↔ film ↔ staged kit ↔ CapCut
 
-**Film:** `bins/video/0720(1).mp4` · 88.233s · V6 VO ~87.6s  
+**Film:** `double-video/data/anya/L-talks/Daily_1/final/L-talks Day 1.mp4` (previously `0720(1).mp4`) · first frame `…/final/L-talks Day 1-Cover.jpg` · 88.233s · V6 VO ~87.6s  
 **Sheet:** `clip_kit_v0/CAPCUT_EDIT_SHEET.md` scenes 0–14  
 **CapCut draft:** `bins/capcut_proj/` · full breakdown [`capcut_project_breakdown.md`](capcut_project_breakdown.md) · CSVs [`capcut/`](capcut/)  
 **Grabs:** `teardown/reference_grabs/` (t = second ≈ grab index−1)

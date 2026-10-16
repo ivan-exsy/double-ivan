@@ -4,7 +4,7 @@
 
 **Date:** 2026-08-11 · **Reviewer:** Opus (second opinion, no re-investigation)
 **Reviewing:** `20260811_dynamism_gap_20260724-2.md` + the fresh bake
-**Craft bar:** Anya `20260713-1` / `0720(1).mp4` (88.2s) — grammar only, not cast
+**Craft bar:** Anya `20260713-1` / `double-video/data/anya/L-talks/Daily_1/final/L-talks Day 1.mp4` (previously `0720(1).mp4`, 88.2s) — grammar only, not cast
 
 ## Bake provenance (verified fresh)
 

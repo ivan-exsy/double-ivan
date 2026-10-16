@@ -1,16 +1,17 @@
 # Canonical paths — Day 1 Anya gold
 
-Large binaries stay under `generative_agents`. This gold folder holds forensics only.
+The film to watch lives in `double-video`. This gold folder holds forensics only.
 
 | Artifact | Path |
 |----------|------|
-| Master MP4 | `generative_agents/data/20260713-1/trailer_ready_day2/clip_kit/bins/video/0720(1).mp4` |
-| Proxy MP4 | `…/bins/video/0720.mp4` |
-| CapCut draft | `…/bins/capcut_proj/` (`draft_info.json`, `draft_meta_info.json`, `Resources/local/`) |
-| Legend assets | `…/bins/F_Anya-legend/` |
-| Staged bins A–F | `…/bins/{A_hook…F_phaser}/` |
-| Pre-Anya kit | `…/trailer_ready_day2/clip_kit_v0/` |
+| Master MP4 | `double-video/data/anya/L-talks/Daily_1/final/L-talks Day 1.mp4` (previously `0720(1).mp4`) |
+| First frame | `double-video/data/anya/L-talks/Daily_1/final/L-talks Day 1-Cover.jpg` |
+| Proxy MP4 | `double-video/data/anya/L-talks/Daily_1/clip_kit/bins/!CapCut Anya!/0720.mp4` (73s, black frames) |
+| CapCut extract | This folder, `capcut/`. A `capcut_proj/` tree is not in the `double-video` copy. |
+| Legend assets | `double-video/data/anya/L-talks/Daily_1/clip_kit/bins/F_Anya-legend/` |
+| Staged bins A–F | `double-video/data/anya/L-talks/Daily_1/clip_kit/bins/{A_hook…F_phaser}/` |
+| Pre-Anya kit | July engine package only: `clip_kit_v0/`. Not in the `double-video` copy. |
 
-**Renames (2026-07-24):** `!CapCut Anya!` → `video/` (exports only); CapCut project folder → `capcut_proj/`.
+**July 2026 engine layout:** exports were filed as `video/0720(1).mp4`, and the CapCut project as `capcut_proj/`. The `double-video` copy kept the folder name `!CapCut Anya!`. The finished film is in `final/`.
 
 **Draft meta:** name `L-talks Day 1` · original Mac path `…/Movies/CapCut/…/0720` · duration `88233333` µs (= 88.233s, matches master).

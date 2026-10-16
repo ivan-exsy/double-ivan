@@ -3,7 +3,7 @@
 **Role:** Deep north-star for **how the gold cut was built** (tracks, type, FX, media graph).  
 **Hub:** [`GOLD.md`](GOLD.md) · machine extracts: [`capcut/`](capcut/)  
 **Source draft:** `generative_agents/…/clip_kit/bins/capcut_proj/`  
-**Matches master:** `bins/video/0720(1).mp4` @ **88.233s**
+**Matches master:** `double-video/data/anya/L-talks/Daily_1/final/L-talks Day 1.mp4` (previously `0720(1).mp4`) @ **88.233s**. First frame: `…/final/L-talks Day 1-Cover.jpg`
 
 > Not SOT law. Taste questions (what auto-gen must copy) still live in [`craft_notes.md`](craft_notes.md). This file is **evidence**.
 
@@ -159,6 +159,8 @@ Door/end brand lockup (**L-TALKS / DOUBLAND.AI**) is **picture**, not in this te
 
 **Auto-gen implication:** a Remotion “type layer” that chunks VO into 1–5 word cards with one motion preset gets closer to gold than baking every line into Imagine stills.
 
+Type does **not** run for the whole 88s. Measured gaps: **1.9–2.8s**, **26.2–29.4s**, and **53.3–58.6s** (Talk plays with no words; `AS THE DAY CONTINUES` ends at 53.3, the next line is `AT THE END OF THE DAY` at 58.6). Some phrases flash and the tail stays: `SOMEONE IS VOTED OUT` is on screen **12.3–12.8s** (under half a second), then `IS VOTED OUT` holds to 13.8. `NO ONE WROTE FOR THEM` is followed by `WROTE FOR THEM`. The CapCut file does not name a font (`font_name` = `none`). Color is `#ffffffff`.
+
 ---
 
 ## 5. Audio architecture
@@ -175,6 +177,22 @@ Door/end brand lockup (**L-TALKS / DOUBLAND.AI**) is **picture**, not in this te
 
 **Auto-gen implication:** need a **small licensed/stock SFX kit** + ducking rules; picture-only parity will still feel empty without this bus.
 
+### Measured levels (re-read 2026-10-16, from `capcut_audio_timeline.csv`)
+
+Counts in the table above stay. These are the levels and windows the count table does not show.
+
+| Bus | What the timeline actually does |
+|-----|--------------------------------|
+| Voice | Two clips, both sped to **1.01**. Full volume **0.9–8.6s**. A hole **8.6–9.133s** with no narration. Then **0.658** from **9.133s** to the end. Not one file with a volume filter. |
+| Music | Starts at **1.933s**, after the opening scan. Six regions: **0.214** (1.9–16.4), **0.157** (16.4–29.7), **0.062** (29.7–54.5), then **0.195** in three abutting chunks from 54.5 to the end. The 0.06 ride covers the challenge **and the win**, not the teach line only. |
+| Short whoosh | Six uses, level about **0.23**. On the teach steps (34.6, 37.3, 41.2, 44.0), the win (48.7), and once before the end card (84.6). |
+| Low hit | Three uses, level about **0.51**. At **10.2s** (into the map), **32.7s** (into the teach), and **86.4s** (end card). |
+| Scan | Nine uses. Level is not one number: about **0.34** at the open and the end card, about **0.24** on most joins, about **0.44** at 56.7s (into Talk). Several scans carry a fade. |
+| Horror sting | Four uses, quiet, about **0.17**. At **14.3, 21.9, 26.2, and 78.3s**. A low dread hit, not a season-card-only sound. |
+| Glitch | Two uses, about **0.18**. At **9.3s** and **14.8s**. |
+
+No glass-break on this timeline. The cost beat is not a cracked photo.
+
 ---
 
 ## 6. Transitions & video FX palette
@@ -186,6 +204,20 @@ Door/end brand lockup (**L-TALKS / DOUBLAND.AI**) is **picture**, not in this te
 Also: **93 material_animations**, **3 common masks**, multi-face algorithm folder, heavy **matting** on some clips.
 
 **Auto-gen implication:** scan/tremble/shake family is the “Doubland HUD motion” glue between stills — not random crossfades.
+
+The effect tracks are only **4 segments**. Most of the motion is a transition or an animation on the picture segment itself, not a separate FX track.
+
+Confirmed joins from `capcut_media_timeline.csv`:
+
+| Picture | Window | Motion |
+|---------|--------|--------|
+| Hook still | 0–1.0s | **Blue Scan** |
+| Group photo | 1.0–3.1s | **Scan Modeling** on the way out |
+| Flyover | 5.6–9.1s | **Scan Modeling**, played at **2.88×** |
+| Challenge hf clip | 35.0–46.7s | **Tremble Zoom**. Words of the rules sit on this moving clip. The staged challenge file is a late insert, not the whole teach. |
+| Leave plate | 66.0–68.4s | `ivan_leave_phaser.jpg`, **Tremble Zoom**. No crack overlay. |
+
+The project canvas is **1080×1920**. The 2160×3840 master is an upscale of that edit.
 
 ---
 

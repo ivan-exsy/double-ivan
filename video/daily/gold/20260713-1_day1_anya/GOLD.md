@@ -41,20 +41,21 @@ npx remotion render DailyGoldReplay out/gold_replay_day1.mp4 --props=props/gold_
   - Pack map + legacy flyover fallbacks live in `WORLD_PLATE_REPLACEMENTS` in the props builder  
   - Brief: `generative_agents/video/fly-over/COMMISSION_cinematic_pack.md`
 - Founder craft locks (alliances two-beat, Ivan 3.3 grey-out, end VO full-bleed, 9:16 lockup pad): see SOT §11.5
-- Compare against master `bins/video/0720(1).mp4`
+- Compare against master `double-video/data/anya/L-talks/Daily_1/final/L-talks Day 1.mp4` (previously `0720(1).mp4`). First frame: `…/final/L-talks Day 1-Cover.jpg`
 
 ## Canonical media (do not duplicate large binaries here)
 
 | Role | Path |
 |------|------|
-| **Master export** | `generative_agents/…/clip_kit/bins/video/0720(1).mp4` |
+| **Master export** | `double-video/data/anya/L-talks/Daily_1/final/L-talks Day 1.mp4` (previously `0720(1).mp4`) |
+| First frame | `double-video/data/anya/L-talks/Daily_1/final/L-talks Day 1-Cover.jpg` |
 | Specs | 9:16 · 2160×3840 HEVC export · project canvas **1080×1920** @ 30fps · **88.233s** · ~360 MB |
-| Proxy | `…/bins/video/0720.mp4` (~73s, small) |
-| Staged kit we gave | `…/trailer_ready_day2/clip_kit/` |
-| Pre-Anya baseline | `…/trailer_ready_day2/clip_kit_v0/` (**immutable**) |
-| Legend extras | `…/clip_kit/bins/F_Anya-legend/` (**32/47 used** in CapCut) |
+| Proxy | `double-video/data/anya/L-talks/Daily_1/clip_kit/bins/!CapCut Anya!/0720.mp4` (73s, black frames) |
+| Staged kit | `double-video/data/anya/L-talks/Daily_1/clip_kit/` |
+| Pre-Anya baseline | July engine package only: `clip_kit_v0/`. Not in the `double-video` copy. |
+| Legend extras | `double-video/data/anya/L-talks/Daily_1/clip_kit/bins/F_Anya-legend/` (**32/47 used** in CapCut) |
 | **Legend promoted (E5)** | `generative_agents/video/assets/legend_promoted/20260713-1/2/` · `manifest.json` + `UNUSED.md` |
-| **CapCut project** | `…/clip_kit/bins/capcut_proj/` · draft **L-talks Day 1** · `draft_info.json` |
+| **CapCut extract** | This gold folder, `capcut/` · draft name **L-talks Day 1** |
 
 ## Product path (E4 — locked 2026-07-29)
 

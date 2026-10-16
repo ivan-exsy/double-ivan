@@ -18,7 +18,7 @@ Derived from 1fps grabs + beat map. **Not** a taste ranking of every flourish �
 2. **Concept literacy uses cast matrix + kinetic single words** before/with Phaser — teaches “these people / AI” fast.  
 3. **Phaser plant is framed as product UI** (`LIVE SIMULATION`, `15 ACTIVE`) so 2D reads as the live watch surface.  
 4. **Namecard is cinematic** (light/code on face + elegant name) — bonding without spoken job/place.  
-5. **Irene want = true habitat** (Hobbs barista) — matches SOT G1.  
+5. **Irene's want reads as her at work**, but the timeline hero is legend footage, not `irene_habitat.png` (see the CapCut breakdown).  
 6. **Ivan want = intention HUD** (“READ THE ROOM”) — externalizes VO psychology in type, not Willows plate.  
 7. **Challenge teach is stepped** (title → receive card → hold/fold → highest wins) with bodies underneath.  
 8. **Peak is evidence** (card 7 visible) + line on screen — fact-lock readable mute.  
