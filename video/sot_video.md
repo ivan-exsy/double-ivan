@@ -17,7 +17,7 @@ Live video SOT. Only locked rules go here. The previous long file is an archive:
 
 ### Script engine
 
-Locked 2026-10-14. Variant `daily-v2`. The writer is `double-video/video/trailer_pipeline/daily_golden.py`.
+Locked 2026-10-14. Variant `daily-v2`. Updated 2026-10-19: the ballot sentence is not spoken, the challenge opens with this morning, and the tally names the leaver, then at most the next close count. The writer is `double-video/video/trailer_pipeline/daily_golden.py`.
 
 Each night uses the same named skeleton. The words change. The jobs do not. A line that copies another night, or that misses a locked sentence, fails and is replaced from this night's fact packet.
 
@@ -31,20 +31,19 @@ Length gate: 132–280 words, about 60–120 seconds.
 | 2 | open | The signature, every Survival night | How many entered the season |
 | 3 | intro | Workplace, then one thing they did today | This person's place and action |
 | 4 | intro | Same, for the other featured person | Same |
-| 5 | challenge | Night 1: "Tonight every Double faces a challenge." Later: "Tonight the challenge is {name}." | This night's game and the prize it pays |
+| 5 | challenge | Night 1: "This morning, every Double faces a challenge." Later: "This morning the challenge is {name}." | This night's game and the prize it pays |
 | 6 | choice | One line per featured play, in their own words | The action and the phrase |
 | 7 | win | One line. Every winner. The prize this path paid | Names and prize |
 | 8 | afternoon | Zero, one, or two talks. Name who was told | The talk, if one happened after the challenge and before the vote |
 | 9 | bridge | The strategies sentence, every Survival night | Nothing |
-| 10 | ballot | "By the end of the day, each Double casts a ballot." | Nothing |
-| 11 | betrayal | Promised to vote with that person, then voted against them | The pair |
-| 12 | result | The named ballots, then who is gone | The tally |
-| 13 | farewell | This person's last words only | The phrases from tonight's statement |
-| 14 | census | "Just like that - {N} become {N-1}." | The count |
-| 15 | tomorrow | Who is still in | The pair, and whether both remain |
-| 16 | close | Odd nights: the signature. Even nights: the next Doubland line | Which closer this night is |
+| 10 | betrayal | Promised to vote with that person, then voted against them | The pair |
+| 11 | result | Who leaves and their count, then at most the next close count | The tally |
+| 12 | farewell | This person's last words only | The phrases from tonight's statement |
+| 13 | census | "Just like that - {N} become {N-1}." | The count |
+| 14 | tomorrow | Who is still in | The pair, and whether both remain |
+| 15 | close | Odd nights: the signature. Even nights: the next Doubland line | Which closer this night is |
 
-An afternoon row is omitted when the day has no real talk in that window. The bridge, ballot, and close still play.
+An afternoon row is omitted when the day has no real talk in that window. The bridge and the close still play. Do not speak a line that each Double casts a ballot.
 
 #### Locked sentences
 
@@ -55,10 +54,6 @@ An afternoon row is omitted when the day has no real talk in that window. The br
 **Bridge, every night.** Exact:
 
 > As the day continues, conversations turn into strategies. Strategies turn into votes.
-
-**Ballot, every night.** Exact:
-
-> By the end of the day, each Double casts a ballot.
 
 **Census, every night.** Exact shape. `{N}` is who could still vote at the start of the night, not the season start. `{N-1}` is after tonight's exit.
 
@@ -105,7 +100,7 @@ Say "safe from tonight's vote" only when a Shield was awarded. A person who leav
 
 **Betrayal.** `{Who} promised to vote with {other}. Then she voted against her.` Past tense. Do not say who leaves on this line.
 
-**Result.** Say each named ballot count, then `{Name} is gone.` A tie is `{A} and {B} tie, {count} votes each. After the tiebreak, {Name} is gone.` Do not say "went home on N votes." If the official count is a fraction, speak the named ballots and leave the fraction out.
+**Result.** Start with But. `{Name} leaves with {count} votes.` Name the next person only when their count is tied or within one vote, and only when one or two people sit at that count. If more than two share it, name none of them. If any other votes remain, say "The rest are scattered." Then `{Name} is gone.` Do not list every name. A tie is `{A} and {B} tie, {count} votes each. After the tiebreak, {Name} is gone.` Do not say "went home on N votes."
 
 **Farewell.** Only phrases from this person's final statement. Another night's goodbye does not carry over.
 
@@ -170,8 +165,7 @@ Same faces. No new people.
 - Group photo: a short move from this photo. If that clip fails, punch in during the first half second. Then the existing group-photo matrix. Portraits stand upright. An empty cell stays when the roster does not fill the grid.
 - Workplace lines: the workplace clip, once, name on screen.
 - Shield win: the winner at the challenge place, celebrating, winning card in hand. Not a frozen workplace shot.
-- Strategies sentence: short type on the Talk clip ("conversations," then "strategies"), each up for about a second. Talk plays faster, about 1.65×. No navy STRATEGIES card held for seconds. No Village plate. Then the ballots, with "at the end of the day" and "every Double casts a ballot" as type.
-- Ballots clip stays.
+- Strategies sentence: Talk on the first sentence, with "conversations" up for about a second. The ballots clip plays once, on "Strategies turn into votes," with "strategies" up for about a second. Talk plays faster, about 1.65×. No navy STRATEGIES card held for seconds. No Village plate. No spoken line that each Double casts a ballot.
 - Betrayal: the frozen two-shot. A glass crack spreads across it at the cut, with the glass-break hit.
 - Tally: the same group photo, black and white. Stamp a number on each person who received votes. Zeros stay off the picture. The spoken line only names the counts it speaks. On this Night 1 that is Elfi 2, Yevgenia 2, and Luba 1. Marsha 0 and Ivan 0 stay off.
 - Farewell: the person leaving goes out through the door, back to camera, and walks away. Night 1 is the night PPG door, bag in hand, hair down, no glasses. The October 14 clip walked in. That clip is replaced.
