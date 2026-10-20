@@ -130,7 +130,7 @@ Length gate: 120–210 words, about 2.1 words a second, about 55–100 seconds. 
 | 1 | teaser | The carrier's own play. Omitted when they have no featured play | The verb and their words |
 | 2 | open | Night 1 only. The short Doubles line | Nothing |
 | 3 | names | One workplace, the carrier | Place, and today's action when the card has it |
-| 4 | challenge | The game, the prize, and safety. At most 32 words | This night's game |
+| 4 | challenge | The game, then the stake. No rules | This night's game |
 | 5 | choice | Every other featured play, in their words | The action and the phrase |
 | 6 | win | One line, when someone won. At most 16 words | Names and prize |
 | 7 | betrayal | Only when a promise exists | The pair |
@@ -146,7 +146,7 @@ The carrier is the person who leaves, when they made a featured play. Otherwise 
 
 **Open, night 1 only.** Later nights do not speak it.
 
-> Doubles are AI versions of real people, living unscripted in one town.
+> Doubles are AI versions of real people, living unscripted lives in Doubland.
 
 **Census, every night.** `{N}` is who could still vote at the start of the night. `{N−1}` is after tonight's exit. Both are spoken as words.
 
@@ -164,7 +164,7 @@ The carrier is the person who leaves, when they made a featured play. Otherwise 
 
 **Names.** One person: where they work, then what they did today when the card has it. When two people share a first name, speak the full name.
 
-**Challenge.** `The challenge is {name}.` Then how they play, when the whole line still fits in 32 words. Then the prize. When the prize is the Shield: safe from tonight's vote. Skip "this morning." Skip "every Double faces."
+**Challenge.** One line. `{Game}. The winner is safe tonight.` Hold for the Shield is `Hold for the Shield. The winner is safe tonight.` Do not teach how to play. A prize that is not the Shield is `{Game}. The prize is {prize}.`
 
 **Choice.** The other featured person's verb and a phrase they actually said. A quote is shortened only to words they said. One short parallel, about six words, is allowed inside the second choice when both quotes support it.
 
