@@ -140,7 +140,9 @@ Length gate: 120–210 words, about 2.1 words a second, about 55–100 seconds. 
 | 11 | tomorrow | A pair who voted against each other and are both still in. Never "For now." | Who remains |
 | 12 | close | "Watch it live at doubland.ai." Every night | Nothing |
 
-The carrier is the person who leaves, when they made a featured play. Otherwise the first featured person. A second person appears only in a choice line or in the conflict. No second workplace. No afternoon row. No strategies bridge. No line that each Double casts a ballot. No "Just like that."
+The carrier is the person who leaves, when they made a featured play. Otherwise the first featured person. A second person appears only in a choice line or in the conflict. No second workplace. No strategies slogan. No line that each Double casts a ballot. No "Just like that."
+
+**Afternoon.** After the win and before the tally, one sentence from a talk between noon and 8pm, said by someone already in the trailer. Straight quotes. Skip the line when that talk is missing. The picture always marks the hours: daylight and a talk, then the vote. When the sentence exists, it plays on that afternoon shot and the tally stays the vote card. When it does not, those three pictures play under the tally and nothing new is spoken. Do not speak "As the day continues, conversations turn into strategies. Strategies turn into votes."
 
 #### Locked sentences
 
@@ -188,7 +190,7 @@ A past fact is spoken inside tonight's sentence, and only when tonight touches t
 
 The picture and sound section below still applies, with these differences.
 
-- The strategies sentence is absent, so the Talk clip and the ballots clip for that sentence do not play.
+- The strategies slogan is absent. The Talk clip still marks the hours between the challenge and the vote. The ballots clip does not play. The vote card does.
 - The title card is type on the existing film. It is not a new composition.
 - A long open, workplace, or challenge shot is cut into beats of about 1.5–3 seconds. The choice, the tally, the goodbye, the count, and the closer keep their hold.
 - Voice stays full through the opening choice, then ducks. A night with no choice open ducks at the workplace line.
