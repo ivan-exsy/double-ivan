@@ -135,10 +135,10 @@ Length gate: 120–210 words, about 2.1 words a second, about 55–100 seconds. 
 | 6 | win | One line, when someone won. At most 16 words | Names and prize |
 | 7 | betrayal | Only when a promise exists | The pair |
 | 8 | result | Who leaves, their count, the next close count, the rest scattered, gone | The tally |
-| 9 | farewell | One landing sentence, once, after the vote. At most 36 words | The sentence they said |
+| 9 | farewell | One landing sentence, once, after the vote. At most 36 words. Shorter than the afternoon line when that line exists | The sentence they said |
 | 10 | census | "{N} become {N−1}." | The count |
-| 11 | tomorrow | A pair who voted against each other and are both still in. Never "For now." | Who remains |
-| 12 | close | "Watch everything live at doubland.ai." Every night | Nothing |
+| 11 | tomorrow | Starts with "Tomorrow,". A pair who voted against each other and are both still in. Never "For now." | Who remains |
+| 12 | close | "Watch live 24/7 at doubland.ai." Every night | Nothing |
 
 The carrier is the person who leaves, when they made a featured play. Otherwise the first featured person. A second person appears only in a choice line or in the conflict. No second workplace. No strategies slogan. No line that each Double casts a ballot. No "Just like that."
 
@@ -156,13 +156,13 @@ The carrier is the person who leaves, when they made a featured play. Otherwise 
 
 **Close, every night.** No odd/even rotation.
 
-> Watch everything live at doubland.ai.
+> Watch live 24/7 at doubland.ai.
 
 **Title card.** Type on the first spoken line, about 3 seconds, one phrase at a time. Night 1 reads `Night {n}` and `{Started} entered`. Later nights add the Doubles line. How many entered is type. The card may use a numeral. A spoken line still says the count in words.
 
 #### What the night fills in
 
-**Teaser.** That night's sharpest real choice. It changes every night. The carrier, alone. The goodbye is the payoff after the vote.
+**Teaser.** That night's sharpest real choice. It changes every night. The carrier, alone. The scene is that one person. The goodbye is the payoff after the vote.
 
 **Names.** One person: where they work, and the trait on the card. Today's chore stays in the picture and is not spoken. When two people share a first name, speak the full name.
 
@@ -176,9 +176,9 @@ The carrier is the person who leaves, when they made a featured play. Otherwise 
 
 **Result.** `Then the votes come in. {Name}, {count}. {Next}, {count}. The rest, scattered. {Name} is gone.` The next name uses the same close-count rule as daily-v2. Say "The rest, scattered" only when other votes remain. The choice is not why they leave. A tie names both, the count, and that a tiebreak sends the leaver home. Do not say how it broke. Do not open this line on But.
 
-**Farewell.** Once, after the vote. One landing sentence from the statement. Drop `I'll keep this brief`, `Good luck`, and other sign-offs. A one-sentence statement stays whole. Still inside 36 words, and it does not mention a handout, houses, or the door. Lead: `On his way out, he says` or `On her way out, she says.` The narrator does not say "you". "You" may stay inside the quote.
+**Farewell.** Once, after the vote. One landing sentence from the statement. Drop `I'll keep this brief`, `Good luck`, and other sign-offs. A one-sentence statement stays whole when the night has no afternoon line. When an afternoon line exists, cut the landing at a clause they said so the goodbye is shorter than that line. Still inside 36 words, and it does not mention a handout, houses, or the door. Lead: `On his way out, he says` or `On her way out, she says.` When the pronoun is empty, lead with the full name. The narrator does not say "you". "You" may stay inside the quote.
 
-**Tomorrow.** When both are still in: `{A} and {B} voted against each other. Both are still in.` Do not add "For now." Do not name who leaves next. The nightly does not wait for the next morning. When one of them has left: `{A} and {B} voted against each other tonight. Tomorrow, {Survivor} is still in.`
+**Tomorrow.** When both are still in: `Tomorrow, {A} and {B} voted against each other. Both are still in.` Do not add "For now." Do not name who leaves next. The nightly does not wait for the next morning. When one of them has left: `{A} and {B} voted against each other tonight. Tomorrow, {Survivor} is still in.`
 
 #### Spine
 
@@ -191,6 +191,7 @@ A past fact is spoken inside tonight's sentence, and only when tonight touches t
 The picture and sound section below still applies, with these differences.
 
 - The strategies slogan is absent. The Talk clip still marks the hours between the challenge and the vote. The ballots clip does not play. The vote card does.
+- The teaser frame is the carrier alone. Do not generate the pair.
 - The title card is type on the existing film. It is not a new composition.
 - A long open, workplace, or challenge shot is cut into beats of about 1.5–3 seconds. The choice, the tally, the goodbye, the count, and the closer keep their hold.
 - Voice stays full through the opening choice, then ducks. A night with no choice open ducks at the workplace line.
