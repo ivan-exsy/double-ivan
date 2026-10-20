@@ -129,13 +129,13 @@ Length gate: 120–210 words, about 2.1 words a second, about 55–100 seconds. 
 |---|---|---|---|
 | 1 | teaser | The carrier's own play. Omitted when they have no featured play | The verb and their words |
 | 2 | open | Night 1 only. The short Doubles line | Nothing |
-| 3 | names | One workplace, the carrier | Place, and today's action when the card has it |
-| 4 | challenge | The game, then the stake. No rules | This night's game |
-| 5 | choice | Every other featured play, in their words | The action and the phrase |
+| 3 | names | One workplace, the carrier | Place and the trait. The picture holds today's chore |
+| 4 | challenge | The game, then the stake this night paid. No rules | This night's prize |
+| 5 | choice | Every other featured play, in their words. Same choice when the verb matches | The action and the phrase |
 | 6 | win | One line, when someone won. At most 16 words | Names and prize |
 | 7 | betrayal | Only when a promise exists | The pair |
 | 8 | result | Who leaves, their count, the next close count, the rest scattered, gone | The tally |
-| 9 | farewell | This person's goodbye, once, after the vote. At most 36 words | The words they said |
+| 9 | farewell | One landing sentence, once, after the vote. At most 36 words | The sentence they said |
 | 10 | census | "{N} become {N−1}." | The count |
 | 11 | tomorrow | A pair who voted against each other and are both still in. Never "For now." | Who remains |
 | 12 | close | "Watch it live at doubland.ai." Every night | Nothing |
@@ -162,11 +162,11 @@ The carrier is the person who leaves, when they made a featured play. Otherwise 
 
 **Teaser.** That night's sharpest real choice. It changes every night. The carrier, alone. The goodbye is the payoff after the vote.
 
-**Names.** One person: where they work, then what they did today when the card has it. When two people share a first name, speak the full name.
+**Names.** One person: where they work, and the trait on the card. Today's chore stays in the picture and is not spoken. When two people share a first name, speak the full name.
 
-**Challenge.** One line. `{Game}. The winner is safe tonight.` Hold for the Shield is `Hold for the Shield. The winner is safe tonight.` Do not teach how to play. A prize that is not the Shield is `{Game}. The prize is {prize}.`
+**Challenge.** One line. The game, then the stake this night paid. Do not teach how to play. `The winner is safe tonight` is only for a Shield that was paid: Hold for the Shield, Roll for the Shield, Call the Bluff, Bid for the Vest, and a Trial Night acquittal. Hold for the Shield is `Hold for the Shield. The winner is safe tonight.` Leader's Burden is `The winner is safe tonight, and puts an extra vote on someone else.` Other nights name the vote that was paid: a weaker vote, a stronger vote, a half vote, a double vote, a vote that counts three times, a Shield they can give away, an extra vote against the smaller side, two extra votes on a conviction, a stolen vote that counts as nothing, one full vote while the rest are cut in half, or the commons pot when it holds or breaks. Do not say the winner is safe tonight on those nights.
 
-**Choice.** The other featured person's verb and a phrase they actually said. A quote is shortened only to words they said. One short parallel, about six words, is allowed inside the second choice when both quotes support it.
+**Choice.** The other featured person's verb and a short quote of their first clause. When that verb matches the carrier, end with `Same choice.` When their words say invisible, add `Stay invisible.`
 
 **Win.** The prize phrases in the daily-v2 table still name what was paid. A Shield win is `{Name} {verb}, and wins the Shield.` Safety stays in the challenge.
 
@@ -174,7 +174,7 @@ The carrier is the person who leaves, when they made a featured play. Otherwise 
 
 **Result.** `Then the votes come in. {Name}, {count}. {Next}, {count}. The rest, scattered. {Name} is gone.` The next name uses the same close-count rule as daily-v2. Say "The rest, scattered" only when other votes remain. The choice is not why they leave. A tie names both, the count, and that a tiebreak sends the leaver home. Do not say how it broke. Do not open this line on But.
 
-**Farewell.** Once, after the vote. When the statement is 36 words or fewer, and it does not mention a handout, houses, or the door, quote it in full. A longer statement keeps the landing sentence and two phrases they said, still inside 36 words. Lead: `On his way out, he says` or `On her way out, she says.` The narrator does not say "you". "You" may stay inside the quote.
+**Farewell.** Once, after the vote. One landing sentence from the statement. Drop `I'll keep this brief`, `Good luck`, and other sign-offs. A one-sentence statement stays whole. Still inside 36 words, and it does not mention a handout, houses, or the door. Lead: `On his way out, he says` or `On her way out, she says.` The narrator does not say "you". "You" may stay inside the quote.
 
 **Tomorrow.** When both are still in: `{A} and {B} voted against each other. Both are still in.` Do not add "For now." Do not name who leaves next. The nightly does not wait for the next morning. When one of them has left: `{A} and {B} voted against each other tonight. Tomorrow, {Survivor} is still in.`
 
