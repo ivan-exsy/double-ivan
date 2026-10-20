@@ -17,7 +17,7 @@ Live video SOT. Only locked rules go here. The previous long file is an archive:
 
 ### Script engine
 
-Locked 2026-10-14. Variant `daily-v2`. Updated 2026-10-19: the ballot sentence is not spoken, the challenge opens with this morning, and the tally names the leaver, then at most the next close count. The writer is `double-video/video/trailer_pipeline/daily_golden.py`.
+Locked 2026-10-14. Variant `daily-v2`. Updated 2026-10-19: the ballot sentence is not spoken, the challenge opens with this morning, and the tally names the leaver, then at most the next close count. The writer is `double-video/video/trailer_pipeline/daily_golden.py`. These sentences stay exact. `daily-v3` is the next section.
 
 Each night uses the same named skeleton. The words change. The jobs do not. A line that copies another night, or that misses a locked sentence, fails and is replaced from this night's fact packet.
 
@@ -114,6 +114,89 @@ Say "safe from tonight's vote" only when a Shield was awarded. A person who leav
 - Survival night 2, engine day 3, run `20261015-2`. Silent Pact. Elfi and Ivan each cast a vote and a half. Elfi leaves. Four become three. The closer is the chat line.
 
 The October 14 picture films (`20261014-1`, `20261014-2`) still carry the previous voice and the full-level mix. Do not remix them. The next bake applies the picture and sound rules below.
+
+### Script engine, daily-v3
+
+Locked 2026-10-20. Variant `daily-v3`, chosen with `--variant daily-v3`. The section above stays the locked nightly. Same writer. Same film, composition `NightlySurvival`. A v3 run does not set the daily-v2 flag.
+
+The lines are one narration. A locked sentence that drifts is replaced. A story line is replaced only when a required name, count, or quote is missing.
+
+Length gate: 120–210 words, about 2.1 words a second, about 55–100 seconds. A night near 95 seconds can pass when the goodbye and the pair who are still in earn the time.
+
+#### Skeleton
+
+| Order | Name | What stays | What changes |
+|---|---|---|---|
+| 1 | teaser | The carrier's own play. Omitted when they have no featured play | The verb and their words |
+| 2 | open | Night 1 only. The short Doubles line | Nothing |
+| 3 | names | One workplace, the carrier | Place, and today's action when the card has it |
+| 4 | challenge | The game, the prize, and safety. At most 32 words | This night's game |
+| 5 | choice | Every other featured play, in their words | The action and the phrase |
+| 6 | win | One line, when someone won. At most 16 words | Names and prize |
+| 7 | betrayal | Only when a promise exists | The pair |
+| 8 | result | Who leaves, their count, the next close count, the rest scattered, gone | The tally |
+| 9 | farewell | This person's goodbye, once, after the vote. At most 36 words | The words they said |
+| 10 | census | "{N} become {N−1}." | The count |
+| 11 | tomorrow | A pair who voted against each other and are both still in. Never "For now." | Who remains |
+| 12 | close | "Watch it live at doubland.ai." Every night | Nothing |
+
+The carrier is the person who leaves, when they made a featured play. Otherwise the first featured person. A second person appears only in a choice line or in the conflict. No second workplace. No afternoon row. No strategies bridge. No line that each Double casts a ballot. No "Just like that."
+
+#### Locked sentences
+
+**Open, night 1 only.** Later nights do not speak it.
+
+> Doubles are AI versions of real people, living unscripted in one town.
+
+**Census, every night.** `{N}` is who could still vote at the start of the night. `{N−1}` is after tonight's exit. Both are spoken as words.
+
+> Fifteen become fourteen.
+
+**Close, every night.** No odd/even rotation.
+
+> Watch it live at doubland.ai.
+
+**Title card.** Type on the first spoken line, about 3 seconds, one phrase at a time. Night 1 reads `Night {n}` and `{Started} entered`. Later nights add the Doubles line. How many entered is type. The card may use a numeral. A spoken line still says the count in words.
+
+#### What the night fills in
+
+**Teaser.** That night's sharpest real choice. It changes every night. The carrier, alone. The goodbye is the payoff after the vote.
+
+**Names.** One person: where they work, then what they did today when the card has it. When two people share a first name, speak the full name.
+
+**Challenge.** `The challenge is {name}.` Then how they play, when the whole line still fits in 32 words. Then the prize. When the prize is the Shield: safe from tonight's vote. Skip "this morning." Skip "every Double faces."
+
+**Choice.** The other featured person's verb and a phrase they actually said. A quote is shortened only to words they said. One short parallel, about six words, is allowed inside the second choice when both quotes support it.
+
+**Win.** The prize phrases in the daily-v2 table still name what was paid. A Shield win is `{Name} {verb}, and wins the Shield.` Safety stays in the challenge.
+
+**Betrayal.** `{Who} promised to vote with {other}. Then she voted against her.` A broken promise is the only glass crack. No promise means no betrayal line and no crack.
+
+**Result.** `Then the votes come in. {Name}, {count}. {Next}, {count}. The rest, scattered. {Name} is gone.` The next name uses the same close-count rule as daily-v2. Say "The rest, scattered" only when other votes remain. The choice is not why they leave. A tie names both, the count, and that a tiebreak sends the leaver home. Do not say how it broke. Do not open this line on But.
+
+**Farewell.** Once, after the vote. When the statement is 36 words or fewer, and it does not mention a handout, houses, or the door, quote it in full. A longer statement keeps the landing sentence and two phrases they said, still inside 36 words. Lead: `On his way out, he says` or `On her way out, she says.` The narrator does not say "you". "You" may stay inside the quote.
+
+**Tomorrow.** When both are still in: `{A} and {B} voted against each other. Both are still in.` Do not add "For now." Do not name who leaves next. The nightly does not wait for the next morning. When one of them has left: `{A} and {B} voted against each other tonight. Tomorrow, {Survivor} is still in.`
+
+#### Spine
+
+Rebuilt from the ledgers for this draft. The writer sees open pledges, open alliances, and pairs who voted against each other and are both still in, plus last night's public tally. Closed rows stay off the prompt. The checker still fails a closed name who is not part of tonight.
+
+A past fact is spoken inside tonight's sentence, and only when tonight touches that thread. At most forty words. Night 1 has no Previously. Someone who has already left stays unnamed. Memory is not a source. The previous night's script is not in the prompt.
+
+#### Picture
+
+The picture and sound section below still applies, with these differences.
+
+- The strategies sentence is absent, so the Talk clip and the ballots clip for that sentence do not play.
+- The title card is type on the existing film. It is not a new composition.
+- A long open, workplace, or challenge shot is cut into beats of about 1.5–3 seconds. The choice, the tally, the goodbye, the count, and the closer keep their hold.
+- Voice stays full through the opening choice, then ducks. A night with no choice open ducks at the workplace line.
+- The three-hit cap is not applied. daily-v2 still caps at three. `film_rules.py` is unchanged.
+
+#### Proof
+
+Fixture tests in `double-video/video/test_daily_v3.py`. Do not bake or remix `20261009-1` night 1. The October 19 voice stays. There is no engine day 3 ledger on disk for that sim, so a later night is not a proof yet.
 
 ### Picture and sound
 
