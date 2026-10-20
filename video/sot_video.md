@@ -130,7 +130,7 @@ Length gate: 120–210 words, about 2.1 words a second, about 55–100 seconds. 
 | 1 | teaser | The carrier's own play. Omitted when they have no featured play | The verb and their words |
 | 2 | open | Night 1 only. The short Doubles line | Nothing |
 | 3 | names | One workplace, the carrier | Place and the trait. The picture holds today's chore |
-| 4 | challenge | The game, then the stake this night paid. No rules | This night's prize |
+| 4 | challenge | "Today's challenge is {game}." Then the stake. No rules | This night's prize |
 | 5 | choice | Every other featured play, in their words. Same choice when the verb matches | The action and the phrase |
 | 6 | win | One line, when someone won. At most 16 words | Names and prize |
 | 7 | betrayal | Only when a promise exists | The pair |
@@ -138,7 +138,7 @@ Length gate: 120–210 words, about 2.1 words a second, about 55–100 seconds. 
 | 9 | farewell | One landing sentence, once, after the vote. At most 36 words | The sentence they said |
 | 10 | census | "{N} become {N−1}." | The count |
 | 11 | tomorrow | A pair who voted against each other and are both still in. Never "For now." | Who remains |
-| 12 | close | "Watch it live at doubland.ai." Every night | Nothing |
+| 12 | close | "Watch everything live at doubland.ai." Every night | Nothing |
 
 The carrier is the person who leaves, when they made a featured play. Otherwise the first featured person. A second person appears only in a choice line or in the conflict. No second workplace. No strategies slogan. No line that each Double casts a ballot. No "Just like that."
 
@@ -156,7 +156,7 @@ The carrier is the person who leaves, when they made a featured play. Otherwise 
 
 **Close, every night.** No odd/even rotation.
 
-> Watch it live at doubland.ai.
+> Watch everything live at doubland.ai.
 
 **Title card.** Type on the first spoken line, about 3 seconds, one phrase at a time. Night 1 reads `Night {n}` and `{Started} entered`. Later nights add the Doubles line. How many entered is type. The card may use a numeral. A spoken line still says the count in words.
 
@@ -166,7 +166,7 @@ The carrier is the person who leaves, when they made a featured play. Otherwise 
 
 **Names.** One person: where they work, and the trait on the card. Today's chore stays in the picture and is not spoken. When two people share a first name, speak the full name.
 
-**Challenge.** One line. The game, then the stake this night paid. Do not teach how to play. `The winner is safe tonight` is only for a Shield that was paid: Hold for the Shield, Roll for the Shield, Call the Bluff, Bid for the Vest, and a Trial Night acquittal. Hold for the Shield is `Hold for the Shield. The winner is safe tonight.` Leader's Burden is `The winner is safe tonight, and puts an extra vote on someone else.` Other nights name the vote that was paid: a weaker vote, a stronger vote, a half vote, a double vote, a vote that counts three times, a Shield they can give away, an extra vote against the smaller side, two extra votes on a conviction, a stolen vote that counts as nothing, one full vote while the rest are cut in half, or the commons pot when it holds or breaks. Do not say the winner is safe tonight on those nights.
+**Challenge.** One line. The game, then the stake this night paid. Do not teach how to play. `The winner is safe tonight` is only for a Shield that was paid: Hold for the Shield, Roll for the Shield, Call the Bluff, Bid for the Vest, and a Trial Night acquittal. Hold for the Shield is `Today's challenge is Hold for the Shield. The winner is safe tonight.` Leader's Burden is `The winner is safe tonight, and puts an extra vote on someone else.` Other nights name the vote that was paid: a weaker vote, a stronger vote, a half vote, a double vote, a vote that counts three times, a Shield they can give away, an extra vote against the smaller side, two extra votes on a conviction, a stolen vote that counts as nothing, one full vote while the rest are cut in half, or the commons pot when it holds or breaks. Do not say the winner is safe tonight on those nights.
 
 **Choice.** The other featured person's verb and a short quote of their first clause. When that verb matches the carrier, end with `Same choice.` When their words say invisible, add `Stay invisible.`
 
