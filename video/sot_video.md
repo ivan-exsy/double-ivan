@@ -137,7 +137,7 @@ Length gate: 120–210 words, about 2.1 words a second, about 55–100 seconds. 
 | 8 | result | Who leaves, their count, the next close count, the rest scattered, gone | The tally |
 | 9 | farewell | One landing sentence, once, after the vote. At most 36 words. Shorter than the afternoon line when that line exists | The sentence they said |
 | 10 | census | "{N} become {N−1}." | The count |
-| 11 | tomorrow | Starts with "Tomorrow,". A pair who voted against each other and are both still in. Never "For now." | Who remains |
+| 11 | tomorrow | Starts with "Today,". A pair who voted against each other and are both still in. Never "For now." | Who remains |
 | 12 | close | "Watch live 24/7 at doubland.ai." Every night | Nothing |
 
 The carrier is the person who leaves, when they made a featured play. Otherwise the first featured person. A second person appears only in a choice line or in the conflict. No second workplace. No strategies slogan. No line that each Double casts a ballot. No "Just like that."
@@ -178,7 +178,7 @@ The carrier is the person who leaves, when they made a featured play. Otherwise 
 
 **Farewell.** Once, after the vote. One landing sentence from the statement. Drop `I'll keep this brief`, `Good luck`, and other sign-offs. A one-sentence statement stays whole when the night has no afternoon line. When an afternoon line exists, cut the landing at a clause they said so the goodbye is shorter than that line. Still inside 36 words, and it does not mention a handout, houses, or the door. Lead: `On his way out, he says` or `On her way out, she says.` When the pronoun is empty, lead with the full name. The narrator does not say "you". "You" may stay inside the quote.
 
-**Tomorrow.** When both are still in: `Tomorrow, {A} and {B} voted against each other. Both are still in.` Do not add "For now." Do not name who leaves next. The nightly does not wait for the next morning. When one of them has left: `{A} and {B} voted against each other tonight. Tomorrow, {Survivor} is still in.`
+**Tomorrow.** When both are still in: `Today, {A} and {B} voted against each other. Both are still in.` The vote already happened, so this line does not start with Tomorrow. Do not add "For now." Do not name who leaves next. The nightly does not wait for the next morning. When one of them has left: `{A} and {B} voted against each other tonight. Tomorrow, {Survivor} is still in.`
 
 #### Spine
 
