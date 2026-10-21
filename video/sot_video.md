@@ -137,7 +137,7 @@ Length gate: 120–210 words, about 2.1 words a second, about 55–100 seconds. 
 | 8 | result | Who leaves, their count, the next close count, the rest scattered, gone | The tally |
 | 9 | farewell | One landing sentence, once, after the vote. At most 36 words. Shorter than the afternoon line when that line exists | The sentence they said |
 | 10 | census | "{N} become {N−1}." | The count |
-| 11 | tomorrow | Starts with "Today,". A pair who voted against each other and are both still in. Never "For now." | Who remains |
+| 11 | tomorrow | One sentence. Python picks the cause. A separate Tier C call writes the line. The draft copies it. Never "For now." | The open consequence |
 | 12 | close | "Watch live 24/7 at doubland.ai." Every night | Nothing |
 
 The carrier is the person who leaves, when they made a featured play. Otherwise the first featured person. A second person appears only in a choice line or in the conflict. No second workplace. No strategies slogan. No line that each Double casts a ballot. No "Just like that."
@@ -178,13 +178,35 @@ The carrier is the person who leaves, when they made a featured play. Otherwise 
 
 **Farewell.** Once, after the vote. One landing sentence from the statement. Drop `I'll keep this brief`, `Good luck`, and other sign-offs. A one-sentence statement stays whole when the night has no afternoon line. When an afternoon line exists, cut the landing at a clause they said so the goodbye is shorter than that line. Still inside 36 words, and it does not mention a handout, houses, or the door. Lead: `On his way out, he says` or `On her way out, she says.` When the pronoun is empty, lead with the full name. The narrator does not say "you". "You" may stay inside the quote.
 
-**Tomorrow.** When both are still in: `Today, {A} and {B} voted against each other. Both are still in.` The vote already happened, so this line does not start with Tomorrow. Do not add "For now." Do not name who leaves next. The nightly does not wait for the next morning. When one of them has left: `{A} and {B} voted against each other tonight. Tomorrow, {Survivor} is still in.`
+**Tomorrow.** One sentence, after the census. It is the reason a viewer comes back. Python reads the ledger and picks one cause the records agree on. The cause may be one person, a pair, or a group, and someone in it may already have left. A separate Tier C call writes that one line from a short card. The script draft is told the sentence and copies it. The read-through does not change it.
+
+The call is `daily_tomorrow_line`. It requests Tier C. Set `LLM_MODEL_DAILY_TOMORROW` to the smart Tier C model when the script calls are pointed at a cheaper model. When that variable is unset, this call uses the Tier C model. One try, then one retry. If both fail, the bake speaks the plain Python sentence and ships.
+
+The card is the broken promise whose ballot names that person, corroborated by a break when one exists. Else one alliance that has a stored reason. Else two people who voted each other and are both still in. Else the survivor of that kind of vote. A pile of wordless alliances, a pile of kept "I'll flag you" pledges, and the tally sentence stay off the card. A mutual vote may sit on the card as support when the cause is the break. The line does not say who leaves next, does not say "for now", and does not start a vote that already happened with "Tomorrow,".
+
+The plain sentence for a break is `{A} promised {B}, then voted against {B}. {Carrier} is still in.` The plain sentence for a mutual vote is `Today, {A} and {B} voted against each other. Both are still in.` The plain sentence when one of them has left is `{A} and {B} voted against each other tonight. Tomorrow, {Survivor} is still in.`
+
+The system prompt for the Tier C call is:
+
+> You write the last spoken line of one daily trailer. The line is the reason a viewer comes back.
+>
+> You receive one cause. The records already agree on it. Write one line, one or two short sentences, 32 words or fewer. Use only the facts in the card. Do not add a person, a number, a promise, or a motive.
+>
+> Name every person under Must name, by their full name. You may name someone under May name. Do not name anyone else. Someone who has already left may be named. One person is enough when they carry what happened. Name a group when the card lists that group.
+>
+> Do not list the events. Do not recap the tally or the goodbye. Do not say who leaves next. Do not say "for now". Do not say "will leave", "will vote", or "next night".
+>
+> If the cause is a vote that already happened, do not start that vote with "Tomorrow,".
+>
+> Return JSON only: {"line":"..."}
+
+The user message names the cause, who must be named, who may be named, who has left, who is still in, the facts, one supporting fact when it shows the consequence is still open, and the tally and goodbye as already spoken.
 
 #### Spine
 
 Rebuilt from the ledgers for this draft. The writer sees open pledges, open alliances, and pairs who voted against each other and are both still in, plus last night's public tally. Closed rows stay off the prompt. The checker still fails a closed name who is not part of tonight.
 
-A past fact is spoken inside tonight's sentence, and only when tonight touches that thread. At most forty words. Night 1 has no Previously. Someone who has already left stays unnamed. Memory is not a source. The previous night's script is not in the prompt.
+A past fact is spoken inside tonight's sentence, and only when tonight touches that thread. At most forty words. Night 1 has no Previously. The Tomorrow cause is chosen before this draft, from the ledger, not from the spine. Someone who has already left may be named there when a record still carries them. The draft does not search memory. The previous night's script is not in the prompt.
 
 #### Picture
 
@@ -199,7 +221,7 @@ The picture and sound section below still applies, with these differences.
 
 #### Proof
 
-Fixture tests in `double-video/video/test_daily_v3.py`. Do not bake or remix `20261009-1` night 1. The October 19 voice stays. There is no engine day 3 ledger on disk for that sim, so a later night is not a proof yet.
+Fixture tests in `double-video/video/test_daily_v3.py` and `double-video/video/test_tomorrow_line.py`. Do not bake or remix `20261009-1` night 1. The October 19 voice stays. There is no engine day 3 ledger on disk for that sim, so a later night is not a proof yet.
 
 ### Picture and sound
 
