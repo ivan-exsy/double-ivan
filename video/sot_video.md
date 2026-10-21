@@ -137,7 +137,7 @@ Length gate: 120–210 words, about 2.1 words a second, about 55–100 seconds. 
 | 8 | result | Who leaves, their count, the next close count, the rest scattered, gone | The tally |
 | 9 | farewell | One landing sentence, once, after the vote. At most 36 words. Shorter than the afternoon line when that line exists | The sentence they said |
 | 10 | census | "{N} become {N−1}." | The count |
-| 11 | tomorrow | One sentence. Python picks the cause. A separate Tier C call writes the line. The draft copies it. Never "For now." | The open consequence |
+| 11 | tomorrow | One sentence. Python picks the cause. A separate Tier C call writes the line. The draft keeps it, and may adjust it when it repeats a line already spoken. Never "For now." | The open consequence |
 | 12 | close | "Watch live 24/7 at doubland.ai." Every night | Nothing |
 
 The carrier is the person who leaves, when they made a featured play. Otherwise the first featured person. A second person appears only in a choice line or in the conflict. No second workplace. No strategies slogan. No line that each Double casts a ballot. No "Just like that."
@@ -178,7 +178,7 @@ The carrier is the person who leaves, when they made a featured play. Otherwise 
 
 **Farewell.** Once, after the vote. One landing sentence from the statement. Drop `I'll keep this brief`, `Good luck`, and other sign-offs. A one-sentence statement stays whole when the night has no afternoon line. When an afternoon line exists, cut the landing at a clause they said so the goodbye is shorter than that line. Still inside 36 words, and it does not mention a handout, houses, or the door. Lead: `On his way out, he says` or `On her way out, she says.` When the pronoun is empty, lead with the full name. The narrator does not say "you". "You" may stay inside the quote.
 
-**Tomorrow.** One sentence, after the census. It is the reason a viewer comes back. Python reads the ledger and picks one cause the records agree on. The cause may be one person, a pair, or a group, and someone in it may already have left. A separate Tier C call writes that one line from a short card. The script draft is told the sentence and copies it. The read-through does not change it.
+**Tomorrow.** One sentence, after the census. It is the reason a viewer comes back. Python reads the ledger and picks one cause the records agree on. The cause may be one person, a pair, or a group, and someone in it may already have left. A separate Tier C call writes that one line from a short card. The draft keeps the sentence. It may adjust the wording when the line repeats the tally, the goodbye, or the betrayal. The same card rules still apply. The read-through follows the same rule.
 
 The call is `daily_tomorrow_line`. It requests Tier C. Set `LLM_MODEL_DAILY_TOMORROW` to the smart Tier C model when the script calls are pointed at a cheaper model. When that variable is unset, this call uses the Tier C model. One try, then one retry. If both fail, the bake speaks the plain Python sentence and ships.
 
