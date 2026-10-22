@@ -1,3 +1,10 @@
+## 2026-10-22 — Ivan — branch: railway
+
+### Backend
+
+- [x] **Security scan reports the old password and current dependency findings without failing**
+   - `.github/workflows/security-scan.yml`: Push and pull-request scans still fail on a new secret, Semgrep ERROR still fails, the Sunday scan reports the dead Postgres password in `.claude/settings.local.json` and fails only on any other secret, and dependency findings are uploaded without failing the job
+
 ## 2026-10-13 — Ivan — branch: ivan/observation-queue-compact
 
 ### Backend
