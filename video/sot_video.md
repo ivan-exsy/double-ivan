@@ -104,7 +104,7 @@ Say "safe from tonight's vote" only when a Shield was awarded. A person who leav
 
 **Farewell.** Only phrases from this person's final statement. Another night's goodbye does not carry over.
 
-**Tomorrow.** When both people in the pair are still in: `{A} and {B} voted against each other tonight. Tomorrow, both are still in.` When one of them leaves: name the vote, then `{Survivor} is still in.` Do not say both are still in after one has left.
+**Tomorrow.** When both people in the pair are still in: `{A} and {B} voted against each other tonight. Tomorrow, both are still in.` When one of them leaves: name the vote, then `{Survivor} is still in.` Do not say both are still in after one has left. The picture stays each of them at work, then the flyover. Daily-v3 uses the card picture below.
 
 #### Proof
 
@@ -184,7 +184,9 @@ The call is `daily_tomorrow_line`. It requests Tier C. Set `LLM_MODEL_DAILY_TOMO
 
 The card is the broken promise whose ballot names that person, corroborated by a break when one exists. Else one alliance that has a stored reason. Else two people who voted each other and are both still in. Else the survivor of that kind of vote. A pile of wordless alliances, a pile of kept "I'll flag you" pledges, and the tally sentence stay off the card. A mutual vote may sit on the card as support when the cause is the break. The line does not say who leaves next, does not say "for now", and does not start a vote that already happened with "Tomorrow,".
 
-The plain sentence for a break is `{A} promised {B}, then voted against {B}. {Carrier} is still in.` The plain sentence for a mutual vote is `Today, {A} and {B} voted against each other. Both are still in.` The plain sentence when one of them has left is `{A} and {B} voted against each other tonight. Tomorrow, {Survivor} is still in.`
+The plain sentence for a break is `{A} promised {B}, then voted against {B}.` Then who is still in. The plain sentence for a mutual vote is `{A} and {B} voted against each other. Both are still in.` The plain sentence when one of them has left is `{A} and {B} voted against each other tonight. Tomorrow, {Survivor} is still in.` The plain sentence for an alliance with a stored reason is `{Names} are in it together.` Then who is still in. The plain sentence when the card is empty is `Tomorrow, the game goes on.`
+
+**Picture.** One still of the people on this card, then the downtown flyover. A pair is both faces, large, in that one frame. One person is alone. A group shows at most three faces, and the line may name the rest. An empty card has no still. Workplace clips stay on the names line. The still is filled from the card. A rewritten sentence does not change it. A workplace clip under this line fails the bake.
 
 The system prompt for the Tier C call is:
 
@@ -214,6 +216,7 @@ The picture and sound section below still applies, with these differences.
 
 - The strategies slogan is absent. The Talk clip still marks the hours between the challenge and the vote. The ballots clip does not play. The vote card does.
 - The teaser frame is the carrier alone. Do not generate the pair.
+- Tomorrow is one still of the people on the tomorrow card, then the flyover. Do not play each person at work under that line.
 - The title card is type on the existing film. It is not a new composition.
 - A long open, workplace, or challenge shot is cut into beats of about 1.5–3 seconds. The choice, the tally, the goodbye, the count, and the closer keep their hold.
 - Voice stays full through the opening choice, then ducks. A night with no choice open ducks at the workplace line.
